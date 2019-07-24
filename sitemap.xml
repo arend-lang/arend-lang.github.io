@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html</loc>
+<lastmod>2019-07-17T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>https://arend-lang.github.io/about.html</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/arend-features.html</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/documentation.html</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/download.html</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/intellij-features.html</loc>
+</url>
+</urlset>

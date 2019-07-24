@@ -1,0 +1,575 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Arend Features - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Arend Features">
+<meta property="og:url" content="https://arend-lang.github.io/arend-features.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/arend-features.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">Arend Theorem Prover</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/arend-features"><span class="nav__sub-title">Arend features</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/intellij-features"><span class="nav__sub-title">IntelliJ Arend features</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Arend Features">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Arend Features
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Arend Features</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#homotopy-features">Homotopy Features</a>
+    <ul>
+      <li><a href="#path-types">Path Types</a></li>
+      <li><a href="#higher-inductive-types">Higher Inductive Types</a></li>
+      <li><a href="#truncated-data-types">Truncated Data Types</a></li>
+      <li><a href="#pattern-matching">Pattern Matching</a></li>
+    </ul>
+  </li>
+  <li><a href="#class-system">Class System</a>
+    <ul>
+      <li><a href="#inheritance">Inheritance</a></li>
+      <li><a href="#anonymous-extensions">Anonymous Extensions</a></li>
+      <li><a href="#classes">Classes</a></li>
+    </ul>
+  </li>
+  <li><a href="#universe-levels">Universe Levels</a>
+    <ul>
+      <li><a href="#homotopy-levels">Homotopy Levels</a></li>
+      <li><a href="#the-universe-of-propositions">The Universe of Propositions</a></li>
+      <li><a href="#universe-polymorphism">Universe Polymorphism</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Arend implements a version of <a href="https://homotopytypetheory.org/">homotopy type theory</a> with an interval type, which syntax is similar to <a href="https://ncatlab.org/nlab/show/cubical+type+theory">cubical type theory</a>.
+This implies several nice properties of path types and allows for a simple and clean definition of higher inductive types (including recursive ones).
+To learn more about homotopy features implemented in Arend, see <a href="/arend-features/#homotopy-features">here</a>.</p>
+
+<p>Arend has a powerful class system, which supports <a href="https://en.wikibooks.org/wiki/Haskell/Classes_and_types">Haskell-style</a> instance inference.
+Class inheritance can be used to define various hierarchies of (algebraic) structures.
+The class system is discussed <a href="/arend-features/#class-system">here</a>.</p>
+
+<p>Arend also has a simple and powerful mechanism of dealing with universe levels, see <a href="#universe-levels">here</a>.</p>
+
+<h1 id="homotopy-features">Homotopy Features</h1>
+
+<p>Arend is based on homotopy type theory with an interval type.
+This means that it has a built-in contractible interval type together with two constructors <span class="inl-highlight">left<span class="o">,</span> right <span class="o">:</span> I</span>.
+We can use this type to define the type of <em>n</em>-dimensional cubes as <span class="inl-highlight"><span class="k">\Sigma</span> I … I</span>, that is as the product of <em>n</em> itervals.
+These types are not very interesting by themselves since they are contractible,
+but they can be used as types of cells in the definition of a higher inductive type as discussed below.</p>
+
+<h2 id="path-types">Path Types</h2>
+
+<p>A path in a type <span class="inl-highlight">A</span> between points <span class="inl-highlight">a<span class="o">,</span> a’ <span class="o">:</span> A</span> is a function <span class="inl-highlight">f <span class="o">:</span> I <span class="o">-&gt;</span> A</span> such that <span class="inl-highlight">f left <span class="o">==</span> a</span> and <span class="inl-highlight">f right <span class="o">==</span> a’</span> (we use “==” to denote the definitional equality).
+The type of paths is denoted <span class="inl-highlight">a <span class="o">=</span> a’</span>.
+To get a path from a function and vice verse, we can use the following functions:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path (f <span class="o">:</span> I <span class="o">-&gt;</span> A) <span class="o">:</span> f left <span class="o">=</span> f right
+
+<span class="o">@</span> (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> I <span class="o">-&gt;</span> A</code></pre></div></div>
+
+<p>Function <span class="inl-highlight"><span class="o">@</span></span> is usually written in infix form and pronounced “at”.
+Function <span class="inl-highlight">path</span> is actually the only constructor of the data type <span class="inl-highlight"><span class="o">=</span></span>.
+Functions <span class="inl-highlight">path</span> and <span class="inl-highlight"><span class="o">@</span></span> are mutually inverse,
+that is, <span class="inl-highlight">path f <span class="o">@</span> i <span class="o">==</span> f i</span> and <span class="inl-highlight">path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p <span class="o">@</span> i) <span class="o">==</span> p</span>.</p>
+
+<p>This definition of path types has several nice properties.
+First, all the usual constructions (such as concatenation of paths, transport, and the J rule) are definable for them.
+Moreover, some of these constructions satisfy additional computational equalities.
+For example, we can define the function that applies a map to a path as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> f a <span class="o">=</span> f a'
+  <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> f (p <span class="o">@</span> i))</code></pre></div></div>
+
+<p>This function is strictly functorial, that is we have equalities <span class="inl-highlight">pmap id p <span class="o">==</span> p</span>
+and <span class="inl-highlight">pmap (<span class="k">\lam</span> x <span class="o">=&gt;</span> g (f x)) p <span class="o">==</span> pmap g (pmap f p)</span>.</p>
+
+<p>It is also easy to <em>prove</em> functional extensionality:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> funExt {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) (f g <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x) (h <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> g x) <span class="o">:</span> f <span class="o">=</span> g
+  <span class="o">=&gt;</span> path (<span class="k">\lam</span> i a <span class="o">=&gt;</span> h a <span class="o">@</span> i)</code></pre></div></div>
+
+<p>This function also satisfies various definitional equalities, which means that we can pass easily between equality of functions and their pointwise equality.</p>
+
+<h2 id="higher-inductive-types">Higher Inductive Types</h2>
+
+<p>A higher inductive type is a data type that has higher cells as its constructors.
+For example, the 1-dimensional sphere can be defined as the data type with one point <span class="inl-highlight">base</span> and one 1-dimensional constructor <span class="inl-highlight">loop</span> attached to this point:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> S1
+  <span class="o">|</span> base
+  <span class="o">|</span> loop I <span class="k">\with</span> {
+    <span class="o">|</span> left <span class="o">=&gt;</span> base
+    <span class="o">|</span> right <span class="o">=&gt;</span> base
+  }</code></pre></div></div>
+
+<p>Higher constructors such as <span class="inl-highlight">loop</span> work like ordinary functions:
+<span class="inl-highlight">loop left</span> and <span class="inl-highlight">loop left</span> evaluate to <span class="inl-highlight">base</span>.
+The syntax of such constructors is the same as the syntax of functions defined by pattern matching.</p>
+
+<p>We can also attach cells of even higher dimensions.
+For example, the 1-dimensional sphere can be defined as the data type with one point <span class="inl-highlight">base2</span> and one 2-dimensional constructor <span class="inl-highlight">loop2</span> attached to this point.
+Since the boundary of 2-dimensional cube consists of four 1-dimensional cubes, we need to specify four conditions on constructor <span class="inl-highlight">loop2</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> S2
+  <span class="o">|</span> base2
+  <span class="o">|</span> loop2 I I <span class="k">\with</span> {
+    <span class="o">|</span> left<span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> base2
+    <span class="o">|</span> right<span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> base2
+    <span class="o">|</span> <span class="u">_</span><span class="o">,</span> left <span class="o">=&gt;</span> base2
+    <span class="o">|</span> <span class="u">_</span><span class="o">,</span> right <span class="o">=&gt;</span> base2
+  }</code></pre></div></div>
+
+<p>Functions over higher inductive types can be defined by pattern matching as usual.
+The only difference is that it is required that they respect equations on constructors.
+For example, to define a function <span class="inl-highlight">S2 <span class="o">-&gt;</span> T</span>, we need to specify one point <span class="inl-highlight">b <span class="o">:</span> T</span> and one function <span class="inl-highlight">l <span class="o">:</span> I <span class="o">-&gt;</span> I <span class="o">-&gt;</span> T</span>
+such that <span class="inl-highlight">l left <span class="u">_</span> <span class="o">==</span> b</span>, <span class="inl-highlight">l right <span class="u">_</span> <span class="o">==</span> b</span>, <span class="inl-highlight">l <span class="u">_</span> left <span class="o">==</span> b</span>, and <span class="inl-highlight">l <span class="u">_</span> left <span class="o">==</span> b</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> S2) <span class="o">:</span> T
+  <span class="o">|</span> base2 <span class="o">=&gt;</span> b
+  <span class="o">|</span> loop2 i j <span class="o">=&gt;</span> l i j</code></pre></div></div>
+
+<p>If this definition does not satisfy the conditions described above, an error message will be generated.</p>
+
+<h2 id="truncated-data-types">Truncated Data Types</h2>
+
+<p>Truncated data types can be defined as higher inductive types as usual, but there is a simpler way to do this.
+A data type can be defined as <span class="inl-highlight"><span class="k">\truncated</span></span>, which means that it will be truncated to the specified homotopy level.
+For example, set quotients can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\truncated</span> <span class="k">\data</span> Quotient {A <span class="o">:</span> <span class="kt">\Type</span>} (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Set</span>
+  <span class="o">|</span> in~ A
+  <span class="o">|</span> ~-equiv (x y <span class="o">:</span> A) (R x y) (i <span class="o">:</span> I) <span class="k">\elim</span> i {
+    <span class="o">|</span> left <span class="o">=&gt;</span> in~ x
+    <span class="o">|</span> right <span class="o">=&gt;</span> in~ y
+  }</code></pre></div></div>
+
+<p>Such data types can be eliminated only into types of the corresponding homotopy level.</p>
+
+<h2 id="pattern-matching">Pattern Matching</h2>
+
+<p>A pattern matching on a higher inductive type can be simplified if the goal has some finite homotopy level.
+To define a function into an n-type, it is enough to specify its values for constructors of dimension less than or equal to n + 1.
+For example, if <span class="inl-highlight">X</span> is a set, to define a function <span class="inl-highlight">Quotient A R <span class="o">-&gt;</span> X</span>,
+it is enough to specify its value for each <span class="inl-highlight">a <span class="o">:</span> A</span> and prove that this definition respects the equivalence relation
+(this proof is the value corresponding to the second constructor).
+This works for the definition of quotients we gave above and also for quotients defined as a higher inductive type.</p>
+
+<p>If <span class="inl-highlight">P x</span> is a proposition, to define a function <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> Quotient A R) <span class="o">-&gt;</span> P x</span>,
+it is enough to specify it for the constructor <span class="inl-highlight">in~</span>.
+This becomes even more useful when <span class="inl-highlight">P</span> depends on several elements of the quotient.
+For example, if we have 3 elements <span class="inl-highlight">x<span class="o">,</span> y<span class="o">,</span> z <span class="o">:</span> Quotient A R</span> (which is defined as a higher inductive type with 3 constructors),
+then to prove some property about them, we need to consider only one case (since its the only 0-dimensional one) instead of nine.</p>
+
+<h1 id="class-system">Class System</h1>
+
+<p>Arend has records and classes.
+Classes are just records with additional functionality, which makes them into a haskell-style type classes.</p>
+
+<h2 id="inheritance">Inheritance</h2>
+
+<p>Records are just Sigma types with named fields.
+For example, we can define the type of monoids as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Monoid (E <span class="o">:</span> <span class="kt">\Set</span>)
+  <span class="o">|</span> ide <span class="o">:</span> E
+  <span class="o">|</span> <span class="k">\infixl</span> <span class="n">7</span> <span class="o">*</span> <span class="o">:</span> E <span class="o">-&gt;</span> E <span class="o">-&gt;</span> E
+
+  <span class="o">|</span> ide-left (x <span class="o">:</span> E) <span class="o">:</span> ide <span class="o">*</span> x <span class="o">=</span> x
+  <span class="o">|</span> ide-right (x <span class="o">:</span> E) <span class="o">:</span> x <span class="o">*</span> ide <span class="o">=</span> x
+  <span class="o">|</span> <span class="o">*</span>-assoc (x y z <span class="o">:</span> E) <span class="o">:</span> (x <span class="o">*</span> y) <span class="o">*</span> z <span class="o">=</span> x <span class="o">*</span> (y <span class="o">*</span> z)</code></pre></div></div>
+
+<p>Records can be inherited.
+If a record extends some base record, then it will have the same fields as the base one together with its own fields.
+For example, we can define a group as a monoid together with three additional fields:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Group <span class="k">\extends</span> Monoid
+  <span class="o">|</span> inverse <span class="o">:</span> E <span class="o">-&gt;</span> E
+  <span class="o">|</span> inverse-left (x <span class="o">:</span> E) <span class="o">:</span> inverse x <span class="o">*</span> x <span class="o">=</span> ide
+  <span class="o">|</span> inverse-right (x <span class="o">:</span> E) <span class="o">:</span> x <span class="o">*</span> inverse x <span class="o">=</span> ide</code></pre></div></div>
+
+<p>Extensions also can implement some of the fields of the base record.
+Such a record is equivalent to the Sigma type which has all not implemented fields.
+For example, the type of commutative monoids can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> CMonoid <span class="k">\extends</span> Monoid
+  <span class="o">|</span> <span class="o">*</span>-comm (x y <span class="o">:</span> E) <span class="o">:</span> x <span class="o">*</span> y <span class="o">=</span> y <span class="o">*</span> x
+  <span class="o">|</span> ide-right x <span class="o">=&gt;</span> <span class="o">*</span>-comm x ide <span class="o">*</span>&gt; ide-left x</code></pre></div></div>
+
+<p>For commutative monoids, it is enough to prove that <span class="inl-highlight">ide</span> is the left identity since the fact that it is the right identity follows from the commutativity.
+We can prove this in the definition of commutative monoids by implementing the corresponding field.</p>
+
+<p>Records also support multiple inheritance.
+For example, we can define the type of commutative groups simply by extending the types of groups and commutative monoids:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> CGroup <span class="k">\extends</span> Group<span class="o">,</span> CMonoid</code></pre></div></div>
+
+<h2 id="anonymous-extensions">Anonymous Extensions</h2>
+
+<p>Parameters of records are actually their fields.
+So, the following two definitions of pointed sets are actually equivalent:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Pointed (E <span class="o">:</span> <span class="kt">\Set</span>)
+  <span class="o">|</span> ide <span class="o">:</span> E
+
+<span class="k">\record</span> Pointed'
+  <span class="o">|</span> E' <span class="o">:</span> <span class="kt">\Set</span>
+  <span class="o">|</span> ide' <span class="o">:</span> E'</code></pre></div></div>
+
+<p>The reason why Arend does not have record parameters is because it has anonymous extensions instead.
+An anonymous extension of a record <span class="inl-highlight">R</span> is an expression of the form <span class="inl-highlight">R { <span class="o">|</span> f_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> f_n <span class="o">=&gt;</span> e_n }</span>,
+where <span class="inl-highlight">f_1<span class="o">,</span> … f_n</span> are fields of <span class="inl-highlight">R</span> and <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> are expressions of the corresponding types.
+Such an expression is the same as a records which extends <span class="inl-highlight">R</span> and implements specified fields, but we do not have to define this record separately.
+The anonymous extension described above can also be written as <span class="inl-highlight">R e_1 … e_n</span>.
+In this case, fields are implemented in the same order they were defined in the record.</p>
+
+<p>Let us consider some examples:</p>
+<ul>
+  <li>The type <span class="inl-highlight">Monoid</span> is the type of monoids.</li>
+  <li>The type <span class="inl-highlight">Monoid Nat</span> is the type of monoid structures on the set <span class="inl-highlight">Nat</span>.</li>
+  <li>The type <span class="inl-highlight">Monoid Nat <span class="n">1</span> (Nat.<span class="o">*</span>)</span> is the type of proofs that <span class="inl-highlight"><span class="n">1</span></span> and <span class="inl-highlight">Nat.<span class="o">*</span></span> determine the structure of a monoid on <span class="inl-highlight">Nat</span>.</li>
+</ul>
+
+<p>Note that the latter two examples look as if the type of monoids was defined with 1 and 3 parameters, respectively.
+Thus, we do not have to worry which fields should be defined as parameters and which should be left as fields.
+We can use <em>any</em> record as if it was defined in all of these styles <em>at the same time</em>.</p>
+
+<h2 id="classes">Classes</h2>
+
+<p>Let us say we have the definition of monoids as described above.
+Then we want to write expressions of the form <span class="inl-highlight">(x <span class="o">*</span> y) <span class="o">*</span> ide <span class="o">*</span> z</span>, but we cannot do this.
+The reason is that <span class="inl-highlight"><span class="o">*</span></span> and <span class="inl-highlight">ide</span> are fields.
+This means that they require one additional argument, an instance of <span class="inl-highlight">Monoid</span>.
+Instances of records usually cannot be inferred automatically.
+For this reason, it is better to define <span class="inl-highlight">Monoid</span> as a <em>class</em>.
+A class is defined in the same way as a record but with the keyword <span class="inl-highlight"><span class="k">\class</span></span> instead of <span class="inl-highlight"><span class="k">\record</span></span>.</p>
+
+<p>Instances of classes are inferred automatically.
+This inference algorithm looks for instances in two places.
+First, it looks for parameters of a definition in which the field call is located.
+If there is an appropriate parameter, then it will be used as a class instance.
+For example, instances in the function <span class="inl-highlight">test</span> below will be inferred as shown in <span class="inl-highlight">test2</span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test {M <span class="o">:</span> Monoid} (x y z <span class="o">:</span> M) <span class="o">=&gt;</span> (x <span class="o">*</span> y) <span class="o">*</span> ide <span class="o">*</span> z
+<span class="k">\func</span> test2 {M <span class="o">:</span> Monoid} (x y z <span class="o">:</span> M) <span class="o">=&gt;</span> (x M.<span class="o">*</span> y) M.<span class="o">*</span> M.ide M.<span class="o">*</span> z</code></pre></div></div>
+
+<p>If there is no appropriate local instance, the algorithm will search the set of global instances.
+A global instance is just a function defined using the keyword <span class="inl-highlight"><span class="k">\instance</span></span> instead of <span class="inl-highlight"><span class="k">\func</span></span>.
+For example, we can prove that <span class="inl-highlight">Nat</span> is an instance of the class <span class="inl-highlight">Monoid</span> and use this instance as shown below:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\instance</span> NatMonoid <span class="o">:</span> Monoid Nat
+  <span class="o">|</span> ide <span class="o">=&gt;</span> <span class="n">1</span>
+  <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> Nat.<span class="o">*</span>
+  <span class="o">|</span> ide-left x <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- the proofs are omitted</span>
+  <span class="o">|</span> ide-right x <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> <span class="o">*</span>-assoc x y z <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="k">\func</span> test (x y z <span class="o">:</span> Nat) <span class="o">=&gt;</span> (x <span class="o">*</span> y) <span class="o">*</span> <span class="n">1</span> <span class="o">*</span> (z <span class="o">*</span> ide)</code></pre></div></div>
+
+<h1 id="universe-levels">Universe Levels</h1>
+
+<p>Arend has a hieararchy of universes parameterized by two natural number.
+The first parameter corresponds to the usual (predicative) level of the universe.
+The second parameter corresponds to the homotopy level of types in this universe.
+The universe of level (p,h) is written as <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.
+The universe <span class="inl-highlight"><span class="kt">\0-Type</span> p</span> can be abbreviated as <span class="inl-highlight"><span class="kt">\Set</span> p</span>.
+We can also write <span class="inl-highlight"><span class="kt">\Type</span> p h</span> instead of <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.</p>
+
+<p>Levels cannot be added with each other, but we have the successor function <span class="inl-highlight"><span class="k">\suc</span></span> and the maximum function <span class="inl-highlight"><span class="k">\max</span></span>.
+There is also the largest homotopy level <span class="inl-highlight"><span class="k">\oo</span></span>, which corresponds to untruncated types.</p>
+
+<p>The universe <span class="inl-highlight"><span class="k">\h-Type</span> p</span> belongs to the universe <span class="inl-highlight"><span class="k">\(h+1)-Type</span> (p+1)</span>.
+Universes are cummulative: if <span class="inl-highlight">A <span class="o">:</span> <span class="k">\h-Type</span> p</span>, then <span class="inl-highlight">A <span class="o">:</span> <span class="k">\h’-Type</span> p’</span> for all h’ and p’ greater than or equal to h and p, respectively.</p>
+
+<h2 id="homotopy-levels">Homotopy Levels</h2>
+
+<p>If a type <span class="inl-highlight">A</span> belongs to a universe <span class="inl-highlight"><span class="k">\(h+1)-Type</span> p</span>,
+the type of paths <span class="inl-highlight">a <span class="o">=</span> {A} a’</span> belongs to the universe <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.
+This means that universes of h-types behave in the same way as the usual ones (defined as subtypes of untruncated universes),
+but we do not have to carry around proofs that some type belongs to some homotopy level.</p>
+
+<h2 id="the-universe-of-propositions">The Universe of Propositions</h2>
+
+<p>The smallest universe is <span class="inl-highlight"><span class="kt">\Prop</span></span>, the universe of propositions.
+This universe is impredicative, that is it does not have the predicative level.
+Thus, if <span class="inl-highlight">A</span> is a set of any predicative level, then <span class="inl-highlight">a <span class="o">=</span> {A} a’</span> belongs to <span class="inl-highlight"><span class="kt">\Prop</span></span>.
+Also, if <span class="inl-highlight">B a</span> belongs to <span class="inl-highlight"><span class="kt">\Prop</span></span>, then this is also true for <span class="inl-highlight"><span class="k">\Pi</span> (a <span class="o">:</span> A) <span class="o">-&gt;</span> B a</span> regardless of levels of <span class="inl-highlight">A</span>.</p>
+
+<h2 id="universe-polymorphism">Universe Polymorphism</h2>
+
+<p>To define a polymorphic function (or any other kind of definition), we do not have to specify levels of types explicitly.
+The correct level of universes usually can be inferred automatically.
+For example, we can define the following function:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="kt">\Type</span></code></pre></div></div>
+
+<p>The inferred levels of the universe in the type of the functions are greater than the levels of the universe in the body by one.</p>
+
+<p>Every definition has two implicit level parameters <span class="inl-highlight"><span class="k">\lp</span></span> and <span class="inl-highlight"><span class="k">\lh</span></span> for the predicative and homotopy levels, respectively.
+These levels also do not have to be specified explicitly since they also can be inferred in the same way as universe levels.
+Consider the following examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a
+
+<span class="k">\class</span> Pointed (E <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> point <span class="o">:</span> E
+
+<span class="k">\func</span> test <span class="o">=&gt;</span> id Pointed</code></pre></div></div>
+
+<p>The levels of the universe of the field <span class="inl-highlight">E</span> are inferred to <span class="inl-highlight">(<span class="k">\lp,</span> <span class="k">\lh)</span></span>.
+This implies that <span class="inl-highlight">Pointed</span> belongs to <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span></span>.
+Thus, the first implicit argument of the function <span class="inl-highlight">id</span> in the definition <span class="inl-highlight">test</span> is inferred to <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span></span>.
+This implies that the level arguments are inferred to <span class="inl-highlight">(<span class="k">\suc</span> (<span class="k">\suc</span> <span class="k">\lp),</span> <span class="k">\suc</span> (<span class="k">\suc</span> <span class="k">\lh))</span></span>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
