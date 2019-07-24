@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Sigma Types - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Sigma Types">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/sigma.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/sigma.html">
 
 
 
@@ -284,7 +284,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
+              <li><a href="/documentation/language-reference/expressions/sigma" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Sigma Types">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Sigma Types
 </h1>
           
         </header>
@@ -357,13 +357,29 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+        <p>A Sigma type is a type of (dependent) tuples.
+If <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> are named or unnamed parameters, then <code class="highlighter-rouge">\Sigma p_1 ... p_n</code> is also a type.
+If <code class="highlighter-rouge">A_i</code> has type <code class="highlighter-rouge">\Type p_i h_i</code>, then the type of the Sigma type is <code class="highlighter-rouge">\Type p_max h_max</code>, where <code class="highlighter-rouge">p_max</code> is the maximum
+of <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> and <code class="highlighter-rouge">h_max</code> is the maximum of <code class="highlighter-rouge">h_1</code>, … <code class="highlighter-rouge">h_n</code>.</p>
 
-<h2 id="forum">Forum</h2>
+<p>An expression of the form <code class="highlighter-rouge">\Sigma p_1 ... p_n (x_1 ... x_k : A) q_1 ... q_m</code> is equivalent to
+<code class="highlighter-rouge">\Sigma p_1 ... p_n (x_1 : A) ... (x_k : A) q_1 ... q_m</code>.</p>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<p>If <code class="highlighter-rouge">a_i</code> is an expression of type <code class="highlighter-rouge">A_i[a_1/x_1, ... a_{i-1}/x_{i-1}]</code>, then <code class="highlighter-rouge">(a_1, ... a_n)</code> is an expression of
+type <code class="highlighter-rouge">\Sigma (x_1 : A_1) ... (x_n : A_n)</code>. 
+Note that the typechecker often cannot infer the correct type of such an expression.
+If the typechecker does not know it already, it always tries to guess a non-dependent version.
+In case the typechecker fails to infer the type, it should be specified explicitly:
+<code class="highlighter-rouge">((a_1, ... a_n) : \Sigma (x_1 : A_1) ... (x_n : A_n))</code>.
+You can also explicitly specify the type of each field: <code class="highlighter-rouge">(b_1 : B_1, ... b_n : B_n)</code>, however in this case 
+<code class="highlighter-rouge">B_i</code> cannot refer to previous parameters, therefore this can only be used to define non-dependent Sigma types.</p>
+
+<p>If <code class="highlighter-rouge">p</code> is an expression of type <code class="highlighter-rouge">\Sigma (x_1 : A_1) ... (x_n : A_n)</code> and 1 ≤ i ≤ n, then <code class="highlighter-rouge">p.i</code> is an expression of
+type <code class="highlighter-rouge">A_i[p.1/x_1, ... p_{i-1}/x_{i-1}]</code>.</p>
+
+<p>An expression of the form <code class="highlighter-rouge">(a_1, ... a_n).i</code> reduces to <code class="highlighter-rouge">a_i</code>.</p>
+
+<p>An expression of the form <code class="highlighter-rouge">(p.1, ... p.n)</code> is equivalent to <code class="highlighter-rouge">p</code> (eta equivalence for Sigma types).</p>
 
         
       </section>

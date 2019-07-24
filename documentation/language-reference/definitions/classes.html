@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Classes - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Classes">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/classes.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/classes.html">
 
 
 
@@ -233,7 +233,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
+              <li><a href="/documentation/language-reference/definitions/classes" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Classes">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Classes
 </h1>
           
         </header>
@@ -357,13 +357,55 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+        <p>A <em>class</em> is a record that has several useful properties.
+A class is defined in the same way as a record, but it begins with the keyword <code class="highlighter-rouge">\class</code> instead of <code class="highlighter-rouge">\record</code>.
+Classes can extend other classes and records and vice versa.
+The first explicit parameter of a class is called its <em>classifying field</em>.
+Classes are implicitly coerced to the type of the classifying field.
+Let us consider an example:</p>
 
-<h2 id="forum">Forum</h2>
+<pre><code class="language-arend">\class Semigroup (E : \Set)
+  | \infixl 7 * : E -&gt; E -&gt; E
+  | *-assoc (x y z : E) : (x * y) * z = x * (y * z)
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+\func square {S : Semigroup} (x : S) =&gt; x * x
+</code></pre>
+
+<p>It is allowed to write <code class="highlighter-rouge">x : S</code> instead of <code class="highlighter-rouge">x : S.E</code> since <code class="highlighter-rouge">S</code> is implicitly coerced to an element of type <code class="highlighter-rouge">\Set</code>, that is <code class="highlighter-rouge">S.E</code>.</p>
+
+<p>In case an parameter of a definition or a constructor has type, which is an <a href="/language-reference/expressions/class-ext">extension</a> <code class="highlighter-rouge">C { ... }</code> of <code class="highlighter-rouge">C</code>,
+it is marked as a <em>local instance</em> of class <code class="highlighter-rouge">C</code>. Implicit parameter <code class="highlighter-rouge">\this</code> of a field of class <code class="highlighter-rouge">C</code> is also a local instance.</p>
+
+<p>If the parameter <code class="highlighter-rouge">p : C { ... }</code> of <code class="highlighter-rouge">f</code> is a local instance, then the value of <code class="highlighter-rouge">p</code> in a usage of <code class="highlighter-rouge">f</code> is inferred to 
+a local instance <code class="highlighter-rouge">v : C { ... }</code>, visible in the context of the usage of <code class="highlighter-rouge">f</code>, if the expected value of the classifying
+field of <code class="highlighter-rouge">p</code> coincides with the classifying field of <code class="highlighter-rouge">v</code>. 
+For instance, the function <code class="highlighter-rouge">square</code> in the example above has one local instance <code class="highlighter-rouge">S</code> of the class <code class="highlighter-rouge">Semigroup</code>. The field
+<code class="highlighter-rouge">*</code> of the class <code class="highlighter-rouge">Semigroup</code> is used in the body of <code class="highlighter-rouge">square</code> and the expected type of its call in <code class="highlighter-rouge">x * x</code> is 
+<code class="highlighter-rouge">S.E -&gt; S.E -&gt; {?}</code>. This implies that the expected classifying field is <code class="highlighter-rouge">S.E</code>, which is the classifying field of the
+local instance <code class="highlighter-rouge">S</code>, so this instance is inferred as the implicit argument of <code class="highlighter-rouge">*</code>.</p>
+
+<p>It is also possible to define <em>global instances</em>.
+To do this, one needs to use the keyword `\instance’:</p>
+
+<pre><code class="language-arend">\instance NatSemigroup : Semigroup Nat
+  | * =&gt; Nat.*
+  | *-assoc =&gt; {?} -- the proof is omitted
+</code></pre>
+
+<p>A global instance is just a function, defined by <a href="/language-reference/definitions/functions/#copattern-matching">copattern matching</a>.
+It can be used as an ordinary function.
+The only difference with an ordinary function is that it can only be defined by copattern matching and must define an
+instance of a class.
+Also, the classifying field of an instance must be a data or a record applied to some arguments and if some parameters
+of the instance have a class as a type, its classifying field must be an argument of the classifying field of the 
+resulting instance.</p>
+
+<p>If there is no local instance with the expected classifying field, then such an instance will be searched among
+global instances.
+There is no backtracking, so the first appropriate instance will be chosen.
+A global instance is appropriate in a usage if the expected classifying field is the same data or record
+as the data or the record in the classifying field of the instance. If this holds, the global instance
+is appropriate even if the data or the record are applied to different arguments.</p>
 
         
       </section>

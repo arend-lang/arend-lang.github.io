@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Coercion - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Coercion">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/coercion.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/coercion.html">
 
 
 
@@ -240,7 +240,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+              <li><a href="/documentation/language-reference/definitions/coercion" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Coercion">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Coercion
 </h1>
           
         </header>
@@ -357,13 +357,36 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+        <p>Sometimes it is convenient to interpret elements of type <code class="highlighter-rouge">A</code> as elements of type <code class="highlighter-rouge">B</code> and use
+elements of <code class="highlighter-rouge">A</code> in places, where elements of <code class="highlighter-rouge">B</code> are expected. For example, 
+natural numbers are also integer numbers, integer numbers are also rational numbers, and so on. There is a mechanism,
+which allows this by marking a function <code class="highlighter-rouge">f</code> from <code class="highlighter-rouge">A</code> to <code class="highlighter-rouge">B</code>  as a <em>coercing function</em>. Once <code class="highlighter-rouge">f : A -&gt; B</code> is declared
+as a coercing function, whenever an expression <code class="highlighter-rouge">a : A</code> is used in a place, where type <code class="highlighter-rouge">B</code> is expected, <code class="highlighter-rouge">a</code> will be
+automatically replaced with <code class="highlighter-rouge">f a : B</code>.</p>
 
-<h2 id="forum">Forum</h2>
+<p>A coercing function can be defined either for a <code class="highlighter-rouge">\data</code> or a <code class="highlighter-rouge">\class</code> definition.
+It should be written inside the <code class="highlighter-rouge">\where</code> block for this definition and it should begin with <code class="highlighter-rouge">\use \coerce</code> instead 
+of <code class="highlighter-rouge">\func</code>. For example, <code class="highlighter-rouge">Bool</code> can be coerced to <code class="highlighter-rouge">Nat</code> as follows:</p>
+<pre><code class="language-arend">\data Bool | true | false
+  \where
+    \use \coerce toNat (b : Bool) : Nat
+      | true =&gt; 1
+      | false =&gt; 0
+</code></pre>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<p>It is possible to coerce a given definition either from or to other definition.
+A function, which coerces from a given definition, must have this definition as the type of its last parameter.
+A function, which coerces to a given definition, must have this definition as its result type.
+For example, <code class="highlighter-rouge">Nat</code> can be coerced to <code class="highlighter-rouge">Bool</code> as follows:</p>
+<pre><code class="language-arend">\data Bool | true | false
+  \where
+    \use \coerce fromNat (n : Nat) : Bool
+      | 0 =&gt; false
+      | 1 =&gt; true
+      | suc (suc n) =&gt; fromNat n
+</code></pre>
+
+<p>It is possible to define several coercing functions for a single type.</p>
 
         
       </section>

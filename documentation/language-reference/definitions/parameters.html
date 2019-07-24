@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Parameters - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Parameters">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/parameters.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/parameters.html">
 
 
 
@@ -198,7 +198,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
+              <li><a href="/documentation/language-reference/definitions/parameters" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Parameters">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Parameters
 </h1>
           
         </header>
@@ -357,13 +357,110 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Parameters</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#syntax">Syntax</a></li>
+  <li><a href="#implicit-arguments">Implicit arguments</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>The syntax of a number of language constructions in Arend includes parameter declarations.
+Parameter declarations can be named or unnamed, typed or untyped and explicit or implicit.</p>
 
-<h2 id="forum">Forum</h2>
+<p>Some of the language constructions allow unnamed parameter declarations at the same time requiring them to be typed
+ (examples are definitions of data or its constructors, <code class="highlighter-rouge">\Pi</code> or <code class="highlighter-rouge">\Sigma</code> expressions).
+Most of the other constructions require their parameter declarations to be named while allowing them to be untyped
+ (exceptions to this rule are functions, records and instances which require parameter declarations to be named and typed at the same time).</p>
+<pre><code class="language-arend">\data d
+  | c1 (a : Nat)   -- typed named explicit
+  | c2 Nat         -- typed unnamed explicit
+  | c3 {a : Nat}   -- typed named implicit
+  | c4 {Nat}       -- typed unnamed implicit
+{-| c5 b           -- untyped parameter declarations are not allowed in constructors -}
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+\func g1 =&gt; 
+  \lam a =&gt; suc a  -- untyped named explicit
+
+\func g2 =&gt;
+  \lam {a} =&gt;      -- untyped named implicit
+    suc a
+
+{-
+\func f a =&gt; a     -- parameters of functions must be named and typed
+\func f Nat =&gt; 1
+ -}
+</code></pre>
+
+<h2 id="syntax">Syntax</h2>
+
+<p>A named explicit parameter has the form <code class="highlighter-rouge">(x : T)</code>, where <code class="highlighter-rouge">x</code> is the name of the parameter and <code class="highlighter-rouge">T</code> is its type expression.
+An implicit parameter has the form <code class="highlighter-rouge">{x : T}</code>, where <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">T</code> are the same as before.</p>
+
+<p>Parameters are specified after the name of a definition.
+For example, all of the definitions below have three parameters: <code class="highlighter-rouge">x1</code> of type <code class="highlighter-rouge">A1</code>, <code class="highlighter-rouge">x2</code> of type <code class="highlighter-rouge">A2</code>, and <code class="highlighter-rouge">x3</code> of type <code class="highlighter-rouge">A3</code>.</p>
+
+<pre><code class="language-arend">\func f {x1 : A1} {x2 : A2} {x3 : A3} =&gt; 0
+\data D (x1 : A1) (x2 : A2) (x3 : A3)
+\class C (x1 : A1) {x2 : A2} (x3 : A3)
+</code></pre>
+
+<p>Multiple parameters of the same type can be specified via the following syntax: <code class="highlighter-rouge">x_1 ... x_n : T</code>.
+For example, the following function has two implicit parameters of type <code class="highlighter-rouge">A1</code>, three explicit parameters of type <code class="highlighter-rouge">A2</code>, and one explicit parameter of type <code class="highlighter-rouge">A3</code>:</p>
+
+<pre><code class="language-arend">\func f {x1 x2 : A1} (y1 y2 y3 : A2) (z : A3) =&gt; B
+</code></pre>
+
+<p>This definition is equivalent to the following one:</p>
+
+<pre><code class="language-arend">\func f {x1 : A1} {x2 : A1} (y1 : A2) (y2 : A2) (y3 : A2) (z : A3) =&gt; B
+</code></pre>
+<p>The types of subsequent parameters may depend on the previous ones.
+In the example above, parameters <code class="highlighter-rouge">x1</code> and <code class="highlighter-rouge">x2</code> may appear in <code class="highlighter-rouge">A2</code> and <code class="highlighter-rouge">A3</code>, parameters <code class="highlighter-rouge">y1</code>, <code class="highlighter-rouge">y2</code>, and <code class="highlighter-rouge">y3</code> may appear in <code class="highlighter-rouge">A3</code>, and all of the parameters may appear in <code class="highlighter-rouge">B</code>.</p>
+
+<p>If a parameter is never used, its name can be replaced with <code class="highlighter-rouge">_</code>.
+Such a name cannot be refered to, so this simply indicated that this parameter is ignored.</p>
+
+<h2 id="implicit-arguments">Implicit arguments</h2>
+
+<p>Let <code class="highlighter-rouge">f</code> be a definition with parameters of types <code class="highlighter-rouge">A_1</code>, … <code class="highlighter-rouge">A_n</code>.
+If all of the parameters are explicit, then we can form an expression of the form <code class="highlighter-rouge">f a_1 ... a_n</code>, where <code class="highlighter-rouge">a_i</code> is an expression of type <code class="highlighter-rouge">A_i</code>.
+Such an expression invokes <code class="highlighter-rouge">f</code> with the specified arguments.
+If some of the parameters of <code class="highlighter-rouge">f</code> are implicit, then corresponding arguments must be omitted.
+For example, consider the following code:</p>
+
+<pre><code class="language-arend">\func f (x : A1) {y y' : A2} (z : A3) {z : A4} =&gt; 0
+\func g =&gt; f a1 a3
+</code></pre>
+
+<p>In the expression <code class="highlighter-rouge">f a1 a3</code>, arguments corresponding to parameters <code class="highlighter-rouge">y</code>, <code class="highlighter-rouge">y'</code>, and <code class="highlighter-rouge">z</code> are omitted.
+The typechecker tries to infer these parameters and reports an error if it fails to do so.
+We can ask typechecker to try to infer an explicit parameter by writing <code class="highlighter-rouge">_</code> instead of the corresponding argument:</p>
+
+<pre><code class="language-arend">\func f (x : A1) {y y' : A2} (z : A3) {z : A4} =&gt; 0
+\func g =&gt; f _ a3
+</code></pre>
+
+<p>In the example above, the typechecker will try to infer the argument corresponding to <code class="highlighter-rouge">x</code>.
+Actually, the expression <code class="highlighter-rouge">_</code> can be written anywhere at all.
+The typechecker infers the omitted expression only if there is a unique solutions to the inference problem 
+ (i. e. there is only one expression with which <code class="highlighter-rouge">_</code> can be replaced so that the surrounding definition typechecks correctly).</p>
+
+<p>Finally, if the typechecker cannot infer an implicit argument, it can be specified explicitly by writing <code class="highlighter-rouge">{e}</code>.
+For example, to specify explicitly the second and the last arguments of <code class="highlighter-rouge">f</code>, we can write the following code:</p>
+
+<pre><code class="language-arend">\func f (x : A1) {y y' : A2} (z : A3) {z : A4} =&gt; 0
+\func g =&gt; f _ {a2} a3 {a4}
+</code></pre>
+
+<p>In this example, arguments corresponding to <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y'</code> are left implicit and other arguments are explicitly specified.</p>
+
+<p>If <code class="highlighter-rouge">op</code> is an infix operator, then we can write <code class="highlighter-rouge">x op {a_1} ... {a_n} y</code>, which is equivalent to <code class="highlighter-rouge">op {a_1} ... {a_n} x y</code>.
+In other words, implicit arguments which are written immediately after an infix operator are considered to be its first arguments.</p>
+<pre><code class="language-arend">\func f (A : \Type) =&gt; \lam a b =&gt; a = {A} b
+</code></pre>
 
         
       </section>

@@ -1,0 +1,601 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Universes - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Universes">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/universes.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/universes.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">Arend Theorem Prover</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Language Reference</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/universes" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Universes">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Universes
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Universes</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#universe-placement-rules">Universe placement rules</a></li>
+  <li><a href="#level-polymorphism">Level polymorphism</a></li>
+  <li><a href="#level-inference">Level inference</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>A universe is a type of types. Since the type of all types cannot be consistently introduced to a type theory
+with dependent Pi types, as the type of types cannot contain itself, Arend contains a hierarchy of universes 
+<code class="highlighter-rouge">\Type n</code> (the whitespace is optional), parameterized by a natural number <code class="highlighter-rouge">n</code>. This number is called the 
+<em>predicative level</em> of the universe. Informally, the universe <code class="highlighter-rouge">\Type0</code> contains all types that do not refer to universes
+in their definition, the universe <code class="highlighter-rouge">\Type1</code> contains all types in <code class="highlighter-rouge">\Type0</code> together with those types that
+refer to <code class="highlighter-rouge">\Type0</code> and no other universes in their definitions, and so on. This is not precise, since, for instance, 
+the universe <code class="highlighter-rouge">\Type n</code> contains
+also some data types, classes and records that refer to <code class="highlighter-rouge">\Type m</code>, where n ≤ m, in types of parameters.
+See section on universe placement rules below for more precise statements and details.</p>
+
+<p>Note that the hierarchy of 
+universes in Arend is cumulative, that is every expression of type <code class="highlighter-rouge">\Type n</code> has also type <code class="highlighter-rouge">\Type (n+1)</code>.</p>
+
+<p>Types in <code class="highlighter-rouge">\Type n</code> in Arend are also arranged in universes <code class="highlighter-rouge">\h-Type n</code> according to their <em>homotopy level</em> h,
+which is an integer number (or infinity ∞) in the range: -1 ≤ h ≤ ∞. 
+Some of these universes have alternative names: the universe of propositions (-1-types) <code class="highlighter-rouge">\Prop</code> 
+(coincides with <code class="highlighter-rouge">\-1-Type n</code> for any <code class="highlighter-rouge">n</code>) and universes of sets (0-types) <code class="highlighter-rouge">\Set n</code> (coincides with <code class="highlighter-rouge">\0-Type n</code>). 
+Note that the universe <code class="highlighter-rouge">\Prop</code> is <em>impredicative</em>: it does not have predicative level. Practically, this means that
+if <code class="highlighter-rouge">B : \Prop</code>, then the type <code class="highlighter-rouge">\Pi (x : \Prop) -&gt; B</code> is in <code class="highlighter-rouge">\Prop</code>.</p>
+
+<p>Universes with h equal to ∞ are represented in the syntax as <code class="highlighter-rouge">\oo-Type p</code>. The homotopy level can also be 
+specified after the predicative level: <code class="highlighter-rouge">\Type p h</code> is equivalent to <code class="highlighter-rouge">\h-Type p</code>.</p>
+
+<h2 id="universe-placement-rules">Universe placement rules</h2>
+
+<p>Types in Arend are distributed over the universes according to the following rules:</p>
+
+<ul>
+  <li>If <code class="highlighter-rouge">A : \h_1-Type p_1</code> and <code class="highlighter-rouge">B : \h_2-Type p_2</code>, then <code class="highlighter-rouge">\Sigma A B : \max(h_1,h_2)-Type max(p_1,p_2)</code>.</li>
+  <li>If <code class="highlighter-rouge">A : \h_1-Type p_1</code> and <code class="highlighter-rouge">B : \h_2-Type p_2</code>, then <code class="highlighter-rouge">\Pi (x:A) -&gt; B : \h_2-Type max(p_1,p_2)</code>. Note that
+if <code class="highlighter-rouge">A=\Prop</code> and <code class="highlighter-rouge">B : \Prop</code>, then <code class="highlighter-rouge">\Pi (x : \Prop) -&gt; B : \Prop</code>.</li>
+  <li>If 0 ≤ h &lt; ∞, then <code class="highlighter-rouge">\h-Type p : \(h+1)-Type (p+1)</code>.</li>
+  <li><code class="highlighter-rouge">\Prop : \Set 0</code>, which is the same as <code class="highlighter-rouge">\Prop : \0-Type 0</code>.</li>
+  <li><code class="highlighter-rouge">\oo-Type p : \oo-Type (p+1)</code>.</li>
+  <li>If <code class="highlighter-rouge">A : I -&gt; \h-Type p</code>, then <code class="highlighter-rouge">Path A a a' : \max(-1,h-1)-Type p</code>.</li>
+  <li>If <code class="highlighter-rouge">D</code> is a data type and <code class="highlighter-rouge">A_1 : \h_1-Type p_1, ..., A_k : \h_k-Type p_k</code> are types of parameters
+of constructors of <code class="highlighter-rouge">D</code>, then predicative level of <code class="highlighter-rouge">D</code> is the maximum over <code class="highlighter-rouge">0, p_1, ..., p_k</code>. If <code class="highlighter-rouge">D</code>
+has conditions, equalising a constructor on two ends of the interval type, then homotopy level of 
+<code class="highlighter-rouge">D</code> is ∞. Otherwise, if <code class="highlighter-rouge">D</code> has more than one constructor, then its homotopy level is
+the maximum over <code class="highlighter-rouge">0, h_1, ..., h_k</code>, and if <code class="highlighter-rouge">D</code> has at most one constructor, then its homotopy level
+is the maximum over <code class="highlighter-rouge">-1, h_1, ..., h_k</code>.</li>
+  <li>If <code class="highlighter-rouge">C</code> is a class or record and <code class="highlighter-rouge">A_1 : \h_1-Type p_1, ..., A_k : \h_k-Type p_k</code> are types of parameters
+of unimplemented fields of <code class="highlighter-rouge">C</code> (including fields of superclasses), then its predicative level is the maximum 
+over <code class="highlighter-rouge">0, p_1, ..., p_k</code> and its homotopy level is the maximum over <code class="highlighter-rouge">-1, h_1, ..., h_k</code>.</li>
+</ul>
+
+<h2 id="level-polymorphism">Level polymorphism</h2>
+
+<p>Every definition is considered to be polymorphic in both levels.
+That is, every definition has two additional parameters: one for a predicative level and one for a homotopy level.
+These parameters are denoted by <code class="highlighter-rouge">\lp</code> and <code class="highlighter-rouge">\lh</code> respectively.
+Level arguments can be specified explicitly in a defcall by writing <code class="highlighter-rouge">\level p h</code>, where <code class="highlighter-rouge">p</code> and <code class="highlighter-rouge">h</code> are
+level expressions of the corresponding kind. For example, <code class="highlighter-rouge">Path (\lam _ =&gt; Nat) 0 0</code> is equivalent to
+<code class="highlighter-rouge">Path \level 0 0 (\lam _ =&gt; Nat) 0 0</code>.<br />
+Keyword <code class="highlighter-rouge">\level</code> can often be omitted (if the resulting expression is unambiguous).
+The <code class="highlighter-rouge">\Prop</code> level can be specified by the expression <code class="highlighter-rouge">\level \Prop</code>.
+Level expressions are defined inductively:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">\lp</code> is a level expression of the predicative kind and <code class="highlighter-rouge">\lh</code> is a level expression of the homotopy kind.</li>
+  <li>A constant (that is, a natural number) is a level expression of both kinds. There is also constant <code class="highlighter-rouge">\inf</code> for homotopy levels.</li>
+  <li><code class="highlighter-rouge">_</code> is a level expression of both kinds. Such an expression suggests the typechecker to infer the expression.</li>
+  <li>If l is a level expression, then <code class="highlighter-rouge">\suc l</code> is also a level expression of the same kind as l.</li>
+  <li>If l1 and l2 are level expressions of the same kind, then <code class="highlighter-rouge">\max l1 l2</code> is also a level expression of the same kind as l1 and l2.</li>
+</ul>
+
+<p>Since the only level variables are <code class="highlighter-rouge">\lp</code> and <code class="highlighter-rouge">\lh</code>, the expression <code class="highlighter-rouge">\max l1 l2</code> is useful only when one of the levels is a constant.</p>
+
+<h2 id="level-inference">Level inference</h2>
+
+<p>The level arguments of a function in a defcall can often be inferred automatically.
+Moreover, both levels of a universe in the signature of a function can also be omitted, in which case they
+will also be inferred by the typechecker.
+The typechecker always tries to infer the minimal level which mentions either <code class="highlighter-rouge">\lp</code> or <code class="highlighter-rouge">\lh</code> if possible.
+Consider, for example, the following code which defines the identity function:</p>
+
+<pre><code class="language-arend">\func id {A : \Type} (a : A) =&gt; a
+</code></pre>
+
+<p>The minimal appropriate level (both predicative and homotopy) of the universe <code class="highlighter-rouge">\Type</code> in the definition of this function is 0,
+but it is also possible to use levels <code class="highlighter-rouge">\lp</code> and <code class="highlighter-rouge">\lh</code>, so this function is equivalent to the following one:</p>
+
+<pre><code class="language-arend">\func id' {A : \Type \lp \lh} (a : A) =&gt; a
+</code></pre>
+
+<p>Consider a few more examples.
+Every definition below is followed by an equivalent definition with explicitly specified levels.</p>
+
+<pre><code class="language-arend">\data Either (A B : \Type) | inl A | inr B
+\data Either' (A B : \Type \lp \lh) | inl A | inr B
+
+\func f =&gt; id \Type
+\func f' =&gt; id (\suc \lp) (\suc \lh) (\Type \lp \lh)
+
+\func fromEither {A : \Type} (e : Either A \Type) : \Type \elim e
+  | inl a =&gt; A
+  | inr X =&gt; X
+\func fromEither' {A : \Type \lp \lh} (e : Either (\suc \lp) (\suc \lh) A (\Type \lp \lh)) : \Type \lp \lh \elim e
+  | inl a =&gt; A
+  | inr X =&gt; X
+</code></pre>
+
+<p>The levels in parameters and in the result type of a recursive function are inferred before levels in the body.
+In particular, this means that the following function will not typecheck:</p>
+
+<pre><code class="language-arend">\func eitherToType {A : \Type} (e : Either A A) : \Type
+  | inl _ =&gt; \Type
+  | inr _ =&gt; \Type
+</code></pre>
+
+<p>This problem can be fixed by specifying explicitly the levels of the universe that appears 
+in the result type:</p>
+
+<pre><code class="language-arend">\func eitherToTypeFixed {A : \Type} (e : Either A A) : \Type (\suc \lp) (\suc \lh)
+  | inl _ =&gt; \Type
+  | inr _ =&gt; \Type
+\func eitherToTypeFixed' {A : \Type \lp \lh} (e : Either \lp \lh A A) : \Type (\suc \lp) (\suc \lh)
+  | inl _ =&gt; \Type \lp \lh
+  | inr _ =&gt; \Type \lp \lh
+</code></pre>
+
+<p>If levels are set to constants instead as shown below, then the function also will typecheck,
+but the levels of universes in the body will also be constants:</p>
+
+<pre><code class="language-arend">\func eitherToTypeConstant {A : \Type} (e : Either A A) : \3-Type 7
+  | inl _ =&gt; \Type
+  | inr _ =&gt; \Type
+\func eitherToTypeConstant' {A : \Type \lp \lh} (e : Either \lp \lh A A) : \3-Type 7
+  | inl _ =&gt; \Set0
+  | inr _ =&gt; \Set0
+</code></pre>
+
+<p>Note that homotopy levels inferred by the typechecker are always greater than or equal to 0.
+Thus, the function <code class="highlighter-rouge">eitherToProp</code> below does not typecheck, <code class="highlighter-rouge">eitherToPropFixed</code> should be
+used instead:</p>
+
+<pre><code class="language-arend">\func eitherToProp {A : \Type} (e : Either A A) : \Set0
+  | inl _ =&gt; \Type
+  | inr _ =&gt; \Type
+
+\func eitherToPropFixed {A : \Type} (e : Either A A) : \Set0
+  | inl _ =&gt; \Prop
+  | inr _ =&gt; \Prop
+</code></pre>
+
+<p>Levels in the result type of a non-recursive function are inferred simultaneously with the
+levels in the body.
+For example, the following function typechecks:</p>
+
+<pre><code class="language-arend">\func f : \Type =&gt; \Type
+\func f' : \Type (\suc \lp) (\suc \lh) =&gt; \Type \lp \lh
+</code></pre>
+
+<p>A definition is marked as <em>universe-like</em> if it contains universes or universe-like definitions applied to either <code class="highlighter-rouge">\lp</code> or <code class="highlighter-rouge">\lh</code>.
+It is often true that the level of a definition can be inferred to either <code class="highlighter-rouge">c</code> or <code class="highlighter-rouge">\lp + c</code> for some constant <code class="highlighter-rouge">c</code>.
+If a definition is universe-like, then the inference algorithm uses the latter option, otherwise it uses the former option.
+Also, if <code class="highlighter-rouge">D</code> is a universe-like definition, then <code class="highlighter-rouge">D \level p h</code> is equivalent to <code class="highlighter-rouge">D \level p' h'</code> only if <code class="highlighter-rouge">p = p'</code> and <code class="highlighter-rouge">h = h'</code>.
+If <code class="highlighter-rouge">D</code> is not universe-like, then these expressions are always equivalent.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

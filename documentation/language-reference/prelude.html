@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Prelude - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Prelude">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/prelude.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/prelude.html">
 
 
 
@@ -313,7 +313,7 @@
 
             
 
-            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+            <li><a href="/documentation/language-reference/prelude" class="active">Prelude</a></li>
 
             
           
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Prelude">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Prelude
 </h1>
           
         </header>
@@ -357,13 +357,104 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Prelude</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#nat-and-int">Nat and Int</a></li>
+  <li><a href="#interval-and-squeeze-functions">Interval and squeeze functions</a></li>
+  <li><a href="#path">Path</a></li>
+  <li><a href="#coe-and-coe2">coe and coe2</a></li>
+  <li><a href="#iso">iso</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Prelude is a built-in module, containing several definitions, which behave differently from ordinary definitions.
+It is always imported implicitly in every module.
+You can also import it explicitly to hide or rename some of its definitions.</p>
 
-<h2 id="forum">Forum</h2>
+<p>We will discuss these definitions in this module.
+You can look at the file <code class="highlighter-rouge">Prelude.ard</code>, which contains these definitions, but note that they only roughly correspond
+to actual definitions since most of them cannot be actually defined in the ordinary syntax.</p>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<h1 id="nat-and-int">Nat and Int</h1>
+
+<p>The definitions of <code class="highlighter-rouge">Nat</code>, <code class="highlighter-rouge">Int</code>, <code class="highlighter-rouge">Nat.+</code>, <code class="highlighter-rouge">Nat.*</code>, <code class="highlighter-rouge">Nat.-</code>, and <code class="highlighter-rouge">Int.fromNat</code> are actually correct,
+they could have been as well defined in an ordinary file and successfully typechecked according to normal
+Arend typechecking rules.
+The only difference is that these definitions from Prelude are implemented more efficiently.</p>
+
+<h1 id="interval-and-squeeze-functions">Interval and squeeze functions</h1>
+
+<p>The definition of the interval type <code class="highlighter-rouge">\data I | left | right</code> looks like the definition of the set with two
+elements, but this is not true actually. 
+One way to think about this data type is that it has one more constructor, which connects <code class="highlighter-rouge">left</code> and 
+<code class="highlighter-rouge">right</code> and which cannot be accessed explicitly. This means that it is forbidden to define a function 
+on <code class="highlighter-rouge">I</code> by pattern matching. Functions from <code class="highlighter-rouge">I</code> can be defined by means of several auxiliary functions:
+<code class="highlighter-rouge">coe</code>, <code class="highlighter-rouge">coe2</code>, <code class="highlighter-rouge">squeeze</code>, <code class="highlighter-rouge">squeezeR</code>. Function <code class="highlighter-rouge">coe</code> plays the role of eliminator for <code class="highlighter-rouge">I</code>, it is discussed
+further in this module.</p>
+
+<p>Functions <code class="highlighter-rouge">squeeze</code> and <code class="highlighter-rouge">squeezeR</code> satisfy the following computational conditions:</p>
+<pre><code class="language-arend">squeeze left j =&gt; left
+squeeze right j =&gt; j
+squeeze i left =&gt; left
+squeeze i right =&gt; i
+
+squeezeR left j =&gt; j
+squeezeR right j =&gt; right
+squeezeR i left =&gt; i
+squeezeR i right =&gt; right
+</code></pre>
+
+<p>Such functions can be defined in terms of the function <code class="highlighter-rouge">coe</code>,
+but for efficiency purposes they are defined as primitives in Arend.</p>
+
+<h1 id="path">Path</h1>
+
+<p>The definition of <code class="highlighter-rouge">Path A a a'</code> is not correct.
+By the definition, it should consist of all functions <code class="highlighter-rouge">\Pi (i : I) -&gt; A i</code>, but actually it consists of all such
+functions <code class="highlighter-rouge">f</code> that also satisfy computational conditions <code class="highlighter-rouge">f left =&gt; a</code> and <code class="highlighter-rouge">f right =&gt; a'</code>.
+This means that while typechecking the expression <code class="highlighter-rouge">path f</code> the typechecker also checks that these computational
+conditions hold and, if they don’t, produces an error message.
+For example, if you write <code class="highlighter-rouge">\func test : 1 = 0 =&gt; path (\lam _ =&gt; 0)</code>, you will see the following error message:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>ERROR] test.ard:1:23: The left path endpoint mismatch
+  Expected: 1
+    Actual: 0
+  In: path <span class="o">(</span><span class="se">\l</span>am _ <span class="o">=&gt;</span> 0<span class="o">)</span>
+  While processing: <span class="nb">test</span>
+</code></pre></div></div>
+
+<p>The homotopy level of the universe, which is the type of <code class="highlighter-rouge">Path</code>, is also computed differently. If -1 ≤ n and
+<code class="highlighter-rouge">A</code> is in a universe of (n+1)-types, then <code class="highlighter-rouge">Path A a a'</code> is in a universe of n-types. Otherwise, it has the same
+homotopy level as <code class="highlighter-rouge">A</code>.</p>
+
+<p>Prelude also contains an infix form of <code class="highlighter-rouge">Path</code> called <code class="highlighter-rouge">=</code> which is actually a correctly defined function.
+The definition of <code class="highlighter-rouge">@</code> is also correct, but the typechecker has an eta rule for this definition: 
+<code class="highlighter-rouge">path (\lam i =&gt; p @ i) = p</code>.
+This rule does not apply to functions <code class="highlighter-rouge">@</code> defined in other files.</p>
+
+<p>Finally, function <code class="highlighter-rouge">Path.inProp</code> is not correct since it does not have a body.
+It postulates the proof irrelevance for types in <code class="highlighter-rouge">\Prop</code>, namely that any two elements of a type in <code class="highlighter-rouge">\Prop</code> are equal.</p>
+
+<h1 id="coe-and-coe2">coe and coe2</h1>
+
+<p>Function <code class="highlighter-rouge">coe</code> is an eliminator for the interval type.
+For every type over the interval, it allows to transport elements from the fiber over <code class="highlighter-rouge">left</code> to the fiber over an
+arbitrary point.
+It can be used to prove that <code class="highlighter-rouge">I</code> is contractible and that <code class="highlighter-rouge">=</code> satisfies the rules for
+ordinary identity types.
+The definition of <code class="highlighter-rouge">coe</code> is not correct since it uses pattern matching on the interval.
+This function satisfies one additional reduction rule: <code class="highlighter-rouge">coe (\lam x =&gt; A) a i =&gt; a</code> if <code class="highlighter-rouge">x</code> is not free in <code class="highlighter-rouge">A</code>.</p>
+
+<p>Function <code class="highlighter-rouge">coe2</code> is a generalization of <code class="highlighter-rouge">coe</code>, which allows to transport elements between any two fibers of a type
+over the interval.</p>
+
+<h1 id="iso">iso</h1>
+
+<p>The definition of <code class="highlighter-rouge">iso</code> is not correct since it uses pattern matching on the interval.
+This definition implies the univalence axiom.</p>
 
         
       </section>

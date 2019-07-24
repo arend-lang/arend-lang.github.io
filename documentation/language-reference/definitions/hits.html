@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Higher Inductive Types - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Higher Inductive Types">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/hits.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/hits.html">
 
 
 
@@ -219,7 +219,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
+              <li><a href="/documentation/language-reference/definitions/hits" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Higher Inductive Types">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Higher Inductive Types
 </h1>
           
         </header>
@@ -357,13 +357,105 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Higher Inductive Types</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#conditions">Conditions</a></li>
+  <li><a href="#higher-inductive-types">Higher inductive types</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Higher inductive types are a generalization of ordinary 
+<a href="/language-reference/definitions/data">inductive types</a>.
+Various homotopy colimits of types and other constructions such as
+truncations are higher inductive types. A specific homotopy structure of a higher inductive
+type can be defined by means of <em>conditions</em> in data definitions.</p>
 
-<h2 id="forum">Forum</h2>
+<h2 id="conditions">Conditions</h2>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<p>If <code class="highlighter-rouge">con</code> is a constructor of an inductive type <code class="highlighter-rouge">D</code>, then an expression of the form
+<code class="highlighter-rouge">con a_1 ... a_n</code> does not reduce any further unless the definition of <code class="highlighter-rouge">D</code> contains <em>conditions</em> on <code class="highlighter-rouge">con</code>.
+A condition on a constructor is a rule that says how such an expression might be reduced.
+For example, one can define integers as a data type with two constructors: one for positive, and one for negative integers, and a condition on the second constructor telling positive and negative zero have to be computationally equal:</p>
+
+<pre><code class="language-arend">\data Int
+  | pos Nat
+  | neg Nat \with {
+    | zero =&gt; pos zero
+  }
+</code></pre>
+
+<p>Conditions are imposed on a constructor by defining it as a function by
+<a href="/language-reference/definitions/functions/#pattern-matching">pattern matching</a>.
+The only differences are that it is not required that all cases are covered and that pattern matching on constructors
+<code class="highlighter-rouge">left</code> and <code class="highlighter-rouge">right</code> of the <a href="/language-reference/prelude">interval type</a> <code class="highlighter-rouge">I</code> is allowed.
+The general syntax is the same as for ordinary pattern matching.
+Either <code class="highlighter-rouge">\with { | c_1 | ... | c_m }</code> or <code class="highlighter-rouge">\elim x_1, ... x_n { | c_1 | ... | c_m }</code> can be added after parameters
+of the constructor, where <code class="highlighter-rouge">| c_1 | ... | c_m</code> is a list of clauses.</p>
+
+<p>A constructor with conditions evaluates if its arguments match the specification in the same way as a function defined by pattern matching.
+This means that a function over a data type with conditions must respect the conditions, this is checked
+by the typechecker.
+For example, a function of type <code class="highlighter-rouge">Int -&gt; X</code> must map positive and negative zero to the same value.
+Thus, one cannot define the following function:</p>
+
+<pre><code class="language-arend">\func f (x : Int) : Nat
+  | pos n =&gt; n
+  | neg n =&gt; suc n
+</code></pre>
+
+<h2 id="higher-inductive-types">Higher inductive types</h2>
+
+<p>A higher inductive type is a data type with a constructor that has conditions of the form <code class="highlighter-rouge">| left =&gt; e</code> and <code class="highlighter-rouge">| right =&gt; e'</code>.
+Let us give a few examples:</p>
+
+<pre><code class="language-arend">-- Circle
+\data S1
+  | base
+  | loop I \with {
+    | left =&gt; base
+    | right =&gt; base
+  }
+
+-- Suspension
+\data Susp (A : \Type)
+  | north
+  | south
+  | merid A (i : I) \elim i {
+    | left =&gt; north
+    | right =&gt; south
+  }
+
+-- Propositional truncation
+\data Trunc (A : \Type)
+  | inT A
+  | truncT (x y : Trunc A) (i : I) \elim i {
+    | left =&gt; x
+    | right =&gt; x
+  }
+
+-- Set quotient
+\data Quotient (A : \Type) (R : A -&gt; A -&gt; \Type)
+  | inQ A
+  | equivQ (x y : A) (R x y) (i : I) \elim i {
+    | left =&gt; inQ x
+    | right =&gt; inQ y
+  }
+  | truncQ (a a' : Quotient A R) (p p' : a = a') (i j : I) \elim i, j {
+    | i, left  =&gt; p @ i
+    | i, right =&gt; p' @ i
+    | left,  _ =&gt; a
+    | right, _ =&gt; a'
+  }
+</code></pre>
+
+<p>If <code class="highlighter-rouge">X</code> is a proposition, then, to define a function of type <code class="highlighter-rouge">Trunc A -&gt; X</code>, it is enough to specify its value for <code class="highlighter-rouge">inT a</code>.
+The same works for any higher inductive type and any level.
+For example, to define a function <code class="highlighter-rouge">Quotient A -&gt; X</code>, it is enough to specify its value for <code class="highlighter-rouge">inQ a</code> and <code class="highlighter-rouge">equivQ x y r i</code> if <code class="highlighter-rouge">X</code> is a set and only for <code class="highlighter-rouge">inQ a</code> if it is a proposition.
+This also works for several arguments.
+For example, if <code class="highlighter-rouge">X</code> is a set, then, to define a function <code class="highlighter-rouge">Quotient A -&gt; Quotient A -&gt; X</code>, it is enough to specify its value for <code class="highlighter-rouge">inQ a, inQ a'</code>, <code class="highlighter-rouge">inQ a, equivQ x y r i</code>, and <code class="highlighter-rouge">equivQ x y r i, inQ a</code>.</p>
 
         
       </section>

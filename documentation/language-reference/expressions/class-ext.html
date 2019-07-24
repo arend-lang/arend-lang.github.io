@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Class extensions - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Class extensions">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/class-ext.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/class-ext.html">
 
 
 
@@ -305,7 +305,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+              <li><a href="/documentation/language-reference/expressions/class-ext" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Class extensions">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Class extensions
 </h1>
           
         </header>
@@ -357,13 +357,29 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+        <p>A class extension is an expression of the form <code class="highlighter-rouge">C { | f_1 =&gt; e_1 ... | f_n =&gt; e_n }</code>, where <code class="highlighter-rouge">C</code> is a record,
+<code class="highlighter-rouge">f_1</code>, … <code class="highlighter-rouge">f_n</code> are its fields of types <code class="highlighter-rouge">A_1</code>, … <code class="highlighter-rouge">A_n</code> respectively, and <code class="highlighter-rouge">e_1</code>, … <code class="highlighter-rouge">e_n</code> are expressions 
+such that <code class="highlighter-rouge">e_i : A_i[e_1/f_1, ... e_n/f_n]</code>.
+Note that <code class="highlighter-rouge">A_i</code> cannot depend on any field except for <code class="highlighter-rouge">f_1</code>, … <code class="highlighter-rouge">f_n</code>.
+An expression of the form <code class="highlighter-rouge">C e_1 ... e_n</code> is equivalent to <code class="highlighter-rouge">C { | f_1 =&gt; e_1 ... | f_n =&gt; e_n }</code>, where <code class="highlighter-rouge">f_1</code>, … <code class="highlighter-rouge">f_n</code> is the list of not implemented fields of <code class="highlighter-rouge">C</code> in the order of their definition.</p>
 
-<h2 id="forum">Forum</h2>
+<p>The expression <code class="highlighter-rouge">C {}</code> is equivalent to <code class="highlighter-rouge">C</code>.
+An expression of the form <code class="highlighter-rouge">C { I }</code> is a subtype of <code class="highlighter-rouge">C' { I' }</code> if and only if <code class="highlighter-rouge">C</code> is a subclass of <code class="highlighter-rouge">C'</code> and <code class="highlighter-rouge">I'</code> is a subset of <code class="highlighter-rouge">I</code>.
+The expression <code class="highlighter-rouge">\new C { I }</code> is an instance of type <code class="highlighter-rouge">C { I }</code>, which is a subtype <code class="highlighter-rouge">C</code>.
+Thus, you can use this expression to create an element of type <code class="highlighter-rouge">C</code>.</p>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<h2 id="new-expression">New expression</h2>
+
+<p>The expression <code class="highlighter-rouge">\new C { I }</code> is correct only if all fields of <code class="highlighter-rouge">C</code> are implemented in <code class="highlighter-rouge">C { I }</code>, but the typechecker can infer some implementations from the expected type of the expression.
+For example, in the following code we do not have to implement field <code class="highlighter-rouge">x</code> in the <code class="highlighter-rouge">\new</code> expression explicitly since <code class="highlighter-rouge">f</code> expects an element of <code class="highlighter-rouge">R 0</code>, so the typechecker knows that <code class="highlighter-rouge">x</code> must be equal to <code class="highlighter-rouge">0</code>.</p>
+
+<pre><code class="language-arend">\record R (x y : Nat)
+\func f (r : R 0) =&gt; r.y
+\func g =&gt; f (\new R { | y =&gt; 1 })
+</code></pre>
+
+<p>If <code class="highlighter-rouge">c</code> is an instance of a record <code class="highlighter-rouge">C</code> with fields <code class="highlighter-rouge">f_1</code>, … <code class="highlighter-rouge">f_n</code>, then the expression <code class="highlighter-rouge">\new c</code> is equivalent to <code class="highlighter-rouge">\new C { | f_1 =&gt; c.f_1 ... | f_n =&gt; c.f_n }</code>.
+More generally, the expression <code class="highlighter-rouge">\new c { | f_{i_1} =&gt; e_1 ... | f_{i_k} =&gt; e_k }</code> is equivalent to <code class="highlighter-rouge">\new c</code> in which <code class="highlighter-rouge">c.f_{i_j}</code> is replaced with <code class="highlighter-rouge">e_j</code>.</p>
 
         
       </section>

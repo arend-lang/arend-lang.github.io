@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Let - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Let">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/let.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/let.html">
 
 
 
@@ -291,7 +291,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
+              <li><a href="/documentation/language-reference/expressions/let" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Let">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Let
 </h1>
           
         </header>
@@ -357,13 +357,42 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+        <p>Let expressions allow to introduce local variables.
+Such expressions have the following syntax:</p>
 
-<h2 id="forum">Forum</h2>
+<pre><code class="language-arend">\let | p_1 =&gt; e_1
+     ...
+     | p_n =&gt; e_n
+\in e_{n+1}
+</code></pre>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<p>where <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> are patterns and <code class="highlighter-rouge">e_1</code>, … <code class="highlighter-rouge">e_{n+1}</code> are expressions.</p>
+
+<p>Every pattern is either a variable or an expression of the form <code class="highlighter-rouge">(p_1', ... p_k')</code>,
+where <code class="highlighter-rouge">p_1'</code>, … <code class="highlighter-rouge">p_k'</code> are patterns. This implies that if <code class="highlighter-rouge">p_i</code> is a tuple of k subpatterns,
+then the type of <code class="highlighter-rouge">e_i</code> must be either a k-fold Sigma type or a record with k fields.
+Note that because of eta-equivalence for Sigma types and records the structure of
+<code class="highlighter-rouge">e_i</code> does not matter: for example, expression <code class="highlighter-rouge">\let (x,y)=&gt; z \in e</code> evaluates to
+<code class="highlighter-rouge">e[z.1/x,z.2/y]</code> if type of <code class="highlighter-rouge">z</code> is Sigma type (and with fields instead of projections
+<code class="highlighter-rouge">z.1</code> and <code class="highlighter-rouge">z.2</code> in case of a record). In general, if pattern <code class="highlighter-rouge">p_i</code> contains
+variables <code class="highlighter-rouge">x_i^1, ... x_i^{n_i}</code> expression 
+<code class="highlighter-rouge">\let | p_1 =&gt; e_1 ... | p_n =&gt; e_n \in e</code> evaluates to <code class="highlighter-rouge">e[... proj_i^j(e_i)/x_i^j ,,,]</code>,
+where <code class="highlighter-rouge">proj_i^j</code> is the sequence of projections and field access expressions, corresponding to 
+<code class="highlighter-rouge">j</code>-th variable of <code class="highlighter-rouge">p_i</code>.</p>
+
+<p>The expression <code class="highlighter-rouge">\let | x_1 =&gt; e_1 ... | x_n =&gt; e_n \in e</code> has type 
+<code class="highlighter-rouge">\let | x_1 =&gt; e_1 ... | x_n =&gt; e_n \in E</code>, where <code class="highlighter-rouge">E</code> is the type of <code class="highlighter-rouge">e</code>.</p>
+
+<p>The type of <code class="highlighter-rouge">e_i</code> can be explicitly specified as follows: <code class="highlighter-rouge">| p_i : E_i =&gt; e_i</code>.</p>
+
+<p>It is also allowed to write lambda parameters after a pattern if it is a variable.
+That is, instead of <code class="highlighter-rouge">| x_i =&gt; e_i</code>, you can write <code class="highlighter-rouge">| x_i p^i_1 ... p^i_{n_i} =&gt; e_i</code>,
+where <code class="highlighter-rouge">p^i_1</code>, … <code class="highlighter-rouge">p^i_{n_i}</code> are either variables or named parameters to which <code class="highlighter-rouge">e_i</code> can refer.
+Such a clause is equivalent to <code class="highlighter-rouge">| x_i =&gt; \lam p^i_1 ... p^i_{n_i} =&gt; e_i</code>.</p>
+
+<p>Let expressions also can be <em>strict</em>.
+This means that expressions <code class="highlighter-rouge">e_1</code>, … <code class="highlighter-rouge">e_n</code> will be evaluated immediately when the let expression is evaluated.
+To define a strict let expression, use the keyword <code class="highlighter-rouge">\let!</code> instead of <code class="highlighter-rouge">\let</code>.</p>
 
         
       </section>

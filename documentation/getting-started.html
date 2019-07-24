@@ -1,0 +1,608 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting Started - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Getting Started">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/getting-started.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/getting-started.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">Arend Theorem Prover</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Language Reference</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Getting Started">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Getting Started
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Getting Started</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#intellij-idea-plugin">IntelliJ IDEA Plugin</a></li>
+  <li><a href="#console-application">Console Application</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>You need to have <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">JRE 8</a>
+installed on your computer to use Arend.
+Arend is available either as an 
+<a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a> plugin (see <a href="#intellij-idea-plugin">this section</a> for the
+installation instructions) or as a console application (see <a href="#console-application">this section</a> for the installation
+instructions).</p>
+
+<p>There is a standard library, containing a number of essential definitions and proofs, in particular, in
+constructive algebra and homotopy theory. It can be downloaded from <a href="https://github.com/JetBrains/arend-lib">here</a>.</p>
+
+<h1 id="intellij-idea-plugin">IntelliJ IDEA Plugin</h1>
+
+<p>To install the IntelliJ IDEA plugin, follow the instructions below.</p>
+
+<ul>
+  <li>Download (either community or ultimate version of) <a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a>.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Run Intellij IDEA, choose either **Configure</td>
+          <td>Plugins** if you are on a <em>Welcome screen</em> or **File</td>
+          <td>Settings** from the main menu if a project is open, go to <strong>Plugins</strong> tab, search for <em>Arend</em> plugin and install it, restart Intellij IDEA.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Another way to get the latest version of the plugin is by following instructions on <a href="https://github.com/JetBrains/intellij-arend/blob/dev/README.md">this page</a>.</li>
+</ul>
+
+<p>Let’s create our first Arend project.</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Run Intellij IDEA and choose either <strong>Create New Project</strong> if you are on a <em>Welcome screen</em> or **File</td>
+          <td>New</td>
+          <td>Project** from the main menu if a project is open.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Choose <strong>Arend</strong> in the list on the left. If you want to use external libraries, for example, the standard library, 
+you can set up the path to a directory with
+these libraries in the panel on the right. In order to do this, click <strong>+</strong> button in the top left corner of the panel, select
+<strong>Arend libraries</strong> and choose a path in the dialog.</li>
+  <li>Click <strong>Next</strong>. In the successive steps set up the name of the project, directories for sources and binaries and click <strong>Finish</strong>.</li>
+</ul>
+
+<p>You should get a new project which contains (among other files) a file <code class="highlighter-rouge">arend.yaml</code> and an empty source directory 
+(<code class="highlighter-rouge">src</code> by default).
+The <code class="highlighter-rouge">yaml</code> file contains a description of the project.
+You can read more about this configuration file <a href="libraries">here</a>.</p>
+
+<p>If you want to use the standard library, you should add it to the list of dependencies in <strong>File | Project Structure</strong>.
+In case you did not specify the path to Arend external libraries on creation of the project, you should do it in Project SDK
+section of <strong>File | Project Structure | Project</strong>.  Once this is done, click <strong>+</strong> button on the right of the panel
+<strong>File | Project Structure | Modules</strong>, select <strong>Library | Arend library</strong> and choose the libraries to be added as 
+dependencies.</p>
+
+<p>Create a new file <code class="highlighter-rouge">example.ard</code> in the source directory.
+Add the following line to this file:</p>
+<pre><code class="language-arend">\func f =&gt; 0
+</code></pre>
+<p>Right click <code class="highlighter-rouge">example.ard</code> file and choose <code class="highlighter-rouge">Run 'Typecheck example'</code> in the popup menu (you can also use shortcut <code class="highlighter-rouge">&lt;Alt+Shift+F10&gt;</code>).
+You should see the message <em>All Tests Passed</em>, which indicates that the typechecking was successful.
+Modify the file as follows:</p>
+<pre><code class="language-arend">\func f : Nat -&gt; Nat =&gt; 0
+</code></pre>
+<p>Run the typechecking again (you can use shortcut <code class="highlighter-rouge">&lt;Shift+F10&gt;</code> for this).
+You should see the following error message:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>ERROR] example.ard:1:25: Type mismatch
+  Expected <span class="nb">type</span>: Nat -&gt; Nat
+    Actual <span class="nb">type</span>: Nat
+  In: 0
+  While processing: f
+</code></pre></div></div>
+
+<p>You can read more about IntelliJ IDEA <a href="https://www.jetbrains.com/help/idea/discover-intellij-idea.html">here</a>.
+To learn more about Arend, see the <a href="language-reference">language reference</a>.</p>
+
+<h1 id="console-application">Console Application</h1>
+
+<p>To install the console application, follow the instructions below.</p>
+
+<ul>
+  <li>Download the Arend <a href="http://valis.github.io/arend.jar">jar file</a>. You can also get the latest version of the application by following instructions on <a href="https://github.com/JetBrains/arend/blob/master/README.md">this page</a>.</li>
+  <li>Run <code class="highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:</li>
+</ul>
+<pre><code class="bash">$ java -jar arend.jar
+[INFO] Loading library prelude
+[INFO] Loaded library prelude
+Nothing to load
+</code></pre>
+<p>To see command line options, run <code class="highlighter-rouge">java -jar arend.jar --help</code>.</p>
+
+<p>Let’s create our first Arend project.
+Create a directory for your project:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mkdir testProject
+<span class="nv">$ </span><span class="nb">cd </span>testProject
+</code></pre></div></div>
+<p>Create file <code class="highlighter-rouge">arend.yaml</code> inside this directory.
+This file contains the description of your project.
+Minimally, we just need to specify the location of source files of your project.
+Add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sourcesDir: src
+</code></pre></div></div>
+<p>In case you would also like to use the standard library add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies: <span class="o">[</span>arend-lib]
+</code></pre></div></div>
+<p>You can read more about this configuration file <a href="libraries">here</a>.</p>
+
+<p>Create directory <code class="highlighter-rouge">src</code> which will contain source files for this project.
+Create a file <code class="highlighter-rouge">example.ard</code> inside <code class="highlighter-rouge">src</code> with the following content:</p>
+<pre><code class="language-arend">\func f =&gt; 0
+</code></pre>
+<p>Run <code class="highlighter-rouge">java -jar $arend $myProject</code>, where <code class="highlighter-rouge">$arend</code> is the path to <code class="highlighter-rouge">arend.jar</code> and <code class="highlighter-rouge">$myProject</code> is the path to <code class="highlighter-rouge">arend.yaml</code>.
+You should see the following output:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] Loading library prelude
+<span class="o">[</span>INFO] Loaded library prelude
+<span class="o">[</span>INFO] Loading library myProject
+<span class="o">[</span>INFO] Loaded library myProject
+<span class="nt">---</span> Typechecking myProject <span class="nt">---</span>
+<span class="o">[</span> <span class="o">]</span> example
+<span class="nt">---</span> Done <span class="nt">---</span>
+</code></pre></div></div>
+<p>This means that module <code class="highlighter-rouge">example</code> was successfully typechecked.</p>
+
+<p>Now let’s add something from the standard library. Change the contents of <code class="highlighter-rouge">example.ard</code> to the following:</p>
+<pre><code class="language-arend">\import Function
+\func f =&gt; id 0
+</code></pre>
+<p>Run <code class="highlighter-rouge">java -jar $arend $myProject -L $libdir</code>, where <code class="highlighter-rouge">arend.jar</code> and <code class="highlighter-rouge">$myProject</code> as before and <code class="highlighter-rouge">$libdir</code> 
+is the path to the parent directory of the directory <code class="highlighter-rouge">arend-lib</code> of the standard library. You should see the following
+output:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] Loading library prelude
+<span class="o">[</span>INFO] Loaded library prelude
+<span class="o">[</span>INFO] Loading library myProject
+<span class="o">[</span>INFO] Loading library arend-lib
+<span class="o">[</span>INFO] Loaded library arend-lib
+<span class="o">[</span>INFO] Loaded library myProject
+<span class="nt">---</span> Typechecking myProject <span class="nt">---</span>
+<span class="o">[</span> <span class="o">]</span> example
+<span class="nt">---</span> Done <span class="nt">---</span>
+</code></pre></div></div>
+
+<p>Modify file <code class="highlighter-rouge">example.ard</code> as follows:</p>
+<pre><code class="language-arend">\func f : Nat -&gt; Nat =&gt; 0
+</code></pre>
+<p>If you run <code class="highlighter-rouge">java -jar $arend $myProject</code> again, it should produce the following error message:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] Loading library prelude
+<span class="o">[</span>INFO] Loaded library prelude
+<span class="o">[</span>INFO] Loading library myProject
+<span class="o">[</span>INFO] Loaded library myProject
+<span class="nt">---</span> Typechecking myProject <span class="nt">---</span>
+<span class="o">[</span>ERROR] example:1:25: Type mismatch
+  Expected <span class="nb">type</span>: Nat -&gt; Nat
+    Actual <span class="nb">type</span>: Nat
+  In: 0
+  While processing: f
+<span class="o">[</span>✗] example
+Number of modules with errors: 1
+<span class="nt">---</span> Done <span class="nt">---</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

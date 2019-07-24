@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Goals - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Goals">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/goals.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/goals.html">
 
 
 
@@ -263,7 +263,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
+              <li><a href="/documentation/language-reference/expressions/goals" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Goals">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Goals
 </h1>
           
         </header>
@@ -357,13 +357,31 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+        <p>A <em>goal</em> marks an unfinished expression.
+It always produces an error message which contains the expected type of an expression that should replace the goal and
+the context of the goal, that is the list of available variables with their types.
+A goal is written as <code class="highlighter-rouge">{?}</code> or <code class="highlighter-rouge">{?id}</code>, where <code class="highlighter-rouge">id</code> is any identifier which denotes the name of the goal.
+The name of a goal only appears in error messages and does not affect the code in any way.</p>
 
-<h2 id="forum">Forum</h2>
+<p>For example, consider the following code:</p>
+<pre><code class="language-arend">\func f (x y : Nat) (p : x = y) : y = x
+  =&gt; {?}
+</code></pre>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<p>It will produce the following error message:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>GOAL] test.ard:1:44:
+  Expected <span class="nb">type</span>: y <span class="o">=</span> <span class="o">{</span>Nat<span class="o">}</span> x
+  Context:
+    y : Nat
+    x : Nat
+    p : x <span class="o">=</span> <span class="o">{</span>Nat<span class="o">}</span> y
+  In: <span class="o">{</span>?<span class="o">}</span>
+  While processing: f
+</code></pre></div></div>
+
+<p>The information in the error message might be especially useful, when the expected type or types of variables are
+inferred by the typechecker.</p>
 
         
       </section>

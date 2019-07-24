@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Pi Types - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Pi Types">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/pi.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/pi.html">
 
 
 
@@ -277,7 +277,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
+              <li><a href="/documentation/language-reference/expressions/pi" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Pi Types">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Pi Types
 </h1>
           
         </header>
@@ -357,13 +357,29 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+        <p>A Pi type is a type of (dependent) functions.
+If <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> are named or unnamed parameters and <code class="highlighter-rouge">B</code> is a type, then <code class="highlighter-rouge">\Pi p_1 ... p_n -&gt; B</code> is also a type.
+If <code class="highlighter-rouge">B</code> does not refer to variables defined in the parameters, you can write <code class="highlighter-rouge">A_1 -&gt; ... A_n -&gt; B</code> instead, where
+<code class="highlighter-rouge">A_i</code> are types of the parameters.
+If <code class="highlighter-rouge">A_i</code> has type <code class="highlighter-rouge">\Type p_i h_i</code> and <code class="highlighter-rouge">B</code> has type <code class="highlighter-rouge">\Type p h</code>, then the type of the Pi type is <code class="highlighter-rouge">\Type p_max h</code>,
+where <code class="highlighter-rouge">p_max</code> is the maximum of <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code>, and <code class="highlighter-rouge">p</code>.
+Note that the homotopy level of the Pi type is simply the homotopy level of the codomain.</p>
 
-<h2 id="forum">Forum</h2>
+<p>An expression of the form <code class="highlighter-rouge">\Pi p_1 ... p_n -&gt; B</code> is equivalent to <code class="highlighter-rouge">\Pi p_1 -&gt; \Pi p_2 ... p_n -&gt; B</code>.
+Moreover, if <code class="highlighter-rouge">p_1</code> equals to <code class="highlighter-rouge">(x_1 ... x_k : A)</code>, then it is also equivalent to
+<code class="highlighter-rouge">\Pi (x_1 : A) -&gt; \Pi (x_2 ... x_k : A) -&gt; \Pi p_2 ... p_n -&gt; B</code>.</p>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<p>A <em>lambda parameter</em> is either a variable or a named parameter.
+If <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> is a sequence of lambda parameters and <code class="highlighter-rouge">e</code> is an expression of type <code class="highlighter-rouge">E</code>, then
+<code class="highlighter-rouge">\lam p_1 ... p_n =&gt; e</code> is an expression which has type <code class="highlighter-rouge">\Pi p_1 ... p_n -&gt; E</code>.
+If some parameters do not have types, then they will be inferred by the typechecker.</p>
+
+<p>If <code class="highlighter-rouge">f</code> is an expression of type <code class="highlighter-rouge">\Pi (x : A) -&gt; B</code> and <code class="highlighter-rouge">a</code> is an expression of type <code class="highlighter-rouge">A</code>, then <code class="highlighter-rouge">f a</code> is an expression
+of type <code class="highlighter-rouge">B[a/x]</code>.</p>
+
+<p>An expression of the form <code class="highlighter-rouge">(\lam x =&gt; b) a</code> reduces to <code class="highlighter-rouge">b[a/x]</code>.</p>
+
+<p>An expression of the form <code class="highlighter-rouge">\lam x =&gt; f x</code> is equivalent to <code class="highlighter-rouge">f</code> if <code class="highlighter-rouge">x</code> is not free in <code class="highlighter-rouge">f</code> (eta equivalence for Pi types).</p>
 
         
       </section>

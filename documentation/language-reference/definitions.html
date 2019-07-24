@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Definitions - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Definitions">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions.html">
 
 
 
@@ -183,7 +183,7 @@
 
             
 
-            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+            <li><a href="/documentation/language-reference/definitions" class="active">Definitions</a></li>
 
             
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Definitions">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Definitions
 </h1>
           
         </header>
@@ -357,13 +357,66 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Definitions</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#precedence">Precedence</a></li>
+  <li><a href="#infix-operators">Infix operators</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Arend supports the following kinds of definitions: <a href="/language-reference/definitions/functions">functions</a>, <a href="/language-reference/definitions/data">data</a>, <a href="/language-reference/definitions/records">records</a>, <a href="/language-reference/definitions/classes">classes</a>, <a href="/language-reference/definitions/classes">instances</a>, and <a href="/language-reference/definitions/coercion">coercions</a>.
+Every definition has a name which must be a valid identifier as described <a href="/language-reference/lexical-structure/#identifiers">here</a>.</p>
 
-<h2 id="forum">Forum</h2>
+<p>Definitions can be referred by <em>defcall</em> expressions.
+If <code class="highlighter-rouge">def</code> is a name of a definition, defcall is an expression of the form:
+<code class="highlighter-rouge">def e_1 ... e_n</code>, where <code class="highlighter-rouge">e_1</code>, …, <code class="highlighter-rouge">e_n</code> are expressions.
+Expressions <code class="highlighter-rouge">e_1</code>, …, <code class="highlighter-rouge">e_n</code> are called arguments of the defcall.</p>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<p>There are alternative notations in case a defcall has precisely one or two arguments.
+In case of two arguments, it is possible to use the infix notation: <code class="highlighter-rouge">def e_1 e_2</code> is equivalent
+to <code class="highlighter-rouge">e_1 `def` e_2</code>.
+In case of one argument, it is possible to use the postfix notation: <code class="highlighter-rouge">def e_1</code> is equivalent to <code class="highlighter-rouge">e_1 `def</code>.</p>
+
+<h2 id="precedence">Precedence</h2>
+
+<p>The parsing of complex defcall expressions, containing several infix and postfix notations, is regulated by precedence
+of involved definitions: their priority and the type of associativity. Precedence of a definition can be specified
+by writing <code class="highlighter-rouge">FIX_KW N</code> just before the name of the definition, where <code class="highlighter-rouge">FIX_KW</code> is one of keywords
+<code class="highlighter-rouge">\fixl</code>, <code class="highlighter-rouge">\fixr</code> or <code class="highlighter-rouge">\fix</code>,
+which mark the definition as left, right associative or non-associative respectively, and <code class="highlighter-rouge">N</code> is the priority, 
+which is an integer between 1 and 9. For example, <code class="highlighter-rouge">\func \fixl 3 op (a b : Nat) =&gt; 0</code> defines a binary function
+named <code class="highlighter-rouge">op</code> which is left associative with priority 3. The default precedence is <code class="highlighter-rouge">\fixr 10</code>.</p>
+
+<p>If <code class="highlighter-rouge">op1</code> and <code class="highlighter-rouge">op2</code> are two definitions and <code class="highlighter-rouge">e1,e2,e3</code> are expressions, the expression
+<code class="highlighter-rouge">e1 `op1` e2 `op2` e3</code> is parsed according to the following rules:</p>
+
+<ul>
+  <li>If priorities of <code class="highlighter-rouge">op1</code> and <code class="highlighter-rouge">op2</code> are different and, say, the priority of <code class="highlighter-rouge">op1</code> is higher, then the expression
+is parsed as <code class="highlighter-rouge">(e1 `op1` e2) `op2` e3</code>.</li>
+  <li>Assume priorities of <code class="highlighter-rouge">op1</code> and <code class="highlighter-rouge">op2</code> are the same. If they are both left or both right associative, the expression is
+parsed as <code class="highlighter-rouge">(e1 `op1` e2) `op2` e3</code> or <code class="highlighter-rouge">e1 `op1` (e2 `op2` e3)</code> respectively. If <code class="highlighter-rouge">op1</code> and <code class="highlighter-rouge">op2</code> have
+different types of associativity or are non-associative, then the parsing error is generated.</li>
+</ul>
+
+<h2 id="infix-operators">Infix operators</h2>
+
+<p>A definition can be labeled as an <em>infix operator</em>.
+This means that its defcalls are parsed as infix notations even without <code class="highlighter-rouge">` `</code>.
+An infix operator is defined by specifying one of keywords <code class="highlighter-rouge">\infixl</code>, <code class="highlighter-rouge">\infixr</code>, <code class="highlighter-rouge">\infix</code> before the name of operator.
+These keywords have the same syntax and semantics as keywords <code class="highlighter-rouge">\fixl</code>, <code class="highlighter-rouge">\fixr</code>, and <code class="highlighter-rouge">\fix</code>, which are described above.</p>
+
+<p>An infix operator can be used in the prefix form as an ordinary definition.
+For example, if the function <code class="highlighter-rouge">+</code> is defined as <code class="highlighter-rouge">\infixl 6 +</code>, then it is allowed to write either <code class="highlighter-rouge">+ 1 2</code> or <code class="highlighter-rouge">1 + 2</code>; 
+these expressions are equivalent.</p>
+
+<p>Finally, if <code class="highlighter-rouge">f</code> is an infix operator or an operator surrounded with <code class="highlighter-rouge">` `</code>, then it is allowed to write <code class="highlighter-rouge">e f</code> and
+this is equivalent to <code class="highlighter-rouge">f e</code>.
+For example, the function that adds 1 to its argument can be written either as <code class="highlighter-rouge">1 +</code> or as <code class="highlighter-rouge">+ 1</code>.
+The result of application of the first function to 2 is <code class="highlighter-rouge">1 + 2</code>, the result of application of the second one to 2
+is <code class="highlighter-rouge">+ 1 2</code>, and as noted before these expressions are equivalent.</p>
 
         
       </section>

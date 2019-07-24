@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Case - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Case">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/case.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/case.html">
 
 
 
@@ -298,7 +298,7 @@
 
               
 
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
+              <li><a href="/documentation/language-reference/expressions/case" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
             
               
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Case">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Case
 </h1>
           
         </header>
@@ -357,13 +357,26 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+        <p>The basic syntax of case expressions looks like this:</p>
 
-<h2 id="forum">Forum</h2>
+<pre><code class="language-arend">\case e_1, ... e_n \with {
+  | p_1^1, ... p_n^1 =&gt; d_1
+  ...
+  | p_1^k, ... p_n^k =&gt; d_k
+}
+</code></pre>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<p>where <code class="highlighter-rouge">e_1</code>, … <code class="highlighter-rouge">e_n</code>, <code class="highlighter-rouge">d_1</code>, … <code class="highlighter-rouge">d_k</code> are expressions and <code class="highlighter-rouge">p_1^1</code>, … <code class="highlighter-rouge">p_n^k</code> are patterns.
+Such an expression reduces in the same way as functions defined by pattern matching (see <a href="/language-reference/definitions/functions/#pattern-matching">this section</a>).
+If the typechecker does not know the type of a case expression, it must be specified explicitly: <code class="highlighter-rouge">\case e_1, ... e_n \return T \with { ... }</code>.</p>
+
+<p>The general syntax of case expressions looks like this:
+<code class="highlighter-rouge">\case e_1 \as x_1 : E_1, ... e_n \as x_n : E_n \return T \with { ... }</code>,
+where <code class="highlighter-rouge">x_1</code>, … <code class="highlighter-rouge">x_n</code> are variables and <code class="highlighter-rouge">E_1</code>, … <code class="highlighter-rouge">E_n</code> are expressions.
+The parts <code class="highlighter-rouge">\as x_i</code> and <code class="highlighter-rouge">: E_i</code> can be omitted.
+Expressions <code class="highlighter-rouge">E_i</code> can refer to <code class="highlighter-rouge">x_1</code>, … <code class="highlighter-rouge">x_{i-1}</code> and <code class="highlighter-rouge">T</code> can refer to <code class="highlighter-rouge">x_1</code>, … <code class="highlighter-rouge">x_n</code>.
+In this case, <code class="highlighter-rouge">e_i</code> must have type <code class="highlighter-rouge">E_i[e_1/x_1, ... e_{i-1}/x_{i-1}]</code>.
+The type of the case expression is <code class="highlighter-rouge">T[e_1/x_1, ... e_n/x_n]</code>.</p>
 
         
       </section>

@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Expressions - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="https://arend-lang.github.io/documentation.html">
+<meta property="og:title" content="Expressions">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions.html">
 
 
 
@@ -255,7 +255,7 @@
 
             
 
-            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+            <li><a href="/documentation/language-reference/expressions" class="active">Expressions</a></li>
 
             
               
@@ -341,7 +341,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
+    <meta itemprop="headline" content="Expressions">
     
     
     
@@ -349,7 +349,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Expressions
 </h1>
           
         </header>
@@ -357,13 +357,88 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>For the installation instructions, see <a href="getting-started">Getting Started</a>.
-Section <a href="language-reference">Language Reference</a> contains a description of the Arend language.
-Section <a href="libraries">Libraries</a> describes how to manage Arend libraries.</p>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Expressions</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#evaluation">Evaluation</a></li>
+  <li><a href="#types">Types</a></li>
+  <li><a href="#defcalls">Defcalls</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>An expression denotes a value which may depend on some variables.
+The basic example of an expression is simply a variable <code class="highlighter-rouge">x</code>.
+Of course, <code class="highlighter-rouge">x</code> must be defined somewhere in order for such an expression to make sense.
+It can be either a parameter (of a <a href="/language-reference/definitions/parameters">definition</a>, or a <a href="/language-reference/expressions/pi">lambda expression</a>, or a <a href="/language-reference/expressions/pi">pi expression</a>, or a <a href="/language-reference/expressions/sigma">sigma expression</a>),
+a variable defined in a <a href="/language-reference/expressions/let">let expression</a>, or a variable defined in a <a href="/language-reference/definitions/functions/#pattern-matching">pattern</a>.</p>
 
-<h2 id="forum">Forum</h2>
+<p>If <code class="highlighter-rouge">e</code>, <code class="highlighter-rouge">e_1</code>, … <code class="highlighter-rouge">e_n</code> are expressions and <code class="highlighter-rouge">x_1</code>, … <code class="highlighter-rouge">x_n</code> are variables, then we will write <code class="highlighter-rouge">e[e_1/x_1, ... e_n/x_n]</code> for the <em>substitution</em> operation.
+This is a meta-operation, namely, it is a function on the set of expressions of the language and not an expression itself.
+The expression <code class="highlighter-rouge">e[e_1/x_1, ... e_n/x_n]</code> is simply <code class="highlighter-rouge">e</code> in which every occurrence of each of the variables <code class="highlighter-rouge">x_i</code> is replaced with the expression <code class="highlighter-rouge">e_i</code>.</p>
 
-<p>Question about the Arend language and the IntelliJ Arend plugin are welcome <a href="https://groups.google.com/forum/#!forum/arend-lang">here</a>.</p>
+<h2 id="evaluation">Evaluation</h2>
+
+<p>There is a binary relation <code class="highlighter-rouge">=&gt;</code> on the set of expressions called the <em>reduction relation</em>.
+If <code class="highlighter-rouge">e_1 =&gt; ... =&gt; e_n</code>, we will say that <code class="highlighter-rouge">e_1</code> <em>reduces</em> to <code class="highlighter-rouge">e_n</code>.
+If there is no <code class="highlighter-rouge">e'</code> such that <code class="highlighter-rouge">e =&gt; e'</code>, we will say that <code class="highlighter-rouge">e</code> is a <em>normal form</em>.
+If <code class="highlighter-rouge">e</code> reduces to <code class="highlighter-rouge">e'</code> and <code class="highlighter-rouge">e'</code> is a normal form, we will say that <code class="highlighter-rouge">e'</code> is a <em>normal form</em> of <code class="highlighter-rouge">e</code> and that <code class="highlighter-rouge">e</code> <em>evaluates</em> to <code class="highlighter-rouge">e'</code>.
+Every expression has a unique normal form.</p>
+
+<p>The relation <code class="highlighter-rouge">=&gt;</code> is a meta-relation on the set of expressions of the language, that is you cannot refer to it explicitly in the language.
+This relation is used by the typechecker to compare expressions.
+The typechecker never compares expressions directly.
+To compare expressions <code class="highlighter-rouge">e_1</code> and <code class="highlighter-rouge">e_2</code>, it first evaluates their normal forms and then compares them.
+Since normal forms always exist, the comparison algorithm always terminates, but it is easy to write an expression that does not evaluate in any reasonable time.</p>
+
+<h2 id="types">Types</h2>
+
+<p>Every expression has a type. The notation <code class="highlighter-rouge">e : E</code> is used for the judgement that an expression <code class="highlighter-rouge">e</code> has type <code class="highlighter-rouge">E</code>.</p>
+
+<p>A type is an expression which has type <code class="highlighter-rouge">\Type</code>.
+The expression <code class="highlighter-rouge">\Type</code> is discussed in <a href="/language-reference/expressions/universes">this section</a>.</p>
+
+<p>Every variable has a type which is the one specified when the variable is defined or, if it is not specified, the
+one that can be inferred.
+An expression of the form <code class="highlighter-rouge">x</code> has the type of the variable <code class="highlighter-rouge">x</code>.</p>
+
+<p>The type of an expression can usually be inferred automatically, but in rare cases, when it cannot be inferred, or
+just for the sake of readability it can also be specified explicitly.
+An expression of the form <code class="highlighter-rouge">(e : E)</code> (parentheses are necessary) is equivalent to <code class="highlighter-rouge">e</code>, but also has an explicit type
+annotation.
+In this expression, <code class="highlighter-rouge">e</code> must have type <code class="highlighter-rouge">E</code> and the type of the whole expression is also <code class="highlighter-rouge">E</code> 
+(since it is equivalent to <code class="highlighter-rouge">e</code>).</p>
+
+<h2 id="defcalls">Defcalls</h2>
+
+<p>A <em>defcall</em> is an expression of the form <code class="highlighter-rouge">f a_1 ... a_n</code>, where <code class="highlighter-rouge">f</code> is the name of a definition with n parameters
+and <code class="highlighter-rouge">a_1, ..., a_n</code> are expressions. Note that classes and records do not have parameters and any defcall in this
+case is of the form <code class="highlighter-rouge">f</code>. Expression of the form <code class="highlighter-rouge">f a_1 ... a_n</code>, where <code class="highlighter-rouge">f</code> is the name of a class, are <em>class
+extensions</em>, see <a href="/language-reference/expressions/class-ext">this section</a> for details.</p>
+
+<p>Defcall expressions have the following properties:</p>
+
+<ul>
+  <li>
+    <p>If <code class="highlighter-rouge">f</code> is a definition with parameters <code class="highlighter-rouge">x_1</code>, … <code class="highlighter-rouge">x_n</code> and the result type <code class="highlighter-rouge">R</code>, then the type of a 
+defcall <code class="highlighter-rouge">f a_1 ... a_n</code> is <code class="highlighter-rouge">R[a_1/x_1, ... a_n/x_n]</code>.</p>
+  </li>
+  <li>
+    <p>If <code class="highlighter-rouge">f</code> is either a class, a record, a data type, a constructor without conditions, an instance, or a
+function defined by copattern matching, then <code class="highlighter-rouge">f a_1 ... a_n</code> is a normal form whenever <code class="highlighter-rouge">a_1</code>, … <code class="highlighter-rouge">a_n</code> are.</p>
+  </li>
+  <li>
+    <p>If <code class="highlighter-rouge">f</code> is a function defined as <code class="highlighter-rouge">\func f (x_1 : A_1) ... (x_n : A_n) =&gt; e</code>, then <code class="highlighter-rouge">f a_1 ... a_n</code> reduces
+to <code class="highlighter-rouge">e[a_1/x_1, ... a_n/x_n]</code>. If <code class="highlighter-rouge">f</code> is a function defined by pattern matching or a constructor with conditions, then the evaluation of
+defcalls <code class="highlighter-rouge">f a_1 ... a_n</code> is described in <a href="/language-reference/definitions/functions/#pattern-matching">this section</a>.
+If <code class="highlighter-rouge">f</code> is an instance or a function defined by copattern matching, then the evaluation of defcalls <code class="highlighter-rouge">f a_1 ... a_n</code> is described in <a href="/language-reference/definitions/instances">this section</a>.</p>
+  </li>
+  <li>
+    <p>If <code class="highlighter-rouge">f</code> has n parameters and k &lt; n, an expression of the form <code class="highlighter-rouge">f a_1 ... a_k</code> is also valid and is equivalent to
+<code class="highlighter-rouge">\lam a_{k+1} ... a_n =&gt; f a_1 ... a_n</code>.</p>
+  </li>
+</ul>
 
         
       </section>

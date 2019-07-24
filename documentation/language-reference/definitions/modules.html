@@ -1,0 +1,612 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Modules - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Modules">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/modules.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/modules.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">Arend Theorem Prover</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Language Reference</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/modules" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
+            
+              
+              
+
+              
+
+              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Modules">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Modules
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Modules</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#modules">Modules</a></li>
+  <li><a href="#where-blocks">Where blocks</a></li>
+  <li><a href="#open-commands">Open commands</a></li>
+  <li><a href="#import-commands">Import commands</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Every top-level definition is visible throughout the file it is contained, the order of definitions does not matter.
+The module system allows you to provide definitions in other namespaces.</p>
+
+<h2 id="modules">Modules</h2>
+
+<p>A module consists of a name and a list of definitions:</p>
+
+<pre><code class="language-arend">\module Mod \where {
+  def_1
+  ...
+  def_n
+}
+</code></pre>
+
+<p>You can refer to definitions <code class="highlighter-rouge">def_1</code> … <code class="highlighter-rouge">def_n</code> inside module <code class="highlighter-rouge">Mod</code> by their names.
+To refer to them outside this module, you need to use their full names <code class="highlighter-rouge">Mod.def_1</code> … <code class="highlighter-rouge">Mod.def_n</code>.
+For example, consider the following code:</p>
+
+<pre><code class="language-arend">\func f2 =&gt; Mod.f1
+\module Mod \where {
+  \func f1 =&gt; f2
+  \func f2 =&gt; 0
+  \func f3 =&gt; f4
+}
+\func f4 =&gt; f2
+</code></pre>
+
+<p>You cannot refer to <code class="highlighter-rouge">f1</code> in <code class="highlighter-rouge">f2</code> without <code class="highlighter-rouge">Mod.</code> prefix.
+Function <code class="highlighter-rouge">f4</code> refers to <code class="highlighter-rouge">f2</code> defined on the top level.
+Function <code class="highlighter-rouge">Mod.f2</code> hides the top level <code class="highlighter-rouge">f2</code> inside module <code class="highlighter-rouge">Mod</code>, so <code class="highlighter-rouge">Mod.f1</code> refers to <code class="highlighter-rouge">Mod.f2</code>.
+You can refer to top level functions inside modules as shown in the example where <code class="highlighter-rouge">Mod.f3</code> refers to <code class="highlighter-rouge">f4</code>.</p>
+
+<p>If a <code class="highlighter-rouge">\where</code> block contains only one definition, curly braces around it can be omitted.</p>
+<pre><code class="language-arend">\module Mod \where
+  \func f1 =&gt; 0
+</code></pre>
+
+<h2 id="where-blocks">Where blocks</h2>
+
+<p>Every definition has an associated module with the same name.
+To add definitions to this module, you can write the <code class="highlighter-rouge">\where</code> block at the end of this definition.
+Definitions defined in the associated module of a definition are visible inside this definition.</p>
+
+<pre><code class="language-arend">\func f =&gt; g \where \func g =&gt; 0
+\func h =&gt; f.g \where
+  \data D \where {
+    \func k =&gt; D
+    \func s =&gt; M.g.N.s
+  }
+\module M \where
+  \func g =&gt; N.s \where {
+    \module N \where {
+      \func s =&gt; E
+    }
+    \data E
+  }
+</code></pre>
+
+<p>Constructors of a <code class="highlighter-rouge">\data</code> definition and fields of a <code class="highlighter-rouge">\class</code> or a <code class="highlighter-rouge">\record</code> definition are defined inside the module associated to the definition, but they are also visible outside this module.
+In particular, in the following example <code class="highlighter-rouge">f1</code> and <code class="highlighter-rouge">f2</code> are defined by identical expressions.</p>
+<pre><code class="language-arend">\data d
+  | a
+  | b d
+
+\func f1 =&gt; b a
+\func f2 =&gt; d.b a
+</code></pre>
+<p>Normally the members of a where block do not interact with the definition to which the block is attached.
+However, where blocks of <code class="highlighter-rouge">\data</code> and <code class="highlighter-rouge">\class</code> definitions may contain special instructions that do modify the type of parent definition
+ (or e. g. introduce an automatic type coercion for it). 
+Such instructions begin with the keyword <code class="highlighter-rouge">\use</code> and are discussed in greater detail <a href="/language-reference/definitions/coercion">here</a> and <a href="/language-reference/definitions/level">here</a>.</p>
+
+<h2 id="open-commands">Open commands</h2>
+
+<p>The contents of a given module can be added to the current scope by means of <code class="highlighter-rouge">\open</code> command (this is called ‘opening’ a module).
+The <code class="highlighter-rouge">\open</code> command affects all definitions in the current scope.</p>
+
+<pre><code class="language-arend">\func h1 =&gt; f
+\module M \where {
+  \func f =&gt; 0
+  \func g =&gt; 1
+}
+\open M
+\func h2 =&gt; g
+</code></pre>
+
+<p>The command <code class="highlighter-rouge">\open M (def_1, ... def_n)</code> adds only definitions <code class="highlighter-rouge">def_1</code>, … <code class="highlighter-rouge">def_n</code> to the current scope.
+Other definitions must be refered to by their full names.</p>
+
+<p>The command <code class="highlighter-rouge">\open M \hiding (def_1, ... def_n)</code> adds all the definitions of <code class="highlighter-rouge">M</code> except for <code class="highlighter-rouge">def_1</code>, … <code class="highlighter-rouge">def_n</code>.
+These definitions still can be refered to by their full names.</p>
+
+<p>The command <code class="highlighter-rouge">\open M (def_1 \as def_1', ... def_n \as def_n')</code> adds definitions <code class="highlighter-rouge">def_1</code>, … <code class="highlighter-rouge">def_n</code> under the names <code class="highlighter-rouge">def_1'</code>, … <code class="highlighter-rouge">def_n'</code>, respectively.</p>
+
+<p>The command <code class="highlighter-rouge">\open M \using (def_1 \as def_1', ... def_n \as def_n')</code> can be used to add to the current scope all of the definitions of <code class="highlighter-rouge">M</code> while renaming some of them.</p>
+
+<pre><code class="language-arend">\module M \where {
+  \func f =&gt; 0
+  \func g =&gt; 1
+  \func h =&gt; 2
+}
+\module M1 \where {
+  \open M (f,g)
+  \func h1 =&gt; f
+  \func h2 =&gt; g
+  \func h3 =&gt; M.h -- we can refer to M.h only by its full name.
+}
+\module M2 \where {
+  \open M \hiding (f,g)
+  \func h1 =&gt; M.f -- we can refer to M.f and M.g only by their full names.
+  \func h2 =&gt; M.g
+  \func h3 =&gt; h
+}
+\module M3 \where {
+  \open M1 (h1 \as M1_h1, h2)
+  \open M2 \using (h2 \as M2_h2) \hiding (h3)
+  \func k1 =&gt; M1_h1 -- this refers to M1.h1
+  \func k2 =&gt; h1 -- this refers to M2.h1
+  \func k3 =&gt; h2 -- this refers to M1.h2
+  \func k4 =&gt; M2_h2 -- this refers to M2.h2
+  \func k5 =&gt; M1.h3 -- we can refer to M1.h3 only by its full name.
+}
+</code></pre>
+
+<p>Note that if you open a module <code class="highlighter-rouge">M</code> inside a module <code class="highlighter-rouge">M'</code> and then open <code class="highlighter-rouge">M'</code> inside <code class="highlighter-rouge">M''</code>, then definitions from <code class="highlighter-rouge">M</code> will not be visible in <code class="highlighter-rouge">M''</code>.
+You need to explicitly open <code class="highlighter-rouge">M</code> inside <code class="highlighter-rouge">M''</code> to make them visible.</p>
+
+<h2 id="import-commands">Import commands</h2>
+
+<p>If you have several files, you can use the <code class="highlighter-rouge">\import</code> command to make one of them visible in another.
+For example, suppose that we have files <code class="highlighter-rouge">A.ard</code>, <code class="highlighter-rouge">B.ard</code>, a directory <code class="highlighter-rouge">Dir</code>, and a file <code class="highlighter-rouge">Dir/C.ard</code> with the following content:</p>
+
+<pre><code class="language-arend">-- A.ard
+\func a1 =&gt; 0
+\func a2 =&gt; 0
+  \where \func a3 =&gt; 0
+</code></pre>
+
+<pre><code class="language-arend">-- Dir/C.ard
+\import A
+
+\func c1 =&gt; a1
+\func c2 =&gt; a2.a3
+</code></pre>
+
+<pre><code class="language-arend">-- B.ard
+\import Dir.C
+
+\func b1 =&gt; c1
+-- \func b2 =&gt; a1 -- definitions from file A are not visible
+-- \func b3 =&gt; A.a1 -- you cannot refer to definitions from file A by their full names.
+\func b4 =&gt; Dir.C.c2 -- you can refer to definitions from file Dir/C.ard by their full names.
+</code></pre>
+
+<p>The <code class="highlighter-rouge">\import</code> command also opens the content of the imported file.
+You can use the same syntax as for <code class="highlighter-rouge">\open</code> commands to control which definitions will be opened.
+If you want only to import a file and not to open any definitions, you can write <code class="highlighter-rouge">\import X ()</code>.
+Then you can refer to definitions from the file <code class="highlighter-rouge">X</code> by their full names:</p>
+
+<pre><code class="language-arend">-- X.ard
+\func f =&gt; 0
+</code></pre>
+
+<pre><code class="language-arend">-- Y.ard
+\import X()
+
+\func f =&gt; X.f
+</code></pre>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
