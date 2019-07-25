@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,7 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
             
           
             
@@ -258,54 +208,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +218,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -361,56 +266,34 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Getting Started</h4></header>
               <ul class="toc__menu">
-  <li><a href="#intellij-idea-plugin">IntelliJ IDEA Plugin</a></li>
+  <li><a href="#intellij-arend">IntelliJ Arend</a></li>
   <li><a href="#console-application">Console Application</a></li>
 </ul>
             </nav>
           </aside>
         
-        <p>You need to have <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">JRE 8</a>
-installed on your computer to use Arend.
-Arend is available either as an 
-<a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a> plugin (see <a href="#intellij-idea-plugin">this section</a> for the
-installation instructions) or as a console application (see <a href="#console-application">this section</a> for the installation
-instructions).</p>
+        <p>You need to have <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">JRE 8</a> installed on your computer to use Arend.
+Arend is available either as an <a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a> plugin (see <a href="#intellij-arend">IntelliJ Arend</a> for the installation instructions)
+or as a console application (see <a href="#console-application">Console Application</a> for the installation instructions).</p>
 
-<p>There is a standard library, containing a number of essential definitions and proofs, in particular, in
-constructive algebra and homotopy theory. It can be downloaded from <a href="https://github.com/JetBrains/arend-lib">here</a>.</p>
+<p>There is a standard library, containing a number of essential definitions and proofs, in particular, in constructive algebra and homotopy theory.
+It can be downloaded from <a href="https://github.com/JetBrains/arend-lib">GitHub</a>.</p>
 
-<h1 id="intellij-idea-plugin">IntelliJ IDEA Plugin</h1>
+<h1 id="intellij-arend">IntelliJ Arend</h1>
 
-<p>To install the IntelliJ IDEA plugin, follow the instructions below.</p>
+<p>IntelliJ Arend is a plugin for IntelliJ IDEA.
+To install it, follow the instructions below.</p>
 
 <ul>
   <li>Download (either community or ultimate version of) <a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a>.</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Run Intellij IDEA, choose either **Configure</td>
-          <td>Plugins** if you are on a <em>Welcome screen</em> or **File</td>
-          <td>Settings** from the main menu if a project is open, go to <strong>Plugins</strong> tab, search for <em>Arend</em> plugin and install it, restart Intellij IDEA.</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>Run Intellij IDEA, choose either <strong>Configure | Plugins</strong> if you are on a <em>Welcome screen</em> or <strong>File | Settings</strong> from the main menu if a project is open, go to <strong>Plugins</strong> tab, search for <em>Arend</em> plugin and install it, restart Intellij IDEA.</li>
   <li>Another way to get the latest version of the plugin is by following instructions on <a href="https://github.com/JetBrains/intellij-arend/blob/dev/README.md">this page</a>.</li>
 </ul>
 
 <p>Let’s create our first Arend project.</p>
 
 <ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Run Intellij IDEA and choose either <strong>Create New Project</strong> if you are on a <em>Welcome screen</em> or **File</td>
-          <td>New</td>
-          <td>Project** from the main menu if a project is open.</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>Run Intellij IDEA and choose either <strong>Create New Project</strong> if you are on a <em>Welcome screen</em> or <strong>File | New | Project</strong> from the main menu if a project is open.</li>
   <li>Choose <strong>Arend</strong> in the list on the left. If you want to use external libraries, for example, the standard library, 
 you can set up the path to a directory with
 these libraries in the panel on the right. In order to do this, click <strong>+</strong> button in the top left corner of the panel, select
@@ -420,7 +303,7 @@ these libraries in the panel on the right. In order to do this, click <strong>+<
 
 <p>You should get a new project which contains (among other files) a file <code class="highlighter-rouge">arend.yaml</code> and an empty source directory 
 (<code class="highlighter-rouge">src</code> by default).
-The <code class="highlighter-rouge">yaml</code> file contains a description of the project.
+The yaml file contains a description of the project.
 You can read more about this configuration file <a href="libraries">here</a>.</p>
 
 <p>If you want to use the standard library, you should add it to the list of dependencies in <strong>File | Project Structure</strong>.
@@ -431,21 +314,23 @@ dependencies.</p>
 
 <p>Create a new file <code class="highlighter-rouge">example.ard</code> in the source directory.
 Add the following line to this file:</p>
-<pre><code class="language-arend">\func f =&gt; 0
-</code></pre>
-<p>Right click <code class="highlighter-rouge">example.ard</code> file and choose <code class="highlighter-rouge">Run 'Typecheck example'</code> in the popup menu (you can also use shortcut <code class="highlighter-rouge">&lt;Alt+Shift+F10&gt;</code>).
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
+
+<p>Right click <code class="highlighter-rouge">example.ard</code> file and choose <code class="highlighter-rouge">Run 'Typecheck example'</code> in the popup menu (you can also use shortcut <strong>Alt+Shift+F10</strong>).
 You should see the message <em>All Tests Passed</em>, which indicates that the typechecking was successful.
 Modify the file as follows:</p>
-<pre><code class="language-arend">\func f : Nat -&gt; Nat =&gt; 0
-</code></pre>
-<p>Run the typechecking again (you can use shortcut <code class="highlighter-rouge">&lt;Shift+F10&gt;</code> for this).
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
+
+<p>Run the typechecking again (you can use shortcut <strong>Shift+F10</strong> for this).
 You should see the following error message:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>ERROR] example.ard:1:25: Type mismatch
-  Expected <span class="nb">type</span>: Nat -&gt; Nat
-    Actual <span class="nb">type</span>: Nat
-  In: 0
-  While processing: f
-</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ERROR] example.ard:1:25: Type mismatch
+  Expected type: Nat <span class="o">-&gt;</span> Nat
+    Actual type: Nat
+  In: <span class="n">0</span>
+  While processing: f</code></pre></div></div>
 
 <p>You can read more about IntelliJ IDEA <a href="https://www.jetbrains.com/help/idea/discover-intellij-idea.html">here</a>.
 To learn more about Arend, see the <a href="language-reference">language reference</a>.</p>
@@ -458,81 +343,89 @@ To learn more about Arend, see the <a href="language-reference">language referen
   <li>Download the Arend <a href="http://valis.github.io/arend.jar">jar file</a>. You can also get the latest version of the application by following instructions on <a href="https://github.com/JetBrains/arend/blob/master/README.md">this page</a>.</li>
   <li>Run <code class="highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:</li>
 </ul>
-<pre><code class="bash">$ java -jar arend.jar
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">$</span> java -jar arend.jar
 [INFO] Loading library prelude
 [INFO] Loaded library prelude
-Nothing to load
-</code></pre>
+Nothing to load</code></pre></div></div>
+
 <p>To see command line options, run <code class="highlighter-rouge">java -jar arend.jar --help</code>.</p>
 
 <p>Let’s create our first Arend project.
 Create a directory for your project:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mkdir testProject
-<span class="nv">$ </span><span class="nb">cd </span>testProject
-</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">$</span> mkdir testProject
+<span class="o">$</span> cd testProject</code></pre></div></div>
+
 <p>Create file <code class="highlighter-rouge">arend.yaml</code> inside this directory.
 This file contains the description of your project.
 Minimally, we just need to specify the location of source files of your project.
 Add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sourcesDir: src
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sourcesDir: src
 </code></pre></div></div>
 <p>In case you would also like to use the standard library add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies: <span class="o">[</span>arend-lib]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies: [arend-lib]
 </code></pre></div></div>
 <p>You can read more about this configuration file <a href="libraries">here</a>.</p>
 
 <p>Create directory <code class="highlighter-rouge">src</code> which will contain source files for this project.
 Create a file <code class="highlighter-rouge">example.ard</code> inside <code class="highlighter-rouge">src</code> with the following content:</p>
-<pre><code class="language-arend">\func f =&gt; 0
-</code></pre>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
+
 <p>Run <code class="highlighter-rouge">java -jar $arend $myProject</code>, where <code class="highlighter-rouge">$arend</code> is the path to <code class="highlighter-rouge">arend.jar</code> and <code class="highlighter-rouge">$myProject</code> is the path to <code class="highlighter-rouge">arend.yaml</code>.
 You should see the following output:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] Loading library prelude
-<span class="o">[</span>INFO] Loaded library prelude
-<span class="o">[</span>INFO] Loading library myProject
-<span class="o">[</span>INFO] Loaded library myProject
-<span class="nt">---</span> Typechecking myProject <span class="nt">---</span>
-<span class="o">[</span> <span class="o">]</span> example
-<span class="nt">---</span> Done <span class="nt">---</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
+[INFO] Loaded library prelude
+[INFO] Loading library myProject
+[INFO] Loaded library myProject
+--- Typechecking myProject ---
+[ ] example
+--- Done ---
 </code></pre></div></div>
 <p>This means that module <code class="highlighter-rouge">example</code> was successfully typechecked.</p>
 
 <p>Now let’s add something from the standard library. Change the contents of <code class="highlighter-rouge">example.ard</code> to the following:</p>
-<pre><code class="language-arend">\import Function
-\func f =&gt; id 0
-</code></pre>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Function
+<span class="k">\func</span> f <span class="o">=&gt;</span> id <span class="n">0</span></code></pre></div></div>
+
 <p>Run <code class="highlighter-rouge">java -jar $arend $myProject -L $libdir</code>, where <code class="highlighter-rouge">arend.jar</code> and <code class="highlighter-rouge">$myProject</code> as before and <code class="highlighter-rouge">$libdir</code> 
 is the path to the parent directory of the directory <code class="highlighter-rouge">arend-lib</code> of the standard library. You should see the following
 output:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] Loading library prelude
-<span class="o">[</span>INFO] Loaded library prelude
-<span class="o">[</span>INFO] Loading library myProject
-<span class="o">[</span>INFO] Loading library arend-lib
-<span class="o">[</span>INFO] Loaded library arend-lib
-<span class="o">[</span>INFO] Loaded library myProject
-<span class="nt">---</span> Typechecking myProject <span class="nt">---</span>
-<span class="o">[</span> <span class="o">]</span> example
-<span class="nt">---</span> Done <span class="nt">---</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
+[INFO] Loaded library prelude
+[INFO] Loading library myProject
+[INFO] Loading library arend-lib
+[INFO] Loaded library arend-lib
+[INFO] Loaded library myProject
+--- Typechecking myProject ---
+[ ] example
+--- Done ---
 </code></pre></div></div>
 
 <p>Modify file <code class="highlighter-rouge">example.ard</code> as follows:</p>
-<pre><code class="language-arend">\func f : Nat -&gt; Nat =&gt; 0
-</code></pre>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
+
 <p>If you run <code class="highlighter-rouge">java -jar $arend $myProject</code> again, it should produce the following error message:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] Loading library prelude
-<span class="o">[</span>INFO] Loaded library prelude
-<span class="o">[</span>INFO] Loading library myProject
-<span class="o">[</span>INFO] Loaded library myProject
-<span class="nt">---</span> Typechecking myProject <span class="nt">---</span>
-<span class="o">[</span>ERROR] example:1:25: Type mismatch
-  Expected <span class="nb">type</span>: Nat -&gt; Nat
-    Actual <span class="nb">type</span>: Nat
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
+[INFO] Loaded library prelude
+[INFO] Loading library myProject
+[INFO] Loaded library myProject
+--- Typechecking myProject ---
+[ERROR] example:1:25: Type mismatch
+  Expected type: Nat -&gt; Nat
+    Actual type: Nat
   In: 0
   While processing: f
-<span class="o">[</span>✗] example
+[✗] example
 Number of modules with errors: 1
-<span class="nt">---</span> Done <span class="nt">---</span>
+--- Done ---
 </code></pre></div></div>
+
+<p>To learn more about Arend, see the <a href="language-reference">language reference</a>.</p>
 
         
       </section>

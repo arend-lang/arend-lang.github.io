@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,72 @@
             <li><a href="/documentation/language-reference/definitions" class="active">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+                <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+              
             
           
             
@@ -258,54 +273,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +283,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -367,37 +337,36 @@
             </nav>
           </aside>
         
-        <p>Arend supports the following kinds of definitions: <a href="/language-reference/definitions/functions">functions</a>, <a href="/language-reference/definitions/data">data</a>, <a href="/language-reference/definitions/records">records</a>, <a href="/language-reference/definitions/classes">classes</a>, <a href="/language-reference/definitions/classes">instances</a>, and <a href="/language-reference/definitions/coercion">coercions</a>.
-Every definition has a name which must be a valid identifier as described <a href="/language-reference/lexical-structure/#identifiers">here</a>.</p>
+        <p>Arend supports the following kinds of definitions: <a href="functions">functions</a>, <a href="data">data</a>, <a href="records">records</a>, <a href="classes">classes</a>, <a href="classes/#instances">instances</a>, and <a href="coercion">coercions</a>.
+Every definition has a name which must be a valid identifier as described in <a href="../lexical-structure/#identifiers">Lexical structure</a>.</p>
 
 <p>Definitions can be referred by <em>defcall</em> expressions.
-If <code class="highlighter-rouge">def</code> is a name of a definition, defcall is an expression of the form:
-<code class="highlighter-rouge">def e_1 ... e_n</code>, where <code class="highlighter-rouge">e_1</code>, …, <code class="highlighter-rouge">e_n</code> are expressions.
-Expressions <code class="highlighter-rouge">e_1</code>, …, <code class="highlighter-rouge">e_n</code> are called arguments of the defcall.</p>
+If <span class="inl-highlight">def</span> is a name of a definition, defcall is an expression of the form:
+<span class="inl-highlight">def e_1 … e_n</span>, where <span class="inl-highlight">e_1<span class="o">,</span> …<span class="o">,</span> e_n</span> are expressions.
+Expressions <span class="inl-highlight">e_1<span class="o">,</span> …<span class="o">,</span> e_n</span> are called arguments of the defcall.</p>
 
 <p>There are alternative notations in case a defcall has precisely one or two arguments.
-In case of two arguments, it is possible to use the infix notation: <code class="highlighter-rouge">def e_1 e_2</code> is equivalent
-to <code class="highlighter-rouge">e_1 `def` e_2</code>.
-In case of one argument, it is possible to use the postfix notation: <code class="highlighter-rouge">def e_1</code> is equivalent to <code class="highlighter-rouge">e_1 `def</code>.</p>
+In case of two arguments, it is possible to use the infix notation: <span class="inl-highlight">def e_1 e_2</span> is equivalent
+to <span class="inl-highlight">e_1 <span class="k">`def`</span> e_2</span>.
+In case of one argument, it is possible to use the postfix notation: <span class="inl-highlight">def e_1</span> is equivalent to <span class="inl-highlight">e_1 <span class="k">`def</span></span>.</p>
 
 <h2 id="precedence">Precedence</h2>
 
 <p>The parsing of complex defcall expressions, containing several infix and postfix notations, is regulated by precedence
 of involved definitions: their priority and the type of associativity. Precedence of a definition can be specified
-by writing <code class="highlighter-rouge">FIX_KW N</code> just before the name of the definition, where <code class="highlighter-rouge">FIX_KW</code> is one of keywords
-<code class="highlighter-rouge">\fixl</code>, <code class="highlighter-rouge">\fixr</code> or <code class="highlighter-rouge">\fix</code>,
-which mark the definition as left, right associative or non-associative respectively, and <code class="highlighter-rouge">N</code> is the priority, 
-which is an integer between 1 and 9. For example, <code class="highlighter-rouge">\func \fixl 3 op (a b : Nat) =&gt; 0</code> defines a binary function
-named <code class="highlighter-rouge">op</code> which is left associative with priority 3. The default precedence is <code class="highlighter-rouge">\fixr 10</code>.</p>
+by writing <span class="inl-highlight">FIX N</span> just before the name of the definition, where <span class="inl-highlight">FIX</span> is one of keywords
+<span class="inl-highlight"><span class="k">\fixl</span></span>, <span class="inl-highlight"><span class="k">\fixr</span></span> or <span class="inl-highlight"><span class="k">\fix</span></span>,
+which mark the definition as left, right associative or non-associative respectively, and <span class="inl-highlight">N</span> is the priority, 
+which is an integer between 1 and 9. For example, <span class="inl-highlight"><span class="k">\func</span> <span class="k">\fixl</span> <span class="n">3</span> op (a b <span class="o">:</span> Nat) <span class="o">=&gt;</span> <span class="n">0</span></span> defines a binary function
+named <span class="inl-highlight">op</span> which is left associative with priority 3. The default precedence is <span class="inl-highlight"><span class="k">\fixr</span> <span class="n">10</span></span>.</p>
 
-<p>If <code class="highlighter-rouge">op1</code> and <code class="highlighter-rouge">op2</code> are two definitions and <code class="highlighter-rouge">e1,e2,e3</code> are expressions, the expression
-<code class="highlighter-rouge">e1 `op1` e2 `op2` e3</code> is parsed according to the following rules:</p>
+<p>If <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> are two definitions and <span class="inl-highlight">e1<span class="o">,</span> e2<span class="o">,</span> e3</span> are expressions,
+the expression <span class="inl-highlight">e1 <span class="k">`op1`</span> e2 <span class="k">`op2`</span> e3</span> is parsed according to the following rules:</p>
 
 <ul>
-  <li>If priorities of <code class="highlighter-rouge">op1</code> and <code class="highlighter-rouge">op2</code> are different and, say, the priority of <code class="highlighter-rouge">op1</code> is higher, then the expression
-is parsed as <code class="highlighter-rouge">(e1 `op1` e2) `op2` e3</code>.</li>
-  <li>Assume priorities of <code class="highlighter-rouge">op1</code> and <code class="highlighter-rouge">op2</code> are the same. If they are both left or both right associative, the expression is
-parsed as <code class="highlighter-rouge">(e1 `op1` e2) `op2` e3</code> or <code class="highlighter-rouge">e1 `op1` (e2 `op2` e3)</code> respectively. If <code class="highlighter-rouge">op1</code> and <code class="highlighter-rouge">op2</code> have
+  <li>If priorities of <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> are different and, say, the priority of <span class="inl-highlight">op1</span> is higher, then the expression is parsed as <span class="inl-highlight">(e1 <span class="k">`op1`</span> e2) <span class="k">`op2`</span> e3</span>.</li>
+  <li>Assume priorities of <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> are the same. If they are both left or both right associative, the expression is
+parsed as <span class="inl-highlight">(e1 <span class="k">`op1`</span> e2) <span class="k">`op2`</span> e3</span> or <span class="inl-highlight">e1 <span class="k">`op1`</span> (e2 <span class="k">`op2`</span> e3)</span> respectively. If <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> have
 different types of associativity or are non-associative, then the parsing error is generated.</li>
 </ul>
 
@@ -405,18 +374,18 @@ different types of associativity or are non-associative, then the parsing error 
 
 <p>A definition can be labeled as an <em>infix operator</em>.
 This means that its defcalls are parsed as infix notations even without <code class="highlighter-rouge">` `</code>.
-An infix operator is defined by specifying one of keywords <code class="highlighter-rouge">\infixl</code>, <code class="highlighter-rouge">\infixr</code>, <code class="highlighter-rouge">\infix</code> before the name of operator.
-These keywords have the same syntax and semantics as keywords <code class="highlighter-rouge">\fixl</code>, <code class="highlighter-rouge">\fixr</code>, and <code class="highlighter-rouge">\fix</code>, which are described above.</p>
+An infix operator is defined by specifying one of keywords <span class="inl-highlight"><span class="k">\infixl</span></span>, <span class="inl-highlight"><span class="k">\infixr</span></span>, <span class="inl-highlight"><span class="k">\infix</span></span> before the name of operator.
+These keywords have the same syntax and semantics as keywords <span class="inl-highlight"><span class="k">\fixl</span></span>, <span class="inl-highlight"><span class="k">\fixr</span></span>, and <span class="inl-highlight"><span class="k">\fix</span></span>, which are described above.</p>
 
 <p>An infix operator can be used in the prefix form as an ordinary definition.
-For example, if the function <code class="highlighter-rouge">+</code> is defined as <code class="highlighter-rouge">\infixl 6 +</code>, then it is allowed to write either <code class="highlighter-rouge">+ 1 2</code> or <code class="highlighter-rouge">1 + 2</code>; 
+For example, if the function <span class="inl-highlight"><span class="o">+</span></span> is defined as <span class="inl-highlight"><span class="k">\infixl</span> <span class="n">6</span> <span class="o">+</span></span>, then it is allowed to write either <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span> <span class="n">2</span></span> or <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span> <span class="n">2</span></span>; 
 these expressions are equivalent.</p>
 
-<p>Finally, if <code class="highlighter-rouge">f</code> is an infix operator or an operator surrounded with <code class="highlighter-rouge">` `</code>, then it is allowed to write <code class="highlighter-rouge">e f</code> and
-this is equivalent to <code class="highlighter-rouge">f e</code>.
-For example, the function that adds 1 to its argument can be written either as <code class="highlighter-rouge">1 +</code> or as <code class="highlighter-rouge">+ 1</code>.
-The result of application of the first function to 2 is <code class="highlighter-rouge">1 + 2</code>, the result of application of the second one to 2
-is <code class="highlighter-rouge">+ 1 2</code>, and as noted before these expressions are equivalent.</p>
+<p>Finally, if <span class="inl-highlight">f</span> is an infix operator or an operator surrounded with <code class="highlighter-rouge">` `</code>, then it is allowed to write <span class="inl-highlight">e f</span> and
+this is equivalent to <span class="inl-highlight">f e</span>.
+For example, the function that adds <span class="inl-highlight"><span class="n">1</span></span> to its argument can be written either as <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span></span> or as <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span></span>.
+The result of application of the first function to <span class="inl-highlight"><span class="n">2</span></span> is <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span> <span class="n">2</span></span>, the result of application of the second one to <span class="inl-highlight"><span class="n">2</span></span>
+is <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span> <span class="n">2</span></span>, and as noted before these expressions are equivalent.</p>
 
         
       </section>

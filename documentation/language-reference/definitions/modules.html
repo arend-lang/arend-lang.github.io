@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,72 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/modules" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+                <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+              
             
           
             
@@ -258,54 +273,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +283,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -376,167 +346,158 @@ The module system allows you to provide definitions in other namespaces.</p>
 
 <p>A module consists of a name and a list of definitions:</p>
 
-<pre><code class="language-arend">\module Mod \where {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> Mod <span class="k">\where</span> {
   def_1
   ...
   def_n
-}
-</code></pre>
+}</code></pre></div></div>
 
-<p>You can refer to definitions <code class="highlighter-rouge">def_1</code> … <code class="highlighter-rouge">def_n</code> inside module <code class="highlighter-rouge">Mod</code> by their names.
-To refer to them outside this module, you need to use their full names <code class="highlighter-rouge">Mod.def_1</code> … <code class="highlighter-rouge">Mod.def_n</code>.
+<p>You can refer to definitions <span class="inl-highlight">def_1 … def_n</span> inside module <span class="inl-highlight">Mod</span> by their names.
+To refer to them outside this module, you need to use their full names <span class="inl-highlight">Mod.def_1 … Mod.def_n</span>.
 For example, consider the following code:</p>
 
-<pre><code class="language-arend">\func f2 =&gt; Mod.f1
-\module Mod \where {
-  \func f1 =&gt; f2
-  \func f2 =&gt; 0
-  \func f3 =&gt; f4
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f2 <span class="o">=&gt;</span> Mod.f1
+<span class="k">\module</span> Mod <span class="k">\where</span> {
+  <span class="k">\func</span> f1 <span class="o">=&gt;</span> f2
+  <span class="k">\func</span> f2 <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="k">\func</span> f3 <span class="o">=&gt;</span> f4
 }
-\func f4 =&gt; f2
-</code></pre>
+<span class="k">\func</span> f4 <span class="o">=&gt;</span> f2</code></pre></div></div>
 
-<p>You cannot refer to <code class="highlighter-rouge">f1</code> in <code class="highlighter-rouge">f2</code> without <code class="highlighter-rouge">Mod.</code> prefix.
-Function <code class="highlighter-rouge">f4</code> refers to <code class="highlighter-rouge">f2</code> defined on the top level.
-Function <code class="highlighter-rouge">Mod.f2</code> hides the top level <code class="highlighter-rouge">f2</code> inside module <code class="highlighter-rouge">Mod</code>, so <code class="highlighter-rouge">Mod.f1</code> refers to <code class="highlighter-rouge">Mod.f2</code>.
-You can refer to top level functions inside modules as shown in the example where <code class="highlighter-rouge">Mod.f3</code> refers to <code class="highlighter-rouge">f4</code>.</p>
+<p>You cannot refer to <span class="inl-highlight">f1</span> in <span class="inl-highlight">f2</span> without <span class="inl-highlight">Mod.</span> prefix.
+Function <span class="inl-highlight">f4</span> refers to <span class="inl-highlight">f2</span> defined on the top level.
+Function <span class="inl-highlight">Mod.f2</span> hides the top level <span class="inl-highlight">f2</span> inside module <span class="inl-highlight">Mod</span>, so <span class="inl-highlight">Mod.f1</span> refers to <span class="inl-highlight">Mod.f2</span>.
+You can refer to top level functions inside modules as shown in the example where <span class="inl-highlight">Mod.f3</span> refers to <span class="inl-highlight">f4</span>.</p>
 
-<p>If a <code class="highlighter-rouge">\where</code> block contains only one definition, curly braces around it can be omitted.</p>
-<pre><code class="language-arend">\module Mod \where
-  \func f1 =&gt; 0
-</code></pre>
+<p>If a <span class="inl-highlight"><span class="k">\where</span></span> block contains only one definition, curly braces around it can be omitted.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> Mod <span class="k">\where</span>
+  <span class="k">\func</span> f1 <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
 <h2 id="where-blocks">Where blocks</h2>
 
 <p>Every definition has an associated module with the same name.
-To add definitions to this module, you can write the <code class="highlighter-rouge">\where</code> block at the end of this definition.
+To add definitions to this module, you can write the <span class="inl-highlight"><span class="k">\where</span></span> block at the end of this definition.
 Definitions defined in the associated module of a definition are visible inside this definition.</p>
 
-<pre><code class="language-arend">\func f =&gt; g \where \func g =&gt; 0
-\func h =&gt; f.g \where
-  \data D \where {
-    \func k =&gt; D
-    \func s =&gt; M.g.N.s
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> g <span class="k">\where</span> <span class="k">\func</span> g <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> h <span class="o">=&gt;</span> f.g <span class="k">\where</span>
+  <span class="k">\data</span> D <span class="k">\where</span> {
+    <span class="k">\func</span> k <span class="o">=&gt;</span> D
+    <span class="k">\func</span> s <span class="o">=&gt;</span> M.g.N.s
   }
-\module M \where
-  \func g =&gt; N.s \where {
-    \module N \where {
-      \func s =&gt; E
+<span class="k">\module</span> M <span class="k">\where</span>
+  <span class="k">\func</span> g <span class="o">=&gt;</span> N.s <span class="k">\where</span> {
+    <span class="k">\module</span> N <span class="k">\where</span> {
+      <span class="k">\func</span> s <span class="o">=&gt;</span> E
     }
-    \data E
-  }
-</code></pre>
+    <span class="k">\data</span> E
+  }</code></pre></div></div>
 
-<p>Constructors of a <code class="highlighter-rouge">\data</code> definition and fields of a <code class="highlighter-rouge">\class</code> or a <code class="highlighter-rouge">\record</code> definition are defined inside the module associated to the definition, but they are also visible outside this module.
-In particular, in the following example <code class="highlighter-rouge">f1</code> and <code class="highlighter-rouge">f2</code> are defined by identical expressions.</p>
-<pre><code class="language-arend">\data d
-  | a
-  | b d
+<p>Constructors of a <span class="inl-highlight"><span class="k">\data</span></span> definition and fields of a <span class="inl-highlight"><span class="k">\class</span></span> or a <span class="inl-highlight"><span class="k">\record</span></span> definition are defined inside the module associated to the definition, but they are also visible outside this module.
+In particular, in the following example <span class="inl-highlight">f1</span> and <span class="inl-highlight">f2</span> are defined by identical expressions.</p>
 
-\func f1 =&gt; b a
-\func f2 =&gt; d.b a
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> d
+  <span class="o">|</span> a
+  <span class="o">|</span> b d
+
+<span class="k">\func</span> f1 <span class="o">=&gt;</span> b a
+<span class="k">\func</span> f2 <span class="o">=&gt;</span> d.b a</code></pre></div></div>
+
 <p>Normally the members of a where block do not interact with the definition to which the block is attached.
-However, where blocks of <code class="highlighter-rouge">\data</code> and <code class="highlighter-rouge">\class</code> definitions may contain special instructions that do modify the type of parent definition
+However, where blocks of <span class="inl-highlight"><span class="k">\data</span></span> and <span class="inl-highlight"><span class="k">\class</span></span> definitions may contain special instructions that do modify the type of parent definition
  (or e. g. introduce an automatic type coercion for it). 
-Such instructions begin with the keyword <code class="highlighter-rouge">\use</code> and are discussed in greater detail <a href="/language-reference/definitions/coercion">here</a> and <a href="/language-reference/definitions/level">here</a>.</p>
+Such instructions begin with the keyword <span class="inl-highlight"><span class="k">\use</span></span> and are discussed in greater detail in <a href="coercion">Coercion</a> and <a href="level">Level</a>.</p>
 
 <h2 id="open-commands">Open commands</h2>
 
-<p>The contents of a given module can be added to the current scope by means of <code class="highlighter-rouge">\open</code> command (this is called ‘opening’ a module).
-The <code class="highlighter-rouge">\open</code> command affects all definitions in the current scope.</p>
+<p>The contents of a given module can be added to the current scope by means of <span class="inl-highlight"><span class="k">\open</span></span> command (this is called ‘opening’ a module).
+The <span class="inl-highlight"><span class="k">\open</span></span> command affects all definitions in the current scope.</p>
 
-<pre><code class="language-arend">\func h1 =&gt; f
-\module M \where {
-  \func f =&gt; 0
-  \func g =&gt; 1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> h1 <span class="o">=&gt;</span> f
+<span class="k">\module</span> M <span class="k">\where</span> {
+  <span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="k">\func</span> g <span class="o">=&gt;</span> <span class="n">1</span>
 }
-\open M
-\func h2 =&gt; g
-</code></pre>
+<span class="k">\open</span> M
+<span class="k">\func</span> h2 <span class="o">=&gt;</span> g</code></pre></div></div>
 
-<p>The command <code class="highlighter-rouge">\open M (def_1, ... def_n)</code> adds only definitions <code class="highlighter-rouge">def_1</code>, … <code class="highlighter-rouge">def_n</code> to the current scope.
+<p>The command <span class="inl-highlight"><span class="k">\open</span> M (def_1<span class="o">,</span> … def_n)</span> adds only definitions <span class="inl-highlight">def_1<span class="o">,</span> … def_n</span> to the current scope.
 Other definitions must be refered to by their full names.</p>
 
-<p>The command <code class="highlighter-rouge">\open M \hiding (def_1, ... def_n)</code> adds all the definitions of <code class="highlighter-rouge">M</code> except for <code class="highlighter-rouge">def_1</code>, … <code class="highlighter-rouge">def_n</code>.
+<p>The command <span class="inl-highlight"><span class="k">\open</span> M <span class="k">\hiding</span> (def_1<span class="o">,</span> … def_n)</span> adds all the definitions of <span class="inl-highlight">M</span> except for <span class="inl-highlight">def_1<span class="o">,</span> … def_n</span>.
 These definitions still can be refered to by their full names.</p>
 
-<p>The command <code class="highlighter-rouge">\open M (def_1 \as def_1', ... def_n \as def_n')</code> adds definitions <code class="highlighter-rouge">def_1</code>, … <code class="highlighter-rouge">def_n</code> under the names <code class="highlighter-rouge">def_1'</code>, … <code class="highlighter-rouge">def_n'</code>, respectively.</p>
+<p>The command <span class="inl-highlight"><span class="k">\open</span> M (def_1 <span class="k">\as</span> def_1’<span class="o">,</span> … def_n <span class="k">\as</span> def_n’)</span> adds definitions <span class="inl-highlight">def_1<span class="o">,</span> … def_n</span> under the names <span class="inl-highlight">def_1’<span class="o">,</span> … def_n’</span>, respectively.</p>
 
-<p>The command <code class="highlighter-rouge">\open M \using (def_1 \as def_1', ... def_n \as def_n')</code> can be used to add to the current scope all of the definitions of <code class="highlighter-rouge">M</code> while renaming some of them.</p>
+<p>The command <span class="inl-highlight"><span class="k">\open</span> M <span class="k">\using</span> (def_1 <span class="k">\as</span> def_1’<span class="o">,</span> … def_n <span class="k">\as</span> def_n’)</span> can be used to add to the current scope all of the definitions of <span class="inl-highlight">M</span> while renaming some of them.</p>
 
-<pre><code class="language-arend">\module M \where {
-  \func f =&gt; 0
-  \func g =&gt; 1
-  \func h =&gt; 2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> M <span class="k">\where</span> {
+  <span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="k">\func</span> g <span class="o">=&gt;</span> <span class="n">1</span>
+  <span class="k">\func</span> h <span class="o">=&gt;</span> <span class="n">2</span>
 }
-\module M1 \where {
-  \open M (f,g)
-  \func h1 =&gt; f
-  \func h2 =&gt; g
-  \func h3 =&gt; M.h -- we can refer to M.h only by its full name.
+<span class="k">\module</span> M1 <span class="k">\where</span> {
+  <span class="k">\open</span> M (f<span class="o">,</span>g)
+  <span class="k">\func</span> h1 <span class="o">=&gt;</span> f
+  <span class="k">\func</span> h2 <span class="o">=&gt;</span> g
+  <span class="k">\func</span> h3 <span class="o">=&gt;</span> M.h <span class="c">-- we can refer to M.h only by its full name.</span>
 }
-\module M2 \where {
-  \open M \hiding (f,g)
-  \func h1 =&gt; M.f -- we can refer to M.f and M.g only by their full names.
-  \func h2 =&gt; M.g
-  \func h3 =&gt; h
+<span class="k">\module</span> M2 <span class="k">\where</span> {
+  <span class="k">\open</span> M <span class="k">\hiding</span> (f<span class="o">,</span>g)
+  <span class="k">\func</span> h1 <span class="o">=&gt;</span> M.f <span class="c">-- we can refer to M.f and M.g only by their full names.</span>
+  <span class="k">\func</span> h2 <span class="o">=&gt;</span> M.g
+  <span class="k">\func</span> h3 <span class="o">=&gt;</span> h
 }
-\module M3 \where {
-  \open M1 (h1 \as M1_h1, h2)
-  \open M2 \using (h2 \as M2_h2) \hiding (h3)
-  \func k1 =&gt; M1_h1 -- this refers to M1.h1
-  \func k2 =&gt; h1 -- this refers to M2.h1
-  \func k3 =&gt; h2 -- this refers to M1.h2
-  \func k4 =&gt; M2_h2 -- this refers to M2.h2
-  \func k5 =&gt; M1.h3 -- we can refer to M1.h3 only by its full name.
-}
-</code></pre>
+<span class="k">\module</span> M3 <span class="k">\where</span> {
+  <span class="k">\open</span> M1 (h1 <span class="k">\as</span> M1_h1<span class="o">,</span> h2)
+  <span class="k">\open</span> M2 <span class="k">\using</span> (h2 <span class="k">\as</span> M2_h2) <span class="k">\hiding</span> (h3)
+  <span class="k">\func</span> k1 <span class="o">=&gt;</span> M1_h1 <span class="c">-- this refers to M1.h1</span>
+  <span class="k">\func</span> k2 <span class="o">=&gt;</span> h1 <span class="c">-- this refers to M2.h1</span>
+  <span class="k">\func</span> k3 <span class="o">=&gt;</span> h2 <span class="c">-- this refers to M1.h2</span>
+  <span class="k">\func</span> k4 <span class="o">=&gt;</span> M2_h2 <span class="c">-- this refers to M2.h2</span>
+  <span class="k">\func</span> k5 <span class="o">=&gt;</span> M1.h3 <span class="c">-- we can refer to M1.h3 only by its full name.</span>
+}</code></pre></div></div>
 
-<p>Note that if you open a module <code class="highlighter-rouge">M</code> inside a module <code class="highlighter-rouge">M'</code> and then open <code class="highlighter-rouge">M'</code> inside <code class="highlighter-rouge">M''</code>, then definitions from <code class="highlighter-rouge">M</code> will not be visible in <code class="highlighter-rouge">M''</code>.
-You need to explicitly open <code class="highlighter-rouge">M</code> inside <code class="highlighter-rouge">M''</code> to make them visible.</p>
+<p>Note that if you open a module <span class="inl-highlight">M</span> inside a module <span class="inl-highlight">M’</span> and then open <span class="inl-highlight">M’</span> inside <span class="inl-highlight">M’’</span>, then definitions from <span class="inl-highlight">M</span> will not be visible in <span class="inl-highlight">M’’</span>.
+You need to explicitly open <span class="inl-highlight">M</span> inside <span class="inl-highlight">M’’</span> to make them visible.</p>
 
 <h2 id="import-commands">Import commands</h2>
 
-<p>If you have several files, you can use the <code class="highlighter-rouge">\import</code> command to make one of them visible in another.
-For example, suppose that we have files <code class="highlighter-rouge">A.ard</code>, <code class="highlighter-rouge">B.ard</code>, a directory <code class="highlighter-rouge">Dir</code>, and a file <code class="highlighter-rouge">Dir/C.ard</code> with the following content:</p>
+<p>If you have several files, you can use the <span class="inl-highlight"><span class="k">\import</span></span> command to make one of them visible in another.
+For example, suppose that we have files <span class="inl-highlight">A.ard</span>, <span class="inl-highlight">B.ard</span>, a directory <span class="inl-highlight">Dir</span>, and a file <span class="inl-highlight">Dir/C.ard</span> with the following content:</p>
 
-<pre><code class="language-arend">-- A.ard
-\func a1 =&gt; 0
-\func a2 =&gt; 0
-  \where \func a3 =&gt; 0
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- A.ard</span>
+<span class="k">\func</span> a1 <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> a2 <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="k">\where</span> <span class="k">\func</span> a3 <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<pre><code class="language-arend">-- Dir/C.ard
-\import A
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Dir/C.ard</span>
+<span class="k">\import</span> A
 
-\func c1 =&gt; a1
-\func c2 =&gt; a2.a3
-</code></pre>
+<span class="k">\func</span> c1 <span class="o">=&gt;</span> a1
+<span class="k">\func</span> c2 <span class="o">=&gt;</span> a2.a3</code></pre></div></div>
 
-<pre><code class="language-arend">-- B.ard
-\import Dir.C
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- B.ard</span>
+<span class="k">\import</span> Dir.C
 
-\func b1 =&gt; c1
--- \func b2 =&gt; a1 -- definitions from file A are not visible
--- \func b3 =&gt; A.a1 -- you cannot refer to definitions from file A by their full names.
-\func b4 =&gt; Dir.C.c2 -- you can refer to definitions from file Dir/C.ard by their full names.
-</code></pre>
+<span class="k">\func</span> b1 <span class="o">=&gt;</span> c1
+<span class="c">-- \func b2 =&gt; a1 -- definitions from file A are not visible</span>
+<span class="c">-- \func b3 =&gt; A.a1 -- you cannot refer to definitions from file A by their full names.</span>
+<span class="k">\func</span> b4 <span class="o">=&gt;</span> Dir.C.c2 <span class="c">-- you can refer to definitions from file Dir/C.ard by their full names.</span></code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">\import</code> command also opens the content of the imported file.
-You can use the same syntax as for <code class="highlighter-rouge">\open</code> commands to control which definitions will be opened.
-If you want only to import a file and not to open any definitions, you can write <code class="highlighter-rouge">\import X ()</code>.
-Then you can refer to definitions from the file <code class="highlighter-rouge">X</code> by their full names:</p>
+<p>The <span class="inl-highlight"><span class="k">\import</span></span> command also opens the content of the imported file.
+You can use the same syntax as for <span class="inl-highlight"><span class="k">\open</span></span> commands to control which definitions will be opened.
+If you want only to import a file and not to open any definitions, you can write <span class="inl-highlight"><span class="k">\import</span> X ()</span>.
+Then you can refer to definitions from the file <span class="inl-highlight">X</span> by their full names:</p>
 
-<pre><code class="language-arend">-- X.ard
-\func f =&gt; 0
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- X.ard</span>
+<span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<pre><code class="language-arend">-- Y.ard
-\import X()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Y.ard</span>
+<span class="k">\import</span> X()
 
-\func f =&gt; X.f
-</code></pre>
+<span class="k">\func</span> f <span class="o">=&gt;</span> X.f</code></pre></div></div>
 
         
       </section>

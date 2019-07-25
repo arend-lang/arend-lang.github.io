@@ -148,7 +148,7 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Download</h4></header>
               <ul class="toc__menu">
-  <li><a href="#intellij-idea-plugin">IntelliJ IDEA Plugin</a></li>
+  <li><a href="#intellij-arend">IntelliJ Arend</a></li>
   <li><a href="#console-application">Console Application</a></li>
   <li><a href="#standard-library">Standard Library</a></li>
 </ul>
@@ -158,9 +158,10 @@
         <p>You need to have JRE 8 installed on your computer to use Arend.
 Arend is available either as an <a href="#intellij-idea-plugin">IntelliJ IDEA plugin</a> or as a <a href="#console-application">console application</a>.</p>
 
-<h2 id="intellij-idea-plugin">IntelliJ IDEA Plugin</h2>
+<h2 id="intellij-arend">IntelliJ Arend</h2>
 
-<p>To install the IntelliJ IDEA plugin, follow the instructions below.</p>
+<p>IntelliJ Arend is a plugin for IntelliJ IDEA.
+To install it, follow the instructions below.</p>
 
 <ul>
   <li>Download (either community or ultimate version of) <a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a>.</li>
@@ -169,31 +170,30 @@ Arend is available either as an <a href="#intellij-idea-plugin">IntelliJ IDEA pl
 </ul>
 
 <p>You can read more about IntelliJ IDEA <a href="https://www.jetbrains.com/help/idea/discover-intellij-idea.html">here</a>.
-To create an Arend project, follow instructions <a href="https://arend.readthedocs.io/en/latest/getting-started/#intellij-idea-plugin">here</a>.</p>
+To create an Arend project, follow instructions <a href="/documentation/getting-started/#intellij-arend">here</a>.</p>
 
 <h2 id="console-application">Console Application</h2>
 
 <p>To install the console application, follow the instructions below.</p>
 
 <ul>
-  <li>Download the arend <a href="http://valis.github.io/arend.jar">jar file</a>.
-You can also get the latest version of the plugin by following instructions on <a href="https://github.com/JetBrains/arend/blob/master/README.md">this page</a>.</li>
-  <li>Run <code class="highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:
-    <pre><code class="bash">$ java -jar arend.jar
-[INFO] Loading library prelude
-[INFO] Loaded library prelude
-Nothing to load
-</code></pre>
-    <p>To see command line options, run <code class="highlighter-rouge">java -jar arend.jar --help</code>.</p>
-  </li>
+  <li>Download the Arend <a href="http://valis.github.io/arend.jar">jar file</a>. You can also get the latest version of the application by following instructions on <a href="https://github.com/JetBrains/arend/blob/master/README.md">this page</a>.</li>
+  <li>Run <code class="highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:</li>
 </ul>
 
-<p>To create an Arend project, follow instructions <a href="https://arend.readthedocs.io/en/latest/getting-started/#console-application">here</a>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">$</span> java -jar arend.jar
+[INFO] Loading library prelude
+[INFO] Loaded library prelude
+Nothing to load</code></pre></div></div>
+
+<p>To see command line options, run <code class="highlighter-rouge">java -jar arend.jar --help</code>.</p>
+
+<p>To create an Arend project, follow instructions <a href="/documentation/getting-started/#console-application">here</a>.</p>
 
 <h2 id="standard-library">Standard Library</h2>
 
-<p>The standard library contains a number of essential definitions and proofs, in particular,
-in constructive algebra and homotopy theory. It can be downloaded from <a href="https://github.com/JetBrains/arend-lib">here</a>.</p>
+<p>The standard library contains a number of essential definitions and proofs, in particular, in constructive algebra and homotopy theory.
+It can be downloaded from <a href="https://github.com/JetBrains/arend-lib">GitHub</a>.</p>
 
         
       </section>

@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,72 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/level" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+                <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/definitions/level" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+              
             
           
             
@@ -258,54 +273,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +283,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -367,79 +337,77 @@
             </nav>
           </aside>
         
-        <p>This module is devoted to a number of tools useful for working with homotopy levels of 
-<a href="/language-reference/expressions/universes">universes</a>.</p>
+        <p>This module is devoted to a number of tools useful for working with homotopy levels of <a href="../expressions/universes">universes</a>.</p>
 
 <h2 id="use-level">Use level</h2>
 
 <p>The homotopy level of a definition is inferred automatically, but sometimes it is possible to prove that it has a smaller level.
 For example, we can define the following data types:</p>
-<pre><code class="language-arend">\data Empty
-\data Dec (P : \Prop) | yes P | no (P -&gt; Empty)
-</code></pre>
 
-<p>The type of <code class="highlighter-rouge">Empty</code> is inferred to <code class="highlighter-rouge">\Prop</code>, which is the right universe for the type.
-However, this is not as easy for the type <code class="highlighter-rouge">Dec P</code>: the type of <code class="highlighter-rouge">Dec P</code> is inferred to <code class="highlighter-rouge">\Set0</code>,
-whereas it can be proven that <code class="highlighter-rouge">Dec P</code> is (-1)-type.
-<code class="highlighter-rouge">Dec</code> can be placed in <code class="highlighter-rouge">\Prop</code> by writing the proof, that any two elements of this type are equal,
-in the <code class="highlighter-rouge">\where</code> block of <code class="highlighter-rouge">Dec</code>. The proof must be written in the corresponding function, starting with keywords
-<code class="highlighter-rouge">\use \level</code> instead of <code class="highlighter-rouge">\func</code>:</p>
-<pre><code class="language-arend">\data Empty
-\data Dec (P : \Prop) | yes P | no (P -&gt; Empty)
-  \where
-    \use \level isProp {P : \Prop} (d1 d2 : Dec P) : d1 = d2
-      | yes x1, yes x2 =&gt; path (\lam i =&gt; yes (Path.inProp x1 x2 @ i))
-      | yes x1, no e2 =&gt; \case e2 x1 \with {}
-      | no e1, yes x2 =&gt; \case e1 x2 \with {}
-      | no e1, no e2 =&gt; path (\lam i =&gt; no (\lam x =&gt; (\case e1 x \return e1 x = e2 x \with {}) @ i))
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Empty
+<span class="k">\data</span> Dec (P <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">|</span> yes P <span class="o">|</span> no (P <span class="o">-&gt;</span> Empty)</code></pre></div></div>
 
-<p>Functions <code class="highlighter-rouge">\use \level</code> can be specified for <code class="highlighter-rouge">\data</code>, <code class="highlighter-rouge">\class</code>, and <code class="highlighter-rouge">\func</code> definitions.
+<p>The type of <span class="inl-highlight">Empty</span> is inferred to <span class="inl-highlight"><span class="kt">\Prop</span></span>, which is the right universe for the type.
+However, this is not as easy for the type <span class="inl-highlight">Dec P</span>: the type of <span class="inl-highlight">Dec P</span> is inferred to <span class="inl-highlight"><span class="kt">\Set0</span></span>,
+whereas it can be proven that <span class="inl-highlight">Dec P</span> is (-1)-type.
+<span class="inl-highlight">Dec</span> can be placed in <span class="inl-highlight"><span class="kt">\Prop</span></span> by writing the proof, that any two elements of this type are equal, in the <span class="inl-highlight"><span class="k">\where</span></span> block of <span class="inl-highlight">Dec</span>.
+The proof must be written in the corresponding function, starting with keywords <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> instead of <span class="inl-highlight"><span class="k">\func</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Empty
+<span class="k">\data</span> Dec (P <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">|</span> yes P <span class="o">|</span> no (P <span class="o">-&gt;</span> Empty)
+  <span class="k">\where</span>
+    <span class="k">\use</span> <span class="k">\level</span> isProp {P <span class="o">:</span> <span class="kt">\Prop</span>} (d1 d2 <span class="o">:</span> Dec P) <span class="o">:</span> d1 <span class="o">=</span> d2
+      <span class="o">|</span> yes x1<span class="o">,</span> yes x2 <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> yes (Path.inProp x1 x2 <span class="o">@</span> i))
+      <span class="o">|</span> yes x1<span class="o">,</span> no e2 <span class="o">=&gt;</span> <span class="k">\case</span> e2 x1 <span class="k">\with</span> {}
+      <span class="o">|</span> no e1<span class="o">,</span> yes x2 <span class="o">=&gt;</span> <span class="k">\case</span> e1 x2 <span class="k">\with</span> {}
+      <span class="o">|</span> no e1<span class="o">,</span> no e2 <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> no (<span class="k">\lam</span> x <span class="o">=&gt;</span> (<span class="k">\case</span> e1 x <span class="k">\return</span> e1 x <span class="o">=</span> e2 x <span class="k">\with</span> {}) <span class="o">@</span> i))</code></pre></div></div>
+
+<p>Functions <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> can be specified for <span class="inl-highlight"><span class="k">\data</span></span>, <span class="inl-highlight"><span class="k">\class</span></span>, and <span class="inl-highlight"><span class="k">\func</span></span> definitions.
 They must have a particular type.
 First parameters of such a function must be parameters of the data type (or the function) or (some) fields of the class.
 The rest of parameters together with the result type must prove that the data type (or the function, or the class) has some homotopy level.
-That is, it must prove <code class="highlighter-rouge">ofHLevel (D p_1 ... p_k) n</code> for some constant <code class="highlighter-rouge">n</code>, where <code class="highlighter-rouge">D</code> is the data type (or the function, or the class), <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_k</code> are its parameters (or fields), and <code class="highlighter-rouge">ofHLevel</code> is defined as follows:</p>
-<pre><code class="language-arend">\func \infix 2 ofHLevel_-1+ (A : \Type) (n : Nat) : \Type \elim n
-  | 0 =&gt; \Pi (a a' : A) -&gt; a = a'
-  | suc n =&gt; \Pi (a a' : A) -&gt; (a = a') ofHLevel_-1+ n
-</code></pre>
+That is, it must prove <span class="inl-highlight">ofHLevel (D p_1 … p_k) n</span> for some constant <span class="inl-highlight">n</span>,
+where <span class="inl-highlight">D</span> is the data type (or the function, or the class), <span class="inl-highlight">p_1<span class="o">,</span> … p_k</span> are its parameters (or fields), and <span class="inl-highlight">ofHLevel</span> is defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infix</span> <span class="n">2</span> ofHLevel_-1+ (A <span class="o">:</span> <span class="kt">\Type</span>) (n <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\elim</span> n
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a'
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> (a <span class="o">=</span> a') ofHLevel_-1+ n</code></pre></div></div>
 
 <h2 id="level-of-a-type">Level of a type</h2>
 
 <p>Sometimes we need to know that some type has a certain homotopy level.
-For example, the result type of a <a href="/language-reference/definitions/functions/#lemmas">lemma</a> 
-or a <a href="/language-reference/definitions/records/#properties">property</a> must be a proposition.
+For example, the result type of a <a href="functions/#lemmas">lemma</a> 
+or a <a href="records/#properties">property</a> must be a proposition.
 If the type does not belong to the corresponding universe, but it can be proved that it has the correct homotopy level,
-the keyword <code class="highlighter-rouge">\level</code> can be used to convince the typechecker to accept the definition.
+the keyword <span class="inl-highlight"><span class="k">\level</span></span> can be used to convince the typechecker to accept the definition.
 This keywords can be specified in the result type of a function, a lemma, a field, or a case expression.
 Its first argument is the type and the second is the proof that it belongs to some homotopy level.</p>
 
-<p>For example, if <code class="highlighter-rouge">A</code> is a type such that <code class="highlighter-rouge">p : \Pi (x y : A) -&gt; x = y</code>, then a lemma that proves <code class="highlighter-rouge">A</code> can be defined as follows:</p>
-<pre><code class="language-arend">\lemma lem : \level A p =&gt; ...
-</code></pre>
+<p>For example, if <span class="inl-highlight">A</span> is a type such that <span class="inl-highlight">p <span class="o">:</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> x <span class="o">=</span> y</span>, then a lemma that proves <span class="inl-highlight">A</span> can be defined as follows:</p>
 
-<p>Similarly, a property of type <code class="highlighter-rouge">A</code> can be defined as follows:</p>
-<pre><code class="language-arend">\record R {
-  \property p : \level A p
-}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> lem <span class="o">:</span> <span class="k">\level</span> A p <span class="o">=&gt;</span> ...</code></pre></div></div>
 
-<p>While defining a function or a case expression over a truncated type with values in <code class="highlighter-rouge">A</code>, some clauses can be omitted if
-<code class="highlighter-rouge">A</code> belongs to an appropriate universe.
-If it is not, but there is a proof that it has the required homotopy level, then the keyword <code class="highlighter-rouge">\level</code> can be used to
+<p>Similarly, a property of type <span class="inl-highlight">A</span> can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R {
+  <span class="k">\property</span> p <span class="o">:</span> <span class="k">\level</span> A p
+}</code></pre></div></div>
+
+<p>While defining a function or a case expression over a truncated type with values in <span class="inl-highlight">A</span>,
+some clauses can be omitted if <span class="inl-highlight">A</span> belongs to an appropriate universe.
+If it is not, but there is a proof that it has the required homotopy level, then the keyword <span class="inl-highlight"><span class="k">\level</span></span> can be used to
 convince the typechecker that some clauses can be omitted.
-For example, if <code class="highlighter-rouge">Trunc</code> is a propositional truncation with constructor <code class="highlighter-rouge">inT : A -&gt; Trunc A</code>, <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code> are types,
-<code class="highlighter-rouge">g : A -&gt; B</code> is function, and <code class="highlighter-rouge">p : \Pi (x y : B) -&gt; x = y</code>, then the function, extending <code class="highlighter-rouge">g</code> to <code class="highlighter-rouge">Trunc A</code> can be
-defined simply as follows:</p>
-<pre><code class="language-arend">\func f (t : Trunc A) : \level B p
-  | inT a =&gt; g a
-</code></pre>
+For example, if <span class="inl-highlight">Trunc</span> is a propositional truncation with constructor <span class="inl-highlight">inT <span class="o">:</span> A <span class="o">-&gt;</span> Trunc A</span>, <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span> are types,
+<span class="inl-highlight">g <span class="o">:</span> A <span class="o">-&gt;</span> B</span> is function, and <span class="inl-highlight">p <span class="o">:</span> <span class="k">\Pi</span> (x y <span class="o">:</span> B) <span class="o">-&gt;</span> x <span class="o">=</span> y</span>, then the function, extending <span class="inl-highlight">g</span> to <span class="inl-highlight">Trunc A</span> can be defined simply as follows:</p>
 
-<p>Similarly, the keyword <code class="highlighter-rouge">\level</code> can be used in case expressions:</p>
-<pre><code class="language-arend">\func f' (t : Trunc A) =&gt; \case t \return \level B p \with {
-  | inT a =&gt; g a
-}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (t <span class="o">:</span> Trunc A) <span class="o">:</span> <span class="k">\level</span> B p
+  <span class="o">|</span> inT a <span class="o">=&gt;</span> g a</code></pre></div></div>
+
+<p>Similarly, the keyword <span class="inl-highlight"><span class="k">\level</span></span> can be used in case expressions:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f' (t <span class="o">:</span> Trunc A) <span class="o">=&gt;</span> <span class="k">\case</span> t <span class="k">\return</span> <span class="k">\level</span> B p <span class="k">\with</span> {
+  <span class="o">|</span> inT a <span class="o">=&gt;</span> g a
+}</code></pre></div></div>
 
         
       </section>

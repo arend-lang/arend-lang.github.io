@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,72 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/records" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/records" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+                <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+              
             
           
             
@@ -258,54 +273,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +283,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -368,189 +338,175 @@
             </nav>
           </aside>
         
-        <p>A <em>record</em> is a <a href="/language-reference/expressions/sigma">Sigma type</a> with named projections.
+        <p>A <em>record</em> is a <a href="../expressions/sigma">Sigma type</a> with named projections.
 The basic syntax looks like this:</p>
 
-<pre><code class="language-arend">\record R (p_1 : A_1) ... (p_n : A_n) {
-  | f_1 : B_1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R (p_1 <span class="o">:</span> A_1) ... (p_n <span class="o">:</span> A_n) {
+  <span class="o">|</span> f_1 <span class="o">:</span> B_1
   ...
-  | f_k : B_k
-}
-</code></pre>
+  <span class="o">|</span> f_k <span class="o">:</span> B_k
+}</code></pre></div></div>
 
-<p>where <code class="highlighter-rouge">f_1</code>, … <code class="highlighter-rouge">f_k</code>, <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> are <em>fields</em> of <code class="highlighter-rouge">R</code>. Note that records do not have parameters
-and <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> are also fields of <code class="highlighter-rouge">R</code>.
-The only difference between <code class="highlighter-rouge">p_i</code> and <code class="highlighter-rouge">f_j</code> is that <code class="highlighter-rouge">f_j</code> are visible in the scope of <code class="highlighter-rouge">R</code> and <code class="highlighter-rouge">p_i</code> are not:</p>
+<p>where <span class="inl-highlight">f_1<span class="o">,</span> … f_k</span> and <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are <em>fields</em> of <span class="inl-highlight">R</span>.
+Note that records do not have parameters and <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are also fields of <span class="inl-highlight">R</span>.
+The only difference between <span class="inl-highlight">p_i</span> and <span class="inl-highlight">f_j</span> is that <span class="inl-highlight">f_j</span> are visible in the scope of <span class="inl-highlight">R</span> and <span class="inl-highlight">p_i</span> are not:</p>
 
-<pre><code class="language-arend">\func test1 =&gt; f_1
-\func test2 =&gt; R.f_1
-\func test3 =&gt; R.p_1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 <span class="o">=&gt;</span> f_1
+<span class="k">\func</span> test2 <span class="o">=&gt;</span> R.f_1
+<span class="k">\func</span> test3 <span class="o">=&gt;</span> R.p_1
 
--- p_1 is not in scope in the following function:
--- \func test4 =&gt; p_1
-</code></pre>
+<span class="c">-- p_1 is not in scope in the following function:</span>
+<span class="c">-- \func test4 =&gt; p_1</span></code></pre></div></div>
 
-<p>It is also possible to write <code class="highlighter-rouge">\field f_i : B_i</code> instead of <code class="highlighter-rouge">| f_i : B_i</code>, but there is a difference between these
-notations, which is discussed <a href="#properties">here</a>.</p>
+<p>It is also possible to write <span class="inl-highlight"><span class="k">\field</span> f_i <span class="o">:</span> B_i</span> instead of <span class="inl-highlight"><span class="o">|</span> f_i <span class="o">:</span> B_i</span>, but there is a difference between these notations, which is discussed <a href="#properties">below</a>.</p>
 
 <p>Fields can be accessed using projection functions:</p>
-<pre><code class="language-arend">\func test5 (x : R) =&gt; R.p_1 {x}
-\func test6 (x : R) =&gt; f_1 {x}
-</code></pre>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5 (x <span class="o">:</span> R) <span class="o">=&gt;</span> R.p_1 {x}
+<span class="k">\func</span> test6 (x <span class="o">:</span> R) <span class="o">=&gt;</span> f_1 {x}</code></pre></div></div>
 
 <p>An alternative way to access fields is provided by the following syntax:</p>
-<pre><code class="language-arend">\func test5' (x : R) =&gt; x.p_1
-\func test6' (x : R) =&gt; x.f_1
-</code></pre>
 
-<p>This syntax is allowed only when the expression before <code class="highlighter-rouge">.</code> is a variable with an explicitly specified type which is a record.
-If <code class="highlighter-rouge">x : R</code> and <code class="highlighter-rouge">f</code> is a field of <code class="highlighter-rouge">R</code>, then <code class="highlighter-rouge">x.f</code> is equivalent to <code class="highlighter-rouge">R.f {x}</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5' (x <span class="o">:</span> R) <span class="o">=&gt;</span> x.p_1
+<span class="k">\func</span> test6' (x <span class="o">:</span> R) <span class="o">=&gt;</span> x.f_1</code></pre></div></div>
 
-<p>The type <code class="highlighter-rouge">A_i</code> can depend on variables <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_{i-1}</code>.
-The type <code class="highlighter-rouge">B_i</code> can depend on variables <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code>, <code class="highlighter-rouge">f_1</code>, … <code class="highlighter-rouge">f_{i-1}</code>.</p>
+<p>This syntax is allowed only when the expression before <span class="inl-highlight">.</span> is a variable with an explicitly specified type which is a record.
+If <span class="inl-highlight">x <span class="o">:</span> R</span> and <span class="inl-highlight">f</span> is a field of <span class="inl-highlight">R</span>, then <span class="inl-highlight">x.f</span> is equivalent to <span class="inl-highlight">R.f {x}</span>.</p>
 
-<p>Records are essentially Sigma types. For example, the record <code class="highlighter-rouge">R</code> above is equivalent to the Sigma type
-<code class="highlighter-rouge">\Sigma (p_1 : A_1) ... (p_n : A_n) (f_1 : B_1) ... (f_k : B_k)</code>.</p>
+<p>The type <span class="inl-highlight">A_i</span> can depend on variables <span class="inl-highlight">p_1<span class="o">,</span> … p_{i-1}</span>.
+The type <span class="inl-highlight">B_i</span> can depend on variables <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> and <span class="inl-highlight">f_1<span class="o">,</span> … f_{i-1}</span>.</p>
 
-<p>Instances of type <code class="highlighter-rouge">R</code> can be created using <em>new expression</em>. Any of the variants of the syntax listed below can be used,
-they are all equivalent. 
-See <a href="/language-reference/expressions/class-ext">this section</a> for more information about new expressions and related
-constructions.</p>
+<p>Records are essentially Sigma types. For example, the record <span class="inl-highlight">R</span> above is equivalent to the Sigma type
+<span class="inl-highlight"><span class="k">\Sigma</span> (p_1 <span class="o">:</span> A_1) … (p_n <span class="o">:</span> A_n) (f_1 <span class="o">:</span> B_1) … (f_k <span class="o">:</span> B_k)</span>.</p>
 
-<pre><code class="language-arend">\func r1 =&gt; \new R a_1 ... a_n { | f_1 =&gt; b_1 ... | f_k =&gt; b_k }
-\func r2 =&gt; \new R { | p_1 =&gt; a_1 ... | p_n =&gt; a_n | f_1 =&gt; b_1 ... | f_k =&gt; b_k }
-\func r3 =&gt; \new R a_1 ... a_n b_1 ... b_k
-\func r4 =&gt; \new R a_1 ... a_i { | p_{i+1} =&gt; a_{i+1} ... | p_n =&gt; a_n | f_1 =&gt; b_1 ... | f_k =&gt; b_k }
-\func r5 =&gt; \new R a_1 ... a_n b_1 ... b_i { f_{i+1} =&gt; b_{i+1} ... | f_k =&gt; b_k }
-</code></pre>
+<p>Instances of type <span class="inl-highlight">R</span> can be created using <em>new expression</em>. Any of the variants of the syntax listed below can be used, they are all equivalent. 
+See <a href="../expressions/class-ext">Class extensions</a> for more information about new expressions and related constructions.</p>
 
-<p>The same function can also be defined using <a href="/language-reference/definitions/functions/#copattern-matching">copattern matching</a>:</p>
-<pre><code class="language-arend">\func r6 : R \cowith
-  | p_1 =&gt; a_1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> r1 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_n { <span class="o">|</span> f_1 <span class="o">=&gt;</span> b_1 ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }
+<span class="k">\func</span> r2 <span class="o">=&gt;</span> <span class="k">\new</span> R { <span class="o">|</span> p_1 <span class="o">=&gt;</span> a_1 ... <span class="o">|</span> p_n <span class="o">=&gt;</span> a_n <span class="o">|</span> f_1 <span class="o">=&gt;</span> b_1 ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }
+<span class="k">\func</span> r3 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_n b_1 ... b_k
+<span class="k">\func</span> r4 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_i { <span class="o">|</span> p_{i+1} <span class="o">=&gt;</span> a_{i+1} ... <span class="o">|</span> p_n <span class="o">=&gt;</span> a_n <span class="o">|</span> f_1 <span class="o">=&gt;</span> b_1 ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }
+<span class="k">\func</span> r5 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_n b_1 ... b_i { f_{i+1} <span class="o">=&gt;</span> b_{i+1} ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }</code></pre></div></div>
+
+<p>The same function can also be defined using <a href="functions/#copattern-matching">copattern matching</a>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> r6 <span class="o">:</span> R <span class="k">\cowith</span>
+  <span class="o">|</span> p_1 <span class="o">=&gt;</span> a_1
   ...
-  | p_n =&gt; a_n
-  | f_1 =&gt; b_1
+  <span class="o">|</span> p_n <span class="o">=&gt;</span> a_n
+  <span class="o">|</span> f_1 <span class="o">=&gt;</span> b_1
   ...
-  | f_k =&gt; b_k
-</code></pre>
+  <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k</code></pre></div></div>
 
 <p>Records satisfy the eta rule.
-This means that the expression <code class="highlighter-rouge">\new R r.p_1 ... r.p_n r.f_1 ... r.f_k</code> is equivalent to <code class="highlighter-rouge">r</code>.</p>
+This means that the expression <span class="inl-highlight"><span class="k">\new</span> R r.p_1 … r.p_n r.f_1 … r.f_k</span> is equivalent to <span class="inl-highlight">r</span>.</p>
 
 <h2 id="properties">Properties</h2>
 
 <p>Some fields can be marked as a <em>property</em>.
-This is done by using the keyword <code class="highlighter-rouge">\property</code> instead of <code class="highlighter-rouge">\field</code>:</p>
+This is done by using the keyword <span class="inl-highlight"><span class="k">\property</span></span> instead of <span class="inl-highlight"><span class="k">\field</span></span>:</p>
 
-<pre><code class="language-arend">\record NegativeInt {
-  \field x : Int
-  \property isNeg : x &lt; 0
-}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> NegativeInt {
+  <span class="k">\field</span> x <span class="o">:</span> Int
+  <span class="k">\property</span> isNeg <span class="o">:</span> x &lt; <span class="n">0</span>
+}</code></pre></div></div>
 
 <p>The type of a property must be a proposition, otherwise the definition does not typecheck.</p>
 
-<p>If <code class="highlighter-rouge">A</code> is a proposition, then <code class="highlighter-rouge">| f : A</code> is also marked as a property. In this case, <code class="highlighter-rouge">f</code> can be defined as a
-normal field, which is not a property, by writing <code class="highlighter-rouge">\field f : A</code>.</p>
+<p>If <span class="inl-highlight">A</span> is a proposition, then <span class="inl-highlight"><span class="o">|</span> f <span class="o">:</span> A</span> is also marked as a property. In this case, <span class="inl-highlight">f</span> can be defined as a
+normal field, which is not a property, by writing <span class="inl-highlight"><span class="k">\field</span> f <span class="o">:</span> A</span>.</p>
 
 <p>Properties do not evaluate.
-Thus, they are related to fields in the same way as <a href="/language-reference/definitions/functions/#lemmas">lemmas</a> are related to functions.
+Thus, they are related to fields in the same way as <a href="functions/#lemmas">lemmas</a> are related to functions.
 For example, consider the following function:</p>
 
-<pre><code class="language-arend">\func test (x : Int) (p : x &lt; 0) =&gt; isNeg {\new NegativeInt x p}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test (x <span class="o">:</span> Int) (p <span class="o">:</span> x &lt; <span class="n">0</span>) <span class="o">=&gt;</span> isNeg {<span class="k">\new</span> NegativeInt x p}</code></pre></div></div>
 
-<p>Then <code class="highlighter-rouge">test x p</code> evaluates to <code class="highlighter-rouge">p</code> if <code class="highlighter-rouge">isNeg</code> is not a property and does not evaluate if it is.</p>
+<p>Then <span class="inl-highlight">test x p</span> evaluates to <span class="inl-highlight">p</span> if <span class="inl-highlight">isNeg</span> is not a property and does not evaluate if it is.</p>
 
 <h2 id="extensions">Extensions</h2>
 
-<p>An extension <code class="highlighter-rouge">S</code> of a record <code class="highlighter-rouge">R</code> is another record which adds some fields to <code class="highlighter-rouge">R</code> and implements some of the fields of <code class="highlighter-rouge">R</code>.
-The record <code class="highlighter-rouge">R</code> is called a <em>super class</em> of <code class="highlighter-rouge">S</code> and <code class="highlighter-rouge">S</code> is called a <em>subclass</em> of <code class="highlighter-rouge">R</code>. If <code class="highlighter-rouge">R</code> is the definition of
-a record from the beginning of this page, then an extension <code class="highlighter-rouge">S</code> of <code class="highlighter-rouge">R</code> can be defined as follows:</p>
+<p>An extension <span class="inl-highlight">S</span> of a record <span class="inl-highlight">R</span> is another record which adds some fields to <span class="inl-highlight">R</span> and implements some of the fields of <span class="inl-highlight">R</span>.
+The record <span class="inl-highlight">R</span> is called a <em>super class</em> of <span class="inl-highlight">S</span> and <span class="inl-highlight">S</span> is called a <em>subclass</em> of <span class="inl-highlight">R</span>.
+If <span class="inl-highlight">R</span> is the definition of a record from the beginning of this page, then an extension <span class="inl-highlight">S</span> of <span class="inl-highlight">R</span> can be defined as follows:</p>
 
-<pre><code class="language-arend">\record S (r_1 : D_1) ... (r_t : D_t) \extends R {
-  | g_1 : C_1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> S (r_1 <span class="o">:</span> D_1) ... (r_t <span class="o">:</span> D_t) <span class="k">\extends</span> R {
+  <span class="o">|</span> g_1 <span class="o">:</span> C_1
   ...
-  | g_m : C_m
-  | p_{i_1} =&gt; a_{i_1}
+  <span class="o">|</span> g_m <span class="o">:</span> C_m
+  <span class="o">|</span> p_{i_1} <span class="o">=&gt;</span> a_{i_1}
   ...
-  | p_{i_q} =&gt; a_{i_q}
-  | f_{j_1} =&gt; b_{j_1}
+  <span class="o">|</span> p_{i_q} <span class="o">=&gt;</span> a_{i_q}
+  <span class="o">|</span> f_{j_1} <span class="o">=&gt;</span> b_{j_1}
   ...
-  | f_{j_s} =&gt; b_{j_s}
-}
-</code></pre>
+  <span class="o">|</span> f_{j_s} <span class="o">=&gt;</span> b_{j_s}
+}</code></pre></div></div>
 
-<p>Here expressions <code class="highlighter-rouge">a_i</code> and <code class="highlighter-rouge">b_j</code> have types <code class="highlighter-rouge">A_i</code> and <code class="highlighter-rouge">B_j</code> respectively.
-Expressions <code class="highlighter-rouge">a_i</code> and <code class="highlighter-rouge">b_j</code> may refer to any field of <code class="highlighter-rouge">S</code>, but implementations must not form a cycle.</p>
+<p>Here expressions <span class="inl-highlight">a_i</span> and <span class="inl-highlight">b_j</span> have types <span class="inl-highlight">A_i</span> and <span class="inl-highlight">B_j</span> respectively.
+Expressions <span class="inl-highlight">a_i</span> and <span class="inl-highlight">b_j</span> may refer to any field of <span class="inl-highlight">S</span>, but implementations must not form a cycle.</p>
 
-<p>The type <code class="highlighter-rouge">S</code> is a subtype of <code class="highlighter-rouge">R</code>. That is, every expression of type <code class="highlighter-rouge">S</code> is also of type <code class="highlighter-rouge">R</code>.</p>
+<p>The type <span class="inl-highlight">S</span> is a subtype of <span class="inl-highlight">R</span>. That is, every expression of type <span class="inl-highlight">S</span> is also of type <span class="inl-highlight">R</span>.</p>
 
 <p>A record is equivalent to the Sigma type, consisting of all of its unimplemented fields.
 For example, consider the following records:</p>
 
-<pre><code class="language-arend">\record C (x y : Nat) {
-  | x&lt;=y : x &lt;= y
-  | y&lt;=0 : y &lt;= 0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> C (x y <span class="o">:</span> Nat) {
+  <span class="o">|</span> x&lt;=y <span class="o">:</span> x &lt;= y
+  <span class="o">|</span> y&lt;=0 <span class="o">:</span> y &lt;= <span class="n">0</span>
 }
 
-\record D \extends C {
-  | y =&gt; x
-  | x&lt;=y =&gt; &lt;=-reflexive x
-}
-</code></pre>
+<span class="k">\record</span> D <span class="k">\extends</span> C {
+  <span class="o">|</span> y <span class="o">=&gt;</span> x
+  <span class="o">|</span> x&lt;=y <span class="o">=&gt;</span> &lt;=-reflexive x
+}</code></pre></div></div>
 
-<p>Then <code class="highlighter-rouge">D</code> is equivalent to <code class="highlighter-rouge">\Sigma (x : Nat) (x &lt;= 0)</code>:</p>
+<p>Then <span class="inl-highlight">D</span> is equivalent to <span class="inl-highlight"><span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x &lt;= <span class="n">0</span>)</span>:</p>
 
-<pre><code class="language-arend">\func fromD (d : D) : \Sigma (x : Nat) (x &lt;= 0) =&gt; (d.x, d.y&lt;=0)
-\func toD (p : \Sigma (x : Nat) (x &lt;= 0)) =&gt; \new D p.1 p.2
-\func fromToD (d : D) : toD (fromD d) = d =&gt; idp
-\func toFromD (p : \Sigma (x : Nat) (x &lt;= 0)) : fromD (toD p) = p =&gt; idp
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> fromD (d <span class="o">:</span> D) <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x &lt;= <span class="n">0</span>) <span class="o">=&gt;</span> (d.x<span class="o">,</span> d.y&lt;=0)
+<span class="k">\func</span> toD (p <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x &lt;= <span class="n">0</span>)) <span class="o">=&gt;</span> <span class="k">\new</span> D p.<span class="n">1</span> p.<span class="n">2</span>
+<span class="k">\func</span> fromToD (d <span class="o">:</span> D) <span class="o">:</span> toD (fromD d) <span class="o">=</span> d <span class="o">=&gt;</span> idp
+<span class="k">\func</span> toFromD (p <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x &lt;= <span class="n">0</span>)) <span class="o">:</span> fromD (toD p) <span class="o">=</span> p <span class="o">=&gt;</span> idp</code></pre></div></div>
 
-<p>where <code class="highlighter-rouge">idp</code> is the proof by reflexivity.
+<p>where <span class="inl-highlight">idp</span> is the proof by reflexivity.
 This works since both records and Sigma types satisfy eta rules.</p>
 
 <p>A record can extend several records.
 If these records extend some base record themselves, then the fields of this base record will not be repeated in the final record.
 For example, consider the following records:</p>
 
-<pre><code class="language-arend">\record A (x : Nat)
-\record B \extends A
-\record C \extends A
-\record D \extends B,C
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> A (x <span class="o">:</span> Nat)
+<span class="k">\record</span> B <span class="k">\extends</span> A
+<span class="k">\record</span> C <span class="k">\extends</span> A
+<span class="k">\record</span> D <span class="k">\extends</span> B<span class="o">,</span>C</code></pre></div></div>
 
-<p>Then <code class="highlighter-rouge">D</code> has a single field <code class="highlighter-rouge">x</code>.
+<p>Then <span class="inl-highlight">D</span> has a single field <span class="inl-highlight">x</span>.
 If super classes have fields with the same name which are not defined in some common super class, then the final record
 will have several different fields with the same name.
 In order to access these fields, fully qualified names should be used:</p>
 
-<pre><code class="language-arend">\record B (x : Nat)
-\record C (x : Nat)
-\record D \extends B,C
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> B (x <span class="o">:</span> Nat)
+<span class="k">\record</span> C (x <span class="o">:</span> Nat)
+<span class="k">\record</span> D <span class="k">\extends</span> B<span class="o">,</span>C
 
-\func fromD (d : D) : \Sigma Nat Nat =&gt; (B.x {d}, C.x {d})
-\func toD (p : \Sigma Nat Nat) =&gt; \new D p.1 p.2
-\func fromToD (d : D) : toD (fromD d) = d =&gt; idp
-\func toFromD (p : \Sigma Nat Nat) : fromD (toD p) = p =&gt; idp
-</code></pre>
+<span class="k">\func</span> fromD (d <span class="o">:</span> D) <span class="o">:</span> <span class="k">\Sigma</span> Nat Nat <span class="o">=&gt;</span> (B.x {d}<span class="o">,</span> C.x {d})
+<span class="k">\func</span> toD (p <span class="o">:</span> <span class="k">\Sigma</span> Nat Nat) <span class="o">=&gt;</span> <span class="k">\new</span> D p.<span class="n">1</span> p.<span class="n">2</span>
+<span class="k">\func</span> fromToD (d <span class="o">:</span> D) <span class="o">:</span> toD (fromD d) <span class="o">=</span> d <span class="o">=&gt;</span> idp
+<span class="k">\func</span> toFromD (p <span class="o">:</span> <span class="k">\Sigma</span> Nat Nat) <span class="o">:</span> fromD (toD p) <span class="o">=</span> p <span class="o">=&gt;</span> idp</code></pre></div></div>
 
 <h2 id="this">This</h2>
 
-<p>Every field of a record <code class="highlighter-rouge">R</code> has additional implicit parameter of type <code class="highlighter-rouge">R</code>, which can be referred to with the keyword <code class="highlighter-rouge">\this</code>:</p>
+<p>Every field of a record <span class="inl-highlight">R</span> has additional implicit parameter of type <span class="inl-highlight">R</span>, which can be referred to with the keyword <span class="inl-highlight"><span class="k">\this</span></span>:</p>
 
-<pre><code class="language-arend">\record R (X : \Type) (t : X -&gt; X)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R (X <span class="o">:</span> <span class="kt">\Type</span>) (t <span class="o">:</span> X <span class="o">-&gt;</span> X)
 
-\func f (r : R) =&gt; r.t
+<span class="k">\func</span> f (r <span class="o">:</span> R) <span class="o">=&gt;</span> r.t
 
-\record S \extends R {
-  | x : X
-  | p : f \this x = x
-}
-</code></pre>
+<span class="k">\record</span> S <span class="k">\extends</span> R {
+  <span class="o">|</span> x <span class="o">:</span> X
+  <span class="o">|</span> p <span class="o">:</span> f <span class="k">\this</span> x <span class="o">=</span> x
+}</code></pre></div></div>
 
-<p>The keyword <code class="highlighter-rouge">\this</code> can appear only in arguments of definitions and only in those arguments, which in turn satisfy this condition.</p>
+<p>The keyword <span class="inl-highlight"><span class="k">\this</span></span> can appear only in arguments of definitions and only in those arguments, which in turn satisfy this condition.</p>
 
         
       </section>

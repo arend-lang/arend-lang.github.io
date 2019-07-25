@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,7 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
             
           
             
@@ -258,54 +208,58 @@
             <li><a href="/documentation/language-reference/expressions" class="active">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+                <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+              
             
           
             
@@ -315,6 +269,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -369,74 +325,74 @@
           </aside>
         
         <p>An expression denotes a value which may depend on some variables.
-The basic example of an expression is simply a variable <code class="highlighter-rouge">x</code>.
-Of course, <code class="highlighter-rouge">x</code> must be defined somewhere in order for such an expression to make sense.
-It can be either a parameter (of a <a href="/language-reference/definitions/parameters">definition</a>, or a <a href="/language-reference/expressions/pi">lambda expression</a>, or a <a href="/language-reference/expressions/pi">pi expression</a>, or a <a href="/language-reference/expressions/sigma">sigma expression</a>),
-a variable defined in a <a href="/language-reference/expressions/let">let expression</a>, or a variable defined in a <a href="/language-reference/definitions/functions/#pattern-matching">pattern</a>.</p>
+The basic example of an expression is simply a variable <span class="inl-highlight">x</span>.
+Of course, <span class="inl-highlight">x</span> must be defined somewhere in order for such an expression to make sense.
+It can be either a parameter (of a <a href="../definitions/parameters">definition</a>, or a <a href="pi">lambda expression</a>, or a <a href="pi">pi expression</a>, or a <a href="sigma">sigma expression</a>),
+a variable defined in a <a href="let">let expression</a>, or a variable defined in a <a href="../definitions/functions/#pattern-matching">pattern</a>.</p>
 
-<p>If <code class="highlighter-rouge">e</code>, <code class="highlighter-rouge">e_1</code>, … <code class="highlighter-rouge">e_n</code> are expressions and <code class="highlighter-rouge">x_1</code>, … <code class="highlighter-rouge">x_n</code> are variables, then we will write <code class="highlighter-rouge">e[e_1/x_1, ... e_n/x_n]</code> for the <em>substitution</em> operation.
+<p>If <span class="inl-highlight">e<span class="o">,</span> e_1<span class="o">,</span> … e_n</span> are expressions and <span class="inl-highlight">x_1<span class="o">,</span> … x_n</span> are variables, then we will write <span class="inl-highlight">e[e_1/x_1<span class="o">,</span> … e_n/x_n]</span> for the <em>substitution</em> operation.
 This is a meta-operation, namely, it is a function on the set of expressions of the language and not an expression itself.
-The expression <code class="highlighter-rouge">e[e_1/x_1, ... e_n/x_n]</code> is simply <code class="highlighter-rouge">e</code> in which every occurrence of each of the variables <code class="highlighter-rouge">x_i</code> is replaced with the expression <code class="highlighter-rouge">e_i</code>.</p>
+The expression <span class="inl-highlight">e[e_1/x_1<span class="o">,</span> … e_n/x_n]</span> is simply <span class="inl-highlight">e</span> in which every occurrence of each of the variables <span class="inl-highlight">x_i</span> is replaced with the expression <span class="inl-highlight">e_i</span>.</p>
 
 <h2 id="evaluation">Evaluation</h2>
 
-<p>There is a binary relation <code class="highlighter-rouge">=&gt;</code> on the set of expressions called the <em>reduction relation</em>.
-If <code class="highlighter-rouge">e_1 =&gt; ... =&gt; e_n</code>, we will say that <code class="highlighter-rouge">e_1</code> <em>reduces</em> to <code class="highlighter-rouge">e_n</code>.
-If there is no <code class="highlighter-rouge">e'</code> such that <code class="highlighter-rouge">e =&gt; e'</code>, we will say that <code class="highlighter-rouge">e</code> is a <em>normal form</em>.
-If <code class="highlighter-rouge">e</code> reduces to <code class="highlighter-rouge">e'</code> and <code class="highlighter-rouge">e'</code> is a normal form, we will say that <code class="highlighter-rouge">e'</code> is a <em>normal form</em> of <code class="highlighter-rouge">e</code> and that <code class="highlighter-rouge">e</code> <em>evaluates</em> to <code class="highlighter-rouge">e'</code>.
+<p>There is a binary relation <span class="inl-highlight"><span class="o">=&gt;</span></span> on the set of expressions called the <em>reduction relation</em>.
+If <span class="inl-highlight">e_1 <span class="o">=&gt;</span> … <span class="o">=&gt;</span> e_n</span>, we will say that <span class="inl-highlight">e_1</span> <em>reduces</em> to <span class="inl-highlight">e_n</span>.
+If there is no <span class="inl-highlight">e’</span> such that <span class="inl-highlight">e <span class="o">=&gt;</span> e’</span>, we will say that <span class="inl-highlight">e</span> is a <em>normal form</em>.
+If <span class="inl-highlight">e</span> reduces to <span class="inl-highlight">e’</span> and <span class="inl-highlight">e’</span> is a normal form, we will say that <span class="inl-highlight">e’</span> is a <em>normal form</em> of <span class="inl-highlight">e</span> and that <span class="inl-highlight">e</span> <em>evaluates</em> to <span class="inl-highlight">e’</span>.
 Every expression has a unique normal form.</p>
 
-<p>The relation <code class="highlighter-rouge">=&gt;</code> is a meta-relation on the set of expressions of the language, that is you cannot refer to it explicitly in the language.
+<p>The relation <span class="inl-highlight"><span class="o">=&gt;</span></span> is a meta-relation on the set of expressions of the language, that is you cannot refer to it explicitly in the language.
 This relation is used by the typechecker to compare expressions.
 The typechecker never compares expressions directly.
-To compare expressions <code class="highlighter-rouge">e_1</code> and <code class="highlighter-rouge">e_2</code>, it first evaluates their normal forms and then compares them.
+To compare expressions <span class="inl-highlight">e_1</span> and <span class="inl-highlight">e_2</span>, it first evaluates their normal forms and then compares them.
 Since normal forms always exist, the comparison algorithm always terminates, but it is easy to write an expression that does not evaluate in any reasonable time.</p>
+
+<p>The reflexive, symmetric, and transitive closure of <span class="inl-highlight"><span class="o">=&gt;</span></span> is denoted by <span class="inl-highlight"><span class="o">==</span></span> and called the <em>computational equality</em>.
+We will often call terms <span class="inl-highlight">t_1</span> and <span class="inl-highlight">t_2</span> such that <span class="inl-highlight">t_1 <span class="o">==</span> t_2</span> simply <em>equivalent</em>.</p>
 
 <h2 id="types">Types</h2>
 
-<p>Every expression has a type. The notation <code class="highlighter-rouge">e : E</code> is used for the judgement that an expression <code class="highlighter-rouge">e</code> has type <code class="highlighter-rouge">E</code>.</p>
+<p>Every expression has a type. The notation <span class="inl-highlight">e <span class="o">:</span> E</span> is used for the judgement that an expression <span class="inl-highlight">e</span> has type <span class="inl-highlight">E</span>.</p>
 
-<p>A type is an expression which has type <code class="highlighter-rouge">\Type</code>.
-The expression <code class="highlighter-rouge">\Type</code> is discussed in <a href="/language-reference/expressions/universes">this section</a>.</p>
+<p>A type is an expression which has type <span class="inl-highlight"><span class="kt">\Type</span></span>.
+The expression <span class="inl-highlight"><span class="kt">\Type</span></span> is discussed in <a href="universes">Universes</a>.</p>
 
-<p>Every variable has a type which is the one specified when the variable is defined or, if it is not specified, the
-one that can be inferred.
-An expression of the form <code class="highlighter-rouge">x</code> has the type of the variable <code class="highlighter-rouge">x</code>.</p>
+<p>Every variable has a type which is the one specified when the variable is defined or, if it is not specified, the one that can be inferred.
+An expression of the form <span class="inl-highlight">x</span> has the type of the variable <span class="inl-highlight">x</span>.</p>
 
 <p>The type of an expression can usually be inferred automatically, but in rare cases, when it cannot be inferred, or
 just for the sake of readability it can also be specified explicitly.
-An expression of the form <code class="highlighter-rouge">(e : E)</code> (parentheses are necessary) is equivalent to <code class="highlighter-rouge">e</code>, but also has an explicit type
+An expression of the form <span class="inl-highlight">(e <span class="o">:</span> E)</span> (parentheses are necessary) is equivalent to <span class="inl-highlight">e</span>, but also has an explicit type
 annotation.
-In this expression, <code class="highlighter-rouge">e</code> must have type <code class="highlighter-rouge">E</code> and the type of the whole expression is also <code class="highlighter-rouge">E</code> 
-(since it is equivalent to <code class="highlighter-rouge">e</code>).</p>
+In this expression, <span class="inl-highlight">e</span> must have type <span class="inl-highlight">E</span> and the type of the whole expression is also <span class="inl-highlight">E</span> (since it is equivalent to <span class="inl-highlight">e</span>).</p>
 
 <h2 id="defcalls">Defcalls</h2>
 
-<p>A <em>defcall</em> is an expression of the form <code class="highlighter-rouge">f a_1 ... a_n</code>, where <code class="highlighter-rouge">f</code> is the name of a definition with n parameters
-and <code class="highlighter-rouge">a_1, ..., a_n</code> are expressions. Note that classes and records do not have parameters and any defcall in this
-case is of the form <code class="highlighter-rouge">f</code>. Expression of the form <code class="highlighter-rouge">f a_1 ... a_n</code>, where <code class="highlighter-rouge">f</code> is the name of a class, are <em>class
-extensions</em>, see <a href="/language-reference/expressions/class-ext">this section</a> for details.</p>
+<p>A <em>defcall</em> is an expression of the form <span class="inl-highlight">f a_1 … a_n</span>, where <span class="inl-highlight">f</span> is the name of a definition with n parameters
+and <span class="inl-highlight">a_1<span class="o">,</span> …<span class="o">,</span> a_n</span> are expressions. Note that classes and records do not have parameters and any defcall in this
+case is of the form <span class="inl-highlight">f</span>. Expression of the form <span class="inl-highlight">f a_1 … a_n</span>, where <span class="inl-highlight">f</span> is the name of a class, are <em>class
+extensions</em>, see <a href="class-ext">Class extensions</a> for details.</p>
 
 <p>Defcall expressions have the following properties:</p>
 
 <ul>
   <li>
-    <p>If <code class="highlighter-rouge">f</code> is a definition with parameters <code class="highlighter-rouge">x_1</code>, … <code class="highlighter-rouge">x_n</code> and the result type <code class="highlighter-rouge">R</code>, then the type of a 
-defcall <code class="highlighter-rouge">f a_1 ... a_n</code> is <code class="highlighter-rouge">R[a_1/x_1, ... a_n/x_n]</code>.</p>
+    <p>If <span class="inl-highlight">f</span> is a definition with parameters <span class="inl-highlight">x_1<span class="o">,</span> … x_n</span> and the result type <span class="inl-highlight">R</span>, then the type of a 
+defcall <span class="inl-highlight">f a_1 … a_n</span> is <span class="inl-highlight">R[a_1/x_1<span class="o">,</span> … a_n/x_n]</span>.</p>
   </li>
   <li>
-    <p>If <code class="highlighter-rouge">f</code> is either a class, a record, a data type, a constructor without conditions, an instance, or a
-function defined by copattern matching, then <code class="highlighter-rouge">f a_1 ... a_n</code> is a normal form whenever <code class="highlighter-rouge">a_1</code>, … <code class="highlighter-rouge">a_n</code> are.</p>
+    <p>If <span class="inl-highlight">f</span> is either a class, a record, a data type, a constructor without conditions, an instance, or a
+function defined by copattern matching, then <span class="inl-highlight">f a_1 … a_n</span> is a normal form whenever <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> are.</p>
   </li>
   <li>
-    <p>If <code class="highlighter-rouge">f</code> is a function defined as <code class="highlighter-rouge">\func f (x_1 : A_1) ... (x_n : A_n) =&gt; e</code>, then <code class="highlighter-rouge">f a_1 ... a_n</code> reduces
-to <code class="highlighter-rouge">e[a_1/x_1, ... a_n/x_n]</code>. If <code class="highlighter-rouge">f</code> is a function defined by pattern matching or a constructor with conditions, then the evaluation of
-defcalls <code class="highlighter-rouge">f a_1 ... a_n</code> is described in <a href="/language-reference/definitions/functions/#pattern-matching">this section</a>.
-If <code class="highlighter-rouge">f</code> is an instance or a function defined by copattern matching, then the evaluation of defcalls <code class="highlighter-rouge">f a_1 ... a_n</code> is described in <a href="/language-reference/definitions/instances">this section</a>.</p>
+    <p>If <span class="inl-highlight">f</span> is a function defined as <span class="inl-highlight"><span class="k">\func</span> f (x_1 <span class="o">:</span> A_1) … (x_n <span class="o">:</span> A_n) <span class="o">=&gt;</span> e</span>, then <span class="inl-highlight">f a_1 … a_n</span> reduces
+to <span class="inl-highlight">e[a_1/x_1<span class="o">,</span> … a_n/x_n]</span>. If <span class="inl-highlight">f</span> is a function defined by pattern matching or a constructor with conditions, then the evaluation of
+defcalls <span class="inl-highlight">f a_1 … a_n</span> is described in <a href="../definitions/functions/#pattern-matching">Functions</a>.
+If <span class="inl-highlight">f</span> is an instance or a function defined by copattern matching, then the evaluation of defcalls <span class="inl-highlight">f a_1 … a_n</span> is described in <a href="../definitions/classes/#instances">Classes</a>.</p>
   </li>
   <li>
-    <p>If <code class="highlighter-rouge">f</code> has n parameters and k &lt; n, an expression of the form <code class="highlighter-rouge">f a_1 ... a_k</code> is also valid and is equivalent to
-<code class="highlighter-rouge">\lam a_{k+1} ... a_n =&gt; f a_1 ... a_n</code>.</p>
+    <p>If <span class="inl-highlight">f</span> has n parameters and k &lt; n, an expression of the form <span class="inl-highlight">f a_1 … a_k</span> is also valid and is equivalent to <span class="inl-highlight"><span class="k">\lam</span> a_{k+1} … a_n <span class="o">=&gt;</span> f a_1 … a_n</span>.</p>
   </li>
 </ul>
 

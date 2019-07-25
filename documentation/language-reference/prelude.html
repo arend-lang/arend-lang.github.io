@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,7 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
             
           
             
@@ -258,54 +208,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +218,10 @@
 
             <li><a href="/documentation/language-reference/prelude" class="active">Prelude</a></li>
 
+            
+            
+            
+              
             
           
         </ul>
@@ -380,80 +287,79 @@ to actual definitions since most of them cannot be actually defined in the ordin
 
 <h1 id="nat-and-int">Nat and Int</h1>
 
-<p>The definitions of <code class="highlighter-rouge">Nat</code>, <code class="highlighter-rouge">Int</code>, <code class="highlighter-rouge">Nat.+</code>, <code class="highlighter-rouge">Nat.*</code>, <code class="highlighter-rouge">Nat.-</code>, and <code class="highlighter-rouge">Int.fromNat</code> are actually correct,
-they could have been as well defined in an ordinary file and successfully typechecked according to normal
-Arend typechecking rules.
-The only difference is that these definitions from Prelude are implemented more efficiently.</p>
+<p>The definitions of <span class="inl-highlight">Nat</span>, <span class="inl-highlight">Int</span>, <span class="inl-highlight">Nat.<span class="o">+</span></span>, <span class="inl-highlight">Nat.<span class="o">*</span></span>, <span class="inl-highlight">Nat.-</span>, <span class="inl-highlight">Nat.&lt;=</span>, <span class="inl-highlight">Nat.div</span>, <span class="inl-highlight">Nat.mod</span>, and <span class="inl-highlight">Int.fromNat</span> are actually correct,
+they could have been as well defined in an ordinary file and successfully typechecked according to normal Arend typechecking rules.
+The only difference is that these definitions from Prelude are implemented more efficiently.
+Definitions of <span class="inl-highlight">Nat.divMod</span>, <span class="inl-highlight">Nat.divModProp</span>, and <span class="inl-highlight">Nat.modProp</span> are omitted, but these functions also can be defined in Arend.</p>
 
 <h1 id="interval-and-squeeze-functions">Interval and squeeze functions</h1>
 
-<p>The definition of the interval type <code class="highlighter-rouge">\data I | left | right</code> looks like the definition of the set with two
+<p>The definition of the interval type <span class="inl-highlight"><span class="k">\data</span> I <span class="o">|</span> left <span class="o">|</span> right</span> looks like the definition of the set with two
 elements, but this is not true actually. 
-One way to think about this data type is that it has one more constructor, which connects <code class="highlighter-rouge">left</code> and 
-<code class="highlighter-rouge">right</code> and which cannot be accessed explicitly. This means that it is forbidden to define a function 
-on <code class="highlighter-rouge">I</code> by pattern matching. Functions from <code class="highlighter-rouge">I</code> can be defined by means of several auxiliary functions:
-<code class="highlighter-rouge">coe</code>, <code class="highlighter-rouge">coe2</code>, <code class="highlighter-rouge">squeeze</code>, <code class="highlighter-rouge">squeezeR</code>. Function <code class="highlighter-rouge">coe</code> plays the role of eliminator for <code class="highlighter-rouge">I</code>, it is discussed
+One way to think about this data type is that it has one more constructor, which connects <span class="inl-highlight">left</span> and 
+<span class="inl-highlight">right</span> and which cannot be accessed explicitly. This means that it is forbidden to define a function 
+on <span class="inl-highlight">I</span> by pattern matching. Functions from <span class="inl-highlight">I</span> can be defined by means of several auxiliary functions:
+<span class="inl-highlight">coe</span>, <span class="inl-highlight">coe2</span>, <span class="inl-highlight">squeeze</span>, <span class="inl-highlight">squeezeR</span>. Function <span class="inl-highlight">coe</span> plays the role of eliminator for <span class="inl-highlight">I</span>, it is discussed
 further in this module.</p>
 
-<p>Functions <code class="highlighter-rouge">squeeze</code> and <code class="highlighter-rouge">squeezeR</code> satisfy the following computational conditions:</p>
-<pre><code class="language-arend">squeeze left j =&gt; left
-squeeze right j =&gt; j
-squeeze i left =&gt; left
-squeeze i right =&gt; i
+<p>Functions <span class="inl-highlight">squeeze</span> and <span class="inl-highlight">squeezeR</span> satisfy the following computational conditions:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>squeeze left j <span class="o">=&gt;</span> left
+squeeze right j <span class="o">=&gt;</span> j
+squeeze i left <span class="o">=&gt;</span> left
+squeeze i right <span class="o">=&gt;</span> i
 
-squeezeR left j =&gt; j
-squeezeR right j =&gt; right
-squeezeR i left =&gt; i
-squeezeR i right =&gt; right
-</code></pre>
+squeezeR left j <span class="o">=&gt;</span> j
+squeezeR right j <span class="o">=&gt;</span> right
+squeezeR i left <span class="o">=&gt;</span> i
+squeezeR i right <span class="o">=&gt;</span> right</code></pre></div></div>
 
-<p>Such functions can be defined in terms of the function <code class="highlighter-rouge">coe</code>,
+<p>Such functions can be defined in terms of the function <span class="inl-highlight">coe</span>,
 but for efficiency purposes they are defined as primitives in Arend.</p>
 
 <h1 id="path">Path</h1>
 
-<p>The definition of <code class="highlighter-rouge">Path A a a'</code> is not correct.
-By the definition, it should consist of all functions <code class="highlighter-rouge">\Pi (i : I) -&gt; A i</code>, but actually it consists of all such
-functions <code class="highlighter-rouge">f</code> that also satisfy computational conditions <code class="highlighter-rouge">f left =&gt; a</code> and <code class="highlighter-rouge">f right =&gt; a'</code>.
-This means that while typechecking the expression <code class="highlighter-rouge">path f</code> the typechecker also checks that these computational
-conditions hold and, if they don’t, produces an error message.
-For example, if you write <code class="highlighter-rouge">\func test : 1 = 0 =&gt; path (\lam _ =&gt; 0)</code>, you will see the following error message:</p>
+<p>The definition of <span class="inl-highlight">Path A a a’</span> is not correct.
+By the definition, it should consist of all functions <span class="inl-highlight"><span class="k">\Pi</span> (i <span class="o">:</span> I) <span class="o">-&gt;</span> A i</span>, but actually it consists of all such
+functions <span class="inl-highlight">f</span> that also satisfy computational conditions <span class="inl-highlight">f left <span class="o">=&gt;</span> a</span> and <span class="inl-highlight">f right <span class="o">=&gt;</span> a’</span>.
+This means that while typechecking the expression <span class="inl-highlight">path f</span> the typechecker also checks that these computational conditions hold and, if they don’t, produces an error message.
+For example, if you write <span class="inl-highlight"><span class="k">\func</span> test <span class="o">:</span> <span class="n">1</span> <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> path (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> <span class="n">0</span>)</span>, you will see the following error message:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>ERROR] test.ard:1:23: The left path endpoint mismatch
-  Expected: 1
-    Actual: 0
-  In: path <span class="o">(</span><span class="se">\l</span>am _ <span class="o">=&gt;</span> 0<span class="o">)</span>
-  While processing: <span class="nb">test</span>
-</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ERROR] test.ard:1:23: The left path endpoint mismatch
+  Expected: <span class="n">1</span>
+    Actual: <span class="n">0</span>
+  In: path (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> <span class="n">0</span>)
+  While processing: test</code></pre></div></div>
 
-<p>The homotopy level of the universe, which is the type of <code class="highlighter-rouge">Path</code>, is also computed differently. If -1 ≤ n and
-<code class="highlighter-rouge">A</code> is in a universe of (n+1)-types, then <code class="highlighter-rouge">Path A a a'</code> is in a universe of n-types. Otherwise, it has the same
-homotopy level as <code class="highlighter-rouge">A</code>.</p>
+<p>The homotopy level of the universe, which is the type of <span class="inl-highlight">Path</span>, is also computed differently. If -1 ≤ n and
+<span class="inl-highlight">A</span> is in a universe of (n+1)-types, then <span class="inl-highlight">Path A a a’</span> is in a universe of n-types. Otherwise, it has the same
+homotopy level as <span class="inl-highlight">A</span>.</p>
 
-<p>Prelude also contains an infix form of <code class="highlighter-rouge">Path</code> called <code class="highlighter-rouge">=</code> which is actually a correctly defined function.
-The definition of <code class="highlighter-rouge">@</code> is also correct, but the typechecker has an eta rule for this definition: 
-<code class="highlighter-rouge">path (\lam i =&gt; p @ i) = p</code>.
-This rule does not apply to functions <code class="highlighter-rouge">@</code> defined in other files.</p>
+<p>Prelude also contains an infix form of <span class="inl-highlight">Path</span> called <span class="inl-highlight"><span class="o">=</span></span> which is actually a correctly defined function.
+The definition of <span class="inl-highlight"><span class="o">@</span></span> is also correct, but the typechecker has an eta rule for this definition:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p <span class="o">@</span> i) <span class="o">==</span> p</code></pre></div></div>
+<p>This rule does not apply to functions <span class="inl-highlight"><span class="o">@</span></span> defined in other files.</p>
 
-<p>Finally, function <code class="highlighter-rouge">Path.inProp</code> is not correct since it does not have a body.
-It postulates the proof irrelevance for types in <code class="highlighter-rouge">\Prop</code>, namely that any two elements of a type in <code class="highlighter-rouge">\Prop</code> are equal.</p>
+<p>Finally, function <span class="inl-highlight">Path.inProp</span> is not correct since it does not have a body.
+It postulates the proof irrelevance for types in <span class="inl-highlight"><span class="kt">\Prop</span></span>, namely that any two elements of a type in <span class="inl-highlight"><span class="kt">\Prop</span></span> are equal.</p>
 
 <h1 id="coe-and-coe2">coe and coe2</h1>
 
-<p>Function <code class="highlighter-rouge">coe</code> is an eliminator for the interval type.
-For every type over the interval, it allows to transport elements from the fiber over <code class="highlighter-rouge">left</code> to the fiber over an
+<p>Function <span class="inl-highlight">coe</span> is an eliminator for the interval type.
+For every type over the interval, it allows to transport elements from the fiber over <span class="inl-highlight">left</span> to the fiber over an
 arbitrary point.
-It can be used to prove that <code class="highlighter-rouge">I</code> is contractible and that <code class="highlighter-rouge">=</code> satisfies the rules for
+It can be used to prove that <span class="inl-highlight">I</span> is contractible and that <span class="inl-highlight"><span class="o">=</span></span> satisfies the rules for
 ordinary identity types.
-The definition of <code class="highlighter-rouge">coe</code> is not correct since it uses pattern matching on the interval.
-This function satisfies one additional reduction rule: <code class="highlighter-rouge">coe (\lam x =&gt; A) a i =&gt; a</code> if <code class="highlighter-rouge">x</code> is not free in <code class="highlighter-rouge">A</code>.</p>
+The definition of <span class="inl-highlight">coe</span> is not correct since it uses pattern matching on the interval.
+This function satisfies one additional reduction rule:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>coe (<span class="k">\lam</span> x <span class="o">=&gt;</span> A) a i <span class="o">=&gt;</span> a</code></pre></div></div>
+<p>if <span class="inl-highlight">x</span> is not free in <span class="inl-highlight">A</span>.</p>
 
-<p>Function <code class="highlighter-rouge">coe2</code> is a generalization of <code class="highlighter-rouge">coe</code>, which allows to transport elements between any two fibers of a type
+<p>Function <span class="inl-highlight">coe2</span> is a generalization of <span class="inl-highlight">coe</span>, which allows to transport elements between any two fibers of a type
 over the interval.</p>
 
 <h1 id="iso">iso</h1>
 
-<p>The definition of <code class="highlighter-rouge">iso</code> is not correct since it uses pattern matching on the interval.
+<p>The definition of <span class="inl-highlight">iso</span> is not correct since it uses pattern matching on the interval.
 This definition implies the univalence axiom.</p>
 
         

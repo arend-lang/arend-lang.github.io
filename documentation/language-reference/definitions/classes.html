@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,72 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/classes" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/classes" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+                <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+              
             
           
             
@@ -258,54 +273,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +283,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -358,41 +328,41 @@
       <section class="page__content" itemprop="text">
         
         <p>A <em>class</em> is a record that has several useful properties.
-A class is defined in the same way as a record, but it begins with the keyword <code class="highlighter-rouge">\class</code> instead of <code class="highlighter-rouge">\record</code>.
+A class is defined in the same way as a record, but it begins with the keyword <span class="inl-highlight"><span class="k">\class</span></span> instead of <span class="inl-highlight"><span class="k">\record</span></span>.
 Classes can extend other classes and records and vice versa.
 The first explicit parameter of a class is called its <em>classifying field</em>.
 Classes are implicitly coerced to the type of the classifying field.
 Let us consider an example:</p>
 
-<pre><code class="language-arend">\class Semigroup (E : \Set)
-  | \infixl 7 * : E -&gt; E -&gt; E
-  | *-assoc (x y z : E) : (x * y) * z = x * (y * z)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Semigroup (E <span class="o">:</span> <span class="kt">\Set</span>)
+  <span class="o">|</span> <span class="k">\infixl</span> <span class="n">7</span> <span class="o">*</span> <span class="o">:</span> E <span class="o">-&gt;</span> E <span class="o">-&gt;</span> E
+  <span class="o">|</span> <span class="o">*</span>-assoc (x y z <span class="o">:</span> E) <span class="o">:</span> (x <span class="o">*</span> y) <span class="o">*</span> z <span class="o">=</span> x <span class="o">*</span> (y <span class="o">*</span> z)
 
-\func square {S : Semigroup} (x : S) =&gt; x * x
-</code></pre>
+<span class="k">\func</span> square {S <span class="o">:</span> Semigroup} (x <span class="o">:</span> S) <span class="o">=&gt;</span> x <span class="o">*</span> x</code></pre></div></div>
 
-<p>It is allowed to write <code class="highlighter-rouge">x : S</code> instead of <code class="highlighter-rouge">x : S.E</code> since <code class="highlighter-rouge">S</code> is implicitly coerced to an element of type <code class="highlighter-rouge">\Set</code>, that is <code class="highlighter-rouge">S.E</code>.</p>
+<p>It is allowed to write <span class="inl-highlight">x <span class="o">:</span> S</span> instead of <span class="inl-highlight">x <span class="o">:</span> S.E</span> since <span class="inl-highlight">S</span> is implicitly coerced to an element of type <span class="inl-highlight"><span class="kt">\Set</span></span>, that is <span class="inl-highlight">S.E</span>.</p>
 
-<p>In case an parameter of a definition or a constructor has type, which is an <a href="/language-reference/expressions/class-ext">extension</a> <code class="highlighter-rouge">C { ... }</code> of <code class="highlighter-rouge">C</code>,
-it is marked as a <em>local instance</em> of class <code class="highlighter-rouge">C</code>. Implicit parameter <code class="highlighter-rouge">\this</code> of a field of class <code class="highlighter-rouge">C</code> is also a local instance.</p>
+<p>In case an parameter of a definition or a constructor has type, which is an <a href="../expressions/class-ext">extension</a> <span class="inl-highlight">C { … }</span> of <span class="inl-highlight">C</span>,
+it is marked as a <em>local instance</em> of class <span class="inl-highlight">C</span>. Implicit parameter <span class="inl-highlight"><span class="k">\this</span></span> of a field of class <span class="inl-highlight">C</span> is also a local instance.</p>
 
-<p>If the parameter <code class="highlighter-rouge">p : C { ... }</code> of <code class="highlighter-rouge">f</code> is a local instance, then the value of <code class="highlighter-rouge">p</code> in a usage of <code class="highlighter-rouge">f</code> is inferred to 
-a local instance <code class="highlighter-rouge">v : C { ... }</code>, visible in the context of the usage of <code class="highlighter-rouge">f</code>, if the expected value of the classifying
-field of <code class="highlighter-rouge">p</code> coincides with the classifying field of <code class="highlighter-rouge">v</code>. 
-For instance, the function <code class="highlighter-rouge">square</code> in the example above has one local instance <code class="highlighter-rouge">S</code> of the class <code class="highlighter-rouge">Semigroup</code>. The field
-<code class="highlighter-rouge">*</code> of the class <code class="highlighter-rouge">Semigroup</code> is used in the body of <code class="highlighter-rouge">square</code> and the expected type of its call in <code class="highlighter-rouge">x * x</code> is 
-<code class="highlighter-rouge">S.E -&gt; S.E -&gt; {?}</code>. This implies that the expected classifying field is <code class="highlighter-rouge">S.E</code>, which is the classifying field of the
-local instance <code class="highlighter-rouge">S</code>, so this instance is inferred as the implicit argument of <code class="highlighter-rouge">*</code>.</p>
+<p>If the parameter <span class="inl-highlight">p <span class="o">:</span> C { … }</span> of <span class="inl-highlight">f</span> is a local instance, then the value of <span class="inl-highlight">p</span> in a usage of <span class="inl-highlight">f</span> is inferred to 
+a local instance <span class="inl-highlight">v <span class="o">:</span> C { … }</span>, visible in the context of the usage of <span class="inl-highlight">f</span>, if the expected value of the classifying
+field of <span class="inl-highlight">p</span> coincides with the classifying field of <span class="inl-highlight">v</span>. 
+For instance, the function <span class="inl-highlight">square</span> in the example above has one local instance <span class="inl-highlight">S</span> of the class <span class="inl-highlight">Semigroup</span>.
+The field <span class="inl-highlight"><span class="o">*</span></span> of the class <span class="inl-highlight">Semigroup</span> is used in the body of <span class="inl-highlight">square</span> and the expected type of its call in <span class="inl-highlight">x <span class="o">*</span> x</span> is 
+<span class="inl-highlight">S.E <span class="o">-&gt;</span> S.E <span class="o">-&gt;</span> <span class="g">{?}</span></span>. This implies that the expected classifying field is <span class="inl-highlight">S.E</span>, which is the classifying field of the
+local instance <span class="inl-highlight">S</span>, so this instance is inferred as the implicit argument of <span class="inl-highlight"><span class="o">*</span></span>.</p>
+
+<h2 id="instances">Instances</h2>
 
 <p>It is also possible to define <em>global instances</em>.
-To do this, one needs to use the keyword `\instance’:</p>
+To do this, one needs to use the keyword <span class="inl-highlight"><span class="k">\instance</span></span>:</p>
 
-<pre><code class="language-arend">\instance NatSemigroup : Semigroup Nat
-  | * =&gt; Nat.*
-  | *-assoc =&gt; {?} -- the proof is omitted
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\instance</span> NatSemigroup <span class="o">:</span> Semigroup Nat
+  <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> Nat.<span class="o">*</span>
+  <span class="o">|</span> <span class="o">*</span>-assoc <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- the proof is omitted</span></code></pre></div></div>
 
-<p>A global instance is just a function, defined by <a href="/language-reference/definitions/functions/#copattern-matching">copattern matching</a>.
+<p>A global instance is just a function, defined by <a href="functions/#copattern-matching">copattern matching</a>.
 It can be used as an ordinary function.
 The only difference with an ordinary function is that it can only be defined by copattern matching and must define an
 instance of a class.

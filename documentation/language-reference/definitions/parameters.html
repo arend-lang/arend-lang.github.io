@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,72 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/parameters" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/parameters" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
+                <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+                <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
+              
             
           
             
@@ -258,54 +273,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +283,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -371,96 +341,92 @@
 Parameter declarations can be named or unnamed, typed or untyped and explicit or implicit.</p>
 
 <p>Some of the language constructions allow unnamed parameter declarations at the same time requiring them to be typed
- (examples are definitions of data or its constructors, <code class="highlighter-rouge">\Pi</code> or <code class="highlighter-rouge">\Sigma</code> expressions).
+ (examples are definitions of data or its constructors, <span class="inl-highlight"><span class="k">\Pi</span></span> or <span class="inl-highlight"><span class="k">\Sigma</span></span> expressions).
 Most of the other constructions require their parameter declarations to be named while allowing them to be untyped
  (exceptions to this rule are functions, records and instances which require parameter declarations to be named and typed at the same time).</p>
-<pre><code class="language-arend">\data d
-  | c1 (a : Nat)   -- typed named explicit
-  | c2 Nat         -- typed unnamed explicit
-  | c3 {a : Nat}   -- typed named implicit
-  | c4 {Nat}       -- typed unnamed implicit
-{-| c5 b           -- untyped parameter declarations are not allowed in constructors -}
 
-\func g1 =&gt; 
-  \lam a =&gt; suc a  -- untyped named explicit
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> d
+  <span class="o">|</span> c1 (a <span class="o">:</span> Nat)   <span class="c">-- typed named explicit</span>
+  <span class="o">|</span> c2 Nat         <span class="c">-- typed unnamed explicit</span>
+  <span class="o">|</span> c3 {a <span class="o">:</span> Nat}   <span class="c">-- typed named implicit</span>
+  <span class="o">|</span> c4 {Nat}       <span class="c">-- typed unnamed implicit</span>
+<span class="c">{-| c5 b           -- untyped parameter declarations are not allowed in constructors -}</span>
 
-\func g2 =&gt;
-  \lam {a} =&gt;      -- untyped named implicit
+<span class="k">\func</span> g1 <span class="o">=&gt;</span> 
+  <span class="k">\lam</span> a <span class="o">=&gt;</span> suc a  <span class="c">-- untyped named explicit</span>
+
+<span class="k">\func</span> g2 <span class="o">=&gt;</span>
+  <span class="k">\lam</span> {a} <span class="o">=&gt;</span>      <span class="c">-- untyped named implicit</span>
     suc a
 
-{-
+<span class="c">{-
 \func f a =&gt; a     -- parameters of functions must be named and typed
 \func f Nat =&gt; 1
- -}
-</code></pre>
+ -}</span></code></pre></div></div>
 
 <h2 id="syntax">Syntax</h2>
 
-<p>A named explicit parameter has the form <code class="highlighter-rouge">(x : T)</code>, where <code class="highlighter-rouge">x</code> is the name of the parameter and <code class="highlighter-rouge">T</code> is its type expression.
-An implicit parameter has the form <code class="highlighter-rouge">{x : T}</code>, where <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">T</code> are the same as before.</p>
+<p>A named explicit parameter has the form <span class="inl-highlight">(x <span class="o">:</span> T)</span>, where <span class="inl-highlight">x</span> is the name of the parameter and <span class="inl-highlight">T</span> is its type expression.
+An implicit parameter has the form <span class="inl-highlight">{x <span class="o">:</span> T}</span>, where <span class="inl-highlight">x</span> and <span class="inl-highlight">T</span> are the same as before.</p>
 
 <p>Parameters are specified after the name of a definition.
-For example, all of the definitions below have three parameters: <code class="highlighter-rouge">x1</code> of type <code class="highlighter-rouge">A1</code>, <code class="highlighter-rouge">x2</code> of type <code class="highlighter-rouge">A2</code>, and <code class="highlighter-rouge">x3</code> of type <code class="highlighter-rouge">A3</code>.</p>
+For example, all of the definitions below have three parameters: <span class="inl-highlight">x1</span> of type <span class="inl-highlight">A1</span>, <span class="inl-highlight">x2</span> of type <span class="inl-highlight">A2</span>, and <span class="inl-highlight">x3</span> of type <span class="inl-highlight">A3</span>.</p>
 
-<pre><code class="language-arend">\func f {x1 : A1} {x2 : A2} {x3 : A3} =&gt; 0
-\data D (x1 : A1) (x2 : A2) (x3 : A3)
-\class C (x1 : A1) {x2 : A2} (x3 : A3)
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f {x1 <span class="o">:</span> A1} {x2 <span class="o">:</span> A2} {x3 <span class="o">:</span> A3} <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\data</span> D (x1 <span class="o">:</span> A1) (x2 <span class="o">:</span> A2) (x3 <span class="o">:</span> A3)
+<span class="k">\class</span> C (x1 <span class="o">:</span> A1) {x2 <span class="o">:</span> A2} (x3 <span class="o">:</span> A3)</code></pre></div></div>
 
-<p>Multiple parameters of the same type can be specified via the following syntax: <code class="highlighter-rouge">x_1 ... x_n : T</code>.
-For example, the following function has two implicit parameters of type <code class="highlighter-rouge">A1</code>, three explicit parameters of type <code class="highlighter-rouge">A2</code>, and one explicit parameter of type <code class="highlighter-rouge">A3</code>:</p>
+<p>Multiple parameters of the same type can be specified via the following syntax: <span class="inl-highlight">x_1 … x_n <span class="o">:</span> T</span>.
+For example, the following function has two implicit parameters of type <span class="inl-highlight">A1</span>, three explicit parameters of type <span class="inl-highlight">A2</span>, and one explicit parameter of type <span class="inl-highlight">A3</span>:</p>
 
-<pre><code class="language-arend">\func f {x1 x2 : A1} (y1 y2 y3 : A2) (z : A3) =&gt; B
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f {x1 x2 <span class="o">:</span> A1} (y1 y2 y3 <span class="o">:</span> A2) (z <span class="o">:</span> A3) <span class="o">=&gt;</span> B</code></pre></div></div>
 
 <p>This definition is equivalent to the following one:</p>
 
-<pre><code class="language-arend">\func f {x1 : A1} {x2 : A1} (y1 : A2) (y2 : A2) (y3 : A2) (z : A3) =&gt; B
-</code></pre>
-<p>The types of subsequent parameters may depend on the previous ones.
-In the example above, parameters <code class="highlighter-rouge">x1</code> and <code class="highlighter-rouge">x2</code> may appear in <code class="highlighter-rouge">A2</code> and <code class="highlighter-rouge">A3</code>, parameters <code class="highlighter-rouge">y1</code>, <code class="highlighter-rouge">y2</code>, and <code class="highlighter-rouge">y3</code> may appear in <code class="highlighter-rouge">A3</code>, and all of the parameters may appear in <code class="highlighter-rouge">B</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f {x1 <span class="o">:</span> A1} {x2 <span class="o">:</span> A1} (y1 <span class="o">:</span> A2) (y2 <span class="o">:</span> A2) (y3 <span class="o">:</span> A2) (z <span class="o">:</span> A3) <span class="o">=&gt;</span> B</code></pre></div></div>
 
-<p>If a parameter is never used, its name can be replaced with <code class="highlighter-rouge">_</code>.
+<p>The types of subsequent parameters may depend on the previous ones.
+In the example above, parameters <span class="inl-highlight">x1</span> and <span class="inl-highlight">x2</span> may appear in <span class="inl-highlight">A2</span> and <span class="inl-highlight">A3</span>,
+parameters <span class="inl-highlight">y1</span>, <span class="inl-highlight">y2</span>, and <span class="inl-highlight">y3</span> may appear in <span class="inl-highlight">A3</span>, and all of the parameters may appear in <span class="inl-highlight">B</span>.</p>
+
+<p>If a parameter is never used, its name can be replaced with <span class="inl-highlight"><span class="u">_</span></span>.
 Such a name cannot be refered to, so this simply indicated that this parameter is ignored.</p>
 
 <h2 id="implicit-arguments">Implicit arguments</h2>
 
-<p>Let <code class="highlighter-rouge">f</code> be a definition with parameters of types <code class="highlighter-rouge">A_1</code>, … <code class="highlighter-rouge">A_n</code>.
-If all of the parameters are explicit, then we can form an expression of the form <code class="highlighter-rouge">f a_1 ... a_n</code>, where <code class="highlighter-rouge">a_i</code> is an expression of type <code class="highlighter-rouge">A_i</code>.
-Such an expression invokes <code class="highlighter-rouge">f</code> with the specified arguments.
-If some of the parameters of <code class="highlighter-rouge">f</code> are implicit, then corresponding arguments must be omitted.
+<p>Let <span class="inl-highlight">f</span> be a definition with parameters of types <span class="inl-highlight">A_1<span class="o">,</span> … A_n</span>.
+If all of the parameters are explicit, then we can form an expression of the form <span class="inl-highlight">f a_1 … a_n</span>, where <span class="inl-highlight">a_i</span> is an expression of type <span class="inl-highlight">A_i</span>.
+Such an expression invokes <span class="inl-highlight">f</span> with the specified arguments.
+If some of the parameters of <span class="inl-highlight">f</span> are implicit, then corresponding arguments must be omitted.
 For example, consider the following code:</p>
 
-<pre><code class="language-arend">\func f (x : A1) {y y' : A2} (z : A3) {z : A4} =&gt; 0
-\func g =&gt; f a1 a3
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y' <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> g <span class="o">=&gt;</span> f a1 a3</code></pre></div></div>
 
-<p>In the expression <code class="highlighter-rouge">f a1 a3</code>, arguments corresponding to parameters <code class="highlighter-rouge">y</code>, <code class="highlighter-rouge">y'</code>, and <code class="highlighter-rouge">z</code> are omitted.
+<p>In the expression <span class="inl-highlight">f a1 a3</span>, arguments corresponding to parameters <span class="inl-highlight">y</span>, <span class="inl-highlight">y’</span>, and <span class="inl-highlight">z</span> are omitted.
 The typechecker tries to infer these parameters and reports an error if it fails to do so.
-We can ask typechecker to try to infer an explicit parameter by writing <code class="highlighter-rouge">_</code> instead of the corresponding argument:</p>
+We can ask typechecker to try to infer an explicit parameter by writing <span class="inl-highlight"><span class="u">_</span></span> instead of the corresponding argument:</p>
 
-<pre><code class="language-arend">\func f (x : A1) {y y' : A2} (z : A3) {z : A4} =&gt; 0
-\func g =&gt; f _ a3
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y' <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> g <span class="o">=&gt;</span> f <span class="u">_</span> a3</code></pre></div></div>
 
-<p>In the example above, the typechecker will try to infer the argument corresponding to <code class="highlighter-rouge">x</code>.
-Actually, the expression <code class="highlighter-rouge">_</code> can be written anywhere at all.
+<p>In the example above, the typechecker will try to infer the argument corresponding to <span class="inl-highlight">x</span>.
+Actually, the expression <span class="inl-highlight"><span class="u">_</span></span> can be written anywhere at all.
 The typechecker infers the omitted expression only if there is a unique solutions to the inference problem 
- (i. e. there is only one expression with which <code class="highlighter-rouge">_</code> can be replaced so that the surrounding definition typechecks correctly).</p>
+ (i. e. there is only one expression with which <span class="inl-highlight"><span class="u">_</span></span> can be replaced so that the surrounding definition typechecks correctly).</p>
 
-<p>Finally, if the typechecker cannot infer an implicit argument, it can be specified explicitly by writing <code class="highlighter-rouge">{e}</code>.
-For example, to specify explicitly the second and the last arguments of <code class="highlighter-rouge">f</code>, we can write the following code:</p>
+<p>Finally, if the typechecker cannot infer an implicit argument, it can be specified explicitly by writing <span class="inl-highlight">{e}</span>.
+For example, to specify explicitly the second and the last arguments of <span class="inl-highlight">f</span>, we can write the following code:</p>
 
-<pre><code class="language-arend">\func f (x : A1) {y y' : A2} (z : A3) {z : A4} =&gt; 0
-\func g =&gt; f _ {a2} a3 {a4}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y' <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> g <span class="o">=&gt;</span> f <span class="u">_</span> {a2} a3 {a4}</code></pre></div></div>
 
-<p>In this example, arguments corresponding to <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y'</code> are left implicit and other arguments are explicitly specified.</p>
+<p>In this example, arguments corresponding to <span class="inl-highlight">x</span> and <span class="inl-highlight">y’</span> are left implicit and other arguments are explicitly specified.</p>
 
-<p>If <code class="highlighter-rouge">op</code> is an infix operator, then we can write <code class="highlighter-rouge">x op {a_1} ... {a_n} y</code>, which is equivalent to <code class="highlighter-rouge">op {a_1} ... {a_n} x y</code>.
+<p>If <span class="inl-highlight">op</span> is an infix operator, then we can write <span class="inl-highlight">x op {a_1} … {a_n} y</span>, which is equivalent to <span class="inl-highlight">op {a_1} … {a_n} x y</span>.
 In other words, implicit arguments which are written immediately after an infix operator are considered to be its first arguments.</p>
-<pre><code class="language-arend">\func f (A : \Type) =&gt; \lam a b =&gt; a = {A} b
-</code></pre>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\lam</span> a b <span class="o">=&gt;</span> a <span class="o">=</span> {A} b</code></pre></div></div>
 
         
       </section>

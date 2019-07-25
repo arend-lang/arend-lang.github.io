@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,10 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="active">Lexical structure</a></li>
 
             
+            
+            
+              
+            
           
             
             
@@ -186,68 +199,7 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
             
           
             
@@ -258,54 +210,7 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
             
           
             
@@ -315,6 +220,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -375,42 +282,44 @@
 <p>All Arend’s <em>keywords</em> begin with <code class="highlighter-rouge">\</code>.
 Here’s the complete list of keywords:</p>
 
-<p><a href="/language-reference/definitions/modules/#open-commands">\open</a> <a href="/language-reference/definitions/modules/#import-commands">\import</a> <a href="/language-reference/definitions/modules/#open-commands">\hiding</a> <a href="/language-reference/definitions/modules/#open-commands">\as</a> <a href="/language-reference/definitions/modules/#open-commands">\using</a>
-<a href="/language-reference/definitions/data">\truncated</a> <a href="/language-reference/definitions/data">\data</a> <a href="/language-reference/definitions/functions">\func</a> <a href="/language-reference/definitions/functions/#lemmas">\lemma</a> <a href="/language-reference/definitions/classes">\class</a> <a href="/language-reference/definitions/records">\record</a> <a href="/language-reference/definitions/records">\field</a> <a href="/language-reference/definitions/records/#properties">\property</a> <a href="/language-reference/definitions/records">\extends</a> <a href="/language-reference/definitions/modules/#modules">\module</a> <a href="/language-reference/definitions/classes">\instance</a> <a href="/language-reference/definitions/coercion">\use</a> <a href="/language-reference/definitions/coercion">\coerce</a> <a href="/language-reference/definitions/level">\level</a> 
-<a href="/language-reference/definitions/functions/#pattern-matching">\with</a> <a href="/language-reference/definitions/functions/#elim">\elim</a> <a href="/language-reference/definitions/functions/#copattern-matching">\cowith</a> <a href="/language-reference/definitions/modules/#where-blocks">\where</a>
-<a href="/language-reference/definitions/#infix-operators">\infix</a> <a href="/language-reference/definitions/#infix-operators">\infixl</a> <a href="/language-reference/definitions/#infix-operators">\infixr</a> <a href="/language-reference/definitions/#precedence">\fix</a> <a href="/language-reference/definitions/#precedence">\fixl</a> <a href="/language-reference/definitions/#precedence">\fixr</a>
-<a href="/language-reference/expressions/class-ext">\new</a> <a href="/language-reference/definitions/records">\this</a> <a href="/language-reference/expressions/pi">\Pi</a> <a href="/language-reference/expressions/sigma">\Sigma</a> <a href="/language-reference/expressions/pi">\lam</a> <a href="/language-reference/expressions/let">\let</a> <a href="/language-reference/expressions/let">\let!</a> <a href="(/language-reference/expressions/let)">\in</a> <a href="/language-reference/expressions/case">\case</a> <a href="/language-reference/expressions/case">\return</a>
-<a href="/language-reference/expressions/universes/#level-polymorphism">\lp</a> <a href="/language-reference/expressions/universes/#level-polymorphism">\lh</a> <a href="/language-reference/expressions/universes/#level-polymorphism">\suc</a> <a href="/language-reference/expressions/universes/#level-polymorphism">\max</a> <a href="/language-reference/expressions/universes">\Prop</a> <a href="/language-reference/expressions/universes">\Set</a> <a href="/language-reference/expressions/universes">\Type</a>.</p>
+<p><a href="definitions/modules/#open-commands">\open</a> <a href="definitions/modules/#import-commands">\import</a> <a href="definitions/modules/#open-commands">\hiding</a> <a href="definitions/modules/#open-commands">\as</a> <a href="definitions/modules/#open-commands">\using</a>
+<a href="definitions/data">\truncated</a> <a href="definitions/data">\data</a> <a href="definitions/functions">\func</a> <a href="definitions/functions/#lemmas">\lemma</a> <a href="definitions/classes">\class</a> <a href="definitions/records">\record</a>
+<a href="definitions/records">\field</a> <a href="definitions/records/#properties">\property</a> <a href="definitions/records">\extends</a> <a href="definitions/modules/#modules">\module</a> <a href="definitions/classes">\instance</a>
+<a href="definitions/coercion">\use</a> <a href="definitions/coercion">\coerce</a> <a href="definitions/level">\level</a> 
+<a href="definitions/functions/#pattern-matching">\with</a> <a href="definitions/functions/#elim">\elim</a> <a href="definitions/functions/#copattern-matching">\cowith</a> <a href="definitions/modules/#where-blocks">\where</a>
+<a href="definitions/#infix-operators">\infix</a> <a href="definitions/#infix-operators">\infixl</a> <a href="definitions/#infix-operators">\infixr</a> <a href="definitions/#precedence">\fix</a> <a href="definitions/#precedence">\fixl</a> <a href="definitions/#precedence">\fixr</a>
+<a href="expressions/class-ext">\new</a> <a href="definitions/records">\this</a> <a href="expressions/pi">\Pi</a> <a href="expressions/sigma">\Sigma</a> <a href="expressions/pi">\lam</a> <a href="expressions/let">\let</a> <a href="expressions/let">\let!</a> <a href="(expressions/let)">\in</a> <a href="expressions/case">\case</a> <a href="expressions/case">\return</a>
+<a href="expressions/universes/#level-polymorphism">\lp</a> <a href="expressions/universes/#level-polymorphism">\lh</a> <a href="expressions/universes/#level-polymorphism">\suc</a> <a href="expressions/universes/#level-polymorphism">\max</a>
+<a href="expressions/universes">\Prop</a> <a href="expressions/universes">\Set</a> <a href="expressions/universes">\Type</a>.</p>
 
 <h2 id="numerals">Numerals</h2>
 
 <p>A <em>positive numeral</em> is a non-empty sequence of digits.
-A <em>negative numeral</em> consists of <code class="highlighter-rouge">-</code> followed by a non-empty sequence of digits.</p>
+A <em>negative numeral</em> consists of symbol <code class="highlighter-rouge">-</code> followed by a non-empty sequence of digits.</p>
 
 <h2 id="identifiers">Identifiers</h2>
 
-<p>An <em>identifier</em> consists of a non-empty sequence of lower and upper case letters, digits, and characters from the list <code class="highlighter-rouge">~!@#$%^&amp;*-+=&lt;&gt;?/|[];:_</code>.
-Exceptions are sequences that begin with a digit, sequences that begin with <code class="highlighter-rouge">--</code>, numerals, and reserved names: <code class="highlighter-rouge">-&gt;</code>, <code class="highlighter-rouge">=&gt;</code>, <code class="highlighter-rouge">_</code>, <code class="highlighter-rouge">:</code>, and <code class="highlighter-rouge">|</code>.</p>
+<p>An <em>identifier</em> consists of a non-empty sequence of lower and upper case letters, digits, and characters from the list <code class="highlighter-rouge">~!@#$%^&amp;*-+=&lt;&gt;?/|[]:_</code>.
+Exceptions are sequences that begin with a digit or symbol <code class="highlighter-rouge">'</code>, numerals, and reserved names such as <code class="highlighter-rouge">-&gt;</code>, <code class="highlighter-rouge">=&gt;</code>, <code class="highlighter-rouge">_</code>, <code class="highlighter-rouge">:</code>, and <code class="highlighter-rouge">|</code>.</p>
 
 <p>Examples:</p>
 
 <ul>
-  <li>Valid identifiers: <code class="highlighter-rouge">xxx</code>, <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">$^~]!005x</code>, <code class="highlighter-rouge">::</code>, <code class="highlighter-rouge">-&gt;x</code>, <code class="highlighter-rouge">x:Nat</code>, <code class="highlighter-rouge">-5b</code>, <code class="highlighter-rouge">-33+7</code>.</li>
-  <li>Invalid identifiers: <code class="highlighter-rouge">--xxx</code>, <code class="highlighter-rouge">5b</code>, <code class="highlighter-rouge">-33</code>, <code class="highlighter-rouge">-&gt;</code>.</li>
+  <li>Valid identifiers: <code class="highlighter-rouge">xxx</code>, <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">$^~]!005x</code>, <code class="highlighter-rouge">::</code>, <code class="highlighter-rouge">-&gt;x</code>, <code class="highlighter-rouge">x:Nat</code>, <code class="highlighter-rouge">-5b</code>, <code class="highlighter-rouge">-33+7</code>, <code class="highlighter-rouge">--xxx</code>.</li>
+  <li>Invalid identifiers: <code class="highlighter-rouge">5b</code>, <code class="highlighter-rouge">-33</code>, <code class="highlighter-rouge">=&gt;</code>.</li>
 </ul>
 
 <h2 id="infix-and-postfix-notation">Infix and postfix notation</h2>
 
 <p>A <em>postfix notation</em> is an identifier followed by <code class="highlighter-rouge">`</code>.
 An <em>infix notation</em> is an identifier surrounded by <code class="highlighter-rouge">`</code>.
-Both of these notations are described in <a href="/language-reference/definitions">this section</a>.</p>
+Both of these notations are described in <a href="definitions">Definitions</a>.</p>
 
 <h2 id="comments">Comments</h2>
 
 <p><em>Multi-line comments</em> are enclosed in <code class="highlighter-rouge">{-</code> and <code class="highlighter-rouge">-}</code> and can be nested.
-<em>Single-line comments</em> consist of <code class="highlighter-rouge">--</code> followed by an arbitrary text until the end of the line.
-The exception are identifiers which contain <code class="highlighter-rouge">--</code> in their names, but do not begin with <code class="highlighter-rouge">--</code>.
-To give an example, <code class="highlighter-rouge">--</code>, <code class="highlighter-rouge">--------</code>, <code class="highlighter-rouge">--|</code>, <code class="highlighter-rouge">--foo</code>, and <code class="highlighter-rouge">-------foobar</code> are comments but <code class="highlighter-rouge">|--</code>, <code class="highlighter-rouge">%--foo</code>, and <code class="highlighter-rouge">x------foobar</code> are not.</p>
+<em>Single-line comments</em> consist of a sequence of symbols <code class="highlighter-rouge">-</code> of length at least 2 followed by a whitespace followed by an arbitrary text until the end of the line.
+To give an example, <code class="highlighter-rouge">--</code>, <code class="highlighter-rouge">--------</code>, <code class="highlighter-rouge">-- foo</code>, and <code class="highlighter-rouge">------- foobar</code> are comments but <code class="highlighter-rouge">--foo</code>, <code class="highlighter-rouge">foo--bar</code>, and <code class="highlighter-rouge">------foobar</code> are not.</p>
 
         
       </section>

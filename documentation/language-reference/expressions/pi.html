@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,7 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
             
           
             
@@ -258,54 +208,58 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/pi" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/pi" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+                <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+              
             
           
             
@@ -315,6 +269,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -358,28 +314,28 @@
       <section class="page__content" itemprop="text">
         
         <p>A Pi type is a type of (dependent) functions.
-If <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> are named or unnamed parameters and <code class="highlighter-rouge">B</code> is a type, then <code class="highlighter-rouge">\Pi p_1 ... p_n -&gt; B</code> is also a type.
-If <code class="highlighter-rouge">B</code> does not refer to variables defined in the parameters, you can write <code class="highlighter-rouge">A_1 -&gt; ... A_n -&gt; B</code> instead, where
-<code class="highlighter-rouge">A_i</code> are types of the parameters.
-If <code class="highlighter-rouge">A_i</code> has type <code class="highlighter-rouge">\Type p_i h_i</code> and <code class="highlighter-rouge">B</code> has type <code class="highlighter-rouge">\Type p h</code>, then the type of the Pi type is <code class="highlighter-rouge">\Type p_max h</code>,
-where <code class="highlighter-rouge">p_max</code> is the maximum of <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code>, and <code class="highlighter-rouge">p</code>.
+If <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are named or unnamed parameters and <span class="inl-highlight">B</span> is a type, then <span class="inl-highlight"><span class="k">\Pi</span> p_1 … p_n <span class="o">-&gt;</span> B</span> is also a type.
+If <span class="inl-highlight">B</span> does not refer to variables defined in the parameters, you can write <span class="inl-highlight">A_1 <span class="o">-&gt;</span> … A_n <span class="o">-&gt;</span> B</span> instead, where
+<span class="inl-highlight">A_i</span> are types of the parameters.
+If <span class="inl-highlight">A_i</span> has type <span class="inl-highlight"><span class="kt">\Type</span> p_i h_i</span> and <span class="inl-highlight">B</span> has type <span class="inl-highlight"><span class="kt">\Type</span> p h</span>, then the type of the Pi type is <span class="inl-highlight"><span class="kt">\Type</span> p_max h</span>,
+where <span class="inl-highlight">p_max</span> is the maximum of <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span>, and <span class="inl-highlight">p</span>.
 Note that the homotopy level of the Pi type is simply the homotopy level of the codomain.</p>
 
-<p>An expression of the form <code class="highlighter-rouge">\Pi p_1 ... p_n -&gt; B</code> is equivalent to <code class="highlighter-rouge">\Pi p_1 -&gt; \Pi p_2 ... p_n -&gt; B</code>.
-Moreover, if <code class="highlighter-rouge">p_1</code> equals to <code class="highlighter-rouge">(x_1 ... x_k : A)</code>, then it is also equivalent to
-<code class="highlighter-rouge">\Pi (x_1 : A) -&gt; \Pi (x_2 ... x_k : A) -&gt; \Pi p_2 ... p_n -&gt; B</code>.</p>
+<p>An expression of the form <span class="inl-highlight"><span class="k">\Pi</span> p_1 … p_n <span class="o">-&gt;</span> B</span> is equivalent to <span class="inl-highlight"><span class="k">\Pi</span> p_1 <span class="o">-&gt;</span> <span class="k">\Pi</span> p_2 … p_n <span class="o">-&gt;</span> B</span>.
+Moreover, if <span class="inl-highlight">p_1</span> equals to <span class="inl-highlight">(x_1 … x_k <span class="o">:</span> A)</span>, then it is also equivalent to
+<span class="inl-highlight"><span class="k">\Pi</span> (x_1 <span class="o">:</span> A) <span class="o">-&gt;</span> <span class="k">\Pi</span> (x_2 … x_k <span class="o">:</span> A) <span class="o">-&gt;</span> <span class="k">\Pi</span> p_2 … p_n <span class="o">-&gt;</span> B</span>.</p>
 
 <p>A <em>lambda parameter</em> is either a variable or a named parameter.
-If <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> is a sequence of lambda parameters and <code class="highlighter-rouge">e</code> is an expression of type <code class="highlighter-rouge">E</code>, then
-<code class="highlighter-rouge">\lam p_1 ... p_n =&gt; e</code> is an expression which has type <code class="highlighter-rouge">\Pi p_1 ... p_n -&gt; E</code>.
+If <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> is a sequence of lambda parameters and <span class="inl-highlight">e</span> is an expression of type <span class="inl-highlight">E</span>, then
+<span class="inl-highlight"><span class="k">\lam</span> p_1 … p_n <span class="o">=&gt;</span> e</span> is an expression which has type <span class="inl-highlight"><span class="k">\Pi</span> p_1 … p_n <span class="o">-&gt;</span> E</span>.
 If some parameters do not have types, then they will be inferred by the typechecker.</p>
 
-<p>If <code class="highlighter-rouge">f</code> is an expression of type <code class="highlighter-rouge">\Pi (x : A) -&gt; B</code> and <code class="highlighter-rouge">a</code> is an expression of type <code class="highlighter-rouge">A</code>, then <code class="highlighter-rouge">f a</code> is an expression
-of type <code class="highlighter-rouge">B[a/x]</code>.</p>
+<p>If <span class="inl-highlight">f</span> is an expression of type <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">a</span> is an expression of type <span class="inl-highlight">A</span>, then <span class="inl-highlight">f a</span> is an expression
+of type <span class="inl-highlight">B[a/x]</span>.</p>
 
-<p>An expression of the form <code class="highlighter-rouge">(\lam x =&gt; b) a</code> reduces to <code class="highlighter-rouge">b[a/x]</code>.</p>
+<p>An expression of the form <span class="inl-highlight">(<span class="k">\lam</span> x <span class="o">=&gt;</span> b) a</span> reduces to <span class="inl-highlight">b[a/x]</span>.</p>
 
-<p>An expression of the form <code class="highlighter-rouge">\lam x =&gt; f x</code> is equivalent to <code class="highlighter-rouge">f</code> if <code class="highlighter-rouge">x</code> is not free in <code class="highlighter-rouge">f</code> (eta equivalence for Pi types).</p>
+<p>An expression of the form <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> f x</span> is equivalent to <span class="inl-highlight">f</span> if <span class="inl-highlight">x</span> is not free in <span class="inl-highlight">f</span> (eta equivalence for Pi types).</p>
 
         
       </section>

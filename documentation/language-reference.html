@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Case - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Language Reference - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Case">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/case.html">
+<meta property="og:title" content="Language Reference">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/case.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference.html">
 
 
 
@@ -210,57 +210,6 @@
             
             
             
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/case" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
-              
-            
           
             
             
@@ -297,7 +246,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Case">
+    <meta itemprop="headline" content="Language Reference">
     
     
     
@@ -305,7 +254,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Case
+          <h1 id="page-title" class="page__title" itemprop="headline">Language Reference
 </h1>
           
         </header>
@@ -313,26 +262,287 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>The basic syntax of case expressions looks like this:</p>
+        <p>This section contains the specification of the Arend language.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> e_1<span class="o">,</span> ... e_n <span class="k">\with</span> {
-  <span class="o">|</span> p_1^1<span class="o">,</span> ... p_n^1 <span class="o">=&gt;</span> d_1
-  ...
-  <span class="o">|</span> p_1^k<span class="o">,</span> ... p_n^k <span class="o">=&gt;</span> d_k
-}</code></pre></div></div>
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
 
-<p>where <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> and <span class="inl-highlight">d_1<span class="o">,</span> … d_k</span> are expressions and <span class="inl-highlight">p_1^1<span class="o">,</span> … p_n^k</span> are patterns.
-Such an expression reduces in the same way as functions defined by pattern matching (see <a href="../definitions/functions/#pattern-matching">Functions</a>).
-If the typechecker does not know the type of a case expression, it must be specified explicitly:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> e_1<span class="o">,</span> ... e_n <span class="k">\return</span> T <span class="k">\with</span> { ... }</code></pre></div></div>
+  
+  
+  
+  
 
-<p>The general syntax of case expressions looks like this:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> e_1 <span class="k">\as</span> x_1 <span class="o">:</span> E_1<span class="o">,</span> ... e_n <span class="k">\as</span> x_n <span class="o">:</span> E_n <span class="k">\return</span> T <span class="k">\with</span> { ... }</code></pre></div></div>
-<p>where <span class="inl-highlight">x_1<span class="o">,</span> … x_n</span> are variables and <span class="inl-highlight">E_1<span class="o">,</span> … E_n</span> are expressions.
-The parts <span class="inl-highlight"><span class="k">\as</span> x_i</span> and <span class="inl-highlight"><span class="o">:</span> E_i</span> can be omitted.
-Expressions <span class="inl-highlight">E_i</span> can refer to <span class="inl-highlight">x_1<span class="o">,</span> … x_{i-1}</span> and expression <span class="inl-highlight">T</span> can refer to <span class="inl-highlight">x_1<span class="o">,</span> … x_n</span>.
-In this case, <span class="inl-highlight">e_i</span> must have type <span class="inl-highlight">E_i[e_1/x_1<span class="o">,</span> … e_{i-1}/x_{i-1}]</span>.
-The type of the case expression is <span class="inl-highlight">T[e_1/x_1<span class="o">,</span> … e_n/x_n]</span>.</p>
+  
+  
+  
+
+  <ul class="nav__items_inline">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference/lexical-structure"><span class="nav__sub-title">Lexical structure</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference/definitions"><span class="nav__sub-title">Definitions</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/modules" class="">Modules</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/parameters" class="">Parameters</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/functions" class="">Functions</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/data" class="">Data</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/hits" class="">Higher inductive types</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/records" class="">Records</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/classes" class="">Classes</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/coercion" class="">Coercion</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions/level" class="">Level</a></li>
+
+            
+            
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference/expressions"><span class="nav__sub-title">Expressions</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions/goals" class="">Goals</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions/universes" class="">Universes</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions/pi" class="">Pi types</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions/sigma" class="">Sigma types</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions/let" class="">Let</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions/case" class="">Case</a></li>
+
+            
+            
+            
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions/class-ext" class="">Class extensions</a></li>
+
+            
+            
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference/prelude"><span class="nav__sub-title">Prelude</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
 
         
       </section>

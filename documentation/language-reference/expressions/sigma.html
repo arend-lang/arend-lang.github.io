@@ -138,12 +138,18 @@
     
       
 
+
+
 <nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
 
   
+  
+  
+  
+
   
   
   
@@ -163,7 +169,10 @@
     
       <li>
         
-          <span class="nav__sub-title">Language Reference</span>
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
         
 
         
@@ -177,6 +186,8 @@
             <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
+            
+            
           
             
             
@@ -186,68 +197,7 @@
             <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/modules" class="">&nbsp;&nbsp;&nbsp;&nbsp;Modules</a></li>
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/parameters" class="">&nbsp;&nbsp;&nbsp;&nbsp;Parameters</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/functions" class="">&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Higher inductive types</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Records</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/classes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
-            
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/definitions/level" class="">&nbsp;&nbsp;&nbsp;&nbsp;Level</a></li>
             
           
             
@@ -258,54 +208,58 @@
             <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
 
             
-              
-              
-
-              
-
-              <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
+            
             
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/sigma" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/sigma" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-            
+                <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
               
-              
+                
+                
 
-              
+                
 
-              <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+                <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
+              
             
           
             
@@ -315,6 +269,8 @@
 
             <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
 
+            
+            
             
           
         </ul>
@@ -358,28 +314,28 @@
       <section class="page__content" itemprop="text">
         
         <p>A Sigma type is a type of (dependent) tuples.
-If <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> are named or unnamed parameters, then <code class="highlighter-rouge">\Sigma p_1 ... p_n</code> is also a type.
-If <code class="highlighter-rouge">A_i</code> has type <code class="highlighter-rouge">\Type p_i h_i</code>, then the type of the Sigma type is <code class="highlighter-rouge">\Type p_max h_max</code>, where <code class="highlighter-rouge">p_max</code> is the maximum
-of <code class="highlighter-rouge">p_1</code>, … <code class="highlighter-rouge">p_n</code> and <code class="highlighter-rouge">h_max</code> is the maximum of <code class="highlighter-rouge">h_1</code>, … <code class="highlighter-rouge">h_n</code>.</p>
+If <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are named or unnamed parameters, then <span class="inl-highlight"><span class="k">\Sigma</span> p_1 … p_n</span> is also a type.
+If <span class="inl-highlight">A_i</span> has type <span class="inl-highlight"><span class="kt">\Type</span> p_i h_i</span>, then the type of the Sigma type is <span class="inl-highlight"><span class="kt">\Type</span> p_max h_max</span>, where <span class="inl-highlight">p_max</span> is the maximum
+of <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> and <span class="inl-highlight">h_max</span> is the maximum of <span class="inl-highlight">h_1<span class="o">,</span> … h_n</span>.</p>
 
-<p>An expression of the form <code class="highlighter-rouge">\Sigma p_1 ... p_n (x_1 ... x_k : A) q_1 ... q_m</code> is equivalent to
-<code class="highlighter-rouge">\Sigma p_1 ... p_n (x_1 : A) ... (x_k : A) q_1 ... q_m</code>.</p>
+<p>An expression of the form <span class="inl-highlight"><span class="k">\Sigma</span> p_1 … p_n (x_1 … x_k <span class="o">:</span> A) q_1 … q_m</span> is equivalent to
+<span class="inl-highlight"><span class="k">\Sigma</span> p_1 … p_n (x_1 <span class="o">:</span> A) … (x_k <span class="o">:</span> A) q_1 … q_m</span>.</p>
 
-<p>If <code class="highlighter-rouge">a_i</code> is an expression of type <code class="highlighter-rouge">A_i[a_1/x_1, ... a_{i-1}/x_{i-1}]</code>, then <code class="highlighter-rouge">(a_1, ... a_n)</code> is an expression of
-type <code class="highlighter-rouge">\Sigma (x_1 : A_1) ... (x_n : A_n)</code>. 
+<p>If <span class="inl-highlight">a_i</span> is an expression of type <span class="inl-highlight">A_i[a_1/x_1<span class="o">,</span> … a_{i-1}/x_{i-1}]</span>, then <span class="inl-highlight">(a_1<span class="o">,</span> … a_n)</span> is an expression of
+type <span class="inl-highlight"><span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) … (x_n <span class="o">:</span> A_n)</span>. 
 Note that the typechecker often cannot infer the correct type of such an expression.
 If the typechecker does not know it already, it always tries to guess a non-dependent version.
 In case the typechecker fails to infer the type, it should be specified explicitly:
-<code class="highlighter-rouge">((a_1, ... a_n) : \Sigma (x_1 : A_1) ... (x_n : A_n))</code>.
-You can also explicitly specify the type of each field: <code class="highlighter-rouge">(b_1 : B_1, ... b_n : B_n)</code>, however in this case 
-<code class="highlighter-rouge">B_i</code> cannot refer to previous parameters, therefore this can only be used to define non-dependent Sigma types.</p>
+<span class="inl-highlight">((a_1<span class="o">,</span> … a_n) <span class="o">:</span> <span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) … (x_n <span class="o">:</span> A_n))</span>.
+You can also explicitly specify the type of each field: <span class="inl-highlight">(b_1 <span class="o">:</span> B_1<span class="o">,</span> … b_n <span class="o">:</span> B_n)</span>, however in this case 
+<span class="inl-highlight">B_i</span> cannot refer to previous parameters, therefore this can only be used to define non-dependent Sigma types.</p>
 
-<p>If <code class="highlighter-rouge">p</code> is an expression of type <code class="highlighter-rouge">\Sigma (x_1 : A_1) ... (x_n : A_n)</code> and 1 ≤ i ≤ n, then <code class="highlighter-rouge">p.i</code> is an expression of
-type <code class="highlighter-rouge">A_i[p.1/x_1, ... p_{i-1}/x_{i-1}]</code>.</p>
+<p>If <span class="inl-highlight">p</span> is an expression of type <span class="inl-highlight"><span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) … (x_n <span class="o">:</span> A_n)</span> and 1 ≤ i ≤ n, then <span class="inl-highlight">p.i</span> is an expression of
+type <span class="inl-highlight">A_i[p.<span class="n">1</span>/x_1<span class="o">,</span> … p_{i-1}/x_{i-1}]</span>.</p>
 
-<p>An expression of the form <code class="highlighter-rouge">(a_1, ... a_n).i</code> reduces to <code class="highlighter-rouge">a_i</code>.</p>
+<p>An expression of the form <span class="inl-highlight">(a_1<span class="o">,</span> … a_n).i</span> reduces to <span class="inl-highlight">a_i</span>.</p>
 
-<p>An expression of the form <code class="highlighter-rouge">(p.1, ... p.n)</code> is equivalent to <code class="highlighter-rouge">p</code> (eta equivalence for Sigma types).</p>
+<p>An expression of the form <span class="inl-highlight">(p.<span class="n">1</span><span class="o">,</span> … p.n)</span> is equivalent to <span class="inl-highlight">p</span> (eta equivalence for Sigma types).</p>
 
         
       </section>
