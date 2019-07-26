@@ -44,13 +44,13 @@
 <loc>https://arend-lang.github.io/</loc>
 </url>
 <url>
-<loc>https://arend-lang.github.io/about/</loc>
-</url>
-<url>
 <loc>https://arend-lang.github.io/documentation/language-reference/definitions/</loc>
 </url>
 <url>
 <loc>https://arend-lang.github.io/documentation/language-reference/expressions/</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/about/</loc>
 </url>
 <url>
 <loc>https://arend-lang.github.io/about/intellij-features.html</loc>
