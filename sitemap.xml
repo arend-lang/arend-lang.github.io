@@ -5,9 +5,6 @@
 <lastmod>2019-07-17T00:00:00+03:00</lastmod>
 </url>
 <url>
-<loc>https://arend-lang.github.io/about.html</loc>
-</url>
-<url>
 <loc>https://arend-lang.github.io/about/arend-features.html</loc>
 </url>
 <url>
@@ -45,6 +42,9 @@
 </url>
 <url>
 <loc>https://arend-lang.github.io/</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/about/</loc>
 </url>
 <url>
 <loc>https://arend-lang.github.io/documentation/language-reference/definitions/</loc>
