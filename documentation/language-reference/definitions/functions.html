@@ -442,7 +442,7 @@ In this case, the right hand side <span class="inl-highlight"><span class="o">=&
 This means that there might be an expressions of the form <span class="inl-highlight"><span class="k">\as</span> x <span class="o">:</span> E</span> after the pattern, where <span class="inl-highlight">x</span> is a variable and <span class="inl-highlight">E</span> is its type which can be omitted.
 Then <span class="inl-highlight">x</span> is equivalent to this pattern.</p>
 
-<p>Now, let us discuss how expressions of the form <span class="inl-highlight">f a_1 … a_n</span> evaluate (see <a href="../expressions/#evaluation">Expressions</a> for the definition of the reduction and evaluation relations).
+<p>Now, let us discuss how expressions of the form <span class="inl-highlight">f a_1 … a_n</span> evaluate (see <a href="../expressions#evaluation">Expressions</a> for the definition of the reduction and evaluation relations).
 Let <span class="inl-highlight">E</span> be equal to <span class="inl-highlight">f a_1 … a_n</span>.
 To reduce this expression, we first evaluate expressions <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> and match them with the patterns in the definition of <span class="inl-highlight">f</span> left to right, top to bottom.
 If all patterns <span class="inl-highlight">p^i_1<span class="o">,</span> … p^i_n</span> matches with <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> for some i, then <span class="inl-highlight">E</span> reduces to <span class="inl-highlight">e_i[b_1/y_1<span class="o">,</span> … b_k/y_k]</span>,
@@ -562,7 +562,7 @@ Such a function has the same semantics as a definition of an instance, that is i
 <p>A <em>lemma</em> is a function, the result type of which is a proposition and the body is considered to be a proof 
 without computational content, and, thus, it does not evaluate.
 To define a lemma use the keyword <span class="inl-highlight"><span class="k">\lemma</span></span> instead of <span class="inl-highlight"><span class="k">\func</span></span>.
-If the result type of a lemma does not belong to <span class="inl-highlight"><span class="kt">\Prop</span></span>, but is provably a proposition, you can use the keywords <a href="level/#level-of-a-type">\level</a> to define a lemma with this result type.
+If the result type of a lemma does not belong to <span class="inl-highlight"><span class="kt">\Prop</span></span>, but is provably a proposition, you can use the keywords <a href="level#level-of-a-type">\level</a> to define a lemma with this result type.
 The fact that lemmas do not evaluate may greatly improve performance of typechecking if their proofs are too lengthy.</p>
 
         

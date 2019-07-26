@@ -388,7 +388,7 @@ See <a href="../expressions/class-ext">Class extensions</a> for more information
 <span class="k">\func</span> r4 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_i { <span class="o">|</span> p_{i+1} <span class="o">=&gt;</span> a_{i+1} ... <span class="o">|</span> p_n <span class="o">=&gt;</span> a_n <span class="o">|</span> f_1 <span class="o">=&gt;</span> b_1 ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }
 <span class="k">\func</span> r5 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_n b_1 ... b_i { f_{i+1} <span class="o">=&gt;</span> b_{i+1} ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }</code></pre></div></div>
 
-<p>The same function can also be defined using <a href="functions/#copattern-matching">copattern matching</a>:</p>
+<p>The same function can also be defined using <a href="functions#copattern-matching">copattern matching</a>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> r6 <span class="o">:</span> R <span class="k">\cowith</span>
   <span class="o">|</span> p_1 <span class="o">=&gt;</span> a_1
@@ -417,7 +417,7 @@ This is done by using the keyword <span class="inl-highlight"><span class="k">\p
 normal field, which is not a property, by writing <span class="inl-highlight"><span class="k">\field</span> f <span class="o">:</span> A</span>.</p>
 
 <p>Properties do not evaluate.
-Thus, they are related to fields in the same way as <a href="functions/#lemmas">lemmas</a> are related to functions.
+Thus, they are related to fields in the same way as <a href="functions#lemmas">lemmas</a> are related to functions.
 For example, consider the following function:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test (x <span class="o">:</span> Int) (p <span class="o">:</span> x &lt; <span class="n">0</span>) <span class="o">=&gt;</span> isNeg {<span class="k">\new</span> NegativeInt x p}</code></pre></div></div>

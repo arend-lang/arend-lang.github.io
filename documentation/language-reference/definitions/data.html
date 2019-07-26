@@ -371,7 +371,7 @@ Consider the following example:</p>
 <p>Constructor <span class="inl-highlight">cons</span> has three implicit parameters of types <span class="inl-highlight">A</span>, <span class="inl-highlight">B</span>, and <span class="inl-highlight">C</span> and two explicit parameters of types <span class="inl-highlight">D</span> and <span class="inl-highlight">E</span>.
 Constructor <span class="inl-highlight">cons’</span> has only two implicit parameters of types <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span>.</p>
 
-<p>The type of a <a href="../expressions/#defcalls">defcall</a> <span class="inl-highlight">con_i {a_1} … {a_n} b_1 … b_{k_i}</span> is <span class="inl-highlight">D a_1 … a_n</span>.
+<p>The type of a <a href="../expressions#defcalls">defcall</a> <span class="inl-highlight">con_i {a_1} … {a_n} b_1 … b_{k_i}</span> is <span class="inl-highlight">D a_1 … a_n</span>.
 The type of a defcall <span class="inl-highlight">D a_1 … a_n</span> is of the form <a href="../expressions/universes">\h-Type p</a>.
 Levels <span class="inl-highlight">h</span> and <span class="inl-highlight">p</span> are inferred automatically and may depend on levels of <span class="inl-highlight">a_1<span class="o">,</span> …<span class="o">,</span> a_n</span>.
 Alternatively, these levels can be fixed and specified explicitly in the definition of a data type:</p>
@@ -466,13 +466,13 @@ Strict positivity and termination checkers work as usual for such definitions.</
 The classical example is the data type of lists of fixed length.
 The data type <span class="inl-highlight">Vec A <span class="n">0</span></span> has only one constructor <span class="inl-highlight">nil</span>, the empty list.
 The data type <span class="inl-highlight">Vec A (suc n)</span> also has one constructor <span class="inl-highlight">cons</span>, a non-empty list.
-Such a data type can be defined by ‘pattern-matching’:</p>
+Such a data type can be defined by ‘pattern matching’:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Vec (A <span class="o">:</span> <span class="kt">\Type</span>) (n <span class="o">:</span> Nat) <span class="k">\elim</span> n
   <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> nil
   <span class="o">|</span> suc n <span class="o">=&gt;</span> cons A (Vec A n)</code></pre></div></div>
 
-<p>The general syntax is similar to the syntax of functions defined by <a href="functions/#pattern-matching">pattern-matching</a>.
+<p>The general syntax is similar to the syntax of functions defined by <a href="functions#pattern-matching">pattern matching</a>.
 Either <span class="inl-highlight"><span class="k">\elim</span> vars</span> or <span class="inl-highlight"><span class="k">\with</span></span> constructs can be used with the only difference that 
 <span class="inl-highlight"><span class="k">\elim</span> vars</span> allows to match on a proper subset of parameters of data type.</p>
 

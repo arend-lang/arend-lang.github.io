@@ -328,7 +328,7 @@
 The basic example of an expression is simply a variable <span class="inl-highlight">x</span>.
 Of course, <span class="inl-highlight">x</span> must be defined somewhere in order for such an expression to make sense.
 It can be either a parameter (of a <a href="../definitions/parameters">definition</a>, or a <a href="pi">lambda expression</a>, or a <a href="pi">pi expression</a>, or a <a href="sigma">sigma expression</a>),
-a variable defined in a <a href="let">let expression</a>, or a variable defined in a <a href="../definitions/functions/#pattern-matching">pattern</a>.</p>
+a variable defined in a <a href="let">let expression</a>, or a variable defined in a <a href="../definitions/functions#pattern-matching">pattern</a>.</p>
 
 <p>If <span class="inl-highlight">e<span class="o">,</span> e_1<span class="o">,</span> … e_n</span> are expressions and <span class="inl-highlight">x_1<span class="o">,</span> … x_n</span> are variables, then we will write <span class="inl-highlight">e[e_1/x_1<span class="o">,</span> … e_n/x_n]</span> for the <em>substitution</em> operation.
 This is a meta-operation, namely, it is a function on the set of expressions of the language and not an expression itself.
@@ -388,8 +388,8 @@ function defined by copattern matching, then <span class="inl-highlight">f a_1 �
   <li>
     <p>If <span class="inl-highlight">f</span> is a function defined as <span class="inl-highlight"><span class="k">\func</span> f (x_1 <span class="o">:</span> A_1) … (x_n <span class="o">:</span> A_n) <span class="o">=&gt;</span> e</span>, then <span class="inl-highlight">f a_1 … a_n</span> reduces
 to <span class="inl-highlight">e[a_1/x_1<span class="o">,</span> … a_n/x_n]</span>. If <span class="inl-highlight">f</span> is a function defined by pattern matching or a constructor with conditions, then the evaluation of
-defcalls <span class="inl-highlight">f a_1 … a_n</span> is described in <a href="../definitions/functions/#pattern-matching">Functions</a>.
-If <span class="inl-highlight">f</span> is an instance or a function defined by copattern matching, then the evaluation of defcalls <span class="inl-highlight">f a_1 … a_n</span> is described in <a href="../definitions/classes/#instances">Classes</a>.</p>
+defcalls <span class="inl-highlight">f a_1 … a_n</span> is described in <a href="../definitions/functions#pattern-matching">Functions</a>.
+If <span class="inl-highlight">f</span> is an instance or a function defined by copattern matching, then the evaluation of defcalls <span class="inl-highlight">f a_1 … a_n</span> is described in <a href="../definitions/classes#instances">Classes</a>.</p>
   </li>
   <li>
     <p>If <span class="inl-highlight">f</span> has n parameters and k &lt; n, an expression of the form <span class="inl-highlight">f a_1 … a_k</span> is also valid and is equivalent to <span class="inl-highlight"><span class="k">\lam</span> a_{k+1} … a_n <span class="o">=&gt;</span> f a_1 … a_n</span>.</p>
