@@ -1,3 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2019-07-27T14:11:01+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><entry><title type="html">Arend 1.0.0 released</title><link href="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html" rel="alternate" type="text/html" title="Arend 1.0.0 released" /><published>2019-07-17T00:00:00+03:00</published><updated>2019-07-17T00:00:00+03:00</updated><id>https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html">&lt;!-- TODO: Write something about implemented features or whatever --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2019-08-06T23:24:58+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><entry><title type="html">Arend 1.0.0 released</title><link href="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html" rel="alternate" type="text/html" title="Arend 1.0.0 released" /><published>2019-07-17T00:00:00+03:00</published><updated>2019-07-17T00:00:00+03:00</updated><id>https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html">&lt;p&gt;The first version of Arend is released!&lt;/p&gt;
 
-&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;Under construction&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry></feed>
+&lt;p&gt;It implements the following features:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/arend-features/#path-types&quot;&gt;Path types&lt;/a&gt; based on the interval type.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/arend-features/#higher-inductive-types&quot;&gt;Higher inductive types&lt;/a&gt;, including higher inductive-inductive types.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/arend-features/#class-system&quot;&gt;Class system&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/arend-features/#universe-polymorphism&quot;&gt;Universe polymorphism&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The IntelliJ Arend plugin implements the following features:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Syntax highlighting&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#code-completion&quot;&gt;Code completion&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#find-usages&quot;&gt;Find usages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#quick-documentation&quot;&gt;Quick documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#parameter-hints&quot;&gt;Parameter hints&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#class-hierarchy&quot;&gt;Class hierarchy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#code-formatter&quot;&gt;Code formatter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#auto-import&quot;&gt;Auto import&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;“&lt;a href=&quot;/about/intellij-features/#implement-missing-fields&quot;&gt;Implement missing fields&lt;/a&gt;” quick fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#move-refactoring&quot;&gt;Move Refactoring&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features/#incremental-typechecking&quot;&gt;Incremental typechecking&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">The first version of Arend is released!</summary></entry></feed>
