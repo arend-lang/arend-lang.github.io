@@ -333,6 +333,7 @@
               <ul class="toc__menu">
   <li><a href="#use-level">Use level</a></li>
   <li><a href="#level-of-a-type">Level of a type</a></li>
+  <li><a href="#use-level-for-functions">Use level for functions</a></li>
 </ul>
             </nav>
           </aside>
@@ -362,7 +363,7 @@ The proof must be written in the corresponding function, starting with keywords 
       <span class="o">|</span> no e1<span class="o">,</span> yes x2 <span class="o">=&gt;</span> <span class="k">\case</span> e1 x2 <span class="k">\with</span> {}
       <span class="o">|</span> no e1<span class="o">,</span> no e2 <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> no (<span class="k">\lam</span> x <span class="o">=&gt;</span> (<span class="k">\case</span> e1 x <span class="k">\return</span> e1 x <span class="o">=</span> e2 x <span class="k">\with</span> {}) <span class="o">@</span> i))</code></pre></div></div>
 
-<p>Functions <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> can be specified for <span class="inl-highlight"><span class="k">\data</span></span>, <span class="inl-highlight"><span class="k">\class</span></span>, and <span class="inl-highlight"><span class="k">\func</span></span> definitions.
+<p>Functions <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> can be specified for <span class="inl-highlight"><span class="k">\data</span></span>, <span class="inl-highlight"><span class="k">\record</span></span>, <span class="inl-highlight"><span class="k">\class</span></span>, and <span class="inl-highlight"><span class="k">\func</span></span> (for functions they work differently, <a href="#use-level-for-functions">see below</a>) definitions.
 They must have a particular type.
 First parameters of such a function must be parameters of the data type (or the function) or (some) fields of the class.
 The rest of parameters together with the result type must prove that the data type (or the function, or the class) has some homotopy level.
@@ -385,7 +386,7 @@ Its first argument is the type and the second is the proof that it belongs to so
 
 <p>For example, if <span class="inl-highlight">A</span> is a type such that <span class="inl-highlight">p <span class="o">:</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> x <span class="o">=</span> y</span>, then a lemma that proves <span class="inl-highlight">A</span> can be defined as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> lem <span class="o">:</span> <span class="k">\level</span> A p <span class="o">=&gt;</span> ...</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> lem <span class="o">:</span> <span class="k">\level</span> A p <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
 
 <p>Similarly, a property of type <span class="inl-highlight">A</span> can be defined as follows:</p>
 
@@ -408,6 +409,21 @@ For example, if <span class="inl-highlight">Trunc</span> is a propositional trun
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f' (t <span class="o">:</span> Trunc A) <span class="o">=&gt;</span> <span class="k">\case</span> t <span class="k">\return</span> <span class="k">\level</span> B p <span class="k">\with</span> {
   <span class="o">|</span> inT a <span class="o">=&gt;</span> g a
 }</code></pre></div></div>
+
+<h2 id="use-level-for-functions">Use level for functions</h2>
+
+<p>If a <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> function defined for some function <span class="inl-highlight">f</span>, this does not change the definition of <span class="inl-highlight">f</span> at all.
+So, in this case, <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> is just a syntactic sugar.
+If some function <span class="inl-highlight">f</span> is defined with a <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> annotation, this does not change the type of <span class="inl-highlight">f</span>,
+but it will be treated as a type in a lower universe in situations described in <a href="#level-of-a-type">Level of a type</a>.</p>
+
+<p>For example, we can prove that <span class="inl-highlight">isProp</span> is itslef a proposition and then define lemmas which prove that some type is a proposition:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isProp (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a'
+  <span class="k">\where</span> <span class="k">\use</span> <span class="k">\level</span> proof (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> isProp (isProp A) <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- the proof is omitted</span>
+
+<span class="k">\lemma</span> lem <span class="o">:</span> isProp (<span class="k">\Sigma</span> (n <span class="o">:</span> Nat) (n <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p>Without <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> annotation it would be necessary to specify the <span class="inl-highlight">proof</span> in the definition of <span class="inl-highlight">lem</span>.</p>
 
         
       </section>
