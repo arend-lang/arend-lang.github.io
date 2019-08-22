@@ -1686,6 +1686,10 @@ th {
   font-weight: bold;
   z-index: 20; }
 
+.site-subtitle {
+  display: block;
+  font-size: 0.625em; }
+
 .masthead__menu {
   float: left;
   margin-left: 0;
@@ -2254,6 +2258,8 @@ th {
     @media (min-width: 92.5em) {
       .search-content__inner-wrap {
         max-width: 1480px; } }
+  .search-content__form {
+    background-color: transparent; }
   .search-content .search-input {
     display: block;
     margin-bottom: 0;
@@ -3240,6 +3246,11 @@ a.reversefootnote {
 
 .archive__item {
   position: relative; }
+  .archive__item a {
+    position: relative;
+    z-index: 10; }
+  .archive__item a[rel="permalink"] {
+    position: static; }
 
 .archive__subtitle {
   margin: 1.414em 0 0;
