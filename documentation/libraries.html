@@ -287,6 +287,10 @@ information about a library is contained inside the header file and may include 
 
 <ul>
   <li>
+    <p>Language version can be specified by writing <code class="highlighter-rouge">langVersion: VERSION</code>, where <code class="highlighter-rouge">VERSION</code> is either a specific version of the language or a range,
+which is written as either <code class="highlighter-rouge">&gt;= VERSION</code>, <code class="highlighter-rouge">&lt;= VERSION</code>, or <code class="highlighter-rouge">&gt;= VERSION_1, &lt;= VERSION_2</code>.</p>
+  </li>
+  <li>
     <p>Directories with library’s source and binary files. It can be specified by writing <code class="highlighter-rouge">sourcesDir: PATH</code> and 
 <code class="highlighter-rouge">binariesDir: PATH</code> for sources and binaries respectively, where <code class="highlighter-rouge">PATH</code> is either
 a path relative to the library’s root directory or an absolute path.</p>
@@ -296,6 +300,9 @@ a path relative to the library’s root directory or an absolute path.</p>
 <code class="highlighter-rouge">dependencies: [NAME_1, ..., NAME_k]</code>, where <code class="highlighter-rouge">NAME_1</code>, … <code class="highlighter-rouge">NAME_k</code> are names of the libraries.</p>
   </li>
 </ul>
+
+<p>All libraries should be put in some specific directory.
+The path to this directory can be specified either with command line option <code class="highlighter-rouge">-L</code> in the console application or in module settings in IntelliJ IDEA.</p>
 
         
       </section>

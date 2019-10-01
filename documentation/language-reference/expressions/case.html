@@ -352,6 +352,13 @@ Expressions <span class="inl-highlight">E_i</span> can refer to <span class="inl
 In this case, <span class="inl-highlight">e_i</span> must have type <span class="inl-highlight">E_i[e_1/x_1<span class="o">,</span> … e_{i-1}/x_{i-1}]</span>.
 The type of the case expression is <span class="inl-highlight">T[e_1/x_1<span class="o">,</span> … e_n/x_n]</span>.</p>
 
+<h2 id="scase">\scase</h2>
+
+<p>Expression <span class="inl-highlight"><span class="k">\scase</span></span> is related to <span class="inl-highlight"><span class="k">\case</span></span> in the same way as <a href="/documentation/language-reference/definitions/functions#sfunc">\sfunc</a> is related to <span class="inl-highlight"><span class="k">\func</span></span>.
+That is, expressions of the form <span class="inl-highlight"><span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … }</span> never evaluate.
+To evaluate such an expression, you need to use keyword <span class="inl-highlight"><span class="k">\eval</span></span> before it.
+Similarly, <span class="inl-highlight"><span class="k">\peval</span> <span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … }</span> has type <span class="inl-highlight"><span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … } <span class="o">=</span> <span class="k">\eval</span> <span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … }</span>.</p>
+
         
       </section>
 

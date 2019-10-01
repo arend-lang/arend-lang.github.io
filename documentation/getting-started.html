@@ -286,6 +286,7 @@
               <ul class="toc__menu">
   <li><a href="#intellij-arend">IntelliJ Arend</a></li>
   <li><a href="#console-application">Console Application</a></li>
+  <li><a href="#standard-library">Standard Library</a></li>
 </ul>
             </nav>
           </aside>
@@ -293,9 +294,6 @@
         <p>You need to have <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">JRE 8</a> installed on your computer to use Arend.
 Arend is available either as an <a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a> plugin (see <a href="#intellij-arend">IntelliJ Arend</a> for the installation instructions)
 or as a console application (see <a href="#console-application">Console Application</a> for the installation instructions).</p>
-
-<p>There is a standard library, containing a number of essential definitions and proofs, in particular, in constructive algebra and homotopy theory.
-It can be downloaded from <a href="https://github.com/JetBrains/arend-lib">GitHub</a>.</p>
 
 <h1 id="intellij-arend">IntelliJ Arend</h1>
 
@@ -335,20 +333,18 @@ Add the following line to this file:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<p>Right click <code class="highlighter-rouge">example.ard</code> file and choose <code class="highlighter-rouge">Run 'Typecheck example'</code> in the popup menu (you can also use shortcut <strong>Alt+Shift+F10</strong>).
-You should see the message <em>All Tests Passed</em>, which indicates that the typechecking was successful.
+<p>You should see a green gutter icon next to the declaration of <code class="highlighter-rouge">f</code>, which indicates that <code class="highlighter-rouge">f</code> was successfully typechecked.
 Modify the file as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<p>Run the typechecking again (you can use shortcut <strong>Shift+F10</strong> for this).
+<p>The gutter icon should become red.
+To go to the next error, press <strong>F2</strong>.
 You should see the following error message:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ERROR] example.ard:1:25: Type mismatch
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Type mismatch
   Expected type: Nat <span class="o">-&gt;</span> Nat
-    Actual type: Nat
-  In: <span class="n">0</span>
-  While processing: f</code></pre></div></div>
+    Actual type: Nat</code></pre></div></div>
 
 <p>You can read more about IntelliJ IDEA <a href="https://www.jetbrains.com/help/idea/discover-intellij-idea.html">here</a>.
 To learn more about Arend, see the <a href="language-reference">language reference</a>.</p>
@@ -382,17 +378,14 @@ Minimally, we just need to specify the location of source files of your project.
 Add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sourcesDir: src
 </code></pre></div></div>
-<p>In case you would also like to use the standard library add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies: [arend-lib]
-</code></pre></div></div>
-<p>You can read more about this configuration file <a href="libraries">here</a>.</p>
 
 <p>Create directory <code class="highlighter-rouge">src</code> which will contain source files for this project.
 Create a file <code class="highlighter-rouge">example.ard</code> inside <code class="highlighter-rouge">src</code> with the following content:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<p>Run <code class="highlighter-rouge">java -jar $arend $myProject</code>, where <code class="highlighter-rouge">$arend</code> is the path to <code class="highlighter-rouge">arend.jar</code> and <code class="highlighter-rouge">$myProject</code> is the path to <code class="highlighter-rouge">arend.yaml</code>.
+<p>Run <code class="highlighter-rouge">java -jar $arend -L$libs $myProject</code>, where <code class="highlighter-rouge">$arend</code> is the path to <code class="highlighter-rouge">arend.jar</code>, <code class="highlighter-rouge">$myProject</code> is the path to <code class="highlighter-rouge">arend.yaml</code>,
+and <code class="highlighter-rouge">$libs</code> is the path to the directory with Arend libraries (if the project does not have dependencies, this option can be omitted).
 You should see the following output:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
 [INFO] Loaded library prelude
@@ -402,28 +395,9 @@ You should see the following output:</p>
 [ ] example
 --- Done ---
 </code></pre></div></div>
-<p>This means that module <code class="highlighter-rouge">example</code> was successfully typechecked.</p>
 
-<p>Now let’s add something from the standard library. Change the contents of <code class="highlighter-rouge">example.ard</code> to the following:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Function
-<span class="k">\func</span> f <span class="o">=&gt;</span> id <span class="n">0</span></code></pre></div></div>
-
-<p>Run <code class="highlighter-rouge">java -jar $arend $myProject -L $libdir</code>, where <code class="highlighter-rouge">arend.jar</code> and <code class="highlighter-rouge">$myProject</code> as before and <code class="highlighter-rouge">$libdir</code> 
-is the path to the parent directory of the directory <code class="highlighter-rouge">arend-lib</code> of the standard library. You should see the following
-output:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
-[INFO] Loaded library prelude
-[INFO] Loading library myProject
-[INFO] Loading library arend-lib
-[INFO] Loaded library arend-lib
-[INFO] Loaded library myProject
---- Typechecking myProject ---
-[ ] example
---- Done ---
-</code></pre></div></div>
-
-<p>Modify file <code class="highlighter-rouge">example.ard</code> as follows:</p>
+<p>This means that module <code class="highlighter-rouge">example</code> was successfully typechecked.
+Modify file <code class="highlighter-rouge">example.ard</code> as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
@@ -445,6 +419,13 @@ Number of modules with errors: 1
 </code></pre></div></div>
 
 <p>To learn more about Arend, see the <a href="language-reference">language reference</a>.</p>
+
+<h1 id="standard-library">Standard Library</h1>
+
+<p>In case you would also like to use the standard library, download it as described <a href="/download#standard-library">here</a> and add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies: [arend-lib]
+</code></pre></div></div>
+<p>You can read more about this configuration file <a href="libraries">here</a>.</p>
 
         
       </section>

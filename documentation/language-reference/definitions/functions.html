@@ -355,6 +355,7 @@
   <li><a href="#recursive-functions">Recursive functions</a></li>
   <li><a href="#copattern-matching">Copattern matching</a></li>
   <li><a href="#lemmas">Lemmas</a></li>
+  <li><a href="#sfunc">\sfunc</a></li>
 </ul>
             </nav>
           </aside>
@@ -582,6 +583,16 @@ without computational content, and, thus, it does not evaluate.
 To define a lemma use the keyword <span class="inl-highlight"><span class="k">\lemma</span></span> instead of <span class="inl-highlight"><span class="k">\func</span></span>.
 If the result type of a lemma does not belong to <span class="inl-highlight"><span class="kt">\Prop</span></span>, but is provably a proposition, you can use the keywords <a href="level#level-of-a-type">\level</a> to define a lemma with this result type.
 The fact that lemmas do not evaluate may greatly improve performance of typechecking if their proofs are too lengthy.</p>
+
+<h2 id="sfunc">\sfunc</h2>
+
+<p>Functions defined as <span class="inl-highlight"><span class="k">\sfunc</span></span> do not evaluate just as lemmas, but it is possible to evaluate such functions by using keyword <span class="inl-highlight"><span class="k">\eval</span></span>.
+Let <code class="highlighter-rouge">f</code> be an ordinary function and let <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> be arguments such that expression <span class="inl-highlight">f a_1 … a_n</span> evaluates to <code class="highlighter-rouge">e</code>.
+If <code class="highlighter-rouge">f</code> is defined as <span class="inl-highlight"><span class="k">\sfunc</span></span>, then this expression won’t evaluate, but expression <span class="inl-highlight"><span class="k">\eval</span> f a_1 … a_n</span> evaluates to <code class="highlighter-rouge">e</code>.
+To prove that <span class="inl-highlight">f a_1 … a_n</span> equals to <span class="inl-highlight"><span class="k">\eval</span> f a_1 … a_n</span>, you can use keyword <span class="inl-highlight"><span class="k">\peval</span></span>.
+Expression <span class="inl-highlight"><span class="k">\peval</span> f a_1 … a_n</span> has type <span class="inl-highlight">f a_1 … a_n <span class="o">=</span> <span class="k">\eval</span> f a_1 … a_n</span>.</p>
+
+<p>Note that it is necessary to use <span class="inl-highlight"><span class="k">\sfunc</span></span> <a href="level#squashed-data-types">in some cases</a>.</p>
 
         
       </section>

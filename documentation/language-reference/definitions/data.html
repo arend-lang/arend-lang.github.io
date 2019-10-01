@@ -463,6 +463,10 @@ is not valid as its result type <span class="inl-highlight">Nat</span> is of hom
 Two other functions <span class="inl-highlight">existsSuc</span> and <span class="inl-highlight">existsEq</span> in the example above are correct as 
 their result types, <span class="inl-highlight">Exists (n <span class="o">:</span> Nat) (suc n <span class="o">=</span> <span class="n">4</span>)</span> and <span class="inl-highlight"><span class="n">0</span> <span class="o">=</span> <span class="n">0</span></span> respectively, are propositions.</p>
 
+<p>If the universe of the resulting type is greater than the universe of the data type, it is still possible to define a function by pattern matching on it if the resulting type is <em>provably</em> belongs to the universe of the data type.
+This can be done with keyword <a href="level#level-of-a-type">\level</a>.
+In this case, the function should be declared as <a href="functions#sfunc">\sfunc</a> since truncated data types are <a href="level#squashed-data-types">squashed</a>.</p>
+
 <p>A truncated data type is (provably) equivalent to the truncation of the untruncated version of this data type.
 Thus, this is simply a syntactic sugar that allows to define functions over a truncated data type more easily.</p>
 

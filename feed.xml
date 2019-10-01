@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2019-08-22T11:02:33+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><entry><title type="html">Arend 1.0.0 released</title><link href="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html" rel="alternate" type="text/html" title="Arend 1.0.0 released" /><published>2019-07-17T00:00:00+03:00</published><updated>2019-07-17T00:00:00+03:00</updated><id>https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html">&lt;p&gt;The first version of Arend is released!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2019-10-01T19:30:42+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><entry><title type="html">Arend 1.1.0 released</title><link href="https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released.html" rel="alternate" type="text/html" title="Arend 1.1.0 released" /><published>2019-10-01T00:00:00+03:00</published><updated>2019-10-01T00:00:00+03:00</updated><id>https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released.html">&lt;p&gt;Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.&lt;/p&gt;
+
+&lt;p&gt;Language updates:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/arend-features#the-universe-of-propositions&quot;&gt;\Prop&lt;/a&gt; is now proof irrelevant.
+In particular, this means that we do not need &lt;span class=&quot;inl-highlight&quot;&gt;Path.inProp&lt;/span&gt; anymore.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/definitions#infix-operators&quot;&gt;Right operator sections&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;New function and \case forms: &lt;a href=&quot;/documentation/language-reference/definitions/functions#sfunc&quot;&gt;\sfunc&lt;/a&gt; and &lt;a href=&quot;/documentation/language-reference/expressions/case#scase&quot;&gt;\scase&lt;/a&gt;.
+It is necessary to use these forms for &lt;a href=&quot;/documentation/language-reference/definitions/level#squashed-data-types&quot;&gt;squashed data types&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Improved error messages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Plugin updates:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Implemented &lt;a href=&quot;/about/intellij-features#typechecking&quot;&gt;background typechecking&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Implemented &lt;a href=&quot;/about/intellij-features#pattern-generator&quot;&gt;pattern generator&lt;/a&gt; for missing clauses and case analysis.
+Note that case analysis currently does not work for &lt;span class=&quot;inl-highlight&quot;&gt;&lt;span class=&quot;k&quot;&gt;\case&lt;/span&gt;&lt;/span&gt; expressions.&lt;/li&gt;
+  &lt;li&gt;Improved &lt;a href=&quot;/about/intellij-features#class-hierarchy&quot;&gt;class hierarchy&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Added gutter icons for subclasses.&lt;/li&gt;
+  &lt;li&gt;Improved module configuration dialog.&lt;/li&gt;
+  &lt;li&gt;Fixed completion and inline renaming for infix and postfix notation.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.</summary></entry><entry><title type="html">Arend 1.0.0 released</title><link href="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html" rel="alternate" type="text/html" title="Arend 1.0.0 released" /><published>2019-07-17T00:00:00+03:00</published><updated>2019-07-17T00:00:00+03:00</updated><id>https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html">&lt;p&gt;The first version of Arend is released!&lt;/p&gt;
 
 &lt;p&gt;It implements the following features:&lt;/p&gt;
 &lt;ul&gt;
@@ -20,5 +41,5 @@
   &lt;li&gt;&lt;a href=&quot;/about/intellij-features#auto-import&quot;&gt;Auto import&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;“&lt;a href=&quot;/about/intellij-features#implement-missing-fields&quot;&gt;Implement missing fields&lt;/a&gt;” quick fix&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/about/intellij-features#move-refactoring&quot;&gt;Move Refactoring&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/about/intellij-features#incremental-typechecking&quot;&gt;Incremental typechecking&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features#typechecking&quot;&gt;Incremental typechecking&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><summary type="html">The first version of Arend is released!</summary></entry></feed>

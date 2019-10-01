@@ -405,6 +405,10 @@ For example, the function that adds <span class="inl-highlight"><span class="n">
 The result of application of the first function to <span class="inl-highlight"><span class="n">2</span></span> is <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span> <span class="n">2</span></span>, the result of application of the second one to <span class="inl-highlight"><span class="n">2</span></span>
 is <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span> <span class="n">2</span></span>, and as noted before these expressions are equivalent.</p>
 
+<p>As noted above, it is possible to use a left section of an operator, that is <span class="inl-highlight">x <span class="o">+</span></span> is equivalent to <span class="inl-highlight"><span class="k">\lam</span> y <span class="o">=&gt;</span> x <span class="o">+</span> y</span>.
+It is also possible to use right sections:
+if a postfix notation is applied to an argument from the right as in <span class="inl-highlight"><span class="o">`+</span> y</span>, then such an expression is equivalent to <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="o">+</span> y</span>.</p>
+
         
       </section>
 

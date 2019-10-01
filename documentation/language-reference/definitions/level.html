@@ -352,6 +352,7 @@
   <li><a href="#use-level">Use level</a></li>
   <li><a href="#level-of-a-type">Level of a type</a></li>
   <li><a href="#use-level-for-functions">Use level for functions</a></li>
+  <li><a href="#squashed-data-types">Squashed data types</a></li>
 </ul>
             </nav>
           </aside>
@@ -442,6 +443,13 @@ but it will be treated as a type in a lower universe in situations described in 
 <span class="k">\lemma</span> lem <span class="o">:</span> isProp (<span class="k">\Sigma</span> (n <span class="o">:</span> Nat) (n <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
 
 <p>Without <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> annotation it would be necessary to specify the <span class="inl-highlight">proof</span> in the definition of <span class="inl-highlight">lem</span>.</p>
+
+<h2 id="squashed-data-types">Squashed data types</h2>
+
+<p>A data type is marked as <em>squashed</em> if the universe of this data type is less than the universe in which it should be.
+This happens when the data type is <a href="data#truncation">\truncated</a> or when there is a <a href="#use-level">\use \level</a> annotation for it.
+To use pattern matching on a squashed data type, either the universe of the resulting type should be less than or equal to the universe of the data type
+or the pattern matching should be a part of either <a href="functions#sfunc">\sfunc</a>, <a href="functions#lemmas">\lemma</a>, <a href="#use-level">\use \level</a>, or <a href="../expressions/case#scase">\scase</a>.</p>
 
         
       </section>

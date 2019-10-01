@@ -9,34 +9,34 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Arend 1.0.0 released - Arend Theorem Prover</title>
-<meta name="description" content="The first version of Arend is released!">
+<!-- begin _includes/seo.html --><title>Arend 1.1.0 released - Arend Theorem Prover</title>
+<meta name="description" content="Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Arend 1.0.0 released">
-<meta property="og:url" content="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html">
+<meta property="og:title" content="Arend 1.1.0 released">
+<meta property="og:url" content="https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released.html">
 
 
-  <meta property="og:description" content="The first version of Arend is released!">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-07-17T00:00:00+03:00">
+  <meta property="og:description" content="Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.">
 
 
 
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html">
+
+  <meta property="article:published_time" content="2019-10-01T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released.html">
 
 
 
@@ -151,31 +151,29 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">Arend 1.0.0 released</h1>
+      <h1 id="page-title" class="page__title">Arend 1.1.0 released</h1>
     
-    <p>The first version of Arend is released!</p>
+    <p>Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.</p>
 
-<p>It implements the following features:</p>
+<p>Language updates:</p>
 <ul>
-  <li><a href="/about/arend-features#path-types">Path types</a> based on the interval type.</li>
-  <li><a href="/about/arend-features#higher-inductive-types">Higher inductive types</a>, including higher inductive-inductive types.</li>
-  <li><a href="/about/arend-features#class-system">Class system</a>.</li>
-  <li><a href="/about/arend-features#universe-polymorphism">Universe polymorphism</a>.</li>
+  <li><a href="/about/arend-features#the-universe-of-propositions">\Prop</a> is now proof irrelevant.
+In particular, this means that we do not need <span class="inl-highlight">Path.inProp</span> anymore.</li>
+  <li><a href="/documentation/language-reference/definitions#infix-operators">Right operator sections</a>.</li>
+  <li>New function and \case forms: <a href="/documentation/language-reference/definitions/functions#sfunc">\sfunc</a> and <a href="/documentation/language-reference/expressions/case#scase">\scase</a>.
+It is necessary to use these forms for <a href="/documentation/language-reference/definitions/level#squashed-data-types">squashed data types</a></li>
+  <li>Improved error messages.</li>
 </ul>
 
-<p>The IntelliJ Arend plugin implements the following features:</p>
+<p>Plugin updates:</p>
 <ul>
-  <li>Syntax highlighting</li>
-  <li><a href="/about/intellij-features#code-completion">Code completion</a></li>
-  <li><a href="/about/intellij-features#find-usages">Find usages</a></li>
-  <li><a href="/about/intellij-features#quick-documentation">Quick documentation</a></li>
-  <li><a href="/about/intellij-features#parameter-hints">Parameter hints</a></li>
-  <li><a href="/about/intellij-features#class-hierarchy">Class hierarchy</a></li>
-  <li><a href="/about/intellij-features#code-formatter">Code formatter</a></li>
-  <li><a href="/about/intellij-features#auto-import">Auto import</a></li>
-  <li>“<a href="/about/intellij-features#implement-missing-fields">Implement missing fields</a>” quick fix</li>
-  <li><a href="/about/intellij-features#move-refactoring">Move Refactoring</a></li>
-  <li><a href="/about/intellij-features#typechecking">Incremental typechecking</a></li>
+  <li>Implemented <a href="/about/intellij-features#typechecking">background typechecking</a>.</li>
+  <li>Implemented <a href="/about/intellij-features#pattern-generator">pattern generator</a> for missing clauses and case analysis.
+Note that case analysis currently does not work for <span class="inl-highlight"><span class="k">\case</span></span> expressions.</li>
+  <li>Improved <a href="/about/intellij-features#class-hierarchy">class hierarchy</a>.</li>
+  <li>Added gutter icons for subclasses.</li>
+  <li>Improved module configuration dialog.</li>
+  <li>Fixed completion and inline renaming for infix and postfix notation.</li>
 </ul>
 
 
