@@ -371,6 +371,20 @@ The field <span class="inl-highlight"><span class="o">*</span></span> of the cla
 <span class="inl-highlight">S.E <span class="o">-&gt;</span> S.E <span class="o">-&gt;</span> <span class="g">{?}</span></span>. This implies that the expected classifying field is <span class="inl-highlight">S.E</span>, which is the classifying field of the
 local instance <span class="inl-highlight">S</span>, so this instance is inferred as the implicit argument of <span class="inl-highlight"><span class="o">*</span></span>.</p>
 
+<h2 id="classifying-fields">Classifying fields</h2>
+
+<p>The classifying field can be specified explicitly with keyword <span class="inl-highlight"><span class="k">\classifying</span></span> as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> C (A <span class="o">:</span> <span class="kt">\Set</span>) (<span class="k">\classifying</span> B <span class="o">:</span> <span class="kt">\Set</span>)
+  <span class="o">|</span> f <span class="o">:</span> B <span class="o">-&gt;</span> A
+
+<span class="k">\func</span> test {c <span class="o">:</span> C} (x <span class="o">:</span> c) <span class="o">=&gt;</span> f x</code></pre></div></div>
+
+<p>Since field <span class="inl-highlight">B</span> is marked as classifying, the type of <span class="inl-highlight">x</span> is <span class="inl-highlight">c.B</span> and the instance for <span class="inl-highlight">f</span> will be successfully inferred.</p>
+
+<p>It is also possible to define a class without classifying fields.
+If the class has some explicit parameters, then this can be done using keyword <span class="inl-highlight"><span class="k">\noclassifying</span></span>, which is written after the name of the class.</p>
+
 <h2 id="instances">Instances</h2>
 
 <p>It is also possible to define <em>global instances</em>.

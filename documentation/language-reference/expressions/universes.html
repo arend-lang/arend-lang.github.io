@@ -359,9 +359,11 @@ which is an integer number (or infinity ∞) in the range: -1 ≤ h ≤ ∞.
 Some of these universes have alternative names: the universe of propositions (-1-types) <span class="inl-highlight"><span class="kt">\Prop</span></span> 
 (coincides with <span class="inl-highlight"><span class="k">-1-Type</span> n</span> for any <span class="inl-highlight">n</span>) and universes of sets (0-types) <span class="inl-highlight"><span class="kt">\Set</span> n</span> (coincides with <span class="inl-highlight"><span class="kt">\0-Type</span> n</span>). 
 Note that the universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is <em>impredicative</em>: it does not have predicative level. Practically, this means that
-if <span class="inl-highlight">B <span class="o">:</span> <span class="kt">\Prop</span></span>, then the type <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">-&gt;</span> B</span> is in <span class="inl-highlight"><span class="kt">\Prop</span></span>. 
-Also, <span class="inl-highlight"><span class="kt">\Prop</span></span> is proof irrelevant.
-This means that any two terms of a type in this universe are <em>definitionally</em> equal.</p>
+if <span class="inl-highlight">B <span class="o">:</span> <span class="kt">\Prop</span></span>, then the type <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">-&gt;</span> B</span> is in <span class="inl-highlight"><span class="kt">\Prop</span></span>.</p>
+
+<p>The universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is not proof irrelevant, but some elements of propositions are definitionally equal.
+If <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Prop</span></span> and <span class="inl-highlight">a<span class="o">,</span> a’ <span class="o">:</span> A</span> are such that they never evaluate to a constructor, then they are definitionally equal.
+For example, if the type is an empty data type, then this is true for any pair of its elements, so they always be definitionally equal.</p>
 
 <p>Universes with h equal to ∞ are represented in the syntax as <span class="inl-highlight"><span class="k">\oo-Type</span> p</span>. The homotopy level can also be 
 specified after the predicative level: <span class="inl-highlight"><span class="kt">\Type</span> p h</span> is equivalent to <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.</p>
@@ -402,7 +404,7 @@ Level expressions are defined inductively:</p>
 
 <ul>
   <li><span class="inl-highlight"><span class="k">\lp</span></span> is a level expression of the predicative kind and <span class="inl-highlight"><span class="k">\lh</span></span> is a level expression of the homotopy kind.</li>
-  <li>A constant (that is, a natural number) is a level expression of both kinds. There is also constant <span class="inl-highlight"><span class="k">\inf</span></span> for homotopy levels.</li>
+  <li>A constant (that is, a natural number) is a level expression of both kinds. There is also constant <span class="inl-highlight"><span class="k">\oo</span></span> for homotopy levels which denotes the infinity level.</li>
   <li><span class="inl-highlight"><span class="u">_</span></span> is a level expression of both kinds. Such an expression suggests the typechecker to infer the expression.</li>
   <li>If <span class="inl-highlight">l</span> is a level expression, then <span class="inl-highlight"><span class="k">\suc</span> l</span> is also a level expression of the same kind as <span class="inl-highlight">l</span>.</li>
   <li>If <span class="inl-highlight">l1</span> and <span class="inl-highlight">l2</span> are level expressions of the same kind, then <span class="inl-highlight"><span class="k">\max</span> l1 l2</span> is also a level expression of the same kind as <span class="inl-highlight">l1</span> and <span class="inl-highlight">l2</span>.</li>

@@ -289,6 +289,7 @@
   <li><a href="#nat-and-int">Nat and Int</a></li>
   <li><a href="#interval-and-squeeze-functions">Interval and squeeze functions</a></li>
   <li><a href="#path">Path</a></li>
+  <li><a href="#idp">idp</a></li>
   <li><a href="#coe-and-coe2">coe and coe2</a></li>
   <li><a href="#iso">iso</a></li>
 </ul>
@@ -356,6 +357,18 @@ homotopy level as <span class="inl-highlight">A</span>.</p>
 The definition of <span class="inl-highlight"><span class="o">@</span></span> is also correct, but the typechecker has an eta rule for this definition:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p <span class="o">@</span> i) <span class="o">==</span> p</code></pre></div></div>
 <p>This rule does not apply to functions <span class="inl-highlight"><span class="o">@</span></span> defined in other files.</p>
+
+<p>Finally, function <span class="inl-highlight">Path.inProp</span> is not correct since it does not have a body.
+It postulates the proof irrelevance for types in <span class="inl-highlight"><span class="kt">\Prop</span></span>, namely that any two elements of a type in <span class="inl-highlight"><span class="kt">\Prop</span></span> are equal.</p>
+
+<h1 id="idp">idp</h1>
+
+<p>The constructor <span class="inl-highlight">idp</span> is not a correct definition since it is not allowed to use lambdas in constructors.
+This constructor can be used to replace the J operator with pattern matching.
+For example, we can define J itself as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> <span class="k">\Pi</span> (a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>) (b <span class="o">:</span> B a idp) {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> B a' p <span class="k">\elim</span> p
+  <span class="o">|</span> idp <span class="o">=&gt;</span> b</code></pre></div></div>
 
 <h1 id="coe-and-coe2">coe and coe2</h1>
 

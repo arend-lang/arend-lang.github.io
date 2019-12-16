@@ -354,6 +354,7 @@
   <li><a href="#elim">Elim</a></li>
   <li><a href="#recursive-functions">Recursive functions</a></li>
   <li><a href="#copattern-matching">Copattern matching</a></li>
+  <li><a href="#patterns-in-coclauses">Patterns in coclauses</a></li>
   <li><a href="#lemmas">Lemmas</a></li>
   <li><a href="#sfunc">\sfunc</a></li>
 </ul>
@@ -575,6 +576,22 @@ Such a function has the same semantics as a definition of an instance, that is i
 }</code></pre></div></div>
 
 <p>See <a href="../expressions/class-ext">Class extensions</a> for the description of the involved constructions.</p>
+
+<h2 id="patterns-in-coclauses">Patterns in coclauses</h2>
+
+<p>It is possible to implement a field using pattern matching:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x_1 <span class="o">:</span> A_1) ... (x_n <span class="o">:</span> A_n) <span class="o">:</span> C <span class="k">\cowith</span>
+  ...
+  <span class="o">|</span> field (y_1 <span class="o">:</span> B_1) ... (y_k <span class="o">:</span> B_k) <span class="o">:</span> D <span class="k">\with</span> {
+    <span class="o">|</span> clause_1
+    ...
+    <span class="o">|</span> clause_m
+  }
+  ...</code></pre></div></div>
+
+<p>Keyword <span class="inl-highlight"><span class="k">\with</span></span> can be replaced with <span class="inl-highlight"><span class="k">\elim</span></span> as usual.
+Currently, clauses in such an implementation cannot refer to parameters of the function.</p>
 
 <h2 id="lemmas">Lemmas</h2>
 

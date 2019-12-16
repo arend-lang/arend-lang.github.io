@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2019-10-01T19:30:42+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><entry><title type="html">Arend 1.1.0 released</title><link href="https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released.html" rel="alternate" type="text/html" title="Arend 1.1.0 released" /><published>2019-10-01T00:00:00+03:00</published><updated>2019-10-01T00:00:00+03:00</updated><id>https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released.html">&lt;p&gt;Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2019-12-17T01:14:50+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><entry><title type="html">Arend 1.2.0 released</title><link href="https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html" rel="alternate" type="text/html" title="Arend 1.2.0 released" /><published>2019-12-16T00:00:00+03:00</published><updated>2019-12-16T00:00:00+03:00</updated><id>https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html">&lt;p&gt;We implemented a few features related to classes and pattern matching.
+One of these features is pattern matching on &lt;span class=&quot;inl-highlight&quot;&gt;idp &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; a &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; a&lt;/span&gt;, which can be used instead of the J operator.&lt;/p&gt;
+
+&lt;p&gt;Language updates:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Implemented pattern matching on &lt;a href=&quot;/documentation/language-reference/prelude#idp&quot;&gt;idp&lt;/a&gt;.
+This feature can be used instead of the J operator to define functions on path types.
+This is a standard feature in other proof assistants, but was missing from Arend since it has a different definition of path types.&lt;/li&gt;
+  &lt;li&gt;New keyword &lt;a href=&quot;/documentation/language-reference/definitions/classes#classifying-fields&quot;&gt;\noclassifying&lt;/a&gt; can be used to define classes without classifying fields.
+Such classes are similar to Agda’s modules and Coq’s sections.&lt;/li&gt;
+  &lt;li&gt;The type of a field can be overridden with a subtype in a subclass using new keyword &lt;a href=&quot;/documentation/language-reference/definitions/records#override&quot;&gt;\override&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Variables can be &lt;a href=&quot;/documentation/language-reference/expressions/case#elim-in-case&quot;&gt;eliminated&lt;/a&gt; in &lt;span class=&quot;inl-highlight&quot;&gt;&lt;span class=&quot;k&quot;&gt;\case&lt;/span&gt;&lt;/span&gt; expressions now.&lt;/li&gt;
+  &lt;li&gt;Implemented &lt;a href=&quot;/documentation/language-reference/definitions/data#constructor-synonyms&quot;&gt;constructor synonyms&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;It is possible now to implement fields using &lt;a href=&quot;/documentation/language-reference/definitions/functions#patterns-in-coclauses&quot;&gt;pattern matching&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;We decided to make &lt;a href=&quot;/documentation/language-reference/expressions/universes&quot;&gt;\Prop&lt;/a&gt; proof relevant in general (but it is still proof irrelevant in some cases).
+The implementation in 1.1.0 was incorrect and it turns out that it is &lt;a href=&quot;https://arxiv.org/abs/1911.08174v1&quot;&gt;impossible&lt;/a&gt; to implement it without loss of the normalization property.&lt;/li&gt;
+  &lt;li&gt;Now, fields and implementations in a class are typechecked in the order they are specified (before now implementations were typechecked after fields).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Plugin updates:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Fixed some problems with pattern generator and implemented case split for \Sigma-types and records.&lt;/li&gt;
+  &lt;li&gt;It is possible now to adjust the verbosity of pretty printer in error messages.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">We implemented a few features related to classes and pattern matching. One of these features is pattern matching on idp : a = a, which can be used instead of the J operator.</summary></entry><entry><title type="html">Arend 1.1.0 released</title><link href="https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released.html" rel="alternate" type="text/html" title="Arend 1.1.0 released" /><published>2019-10-01T00:00:00+03:00</published><updated>2019-10-01T00:00:00+03:00</updated><id>https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/10/01/Arend-1.1.0-released.html">&lt;p&gt;Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.&lt;/p&gt;
 
 &lt;p&gt;Language updates:&lt;/p&gt;
 &lt;ul&gt;

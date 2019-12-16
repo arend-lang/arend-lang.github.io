@@ -353,6 +353,7 @@
   <li><a href="#truncation">Truncation</a></li>
   <li><a href="#induction-induction-and-induction-recursion">Induction-induction and induction-recursion</a></li>
   <li><a href="#varying-number-of-constructors">Varying number of constructors</a></li>
+  <li><a href="#constructor-synonyms">Constructor synonyms</a></li>
 </ul>
             </nav>
           </aside>
@@ -526,6 +527,11 @@ It is also possible to define several constructors in a single clause as follows
 
 <p>This definition is equivalent to the previous one.</p>
 
+<h2 id="constructor-synonyms">Constructor synonyms</h2>
+
+<p>A constructor synonym is a function defined with keyword <span class="inl-highlight"><span class="k">\cons</span></span>.
+Such a function cannot be defined by pattern matching and it must consists only of constructors of data types.
+It can be used in patterns as a synonym for its right hand side.</p>
 
         
       </section>

@@ -359,6 +359,21 @@ That is, expressions of the form <span class="inl-highlight"><span class="k">\sc
 To evaluate such an expression, you need to use keyword <span class="inl-highlight"><span class="k">\eval</span></span> before it.
 Similarly, <span class="inl-highlight"><span class="k">\peval</span> <span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … }</span> has type <span class="inl-highlight"><span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … } <span class="o">=</span> <span class="k">\eval</span> <span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … }</span>.</p>
 
+<h2 id="elim-in-case">\elim in \case</h2>
+
+<p>If one of the expressions <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> is a variable, keyword <span class="inl-highlight"><span class="k">\elim</span></span> can be specified before it.
+This variable will be evaluated from the context in the clauses.
+More importantly, it will be substituted in the types of other arguments and the result type of the case expression.
+Thus, the following two snippets are equivalent if <span class="inl-highlight">e <span class="o">:</span> E</span> and the result type of the case expression is <span class="inl-highlight">A</span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> <span class="k">\elim</span> x<span class="o">,</span> e <span class="k">\with</span> {
+  <span class="o">|</span> pat<span class="o">,</span> pat' <span class="o">=&gt;</span> result
+}</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> x <span class="k">\as</span> x<span class="o">,</span> e <span class="o">:</span> E <span class="k">\return</span> A <span class="k">\with</span> {
+  <span class="o">|</span> pat<span class="o">,</span> pat' <span class="o">=&gt;</span> result
+}</code></pre></div></div>
+
         
       </section>
 

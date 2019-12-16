@@ -352,6 +352,7 @@
   <li><a href="#properties">Properties</a></li>
   <li><a href="#extensions">Extensions</a></li>
   <li><a href="#this">This</a></li>
+  <li><a href="#override">Override</a></li>
 </ul>
             </nav>
           </aside>
@@ -525,6 +526,22 @@ In order to access these fields, fully qualified names should be used:</p>
 }</code></pre></div></div>
 
 <p>The keyword <span class="inl-highlight"><span class="k">\this</span></span> can appear only in arguments of definitions and only in those arguments, which in turn satisfy this condition.</p>
+
+<h2 id="override">Override</h2>
+
+<p>The type of a field or a property can be overridden with a subtype in a subclass using keyword <span class="inl-highlight"><span class="k">\override</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R
+
+<span class="k">\record</span> S <span class="k">\extends</span> R
+
+<span class="k">\record</span> A {
+  <span class="o">|</span> f <span class="o">:</span> R
+}
+
+<span class="k">\record</span> B <span class="k">\extends</span> A {
+  <span class="k">\override</span> f <span class="o">:</span> S
+}</code></pre></div></div>
 
         
       </section>
