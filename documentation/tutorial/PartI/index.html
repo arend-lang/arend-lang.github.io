@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Language Reference - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Part I: Dependent Types - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Language Reference">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference.html">
+<meta property="og:title" content="Part I: Dependent Types">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/">
 
 
 
@@ -260,10 +260,68 @@
 
             
 
-            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+            <li><a href="/documentation/tutorial/PartI" class="active">Part I: Dependent Types</a></li>
 
             
             
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
             
           
         </ul>
@@ -290,7 +348,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Language Reference">
+    <meta itemprop="headline" content="Part I: Dependent Types">
     
     
     
@@ -298,7 +356,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Language Reference
+          <h1 id="page-title" class="page__title" itemprop="headline">Part I: Dependent Types
 </h1>
           
         </header>
@@ -306,7 +364,9 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>This section contains the specification of the Arend language.</p>
+        <p>This part is an introduction to the actual practices of working with dependent types in Arend. It contains
+example-based Arend-specific exposition of efficient ways of working with propositions and proofs, inductive types, classes and records,
+type universes, etc. We assume that the reader is familiar with basic concepts from ML-like languages (such as Haskell, Agda, or Coq/Gallina).</p>
 
 <nav class="nav__list">
   
@@ -329,7 +389,7 @@
           
           
 
-          <a href="/documentation/language-reference/lexical-structure"><span class="nav__sub-title">Lexical structure</span></a>
+          <a href="/documentation/tutorial/PartI/synndef"><span class="nav__sub-title">Basics</span></a>
         
 
         
@@ -340,130 +400,9 @@
           
           
 
-          <a href="/documentation/language-reference/definitions"><span class="nav__sub-title">Definitions</span></a>
+          <a href="/documentation/tutorial/PartI/propsnproofs"><span class="nav__sub-title">Propositions and Proofs</span></a>
         
 
-        
-        <ul>
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/modules" class="">Modules</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/parameters" class="">Parameters</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/functions" class="">Functions</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/data" class="">Data</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/hits" class="">Higher inductive types</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/records" class="">Records</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/classes" class="">Classes</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/coercion" class="">Coercion</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/definitions/level" class="">Level</a></li>
-
-            
-            
-            
-              
-            
-          
-        </ul>
         
       </li>
     
@@ -472,104 +411,9 @@
           
           
 
-          <a href="/documentation/language-reference/expressions"><span class="nav__sub-title">Expressions</span></a>
+          <a href="/documentation/tutorial/PartI/datanproofs"><span class="nav__sub-title">Indexed Data Types</span></a>
         
 
-        
-        <ul>
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/expressions/goals" class="">Goals</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/expressions/universes" class="">Universes</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/expressions/pi" class="">Pi types</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/expressions/sigma" class="">Sigma types</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/expressions/let" class="">Let</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/expressions/case" class="">Case</a></li>
-
-            
-            
-            
-              
-            
-          
-            
-            
-
-            
-
-            <li><a href="/documentation/language-reference/expressions/class-ext" class="">Class extensions</a></li>
-
-            
-            
-            
-              
-            
-          
-        </ul>
         
       </li>
     
@@ -578,7 +422,51 @@
           
           
 
-          <a href="/documentation/language-reference/prelude"><span class="nav__sub-title">Prelude</span></a>
+          <a href="/documentation/tutorial/PartI/idtype"><span class="nav__sub-title">Equality</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial/PartI/equalityex"><span class="nav__sub-title">Proofs of Equality</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial/PartI/records"><span class="nav__sub-title">Classes and Records</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial/PartI/case"><span class="nav__sub-title">Case Expression</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial/PartI/universes"><span class="nav__sub-title">Universes, Induction, Specifications</span></a>
         
 
         

@@ -1,0 +1,721 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Proofs of Equality - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Proofs of Equality">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/equalityex.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/equalityex.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Proofs of Equality">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Proofs of Equality
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Proofs of Equality</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#commutativity-of-">Commutativity of +</a></li>
+  <li><a href="#equational-reasoning-proof-of--comm-rewritten">Equational reasoning, proof of +-comm rewritten</a></li>
+  <li><a href="#j-operator">J operator</a></li>
+  <li><a href="#associativity-of-append-for-vectors">Associativity of append for vectors</a></li>
+  <li><a href="#predicates">Predicates</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="code/eqproofs.zip">eqproofs.zip</a>.</p>
+
+<p>In this module we give a number of examples, demonstrating techniques used in more advanced proofs of equalities.
+We introduce a convention for writing more readable equality proofs called <em>equational reasoning</em>. 
+We argue that <span class="inl-highlight">transport</span> is insufficient in some cases and introduce its generalization
+called <em>eliminator J</em>.</p>
+
+<p>We supplement this discussion of equality with remarks on definitions of predicates.</p>
+
+<h1 id="commutativity-of-">Commutativity of +</h1>
+
+<p>Let’s apply notions from the previous module and prove commutativity of <span class="inl-highlight"><span class="o">+</span> <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">-&gt;</span> Nat</span>.
+Note that <span class="inl-highlight">transport</span> satisfies the following property:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- transport B idp b ==&gt; b</span>
+
+<span class="c">-- recall the definition of transport:</span>
+<span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (b <span class="o">:</span> B a)
+   <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)) b right
+
+<span class="c">-- indeed, coe (\lam i =&gt; B (idp @ i)) b right ==&gt; </span>
+<span class="c">-- ==&gt; coe (\lam i =&gt; B a) b right ==&gt; b</span></code></pre></div></div>
+
+<p>It will be more convenient to have transitivity of <span class="inl-highlight"><span class="o">=</span></span>, which we proved in the previous module, in 
+infix form:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infixr</span> <span class="n">5</span> <span class="o">*</span>&gt; {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' a'' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (q <span class="o">:</span> a' <span class="o">=</span> a'') <span class="o">:</span> a <span class="o">=</span> a''
+   <span class="o">=&gt;</span> transport (<span class="k">\lam</span> x <span class="o">=&gt;</span> a <span class="o">=</span> x) q p</code></pre></div></div>
+
+<p>Function <span class="inl-highlight"><span class="o">*</span>&gt;</span> thus satisfies the property <span class="inl-highlight">p <span class="o">*</span>&gt; idp <span class="o">==</span>&gt; p</span>.
+We can also define transitivity <span class="inl-highlight">&lt;*</span> such that <span class="inl-highlight">idp &lt;* p <span class="o">==</span>&gt; p</span>, but
+we do not need it yet.</p>
+
+<p>The commutativity can now be proved as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="o">+</span>-comm (n m <span class="o">:</span> Nat) <span class="o">:</span> n <span class="o">+</span> m <span class="o">=</span> m <span class="o">+</span> n
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+  <span class="o">|</span> suc n<span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm n <span class="n">0</span>)
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm <span class="n">0</span> m)
+  <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm (suc n) m <span class="o">*</span>&gt; pmap suc (inv (<span class="o">+</span>-comm n m)) <span class="o">*</span>&gt; <span class="o">+</span>-comm n (suc m))</code></pre></div></div>
+
+<h1 id="equational-reasoning-proof-of--comm-rewritten">Equational reasoning, proof of +-comm rewritten</h1>
+
+<p>There is one clever trick that allows to write sequences of equality proofs joining by transitivity in a
+more readable form. Namely, one can define operators <span class="inl-highlight"><span class="o"><code class="highlighter-rouge">==&lt;</code></span></span>, <span class="inl-highlight"><span class="o"><code class="highlighter-rouge">&gt;==</code></span></span> and
+<span class="inl-highlight"><span class="o"><code class="highlighter-rouge">qed</code></span></span> such that it is possible to write instead of a chain of equality proofs 
+<span class="inl-highlight">p1 <span class="o"><code class="highlighter-rouge">*&gt;</code></span> … <span class="o"><code class="highlighter-rouge">*&gt;</code></span> pn</span> an extended chain <span class="inl-highlight">a1 <span class="o"><code class="highlighter-rouge">==&lt;</code></span> p1 <span class="o"><code class="highlighter-rouge">&gt;==</code></span> a2 <span class="o"><code class="highlighter-rouge">==&lt;</code></span> p2 <span class="o"><code class="highlighter-rouge">&gt;==</code></span> a3 … <span class="o">`qed</span></span>,
+where we also specify the objects equality of which is proven at each step (in other words, <span class="inl-highlight">pi <span class="o">:</span> ai <span class="o">=</span> a(i+1)</span>).
+The proof <span class="inl-highlight"><span class="o">+</span>-comm</span> rewritten in this way looks as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="o">+</span>-comm' (n m <span class="o">:</span> Nat) <span class="o">:</span> n <span class="o">+</span> m <span class="o">=</span> m <span class="o">+</span> n
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+  <span class="o">|</span> suc n<span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm' n <span class="n">0</span>)
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm' <span class="n">0</span> m)
+  <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (
+    suc n <span class="o">+</span> m   <span class="o">==</span>&lt; <span class="o">+</span>-comm' (suc n) m &gt;==
+    suc (m <span class="o">+</span> n) <span class="o">==</span>&lt; pmap suc (inv (<span class="o">+</span>-comm' n m)) &gt;==
+    suc (n <span class="o">+</span> m) <span class="o">==</span>&lt; <span class="o">+</span>-comm' n (suc m) &gt;==
+    suc m <span class="o">+</span> n   <span class="o">`qed</span>
+  )
+
+<span class="c">-- recall that:</span>
+<span class="c">-- x `f == f x -- postfix notation</span>
+<span class="c">-- x `f` y == f x y -- infix notation</span></code></pre></div></div>
+
+<p>These operators can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infix</span> <span class="n">2</span> qed {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">:</span> a <span class="o">=</span> a <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> <span class="k">\infixr</span> <span class="n">1</span> &gt;== {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' a'' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (q <span class="o">:</span> a' <span class="o">=</span> a'') <span class="o">=&gt;</span> p <span class="o">*</span>&gt; q
+
+<span class="k">\func</span> <span class="k">\infix</span> <span class="n">2</span> <span class="o">==</span>&lt; {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">=&gt;</span> p</code></pre></div></div>
+
+<h1 id="j-operator">J operator</h1>
+
+<p>Recall from <a href="/documentation/tutorial/PartI/idtype#Eliminators">Eliminators</a> that elimination
+principles for a data type <span class="inl-highlight">D</span> say that functions from <span class="inl-highlight">D</span> are
+determined by their values on the constructors of <span class="inl-highlight">D</span>, that is that <span class="inl-highlight">D</span>
+is “generated” by its constructors.</p>
+
+<p>Similarly, we can say that identity type <span class="inl-highlight"><span class="o">=</span></span> is “generated” by reflexivity <span class="inl-highlight">idp</span>:
+the non-dependent version of eliminator says that if we define the value of a function <span class="inl-highlight">a <span class="o">=</span> x <span class="o">-&gt;</span> B x</span>
+on <span class="inl-highlight">idp</span>, that is some value <span class="inl-highlight">b <span class="o">:</span> B a</span>, then we would uniquely determine this function:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport'
+    {A <span class="o">:</span> <span class="kt">\Type</span>}
+    (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+    {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a')
+    (b <span class="o">:</span> B a)
+    <span class="o">:</span> B a'
+  <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)) b right</code></pre></div></div>
+
+<p>The J operator is a dependent version of this, stating that specifying value on <span class="inl-highlight">idp</span> is enough to determine 
+a function <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) (p <span class="o">:</span> a <span class="o">=</span> x) <span class="o">-&gt;</span> B x p</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J
+    {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A}
+    (B <span class="o">:</span> <span class="k">\Pi</span> (a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+    (b <span class="o">:</span> B a idp)
+    {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a')
+    <span class="o">:</span> B a' p
+  <span class="c">-- the details of the definition are not important for now</span>
+  <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i) (psqueeze p i)) b right
+  <span class="k">\where</span>
+    <span class="k">\func</span> psqueeze  {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (i <span class="o">:</span> I) <span class="o">:</span> a <span class="o">=</span> p <span class="o">@</span> i <span class="o">=&gt;</span> path (<span class="k">\lam</span> j <span class="o">=&gt;</span> p <span class="o">@</span> I.squeeze i j)</code></pre></div></div>
+
+<p>Note that <span class="inl-highlight">B a’ p</span> above depends on both <span class="inl-highlight">a’</span> and <span class="inl-highlight">p</span>. If we make <span class="inl-highlight">a’</span>
+fixed and equal to <span class="inl-highlight">a</span> in the definition above, then we obtain <em>K eliminator</em>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> K {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> a <span class="o">=</span> a <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+    (b <span class="o">:</span> B idp)
+    (p <span class="o">:</span> a <span class="o">=</span> a) <span class="o">:</span> B p <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+<p>This eliminator equivalent to the statement that every element of <span class="inl-highlight">a <span class="o">=</span> a</span> is <span class="inl-highlight">idp</span>. 
+It may seem natural at first sight to add it as an axiom then to simplify things by making proofs of equalities
+unique (as it implies that <span class="inl-highlight">p <span class="o">=</span> p’</span> for any <span class="inl-highlight">p<span class="o">,</span> p’ <span class="o">:</span> a <span class="o">=</span> a’</span>), but actually it is
+important that these proofs are <em>not unique</em>. This issue will be discussed later. <!-- TODO: ref to Part II --></p>
+
+<p>It is not convenient to use the J operator directly.
+For this reason, Arend has the pattern matching principle corresponding to J.
+A parameter of type <span class="inl-highlight">a <span class="o">=</span> a’</span> can be matched with <span class="inl-highlight">idp</span> making <span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> equivalent.
+For example, <span class="inl-highlight">transport</span> can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (b <span class="o">:</span> B a) <span class="o">:</span> B a' <span class="k">\elim</span> p
+  <span class="o">|</span> idp <span class="o">=&gt;</span> b</code></pre></div></div>
+
+<p>Similarly, <span class="inl-highlight">J</span> can be defined in this way.
+See <a href="/documentation/language-reference/prelude#idp">Prelude</a> for more information about this pattern matching principle.</p>
+
+<p>The pattern matching on <span class="inl-highlight">idp</span> may look confusing at first sight. On one hand we claim that <span class="inl-highlight">a <span class="o">=</span> a’</span>
+can have more than one element, but on the other hand we allow pattern matching on <span class="inl-highlight">idp</span>, which means that
+<span class="inl-highlight">a <span class="o">=</span> a’</span> has one element. This seeming contradiction is resolved by observing that in reality we pattern
+match simultaneously on <em>two</em> variables <span class="inl-highlight">p <span class="o">:</span> a <span class="o">=</span> a’</span> and <span class="inl-highlight">a’</span>, instead of just one
+<span class="inl-highlight">p <span class="o">:</span> a <span class="o">=</span> a’</span>. In other words, we <em>do not</em> match on the type <span class="inl-highlight">a <span class="o">=</span> a’</span>, but match on the
+type <span class="inl-highlight"><span class="k">\Sigma</span> (a’ <span class="o">:</span> A) (a <span class="o">=</span> a’)</span> of pairs instead, which is one-element type.
+Precisely this fact is the source of all the restrictions discussed in <a href="/documentation/language-reference/prelude#idp">Prelude</a>.</p>
+
+<p>The operator <span class="inl-highlight">J</span> has a different form, which we denote <span class="inl-highlight">Jalt</span>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Jalt {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+           (b <span class="o">:</span> <span class="k">\Pi</span> (a <span class="o">:</span> A) <span class="o">-&gt;</span> B a a idp)
+           {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> B a a' p <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Prove that <span class="inl-highlight">J</span> and <span class="inl-highlight">Jalt</span> are equivalent, i.e. define <span class="inl-highlight">J</span> in terms of <span class="inl-highlight">Jalt</span> and vice versa.</p>
+
+<h1 id="associativity-of-append-for-vectors">Associativity of append for vectors</h1>
+
+<p>Let us prove some statement that essentially requires J. A good example of such statement is associativity of the
+append <span class="inl-highlight">v++</span> for vectors. Let’s recall the definitions of the data type <span class="inl-highlight">Vec</span> and
+the function <span class="inl-highlight">v++</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Vec (A <span class="o">:</span> <span class="kt">\Type</span>) (n <span class="o">:</span> Nat) <span class="k">\elim</span> n
+  <span class="o">|</span> zero <span class="o">=&gt;</span> vnil
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> vcons A (Vec A n)
+
+<span class="k">\func</span> <span class="k">\infixl</span> <span class="n">4</span> v++ {A <span class="o">:</span> <span class="kt">\Type</span>} {n m <span class="o">:</span> Nat} (xs <span class="o">:</span> Vec A n) (ys <span class="o">:</span> Vec A m) <span class="o">:</span> Vec A (m <span class="o">+</span> n) <span class="k">\elim</span> n<span class="o">,</span> xs
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> vnil <span class="o">=&gt;</span> ys
+  <span class="o">|</span> suc n<span class="o">,</span> vcons x xs <span class="o">=&gt;</span> vcons x (xs v++ ys)</code></pre></div></div>
+
+<p>Already the statement of associativity of <span class="inl-highlight">v++</span> requires some work since the types of 
+<span class="inl-highlight">(xs v++ ys) v++ zs</span> and <span class="inl-highlight">xs v++ (ys v++ zs)</span> do not coincide: the types are
+<span class="inl-highlight">Vec A (k <span class="o">+</span> (m <span class="o">+</span> n))</span> and <span class="inl-highlight">Vec A ((k <span class="o">+</span> m) <span class="o">+</span> n)</span> respectively. We can get over it
+by using <span class="inl-highlight">transport</span> since it allows to translate an element of <span class="inl-highlight">Vec A x</span> to an 
+element of <span class="inl-highlight">Vec A y</span> if <span class="inl-highlight">x <span class="o">=</span> y</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> v++-assoc {A <span class="o">:</span> <span class="kt">\Type</span>} {n m k <span class="o">:</span> Nat} (xs <span class="o">:</span> Vec A n) (ys <span class="o">:</span> Vec A m) (zs <span class="o">:</span> Vec A k)
+  <span class="o">:</span> (xs v++ ys) v++ zs <span class="o">=</span> transport (Vec A) (<span class="o">+</span>-assoc k m n) (xs v++ (ys v++ zs)) <span class="k">\elim</span> n<span class="o">,</span> xs
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> vnil <span class="o">=&gt;</span> idp
+  <span class="o">|</span> suc n<span class="o">,</span> vcons x xs <span class="o">=&gt;</span>
+      pmap (vcons x) (v++-assoc xs ys zs) <span class="o">*</span>&gt;
+      inv (transport-vcons-comm (<span class="o">+</span>-assoc k m n) x (xs v++ (ys v++ zs)))
+  <span class="k">\where</span>
+    <span class="c">-- transport commutes with all constructors</span>
+    <span class="c">-- here is the proof that it commutes with vcons</span>
+    <span class="k">\func</span> transport-vcons-comm {A <span class="o">:</span> <span class="kt">\Type</span>} {n m <span class="o">:</span> Nat} (p <span class="o">:</span> n <span class="o">=</span> m) (x <span class="o">:</span> A) (xs <span class="o">:</span> Vec A n)
+      <span class="o">:</span> transport (Vec A) (pmap suc p) (vcons x xs) <span class="o">=</span> vcons x (transport (Vec A) p xs)
+      <span class="o">|</span> idp<span class="o">,</span> <span class="u">_</span><span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> idp
+      <span class="c">{- This function can be defined with J as follows:
+      =&gt; J (\lam m' p' =&gt; transport (Vec A) (pmap suc p') (vcons x xs) = vcons x (transport (Vec A) p' xs))
+           idp
+           p
+      -}</span></code></pre></div></div>
+
+<p>Let us take a closer look at what is going on in this proof. First, we apply the congruence <span class="inl-highlight">pmap (vcons x)</span> to the induction
+hypothesis <span class="inl-highlight">v++-assoc xs ys zs</span> so that we obtain the equality:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vcons x (xs v++ ys) v++ zs <span class="o">=</span> vcons x (transport (Vec A) (<span class="o">+</span>-assoc k m n) (xs v++ (ys v++ zs))).</code></pre></div></div>
+<p>This corresponds to the following three lines of the proof:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">|</span> <span class="n">0</span><span class="o">,</span> vnil <span class="o">=&gt;</span> idp
+  <span class="o">|</span> suc n<span class="o">,</span> vcons x xs <span class="o">=&gt;</span>
+        pmap (vcons x) (v++-assoc xs ys zs)</code></pre></div></div>
+<p>The left side of the above equality is precisely what we need since <span class="inl-highlight">((vcons x xs) v++ ys) v++ zs</span>
+evaluates to <span class="inl-highlight">vcons x ((xs v++ ys) v++ zs)</span>. So, we should compose this proof with the proof of</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vcons x (transport (Vec A) (<span class="o">+</span>-assoc k m n) (xs v++ (ys v++ zs))) <span class="o">=</span> transport (Vec A) (<span class="o">+</span>-assoc k m n) (vcons x (xs v++ (ys v++ zs)))</code></pre></div></div>
+
+<p>And this is precisely the commutativity of <span class="inl-highlight">transport</span> with <span class="inl-highlight">vcons</span>, which we 
+prove in <span class="inl-highlight">transport-vcons-comm</span> lemma. 
+Note that it is important that we generalize the statement and prove the commutativity not only for
+<span class="inl-highlight"><span class="o">+</span>-assoc k m n</span> but for all <span class="inl-highlight">e <span class="o">:</span> Nat</span> satisfying <span class="inl-highlight">p <span class="o">:</span> k <span class="o">+</span> m <span class="o">+</span> n <span class="o">=</span> e</span> (otherwise, we would not be able to use pattern mathing or the J operator to prove this statement).</p>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Prove that <span class="inl-highlight">vnil</span> is identity for the operation <span class="inl-highlight">v++</span>.</p>
+
+<h1 id="predicates">Predicates</h1>
+
+<p>A predicate on a type <span class="inl-highlight">A</span> is by definition a function from <span class="inl-highlight">A</span> to a type of propositions.
+In particular, in propositions-as-types logic predicates are functions <span class="inl-highlight">A-&gt;<span class="kt">\Type</span></span>.</p>
+
+<p>There are several ways to define a predicate over a type <span class="inl-highlight">A</span>:</p>
+
+<ul>
+  <li>By combining existing predicates (for example, equality) by means of logical connectives. For example, 
+<span class="inl-highlight">isEven</span> can be defined as <span class="inl-highlight"><span class="k">\lam</span> n <span class="o">=&gt;</span> <span class="k">\Sigma</span> (k <span class="o">:</span> Nat) (n <span class="o">=</span> <span class="n">2</span> <span class="o">*</span> k)</span>.</li>
+  <li>By recursion, but only if <span class="inl-highlight">A</span> is a data type.</li>
+  <li>By induction.</li>
+</ul>
+
+<p>We now illustrate all these ways in case of the predicate &lt;= for natural numbers.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Definition of &lt;= via equality.</span>
+<span class="k">\func</span> LessOrEq''' (n m <span class="o">:</span> Nat) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (k <span class="o">:</span> Nat) (k <span class="o">+</span> n <span class="o">=</span> m)
+
+<span class="c">-- Recursive definition of &lt;=.</span>
+<span class="k">\func</span> lessOrEq (n m <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span>
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> Unit
+  <span class="o">|</span> suc <span class="u">_</span><span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> Empty
+  <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> lessOrEq n m
+
+<span class="c">-- First inductive definition of &lt;=.</span>
+<span class="k">\data</span> LessOrEq (n m <span class="o">:</span> Nat) <span class="k">\with</span>
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> m <span class="o">=&gt;</span> z&lt;=n
+  <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> s&lt;=s (LessOrEq n m)
+
+<span class="k">\func</span> test11 <span class="o">:</span> LessOrEq <span class="n">0</span> <span class="n">100</span> <span class="o">=&gt;</span> z&lt;=n
+<span class="k">\func</span> test12 <span class="o">:</span> LessOrEq <span class="n">3</span> <span class="n">67</span> <span class="o">=&gt;</span> s&lt;=s (s&lt;=s (s&lt;=s z&lt;=n))
+<span class="c">-- Of course, there is no proof of 1 &lt;= 0.</span>
+<span class="c">-- \func test10 : LessOrEq 1 0 =&gt; ...</span>
+
+<span class="c">-- Second inductive definition of &lt;=.</span>
+<span class="c">-- This is a modification of the first inductive definition,</span>
+<span class="c">-- where we avoid constructor patterns.</span>
+<span class="k">\data</span> LessOrEq' (n m <span class="o">:</span> Nat)
+  <span class="o">|</span> z&lt;=n' (n <span class="o">=</span> <span class="n">0</span>)
+  <span class="o">|</span> s&lt;=s' {n' m' <span class="o">:</span> Nat} (n <span class="o">=</span> suc n') (m <span class="o">=</span> suc m') (LessOrEq' n' m')</code></pre></div></div>
+
+<p>There are usually many ways to choose constructors for inductive definitions. To define a predicate inductively, we need to
+come up with a set of axioms that characterise the predicate.</p>
+
+<p>For example, for <span class="inl-highlight">LessOrEq</span> we chose two axioms:
+1) 0 &lt;= m for all m, 2) if n &lt;= m, then suc n &lt;= suc m for all n, m. Every inequality can be derived from these axioms.
+But this is not the only way to characterise <span class="inl-highlight">LessOrEq</span>. For example, we could use the following two axioms:
+1) n &lt;= n for all n, 2) if n &lt;= m, then n &lt;= suc m for all n, m:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Third inductive definition of &lt;=.</span>
+<span class="k">\data</span> LessOrEq'' (n m <span class="o">:</span> Nat) <span class="k">\elim</span> m
+  <span class="o">|</span> suc m <span class="o">=&gt;</span> &lt;=-step (LessOrEq'' n m)
+  <span class="o">|</span> m <span class="o">=&gt;</span> &lt;=-refl (n <span class="o">=</span> m)</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Prove that all definitions of &lt;= given above are equivalent.</p>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Define the membership predicate <span class="inl-highlight">In</span> for lists.</p>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Define reflexive and transitive closure of a relation.
+That is <span class="inl-highlight">ReflTransClosure R</span> – is the minimal reflexive and transitive relation containing <span class="inl-highlight">R</span>.</p>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Prove that if <span class="inl-highlight">R</span> is already reflexive and transitive then <span class="inl-highlight">ReflTransClosure R</span>
+is equivalent to <span class="inl-highlight">R</span>.</p>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Define the predicate <span class="inl-highlight">xs &lt;= ys</span> for lists, which says “the list <span class="inl-highlight">xs</span> is a 
+sublist of <span class="inl-highlight">ys</span>”.</p>
+
+<p class="notice--info"><strong>Exercise 8:</strong> Prove that <span class="inl-highlight">filter xs &lt;= xs</span> for any list <span class="inl-highlight">xs</span>.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

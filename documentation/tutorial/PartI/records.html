@@ -1,0 +1,978 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Records and Classes - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Records and Classes">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/records.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/records.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Records and Classes">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Records and Classes
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Records and Classes</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#records-new-cowith-projections-pattern-matching">Records: \new, \cowith, projections, pattern matching</a></li>
+  <li><a href="#partial-implementation">Partial implementation</a></li>
+  <li><a href="#parameters-visibility-of-fields">Parameters, visibility of fields</a></li>
+  <li><a href="#dependent-records-a-type-of-positive-natural-numbers">Dependent records, a type of positive natural numbers</a></li>
+  <li><a href="#monoid">Monoid</a></li>
+  <li><a href="#classes-instances">Classes, instances</a></li>
+  <li><a href="#coercions">Coercions</a></li>
+  <li><a href="#extensions-diamond-problem">Extensions, diamond problem</a></li>
+  <li><a href="#definitions-inside-classes">Definitions inside classes</a></li>
+  <li><a href="#classes-without-classifying-fields">Classes without classifying fields</a></li>
+  <li><a href="#functor">Functor</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="code/records.zip">records.zip</a>.</p>
+
+<p>In this module we introduce very useful kinds of definitions: records and classes.</p>
+
+<p>We also discuss the mechanism of coercions.</p>
+
+<h1 id="records-new-cowith-projections-pattern-matching">Records: \new, \cowith, projections, pattern matching</h1>
+
+<p>In the previous modules we saw two ways to arrange a sequence of types <span class="inl-highlight">A1</span>, …,
+<span class="inl-highlight">An</span> into a composite type of tuples: Sigma-types 
+<span class="inl-highlight"><span class="k">\Sigma</span> A1 … An</span> and data types <span class="inl-highlight"><span class="k">\data</span> Tuples <span class="o">|</span> tuple A1 … An</span>.</p>
+
+<p>For example, a type of pairs of natural numbers can be defined as <span class="inl-highlight"><span class="k">\Sigma</span> Nat Nat</span>. 
+In this case elements of a pair <span class="inl-highlight">x <span class="o">:</span> <span class="k">\Sigma</span> Nat Nat</span> are accessed by means of projections
+<span class="inl-highlight">x.<span class="n">1</span></span> and <span class="inl-highlight">x.<span class="n">2</span></span>. Alternatively, one can realize this type as a data type
+<span class="inl-highlight"><span class="k">\data</span> NatPair</span> with projections defined by pattern matching:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> NatPair <span class="o">|</span> natPair Nat Nat
+
+<span class="k">\func</span> natFst (p <span class="o">:</span> NatPair) <span class="o">:</span> Nat
+  <span class="o">|</span> natPair x <span class="u">_</span> <span class="o">=&gt;</span> x
+
+<span class="k">\func</span> natSnd (p <span class="o">:</span> NatPair) <span class="o">:</span> Nat
+  <span class="o">|</span> natPair <span class="u">_</span> y <span class="o">=&gt;</span> y</code></pre></div></div>
+
+<p>The advantage of Sigma-type option is eta-equivalence: if <span class="inl-highlight">x <span class="o">:</span> <span class="k">\Sigma</span> Nat Nat</span>, then
+<span class="inl-highlight">(x.<span class="n">1</span><span class="o">,</span> x.<span class="n">2</span>) <span class="o">==</span> x</span>, where <span class="inl-highlight"><span class="o">==</span></span> is computational equality. Eta-equivalence
+doesn’t hold for data types: <span class="inl-highlight">natPair (natFst x) (natSnd x)</span> is not computationally equal
+to <span class="inl-highlight">x</span>, one should prove that they are equal and use <span class="inl-highlight">transport</span> every
+time one wants to replace one with the other.</p>
+
+<p>Record types provide the third option:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> NatPair'
+  <span class="o">|</span> fst <span class="o">:</span> Nat
+  <span class="o">|</span> snd <span class="o">:</span> Nat</code></pre></div></div>
+
+<p>The major advantage of records over Sigma-types is that they allow to name components, which are
+called <em>fields</em>: we can
+write <span class="inl-highlight">x.fst</span> and <span class="inl-highlight">x.snd</span> instead of <span class="inl-highlight">x.<span class="n">1</span></span> and
+<span class="inl-highlight">x.<span class="n">2</span></span>. And eta-equivalence also applies to elements of records.</p>
+
+<p>Every field of a record is simply a function that has an instance of the record
+as its first implicit parameter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- fst : \Pi {x : NatPair'} -&gt; Nat</span>
+<span class="k">\func</span> foo (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> fst {p}</code></pre></div></div>
+
+<p>There is a namespace corresponding to a record, which contains all the fields of the record:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo' (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> NatPair'.fst {p}</code></pre></div></div>
+
+<p>The syntax with dot <span class="inl-highlight">p.snd</span> can only be used to access fields if <span class="inl-highlight">p</span>
+is a variable and its type is specified explicitly:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> bar (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> p.snd
+
+<span class="c">-- (f x).snd -- This is not allowed. It can be replaced with one of the following variants:</span>
+<span class="c">-- \let e : NatPair' =&gt; f x \in e.snd</span>
+<span class="c">-- snd {f x}</span>
+
+<span class="c">-- This code will not typecheck since the type of p is not specified explicitly</span>
+<span class="c">-- \func baz {p p' : NatPair'} (q : p = p') =&gt; pmap (\lam p =&gt; p.fst) q</span></code></pre></div></div>
+
+<p>An element of a record can be created using the keyword <span class="inl-highlight"><span class="k">\new</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> zeroPair <span class="o">=&gt;</span> <span class="k">\new</span> NatPair' {
+  <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">0</span>
+  }</code></pre></div></div>
+
+<p>Eta-equivalence for records, thus, means that 
+<span class="inl-highlight"><span class="k">\new</span> NatPair’ { <span class="o">|</span> fst <span class="o">=&gt;</span> p.fst <span class="o">|</span> snd <span class="o">=&gt;</span> p.snd }</span> is computationally equal to
+<span class="inl-highlight">p</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> etaNatPair' (p <span class="o">:</span> NatPair') <span class="o">:</span> p <span class="o">=</span> <span class="k">\new</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> p.fst <span class="o">|</span> snd <span class="o">=&gt;</span> p.snd }
+  <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>The pattern matching on variables of record types can be done using the same tuple patterns as
+used for pattern matching on variables of Sigma-types:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sum (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> fst {p} <span class="o">+</span> p.snd
+
+<span class="k">\func</span> sum' (p <span class="o">:</span> NatPair') <span class="o">:</span> Nat
+  <span class="o">|</span> (a<span class="o">,</span> b) <span class="o">=&gt;</span> a <span class="o">+</span> b</code></pre></div></div>
+
+<p>If we want to define a function that returns an element of a record, we can do this by means of
+<em>copattern matching</em> using the keyword <span class="inl-highlight"><span class="k">\cowith</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function is equivalent to zeroPair defined above.</span>
+<span class="c">-- \cowith is followed with a set of clauses, each starting</span>
+<span class="c">-- with | and specifying a field and its value</span>
+<span class="k">\func</span> zeroPair' <span class="o">:</span> NatPair' <span class="k">\cowith</span>
+  <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Define the function <span class="inl-highlight">swap</span>, which swaps components in pairs, 
+in several ways: a) using
+<span class="inl-highlight"><span class="k">\cowith</span></span> and field access, b) using <span class="inl-highlight"><span class="k">\new</span></span> and pattern matching, 
+c) using <span class="inl-highlight"><span class="k">\new</span></span> and field access.</p>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Prove that <span class="inl-highlight">swap (swap p) <span class="o">=</span> p</span>.</p>
+
+<h1 id="partial-implementation">Partial implementation</h1>
+
+<p>Given a record, it is possible to form new records out of it via <em>partial implementation</em>, that is
+by means of assigning values to some of its fields. If <span class="inl-highlight">C</span> is a record with fields
+<span class="inl-highlight">f1</span>, …, <span class="inl-highlight">fn</span>, then <span class="inl-highlight">C { <span class="o">|</span> f_{i_1} <span class="o">=&gt;</span> e_{i_1} … <span class="o">|</span> f_{i_k} <span class="o">=&gt;</span> e_{i_k} }</span>
+is a record formed by elements of the record <span class="inl-highlight">C</span>, where corresponding fields are implemented accordingly.</p>
+
+<p>For example, <span class="inl-highlight">NatPair’ { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> }</span> is the type of elements of the record <span class="inl-highlight">NatPair’</span>, whose
+first component is <span class="inl-highlight"><span class="n">0</span></span>. This type is, thus, equivalent to the type <span class="inl-highlight">Nat</span>.
+We call such types <em>anonymous extensions</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> PartialEx <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> }
+
+<span class="k">\func</span> ppp <span class="o">:</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> } <span class="o">=&gt;</span> <span class="k">\new</span> NatPair' { <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">1</span> }</code></pre></div></div>
+
+<p>Anonymous extensions of a record are subtypes of the record. If <span class="inl-highlight">p</span> is of type of the form
+<span class="inl-highlight">C { … }</span>, where the subset F of fields of <span class="inl-highlight">C</span> is implemented, then <span class="inl-highlight">p</span> is also
+of type of the form <span class="inl-highlight">C { … }</span>, where fields from a subset F’ of F are implemented and these implementations 
+agree with the implementations in the former case. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> partial (p <span class="o">:</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">1</span> }) <span class="o">:</span> PartialEx <span class="o">=&gt;</span> p
+
+<span class="k">\func</span> PartialEx' <span class="o">=&gt;</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">3</span> <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">7</span> }</code></pre></div></div>
+
+<p>The operator <span class="inl-highlight"><span class="k">\new</span></span> can be applied to any expression that evaluates to a record or its
+anonymous extension provided all fields are implemented. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> new <span class="o">=&gt;</span> <span class="k">\new</span> PartialEx'</code></pre></div></div>
+
+<h1 id="parameters-visibility-of-fields">Parameters, visibility of fields</h1>
+
+<p>Record types can have parameters:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Pair (A B <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> fst <span class="o">:</span> A
+  <span class="o">|</span> snd <span class="o">:</span> B</code></pre></div></div>
+
+<p>Elements of such records can be created using <span class="inl-highlight"><span class="k">\new</span></span> or <span class="inl-highlight"><span class="k">\cowith</span></span> as before:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pairExample <span class="o">:</span> Pair Nat (Nat <span class="o">-&gt;</span> Nat)
+  <span class="o">=&gt;</span> <span class="k">\new</span> Pair { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">1</span> <span class="o">|</span> snd (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x }</code></pre></div></div>
+
+<p>Actually parameters of a record are also its fields. The example above can be equivalently rewritten as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pairExample'
+  <span class="o">=&gt;</span> <span class="k">\new</span> Pair { <span class="o">|</span> A <span class="o">=&gt;</span> Nat <span class="o">|</span> B <span class="o">=&gt;</span> Nat <span class="o">-&gt;</span> Nat <span class="o">|</span> fst_ <span class="o">=&gt;</span> <span class="n">1</span> <span class="o">|</span> snd_ (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x }
+
+<span class="k">\func</span> pairExample''
+  <span class="o">=&gt;</span> <span class="k">\new</span> Pair Nat (Nat <span class="o">-&gt;</span> Nat) <span class="n">1</span> (<span class="k">\lam</span> (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x)</code></pre></div></div>
+
+<p>There is (almost) no difference between fields and parameters. In particular, it is perfectly fine to
+define all fields as parameters. For example, the following is an equivalent version of <span class="inl-highlight">NatPair</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> NatPair'' (fst'' snd'' <span class="o">:</span> Nat)
+
+<span class="k">\func</span> natPair''ex <span class="o">=&gt;</span> <span class="k">\new</span> NatPair'' {
+  <span class="o">|</span> fst'' <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> snd'' <span class="o">=&gt;</span> <span class="n">0</span>
+}</code></pre></div></div>
+
+<p>And, conversly, the type <span class="inl-highlight">Pair</span> has equivalent definition without parameters:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Pair'
+  <span class="o">|</span> A <span class="o">:</span> <span class="kt">\Type</span>
+  <span class="o">|</span> B <span class="o">:</span> <span class="kt">\Type</span>
+  <span class="o">|</span> fst <span class="o">:</span> A
+  <span class="o">|</span> snd <span class="o">:</span> B</code></pre></div></div>
+
+<h1 id="dependent-records-a-type-of-positive-natural-numbers">Dependent records, a type of positive natural numbers</h1>
+
+<p>Records can be dependent, that is fields can depend on previous fields. This makes them fully equivalent to
+Sigma-types, the only difference is that components of a record are named.</p>
+
+<p>For example, the set of positive natural numbers { n : Nat | T (isPos n) } can be expressed as Sigma-type
+<span class="inl-highlight"><span class="k">\Sigma</span> (n <span class="o">:</span> Nat) (T (isPos n))</span> or as a record:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Bool <span class="o">|</span> true <span class="o">|</span> false
+
+<span class="c">-- compare this definition of T with the one in module Basics</span>
+<span class="k">\data</span> T (b <span class="o">:</span> Bool) <span class="k">\with</span>
+  <span class="o">|</span> true <span class="o">=&gt;</span> tt
+
+<span class="k">\func</span> isPos (n <span class="o">:</span> Nat) <span class="o">:</span> Bool
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> false
+  <span class="o">|</span> suc <span class="u">_</span> <span class="o">=&gt;</span> true
+
+<span class="k">\record</span> PosNat (n <span class="o">:</span> Nat) (p <span class="o">:</span> T (isPos n))</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Prove that the type <span class="inl-highlight">PosNat <span class="n">0</span></span> is empty, but the type <span class="inl-highlight">PosNat <span class="n">1</span></span> is not.</p>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Define the <span class="inl-highlight"><span class="k">\record</span></span> consisting of pairs of coprime natural numbers.
+Define the type of natural numbers that are coprime with 60.</p>
+
+<h1 id="monoid">Monoid</h1>
+
+<p>Another example of dependent records – the type of monoids. We define this type as a <em>class</em> using keyword
+<span class="inl-highlight"><span class="k">\class</span></span> instead of <span class="inl-highlight"><span class="k">\record</span></span>. Classes are very similar to records and almost
+equivalent to them. But there are some nice features that classes have and records don’t. We will discuss
+classes in more detail below.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Monoid (A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> id <span class="o">:</span> A
+  <span class="o">|</span> <span class="k">\infixl</span> <span class="n">6</span> <span class="o">*</span> <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A
+  <span class="o">|</span> <span class="o">*</span>-assoc (x y z <span class="o">:</span> A) <span class="o">:</span> (x <span class="o">*</span> y) <span class="o">*</span> z <span class="o">=</span> x <span class="o">*</span> (y <span class="o">*</span> z)
+  <span class="c">-- | *-assoc : \Pi (x y z : A) -&gt; (x * y) * z = x * (y * z)</span>
+  <span class="o">|</span> id-left (x <span class="o">:</span> A) <span class="o">:</span> id <span class="o">*</span> x <span class="o">=</span> x
+  <span class="o">|</span> id-right (x <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> id <span class="o">=</span> x
+
+<span class="k">\func</span> baz (m <span class="o">:</span> Monoid Nat <span class="n">0</span> (Nat.<span class="o">+</span>)) <span class="o">=&gt;</span> m.<span class="o">*</span>-assoc</code></pre></div></div>
+
+<p>Classes and records can extend other records and classes. Some fields can be implemented in these extensions,
+this is useful when all instances of the extension are supposed to implement the field in the same way:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> CommMonoid <span class="k">\extends</span> Monoid
+  <span class="o">|</span> <span class="o">*</span>-comm (x y <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> y <span class="o">=</span> y <span class="o">*</span> x
+  <span class="o">|</span> id-right x <span class="o">=&gt;</span> <span class="o">*</span>-comm x id <span class="o">*</span>&gt; id-left x 
+<span class="c">-- id-right follows from id-left for commutative monoids</span></code></pre></div></div>
+
+<p>We will discuss extensions in more detail below.</p>
+
+<h1 id="classes-instances">Classes, instances</h1>
+
+<p>The only difference between classes and records is that there is an instance inference mechanism available for classes. This mechanism is analogous to the one in Haskell.</p>
+
+<p>Global instances of a class can be defined using <span class="inl-highlight"><span class="k">\instance</span></span> keyword. For example, there are two 
+natural instances of the class <span class="inl-highlight">Monoid</span> for natural numbers: monoid on <span class="inl-highlight"><span class="o">+</span></span> and
+monoid on <span class="inl-highlight"><span class="o">*</span></span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\instance</span> <span class="o">+</span>-NatMonoid <span class="o">:</span> Monoid Nat
+  <span class="o">|</span> id <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> Nat.<span class="o">+</span>
+  <span class="o">|</span> <span class="o">*</span>-assoc <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> id-left <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> id-right <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="k">\instance</span> <span class="o">*</span>-NatMonoid <span class="o">:</span> Monoid Nat
+  <span class="o">|</span> id <span class="o">=&gt;</span> <span class="n">1</span>
+  <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> Nat.<span class="o">*</span>
+  <span class="o">|</span> <span class="o">*</span>-assoc <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> id-left <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> id-right <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="c">-- alternative definition of the latter:</span>
+<span class="k">\instance</span> <span class="o">*</span>-NatMonoid' <span class="o">:</span> Monoid Nat <span class="n">1</span> (Nat.<span class="o">*</span>) <span class="g">{?}</span> <span class="g">{?}</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p>The first explicit pararameter of a class is of special significance and is called <em>classifying field</em> of a class.
+The classifying field of a class is typically a carrier, on top of which all other fields of the class define some structure.
+Thus the type of the classifying field is often <span class="inl-highlight"><span class="kt">\Type</span></span> or <span class="inl-highlight"><span class="kt">\Set</span></span>.
+Classifying fields significantly affect the behavior of the instance inference algorithm. Basically, in case there are no local instances, the algorithm
+searches for a first appropriate global instance (appropriate in the sense that its classifying field coincides with some expected type).</p>
+
+<p>Note, that the type of a class field is determined in the same way as in case of records. For example, for <span class="inl-highlight"><span class="o">*</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span> {M <span class="o">:</span> Monoid} (x y <span class="o">:</span> M.A) <span class="o">:</span> M.A</code></pre></div></div>
+
+<p>Consider the following examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- ok, +-NatMonoid is inferred since it was declared the first</span>
+<span class="c">-- id-left x here is equivalent to id-left {+-NatMonoid} x</span>
+<span class="k">\func</span> <span class="o">+</span>-test (x <span class="o">:</span> Nat) <span class="o">:</span> <span class="n">0</span> Nat.<span class="o">+</span> x <span class="o">=</span> x <span class="o">=&gt;</span> id-left x
+<span class="c">-- error, because +-NatMonoid is inferred, not *-NatMoniod</span>
+<span class="k">\func</span> <span class="o">*</span>-test (x <span class="o">:</span> Nat) <span class="o">:</span> <span class="n">1</span> Nat.<span class="o">*</span> x <span class="o">=</span> x <span class="o">=&gt;</span> id-left x</code></pre></div></div>
+
+<p>Such global instances behave like ordinary functions defined by copattern matching:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> instEx <span class="o">=&gt;</span> <span class="o">+</span>-NatMonoid.id-left
+
+<span class="k">\func</span> instExF (M <span class="o">:</span> Monoid) <span class="o">=&gt;</span> M.id
+
+<span class="k">\func</span> instEx' <span class="o">=&gt;</span> instExF <span class="o">+</span>-NatMonoid</code></pre></div></div>
+
+<p>Arend classes can be used as typeclasses in Haskell. For example, <span class="inl-highlight">Eq</span> can be written as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Eq (A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> <span class="k">\infix</span> <span class="n">3</span> <span class="o">==</span> (x y <span class="o">:</span> A) <span class="o">:</span> Bool
+
+<span class="c">-- function refl from Haskell can be defined in two ways</span>
+<span class="c">-- refl :: Eq a =&gt; a -&gt; Bool</span>
+<span class="c">-- refl x = x == x</span>
+<span class="k">\func</span> refl {A <span class="o">:</span> <span class="kt">\Type</span>} {e <span class="o">:</span> Eq A} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a <span class="o">==</span> a
+
+<span class="k">\func</span> refl' {E <span class="o">:</span> Eq} (a <span class="o">:</span> E) <span class="o">=&gt;</span> a <span class="o">==</span> a
+
+<span class="c">-- \func xxxx =&gt; refl 1</span></code></pre></div></div>
+
+<h1 id="coercions">Coercions</h1>
+
+<p>The classifying field of a class has a number of nice properties. For example, if in some place an element of type 
+<span class="inl-highlight">X</span> is expected and <span class="inl-highlight">X</span> is the type of the classifying field of a class <span class="inl-highlight">C</span>,
+then any object of type <span class="inl-highlight">C</span> can be used in this place (the field accessor <span class="inl-highlight">.X</span> of the classifying field will be added implicitly).</p>
+
+<p>In the following example <span class="inl-highlight">M</span> in the right-hand side of <span class="inl-highlight">(x <span class="o">:</span> M)</span> is understood as <span class="inl-highlight">M.A</span> since
+an element of type <span class="inl-highlight"><span class="kt">\Type</span></span> is expected:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> CF-coerce (M <span class="o">:</span> Monoid) (x <span class="o">:</span> M) <span class="o">=&gt;</span> x</code></pre></div></div>
+
+<p>This kind of substitutions are called <em>coercions</em>, we say that a class can be coerced to its classifying field. The mechanism
+of coercions in Arend allows also to define coercions between data types, classes and records. In order to be able to use
+elements of type <span class="inl-highlight">A</span>, where elements of type <span class="inl-highlight">B</span> are expected, one should define a function
+<span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> in the <span class="inl-highlight"><span class="k">\where</span></span>-block of either <span class="inl-highlight">A</span> or <span class="inl-highlight">B</span> as a coercion
+by using keywords <span class="inl-highlight"><span class="k">\use</span> <span class="k">\coerce</span></span>. Elements <span class="inl-highlight">a</span> of type <span class="inl-highlight">A</span> will then be replaced
+with <span class="inl-highlight">f a</span> if they are used in a context, where <span class="inl-highlight">B</span> expected.</p>
+
+<p>Consider the following example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> XXX <span class="o">|</span> con
+
+<span class="k">\data</span> YYY <span class="o">|</span> con' XXX Nat <span class="o">|</span> con''
+  <span class="k">\where</span> {
+    <span class="c">-- We can define coercions TO this type.</span>
+    <span class="c">-- The return type of the function must be YYY.</span>
+    <span class="k">\use</span> <span class="k">\coerce</span> fromXXX (x <span class="o">:</span> XXX) <span class="o">=&gt;</span> con' x <span class="n">0</span>
+    
+    <span class="c">-- We can also define coercions FROM this type.</span>
+    <span class="c">-- The type of the last parameter of the function must </span>
+    <span class="c">-- be YYY.</span>
+    <span class="k">\use</span> <span class="k">\coerce</span> toXXX (y <span class="o">:</span> YYY) <span class="o">=&gt;</span> con
+  }
+
+<span class="k">\func</span> fff (y <span class="o">:</span> YYY) <span class="o">=&gt;</span> y
+
+<span class="c">-- Elements of type XXX are implicitly converted to type YYY by function fromXXX.</span>
+<span class="k">\func</span> ggg <span class="o">=&gt;</span> fff con
+
+<span class="c">-- Implicit convertion from Nat to Int is done in this way:</span>
+<span class="k">\func</span> hhh <span class="o">:</span> Int <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
+
+<h1 id="extensions-diamond-problem">Extensions, diamond problem</h1>
+
+<p>Records and classes can extend other classes. The list of records and classes extended by a given class can be specified 
+after the keyword <span class="inl-highlight"><span class="k">\extends</span></span> as shown in the following example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Base (A <span class="o">:</span> <span class="kt">\Type</span>)
+
+<span class="k">\record</span> Base' (A <span class="o">:</span> <span class="kt">\Type</span>)
+
+<span class="k">\record</span> X <span class="k">\extends</span> Base
+  <span class="o">|</span> a <span class="o">:</span> A
+
+<span class="k">\record</span> Y <span class="k">\extends</span> Base'
+  <span class="o">|</span> b <span class="o">:</span> A
+
+<span class="k">\record</span> Z <span class="k">\extends</span> X<span class="o">,</span> Y
+
+<span class="k">\func</span> zzz <span class="o">=&gt;</span> <span class="k">\new</span> Z {
+  <span class="o">|</span> A <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> a <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> Base'.A <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> b <span class="o">=&gt;</span> <span class="g">{?}</span>
+  }
+
+<span class="k">\func</span> zzzz (z <span class="o">:</span> Z) <span class="o">=&gt;</span> Base'.A {z}</code></pre></div></div>
+
+<p>This means that the set of fields of a given class (or record) contains all fields declared in the class plus all the 
+fields from the classes and records that it extends.</p>
+
+<p>The record <span class="inl-highlight">Z</span> in the example above has four fields: <span class="inl-highlight">Base.A</span>, <span class="inl-highlight">Base’.A</span>,
+<span class="inl-highlight">a</span> and <span class="inl-highlight">b</span>. But if <span class="inl-highlight">X</span> and <span class="inl-highlight">Y</span> both extended the same
+record, say, <span class="inl-highlight">Base</span>, then <span class="inl-highlight">Z</span> would have had three fields:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> X' <span class="k">\extends</span> Base
+  <span class="o">|</span> aa <span class="o">:</span> A
+
+<span class="k">\record</span> Y' <span class="k">\extends</span> Base
+  <span class="o">|</span> bb <span class="o">:</span> A
+
+<span class="c">-- Z' has three fields: aa, bb, A</span>
+<span class="k">\record</span> Z' <span class="k">\extends</span> X'<span class="o">,</span> Y'</code></pre></div></div>
+
+<p>Consider an example from algebra: the type of rings. With a few simplifications, a possible definition might look as
+follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Monoid (A <span class="o">:</span> <span class="kt">\Type</span>) {
+  <span class="o">|</span> <span class="k">\infixl</span> <span class="n">7</span> <span class="o">*</span> <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A
+  <span class="o">|</span> ide-left (x <span class="o">:</span> A) <span class="o">:</span> ide <span class="o">*</span> x <span class="o">=</span> x
+  <span class="o">|</span> ide-right (x <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> ide <span class="o">=</span> x
+  <span class="o">|</span> <span class="o">*</span>-assoc (x y z <span class="o">:</span> A) <span class="o">:</span> (x <span class="o">*</span> y) <span class="o">*</span> z <span class="o">=</span> x <span class="o">*</span> (y <span class="o">*</span> z)
+}
+
+<span class="k">\class</span> CommMonoid <span class="k">\extends</span> Monoid {
+  <span class="o">|</span> comm (x y <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> y <span class="o">=</span> y <span class="o">*</span> x
+  <span class="o">|</span> ide-right x <span class="o">=&gt;</span> comm x ide <span class="o">*</span>&gt; ide-left x
+}
+
+<span class="k">\class</span> AbGroup <span class="k">\extends</span> CommMonoid {
+  <span class="o">|</span> inverse <span class="o">:</span> A <span class="o">-&gt;</span> A
+  <span class="o">|</span> inv-left (x <span class="o">:</span> A) <span class="o">:</span> inverse x <span class="o">*</span> x <span class="o">=</span> id
+  <span class="o">|</span> inv-right (x <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> inverse x <span class="o">=</span> id
+}
+
+<span class="c">-- We omit distributivity</span>
+<span class="k">\class</span> Ring <span class="k">\extends</span> AbGroup
+  <span class="o">|</span> mulMonoid <span class="o">:</span> Monoid A</code></pre></div></div>
+
+<p>In order to distinguish the structure of addition from the structure of multiplication we do not extend <span class="inl-highlight">Monoid</span>,
+but add it as a field instead. Note that we explicitly specify the underlying classifying field of <span class="inl-highlight">mulMonoid</span> 
+so that it matches with the carrier of the ring’s additive group structure.</p>
+
+<p>If we try to define the type of rings that extends class AbGroup for the abelian group of addition and class Monoid for the monoid of multiplication,
+we will get into trouble: the clash of two monoidal structures. This is called the <em>diamond problem</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This is not a correct way to define the class Ring:</span>
+<span class="c">-- the structures of addition and multiplication coincide.</span>
+<span class="k">\class</span> Ring <span class="k">\extends</span> AbGroup<span class="o">,</span> Monoid</code></pre></div></div>
+
+<p>A possible way to make it work is to define another copy of AbGroup that does not extend Monoid:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This class does not extend Monoid</span>
+<span class="k">\class</span> AbGroup' (A <span class="o">:</span> <span class="kt">\Type</span>) {
+  <span class="c">-- Here all the fields of Monoid, CommMonoid and AbGroup </span>
+  <span class="c">-- should be repeated</span>
+}
+
+<span class="k">\class</span> Ring' <span class="k">\extends</span> AbGroup'<span class="o">,</span> Monoid
+  <span class="o">|</span> Monoid.A <span class="o">=&gt;</span> AbGroup'.A <span class="c">-- make sure that classifying fields coincide</span></code></pre></div></div>
+
+<p>This approach is adopted in Arend standard library with one small improvement: algebraic structures extend the same BaseSet class
+in order to avoid identifications such as <span class="inl-highlight">Monoid.A <span class="o">=&gt;</span> AbGroup’.A</span> above.</p>
+
+<h1 id="definitions-inside-classes">Definitions inside classes</h1>
+
+<p>It is possible to define functions and data structures inside classes.
+For example, we can modify the definition of a ring as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Ring {
+  ...
+
+  <span class="k">\func</span> two <span class="o">=&gt;</span> ide <span class="o">+</span> ide
+  <span class="k">\func</span> square (x <span class="o">:</span> A) <span class="o">=&gt;</span> x <span class="o">*</span> x
+}</code></pre></div></div>
+
+<p>Note that functions are defined inside the class (not in its <span class="inl-highlight"><span class="k">\where</span></span> block).
+The system adds one implicit parameter of type <span class="inl-highlight">Ring</span> to such functions.
+Thus, the definition above is equivalent to the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Ring {
+  ...
+} <span class="k">\where</span> {
+  <span class="k">\func</span> two {this <span class="o">:</span> Ring} <span class="o">=&gt;</span> ide <span class="o">+</span> ide
+  <span class="k">\func</span> square {this <span class="o">:</span> Ring} (x <span class="o">:</span> A) <span class="o">=&gt;</span> x <span class="o">*</span> x
+}</code></pre></div></div>
+
+<h1 id="classes-without-classifying-fields">Classes without classifying fields</h1>
+
+<p>It is often necessary to have a group of functions with a common set of parameters.
+For example, consider the following snippet that defines injective, surjective, and bijective functions and proves their properties:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Implementations are omitted</span>
+
+<span class="k">\func</span> isInj {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="k">\func</span> isSur {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="k">\func</span> isBij {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="k">\func</span> IsInj+isSur=&gt;isBij {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isInj f) (q <span class="o">:</span> isInj f) <span class="o">:</span> isBij f <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="k">\func</span> IsBij=&gt;isInj {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isBij f) <span class="o">:</span> isInj f <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="k">\func</span> IsBij=&gt;isSur {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isBij f) <span class="o">:</span> isSur f <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p>Functions above have 3 common parameters: <code class="highlighter-rouge">A</code>, <code class="highlighter-rouge">B</code>, and <code class="highlighter-rouge">f</code>.
+Classes without classifying fields can be used to extract these parameters so that we do not have to type in them for every function.
+A class without classifying fields can be defined in two ways: as a class without explicit parameters, or as a class with the keyword <span class="inl-highlight"><span class="k">\noclassifying</span></span>.</p>
+
+<p>The example above can be rewritten as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Map <span class="k">\noclassifying</span> {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {
+  <span class="k">\func</span> isInj <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+  <span class="k">\func</span> isSur <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+  <span class="k">\func</span> isBij <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+  <span class="k">\func</span> isInj+isSur=&gt;isBij (p <span class="o">:</span> isInj) (q <span class="o">:</span> isInj) <span class="o">:</span> isBij <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+  <span class="k">\func</span> isBij=&gt;isInj (p <span class="o">:</span> isBij) <span class="o">:</span> isInj <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+  <span class="k">\func</span> isBij=&gt;isSur (p <span class="o">:</span> isBij) <span class="o">:</span> isSur <span class="o">=&gt;</span> <span class="g">{?}</span>
+}</code></pre></div></div>
+
+<p>Since <span class="inl-highlight">Map</span> is a class without classifying fields, the system will infer the first available instance of this class whenever one the functions above is invoked:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isInj+isSur&lt;=&gt;isBij (m <span class="o">:</span> Map) <span class="o">:</span> <span class="k">\Sigma</span> (isBij <span class="o">-&gt;</span> <span class="k">\Sigma</span> isInj isSur) (<span class="k">\Sigma</span> isInj isSur <span class="o">-&gt;</span> isBij)
+  <span class="o">=&gt;</span> ((<span class="k">\lam</span> p <span class="o">=&gt;</span> (isBij=&gt;isInj p<span class="o">,</span> isBij=&gt;isInj p))<span class="o">,</span> (<span class="k">\lam</span> p <span class="o">=&gt;</span> isInj+isSur=&gt;isBij p.<span class="n">1</span> p.<span class="n">2</span>))
+  <span class="k">\where</span> <span class="k">\open</span> Map</code></pre></div></div>
+
+<p>Of course, a function from the class <span class="inl-highlight">Map</span> can also be invoked with an explicitly specified instance:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id-isInj {A <span class="o">:</span> <span class="kt">\Type</span>} <span class="o">:</span> Map.isInj {<span class="k">\new</span> Map (<span class="k">\lam</span> (a <span class="o">:</span> A) <span class="o">=&gt;</span> a)} <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p>Of course, classes without classifying fields can also be extended.
+For example, if we want to define a few functions about endomorphisms, we can extend the class <span class="inl-highlight">Map</span> as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Endo <span class="k">\extends</span> Map {
+  <span class="o">|</span> B <span class="o">=&gt;</span> A
+
+  <span class="k">\func</span> isIdem <span class="o">=&gt;</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> f (f x) <span class="o">=</span> f x
+
+  <span class="k">\func</span> isInv <span class="o">=&gt;</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> f (f x) <span class="o">=</span> x
+
+  <span class="k">\func</span> isIdem+isInv=&gt;id (p <span class="o">:</span> isIdem) (q <span class="o">:</span> isInv) <span class="o">:</span> f <span class="o">=</span> (<span class="k">\lam</span> x <span class="o">=&gt;</span> x) <span class="o">=&gt;</span> <span class="g">{?}</span>
+}</code></pre></div></div>
+
+<h1 id="functor">Functor</h1>
+
+<p>We conclude by demonstrating another example: the class of functors.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Functor (F <span class="o">:</span> <span class="kt">\Type</span> <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> fmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">:</span> F A <span class="o">-&gt;</span> F B
+  <span class="o">|</span> fmap-id {A <span class="o">:</span> <span class="kt">\Type</span>} (y <span class="o">:</span> F A) <span class="o">:</span> fmap (<span class="k">\lam</span> (x <span class="o">:</span> A) <span class="o">=&gt;</span> x) y <span class="o">=</span> y
+  <span class="o">|</span> fmap-comp {A B C <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (g <span class="o">:</span> B <span class="o">-&gt;</span> C) (y <span class="o">:</span> F A)
+    <span class="o">:</span> fmap (<span class="k">\lam</span> x <span class="o">=&gt;</span> g (f x)) y <span class="o">=</span> fmap g (fmap f y)</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Define the class of monads, which extends the class of functors <span class="inl-highlight">Functor</span>.
+Define <span class="inl-highlight"><span class="k">\instance</span></span> of this class for <span class="inl-highlight">Maybe</span>.</p>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Define instances for the class of monads for <span class="inl-highlight">State</span> and <span class="inl-highlight">State’</span>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> State (S A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> state <span class="o">:</span> S <span class="o">-&gt;</span> <span class="k">\Sigma</span> S A
+
+<span class="k">\data</span> State' (S A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> state' (S <span class="o">-&gt;</span> <span class="k">\Sigma</span> S A)</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

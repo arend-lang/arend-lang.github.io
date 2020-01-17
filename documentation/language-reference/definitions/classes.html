@@ -314,6 +314,32 @@
           
           
 
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
           <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
         
 
@@ -360,16 +386,15 @@ Let us consider an example:</p>
 
 <p>It is allowed to write <span class="inl-highlight">x <span class="o">:</span> S</span> instead of <span class="inl-highlight">x <span class="o">:</span> S.E</span> since <span class="inl-highlight">S</span> is implicitly coerced to an element of type <span class="inl-highlight"><span class="kt">\Set</span></span>, that is <span class="inl-highlight">S.E</span>.</p>
 
-<p>In case an parameter of a definition or a constructor has type, which is an <a href="../expressions/class-ext">extension</a> <span class="inl-highlight">C { … }</span> of <span class="inl-highlight">C</span>,
+<p>In case a parameter of a definition has type, which is an <a href="../expressions/class-ext">extension</a> <span class="inl-highlight">C { … }</span> of <span class="inl-highlight">C</span>,
 it is marked as a <em>local instance</em> of class <span class="inl-highlight">C</span>. Implicit parameter <span class="inl-highlight"><span class="k">\this</span></span> of a field of class <span class="inl-highlight">C</span> is also a local instance.</p>
 
-<p>If the parameter <span class="inl-highlight">p <span class="o">:</span> C { … }</span> of <span class="inl-highlight">f</span> is a local instance, then the value of <span class="inl-highlight">p</span> in a usage of <span class="inl-highlight">f</span> is inferred to 
-a local instance <span class="inl-highlight">v <span class="o">:</span> C { … }</span>, visible in the context of the usage of <span class="inl-highlight">f</span>, if the expected value of the classifying
-field of <span class="inl-highlight">p</span> coincides with the classifying field of <span class="inl-highlight">v</span>. 
+<p>If a parameter <span class="inl-highlight">p <span class="o">:</span> C { … }</span> of a definition <span class="inl-highlight">f</span> is a local instance, then the corresponding implicit argument of <span class="inl-highlight">f</span> can be inferred by the instance inference algorithm.
+It looks for the first available instance <span class="inl-highlight">v <span class="o">:</span> C { … }</span> such that the expected value of the classifying field coincides with the value of the classifying field in <span class="inl-highlight">v</span>. 
 For instance, the function <span class="inl-highlight">square</span> in the example above has one local instance <span class="inl-highlight">S</span> of the class <span class="inl-highlight">Semigroup</span>.
 The field <span class="inl-highlight"><span class="o">*</span></span> of the class <span class="inl-highlight">Semigroup</span> is used in the body of <span class="inl-highlight">square</span> and the expected type of its call in <span class="inl-highlight">x <span class="o">*</span> x</span> is 
-<span class="inl-highlight">S.E <span class="o">-&gt;</span> S.E <span class="o">-&gt;</span> <span class="g">{?}</span></span>. This implies that the expected classifying field is <span class="inl-highlight">S.E</span>, which is the classifying field of the
-local instance <span class="inl-highlight">S</span>, so this instance is inferred as the implicit argument of <span class="inl-highlight"><span class="o">*</span></span>.</p>
+<span class="inl-highlight">S.E <span class="o">-&gt;</span> S.E <span class="o">-&gt;</span> <span class="g">{?}</span></span>. This implies that the expected value of the classifying field is <span class="inl-highlight">S.E</span>,
+which coincides with the value of the classifying field in <span class="inl-highlight">S</span>, so this instance is inferred as the implicit argument of <span class="inl-highlight"><span class="o">*</span></span>.</p>
 
 <h2 id="classifying-fields">Classifying fields</h2>
 
@@ -461,7 +486,7 @@ is appropriate even if the data or the record are applied to different arguments
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2019 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

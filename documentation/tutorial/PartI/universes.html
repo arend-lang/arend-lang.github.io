@@ -1,0 +1,869 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Universes, Induction, Specifications - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Universes, Induction, Specifications">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/universes.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/universes.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Universes, Induction, Specifications">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Universes, Induction, Specifications
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Universes, Induction, Specifications</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#hierarchies-of-universes-polymorphism">Hierarchies of universes, polymorphism</a></li>
+  <li><a href="#induction-principles">Induction principles</a></li>
+  <li><a href="#induction-recursion">Induction-recursion</a></li>
+  <li><a href="#universes-via-induction-recursion">Universes via induction-recursion</a></li>
+  <li><a href="#completeness-of-specifications">Completeness of specifications</a></li>
+  <li><a href="#correctness-of-insertion-sort">Correctness of Insertion Sort</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="code/universes.zip">universes.zip</a>.</p>
+
+<p>In this module we take a closer look at the structure of the hierarchy of universes and
+explain how polymorphism works.</p>
+
+<p>We discuss more advanced forms of induction and recursion: induction-recursion and recursion-recursion.</p>
+
+<p>We conclude with remarks on writing specifications for functions.</p>
+
+<h1 id="hierarchies-of-universes-polymorphism">Hierarchies of universes, polymorphism</h1>
+
+<p>As we mentioned <a href="synndef#polymorphism">earlier</a> there is no actual type of all types in Arend. 
+The type <span class="inl-highlight"><span class="kt">\Type</span></span> behaves pretty much like the one, but not quite, and the difference
+is precisely that <span class="inl-highlight"><span class="kt">\Type</span></span> cannot be used for contradictory circular definitions.
+This is so because <span class="inl-highlight"><span class="kt">\Type</span></span> actually hides the hierarchy of unverses <span class="inl-highlight"><span class="kt">\Type0</span></span>,
+<span class="inl-highlight"><span class="kt">\Type1</span></span>, … as we explain below.</p>
+
+<p>The type <span class="inl-highlight"><span class="kt">\Type</span> n</span>, where the natural number <span class="inl-highlight">n</span> is called <em>the predicative level</em>
+of the universe, contains all types that do not refer to universes or refer to universes <span class="inl-highlight"><span class="kt">\Type</span> i</span>
+of lower predicative level i &lt; n.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> tt <span class="o">:</span> <span class="kt">\Type2</span> <span class="o">=&gt;</span> <span class="kt">\Type0</span> <span class="o">-&gt;</span> <span class="kt">\Type1</span></code></pre></div></div>
+
+<p>In order to see how <span class="inl-highlight"><span class="kt">\Type</span></span> works let us consider a polymorphic definition:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id (A <span class="o">:</span> <span class="kt">\Type</span>) (a <span class="o">:</span> A) <span class="o">=&gt;</span> a</code></pre></div></div>
+
+<p>This definition is implicitly polymorphic by the level of the universe of <span class="inl-highlight">A</span>, that is
+it has an implicit parameter <span class="inl-highlight"><span class="k">\lp</span></span> for the level. The function <span class="inl-highlight">id</span> above
+can equivalently be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id (A <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp)</span> (a <span class="o">:</span> A) <span class="o">=&gt;</span> a</code></pre></div></div>
+
+<p>Whenever we use <span class="inl-highlight"><span class="kt">\Type</span></span> without explicit level, the typechecker infers the minimal appropriate
+level. Consider the following example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> type <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="kt">\Type</span></code></pre></div></div>
+
+<p>The typechecker will infer the level <span class="inl-highlight"><span class="k">\lp</span></span> for <span class="inl-highlight"><span class="kt">\Type</span></span> in the body of the function
+<span class="inl-highlight">type</span>. Consequently, the typechecker infers <span class="inl-highlight"><span class="k">\suc</span> <span class="k">\lp</span></span> for the level of the universe
+in the result type of <span class="inl-highlight">type</span> since <span class="inl-highlight">n <span class="o">=</span> <span class="k">\suc</span> <span class="k">\lp</span></span> is minimal such that 
+<span class="inl-highlight"><span class="kt">\Type</span> <span class="k">\lp</span> <span class="o">:</span> <span class="kt">\Type</span> n</span>. Thus, the function <span class="inl-highlight">type</span> can be equivalently rewritten
+as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> type <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="o">=&gt;</span> <span class="kt">\Type</span> <span class="k">\lp</span></code></pre></div></div>
+
+<p>There are two operations that allow to form level expressions out of atomic ones: <span class="inl-highlight"><span class="k">\suc</span> l</span> and
+<span class="inl-highlight"><span class="k">\max</span> l1 l2</span>. Atomic ones, as we have seen, are just nonnegative numerals and polymorphic parameters
+<span class="inl-highlight"><span class="k">\lp</span></span>. Therefore any level expression is either equivalent to a constant or to an expression of the form
+<span class="inl-highlight"><span class="k">\max</span> (<span class="k">\lp</span> <span class="o">+</span> c) c’</span>, where <span class="inl-highlight">c<span class="o">,</span> c’</span> are constants and <span class="inl-highlight"><span class="k">\lp</span> <span class="o">+</span> c</span> is 
+the c-fold <span class="inl-highlight"><span class="k">\suc</span></span> applied to <span class="inl-highlight"><span class="k">\lp</span></span>.</p>
+
+<p>The level of a Pi-type or other type forming construction is the maximal level among all types contained in this construction:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test0 <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\max</span> (<span class="k">\suc</span> (<span class="k">\suc</span> <span class="k">\lp))</span> <span class="n">4</span>) <span class="o">=&gt;</span> <span class="kt">\Type</span> (<span class="k">\max</span> <span class="k">\lp</span> <span class="n">3</span>) <span class="o">-&gt;</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span></code></pre></div></div>
+
+<p>We now illustrate the behaviour of universes and polymorphic definitions through a bunch of examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 <span class="o">=&gt;</span> id Nat <span class="n">0</span>
+<span class="k">\func</span> test2 <span class="o">=&gt;</span> id <span class="kt">\Type0</span> Nat
+<span class="k">\func</span> test3 <span class="o">=&gt;</span> id (<span class="kt">\Type0</span> <span class="o">-&gt;</span> <span class="kt">\Type1</span>) (<span class="k">\lam</span> X <span class="o">=&gt;</span> X)
+<span class="k">\func</span> test4 <span class="o">=&gt;</span> id <span class="u">_</span> id
+<span class="k">\func</span> test4' <span class="o">=&gt;</span> id (<span class="k">\Pi</span> (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A) id</code></pre></div></div>
+
+<p>While invoking a definition it is possible to specify the value for its polymorphic level parameter <span class="inl-highlight"><span class="k">\lp</span></span>.
+In case the value is not a numeral, it can be passed as an ordinary first parameter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5 <span class="o">=&gt;</span> id (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="kt">\Type</span> <span class="k">\lp)</span> Nat</code></pre></div></div>
+
+<p>Alternatively, it can be done using the construct <span class="inl-highlight"><span class="k">\level</span> p h</span>, where <span class="inl-highlight">p</span> is the level
+(we ignore <span class="inl-highlight">h</span> for now). It is useful when the value is a numeral.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5' <span class="o">=&gt;</span> id (<span class="k">\level</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="u">_</span>) (<span class="kt">\Type</span> <span class="k">\lp)</span> Nat
+<span class="k">\func</span> test6 <span class="o">=&gt;</span> id (<span class="k">\level</span> <span class="n">2</span> <span class="u">_</span>) <span class="kt">\Type1</span> <span class="kt">\Type0</span></code></pre></div></div>
+
+<p>In case a definition is invoked without explicit specification for the value of its level, the level will be infered
+by the typechecker. In most cases there is no need to specify the level explicitly.</p>
+
+<p>The level of the universe of a data definition is the maximum among the levels of parameters of its constructors.
+Levels of parameters of the definition do not matter.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Magma (A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> con (A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A)
+
+<span class="k">\data</span> MagmaEx (A <span class="o">:</span> <span class="kt">\Type</span>) (B <span class="o">:</span> <span class="kt">\Type5</span>)
+  <span class="o">|</span> con (A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A)
+
+<span class="k">\func</span> test7 <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="o">=&gt;</span> MagmaEx <span class="k">\lp</span> Nat <span class="kt">\Type4</span></code></pre></div></div>
+
+<p>The level of a class or a record is determined by its <em>non-implemented</em> fields and parameters (recall that parameters are
+just fields). For example, consider the definition of Magma as a class:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Magma (A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> <span class="k">\infixl</span> <span class="n">6</span> <span class="o">*</span><span class="o">*</span> <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A</code></pre></div></div>
+
+<p>The level of <span class="inl-highlight">Magma <span class="k">\lp</span></span> is <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span></span> since the definition of <span class="inl-highlight">Magma <span class="k">\lp</span></span>
+contains <span class="inl-highlight"><span class="kt">\Type</span> <span class="k">\lp</span></span>. But the level of <span class="inl-highlight">Magma <span class="k">\lp</span> Nat</span> is just <span class="inl-highlight"><span class="kt">\Type0</span></span> since
+non-implemented fields of <span class="inl-highlight">Magma <span class="k">\lp</span> Nat</span> do not contain universes.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test8 <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="o">=&gt;</span> Magma <span class="k">\lp</span>
+
+<span class="k">\func</span> test9 <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="o">=&gt;</span> Magma <span class="k">\lp</span> Nat</code></pre></div></div>
+
+<p>Consider one more example, the class <span class="inl-highlight">Functor</span> of functors:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Functor (F <span class="o">:</span> <span class="kt">\Type</span> <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> fmap {A B <span class="o">:</span> <span class="kt">\Type</span>} <span class="o">:</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> F A <span class="o">-&gt;</span> F B</code></pre></div></div>
+
+<p>The level of <span class="inl-highlight">Functor</span> will be <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span></span> even if the field <span class="inl-highlight">F</span> is
+implemented since <span class="inl-highlight">fmap</span> also refers to <span class="inl-highlight"><span class="kt">\Type</span> <span class="k">\lp</span></span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Maybe (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">|</span> nothing <span class="o">|</span> just A
+
+<span class="k">\func</span> test10 <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="o">=&gt;</span> Functor <span class="k">\lp</span> Maybe</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Calculate levels in each of the the invocations of <span class="inl-highlight">id’’</span> below.
+Specify explicitly result types for all idTest*.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id'' {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a
+
+<span class="k">\func</span> idTest1 <span class="o">=&gt;</span> id'' (id'' id)
+<span class="k">\func</span> idTest2 <span class="o">=&gt;</span> id'' Maybe
+<span class="k">\func</span> idTest3 <span class="o">=&gt;</span> id'' Functor
+<span class="k">\func</span> idTest4 <span class="o">=&gt;</span> id'' (Functor Maybe)
+<span class="k">\func</span> idTest5 (f <span class="o">:</span> <span class="k">\Pi</span> {A B <span class="o">:</span> <span class="kt">\Type</span>} <span class="o">-&gt;</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> Maybe A <span class="o">-&gt;</span> Maybe B) <span class="o">=&gt;</span> id'' (Functor Maybe f)</code></pre></div></div>
+
+<h1 id="induction-principles">Induction principles</h1>
+
+<p>We have already seen that data types have canonical eliminators associated with them and that
+non-dependent and dependent eliminators correspond to recursion and indunction principles 
+respectively. It is also possible to define custom eliminators and, thus, custom induction
+principles that in some case are more convenient to use. For example, we can define an
+induction principle for natural numbers that allows to use induction hypothesis for <em>any</em>
+number less than the current one, not just for the number less by one:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Nat-ind (E <span class="o">:</span> Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  (r <span class="o">:</span> <span class="k">\Pi</span> (n <span class="o">:</span> Nat) <span class="o">-&gt;</span> (<span class="k">\Pi</span> (k <span class="o">:</span> Nat) <span class="o">-&gt;</span> T (k &lt; n) <span class="o">-&gt;</span> E k) <span class="o">-&gt;</span> E n)
+  (n <span class="o">:</span> Nat) <span class="o">:</span> E n <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- prove this as an exercise</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Define <span class="inl-highlight">div</span> via <span class="inl-highlight">Nat-ind</span>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> div (n k <span class="o">:</span> Nat) (p <span class="o">:</span> T (<span class="n">0</span> &lt; k)) <span class="o">:</span> Nat <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Prove the following induction principle for lists:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> List-ind
+  {A <span class="o">:</span> <span class="kt">\Type</span>}
+  (E <span class="o">:</span> List A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  (r <span class="o">:</span> <span class="k">\Pi</span> (xs <span class="o">:</span> List A) <span class="o">-&gt;</span> (<span class="k">\Pi</span> (ys <span class="o">:</span> List A) <span class="o">-&gt;</span> T (length ys &lt; length xs) <span class="o">-&gt;</span> E ys) <span class="o">-&gt;</span> E xs)
+  (xs <span class="o">:</span> List A) <span class="o">:</span> E xs <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<h1 id="induction-recursion">Induction-recursion</h1>
+
+<p>Recursion-recursion – is a principle, allowing to define mutually recursive functions. For example,
+consider function <span class="inl-highlight">isOdd</span> and <span class="inl-highlight">isEven</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isEven (n <span class="o">:</span> Nat) <span class="o">:</span> Bool
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> true
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> isOdd n
+
+<span class="k">\func</span> isOdd (n <span class="o">:</span> Nat) <span class="o">:</span> Bool
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> false
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> isEven n</code></pre></div></div>
+
+<p>Induction-induction – is a principle, allowing to define mutually recursive data types. In case
+a data type is a part of mutually inductive definition, its type must be specified explicitly.
+Consider the types <span class="inl-highlight">IsOdd</span> and <span class="inl-highlight">IsEven</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> IsEven (n <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\with</span>
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> zero-isEven
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> suc-isEven (IsOdd n)
+
+<span class="k">\data</span> IsOdd (n <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\with</span>
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> suc-isOdd (IsEven n)</code></pre></div></div>
+
+<p>Induction-recursion – is a principle, allowing to define data types and functions that are mutually recursive.
+For example, this construct allows to define universes of types as data types. We will explain how it can be
+done below.</p>
+
+<h1 id="universes-via-induction-recursion">Universes via induction-recursion</h1>
+
+<p>Let us define a custom universe containing some custom set of types:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Type
+  <span class="o">|</span> nat
+  <span class="o">|</span> list Type
+  <span class="o">|</span> arr Type Type</code></pre></div></div>
+
+<p>The type <span class="inl-highlight">Type</span> can be thought of as a type contains codes of types. We should also define a
+function that realizes them as actual types:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> El (t <span class="o">:</span> Type) <span class="o">:</span> <span class="kt">\Type0</span> <span class="k">\elim</span> t
+  <span class="o">|</span> nat <span class="o">=&gt;</span> Nat
+  <span class="o">|</span> list t <span class="o">=&gt;</span> List (El t)
+  <span class="o">|</span> arr t1 t2 <span class="o">=&gt;</span> El t1 <span class="o">-&gt;</span> El t2
+
+<span class="k">\func</span> idc (t <span class="o">:</span> Type) (x <span class="o">:</span> El t) <span class="o">:</span> El t <span class="o">=&gt;</span> x</code></pre></div></div>
+
+<p>The universe <span class="inl-highlight">Type</span> contains just non-dependent types. If we want to include also dependent types
+to the universe, we should use induction-recursion:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Type' <span class="o">:</span> <span class="kt">\Set0</span> <span class="c">-- \Set0 is almost the same as \Type0, we will discuss the difference later</span>
+  <span class="o">|</span> nat'
+  <span class="o">|</span> list' Type'
+  <span class="o">|</span> pi' (a <span class="o">:</span> Type') (El' a <span class="o">-&gt;</span> Type')
+
+<span class="k">\func</span> El' (t <span class="o">:</span> Type') <span class="o">:</span> <span class="kt">\Type0</span> <span class="k">\elim</span> t
+  <span class="o">|</span> nat' <span class="o">=&gt;</span> Nat
+  <span class="o">|</span> list' t <span class="o">=&gt;</span> List (El' t)
+  <span class="o">|</span> pi' t1 t2 <span class="o">=&gt;</span> <span class="k">\Pi</span> (a <span class="o">:</span> El' t1) <span class="o">-&gt;</span> El' (t2 a)</code></pre></div></div>
+
+<h1 id="completeness-of-specifications">Completeness of specifications</h1>
+
+<p>Specification for an element of type <span class="inl-highlight">A</span> is simply a predicate <span class="inl-highlight">P <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span></span>,
+describing the property of an element that we want to prove.</p>
+
+<p>A specification <span class="inl-highlight">P</span> is <em>correct</em> for <span class="inl-highlight">a <span class="o">:</span> A</span> if <span class="inl-highlight">P a</span> is provable.
+A specification <span class="inl-highlight">P</span> is <em>complete</em> for <span class="inl-highlight">a <span class="o">:</span> A</span> if <span class="inl-highlight">P x</span> implies 
+<span class="inl-highlight">x=a</span> for all <span class="inl-highlight">x <span class="o">:</span> A</span>.</p>
+
+<p>For example, assume we want to write specification for a function <span class="inl-highlight">fac <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat</span> that computes
+the factorial of a number:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- P1 is correct specification for 'fac', but incomplete.</span>
+<span class="k">\func</span> P1 (f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat) <span class="o">=&gt;</span> f <span class="n">3</span> <span class="o">=</span> <span class="n">6</span>
+<span class="c">-- P2 is complete, but not correct.</span>
+<span class="k">\func</span> P2 (f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat) <span class="o">=&gt;</span> Empty
+<span class="c">-- P3 -- correct and complete specification for 'fac'.</span>
+<span class="k">\func</span> P3 (f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (f <span class="n">0</span> <span class="o">=</span> <span class="n">1</span>) (<span class="k">\Pi</span> (n <span class="o">:</span> Nat) <span class="o">-&gt;</span> f (suc n) <span class="o">=</span> suc n <span class="o">*</span> f n)</code></pre></div></div>
+
+<p>Another example of a correct and complete specification for a sort function:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> P (f <span class="o">:</span> List A <span class="o">-&gt;</span> List A) <span class="o">=&gt;</span> <span class="k">\Pi</span> (xs <span class="o">:</span> List A) <span class="o">-&gt;</span> <span class="k">\Sigma</span> (isSorted (f xs)) (isPerm (f xs) xs)
+<span class="c">-- where 'isSorted xs' is true iff  'xs' is sorted and</span>
+<span class="c">-- 'isPerm xs ys' is true iff 'xs' is a permutation of 'ys'.</span></code></pre></div></div>
+
+<p>Of course, specifications must always be correct, but one may opt for working with incomplete specifications
+since sometimes it is too hard to write and prove a complete one. Nevertheless, it is useful to understand,
+when a specification is complete. One useful necessary and sufficient condition of completeness for correct
+specifications can be formulated as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> P x <span class="o">-&gt;</span> P y <span class="o">-&gt;</span> x <span class="o">=</span> y</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Implement function <span class="inl-highlight">filter</span> and prove that it is correct, that is that the following holds:
+ a) <span class="inl-highlight">filter p xs</span> is a sublist of <span class="inl-highlight">xs</span>,
+ b) All elements of <span class="inl-highlight">filter p xs</span> satisfy the predicate <span class="inl-highlight">p</span>,
+ c) Any sublist of <span class="inl-highlight">xs</span> with property (b) is a sublist of <span class="inl-highlight">filter p xs</span>.</p>
+
+<h1 id="correctness-of-insertion-sort">Correctness of Insertion Sort</h1>
+
+<p>We now finally prove the correctness of the insertion sort algorithm, defined in <a href="datanproofs">Simple Examples</a>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sort {A <span class="o">:</span> TotalPreorder} (xs <span class="o">:</span> List A) <span class="o">:</span> List A
+  <span class="o">|</span> nil <span class="o">=&gt;</span> nil
+  <span class="o">|</span> cons a xs <span class="o">=&gt;</span> insert a (sort xs)
+  <span class="k">\where</span>
+    <span class="k">\func</span> insert {A <span class="o">:</span> TotalPreorder} (a <span class="o">:</span> A) (xs <span class="o">:</span> List A) <span class="o">:</span> List A <span class="k">\elim</span> xs
+      <span class="o">|</span> nil <span class="o">=&gt;</span> cons a nil
+      <span class="o">|</span> cons x xs <span class="o">=&gt;</span> <span class="k">\case</span> totality x a <span class="k">\with</span> {
+        <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> cons x (insert a xs)
+        <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> cons a (cons x xs)
+      }</code></pre></div></div>
+
+<p>The full specification of the sort function consists of two properties:</p>
+<ul>
+  <li><span class="inl-highlight">sort xs</span> is a sorted list.</li>
+  <li><span class="inl-highlight">sort xs</span> is a permutation of <span class="inl-highlight">xs</span>.
+We begin with the latter property.
+It can be defined in several different (but equivalent) ways.
+We will use an interesting option: instead of giving its definition from the start, we begin with an empty data type and add more constructors as needed:</li>
+</ul>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Perm {A <span class="o">:</span> <span class="kt">\Type</span>} (xs ys <span class="o">:</span> List A)</code></pre></div></div>
+
+<p>Of course, the proof proceeds by induction on the list:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sort-perm {A <span class="o">:</span> TotalPreorder} (xs <span class="o">:</span> List A) <span class="o">:</span> Perm xs (sort xs) <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> cons a l <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+<p>In the first goal, we need to show that the empty list is a permutation of itself.
+To do this, we need to add the first constructor to <span class="inl-highlight">Perm</span>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Perm {A <span class="o">:</span> <span class="kt">\Type</span>} (xs ys <span class="o">:</span> List A) <span class="k">\elim</span> xs<span class="o">,</span> ys
+  <span class="o">|</span> nil<span class="o">,</span> nil <span class="o">=&gt;</span> perm-nil</code></pre></div></div>
+
+<p>In the second goal, we need to show that <span class="inl-highlight">cons a l</span> is a permutation of <span class="inl-highlight">insert a (sort l)</span>.
+Clearly, we need to use the induction hypothesis and we also need to prove some lemma about <span class="inl-highlight">insert</span> function.
+There is an obvious property of this function related to permutation:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> insert-perm {A <span class="o">:</span> TotalPreorder} (a <span class="o">:</span> A) (xs <span class="o">:</span> List A) <span class="o">:</span> Perm (cons a xs) (sort.insert a xs) <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+<p>This lemma implies that <span class="inl-highlight">insert a (sort l)</span> is a permutation of <span class="inl-highlight">cons a (sort l)</span>.
+We can combine this property with the induction hypothesis to obtain the required result.
+To do this, we need to know the following facts:</p>
+<ul>
+  <li>Permutations are closed under <span class="inl-highlight">cons a</span> so that we can conclude that <span class="inl-highlight">cons a (sort l)</span> is a permutation of <span class="inl-highlight">cons a l</span>,</li>
+  <li><span class="inl-highlight">Perm</span> is a transitive relation so that we can combine two proofs.</li>
+</ul>
+
+<p>We add two new constructors to <span class="inl-highlight">Perm</span> which reflect these properties.
+At this point, our proof looks like this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Perm {A <span class="o">:</span> <span class="kt">\Type</span>} (xs ys <span class="o">:</span> List A) <span class="k">\elim</span> xs<span class="o">,</span> ys
+  <span class="o">|</span> nil<span class="o">,</span> nil <span class="o">=&gt;</span> perm-nil
+  <span class="o">|</span> cons x xs<span class="o">,</span> cons y ys <span class="o">=&gt;</span> perm-cons (x <span class="o">=</span> y) (Perm xs ys)
+  <span class="o">|</span> xs<span class="o">,</span> ys <span class="o">=&gt;</span> perm-trans {zs <span class="o">:</span> List A} (Perm xs zs) (Perm zs ys)
+
+<span class="k">\func</span> sort-perm {A <span class="o">:</span> TotalPreorder} (xs <span class="o">:</span> List A) <span class="o">:</span> Perm xs (sort xs) <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> perm-nil
+  <span class="o">|</span> cons a l <span class="o">=&gt;</span> perm-trans (perm-cons idp (sort-perm l)) (insert-perm a (sort l))
+  <span class="k">\where</span>
+    <span class="k">\func</span> insert-perm {A <span class="o">:</span> TotalPreorder} (a <span class="o">:</span> A) (xs <span class="o">:</span> List A) <span class="o">:</span> Perm (cons a xs) (sort.insert a xs) <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p>The proof of <span class="inl-highlight">insert-perm</span> also proceeds by induction on the list.
+The <span class="inl-highlight">nil</span> case is easy: we just need to show that <span class="inl-highlight">cons a nil</span> is a permutation of itself.
+In the <span class="inl-highlight">cons</span> case, we need to decide whether <span class="inl-highlight">b &lt;= a</span> or <span class="inl-highlight">a &lt;= b</span>.
+We can do this by using <span class="inl-highlight"><span class="k">\case</span></span>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> insert-perm {A <span class="o">:</span> TotalPreorder} (a <span class="o">:</span> A) (xs <span class="o">:</span> List A) <span class="o">:</span> Perm (cons a xs) (sort.insert a xs) <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> perm-cons idp perm-nil
+  <span class="o">|</span> cons b l <span class="o">=&gt;</span> <span class="k">\case</span> totality b a <span class="k">\as</span> r <span class="k">\return</span>
+                                          Perm (cons a (cons b l)) (<span class="k">\case</span> r <span class="k">\with</span> {
+                                            <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> cons b (sort.insert a l)
+                                            <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> cons a (cons b l)
+                                          }) <span class="k">\with</span> {
+    <span class="o">|</span> inl b&lt;=a <span class="o">=&gt;</span> <span class="g">{?}</span>
+    <span class="o">|</span> inr a&lt;=b <span class="o">=&gt;</span> <span class="g">{?}</span>
+  }</code></pre></div></div>
+
+<p>The second subgoal is easy: we need to prove that <span class="inl-highlight">cons a (cons b l)</span> is a permutation of itself.
+We can show that <span class="inl-highlight">Perm</span> is reflexive using constructors that we already added:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> perm-refl {A <span class="o">:</span> <span class="kt">\Type</span>} {xs <span class="o">:</span> List A} <span class="o">:</span> Perm xs xs <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> perm-nil
+  <span class="o">|</span> cons a l <span class="o">=&gt;</span> perm-cons idp perm-refl</code></pre></div></div>
+
+<p>In the first subgoal, we need to prove that <span class="inl-highlight">cons a (cons b l)</span> is a permutation of <span class="inl-highlight">cons b (insert a l)</span>.
+By the induction hypothesis and transitivity of <span class="inl-highlight">Perm</span>, we can reduce this problem to the problem of showing that <span class="inl-highlight">cons a (cons b l)</span> is a permutation of <span class="inl-highlight">cons b (cons a l)</span>.
+To prove this, we need to add yet another constructor to <span class="inl-highlight">Perm</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Perm {A <span class="o">:</span> <span class="kt">\Type</span>} (xs ys <span class="o">:</span> List A) <span class="k">\elim</span> xs<span class="o">,</span> ys
+  <span class="o">|</span> nil<span class="o">,</span> nil <span class="o">=&gt;</span> perm-nil
+  <span class="o">|</span> cons x xs<span class="o">,</span> cons y ys <span class="o">=&gt;</span> perm-cons (x <span class="o">=</span> y) (Perm xs ys)
+  <span class="o">|</span> xs<span class="o">,</span> ys <span class="o">=&gt;</span> perm-trans {zs <span class="o">:</span> List A} (Perm xs zs) (Perm zs ys)
+  <span class="o">|</span> cons x (cons x' xs)<span class="o">,</span> cons y (cons y' ys) <span class="o">=&gt;</span> perm-perm (x <span class="o">=</span> y') (x' <span class="o">=</span> y) (xs <span class="o">=</span> ys)</code></pre></div></div>
+
+<p>Now, we can finish the proof of <span class="inl-highlight">insert-perm</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> insert-perm {A <span class="o">:</span> TotalPreorder} (a <span class="o">:</span> A) (xs <span class="o">:</span> List A) <span class="o">:</span> Perm (cons a xs) (sort.insert a xs) <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> perm-cons idp perm-nil
+  <span class="o">|</span> cons b l <span class="o">=&gt;</span> <span class="k">\case</span> totality b a <span class="k">\as</span> r <span class="k">\return</span>
+                                          Perm (cons a (cons b l)) (<span class="k">\case</span> r <span class="k">\with</span> {
+                                            <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> cons b (sort.insert a l)
+                                            <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> cons a (cons b l)
+                                          }) <span class="k">\with</span> {
+    <span class="o">|</span> inl b&lt;=a <span class="o">=&gt;</span> perm-trans (perm-perm idp idp idp) (perm-cons idp (insert-perm a l))
+    <span class="o">|</span> inr a&lt;=b <span class="o">=&gt;</span> perm-refl
+  }</code></pre></div></div>
+
+<p>Our definition of <span class="inl-highlight">Perm</span> might look like cheating, but it is a perfectly valid definition of this predicate.
+It might happen that we already have some fixed definition <span class="inl-highlight">Perm’</span> of this predicate and we want to prove that our sort function satisfies the required property with respect to <span class="inl-highlight">Perm’</span>.
+In this case, we just need to prove that <span class="inl-highlight">Perm xs ys</span> implies <span class="inl-highlight">Perm’ xs ys</span>.
+It is easy to do this: we just need to show that <span class="inl-highlight">Perm’</span> satisfies 4 properties corresponding to 4 constructors of <span class="inl-highlight">Perm</span>.
+We can even omit the intermediate step and replace <span class="inl-highlight">Perm</span> with <span class="inl-highlight">Perm’</span> and constructors of <span class="inl-highlight">Perm</span> with the proofs of corresponding properties.</p>
+
+<p>Now, let us prove the remaining property of the sort function.
+We will define predicate <span class="inl-highlight">IsSorted</span> inductively.
+The empty list is always sorted and <span class="inl-highlight">cons x xs</span> is sorted if <span class="inl-highlight">xs</span> is sorted and <span class="inl-highlight">x</span> is less than or equal to the head of <span class="inl-highlight">xs</span>.
+The problem is that <span class="inl-highlight">xs</span> might be empty, in which case the last property does not make sense.
+We can consider three cases instead of two and define <span class="inl-highlight">IsSorted</span> as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> IsSorted {A <span class="o">:</span> Preorder} (xs <span class="o">:</span> List A) <span class="k">\with</span>
+  <span class="o">|</span> nil <span class="o">=&gt;</span> nil-sorted
+  <span class="o">|</span> cons <span class="u">_</span> nil <span class="o">=&gt;</span> single-sorted
+  <span class="o">|</span> cons x (cons y <span class="u">_</span> <span class="k">\as</span> xs) <span class="o">=&gt;</span> cons-sorted (x &lt;= y) (IsSorted xs)</code></pre></div></div>
+
+<p>It turns out that this definition is not very convenient because we need to consider more cases when proof things about sorted list.
+There is another option: we can define the <span class="inl-highlight">head</span> that returns some default value when the list is empty:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> head {A <span class="o">:</span> <span class="kt">\Type</span>} (def <span class="o">:</span> A) (xs <span class="o">:</span> List A) <span class="o">:</span> A <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> def
+  <span class="o">|</span> cons a <span class="u">_</span> <span class="o">=&gt;</span> a</code></pre></div></div>
+
+<p>Now, we can define predicate <span class="inl-highlight">IsSorted</span> as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> IsSorted {A <span class="o">:</span> Preorder} (xs <span class="o">:</span> List A) <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> nil-sorted
+  <span class="o">|</span> cons x xs <span class="o">=&gt;</span> cons-sorted (x &lt;= head x xs) (IsSorted xs)</code></pre></div></div>
+
+<p>If <span class="inl-highlight">xs</span> is not empty, then condition <span class="inl-highlight">x &lt;= head x xs</span> asserts that <span class="inl-highlight">x</span> is less than or equal to the head of <span class="inl-highlight">xs</span>.
+If <span class="inl-highlight">xs</span> is empty, then condition <span class="inl-highlight">x &lt;= head x xs</span> is always true by reflexivity of <span class="inl-highlight">&lt;=</span>.</p>
+
+<p>The rest of the proof is straightforward.
+We formulate an obvious lemma about <span class="inl-highlight">insert</span> function and prove the required property by induction:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sort-sorted {A <span class="o">:</span> TotalPreorder} (xs <span class="o">:</span> List A) <span class="o">:</span> IsSorted (sort xs) <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> nil-sorted
+  <span class="o">|</span> cons a l <span class="o">=&gt;</span> insert-sorted a (sort-sorted l)
+  <span class="k">\where</span> {
+    <span class="k">\func</span> insert-sorted {A <span class="o">:</span> TotalPreorder} (x <span class="o">:</span> A) {xs <span class="o">:</span> List A} (xs-sorted <span class="o">:</span> IsSorted xs) <span class="o">:</span> IsSorted (sort.insert x xs) <span class="o">=&gt;</span> <span class="g">{?}</span>
+  }</code></pre></div></div>
+
+<p>The proof of the lemma is also a straightforward induction:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> insert-sorted {A <span class="o">:</span> TotalPreorder} (x <span class="o">:</span> A) {xs <span class="o">:</span> List A} (xs-sorted <span class="o">:</span> IsSorted xs) <span class="o">:</span> IsSorted (sort.insert x xs) <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> cons-sorted &lt;=-refl nil-sorted
+  <span class="o">|</span> cons a l <span class="o">=&gt;</span> <span class="k">\case</span> totality a x <span class="k">\as</span> r <span class="k">\return</span>
+                                          IsSorted (<span class="k">\case</span> r <span class="k">\with</span> {
+                                            <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> cons a (sort.insert x l)
+                                            <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> cons x (cons a l)
+                                          }) <span class="k">\with</span> {
+    <span class="o">|</span> inl a&lt;=x <span class="o">=&gt;</span> <span class="k">\case</span> xs-sorted <span class="k">\with</span> {
+      <span class="o">|</span> cons-sorted a&lt;=l l-sorted <span class="o">=&gt;</span> cons-sorted (insert-lem a x l a&lt;=x a&lt;=l) (insert-sorted x l-sorted)
+    }
+    <span class="o">|</span> inr x&lt;=a <span class="o">=&gt;</span> cons-sorted x&lt;=a xs-sorted
+  }</code></pre></div></div>
+
+<p>In the case <span class="inl-highlight">inl a&lt;=x</span>, we need another auxiliary lemma with a simple proof by case analysis:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> insert-lem {A <span class="o">:</span> TotalPreorder} (a x <span class="o">:</span> A) (l <span class="o">:</span> List A) (a&lt;=x <span class="o">:</span> a &lt;= x) (a&lt;=l <span class="o">:</span> a &lt;= head a l) <span class="o">:</span> a &lt;= head a (sort.insert x l) <span class="k">\elim</span> l
+  <span class="o">|</span> nil <span class="o">=&gt;</span> a&lt;=x
+  <span class="o">|</span> cons b l <span class="o">=&gt;</span> <span class="k">\case</span> totality b x <span class="k">\as</span> r <span class="k">\return</span>
+                                          a &lt;= head a (<span class="k">\case</span> r <span class="k">\with</span> {
+                                            <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> cons b (sort.insert x l)
+                                            <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> cons x (cons b l)
+                                          }) <span class="k">\with</span> {
+    <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> a&lt;=l
+    <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> a&lt;=x
+  }</code></pre></div></div>
+
+<p>This completes the proof of correctness of <span class="inl-highlight">sort</span>.
+The full proof can be found <a href="code/sort.ard">here</a>.</p>
+
+<p class="notice--info"><strong>Exercise:</strong> Implement another sorting algorithm and prove its correctness.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

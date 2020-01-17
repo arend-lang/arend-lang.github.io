@@ -1,0 +1,674 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Indexed Data Types - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Indexed Data Types">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/datanproofs.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/datanproofs.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Indexed Data Types">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Indexed Data Types
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Indexed Data Types</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#insertion-sort-and-reverse">Insertion sort and reverse</a></li>
+  <li><a href="#examples-of-proofs--assoc-and-reverse-isinvolution">Examples of proofs: +-assoc and reverse-isInvolution</a></li>
+  <li><a href="#lists-of-fixed-length">Lists of fixed length</a></li>
+  <li><a href="#finite-sets-lookup">Finite sets, lookup</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="code/indexed.zip">indexed.zip</a>.</p>
+
+<p>In this module we illustrate the concepts that we discussed in the previous modules through a bunch of examples of definitions and proofs.</p>
+
+<p>We define the function <span class="inl-highlight">sort</span> that sorts lists by insertion sort and the function <span class="inl-highlight">reverse</span> that reverses
+them.</p>
+
+<p>We discuss two more examples of proofs: we prove that <span class="inl-highlight">reverse</span> is an involution and that <span class="inl-highlight"><span class="o">+</span> <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">-&gt;</span> Nat</span>
+is associative.</p>
+
+<p>Next, we turn to a several examples of data types. For a given type <span class="inl-highlight">A</span>, we exhibit two possible definitions of the type
+of fixed length vectors of elements of <span class="inl-highlight">A</span>, one of which is based on <em>data types with constructor patterns</em>. We conclude with a
+discussion of possible definitions of the type of all finite sets.</p>
+
+<h1 id="insertion-sort-and-reverse">Insertion sort and reverse</h1>
+
+<p>Among the sorting algorithms, perhaps, the simplest to define in a dependently typed language is the insertion sort. The kind of recursion
+used in the insertion sort parallels the inductive definition of the type <span class="inl-highlight">List</span>.</p>
+
+<p>If our list is <span class="inl-highlight">nil</span>, then we have nothing to do and simply return <span class="inl-highlight">nil</span>. Otherwise, if the list is of the form
+<span class="inl-highlight">cons x xs</span>, invoke sort recursively on <span class="inl-highlight">xs</span> and insert <span class="inl-highlight">x</span> into the result using the function 
+<span class="inl-highlight">insert</span>, in turn defined by recursion on <span class="inl-highlight">List</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> if {A <span class="o">:</span> <span class="kt">\Type</span>} (b <span class="o">:</span> Bool) (t e <span class="o">:</span> A) <span class="o">:</span> A <span class="k">\elim</span> b
+  <span class="o">|</span> true <span class="o">=&gt;</span> t
+  <span class="o">|</span> false <span class="o">=&gt;</span> e
+
+<span class="k">\func</span> sort {A <span class="o">:</span> <span class="kt">\Type</span>} (less <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> Bool) (xs <span class="o">:</span> List A) <span class="o">:</span> List A <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> nil
+  <span class="o">|</span> cons x xs <span class="o">=&gt;</span> insert less x (sort less xs)
+  <span class="k">\where</span>
+    <span class="k">\func</span> insert {A <span class="o">:</span> <span class="kt">\Type</span>} (less <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> Bool) (x <span class="o">:</span> A) (xs <span class="o">:</span> List A) <span class="o">:</span> List A <span class="k">\elim</span> xs
+      <span class="o">|</span> nil <span class="o">=&gt;</span> cons x nil
+      <span class="o">|</span> cons x' xs <span class="o">=&gt;</span> if (less x x') (cons x (cons x' xs)) (cons x' (insert less x xs))</code></pre></div></div>
+
+<p>In case the predicate <span class="inl-highlight">less</span> defines a linear order, the result of the function <span class="inl-highlight">sort</span> is a sorted permutation of
+its argument <span class="inl-highlight">xs</span>. This specification of correctness of <span class="inl-highlight">sort</span> can be phrased in Arend as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isLinOrder {A <span class="o">:</span> <span class="kt">\Type</span>} (lessOrEq <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> Bool) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+<span class="k">\func</span> isSorted {A <span class="o">:</span> <span class="kt">\Type</span>} (lessOrEq <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> Bool) (xs <span class="o">:</span> List A) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+<span class="c">-- isPerm says that xs' is permutation of xs</span>
+<span class="k">\func</span> isPerm {A <span class="o">:</span> <span class="kt">\Type</span>} (xs xs' <span class="o">:</span> List A) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
+<span class="k">\func</span> sort-isCorrect {A <span class="o">:</span> <span class="kt">\Type</span>} (lessOrEq <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> Bool) (p <span class="o">:</span> isLinOrder lessOrEq) (xs <span class="o">:</span> List A)
+       <span class="o">:</span> <span class="k">\Sigma</span> (isSorted lessOrEq (sort lessOrEq xs)) (isPerm xs (sort lessOrEq xs)) <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p>It is possible to write definitions of the predicates and a proof for <span class="inl-highlight">sort-isCorrect</span> with the arsenal of language
+constructs that we have introduced by now. However, as we will see in the subsequent modules, there are better ways to do this, and 
+for that reason we omit the details here. A proper proof will be given <a href="universes#correctness-of-insertion-sort">later</a>.</p>
+
+<p>Consider another, simpler, operation on lists: reversion. We define the function <span class="inl-highlight">reverse</span> that reverses 
+a list <span class="inl-highlight">xs</span> via an auxiliary function that accumulates reversed sublists in the extra parameter <span class="inl-highlight">acc</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> reverse {A <span class="o">:</span> <span class="kt">\Type</span>} (xs <span class="o">:</span> List A) <span class="o">:</span> List A <span class="o">=&gt;</span> rev nil xs
+  <span class="k">\where</span>
+    <span class="k">\func</span> rev {A <span class="o">:</span> <span class="kt">\Type</span>} (acc xs <span class="o">:</span> List A) <span class="o">:</span> List A <span class="k">\elim</span> xs
+      <span class="o">|</span> nil <span class="o">=&gt;</span> acc
+      <span class="o">|</span> cons x xs <span class="o">=&gt;</span> rev (cons x acc) xs
+
+<span class="c">-- reverse (cons x xs) =&gt; rev nil (cons x xs) =&gt; rev (cons x nil) xs</span>
+<span class="c">-- reverse (reverse (cons x xs)) =&gt; reverse (rev (cons x nil) xs) =&gt; rev nil (rev (cons x nil) xs)</span></code></pre></div></div>
+
+<p>Below we prove that <span class="inl-highlight">reverse</span> is an involution.</p>
+
+<h1 id="examples-of-proofs--assoc-and-reverse-isinvolution">Examples of proofs: +-assoc and reverse-isInvolution</h1>
+
+<p>If you try to prove <span class="inl-highlight">reverse (reverse xs) <span class="o">=</span> xs</span> directly by induction, then you will stuck at proving the equality 
+<span class="inl-highlight">rev nil (rev (cons x nil) xs) <span class="o">=</span> cons x xs</span>, because induction hypothesis is too weak. The statement should be strengthened in
+order to make induction hypothesis stronger. Namely, we should prove a more general property of <span class="inl-highlight">reverse.rev</span> and conclude
+that <span class="inl-highlight">reverse</span> is involution as a consequence:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> reverse-isInvolutive {A <span class="o">:</span> <span class="kt">\Type</span>} (xs <span class="o">:</span> List A) <span class="o">:</span> reverse (reverse xs) <span class="o">=</span> xs <span class="o">=&gt;</span> rev-isInv nil xs
+  <span class="k">\where</span>
+    <span class="k">\func</span> rev-isInv {A <span class="o">:</span> <span class="kt">\Type</span>} (acc xs <span class="o">:</span> List A) <span class="o">:</span> reverse (reverse.rev acc xs) <span class="o">=</span> reverse.rev xs acc <span class="k">\elim</span> xs
+      <span class="o">|</span> nil <span class="o">=&gt;</span> idp
+      <span class="o">|</span> cons x xs <span class="o">=&gt;</span> rev-isInv (cons x acc) xs</code></pre></div></div>
+
+<p>For the proof of associativity of <span class="inl-highlight"><span class="o">+</span></span> we need the following property of <span class="inl-highlight"><span class="o">=</span></span> (congruence): if
+<span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span>, <span class="inl-highlight">x<span class="o">,</span> y <span class="o">:</span> A</span> and there is a proof <span class="inl-highlight">p <span class="o">:</span> x <span class="o">=</span> y</span>, then 
+there is a proof <span class="inl-highlight">pmap f p <span class="o">:</span> f x <span class="o">=</span> f y</span>. The proof of <span class="inl-highlight">(x <span class="o">+</span> y) <span class="o">+</span> z <span class="o">=</span> x <span class="o">+</span> (y <span class="o">+</span> z)</span>
+is, of course, by induction, but one should carefully choose the parameter for induction. In our case, because
+we defined <span class="inl-highlight"><span class="o">+</span></span> by recursion on the right argument, we should choose <span class="inl-highlight">z</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="o">+</span>-assoc (x y z <span class="o">:</span> Nat) <span class="o">:</span> (x <span class="o">+</span> y) <span class="o">+</span> z <span class="o">=</span> x <span class="o">+</span> (y <span class="o">+</span> z) <span class="k">\elim</span> z
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+  <span class="o">|</span> suc z <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-assoc x y z)
+<span class="c">-- we can apply pmap because of the reductions:</span>
+<span class="c">-- (x + y) + suc z =&gt; suc ((x + y) + z)</span>
+<span class="c">-- x + (y + suc z) =&gt; x + suc (y + z) =&gt; suc (x + (y + z))</span></code></pre></div></div>
+
+<h1 id="lists-of-fixed-length">Lists of fixed length</h1>
+
+<p>Suppose we want to implement a function that takes a list and a natural number and returns the element in the list at the given index.
+It is impossible to do this in general since the index may be greater than the length of the list.
+One way to fix this problem is to pass a proof that the index is less than the length of the list:</p>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Implement the function <span class="inl-highlight">lookup</span>, which takes a list <span class="inl-highlight">xs</span> and a natural number <span class="inl-highlight">n</span> and returns the <span class="inl-highlight">n</span>-th element in the list.
+The function should also take a proof that <span class="inl-highlight">n</span> is in the right range: <span class="inl-highlight">T (n &lt; length xs)</span>.</p>
+
+<p>There is another way to fix this problem.
+We could use a type of <em>vectors</em>, that is of lists, whose length is fixed and
+parameterized by <span class="inl-highlight">n <span class="o">:</span> Nat</span>. One way to do this is by writing recursive function
+with codomain <span class="inl-highlight"><span class="kt">\Type</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> vec (A <span class="o">:</span> <span class="kt">\Type</span>) (n <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\elim</span> n
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="k">\Sigma</span>
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> <span class="k">\Sigma</span> A (vec A n)
+
+<span class="k">\func</span> head {A <span class="o">:</span> <span class="kt">\Type</span>} (n <span class="o">:</span> Nat) (xs <span class="o">:</span> vec A (suc n)) <span class="o">=&gt;</span> xs.<span class="n">1</span>
+
+<span class="k">\func</span> tail {A <span class="o">:</span> <span class="kt">\Type</span>} (n <span class="o">:</span> Nat) (xs <span class="o">:</span> vec A (suc n)) <span class="o">=&gt;</span> xs.<span class="n">2</span></code></pre></div></div>
+
+<p>Alternatively, we can implement this type as a data type. It is a bit tricky since the data type
+<span class="inl-highlight">Vec (A <span class="o">:</span> <span class="kt">\Type</span>) (n <span class="o">:</span> Nat)</span> has constructor <span class="inl-highlight">fcons A (Vec A m)</span>
+if <span class="inl-highlight">n</span> is <span class="inl-highlight">suc m</span> and constructor <span class="inl-highlight">fnil</span> if <span class="inl-highlight">n</span>
+is <span class="inl-highlight"><span class="n">0</span></span>. Such data types can be defined using <em>constructors with patterns</em>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Vec (A <span class="o">:</span> <span class="kt">\Type</span>) (n <span class="o">:</span> Nat) <span class="k">\elim</span> n
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> fnil
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> fcons A (Vec A n)
+
+<span class="k">\func</span> Head {A <span class="o">:</span> <span class="kt">\Type</span>} {n <span class="o">:</span> Nat} (xs <span class="o">:</span> Vec A (suc n)) <span class="o">:</span> A <span class="k">\elim</span> xs
+  <span class="o">|</span> fcons x <span class="u">_</span> <span class="o">=&gt;</span> x
+
+<span class="k">\func</span> Tail {A <span class="o">:</span> <span class="kt">\Type</span>} {n <span class="o">:</span> Nat} (xs <span class="o">:</span> Vec A (suc n)) <span class="o">:</span> Vec A n <span class="k">\elim</span> xs
+  <span class="o">|</span> fcons <span class="u">_</span> xs <span class="o">=&gt;</span> xs</code></pre></div></div>
+
+<p>There are several reasons, why the latter definition with data types is preferable. Firstly,
+<span class="inl-highlight">Vec</span> has named constructors, so we explicitly see which constructor we are
+dealing with. Secondly, in pattern matching we can use names for parameters of constructors
+instead of mere projections <span class="inl-highlight">.<span class="n">1</span></span>, <span class="inl-highlight">.<span class="n">2</span></span>, etc. These things
+make definitions like <span class="inl-highlight">Vec</span> much more convenient to work with than 
+<span class="inl-highlight">vec</span>.</p>
+
+<p>Below we use double recursion on <span class="inl-highlight">n</span> and <span class="inl-highlight">xs</span> to define the 
+function <span class="inl-highlight">first</span> that returns the first element of a vector and the function
+<span class="inl-highlight">append</span> that appends a vector to other vector. Note that the output of
+<span class="inl-highlight">first</span> is not defined for the empty vector. This is typically resolved
+by using <span class="inl-highlight">Maybe</span> data type as codomain:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Maybe (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">|</span> nothing <span class="o">|</span> just A
+
+<span class="k">\func</span> first {A <span class="o">:</span> <span class="kt">\Type</span>} {n <span class="o">:</span> Nat} (xs <span class="o">:</span> Vec A n) <span class="o">:</span> Maybe A <span class="k">\elim</span> n<span class="o">,</span> xs
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> fnil <span class="o">=&gt;</span> nothing
+  <span class="o">|</span> suc n<span class="o">,</span> fcons x xs <span class="o">=&gt;</span> just x
+
+<span class="k">\func</span> append {A <span class="o">:</span> <span class="kt">\Type</span>} {n m <span class="o">:</span> Nat} (xs <span class="o">:</span> Vec A n) (ys <span class="o">:</span> Vec A m) <span class="o">:</span> Vec A (m <span class="o">+</span> n) <span class="k">\elim</span> n<span class="o">,</span> xs
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> fnil <span class="o">=&gt;</span> ys
+  <span class="o">|</span> suc <span class="u">_</span> <span class="o">,</span> fcons x xs <span class="o">=&gt;</span> fcons x (append xs ys)</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Implement function replicate for ‘vec’ and ‘Vec’ (this function creates the list of a given length filled with a given element).</p>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Implement function ‘map’ for ‘vec’ and ‘Vec’.</p>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Implement function ‘zipWith’ for ‘vec’ and ‘Vec’. The function must take lists of equal lengths.</p>
+
+<p>Implicit arguments in Arend make possible to define rather useless function that computes the length of a vector:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> length {A <span class="o">:</span> <span class="kt">\Type</span>} {n <span class="o">:</span> Nat} (xs <span class="o">:</span> Vec A n) <span class="o">=&gt;</span> n</code></pre></div></div>
+
+<h1 id="finite-sets-lookup">Finite sets, lookup</h1>
+
+<p>There are several variants of definition of a type of finite sets as well. For example,
+one can define it as a subtype of <span class="inl-highlight">Nat</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> fin (n <span class="o">:</span> Nat) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (T (x &lt; n))</code></pre></div></div>
+
+<p>Or as a recursive function:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Fin' (n <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Set0</span>
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> Empty
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> Maybe (Fin' n)</code></pre></div></div>
+
+<p>Or as a data type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Fin (n <span class="o">:</span> Nat) <span class="k">\with</span>
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> { fzero <span class="o">|</span> fsuc (Fin n) }</code></pre></div></div>
+
+<p>Consider several examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Fin 0 -- empty type</span>
+<span class="k">\func</span> absurd {A <span class="o">:</span> <span class="kt">\Type</span>} (x <span class="o">:</span> Fin <span class="n">0</span>) <span class="o">:</span> A
+
+<span class="k">\func</span> fin0 <span class="o">:</span> Fin <span class="n">3</span> <span class="o">=&gt;</span> fzero
+<span class="k">\func</span> fin1 <span class="o">:</span> Fin <span class="n">3</span> <span class="o">=&gt;</span> fsuc fzero
+<span class="k">\func</span> fin2 <span class="o">:</span> Fin <span class="n">3</span> <span class="o">=&gt;</span> fsuc (fsuc fzero)
+<span class="c">-- The following does not typecheck</span>
+<span class="c">-- \func fin3 : Fin 3 =&gt; fsuc (fsuc (fsuc fzero))</span></code></pre></div></div>
+
+<p>It can be easily proven that <span class="inl-highlight">Fin <span class="n">3</span></span> has no more than three elements.
+Specifically, it can be proven that every element of <span class="inl-highlight">Fin <span class="n">3</span></span> is either
+<span class="inl-highlight">fin0</span>, <span class="inl-highlight">fin1</span> or <span class="inl-highlight">fin2</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> atMost3 (x <span class="o">:</span> Fin <span class="n">3</span>) <span class="o">:</span> Either (x <span class="o">=</span> fin0) (Either (x <span class="o">=</span> fin1) (x <span class="o">=</span> fin2)) <span class="k">\elim</span> x
+  <span class="o">|</span> fzero <span class="o">=&gt;</span> inl idp
+  <span class="o">|</span> fsuc fzero <span class="o">=&gt;</span> inr (inl idp)
+  <span class="o">|</span> fsuc (fsuc fzero) <span class="o">=&gt;</span> inr (inr idp)
+  <span class="o">|</span> fsuc (fsuc (fsuc ()))</code></pre></div></div>
+
+<p>The embedding to <span class="inl-highlight">Nat</span> can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> toNat {n <span class="o">:</span> Nat} (x <span class="o">:</span> Fin n) <span class="o">:</span> Nat
+  <span class="o">|</span> {suc <span class="u">_</span>}<span class="o">,</span> fzero <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> {suc <span class="u">_</span>}<span class="o">,</span> fsuc x <span class="o">=&gt;</span> suc (toNat x)</code></pre></div></div>
+
+<p>The type <span class="inl-highlight">Fin n</span> can be particularly useful, for example, in a definition
+of a safe lookup in a vector:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> lookup {A <span class="o">:</span> <span class="kt">\Type</span>} {n <span class="o">:</span> Nat} (xs <span class="o">:</span> Vec A n) (i <span class="o">:</span> Fin n) <span class="o">:</span> A <span class="k">\elim</span> n<span class="o">,</span> xs<span class="o">,</span> i
+  <span class="o">|</span> suc <span class="u">_</span><span class="o">,</span> fcons x <span class="u">_</span><span class="o">,</span> fzero <span class="o">=&gt;</span> x
+  <span class="o">|</span> suc <span class="u">_</span><span class="o">,</span> fcons <span class="u">_</span> xs<span class="o">,</span> fsuc i <span class="o">=&gt;</span> lookup xs i</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Functions Fin n -&gt; A correspond to lists of length n with elements in A.
+Implement the function that converts an element of Fin n -&gt; A to element of Vec A n.</p>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Define the type of matrices and a number of functions for them:
+the diagonal matrix, transpose, addition and multiplication of matrices.</p>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Define the type CTree A n of (complete and full) binary trees of height precisely n, which store elements in internal nodes, but not in leaves.
+The height of a leaf is 0.</p>
+
+<p class="notice--info"><strong>Exercise 8:</strong> Define the type Tree A n of binary trees of height at most n, which store elements in internal nodes, but not in leaves.
+The height of a leaf is 0.
+Define the function that computes the height of a tree.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

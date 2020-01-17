@@ -1,0 +1,976 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Basics - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Basics">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/synndef.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/synndef.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Basics">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Basics
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Basics</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#lexical-structure">Lexical structure</a></li>
+  <li><a href="#functions">Functions</a></li>
+  <li><a href="#infix-operators">Infix operators</a></li>
+  <li><a href="#data-definitions">Data definitions</a></li>
+  <li><a href="#termination-div">Termination, div</a></li>
+  <li><a href="#polymorphism">Polymorphism</a></li>
+  <li><a href="#implicit-arguments">Implicit arguments</a></li>
+  <li><a href="#list-append">List, append</a></li>
+  <li><a href="#tuples-and-sigma-types">Tuples and Sigma-types</a></li>
+  <li><a href="#type-synonyms">Type synonyms</a></li>
+  <li><a href="#namespaces-and-modules">Namespaces and modules</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="code/Basics.ard">Basics.ard</a> <br />
+The source code for the exercises: <a href="code/BasicsEx.ard">BasicsEx.ard</a></p>
+
+<p>In this module we explain the syntax and some key constructs of the Arend language, required to get started with
+writing definitions, propositions and proofs.</p>
+
+<p>Arend has the following kinds of definitions: functions, data definitions, classes and records. As of now, we only consider
+functions and data definitions, exposition of classes and records is deferred to <a href="records">Records and Classes</a>.</p>
+
+<p>Some of the most basic definitions are built into the language and contained in the module Prelude. For example, Prelude
+contains
+types <span class="inl-highlight">Nat</span> and <span class="inl-highlight">Int</span> of natural and integer numbers respectively and the equality
+type <span class="inl-highlight"><span class="o">=</span></span>.</p>
+
+<h1 id="lexical-structure">Lexical structure</h1>
+
+<p>All keywords in Arend start with backslash <span class="inl-highlight"><span class="k">\</span></span>. For example, function and data definitions start with
+keywords <span class="inl-highlight"><span class="k">\func</span></span> and <span class="inl-highlight"><span class="k">\data</span></span> respectively.</p>
+
+<p>Numerals, if they occur in terms, are always interpreted as elements of types <span class="inl-highlight">Nat</span> or <span class="inl-highlight">Int</span>:
+non-negative numerals are of type <span class="inl-highlight">Nat</span>, negative numerals are of type <span class="inl-highlight">Int</span>.</p>
+
+<p>Arend allows considerable amount of freedom in the choice of identifiers. With a few exceptions, names of definitions, variables
+etc may contain upper or lower case letters, digits and characters from the list <code class="highlighter-rouge">~!@#$%^&amp;*-+=&lt;&gt;?/|[]:_</code>.</p>
+
+<h1 id="functions">Functions</h1>
+
+<p>Function definitions start with the keyword <span class="inl-highlight"><span class="k">\func</span></span>. Functions in Arend are mathematical functions.
+In particular, this means that they are <em>pure</em> and do not interact with the environment via input-output.</p>
+
+<p>The simplest definition of a function must contain the name of a function
+and its body. For example, the zero constant function <code class="highlighter-rouge">f</code> without parameters can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span> <span class="c">-- constant function</span>
+<span class="c">{- Haskell:
+   f = 0
+-}</span></code></pre></div></div>
+
+<p>The body of <span class="inl-highlight">f</span> is just the numeral <span class="inl-highlight"><span class="n">0</span></span> of type <span class="inl-highlight">Nat</span>. The result type 
+<span class="inl-highlight">Nat</span> of <span class="inl-highlight">f</span> in this case is inferred by the typechecker, but it can also be specified explicitly:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f' <span class="o">:</span> Nat <span class="o">=&gt;</span> <span class="n">0</span> <span class="c">-- constant with explicit type</span>
+<span class="c">{- Haskell:
+   f :: Nat
+   f = 0
+-}</span></code></pre></div></div>
+
+<p>In case a function has parameters, they can be specified together with their types just after the name of the
+function as shown below:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x <span class="c">-- identity function on natural numbers</span>
+<span class="k">\func</span> id' (x <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="o">=&gt;</span> x  <span class="c">-- the same, but with explicit result type</span>
+<span class="c">{- Haskell:
+   id :: Nat -&gt; Nat
+   id x = x
+-}</span>
+<span class="k">\func</span> foo (x <span class="u">_</span> <span class="o">:</span> Nat) (<span class="u">_</span> <span class="o">:</span> Int) <span class="o">=&gt;</span> x <span class="c">-- simply returning the first argument</span>
+<span class="c">{- Haskell:
+   foo :: Nat -&gt; Nat -&gt; Int -&gt; Nat
+   foo x y z = x
+-}</span></code></pre></div></div>
+
+<p>As demonstrated in the definition of <span class="inl-highlight">foo</span>, if a parameter is not used, you can omit the specification
+of its name by using the symbol <code class="highlighter-rouge">_</code>. Also, if several consecutive parameters have the same type, they can be merged:
+<span class="inl-highlight">(x <span class="u">_</span> <span class="o">:</span> Nat)</span> is equivalent to <span class="inl-highlight">(x <span class="o">:</span> Nat) (<span class="u">_</span> <span class="o">:</span> Nat)</span>.</p>
+
+<p>Note that in contrast to Haskell, types of parameters should always be specified:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- \func id'' x =&gt; x -- this definition is not correct!</span>
+<span class="c">{- Haskell:
+   id'' x = x
+-}</span></code></pre></div></div>
+
+<p>Equivalently, parameters of a function can be moved from the signature to the body by means of lambda expressions:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- types of parameters cannot be infered as before</span>
+<span class="k">\func</span> foo' <span class="o">=&gt;</span> <span class="k">\lam</span> (x <span class="u">_</span> <span class="o">:</span> Nat) (<span class="u">_</span> <span class="o">:</span> Int) <span class="o">=&gt;</span> x
+<span class="c">-- but types of parameters can be omitted if the result type is specified explicitly</span>
+<span class="k">\func</span> foo'' <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">-&gt;</span> Int <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="u">_</span> <span class="u">_</span> <span class="o">=&gt;</span> x  
+<span class="c">{- Haskell:
+   foo'' :: Nat -&gt; Nat -&gt; Int -&gt; Nat
+   foo'' = \x y z -&gt; x
+-}</span></code></pre></div></div>
+
+<p>In the examples above we specified the bodies of functions by simply writing a term after the symbol <span class="inl-highlight"><span class="o">=&gt;</span></span>.
+Of course, there are more sophisticated ways to define the body of a function, for example, in case the function is recursive.
+Namely, functions can also be defined by <em>pattern matching</em>, we will consider such functions <a href="#data-definitions">below</a>.</p>
+
+<h1 id="infix-operators">Infix operators</h1>
+
+<!-- TODO: illustrate the concepts by giving an example of an expression and explaining how it is parsed -->
+
+<p>By default all binary operators, just as normal functions, are prefix. In order to define an infix operator one should specify before the name
+of the operator one of the keywords 
+<span class="inl-highlight"><span class="k">\infix</span></span>, <span class="inl-highlight"><span class="k">\infixl</span></span> or <span class="inl-highlight"><span class="k">\infixr</span></span> together with a positive integer for priority:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infixl</span> <span class="n">6</span> <span class="o">$</span><span class="o">$</span> (x y <span class="o">:</span> Nat) <span class="o">=&gt;</span> x
+<span class="k">\func</span> test <span class="o">=&gt;</span> <span class="n">3</span> <span class="o">$</span><span class="o">$</span> <span class="n">7</span> <span class="c">-- test returns 3</span>
+<span class="c">{- Haskell:
+   infixl 6 $$
+   ($$) x y = x
+   test = 3 $$ 7
+-}</span></code></pre></div></div>
+
+<p>Priority can be any positive integer between 1 and 9.</p>
+
+<p>Any binary operator, even if it was not declared as infix, can be used in infix form by means of surrounding it with <span class="inl-highlight"><span class="k">`</span> <span class="k">`</span></span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> ff (x y <span class="o">:</span> Nat) <span class="o">=&gt;</span> x
+<span class="k">\func</span> ff_test <span class="o">=&gt;</span> <span class="n">0</span> <span class="o">`ff`</span> <span class="n">1</span>
+<span class="c">{- Haskell:
+   ff x y = x
+   ff_test = 3 `ff` 7
+-}</span></code></pre></div></div>
+
+<p>Any infix operator can also be used in the prefix from:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infix</span> <span class="n">6</span> %% (x y <span class="o">:</span> Nat) <span class="o">=&gt;</span> x
+<span class="k">\func</span> %%-test <span class="o">=&gt;</span> %% <span class="n">3</span> <span class="n">7</span> <span class="c">-- no need to surround %% with ( )</span>
+<span class="c">{- Haskell:
+   infix 5 %%
+   (%%) x y = x
+   pp_test = (%%) 3 7
+-}</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Define priorities of the functions f1, f2, f3, f4, f5 and f6 so that the function ‘test’ typechecks.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f1 (x y <span class="o">:</span> Nat) <span class="o">=&gt;</span> x
+<span class="k">\func</span> f2 <span class="o">:</span> Nat <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> f3 (f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat) (z <span class="o">:</span> Nat) <span class="o">:</span> Int <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> f4 <span class="o">:</span> Nat <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> f5 <span class="o">=&gt;</span> f1
+<span class="k">\func</span> f6 <span class="o">=&gt;</span> f4
+
+<span class="k">\func</span> test <span class="o">=&gt;</span> f1 f2 f3 f4 f5 f6</code></pre></div></div>
+
+<h1 id="data-definitions">Data definitions</h1>
+
+<p>Data definitions allow to define new <em>inductive</em> and <em>higher-inductive</em> types by specifying their ‘‘generating’’ elements,
+called <em>constructors</em>.</p>
+
+<p>In the simplest case, when constructors do not have parameters, an inductive type is just a finite set formed by its constructors.
+For example, the empty type <span class="inl-highlight">Empty</span>, the one-element unit type <span class="inl-highlight">Unit</span> and the two-element type 
+<span class="inl-highlight">Bool</span> of boolean values with two constructors <span class="inl-highlight">true</span> and <span class="inl-highlight">false</span> can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Empty
+<span class="c">{- Haskell:
+   data Empty
+-}</span>
+
+<span class="k">\data</span> Unit <span class="o">|</span> unit
+<span class="c">{- Haskell:
+   data Unit = Unit
+-}</span>
+
+<span class="k">\data</span> Bool <span class="o">|</span> false <span class="o">|</span> true
+<span class="c">{- Haskell:
+   data Bool = False | True
+-}</span></code></pre></div></div>
+
+<p>Defining a function on <span class="inl-highlight">Bool</span> naturally corresponds to specifying its values on <span class="inl-highlight">true</span>
+and <span class="inl-highlight">false</span> via the mechanism called <em>pattern matching</em>. For example, functions <span class="inl-highlight">not</span> and
+<span class="inl-highlight">if</span> can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not (x <span class="o">:</span> Bool) <span class="o">:</span> Bool <span class="k">\with</span> <span class="c">-- keyword \with can be omitted</span>
+  <span class="o">|</span> true <span class="o">=&gt;</span> false
+  <span class="o">|</span> false <span class="o">=&gt;</span> true
+<span class="c">{- Haskell:
+   not :: Bool -&gt; Bool
+   not True = False
+   not False = True
+-}</span>
+
+<span class="k">\func</span> if (x <span class="o">:</span> Bool) (t e <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="k">\elim</span> x
+  <span class="o">|</span> true <span class="o">=&gt;</span> t
+  <span class="o">|</span> false <span class="o">=&gt;</span> e
+<span class="c">{- Haskell:
+   if :: Bool -&gt; Nat -&gt; Nat -&gt; Nat
+   if True t e = t
+   if False t e = e
+-}</span></code></pre></div></div>
+
+<p>Typically, inductive types have constructors with parameters. In contrast to parameters of functions, it is allowed 
+to write <span class="inl-highlight">cons T</span> instead of <span class="inl-highlight">cons (<span class="u">_</span> <span class="o">:</span> T)</span>.</p>
+
+<p>Types of these parameters may refer to the inductive type
+itself, for example, as we will shortly see in case of the type of natural numbers. However, there is an important restriction:
+all occurrences of an inductive type in types of parameters of constructors must be <em>strictly positive</em>. This means that 
+the inductive type cannot occur to the left of -&gt;. If such definitions were allowed, it would have been possible to
+define the type of ‘‘all untyped lambda terms’’ <span class="inl-highlight">K</span>. In particular, non-terminating terms
+could have been coded as elements of <span class="inl-highlight">K</span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> K <span class="o">|</span> k (K <span class="o">-&gt;</span> K)
+<span class="k">\func</span> I <span class="o">=&gt;</span> k (<span class="k">\lam</span> x <span class="o">=&gt;</span> x)
+<span class="k">\func</span> Kc <span class="o">=&gt;</span> k (<span class="k">\lam</span> x <span class="o">=&gt;</span> k (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> x))
+<span class="k">\func</span> app (f a <span class="o">:</span> K) <span class="o">:</span> K <span class="k">\elim</span> f
+  <span class="o">|</span> k f' <span class="o">=&gt;</span> f' a
+<span class="k">\func</span> omega <span class="o">=&gt;</span> k (<span class="k">\lam</span> x <span class="o">=&gt;</span> app x x)</code></pre></div></div>
+
+<p>Let us turn to another example: the type of natural numbers. Definitions of the type <span class="inl-highlight">Nat</span>
+and of operations <span class="inl-highlight"><span class="o">+</span></span>, <span class="inl-highlight"><span class="o">*</span></span> from Prelude can be reproduced as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Nat <span class="o">|</span> zero <span class="o">|</span> suc Nat
+
+<span class="c">-- the following functions are equivalent</span>
+<span class="k">\func</span> three <span class="o">=&gt;</span> suc (suc (suc zero))
+<span class="k">\func</span> three' <span class="o">=&gt;</span> <span class="n">3</span>
+
+<span class="c">-- there is no limit on the size of numbers</span>
+<span class="k">\func</span> bigNumber <span class="o">=&gt;</span> <span class="n">1000000000000000000000000</span>
+
+<span class="k">\func</span> <span class="k">\infixl</span> <span class="n">6</span> <span class="o">+</span> (x y <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="k">\elim</span> y
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> x
+  <span class="o">|</span> suc y <span class="o">=&gt;</span> suc (x <span class="o">+</span> y)
+<span class="c">{- Haskell:
+   (+) :: Nat -&gt; Nat -&gt; Nat
+   x + Zero = x
+   x + Suc y = Suc (x + y)
+-}</span>
+
+<span class="c">-- If n is a variable, then n + 2 evaluates to suc (suc n),</span>
+<span class="c">-- but 2 + n does not as it is already in the normal form.</span>
+<span class="c">-- This behaviour depends on the definition of +, namely,</span>
+<span class="c">-- the argument chosen for pattern matching.</span>
+
+<span class="k">\func</span> <span class="k">\infixl</span> <span class="n">7</span> <span class="o">*</span> (x y <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="k">\elim</span> y
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> suc y <span class="o">=&gt;</span> x <span class="o">*</span> y <span class="o">+</span> x
+<span class="c">{- Haskell:
+   (*) :: Nat -&gt; Nat -&gt; Nat
+   x * Zero = 0
+   x * Suc y = x * y + x
+-}</span></code></pre></div></div>
+
+<p>This is not the only way to define a type of natural numbers. The definition above corresponds to unary representation
+of natural numbers. The type of binary natural numbers can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> BinNat
+    <span class="o">|</span> zero'
+    <span class="o">|</span> sh+1 BinNat <span class="c">-- x*2+1</span>
+    <span class="o">|</span> sh+2 BinNat <span class="c">-- x*2+2</span></code></pre></div></div>
+
+<p>Efficiency-wise this definition is obviously much better. However, it is much less convenient for proofs by
+induction, than the definition of <span class="inl-highlight">Nat</span> above. And actually the type <span class="inl-highlight">Nat</span> from Prelude
+is efficient as well, because actual implementations of arithmetic operations differ from those above and
+efficiently hard coded in ad hoc way.</p>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Define the function ‘if’, which takes a boolean value b and two elements of an arbitrary type A and return the first element when b equals to true and the second one otherwise.</p>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Define || via ‘if’.</p>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Define the power and the factorial functions for natural numbers.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infixr</span> <span class="n">8</span> ^ (x y <span class="o">:</span> Nat) <span class="o">=&gt;</span> <span class="g">{?}</span>
+
+<span class="k">\func</span> fac (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Define mod and gcd.</p>
+
+<h1 id="termination-div">Termination, div</h1>
+
+<p>Functions can be recursive, but they cannot refer to themselves in an arbitrary way. If the recursion were unrestricted,
+every proposition could have been trivially proven:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> theorem <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> <span class="n">1</span> <span class="o">=&gt;</span> theorem</code></pre></div></div>
+
+<p>Moreover, the typechecking procedure in dependently typed language needs to check termination. Consequently, the language
+cannot be Turing complete, because typechecking becomes undecidable in this case.</p>
+
+<p>Intensional Martin-Lof type theory avoids this kind of issues by ensuring that all definable functions are total, that is
+their evaluation terminates on every input.
+It is thus typical for theorem provers, that have Martin-Lof type theory in the core of their type system, to require
+all functions to terminate and all recursive functions to be defined by <em>structural recursion</em>. And this also
+applies to Arend.</p>
+
+<p>For example, consider the division function <span class="inl-highlight">div</span> for natural numbers. An obvious but not correct
+definition may look like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> div (x y <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="o">=&gt;</span> if (x &lt; y) <span class="n">0</span> (suc (div (x - y) y))</code></pre></div></div>
+
+<p>There are two problems with this definition. Firstly, evaluation of <span class="inl-highlight">div x <span class="n">0</span></span> does not terminate.
+Secondly, the recursion is not structural. Structural recursion requires arguments of recursive calls to be 
+structurally simpler than the original argument.</p>
+
+<p>A recursive function can often be turned into structurally recursive function by introducing additional parameter, which decreases 
+with the increase of the level of recursive calls. Initial value of this parameter can be set to an upper bound to the
+number of recursive steps:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> div (x y <span class="o">:</span> Nat) <span class="o">=&gt;</span> div' x x y
+  <span class="k">\where</span>
+    <span class="k">\func</span> div' (s x y <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="k">\elim</span> s
+        <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">0</span>
+        <span class="o">|</span> suc s <span class="o">=&gt;</span> if (x &lt; y) <span class="n">0</span> (suc (div' s (x - y) y))</code></pre></div></div>
+
+<h1 id="polymorphism">Polymorphism</h1>
+
+<p>Some definitions are polymorphic, that is they can be naturally parameterised by a type. Such definitions
+can be stated with the use of the type <span class="inl-highlight"><span class="kt">\Type</span></span> of all types. For example, the polymorphic identity
+function can be stated as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id (A <span class="o">:</span> <span class="kt">\Type</span>) (a <span class="o">:</span> A) <span class="o">=&gt;</span> a
+<span class="c">{- Haskell:
+   id :: a -&gt; a
+   id x = x
+-}</span>
+
+<span class="k">\func</span> idType <span class="o">:</span> <span class="k">\Pi</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (a <span class="o">:</span> A) <span class="o">-&gt;</span> A <span class="o">=&gt;</span> id
+<span class="c">{- Haskell:
+   idType :: a -&gt; a
+   idType = id
+-}</span></code></pre></div></div>
+
+<p>The type <span class="inl-highlight"><span class="k">\Pi</span> (a <span class="o">:</span> A) <span class="o">-&gt;</span> B</span> is the type of dependent functions, which generalizes the type of ordinary functions <span class="inl-highlight">A <span class="o">-&gt;</span> B</span>.
+The codomain of a dependent function may vary dependening on the argument.
+For example, the type <span class="inl-highlight"><span class="k">\Pi</span> (b <span class="o">:</span> Bool) <span class="o">-&gt;</span> if b Nat Bool</span> is the type of functions which accept an argument of type <span class="inl-highlight">Bool</span> and return either a natural number or a boolean value, depending its argument.
+If we pass <span class="inl-highlight">true</span> to such a function, it returns an element of <span class="inl-highlight">Nat</span>; otherwise, it returns an element of <span class="inl-highlight">Bool</span>.</p>
+
+<p>The type <span class="inl-highlight"><span class="k">\Pi</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (a <span class="o">:</span> A) <span class="o">-&gt;</span> A</span> can be equivalently written as <span class="inl-highlight"><span class="k">\Pi</span> (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A</span> since its codomain does not depend on the second argument.
+This is the type functions which accept a type <span class="inl-highlight">A</span> and return a function of type <span class="inl-highlight">A <span class="o">-&gt;</span> A</span>.</p>
+
+<p>Note that <span class="inl-highlight"><span class="kt">\Type</span></span> is not a type of <em>all</em> types: the famous Girard’s paradox states that intensional Martin-Lof’s
+type theory is inconsistent with the type of all types.
+This problem is solved with a hierarchy of universes, which will be discussed <a href="universes">later</a>.
+Fortunately, the user does not need to care about these levels for the most part.
+Levels are inferred automatically and hidden from the user, unless he or she uses forbidden circularities, in which case typechecker will generate an error.</p>
+
+<h1 id="implicit-arguments">Implicit arguments</h1>
+
+<p>It is quite often the case that some arguments in a function application are completely determined by others. In 
+such cases user may ask typechecker to infer these arguments by writing <span class="inl-highlight"><span class="u">_</span></span> in place of them. For 
+example, an application of <span class="inl-highlight">id</span> function defined above may look as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> idTest <span class="o">=&gt;</span> id <span class="u">_</span> <span class="n">0</span></code></pre></div></div>
+
+<p>In this case the typechecker can infer <span class="inl-highlight">Nat</span> as the value of the first argument, because it must be
+the type of the second argument, which is <span class="inl-highlight">Nat</span>. If the typechecker fails to infer an argument, it
+generates an error.</p>
+
+<p>If a parameter of a definition is expected to be always or most of the times determined by others, it can be specified
+as <em>implicit</em> by surrounding it in curly braces. In this case the corresponding arguments can be skipped altogether:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id' {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a
+
+<span class="k">\func</span> id'Test <span class="o">=&gt;</span> id' <span class="n">0</span>
+<span class="k">\func</span> id'Test' <span class="o">=&gt;</span> id' {Nat} <span class="n">0</span> <span class="c">-- implicit arguments can be specifyed explicitly</span></code></pre></div></div>
+
+<p>Of course, the argument inference algorithm is limited and it cannot do too fancy things. Consider, for instance, the following
+example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> example' {n <span class="o">:</span> Nat} (p <span class="o">:</span> n <span class="o">+</span> n <span class="o">=</span> <span class="n">3</span>) <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
+
+<p>In this case the inference algorithm will fail to infer <span class="inl-highlight">n</span> from the type of <span class="inl-highlight">p</span> since 
+<span class="inl-highlight">n</span> occurs only inside the invocation of the function <span class="inl-highlight"><span class="o">+</span></span>. For example, in the invocation
+<span class="inl-highlight">example’ pp</span>, where <span class="inl-highlight">pp <span class="o">:</span> <span class="n">8</span> <span class="o">=</span> <span class="n">3</span></span>, the algorithm will not infer that <span class="inl-highlight">n</span>
+is <span class="inl-highlight"><span class="n">4</span></span>.</p>
+
+<p>On the other hand, the algorithm will be able infer <span class="inl-highlight">n</span> and <span class="inl-highlight">m</span> in the following example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> example'' {n m <span class="o">:</span> Nat} (p <span class="o">:</span> suc n <span class="o">=</span> m) <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> example''Test (pp <span class="o">:</span> <span class="n">8</span> <span class="o">=</span> <span class="n">3</span>) <span class="o">=&gt;</span> example'' pp</code></pre></div></div>
+
+<p>The difference is that in this case <span class="inl-highlight">n</span> and <span class="inl-highlight">m</span> occur in invocations of <span class="inl-highlight"><span class="k">\data</span></span>
+(<span class="inl-highlight"><span class="o">=</span></span> is defined via <span class="inl-highlight">Path</span>, which is a data type) and the constructor <span class="inl-highlight">suc</span>.
+Since <span class="inl-highlight"><span class="k">\data</span></span> and constructors are injective, the algorithm can always infer <span class="inl-highlight">n</span> and <span class="inl-highlight">m</span>
+in such cases. For example, in the invocation <span class="inl-highlight">example’’ pp</span>, where <span class="inl-highlight">pp <span class="o">:</span> <span class="n">8</span> <span class="o">=</span> <span class="n">3</span></span>, the algorithm
+will infer that <span class="inl-highlight">m</span> must be <span class="inl-highlight"><span class="n">3</span></span> and <span class="inl-highlight">n</span> must be <span class="inl-highlight"><span class="n">7</span></span>.</p>
+
+<h1 id="list-append">List, append</h1>
+
+<p>By now we have discussed all the things necessary to properly define the polymorphic type of lists:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> List (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">|</span> nil <span class="o">|</span> cons A (List A)
+<span class="c">{- Haskell:
+   data List a = Nil | Cons a (List a)
+-}</span>
+
+<span class="c">-- Constructors have implicit parameters for each of the parameters of data type</span>
+<span class="k">\func</span> emptyList <span class="o">=&gt;</span> nil {Nat}
+
+<span class="c">-- Operator 'append'</span>
+<span class="k">\func</span> <span class="k">\infixl</span> <span class="n">6</span> <span class="o">+</span><span class="o">+</span> {A <span class="o">:</span> <span class="kt">\Type</span>} (xs ys <span class="o">:</span> List A) <span class="o">:</span> List A <span class="k">\elim</span> xs
+  <span class="o">|</span> nil <span class="o">=&gt;</span> ys
+  <span class="o">|</span> cons x xs <span class="o">=&gt;</span> cons x (xs <span class="o">+</span><span class="o">+</span> ys)
+<span class="c">{- Haskell:
+   (++) :: List a -&gt; List A -&gt; List a
+   Nil ++ ys = ys
+   cons x xs ++ ys = cons x (xs ++ ys)
+-}</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Define the map function.</p>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Define the transpose function. It takes a list of lists considered as a matrix and returns a list of lists which represents the transposed matrix.</p>
+
+<h1 id="tuples-and-sigma-types">Tuples and Sigma-types</h1>
+
+<p>Given two types <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span>, one can construct the type <span class="inl-highlight"><span class="k">\Sigma</span> A B</span>
+of pairs <span class="inl-highlight">(a<span class="o">,</span> b)</span>, where <span class="inl-highlight">a <span class="o">:</span> A</span> and <span class="inl-highlight">b <span class="o">:</span> B</span>. The type <span class="inl-highlight"><span class="k">\Sigma</span> A B</span>
+is equivalent to the data type defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Pair <span class="o">|</span> pair A B</code></pre></div></div>
+
+<p>More generally, for any family of types <span class="inl-highlight">A1</span>, …, <span class="inl-highlight">An</span> one can form the type 
+<span class="inl-highlight"><span class="k">\Sigma</span> A1 … An</span> of tuples <span class="inl-highlight">(a1<span class="o">,</span> …<span class="o">,</span> an)</span>, where <span class="inl-highlight">ai <span class="o">:</span> Ai</span>.
+A trivial example – the type <span class="inl-highlight"><span class="k">\Sigma</span></span>, which is equivalemt to the one-element type <span class="inl-highlight">Unit</span>.</p>
+
+<p>The tuples can be dependent in the sense that <span class="inl-highlight">Ai</span> can depend on <span class="inl-highlight">a1</span>, …, <span class="inl-highlight">a{i-1}</span>.
+Let us give a few examples of dependent <span class="inl-highlight"><span class="k">\Sigma</span></span>-types:</p>
+<ul>
+  <li>The type <span class="inl-highlight"><span class="k">\Sigma</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (A <span class="o">-&gt;</span> A)</span> consists of pairs <span class="inl-highlight">(A<span class="o">,</span>f)</span>, where <span class="inl-highlight">A</span> is a type and <span class="inl-highlight">f</span> is a function of type <span class="inl-highlight">A <span class="o">-&gt;</span> A</span>.</li>
+  <li>The type <span class="inl-highlight"><span class="k">\Sigma</span> (b <span class="o">:</span> Bool) (if b Nat Bool)</span> consists of pairs <span class="inl-highlight">(b<span class="o">,</span>e)</span>, where <span class="inl-highlight">b</span> is a boolean value and the type of <span class="inl-highlight">e</span> is <span class="inl-highlight">if b Nat Bool</span>.
+In particular, pairs <span class="inl-highlight">(true<span class="o">,</span><span class="n">7</span>)</span> and <span class="inl-highlight">(false<span class="o">,</span>true)</span> belong to this type, but pairs <span class="inl-highlight">(false<span class="o">,</span><span class="n">7</span>)</span> and <span class="inl-highlight">(true<span class="o">,</span>true)</span> do not.</li>
+  <li>We will see that, for every pair of natural numbers <span class="inl-highlight">n<span class="o">,</span>m <span class="o">:</span> Nat</span>, there is a type <span class="inl-highlight">n &lt; m</span> of proofs that one of them is less than the other.
+Then we can define the type <span class="inl-highlight"><span class="k">\Sigma</span> (n <span class="o">:</span> Nat) (n &lt;= <span class="n">10</span>)</span> which consists of natural numbers less than <span class="inl-highlight"><span class="n">10</span></span>.
+To be more precise, it consists of pairs <span class="inl-highlight">(n<span class="o">,</span>p)</span>, where <span class="inl-highlight">n</span> is a natural number and <span class="inl-highlight">p</span> is a proof that it less than <span class="inl-highlight"><span class="n">10</span></span>.</li>
+  <li>More interesting example – the type <span class="inl-highlight"><span class="k">\Sigma</span> (n <span class="o">:</span> Nat) (<span class="k">\Sigma</span> (k <span class="o">:</span> Nat) (n <span class="o">=</span> k <span class="o">*</span> k))</span> of natural numbers <span class="inl-highlight">n</span>
+that are full squares: its elements are pairs <span class="inl-highlight">(n<span class="o">,</span> p)</span>, where <span class="inl-highlight">n</span> is a natural number and 
+<span class="inl-highlight">p <span class="o">:</span> <span class="k">\Sigma</span> (k <span class="o">:</span> Nat) (n <span class="o">=</span> k <span class="o">*</span> k)</span> is a proof that <span class="inl-highlight">n</span> is a square.</li>
+</ul>
+
+<p>If <span class="inl-highlight">x</span> is an element of type <span class="inl-highlight"><span class="k">\Sigma</span> A1 … An</span>, i-th component of <span class="inl-highlight">x</span>, where
+i is a numeral, can be accessed by the projection operator <span class="inl-highlight">x.i</span>. Note that eta equivalence holds for 
+Sigma-types: if <span class="inl-highlight">x <span class="o">:</span> <span class="k">\Sigma</span> A1… An</span>, then <span class="inl-highlight">(x.<span class="n">1</span><span class="o">,</span> …<span class="o">,</span> x.n)</span> is computationally equal
+to <span class="inl-highlight">x</span>.</p>
+
+<h1 id="type-synonyms">Type synonyms</h1>
+
+<p>There is no need for type synonyms in dependently types language since we can simply define a function returning the type,
+synonym of which is being defined:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> NatList <span class="o">=&gt;</span> List Nat
+<span class="c">{- Haskell:
+   type NatList = List Nat
+-}</span></code></pre></div></div>
+
+<h1 id="namespaces-and-modules">Namespaces and modules</h1>
+
+<p>Each definition can be accompanied by <span class="inl-highlight"><span class="k">\where</span></span> block in the end. In contrast to Haskell, <span class="inl-highlight"><span class="k">\where</span></span> block
+is attached to the whole definition, not to a particular clause:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> g <span class="k">\where</span> <span class="k">\func</span> g <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
+
+<p>Definitions in <span class="inl-highlight"><span class="k">\where</span></span> block in almost all respects behave just as normal definitions. The only difference is that
+it has different namespace:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> gTest <span class="o">=&gt;</span> f.g</code></pre></div></div>
+
+<p>Alternatively, one can use <span class="inl-highlight"><span class="k">\let</span></span>, which is, however, limited and simpler than ‘let’ in Haskell. In Arend,
+<span class="inl-highlight"><span class="k">\let</span></span> cannot contain recursive functions and each variable can only depend on previous variables:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> letExample <span class="o">=&gt;</span> <span class="k">\let</span>
+    <span class="o">|</span> x <span class="o">=&gt;</span> <span class="n">1</span>
+    <span class="o">|</span> y <span class="o">=&gt;</span> x <span class="o">+</span> x
+    <span class="k">\in</span> x <span class="o">+</span> y <span class="o">*</span> y</code></pre></div></div>
+
+<p>Definitions in Arend can be grouped in <em>modules</em>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> M1 <span class="k">\where</span> {
+    <span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">82</span>
+    <span class="k">\func</span> g <span class="o">=&gt;</span> <span class="n">77</span>
+    <span class="k">\func</span> h <span class="o">=&gt;</span> <span class="n">25</span>
+}
+
+<span class="c">-- definitions f, g and h are unavailable in the current namespace</span>
+<span class="c">-- they should be accessed with the prefix M1.</span>
+<span class="k">\func</span> moduleTest <span class="o">=&gt;</span> (M1.f<span class="o">,</span>M1.g<span class="o">,</span>M1.h)</code></pre></div></div>
+
+<p>If a module is opened by the <span class="inl-highlight"><span class="k">\open</span></span> command, then its definitions can be accessed directly without the prefix:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> M2 <span class="k">\where</span> {
+   <span class="k">\open</span> M1
+   <span class="k">\func</span> t <span class="o">=&gt;</span> f
+   <span class="k">\func</span> t' <span class="o">=&gt;</span> g
+   <span class="k">\func</span> t'' <span class="o">=&gt;</span> h
+}</code></pre></div></div>
+
+<p>It is possible to open just some particular definitions in a module:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> M3 <span class="k">\where</span> {
+   <span class="k">\open</span> M1(f<span class="o">,</span>g)
+   <span class="k">\func</span> t <span class="o">=&gt;</span> f
+   <span class="k">\func</span> t' <span class="o">=&gt;</span> g
+   <span class="k">\func</span> t'' <span class="o">=&gt;</span> M1.h <span class="c">-- h is not opened and must be accessed with prefix</span>
+}</code></pre></div></div>
+
+<p>For every definition there is a corresponding module:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> M4 <span class="k">\where</span> {
+   <span class="k">\func</span> functionModule <span class="o">=&gt;</span> <span class="n">34</span>
+     <span class="k">\where</span> {
+       <span class="k">\func</span> f1 <span class="o">=&gt;</span> <span class="n">42</span>
+       <span class="k">\func</span> f2 <span class="o">=&gt;</span> <span class="n">61</span>
+       <span class="k">\func</span> f3 <span class="o">=&gt;</span> <span class="n">29</span>
+     }
+   <span class="k">\func</span> t <span class="o">=&gt;</span> functionModule.f1
+   <span class="k">\func</span> t' <span class="o">=&gt;</span> functionModule.f2
+   <span class="k">\func</span> t'' <span class="o">=&gt;</span> (f1<span class="o">,</span> f3)
+     <span class="k">\where</span> <span class="k">\open</span> functionModule(f1<span class="o">,</span>f3) 
+	<span class="c">-- this \open affects everything in \where-block for t''as well as t''</span>
+}</code></pre></div></div>
+
+<p>In case there are clashes between names of definitions in different modules, these definitions can be either hidden or renamed:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> M5 <span class="k">\where</span> {
+    <span class="k">\open</span> M2 <span class="k">\hiding</span> (t') <span class="c">-- open all definitions except for t'</span>
+    <span class="k">\open</span> M3 (t <span class="k">\as</span> M3_t) <span class="c">-- open just t and rename it to M3_t</span>
+    <span class="k">\open</span> M4 <span class="k">\using</span> (t <span class="k">\as</span> M4_t) <span class="c">-- open all definition and rename t to M4_t</span>
+    <span class="k">\func</span> t'' <span class="o">=&gt;</span> (M3_t<span class="o">,</span> M4_t<span class="o">,</span> t'<span class="o">,</span> t<span class="o">,</span> functionModule<span class="o">,</span> functionModule.f1<span class="o">,</span> functionModule.f2<span class="o">,</span> functionModule.f3)
+    <span class="k">\func</span> t''' <span class="o">=&gt;</span> (t''<span class="o">,</span> M2.t''<span class="o">,</span> M4.t'') 
+	<span class="c">-- t'' in the current module clashes with t'' from M2 and M4,</span>
+	<span class="c">-- the latter definitions should be accessed with prefix</span>
+}</code></pre></div></div>
+
+<p>The command <span class="inl-highlight"><span class="k">\import</span> X</span> makes file X visible in the current file. Moreover, <span class="inl-highlight"><span class="k">\import</span></span> does
+everything that <span class="inl-highlight"><span class="k">\open</span></span> does, all the constructs for <span class="inl-highlight"><span class="k">\open</span></span> are applicable to <span class="inl-highlight"><span class="k">\import</span></span> as well:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The sources directory should contain a file named Test.ard (which contains definitions foobar and foobar2)</span>
+<span class="c">-- and a directory named TestDir with files Test.ard and Test2.ard in it.</span>
+
+<span class="k">\import</span> Test (foobar <span class="k">\as</span> foobar'<span class="o">,</span> foobar2)
+<span class="k">\import</span> TestDir.Test
+<span class="c">-- if you want to make file visible, but do not want to make \open, you can write the fllowing:</span>
+<span class="k">\import</span> TestDir.Test2()</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

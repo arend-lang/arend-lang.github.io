@@ -1,0 +1,653 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Propositions and Proofs - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Propositions and Proofs">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/propsnproofs.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/propsnproofs.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Propositions and Proofs">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Propositions and Proofs
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Propositions and Proofs</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#curry-howard-correspondence">Curry-Howard correspondence</a></li>
+  <li><a href="#examples-of-propositions-and-proofs">Examples of propositions and proofs</a></li>
+  <li><a href="#identity-type">Identity type</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="code/proofs.zip">proofs.zip</a>.
+To open this project in IntelliJ IDEA, unpack the archive, select <strong>File | New | Project from Existing Sources</strong>, choose the unpacked directory, and select <strong>Create project from existing sources</strong>.</p>
+
+<p>In this module we explain how to formulate and prove propositions in Arend.
+We show how to express various logical connectives and demonstrate that they satisfy the required properties.</p>
+
+<h1 id="curry-howard-correspondence">Curry-Howard correspondence</h1>
+
+<p>Arend is based on a variant of Martin-Löf’s type theory.
+Such theories do not have a separate logical language to express propositions and their proofs.
+Instead, they use the Curry-Howard correspondence to encode propositions as types.
+The false proposition corresponds to the empty type and the true proposition corresponds to the unit type.
+Different elements of a type can be thought of as different ways to prove corresponding proposition.
+For example, the type of natural numbers corresponds to the proposition that natural numbers exist and every element of this type witnesses a proof of this proposition.</p>
+
+<p class="notice--warning"><strong>Remark:</strong> This correspondence will be refined in Part II of this tutorial <!-- TODO -->, where we will argue that not every type should be though of as a proposition.</p>
+
+<p>In order to illustrate the correspondence between the empty type <span class="inl-highlight">Empty</span> and the logical False, we can prove
+that False implies everything by constructing an element of any type from an element in <span class="inl-highlight">Empty</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> absurd {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Empty) <span class="o">:</span> A
+<span class="c">-- There are no patterns since Empty does not have constructors.</span>
+
+<span class="c">-- This can be expressed more explicitly by means of the absurd patterns.</span>
+<span class="c">-- This pattern indicates that the data type of the corresponding variable does not have constructors.</span>
+<span class="c">-- If such a pattern is used, the right hand side of the clause can (and should) be omitted.</span>
+<span class="k">\func</span> absurd' {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Empty) <span class="o">:</span> A <span class="k">\elim</span> e
+  <span class="o">|</span> () <span class="c">-- absurd pattern</span></code></pre></div></div>
+
+<p>Of course, we can also prove that <span class="inl-highlight">Unit</span> corresponds to the logical True simply by constructing an element of this type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Unit-isTrue <span class="o">:</span> Unit <span class="o">=&gt;</span> unit</code></pre></div></div>
+
+<p>To formulate more complicated propositions, we need to define various logical connectives such as conjunction <span class="inl-highlight">&amp;&amp;</span>, disjunction <span class="inl-highlight"><span class="o">|</span><span class="o">|</span></span>, implication <span class="inl-highlight"><span class="o">-&gt;</span></span>, and negation <span class="inl-highlight">Not</span>.
+Let us begin with the implication.
+If <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span> is true, then the truth of <span class="inl-highlight">P</span> implies the truth of <span class="inl-highlight">Q</span>.
+Thus, we can think of a proof of <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span> as a function that transforms a proof of <span class="inl-highlight">P</span> into a proof of <span class="inl-highlight">Q</span>.
+That is, the type corresponding to the implications is the type of functions <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span>!</p>
+
+<p>We already can prove various propositional tautologies.
+For example, the identity function proves that <span class="inl-highlight">P <span class="o">-&gt;</span> P</span> holds for every proposition <span class="inl-highlight">P</span>.
+The constant function <span class="inl-highlight"><span class="k">\lam</span> x y <span class="o">=&gt;</span> x</span> proves <span class="inl-highlight">P <span class="o">-&gt;</span> Q <span class="o">-&gt;</span> P</span>.
+The composition function <span class="inl-highlight"><span class="k">\lam</span> g f x <span class="o">=&gt;</span> g (f x)</span> proves <span class="inl-highlight">(Q <span class="o">-&gt;</span> S) <span class="o">-&gt;</span> (P <span class="o">-&gt;</span> Q) <span class="o">-&gt;</span> P <span class="o">-&gt;</span> S</span>.</p>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Prove that <span class="inl-highlight">(P <span class="o">-&gt;</span> Q <span class="o">-&gt;</span> R) <span class="o">-&gt;</span> (P <span class="o">-&gt;</span> Q) <span class="o">-&gt;</span> P <span class="o">-&gt;</span> R</span>.</p>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Prove that <span class="inl-highlight">((P <span class="o">-&gt;</span> Q <span class="o">-&gt;</span> R) <span class="o">-&gt;</span> P) <span class="o">-&gt;</span> (P <span class="o">-&gt;</span> R) <span class="o">-&gt;</span> R</span>.</p>
+
+<p>Since <span class="inl-highlight">P &amp;&amp; Q</span> is true if and only if <span class="inl-highlight">P</span> and <span class="inl-highlight">Q</span> are true,
+we can say that a proof of <span class="inl-highlight">P &amp;&amp; Q</span> is just a pair consisting of a proof of <span class="inl-highlight">P</span> and a proof of <span class="inl-highlight">Q</span>.
+That is, the type corresponding to <span class="inl-highlight">P &amp;&amp; Q</span> is simply the type of pairs:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infixr</span> <span class="n">3</span> &amp;&amp; (P Q <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Sigma</span> P Q</code></pre></div></div>
+
+<p>It is easy to prove conjunction axioms:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function proves that P -&gt; Q -&gt; (P &amp;&amp; Q)</span>
+<span class="k">\func</span> &amp;&amp;-intro {P Q <span class="o">:</span> <span class="kt">\Type</span>} (p <span class="o">:</span> P) (q <span class="o">:</span> Q) <span class="o">:</span> <span class="k">\Sigma</span> P Q <span class="o">=&gt;</span> (p<span class="o">,</span> q)
+
+<span class="c">-- This function proves that (P &amp;&amp; Q) -&gt; P</span>
+<span class="k">\func</span> &amp;&amp;-elim1 {P Q <span class="o">:</span> <span class="kt">\Type</span>} (t <span class="o">:</span> <span class="k">\Sigma</span> P Q) <span class="o">:</span> P <span class="o">=&gt;</span> t.<span class="n">1</span>
+
+<span class="c">-- This function proves that (P &amp;&amp; Q) -&gt; Q</span>
+<span class="k">\func</span> &amp;&amp;-elim2 {P Q <span class="o">:</span> <span class="kt">\Type</span>} (t <span class="o">:</span> <span class="k">\Sigma</span> P Q) <span class="o">:</span> Q <span class="o">=&gt;</span> t.<span class="n">2</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Prove that <span class="inl-highlight">((P &amp;&amp; Q) <span class="o">-&gt;</span> R) <span class="o">-&gt;</span> P <span class="o">-&gt;</span> Q <span class="o">-&gt;</span> R</span>.</p>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Prove that <span class="inl-highlight">(P <span class="o">-&gt;</span> Q <span class="o">-&gt;</span> R) <span class="o">-&gt;</span> (P &amp;&amp; Q) <span class="o">-&gt;</span> R</span>.</p>
+
+<p>A proof of <span class="inl-highlight">P <span class="o">|</span><span class="o">|</span> Q</span> is either a proof of <span class="inl-highlight">P</span> or a proof of <span class="inl-highlight">Q</span>.
+The type corresponding to this principle is the sum type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> <span class="k">\infixr</span> <span class="n">2</span> <span class="o">|</span><span class="o">|</span> (P Q <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> inl P
+  <span class="o">|</span> inr Q</code></pre></div></div>
+
+<p>It is easy to prove disjunction axioms:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function proves that P -&gt; (P || Q)</span>
+<span class="k">\func</span> <span class="o">|</span><span class="o">|</span>-intro1 {P Q <span class="o">:</span> <span class="kt">\Type</span>} (p <span class="o">:</span> P) <span class="o">:</span> P <span class="o">|</span><span class="o">|</span> Q <span class="o">=&gt;</span> inl p
+
+<span class="c">-- This function proves that Q -&gt; (P || Q)</span>
+<span class="k">\func</span> <span class="o">|</span><span class="o">|</span>-intro2 {P Q <span class="o">:</span> <span class="kt">\Type</span>} (q <span class="o">:</span> Q) <span class="o">:</span> P <span class="o">|</span><span class="o">|</span> Q <span class="o">=&gt;</span> inr q
+
+<span class="c">-- This function proves that (P -&gt; R) -&gt; (Q -&gt; R) -&gt; (P || Q) -&gt; R</span>
+<span class="k">\func</span> <span class="o">|</span><span class="o">|</span>-elim {P Q R <span class="o">:</span> <span class="kt">\Type</span>} (l <span class="o">:</span> P <span class="o">-&gt;</span> R) (r <span class="o">:</span> Q <span class="o">-&gt;</span> R) (x <span class="o">:</span> P <span class="o">|</span><span class="o">|</span> Q) <span class="o">:</span> R <span class="k">\elim</span> x
+  <span class="o">|</span> inl p <span class="o">=&gt;</span> l p
+  <span class="o">|</span> inr q <span class="o">=&gt;</span> r q</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Prove that <span class="inl-highlight">(P <span class="o">-&gt;</span> R) <span class="o">-&gt;</span> (Q <span class="o">-&gt;</span> R) <span class="o">-&gt;</span> P <span class="o">|</span><span class="o">|</span> Q <span class="o">-&gt;</span> R</span>.</p>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Prove that <span class="inl-highlight">((P <span class="o">|</span><span class="o">|</span> Q) <span class="o">-&gt;</span> (P &amp;&amp; Q)) <span class="o">-&gt;</span> ((P <span class="o">-&gt;</span> Q) &amp;&amp; (Q <span class="o">-&gt;</span> P))</span>.</p>
+
+<p>The negation <span class="inl-highlight">Not P</span> can be defined in terms of the implication as <span class="inl-highlight">P <span class="o">-&gt;</span> Empty</span>.</p>
+
+<p class="notice--warning"><strong>Remark:</strong> The logic of Arend is intuitionistic. This means that the law of excluded middle, the double negation elimination, and other classically valid principles are not provable in Arend.
+In particular, it is not true that the conjunction <span class="inl-highlight">P &amp;&amp; Q</span> can be expressed as <span class="inl-highlight">Not (Not P <span class="o">|</span><span class="o">|</span> Not Q)</span>.
+Similarly, the disjunction <span class="inl-highlight">P <span class="o">|</span><span class="o">|</span> Q</span> cannot be expressed as <span class="inl-highlight">Not (Not P &amp;&amp; Not Q)</span> and the implication <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span> cannot be expressed as <span class="inl-highlight">Not P <span class="o">|</span><span class="o">|</span> Q</span>.</p>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Russell’s paradox shows that there is no set of all sets. If such a set exists, then we can form the set <code class="highlighter-rouge">B</code> of sets which are not members of themselves.
+Then <code class="highlighter-rouge">B</code> belongs to itself if and only if it is not.
+This implies a contradiction.
+Cantor’s theorem states that there is no set <code class="highlighter-rouge">X</code> with a surjection from <code class="highlighter-rouge">X</code> onto the set of subsets of <code class="highlighter-rouge">X</code>.
+Its proof also constructs a proposition which is true if and only if it is false.
+Prove that more generally the existence of any such proposition implies a contradiction.</p>
+
+<p>Finally, let us discuss quantifiers.
+A proof of <span class="inl-highlight">forall (x <span class="o">:</span> A). P(x)</span> should give us a proof of <span class="inl-highlight">P(a)</span> for every element <span class="inl-highlight">a <span class="o">:</span> A</span>.
+Thus, this proposition corresponds to the type of dependent functions <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> P x</span>.
+A proof of <span class="inl-highlight">exists (x <span class="o">:</span> A). P(x)</span> consists of an element <span class="inl-highlight">a <span class="o">:</span> A</span> and a proof of <span class="inl-highlight">P(a)</span>.
+Thus, this proposition corresponds to the type of dependent pairs <span class="inl-highlight"><span class="k">\Sigma</span> (x <span class="o">:</span> A) (P x)</span>.</p>
+
+<p class="notice--info"><strong>Exercise 8:</strong> Prove that if, for every <span class="inl-highlight">x <span class="o">:</span> Nat</span>, <span class="inl-highlight">P x</span> is true, then there exists <span class="inl-highlight">x <span class="o">:</span> Nat</span> such that <span class="inl-highlight">P x</span> is true.</p>
+
+<p class="notice--info"><strong>Exercise 9:</strong> Prove that if there is no <span class="inl-highlight">x <span class="o">:</span> Nat</span> such that <span class="inl-highlight">P x</span> holds, then <span class="inl-highlight">P <span class="n">3</span></span> is false.</p>
+
+<p class="notice--info"><strong>Exercise 10:</strong> Prove that if, for every <span class="inl-highlight">x <span class="o">:</span> Nat</span>, <span class="inl-highlight">P x</span> implies <span class="inl-highlight">Q x</span>,
+then the existence of an element <span class="inl-highlight">x <span class="o">:</span> Nat</span> for which <span class="inl-highlight">P x</span> is true implies the existence of an element <span class="inl-highlight">x <span class="o">:</span> Nat</span> for which <span class="inl-highlight">Q x</span> is true.</p>
+
+<p class="notice--info"><strong>Exercise 11:</strong> Prove that if, for every <span class="inl-highlight">x <span class="o">:</span> Nat</span>, either <span class="inl-highlight">P x</span> is false or <span class="inl-highlight">Q x</span> is false, then <span class="inl-highlight">P <span class="n">3</span></span> implies that <span class="inl-highlight">Q <span class="n">3</span></span> is false.</p>
+
+<h1 id="examples-of-propositions-and-proofs">Examples of propositions and proofs</h1>
+
+<p>Here we will give several simple examples of propositions and proofs, using what we have discussed so far. 
+To express various propositions, we will use the function <span class="inl-highlight">T</span> that interprets <span class="inl-highlight">true <span class="o">:</span> Bool</span>
+as the proposition True (type <span class="inl-highlight">Unit</span>) and <span class="inl-highlight">false <span class="o">:</span> Bool</span> as the proposition False (type <span class="inl-highlight">Empty</span>):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> T (b <span class="o">:</span> Bool) <span class="o">:</span> <span class="kt">\Type</span>
+  <span class="o">|</span> true <span class="o">=&gt;</span> Unit
+  <span class="o">|</span> false <span class="o">=&gt;</span> Empty</code></pre></div></div>
+
+<p>Now let us prove some statements about the two-element type <span class="inl-highlight">Bool</span> defined earlier.
+We formulate some properties of <span class="inl-highlight">Bool</span>, expressable in terms of equality predicate for <span class="inl-highlight">Bool</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infix</span> <span class="n">4</span> <span class="o">==</span> (x y <span class="o">:</span> Bool) <span class="o">:</span> Bool
+  <span class="o">|</span> true<span class="o">,</span> true <span class="o">=&gt;</span> true
+  <span class="o">|</span> false<span class="o">,</span> false <span class="o">=&gt;</span> true
+  <span class="o">|</span> <span class="u">_</span> <span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> false</code></pre></div></div>
+
+<p>For example, propositions <span class="inl-highlight">T (x <span class="o">==</span> x)</span> and <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</span> can be proven by case analysis:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isInvolution (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> x)
+  <span class="o">|</span> true <span class="o">=&gt;</span> unit <span class="c">-- if x is true, then T (not (not true) == true) evaluates to Unit</span>
+  <span class="o">|</span> false <span class="o">=&gt;</span> unit <span class="c">-- if x is false, then T (not (not false) == false) again evaluates to Unit</span>
+
+<span class="c">-- proof of reflexivity of == is analogous </span>
+<span class="k">\func</span> <span class="o">==</span>-refl (x <span class="o">:</span> Bool) <span class="o">:</span> T (x <span class="o">==</span> x)
+  <span class="o">|</span> true <span class="o">=&gt;</span> unit
+  <span class="o">|</span> false <span class="o">=&gt;</span> unit</code></pre></div></div>
+
+<p>In both cases in both proofs we simply return <span class="inl-highlight">unit</span>. Note that we cannot return <span class="inl-highlight">unit</span> without case analysis since
+both <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</span> and <span class="inl-highlight">T (x <span class="o">==</span> x)</span> do not evalute to <span class="inl-highlight">Unit</span>. The following code does not typecheck:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isInvolution' (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> x) <span class="o">=&gt;</span> unit</code></pre></div></div>
+
+<p>It is not possible to prove false statements in this way:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isIdempotent (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> not x)
+  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, an element of Empty is expected</span>
+  <span class="o">|</span> false <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, an element of Empty is expected</span>
+
+<span class="c">-- we can prove negation of not-isIdempoten</span>
+<span class="k">\func</span> not-isIdempotent' (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> not x) <span class="o">-&gt;</span> Empty
+  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- a proof of Empty -&gt; Empty</span>
+  <span class="o">|</span> false <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- again a proof of Empty -&gt; Empty</span></code></pre></div></div>
+
+<p>Let us also prove something involving quantification. For example, the statement 
+“for every <span class="inl-highlight">x <span class="o">:</span> Bool</span> there exists <span class="inl-highlight">y <span class="o">:</span> Bool</span> such that x == y”:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Sigma-types are used to express existential quantification</span>
+<span class="k">\func</span> lemma (x <span class="o">:</span> Bool) <span class="o">:</span> <span class="k">\Sigma</span> (y <span class="o">:</span> Bool) (T (x <span class="o">==</span> y)) <span class="o">=&gt;</span> (x<span class="o">,</span> <span class="o">==</span>-refl x)</code></pre></div></div>
+
+<p>The following is a proof of rather awkward statement “if every <span class="inl-highlight">x <span class="o">:</span> Bool</span> equals itself, then <span class="inl-highlight">true <span class="o">:</span> Bool</span>
+equals <span class="inl-highlight">true <span class="o">:</span> Bool</span>”:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> higherOrderFunc (f <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> Bool) <span class="o">-&gt;</span> T (x <span class="o">==</span> x)) <span class="o">:</span> T (true <span class="o">==</span> true) <span class="o">=&gt;</span> f true</code></pre></div></div>
+
+<h1 id="identity-type">Identity type</h1>
+
+<p>The way how we defined equality <span class="inl-highlight"><span class="o">==</span></span> for <span class="inl-highlight">Bool</span> above is not actually satisfactory. Its definition
+is specific for <span class="inl-highlight">Bool</span>, we need to make analogous definitions for all other types and each time prove, say, that it is
+an equivalence relation.</p>
+
+<p>Instead, we define an identity type for all types at once. Its definition is located in Prelude (type <span class="inl-highlight">Path</span> and its
+infix form <span class="inl-highlight"><span class="o">=</span></span>). We will not get into details for now, all that we currently need is the proof of reflexivity <span class="inl-highlight">idp <span class="o">:</span> a <span class="o">=</span> a</span>, which is also defined in Prelude.</p>
+
+<p>Now, all the equalities that we proved for <span class="inl-highlight"><span class="o">==</span></span> can similarly be proved for <span class="inl-highlight"><span class="o">=</span></span>. For example, 
+the equality <span class="inl-highlight">not (not x) <span class="o">=</span> x</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isInvolution'' (x <span class="o">:</span> Bool) <span class="o">:</span> not (not x) <span class="o">=</span> x
+  <span class="o">|</span> true <span class="o">=&gt;</span> idp
+  <span class="o">|</span> false <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>And as before, we cannot prove false statements:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isIdempotent'' (x <span class="o">:</span> Bool) <span class="o">:</span> not (not x) <span class="o">=</span> not x
+  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of true = false is expected</span>
+  <span class="o">|</span> false <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of false = true is expected</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 12:</strong> Prove associativity of <code class="highlighter-rouge">and</code> and <code class="highlighter-rouge">or</code>.</p>
+
+<p class="notice--info"><strong>Exercise 13:</strong> Prove that 2 * 2 equals to 4.</p>
+
+<p class="notice--info"><strong>Exercise 14:</strong> Prove associativity of the list concatenation.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

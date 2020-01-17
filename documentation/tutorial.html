@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Let - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>Tutorial - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Let">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/let.html">
+<meta property="og:title" content="Tutorial">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial.html">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/let.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial.html">
 
 
 
@@ -228,57 +228,6 @@
             
             
             
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/goals" class="">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/let" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
-              
-            
           
             
             
@@ -341,7 +290,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Let">
+    <meta itemprop="headline" content="Tutorial">
     
     
     
@@ -349,7 +298,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Let
+          <h1 id="page-title" class="page__title" itemprop="headline">Tutorial
 </h1>
           
         </header>
@@ -357,40 +306,19 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Let expressions allow to introduce local variables.
-Such expressions have the following syntax:</p>
+        <p>Arend language is based on homotopy type theory. For that reason, the most natural explanation for many language constructs in Arend,
+including the very basic ones, would be in terms of notions from homotopy theory. However, it is also possible to abstract away from 
+homotopical semantics and to consider the layer of Arend that corresponds simply to a variant of the classical Martin-Lof dependent
+type theory. The latter view is taken in this tutorial for the initial exposition of the language in <a href="PartI">Part I</a>, whereas homotopical semantics
+together with some specific for this semantics elements of the language are discussed in Part II.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\let</span> <span class="o">|</span> p_1 <span class="o">=&gt;</span> e_1
-     ...
-     <span class="o">|</span> p_n <span class="o">=&gt;</span> e_n
-<span class="k">\in</span> e_{n+1}</code></pre></div></div>
+<p>The <a href="PartI">Part I</a> is an introduction to the actual practices of working with dependent types in Arend. It contains
+example-based Arend-specific exposition of efficient ways of working with propositions and proofs, inductive types, classes and records,
+type universes, etc. We assume that the reader is familiar with basic concepts from ML-like languages (such as Haskell, Agda, or Coq/Gallina).</p>
 
-<p>where <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are patterns and <span class="inl-highlight">e_1<span class="o">,</span> … e_{n+1}</span> are expressions.</p>
-
-<p>Every pattern is either a variable or an expression of the form <span class="inl-highlight">(p_1’<span class="o">,</span> … p_k’)</span>,
-where <span class="inl-highlight">p_1’<span class="o">,</span> … p_k’</span> are patterns. This implies that if <span class="inl-highlight">p_i</span> is a tuple of k subpatterns,
-then the type of <span class="inl-highlight">e_i</span> must be either a k-fold Sigma type or a record with k fields.
-Note that because of the eta-equivalence for Sigma types and records the structure of
-<span class="inl-highlight">e_i</span> does not matter: for example, expression <span class="inl-highlight"><span class="k">\let</span> (x<span class="o">,</span>y) <span class="o">=&gt;</span> z <span class="k">\in</span> e</span> evaluates to
-<span class="inl-highlight">e[z.<span class="n">1</span>/x<span class="o">,</span>z.<span class="n">2</span>/y]</span> if type of <span class="inl-highlight">z</span> is Sigma type (and with fields instead of projections
-<span class="inl-highlight">z.<span class="n">1</span></span> and <span class="inl-highlight">z.<span class="n">2</span></span> in case of a record). In general, if pattern <span class="inl-highlight">p_i</span> contains
-variables <span class="inl-highlight">x_i^1<span class="o">,</span> … x_i^{n_i}</span> expression 
-<span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> p_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> p_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> e</span> evaluates to <span class="inl-highlight">e[… proj_i^j(e_i)/x_i^j …]</span>,
-where <span class="inl-highlight">proj_i^j</span> is the sequence of projections and field access expressions, corresponding to <span class="inl-highlight">j</span>-th variable of <span class="inl-highlight">p_i</span>.</p>
-
-<p>The expression <span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> x_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> x_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> e</span> has type 
-<span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> x_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> x_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> E</span>, where <span class="inl-highlight">E</span> is the type of <span class="inl-highlight">e</span>.</p>
-
-<p>The type of <span class="inl-highlight">e_i</span> can be explicitly specified as follows: <span class="inl-highlight"><span class="o">|</span> p_i <span class="o">:</span> E_i <span class="o">=&gt;</span> e_i</span>.</p>
-
-<p>It is also allowed to write lambda parameters after a pattern if it is a variable.
-That is, instead of <span class="inl-highlight"><span class="o">|</span> x_i <span class="o">=&gt;</span> e_i</span>, you can write <span class="inl-highlight"><span class="o">|</span> x_i p^i_1 … p^i_{n_i} <span class="o">=&gt;</span> e_i</span>,
-where <span class="inl-highlight">p^i_1<span class="o">,</span> … p^i_{n_i}</span> are either variables or named parameters to which <span class="inl-highlight">e_i</span> can refer.
-Such a clause is equivalent to <span class="inl-highlight"><span class="o">|</span> x_i <span class="o">=&gt;</span> <span class="k">\lam</span> p^i_1 … p^i_{n_i} <span class="o">=&gt;</span> e_i</span>.</p>
-
-<p>Let expressions also can be <em>strict</em>.
-This means that expressions <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> will be evaluated immediately when the let expression is evaluated.
-To define a strict let expression, use the keyword <span class="inl-highlight"><span class="k">\let!</span></span> instead of <span class="inl-highlight"><span class="k">\let</span></span>.</p>
+<p>The Part II is a practical introduction to homotopy type theory in the context of Arend. This part of the tutorial is currently missing, it will
+be uploaded in the nearest future. Themes discussed here include data types with conditions (higher inductive types) and homotopy levels of
+universes.</p>
 
         
       </section>

@@ -251,6 +251,32 @@
           
           
 
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
           <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
         
 
@@ -370,6 +396,26 @@ For example, we can define J itself as follows:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> <span class="k">\Pi</span> (a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>) (b <span class="o">:</span> B a idp) {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> B a' p <span class="k">\elim</span> p
   <span class="o">|</span> idp <span class="o">=&gt;</span> b</code></pre></div></div>
 
+<p>After we match <span class="inl-highlight">p</span> with <span class="inl-highlight">idp</span>, variables <span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> become equivalent.
+To be more precise, we can refer to both variables, but the latter will evaluate to the former.</p>
+
+<p>There are certain restrictions on this pattern matching principle.
+If we want to match <span class="inl-highlight">p <span class="o">:</span> e <span class="o">=</span> e’</span> with <span class="inl-highlight">idp</span>, expressions <span class="inl-highlight">e</span> and <span class="inl-highlight">e’</span> cannot be arbitrary.
+At least one of them must be a variable which does not occur in the other expression.
+Also, it should be possible to substitute the variable with this expression, which means that the free variables of the expression should be bound at each occurrence of the variable.</p>
+
+<p>This pattern matching principle can also be used in case-expressions.
+For example, J can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> <span class="k">\Pi</span> (a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>) (b <span class="o">:</span> B a idp) {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> B a' p
+  <span class="o">=&gt;</span> <span class="k">\case</span> <span class="k">\elim</span> a'<span class="o">,</span> <span class="k">\elim</span> p <span class="k">\with</span> {
+    <span class="o">|</span> <span class="u">_</span><span class="o">,</span> idp <span class="o">=&gt;</span> b
+  }</code></pre></div></div>
+
+<p>Note that the restrictions we described above should be satisfied.
+Moreover, the expression which is matched with <span class="inl-highlight">idp</span> should have type <span class="inl-highlight">p <span class="o">:</span> e <span class="o">=</span> e’</span>,
+where either <span class="inl-highlight">e</span> or <span class="inl-highlight">e’</span> is a variable bound in one of the arguments of the case expression.</p>
+
 <h1 id="coe-and-coe2">coe and coe2</h1>
 
 <p>Function <span class="inl-highlight">coe</span> is an eliminator for the interval type.
@@ -442,7 +488,7 @@ This definition implies the univalence axiom.</p>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2019 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
