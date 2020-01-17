@@ -13,4 +13,9 @@ var store = [{
         "excerpt":"We implemented a few features related to classes and pattern matching. One of these features is pattern matching on idp : a = a, which can be used instead of the J operator. Language updates: Implemented pattern matching on idp. This feature can be used instead of the J operator...","categories": [],
         "tags": [],
         "url": "https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html",
+        "teaser":null},{
+        "title": "The first part of our tutorial is ready",
+        "excerpt":"We finished the first part of our new tutorial. It covers all the basic constructions of Arend. It does not mention anything related to homotopy theory. This will be the topic of the second part.  ","categories": [],
+        "tags": [],
+        "url": "https://arend-lang.github.io/2020/01/17/tutorial-part-I.html",
         "teaser":null}]
