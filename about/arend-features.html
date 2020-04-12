@@ -247,6 +247,7 @@
       <li><a href="#universe-polymorphism">Universe Polymorphism</a></li>
     </ul>
   </li>
+  <li><a href="#language-extensions">Language Extensions</a></li>
 </ul>
             </nav>
           </aside>
@@ -531,6 +532,13 @@ Consider the following examples:</p>
 This implies that <span class="inl-highlight">Pointed</span> belongs to <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span></span>.
 Thus, the first implicit argument of the function <span class="inl-highlight">id</span> in the definition <span class="inl-highlight">test</span> is inferred to <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span></span>.
 This implies that the level arguments are inferred to <span class="inl-highlight">(<span class="k">\suc</span> (<span class="k">\suc</span> <span class="k">\lp),</span> <span class="k">\suc</span> (<span class="k">\suc</span> <span class="k">\lh))</span></span>.</p>
+
+<h1 id="language-extensions">Language Extensions</h1>
+
+<p>A language extension is a Java class which is invoked during type-checking.
+This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.
+They can also be used to implement various decision procedures for proof automation.
+To do this, you’ll need <a href="https://github.com/JetBrains/Arend/releases/latest/download/Arend-api-1.3.0.jar">Arend API</a> (you can also download its <a href="https://github.com/JetBrains/Arend/releases/latest/download/Arend-api-1.3.0-sources.jar">sources</a>).</p>
 
         
       </section>

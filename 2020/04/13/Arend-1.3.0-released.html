@@ -9,34 +9,34 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Arend 1.2.0 released - Arend Theorem Prover</title>
-<meta name="description" content="We implemented a few features related to classes and pattern matching.One of these features is pattern matching on idp : a = a, which can be used instead of the J operator.">
+<!-- begin _includes/seo.html --><title>Arend 1.3.0 released - Arend Theorem Prover</title>
+<meta name="description" content="We implemented language extensions.This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.They can also be used to implement various decision procedures for proof automation.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Arend 1.2.0 released">
-<meta property="og:url" content="https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html">
+<meta property="og:title" content="Arend 1.3.0 released">
+<meta property="og:url" content="https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html">
 
 
-  <meta property="og:description" content="We implemented a few features related to classes and pattern matching.One of these features is pattern matching on idp : a = a, which can be used instead of the J operator.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-12-16T00:00:00+03:00">
+  <meta property="og:description" content="We implemented language extensions.This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.They can also be used to implement various decision procedures for proof automation.">
 
 
 
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html">
+
+  <meta property="article:published_time" content="2020-04-13T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html">
 
 
 
@@ -151,31 +151,25 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">Arend 1.2.0 released</h1>
+      <h1 id="page-title" class="page__title">Arend 1.3.0 released</h1>
     
-    <p>We implemented a few features related to classes and pattern matching.
-One of these features is pattern matching on <span class="inl-highlight">idp <span class="o">:</span> a <span class="o">=</span> a</span>, which can be used instead of the J operator.</p>
+    <p>We implemented language extensions.
+This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.
+They can also be used to implement various decision procedures for proof automation.</p>
 
 <p>Language updates:</p>
 <ul>
-  <li>Implemented pattern matching on <a href="/documentation/language-reference/prelude#idp">idp</a>.
-This feature can be used instead of the J operator to define functions on path types.
-This is a standard feature in other proof assistants, but was missing from Arend since it has a different definition of path types.</li>
-  <li>New keyword <a href="/documentation/language-reference/definitions/classes#classifying-fields">\noclassifying</a> can be used to define classes without classifying fields.
-Such classes are similar to Agda’s modules and Coq’s sections.</li>
-  <li>The type of a field can be overridden with a subtype in a subclass using new keyword <a href="/documentation/language-reference/definitions/records#override">\override</a>.</li>
-  <li>Variables can be <a href="/documentation/language-reference/expressions/case#elim-in-case">eliminated</a> in <span class="inl-highlight"><span class="k">\case</span></span> expressions now.</li>
-  <li>Implemented <a href="/documentation/language-reference/definitions/data#constructor-synonyms">constructor synonyms</a>.</li>
-  <li>It is possible now to implement fields using <a href="/documentation/language-reference/definitions/functions#patterns-in-coclauses">pattern matching</a>.</li>
-  <li>We decided to make <a href="/documentation/language-reference/expressions/universes">\Prop</a> proof relevant in general (but it is still proof irrelevant in some cases).
-The implementation in 1.1.0 was incorrect and it turns out that it is <a href="https://arxiv.org/abs/1911.08174v1">impossible</a> to implement it without loss of the normalization property.</li>
-  <li>Now, fields and implementations in a class are typechecked in the order they are specified (before now implementations were typechecked after fields).</li>
+  <li>Implemented <a href="/about/arend-features#language-extensions">language extensions</a>.</li>
+  <li>Arend now shows conditions in goals which makes it easier to write functions over higher inductive types.</li>
 </ul>
 
 <p>Plugin updates:</p>
 <ul>
-  <li>Fixed some problems with pattern generator and implemented case split for \Sigma-types and records.</li>
-  <li>It is possible now to adjust the verbosity of pretty printer in error messages.</li>
+  <li>Implemented “<a href="/about/intellij-arend/show-types">show type</a>” feature.</li>
+  <li>Implemented “<a href="/about/intellij-features#show-expr">show (normalized) b)expression</a>” feature.
+This can be used to see inferred implicit arguments or the result of invocation of some function.</li>
+  <li>Implemented “<a href="/about/intellij-features#normalize-expr">replace (sub)expression</a>” feature.
+This can be used to replace an expression with its normalized result.</li>
 </ul>
 
 

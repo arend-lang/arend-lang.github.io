@@ -18,4 +18,9 @@ var store = [{
         "excerpt":"We finished the first part of our new tutorial. It covers all the basic constructions of Arend. It does not mention anything related to homotopy theory. This will be the topic of the second part.  ","categories": [],
         "tags": [],
         "url": "https://arend-lang.github.io/2020/01/17/tutorial-part-I.html",
+        "teaser":null},{
+        "title": "Arend 1.3.0 released",
+        "excerpt":"We implemented language extensions. This can be used to implement custom operations on the abstract syntax tree which are not supported by the language. They can also be used to implement various decision procedures for proof automation. Language updates: Implemented language extensions. Arend now shows conditions in goals which makes...","categories": [],
+        "tags": [],
+        "url": "https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html",
         "teaser":null}]
