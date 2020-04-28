@@ -473,22 +473,22 @@ Consider the following example:</p>
 
 <span class="c">{-
 -- This function will not typecheck.
-\func extract (p : Exists (n : Nat) (n = 3)) : Nat
+\func extract (p : Exists Nat (\lam n =&gt; n = 3)) : Nat
   | witness a b =&gt; a
 -}</span>
 
-<span class="k">\func</span> existsSuc (p <span class="o">:</span> Exists (n <span class="o">:</span> Nat) (n <span class="o">=</span> <span class="n">3</span>)) <span class="o">:</span> Exists (n <span class="o">:</span> Nat) (suc n <span class="o">=</span> <span class="n">4</span>)
+<span class="k">\func</span> existsSuc (p <span class="o">:</span> Exists Nat (<span class="k">\lam</span> n <span class="o">=&gt;</span> n <span class="o">=</span> <span class="n">3</span>)) <span class="o">:</span> Exists Nat (<span class="k">\lam</span> n <span class="o">=&gt;</span> suc n <span class="o">=</span> <span class="n">4</span>)
   <span class="o">|</span> witness n p <span class="o">=&gt;</span> witness (suc n) (path (<span class="k">\lam</span> i <span class="o">=&gt;</span> suc (p <span class="o">@</span> i)))
 
 
-<span class="k">\func</span> existsEq (p <span class="o">:</span> Exists (n <span class="o">:</span> Nat) (n <span class="o">=</span> <span class="n">3</span>)) <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> <span class="n">0</span>
+<span class="k">\func</span> existsEq (p <span class="o">:</span> Exists Nat (<span class="k">\lam</span> n <span class="o">=&gt;</span> n <span class="o">=</span> <span class="n">3</span>)) <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> <span class="n">0</span>
   <span class="o">|</span> witness n p <span class="o">=&gt;</span> path (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> <span class="n">0</span>)</code></pre></div></div>
 
 <p>The data type <span class="inl-highlight">Exists</span> defines a proposition of the form ‘There is an <span class="inl-highlight">a <span class="o">:</span> A</span> such that <span class="inl-highlight">B a</span>’.
-Note that a function like <span class="inl-highlight">extract</span>, which extracts <span class="inl-highlight">n <span class="o">:</span> Nat</span> out of a proof of <span class="inl-highlight">Exists (n <span class="o">:</span> Nat) (n <span class="o">=</span> <span class="n">3</span>)</span>,
+Note that a function like <span class="inl-highlight">extract</span>, which extracts <span class="inl-highlight">n <span class="o">:</span> Nat</span> out of a proof of <span class="inl-highlight">Exists Nat (<span class="k">\lam</span> n <span class="o">=&gt;</span> n <span class="o">=</span> <span class="n">3</span>)</span>,
 is not valid as its result type <span class="inl-highlight">Nat</span> is of homotopy level of a set (h = 0), which is greater than the homotopy level of a proposition (h = -1).
 Two other functions <span class="inl-highlight">existsSuc</span> and <span class="inl-highlight">existsEq</span> in the example above are correct as 
-their result types, <span class="inl-highlight">Exists (n <span class="o">:</span> Nat) (suc n <span class="o">=</span> <span class="n">4</span>)</span> and <span class="inl-highlight"><span class="n">0</span> <span class="o">=</span> <span class="n">0</span></span> respectively, are propositions.</p>
+their result types, <span class="inl-highlight">Exists Nat (<span class="k">\lam</span> n <span class="o">=&gt;</span> suc n <span class="o">=</span> <span class="n">4</span>)</span> and <span class="inl-highlight"><span class="n">0</span> <span class="o">=</span> <span class="n">0</span></span> respectively, are propositions.</p>
 
 <p>If the universe of the resulting type is greater than the universe of the data type, it is still possible to define a function by pattern matching on it if the resulting type is <em>provably</em> belongs to the universe of the data type.
 This can be done with keyword <a href="level#level-of-a-type">\level</a>.
