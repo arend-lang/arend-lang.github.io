@@ -443,7 +443,7 @@ Let us give a few examples:</p>
   <span class="o">|</span> inT A
   <span class="o">|</span> truncT (x y <span class="o">:</span> Trunc A) (i <span class="o">:</span> I) <span class="k">\elim</span> i {
     <span class="o">|</span> left <span class="o">=&gt;</span> x
-    <span class="o">|</span> right <span class="o">=&gt;</span> x
+    <span class="o">|</span> right <span class="o">=&gt;</span> y
   }
 
 <span class="c">-- Set quotient</span>
@@ -462,10 +462,10 @@ Let us give a few examples:</p>
 
 <p>If <span class="inl-highlight">X</span> is a proposition, then, to define a function of type <span class="inl-highlight">Trunc A <span class="o">-&gt;</span> X</span>, it is enough to specify its value for <span class="inl-highlight">inT a</span>.
 The same works for any higher inductive type and any level.
-For example, to define a function <span class="inl-highlight">Quotient A <span class="o">-&gt;</span> X</span>, it is enough to specify its value for <span class="inl-highlight">inQ a</span> and <span class="inl-highlight">equivQ x y r i</span>
+For example, to define a function <span class="inl-highlight">Quotient A R <span class="o">-&gt;</span> X</span>, it is enough to specify its value for <span class="inl-highlight">inQ a</span> and <span class="inl-highlight">equivQ x y r i</span>
 if <span class="inl-highlight">X</span> is a set and only for <span class="inl-highlight">inQ a</span> if it is a proposition.
 This also works for several arguments.
-For example, if <span class="inl-highlight">X</span> is a set, then, to define a function <span class="inl-highlight">Quotient A <span class="o">-&gt;</span> Quotient A <span class="o">-&gt;</span> X</span>,
+For example, if <span class="inl-highlight">X</span> is a set, then, to define a function <span class="inl-highlight">Quotient A R <span class="o">-&gt;</span> Quotient A R <span class="o">-&gt;</span> X</span>,
 it is enough to specify its value for <span class="inl-highlight">inQ a<span class="o">,</span> inQ a’</span>, <span class="inl-highlight">inQ a<span class="o">,</span> equivQ x y r i</span>, and <span class="inl-highlight">equivQ x y r i<span class="o">,</span> inQ a</span>.</p>
 
         
