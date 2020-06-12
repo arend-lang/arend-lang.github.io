@@ -1,0 +1,910 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Stratified Universes and Univalence - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Stratified Universes and Univalence">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/hom-levels.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/hom-levels.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hprops" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Sets</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hom-levels" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Stratified Universes and Univalence</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/sets" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basic Set Theory</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Spaces and Homotopy Theory</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Stratified Universes and Univalence">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Stratified Universes and Univalence
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Stratified Universes and Univalence</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#the-universe-prop">The universe \Prop</a></li>
+  <li><a href="#the-universe-set">The universe \Set</a></li>
+  <li><a href="#universes-n-type">Universes \n-Type</a></li>
+  <li><a href="#truncated-data-propositional-truncation">Truncated data, propositional truncation</a></li>
+  <li><a href="#propositions--and-">Propositions ∨ and ∃</a></li>
+  <li><a href="#equality-of-types-iso">Equality of types, ‘iso’</a></li>
+  <li><a href="#an-example-of-application-of-univalence">An example of application of univalence</a></li>
+  <li><a href="#implications-of-univalence-for-prop-and-set">Implications of univalence for \Prop and \Set</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartII/src/HomUniverses.ard">PartII/HomUniverses.ard</a> <br />
+The source code for the exercises: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartII/src/Exercises/HomUniversesEx.ard">PartII/HomUniversesEx.ard</a></p>
+
+<p>In this module we introduce additional universes and explain the principles that allow to prove non-trivial
+equalities between elements of universes, that is between types.</p>
+
+<p>Firstly, we show that the stratification of types according to their homotopy level is reflected in the structure of universes. 
+Apart from the universe <span class="inl-highlight"><span class="kt">\Type</span></span> of all types there are more specific 
+universes: the universe <span class="inl-highlight"><span class="kt">\Prop</span></span> of all propositions, the universe <span class="inl-highlight"><span class="kt">\Set</span></span>
+of all sets and more generally the universe <span class="inl-highlight"><span class="k">\n-Type</span></span> of all types of homotopy level
+<span class="inl-highlight">n</span>.</p>
+
+<p>Secondly, we introduce the <em>univalence axiom</em> saying that equalities between types are precisely the equivalences
+between them.</p>
+
+<h1 id="the-universe-prop">The universe \Prop</h1>
+
+<p>The universe <span class="inl-highlight"><span class="kt">\Prop</span></span> consists of all propositions, that is of all types 
+<span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Type</span></span> satisfying the predicate <span class="inl-highlight">isProp</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isProp (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> x <span class="o">=</span> y</code></pre></div></div>
+
+<p>This means that there exist functions in both directions between <span class="inl-highlight"><span class="kt">\Prop</span></span> and the 
+subuniverse <span class="inl-highlight"><span class="k">\Sigma</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (isProp A)</span> of <span class="inl-highlight"><span class="kt">\Type</span></span>, consisting of
+all propositions in <span class="inl-highlight"><span class="kt">\Type</span></span>. We denote the latter universe as <span class="inl-highlight">PropInType</span>.</p>
+
+<p>By definition <span class="inl-highlight"><span class="kt">\Prop</span></span> embeds into <span class="inl-highlight">PropInType</span>. Firstly,
+<span class="inl-highlight"><span class="kt">\Prop</span></span> is a subuniverse of <span class="inl-highlight"><span class="kt">\Type</span></span>, that is 
+<span class="inl-highlight">P <span class="o">:</span> <span class="kt">\Prop</span></span> implies <span class="inl-highlight">P <span class="o">:</span> <span class="kt">\Type</span></span>. Secondly, every <span class="inl-highlight">P <span class="o">:</span> <span class="kt">\Prop</span></span>
+is a proposition by an axiom <span class="inl-highlight">Path.inProp P</span> located in Prelude.</p>
+
+<p>The construction of a function in the opposite direction from <span class="inl-highlight">PropInType</span> to
+<span class="inl-highlight"><span class="kt">\Prop</span></span> is also simple, but requires an additional language construct 
+<span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span>.</p>
+
+<p>The <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> construct allows to place a data definition <span class="inl-highlight">D A_1 … A_n</span>
+in the universe <span class="inl-highlight"><span class="kt">\Prop</span></span> as long as there is a proof of 
+<span class="inl-highlight"><span class="k">\Pi</span> (a_1 <span class="o">:</span> A_1) … (a_n <span class="o">:</span> A_n) <span class="o">-&gt;</span> isProp (D a_1 … a_n)</span>. In order to do that one 
+should write a function with corresponding result type in the \where-block of <span class="inl-highlight">D</span> and
+with <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> keywords instead of <span class="inl-highlight"><span class="k">\func</span></span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> PropInType-to-Prop (A <span class="o">:</span> <span class="kt">\Type</span>) (p <span class="o">:</span> isProp A)
+  <span class="o">|</span> inc A
+  <span class="k">\where</span> {
+    <span class="c">-- Here we prove that 'PropInType-to-Prop' satisfies 'isProp'.</span>
+    <span class="c">-- This results in 'PropInType-to-Prop A p : \Prop' for all 'A' and 'p'.</span>
+    <span class="c">-- Without '\use \level' 'PropInType-to-Prop A p' would not be in '\Prop'</span>
+    <span class="c">--   unless 'A' is in '\Prop'.</span>
+    <span class="k">\use</span> <span class="k">\level</span> dataIsProp {A <span class="o">:</span> <span class="kt">\Type</span>} {p <span class="o">:</span> isProp A} 
+                     (d1 d2 <span class="o">:</span> PropInType-to-Prop A p) <span class="o">:</span> d1 <span class="o">=</span> d2 <span class="k">\elim</span> d1<span class="o">,</span> d2
+      <span class="o">|</span> inc a1<span class="o">,</span> inc a2 <span class="o">=&gt;</span> pmap inc (p a1 a2)
+  }</code></pre></div></div>
+
+<p>As we will discuss below, there are universes <span class="inl-highlight"><span class="kt">\Set</span></span> of all sets and, in general,
+<span class="inl-highlight"><span class="k">\n-Type</span></span> of all types of homotopy level n. The <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> construct
+can be used similarly in these cases, see <a href="/documentation/language-reference/definitions/level">Language Reference</a> for details.</p>
+
+<p class="notice--info"><strong>Exercise 1:</strong> The type <span class="inl-highlight">Dec A</span> below is by default placed in <span class="inl-highlight"><span class="kt">\Set0</span></span>. Place it
+in <span class="inl-highlight"><span class="kt">\Prop</span></span> by means of <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Dec (A <span class="o">:</span> <span class="kt">\Prop</span>)
+  <span class="o">|</span> yes A
+  <span class="o">|</span> no (A <span class="o">-&gt;</span> Empty)</code></pre></div></div>
+
+<p>The embedding of <span class="inl-highlight"><span class="kt">\Prop</span></span> into <span class="inl-highlight">PropInType</span> is inverse to the map
+<span class="inl-highlight">PropInType-to-Prop</span>, but we have not yet introduced all the tools necessary to prove that.
+<!--TODO:ref--></p>
+
+<h1 id="the-universe-set">The universe \Set</h1>
+
+<p>Recall that in the previous module we noted that the equality <span class="inl-highlight">x=y</span> is not always a proposition
+and defined sets as those types <span class="inl-highlight">A</span>, for which equality <span class="inl-highlight">a=a’</span> between any two 
+elements <span class="inl-highlight">a a’ <span class="o">:</span> A</span> is a propoposition:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isSet (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> isProp (x <span class="o">=</span> y)</code></pre></div></div>
+
+<p>There is a universe <span class="inl-highlight"><span class="kt">\Set</span></span> of all sets. Just as the universe <span class="inl-highlight"><span class="kt">\Type</span></span> is not
+a single universe, but a hierarchy of universes <span class="inl-highlight"><span class="kt">\Type</span> n</span> parameterized by the predicative
+level <span class="inl-highlight">n</span>, <span class="inl-highlight"><span class="kt">\Set</span></span> is also a predicative hierarchy <span class="inl-highlight"><span class="kt">\Set</span> n</span>.</p>
+
+<p>The universe <span class="inl-highlight"><span class="kt">\Set</span> n</span> is equivalent to the subuniverse <span class="inl-highlight"><span class="k">\Sigma</span> (A <span class="o">:</span> <span class="kt">\Type</span> n) (isSet A)</span>
+of <span class="inl-highlight"><span class="kt">\Type</span> n</span>. Denote <span class="inl-highlight"><span class="k">\Sigma</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (isSet A)</span> as <span class="inl-highlight">SetInType</span>.</p>
+
+<p>Let us construct a function from <span class="inl-highlight"><span class="kt">\Set</span></span> to <span class="inl-highlight">SetInType</span>. Such a construction relies on 
+the following property of the universe <span class="inl-highlight"><span class="kt">\Set</span></span>: for every set <span class="inl-highlight">A</span>
+in <span class="inl-highlight"><span class="kt">\Set</span></span> its equality type lies in the universe <span class="inl-highlight"><span class="kt">\Prop</span></span>. We can thus 
+use <span class="inl-highlight">Path.inProp</span> to prove <span class="inl-highlight">isSet A</span> for sets in <span class="inl-highlight"><span class="kt">\Set</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Set-to-SetInType (A <span class="o">:</span> <span class="kt">\Set</span> <span class="k">\lp)</span> <span class="o">:</span> <span class="k">\Sigma</span> (A <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp)</span> (isSet A) <span class="o">=&gt;</span>
+       (A<span class="o">,</span> <span class="k">\lam</span> x y <span class="o">=&gt;</span> Path.inProp {x <span class="o">=</span> y})</code></pre></div></div>
+
+<p>The inverse function can be constructed with the use of <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> in the similar way as the function
+<span class="inl-highlight">PropInType-to-Prop</span>.</p>
+
+<h1 id="universes-n-type">Universes \n-Type</h1>
+
+<p>Universes <span class="inl-highlight"><span class="kt">\Prop</span></span> and <span class="inl-highlight"><span class="kt">\Set</span></span> are particular instances of universes of all types of 
+a given homotopy level. In general, we have a hierarchy <span class="inl-highlight"><span class="k">\n-Type</span></span> of universes parameterized by
+homotopy level n. The homotopy level can be specified as the second argument to <span class="inl-highlight"><span class="kt">\Type</span></span> (after 
+predicative level) or before <span class="inl-highlight">Type</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> bak <span class="o">=&gt;</span> <span class="kt">\Type</span> <span class="n">30</span> <span class="n">66</span>
+<span class="k">\func</span> bak' <span class="o">=&gt;</span> <span class="kt">\66-Type</span> <span class="n">30</span>
+<span class="c">-- With predicative level omitted.</span>
+<span class="k">\func</span> bak'' <span class="o">=&gt;</span> <span class="kt">\66-Type</span></code></pre></div></div>
+
+<p>There are two equivalent ways to refer to the universe of sets: as <span class="inl-highlight"><span class="kt">\Set</span></span> or as <span class="inl-highlight"><span class="kt">\0-Type</span></span>. 
+For every predicative level n the universe <span class="inl-highlight"><span class="kt">\Set</span> n</span> is the same as <span class="inl-highlight"><span class="kt">\0-Type</span> n</span>.
+The universe of propositions, however, can only be referred to as <span class="inl-highlight"><span class="kt">\Prop</span></span>, it is not allowed to write
+<span class="inl-highlight"><span class="k">\(-1)-Type</span></span>. The universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is slightly aside since it is impredicative, that is
+it does not have predicative level.</p>
+
+<p>The universes form a hierarchy according to the following rule: <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Type</span> n m</span> implies 
+<span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Type</span> (n+1) (m+1)</span>. In particular, <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Prop</span></span> implies <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Type</span> n m</span>.</p>
+
+<p>Recall the definition of <span class="inl-highlight">hasLevel</span> from the previous module:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The predicate saying "A has level suc-l - 1"</span>
+<span class="k">\func</span> hasLevel (A <span class="o">:</span> <span class="kt">\Type</span>) (suc-l <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\elim</span> suc-l
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> isProp A
+  <span class="o">|</span> suc suc-l <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> (x <span class="o">=</span> y) <span class="o">`hasLevel`</span> suc-l</code></pre></div></div>
+
+<p>For any natural number n&gt;0, the equivalence between <span class="inl-highlight"><span class="k">\(n-1)-Type</span></span> and the subuniverse 
+<span class="inl-highlight"><span class="k">\Sigma</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (A <span class="o"><code class="highlighter-rouge">hasLevel</code></span> n)</span> can be constructed in the same way as for
+<span class="inl-highlight"><span class="kt">\Set</span></span>.</p>
+
+<p>The computation of homotopy levels of types is in many respects similar to the computation of predicative
+levels. However, there are two important distinctions of homotopy levels. Firstly, the level of <span class="inl-highlight"><span class="k">\Pi</span></span> is equal
+to the level of its codomain: if <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Type</span> n m</span> and <span class="inl-highlight">B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span> n’ m’</span>, then 
+<span class="inl-highlight">(<span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x) <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\max</span> n n’) m’</span>. Secondly, if <span class="inl-highlight">A <span class="o">:</span> <span class="k">\(n+1)-Type</span></span>,
+then <span class="inl-highlight">a=a’ <span class="o">:</span> <span class="k">\n-Type</span></span> for all <span class="inl-highlight">a a’ <span class="o">:</span> A</span>.</p>
+
+<h1 id="truncated-data-propositional-truncation">Truncated data, propositional truncation</h1>
+
+<p>As we have seen, by means of <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> a data definition <span class="inl-highlight">D</span> can be placed in the universe of
+homotopy level n in case <span class="inl-highlight">D</span> can be proven to be of homotopy level n. A data definition can be also <em>enforced</em>
+to be in the universe of a given homotopy level by using the keyword <span class="inl-highlight"><span class="k">\truncated</span></span>. In that case the universe
+of the data definition must, of course, be specified explicitly. For example, the projection of types to propositions, which is called
+<em>propositional truncation</em>, is a truncated data:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Proposition 'Trunc A' says "A is nonempty".</span>
+<span class="k">\truncated</span> <span class="k">\data</span> Trunc (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Prop</span>
+  <span class="o">|</span> trunc A
+
+<span class="c">-- Example: 'Trunc Nat'.</span>
+<span class="k">\func</span> truncNat <span class="o">:</span> trunc <span class="n">0</span> <span class="o">=</span> trunc <span class="n">1</span> <span class="o">=&gt;</span> Path.inProp (trunc <span class="n">0</span>) (trunc <span class="n">1</span>)
+
+<span class="c">-- We can prove the negation of "Empty is nonempty".</span>
+<span class="k">\func</span> Trunc-Empty (t <span class="o">:</span> Trunc Empty) <span class="o">:</span> Empty <span class="k">\elim</span> t
+  <span class="o">|</span> trunc a <span class="o">=&gt;</span> a</code></pre></div></div>
+
+<p>Truncating a data has one crucial consequence: any function defined by recursion over a truncated data must have the 
+codomain lying in the universe of the data. For example, the following function does not typecheck:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This does not typecheck!</span>
+<span class="k">\func</span> ex1 (t <span class="o">:</span> Trunc Nat) <span class="o">:</span> Nat
+  <span class="o">|</span> trunc n <span class="o">=&gt;</span> n
+
+<span class="c">-- But we can define 'ex2' since 0 = 0 is in \Prop.</span>
+<span class="k">\func</span> ex2 (t <span class="o">:</span> Trunc Nat) <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> <span class="n">0</span>
+  <span class="o">|</span> trunc n <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>Elimination principle for <span class="inl-highlight">Trunc A</span> is restricted to propositions. It says that if <span class="inl-highlight">B</span>
+is a proposition and there is a function <span class="inl-highlight">A <span class="o">-&gt;</span> B</span>, then <span class="inl-highlight">Trunc A</span> implies <span class="inl-highlight">B</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Trunc-elim {A <span class="o">:</span> <span class="kt">\Type</span>} {B <span class="o">:</span> <span class="kt">\Prop</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (a <span class="o">:</span> Trunc A) <span class="o">:</span> B <span class="k">\elim</span> a
+  <span class="o">|</span> trunc a <span class="o">=&gt;</span> f a
+<span class="c">-- The eliminator computes on constructor:</span>
+<span class="c">-- Trunc-elim f (trunc a) ===&gt; f a</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Prove that if <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Prop</span></span>, then <span class="inl-highlight">Trunc A</span> is equivalent to <span class="inl-highlight">A</span>.</p>
+
+<p>Note that we can alternatively define the propositional truncation as a function reflecting this elimination
+principle. Recall, that in this way we can define, say, Church-style natural numbers:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Nat-church <span class="o">=&gt;</span> <span class="k">\Pi</span> (X <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> (X <span class="o">-&gt;</span> X) <span class="o">-&gt;</span> X <span class="o">-&gt;</span> X
+
+<span class="k">\func</span> zero-church <span class="o">:</span> Nat-church <span class="o">=&gt;</span> <span class="k">\lam</span> X f x <span class="o">=&gt;</span> x
+<span class="k">\func</span> one-church <span class="o">:</span> Nat-church <span class="o">=&gt;</span> <span class="k">\lam</span> X f x <span class="o">=&gt;</span> f x
+<span class="c">-- ...</span></code></pre></div></div>
+
+<p>In case of the propositional translation we have the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Trunc' (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Prop</span> <span class="o">=&gt;</span> <span class="k">\Pi</span> (X <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">-&gt;</span> (A <span class="o">-&gt;</span> X) <span class="o">-&gt;</span> X
+
+<span class="k">\func</span> trunc' {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">:</span> Trunc' A <span class="o">=&gt;</span> <span class="k">\lam</span> X f <span class="o">=&gt;</span> f a
+
+<span class="k">\func</span> Trunc'-elim {A <span class="o">:</span> <span class="kt">\Type</span>} {B <span class="o">:</span> <span class="kt">\Prop</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (a <span class="o">:</span> Trunc' A) <span class="o">:</span> B
+  <span class="o">=&gt;</span> a B f</code></pre></div></div>
+
+<p>In some simple cases there is no need to truncate the data or to use <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> since
+the data is placed in the universe automatically. For example, a data is placed in <span class="inl-highlight"><span class="kt">\Prop</span></span>
+if it has at most one constructor and types of all the parameters of the constructor are in <span class="inl-highlight"><span class="kt">\Prop</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> T (b <span class="o">:</span> Bool) <span class="k">\with</span>
+   <span class="o">|</span> true <span class="o">=&gt;</span> tt
+
+<span class="k">\func</span> T-test (b <span class="o">:</span> Bool) <span class="o">:</span> <span class="kt">\Prop</span> <span class="o">=&gt;</span> T b</code></pre></div></div>
+
+<p>For functions defined by pattern matching the minimal appropriate universe is inferred:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> T' (b <span class="o">:</span> Bool) <span class="o">:</span> <span class="kt">\Type</span>
+  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="k">\Sigma</span>
+  <span class="o">|</span> false <span class="o">=&gt;</span> Empty
+
+<span class="k">\func</span> T'-test (b <span class="o">:</span> Bool) <span class="o">:</span> <span class="kt">\Prop</span> <span class="o">=&gt;</span> T' b</code></pre></div></div>
+
+<h1 id="propositions--and-">Propositions ∨ and ∃</h1>
+
+<p>We are now ready to define propositional operations “or” and “exists”, which were left undefined in the 
+previous module. Types <span class="inl-highlight">Either</span> and <span class="inl-highlight"><span class="k">\Sigma</span></span>, the Curry-Howard “or” and “exists”
+respectively, are not propositions even if they are applied to propositions, but we can fix it by applying propositional
+truncation. “or” can be equivalently defined either as a truncation of <span class="inl-highlight">Either</span> or as a 
+<span class="inl-highlight"><span class="k">\truncated</span> <span class="k">\data</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Either (A B <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">|</span> inl A <span class="o">|</span> inr B
+
+<span class="k">\truncated</span> <span class="k">\data</span> <span class="k">\fixr</span> <span class="n">2</span> Or (A B <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Prop</span>
+  <span class="o">|</span> inl A
+  <span class="o">|</span> inr B
+
+<span class="k">\func</span> <span class="k">\fixr</span> <span class="n">2</span> Or' (A B <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Prop</span> <span class="o">=&gt;</span> Trunc (Either A B)</code></pre></div></div>
+
+<p>It is easy to see that <span class="inl-highlight">Or</span> satisfies the required properties: <span class="inl-highlight">A <span class="o">-&gt;</span> A <span class="o"><code class="highlighter-rouge">Or</code></span> B</span>
+(constructor <span class="inl-highlight">inl</span>), <span class="inl-highlight">B <span class="o">-&gt;</span> A <span class="o"><code class="highlighter-rouge">Or</code></span> B</span> (constructor <span class="inl-highlight">inr</span>) and
+for any proposition <span class="inl-highlight">C</span> and all types <span class="inl-highlight">A</span>, <span class="inl-highlight">B</span> if 
+<span class="inl-highlight">A <span class="o">-&gt;</span> C</span> and <span class="inl-highlight">B <span class="o">-&gt;</span> C</span>, then <span class="inl-highlight">A <span class="o"><code class="highlighter-rouge">Or</code></span> B <span class="o">-&gt;</span> C</span>. The latter is
+the recursor for <span class="inl-highlight">Or</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Or-rec {A B C <span class="o">:</span> <span class="kt">\Prop</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> C) (g <span class="o">:</span> B <span class="o">-&gt;</span> C) (p <span class="o">:</span> A <span class="o">`Or`</span> B) <span class="o">:</span> C <span class="k">\elim</span> p
+  <span class="o">|</span> inl a <span class="o">=&gt;</span> f a
+  <span class="o">|</span> inr b <span class="o">=&gt;</span> g b</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Prove the following de Morgan’s law:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> deMorgan (A B C <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">:</span> (<span class="k">\Sigma</span> A (B <span class="o">`Or`</span> C)) &lt;-&gt; ((<span class="k">\Sigma</span> A B) <span class="o">`Or`</span> (<span class="k">\Sigma</span> A C)) <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Define eliminator for <span class="inl-highlight">Or</span> via <span class="inl-highlight">Or-rec</span> not using pattern matching
+on <span class="inl-highlight">Or</span>.</p>
+
+<p>Similarly, “exists” is the propositional truncation of <span class="inl-highlight"><span class="k">\Sigma</span></span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> exists (A <span class="o">:</span> <span class="kt">\Type</span>) (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) <span class="o">=&gt;</span> Trunc (<span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x))</code></pre></div></div>
+
+<p>Note that the predicate “A is nonempty” defined via <span class="inl-highlight">exists</span> as 
+<span class="inl-highlight">exists A (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> Unit)</span> (“there exists a : A such that True is true”) is equivalent to
+<span class="inl-highlight">Trunc A</span>.</p>
+
+<p>We can use this definition of “exists”, for example, to give a proper definition of the 
+image of a function:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> image {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (b <span class="o">:</span> B) (Trunc (<span class="k">\Sigma</span> (a <span class="o">:</span> A) (f a <span class="o">=</span> b)))</code></pre></div></div>
+
+<p>Note that the definition if the image without truncation is not correct:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> image' {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (b <span class="o">:</span> B) (<span class="k">\Sigma</span> (a <span class="o">:</span> A) (f a <span class="o">=</span> b))
+
+<span class="c">-- image {Nat} {\Sigma} (\lam _ =&gt; ()) == \Sigma</span>
+<span class="c">-- image' {Nat} {\Sigma} (\lam _ =&gt; ()) == Nat</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 5:</strong> A type <span class="inl-highlight">C</span> is called cogenerator if for every sets <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span>
+ and all functions <span class="inl-highlight">f<span class="o">,</span>g <span class="o">:</span> A <span class="o">-&gt;</span> B</span> whenever <span class="inl-highlight">h <span class="o"><code class="highlighter-rouge">o</code></span> f <span class="o">=</span> h <span class="o"><code class="highlighter-rouge">o</code></span> g</span> holds for all <span class="inl-highlight">h <span class="o">:</span> B <span class="o">-&gt;</span> C</span>,
+ then <span class="inl-highlight">f <span class="o">=</span> g</span>. Prove that <span class="inl-highlight"><span class="kt">\Prop</span></span> is cogenerator.</p>
+
+<h1 id="equality-of-types-iso">Equality of types, ‘iso’</h1>
+
+<p>Consider the following question: given any type, when are its elements equal? 
+We have already seen, say, that two pairs are equal iff their components are equal, two functions
+are equal iff they are equal pointwise and so on. By now we can offer such a characterization of equality
+for almost all the types. The only exception is the type <span class="inl-highlight"><span class="kt">\Type</span></span> and other universes: we
+do not have any mechanism to prove structural equalities between types.</p>
+
+<p>Consider several examples of equalities between types:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> eq1 <span class="o">:</span> Maybe Unit <span class="o">=</span> Bool <span class="o">=&gt;</span> <span class="g">{?}</span>
+<span class="k">\func</span> eq2 <span class="o">:</span> (<span class="k">\Sigma</span> Nat Nat) <span class="o">=</span> Nat <span class="o">=&gt;</span> <span class="g">{?}</span>
+<span class="k">\func</span> eq3 <span class="o">:</span> Bool <span class="o">=</span> Nat <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p>In the first two cases we can prove neither the equalities <span class="inl-highlight">eq1</span> and <span class="inl-highlight">eq2</span> nor
+their negations. However, the last equality <span class="inl-highlight">eq3</span> can certainly be disproved: 
+<span class="inl-highlight">Bool <span class="o">=</span> Nat</span> implies that there is a bijection between <span class="inl-highlight">Bool</span> and
+<span class="inl-highlight">Nat</span>, the assertion which is clearly refutable.</p>
+
+<p>Thus we can prove negations of equalities for non-isomorphic types, and yet we can prove no interesting equalities
+between types. This suggests to fill the gap by making the assertion that two types are equal iff there
+exists a bijection between them. We will typically use the term “bijection” only for sets and use the
+term “equivalence” instead while talking about arbitrary types.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Equiv (A B <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (f <span class="o">:</span> A <span class="o">-&gt;</span> B)
+                                    (g <span class="o">:</span> B <span class="o">-&gt;</span> A)
+                                    (<span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> g (f x) <span class="o">=</span> x)
+                                    (<span class="k">\Pi</span> (y <span class="o">:</span> B) <span class="o">-&gt;</span> f (g y) <span class="o">=</span> y)</code></pre></div></div>
+
+<p>We can easily prove that if two types are equal, then they are equivalent:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> equality=&gt;equivalence (A B <span class="o">:</span> <span class="kt">\Type</span>) (p <span class="o">:</span> A <span class="o">=</span> B) <span class="o">:</span> Equiv A B <span class="o">=&gt;</span>
+  transport (Equiv A) p (<span class="k">\lam</span> x <span class="o">=&gt;</span> x<span class="o">,</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x<span class="o">,</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> idp<span class="o">,</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> idp)</code></pre></div></div>
+
+<p>The function <span class="inl-highlight">iso</span> postulated in Prelude says that the converse is also
+true:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> equivalence=&gt;equality (A B <span class="o">:</span> <span class="kt">\Type</span>) (e <span class="o">:</span> Equiv A B) <span class="o">:</span> A <span class="o">=</span> B <span class="o">=&gt;</span>
+  path (iso e.<span class="n">1</span> e.<span class="n">2</span> e.<span class="n">3</span> e.<span class="n">4</span>)</code></pre></div></div>
+
+<p>Note that if <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> is equivalence, then we can define the function 
+<span class="inl-highlight">f’ <span class="o">:</span> A <span class="o">-&gt;</span> B</span> using <span class="inl-highlight">iso</span> and <span class="inl-highlight">coe</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\let</span> f' <span class="o">:</span> A <span class="o">-&gt;</span> B <span class="o">=&gt;</span> <span class="k">\lam</span> a <span class="o">=&gt;</span> coe (iso f g p q) a right</code></pre></div></div>
+
+<p>We have the rule <span class="inl-highlight">coe (iso f g p q) a right <span class="o">==</span>&gt; f a</span>, which implies that 
+<span class="inl-highlight">f’</span> is the same function as <span class="inl-highlight">f</span>. Therefore the following equality
+holds by reflexivity:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test (A B <span class="o">:</span> <span class="kt">\Type</span>) (e <span class="o">:</span> Equiv A B)
+  <span class="o">:</span> transport (<span class="k">\lam</span> X <span class="o">=&gt;</span> X) (equivalence=&gt;equality A B e) <span class="o">=</span> e.<span class="n">1</span>
+  <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>The property <span class="inl-highlight">equavalence=&gt;equality</span> does not still fully characterize equalities
+between types: the type <span class="inl-highlight">A <span class="o">=</span> B</span> should be equivalent to the type <span class="inl-highlight">Equiv A B</span>.
+The computational rule for <span class="inl-highlight">iso</span> mentioned above allows to prove that 
+the composition of <span class="inl-highlight">equivalence=&gt;equality</span> and  <span class="inl-highlight">equality=&gt;equivalence</span>
+equals the identity on <span class="inl-highlight">Equiv A B</span>.
+It is also possible to prove, although a bit less straightforwardly, that the opposite composition of the
+maps gives the identity on <span class="inl-highlight">A <span class="o">=</span> B</span>. This principle is called <em>the univalence axiom</em> or
+just <em>univalence</em>. We simply assume it as an axiom, although it is possible to prove it:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> UA (A B <span class="o">:</span> <span class="kt">\Set</span>) <span class="o">:</span> Equiv (A <span class="o">=</span> B) (Equiv A B) <span class="o">=&gt;</span> (equality=&gt;equivalence A B<span class="o">,</span> equivalence=&gt;equality A B<span class="o">,</span> LRL A B<span class="o">,</span> RLR A B)
+  <span class="k">\where</span> {
+    <span class="k">\func</span> LRL (A B <span class="o">:</span> <span class="kt">\Set</span>) (p <span class="o">:</span> A <span class="o">=</span> B) <span class="o">:</span> equivalence=&gt;equality A B (equality=&gt;equivalence A B p) <span class="o">=</span> p <span class="o">=&gt;</span> <span class="g">{?}</span>
+    <span class="k">\func</span> RLR (A B <span class="o">:</span> <span class="kt">\Set</span>) (e <span class="o">:</span> Equiv A B) <span class="o">:</span> equality=&gt;equivalence A B (equivalence=&gt;equality A B e) <span class="o">=</span> e <span class="o">=&gt;</span> <span class="g">{?}</span>
+  }</code></pre></div></div>
+
+<h1 id="an-example-of-application-of-univalence">An example of application of univalence</h1>
+
+<p>Let <span class="inl-highlight">P <span class="o">:</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> <span class="kt">\Type</span></span> be a predicate on functions. Assume 
+<span class="inl-highlight">f g <span class="o">:</span> A <span class="o">-&gt;</span> B</span> are two functions, which are equal pointwise. Because
+of function extensionality we know that such functions are equal and therefore
+whenever if we prove <span class="inl-highlight">P f</span> we will obtain also a proof of <span class="inl-highlight">P g</span>
+for free.</p>
+
+<p>Because of the univalence the analogous property holds for types: if we prove that a proposition 
+holds for some type, we will automatically get proofs of this proposition for all equivalent
+types. For example, we know that equality of <span class="inl-highlight">Nat</span> is decidable. By univalence
+we immediately conclude that all countable sets are also decidable.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Dec (E <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> yes E
+  <span class="o">|</span> no (Not E)
+
+<span class="k">\func</span> DecEq (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> Dec (x <span class="o">=</span> y)
+
+<span class="c">-- We proved this earlier.</span>
+<span class="k">\func</span> NatDecEq <span class="o">:</span> DecEq Nat <span class="o">=&gt;</span> <span class="g">{?}</span> 
+
+<span class="k">\func</span> isCountable (X <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> Equiv Nat X
+
+<span class="k">\func</span> countableDecEq (X <span class="o">:</span> <span class="kt">\Type</span>) (p <span class="o">:</span> isCountable X) <span class="o">:</span> DecEq X <span class="o">=&gt;</span>
+  transport DecEq (equivalence=&gt;equality Nat X p) NatDecEq</code></pre></div></div>
+
+<p>In this particular case there exist alternative proofs without univalence, however
+any such proof is much more complex. There are also examples of properties of types,
+which are provable for a type <span class="inl-highlight">A</span>, but not provable without univalence
+for some <span class="inl-highlight">B</span> equivalent to <span class="inl-highlight">A</span>.</p>
+
+<h1 id="implications-of-univalence-for-prop-and-set">Implications of univalence for \Prop and \Set</h1>
+
+<p>One of the consequences of univalence is <em>extensionality for propositions</em>: whenever
+two propositions <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span> are logically equivalent 
+(<span class="inl-highlight">A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">B <span class="o">-&gt;</span> A</span>) they are equal.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> propExt {A B <span class="o">:</span> <span class="kt">\Prop</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (g <span class="o">:</span> B <span class="o">-&gt;</span> A) <span class="o">:</span> A <span class="o">=</span> B <span class="o">=&gt;</span>
+  equivalence=&gt;equality A B (f<span class="o">,</span> g<span class="o">,</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> Path.inProp <span class="u">_</span> <span class="u">_</span><span class="o">,</span> <span class="k">\lam</span> y <span class="o">=&gt;</span> Path.inProp <span class="u">_</span> <span class="u">_</span>)</code></pre></div></div>
+
+<p>Another consequence of univalence is that the universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is a set.</p>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Prove that <span class="inl-highlight"><span class="kt">\Prop</span></span> is a set.</p>
+
+<p>Quite expectedly, <span class="inl-highlight"><span class="kt">\Set</span></span> is <em>not</em> a set, but a 1-type. The universe
+<span class="inl-highlight"><span class="kt">\Set</span></span> is provably not a set only in presence of univalence.</p>
+
+<p>Let us show how to prove that <span class="inl-highlight"><span class="kt">\Set</span></span> is not a set using univalence.
+Recall that univalence says that equalities between two sets are precisely bijections between them.
+Thus the claim would follow if we prove that there exists a set with two different automorphisms.
+The simplest example is the set <span class="inl-highlight">Bool</span> and the automorphisms <span class="inl-highlight">id</span>
+and <span class="inl-highlight">not</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-not (b <span class="o">:</span> Bool) <span class="o">:</span> not (not b) <span class="o">=</span> b
+  <span class="o">|</span> true <span class="o">=&gt;</span> idp
+  <span class="o">|</span> false <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> true/=false (p <span class="o">:</span> true <span class="o">=</span> false) <span class="o">:</span> Empty <span class="o">=&gt;</span> absurd (transport T p ())
+
+<span class="k">\func</span> Set-isNotSet (p <span class="o">:</span> isSet <span class="kt">\Set</span>) <span class="o">:</span> Empty <span class="o">=&gt;</span>
+  <span class="k">\let</span> 
+  <span class="c">-- We first prove equality between 'idp' and </span>
+  <span class="c">-- the equality, corresponding to 'not'.</span>
+       <span class="o">|</span> idp=not <span class="o">=&gt;</span> 
+          p Bool Bool
+          idp <span class="c">-- : Bool = Bool</span>
+          (equivalence=&gt;equality Bool Bool (not<span class="o">,</span> not<span class="o">,</span> not-not<span class="o">,</span> not-not)) <span class="c">-- : Bool = Bool</span>
+  <span class="c">-- Now we can prove the equality between the two bijections </span>
+  <span class="c">-- corresponding to 'idp' and 'not', that is that 'id'</span>
+  <span class="c">-- equals 'not'.</span>
+       <span class="o">|</span> id=not <span class="o">:</span> (<span class="k">\lam</span> x <span class="o">=&gt;</span> x) <span class="o">=</span> not <span class="o">=&gt;</span> pmap (transport (<span class="k">\lam</span> X <span class="o">=&gt;</span> X)) idp=not
+  <span class="c">-- The contradiction follows easily.</span>
+  <span class="k">\in</span> true/=false (pmap (<span class="k">\lam</span> f <span class="o">=&gt;</span> f true) id=not)</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Prove that (Bool = Bool) = Bool.</p>
+
+<p class="notice--info"><strong>Exercise 8:</strong> Prove that (n+m)-element set is a disjoint union of n- and m-element sets.</p>
+
+<p class="notice--info"><strong>Exercise 9:</strong> We say that a type <span class="inl-highlight">X</span> is injective if for any function 
+<span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> X</span> and any injection <span class="inl-highlight">i <span class="o">:</span> A <span class="o">-&gt;</span> B</span>
+    there exists a function <span class="inl-highlight">l <span class="o">:</span> B <span class="o">-&gt;</span> X</span> such that <span class="inl-highlight">l <span class="o"><code class="highlighter-rouge">o</code></span> i <span class="o">=</span> f</span>.
+    Prove that <span class="inl-highlight"><span class="kt">\Prop</span></span> is injective.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

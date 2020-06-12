@@ -1,0 +1,907 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Propositions and Sets - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Propositions and Sets">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/hprops.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/hprops.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hprops" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Sets</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hom-levels" class="">&nbsp;&nbsp;&nbsp;&nbsp;Stratified Universes and Univalence</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/sets" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basic Set Theory</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Spaces and Homotopy Theory</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Propositions and Sets">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Propositions and Sets
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Propositions and Sets</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#subsets-injective-functions">Subsets, injective functions</a></li>
+  <li><a href="#mere-propositions">Mere propositions</a></li>
+  <li><a href="#sets">Sets</a></li>
+  <li><a href="#groupoid-structure-on-types">Groupoid structure on types</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartII/src/PropsSets.ard">PartII/PropsSets.ard</a> <br />
+The source code for the exercises: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartII/src/Exercises/PropsSetsEx.ard">PartII/PropsSetsEx.ard</a></p>
+
+<p>Recall that under Curry-Howard correspondence there is no difference between propositions and types:
+all types are propositions and vice versa. In this module we discuss and justify an alternative view,
+according to which propositions are only some types, namely those types, all elements of which are equal.
+These types are called <em>mere propositions</em> since they have at most one element, which, if it exists, 
+usually does not contain any data and is merely a proof of the proposition. It is standard in 
+homotopy type theory to use the term “proposition” for mere propositions.</p>
+
+<p>Subsequently we discuss another important subclass of types, consisting of those types that can be
+idenified with sets.</p>
+
+<h1 id="subsets-injective-functions">Subsets, injective functions</h1>
+
+<p>In set theory if <span class="inl-highlight">A</span> is a set and <span class="inl-highlight">P</span> is a predicate
+on <span class="inl-highlight">A</span>, then we can define the subset <span class="inl-highlight">{ x <span class="o">:</span> A <span class="o">|</span> P x }</span>
+of elements of <span class="inl-highlight">A</span> satisfying <span class="inl-highlight">P</span>, and the elements of the 
+subset will also be elements of <span class="inl-highlight">A</span>.</p>
+
+<p>In type theory we cannot talk about subtypes in this way. Instead, we say that a subtype
+<span class="inl-highlight">B</span> of type <span class="inl-highlight">A</span> is just any type together with an injective
+function <span class="inl-highlight">B <span class="o">-&gt;</span> A</span>. For example, the subset above corresponds to the type
+<span class="inl-highlight"><span class="k">\Sigma</span> (x <span class="o">:</span> A) (P x)</span>, which is realized as a subtype of <span class="inl-highlight">A</span>
+by means of the function:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lam</span> t <span class="o">=&gt;</span> t.<span class="n">1</span> <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> A) (P x) <span class="o">-&gt;</span> A</code></pre></div></div>
+<p>as long as this function is an injection. As we will see further in this module, this function
+is always an injection if the range of <span class="inl-highlight">P</span> is restricted to a certain class of
+types. This class is precisely the class of all mere propositions.</p>
+
+<p>Consider an example: the subtype of <span class="inl-highlight">Nat</span> consisting of even natural numbers.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isEven (n <span class="o">:</span> Nat) <span class="o">:</span> Bool
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> true
+  <span class="o">|</span> <span class="n">1</span> <span class="o">=&gt;</span> false
+  <span class="o">|</span> suc (suc n) <span class="o">=&gt;</span> isEven n
+
+<span class="c">-- { n : Nat | T (isEven n) } -- set-theoretic notation </span>
+<span class="k">\func</span> Even <span class="o">=&gt;</span> <span class="k">\Sigma</span> (n <span class="o">:</span> Nat) (T (isEven n)) <span class="c">-- subtype of even numbers</span>
+
+<span class="c">-- Embedding of even numbers into the type of all natural numbers</span>
+<span class="k">\func</span> Even-inc (e <span class="o">:</span> Even) <span class="o">=&gt;</span> e.<span class="n">1</span></code></pre></div></div>
+
+<p>Let us show that <span class="inl-highlight">Even-inc</span> is an injection, namely that it satisfies the predicate
+<span class="inl-highlight">isInj</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isInj {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span>
+   <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> f y <span class="o">-&gt;</span> x <span class="o">=</span> y
+<span class="c">-- This is equivalent to the predicate below only in</span>
+<span class="c">-- presence of the excluded middle:</span>
+<span class="c">-- \Pi (x y : A) -&gt; Not (x = y) -&gt; Not (f x = f y)</span></code></pre></div></div>
+
+<p>This requires proving equalities between pairs. For non-dependent pairs this is completely
+straightforward and reduces to proving equalities between components:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> prodEq {A B <span class="o">:</span> <span class="kt">\Type</span>} (t1 t2 <span class="o">:</span> <span class="k">\Sigma</span> A B) (p <span class="o">:</span> t1.<span class="n">1</span> <span class="o">=</span> t2.<span class="n">1</span>) (q <span class="o">:</span> t1.<span class="n">2</span> <span class="o">=</span> t2.<span class="n">2</span>)
+  <span class="o">:</span> t1 <span class="o">=</span> t2
+  <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> (p <span class="o">@</span> i<span class="o">,</span> q <span class="o">@</span> i))</code></pre></div></div>
+
+<p>In case of dependent pairs, we cannot talk about equalities of second components since they
+have different types. In order to prove equality of such pairs we need to have a proof of
+equality between their first components and a proof of equality between the second component
+of one of the pairs and transported second component of the other pair:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sigmaEq {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) (t1 t2 <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x))
+  <span class="c">-- t1.2 : B t1.1</span>
+  <span class="c">-- t2.2 : B t2.1</span>
+              (p <span class="o">:</span> t1.<span class="n">1</span> <span class="o">=</span> t2.<span class="n">1</span>) (q <span class="o">:</span> transport B p t1.<span class="n">2</span> <span class="o">=</span> t2.<span class="n">2</span>)
+  <span class="o">:</span> t1 <span class="o">=</span> t2
+  <span class="c">{-
+  \elim t1,t2,p,q
+  | (a1,b1), (a2,b2), idp, idp =&gt; idp
+  -}</span>
+  <span class="o">=&gt;</span> J (<span class="k">\lam</span> a' p' <span class="o">=&gt;</span> 
+          <span class="k">\Pi</span> (b' <span class="o">:</span> B a') (q' <span class="o">:</span> transport B p' t1.<span class="n">2</span> <span class="o">=</span> b') <span class="o">-&gt;</span> t1 <span class="o">=</span> (a'<span class="o">,</span>b'))
+       (<span class="k">\lam</span> b' q' <span class="o">=&gt;</span> pmap (<span class="k">\lam</span> b'' <span class="o">=&gt;</span> ((t1.<span class="n">1</span><span class="o">,</span>b'') <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x))) q')
+       p t2.<span class="n">2</span> q</code></pre></div></div>
+
+<p>Note that any two elements of <span class="inl-highlight">T b</span> are equal. This allows us to prove
+that <span class="inl-highlight">Even-inc</span> is injective:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> T-lem {b <span class="o">:</span> Bool} {x y <span class="o">:</span> T b} <span class="o">:</span> x <span class="o">=</span> y
+  <span class="o">|</span> {true} <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> Even-inc-isInj <span class="o">:</span> isInj Even-inc <span class="o">=&gt;</span>
+  <span class="k">\lam</span> x y p <span class="o">=&gt;</span> sigmaEq (<span class="k">\lam</span> n <span class="o">=&gt;</span> T (isEven n)) x y p T-lem</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Let <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">g <span class="o">:</span> B <span class="o">-&gt;</span> C</span> be some functions.
+ Prove that if <span class="inl-highlight">f</span> and <span class="inl-highlight">g</span> are injective, then <span class="inl-highlight">g <span class="o"><code class="highlighter-rouge">o</code></span> f</span>
+ is also injective. Prove that if <span class="inl-highlight">g <span class="o"><code class="highlighter-rouge">o</code></span> f</span> is injective, then <span class="inl-highlight">f</span> is also injective.</p>
+
+<p>Consider one more example. Define functions computing residuals modulo 3 and 5 and define the type
+of all natural numbers that are divisible by 3 or 5:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> mod3 (n <span class="o">:</span> Nat) <span class="o">:</span> Nat
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> <span class="n">1</span> <span class="o">=&gt;</span> <span class="n">1</span>
+  <span class="o">|</span> <span class="n">2</span> <span class="o">=&gt;</span> <span class="n">2</span>
+  <span class="o">|</span> suc (suc (suc n)) <span class="o">=&gt;</span> mod3 n
+
+<span class="k">\func</span> mod5 (n <span class="o">:</span> Nat) <span class="o">:</span> Nat
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> <span class="n">1</span> <span class="o">=&gt;</span> <span class="n">1</span>
+  <span class="o">|</span> <span class="n">2</span> <span class="o">=&gt;</span> <span class="n">2</span>
+  <span class="o">|</span> <span class="n">3</span> <span class="o">=&gt;</span> <span class="n">3</span>
+  <span class="o">|</span> <span class="n">4</span> <span class="o">=&gt;</span> <span class="n">4</span>
+  <span class="o">|</span> suc (suc (suc (suc (suc n)))) <span class="o">=&gt;</span> mod5 n
+
+<span class="k">\func</span> MultipleOf3Or5 <span class="o">=&gt;</span> <span class="k">\Sigma</span> (n <span class="o">:</span> Nat) ((mod3 n <span class="o">=</span> <span class="n">0</span>) <span class="o">`Either`</span> (mod5 n <span class="o">=</span> <span class="n">0</span>))</code></pre></div></div>
+
+<p>In contrast to the previous example, the function that maps elements of
+<span class="inl-highlight">MultipleOf3Or5</span> to <span class="inl-highlight">Nat</span> is not an injection:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Mul-inc (m <span class="o">:</span> MultipleOf3Or5) <span class="o">=&gt;</span> m.<span class="n">1</span>
+
+<span class="c">-- One can prove that Mul-inc is not injective</span>
+<span class="k">\func</span> not-Mul-inc-isInj (p <span class="o">:</span> isInj Mul-inc) <span class="o">:</span> Empty <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<!-- TODO: prove not-Mul-inc-isInj or leave as exercise -->
+
+<p>This is so because for some <span class="inl-highlight">n</span>, namely for those that are divisible
+by both 3 and 5, there are several non-equal proofs of <span class="inl-highlight">(mod3 n <span class="o">=</span> <span class="n">0</span>) <span class="o"><code class="highlighter-rouge">Either</code></span> (mod5 n <span class="o">=</span> <span class="n">0</span>)</span>.
+Thus <span class="inl-highlight">MultipleOf3Or5</span> is not a subtype of <span class="inl-highlight">Nat</span>.</p>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Define the predicate “divisible by 3 or by 5” in such a way that it becomes a proposition.
+    Prove that <span class="inl-highlight">MultipleOf3Or5</span> embeds in <span class="inl-highlight">Nat</span>.</p>
+
+<h1 id="mere-propositions">Mere propositions</h1>
+
+<p>As the two examples above illustrate, a predicate defining a subtype should have the range
+consisting of types, all elements of which are equal. The types satisfying these conditions are
+called <em>mere propositions</em> or just propositions.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isProp (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> x <span class="o">=</span> y</code></pre></div></div>
+
+<p>For example, according to this definition <span class="inl-highlight">Bool</span> is not a proposition.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> BoolIsNotProp (p <span class="o">:</span> isProp Bool) <span class="o">:</span> Empty <span class="o">=&gt;</span> transport T (p true false) ()</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 3:</strong> We say that a type <span class="inl-highlight">A</span> is trivial if there exists an element in <span class="inl-highlight">A</span>
+ such that it is equal to any other element in <span class="inl-highlight">A</span>. Prove that <span class="inl-highlight">A</span> is trivial iff
+ <span class="inl-highlight">A</span> is proposition and there is an element in <span class="inl-highlight">A</span>.</p>
+
+<p>Propositions can be formed using logical operations ⊤, ⊥, ∧, →, ∀ the same as
+in the Curry-Howard correspondence. Operations ∨, ∃ and the predicate = can, of course,
+also be defined, but in general require additional language constructs, which we 
+introduce later. One can use recursion and induction to define predicates in this logic
+as usual.</p>
+
+<p>Consider several examples. The unit type <span class="inl-highlight">Unit</span> is proposition
+corresponding to the proposition “True”:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Unit <span class="o">=&gt;</span> <span class="k">\Sigma</span>
+
+<span class="k">\func</span> Unit-isProp <span class="o">:</span> isProp Unit <span class="o">=&gt;</span> <span class="k">\lam</span> x y <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>The empty type <span class="inl-highlight">Empty</span> is the proposition “False”:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Empty-isProp <span class="o">:</span> isProp Empty <span class="o">=&gt;</span> <span class="k">\lam</span> x y <span class="o">=&gt;</span> absurd x</code></pre></div></div>
+
+<p>The product (conjunction) of propositions is proposition:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Sigma-isProp {A B <span class="o">:</span> <span class="kt">\Type</span>} (pA <span class="o">:</span> isProp A) (pB <span class="o">:</span> isProp B)
+  <span class="o">:</span> isProp (<span class="k">\Sigma</span> A B) <span class="o">=&gt;</span> <span class="k">\lam</span> p q <span class="o">=&gt;</span> prodEq p q (pA p.<span class="n">1</span> q.<span class="n">1</span>) (pB p.<span class="n">2</span> q.<span class="n">2</span>)</code></pre></div></div>
+
+<p>The function type (implication) between propositions is poposition:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> funcExt {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) (f g <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x)
+              (p <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> g x) <span class="o">:</span> f <span class="o">=</span> g <span class="o">=&gt;</span>
+  path (<span class="k">\lam</span> i x <span class="o">=&gt;</span> p x <span class="o">@</span> i)
+
+
+<span class="k">\func</span> Impl-isProp {A B <span class="o">:</span> <span class="kt">\Type</span>} <span class="c">{- (pA : isProp A) -}</span> (pB <span class="o">:</span> isProp B) <span class="o">:</span> isProp (A <span class="o">-&gt;</span> B)
+  <span class="o">=&gt;</span> <span class="k">\lam</span> f g <span class="o">=&gt;</span>
+      <span class="c">-- path (\lam i x =&gt; pB (f x) (g x) @ i)</span>
+      funcExt (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> B) f g (<span class="k">\lam</span> x <span class="o">=&gt;</span> pB (f x) (g x))</code></pre></div></div>
+
+<p>Propositions are closed under Pi-types (universal quantification):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> forall-isProp {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) (pB <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> isProp (B x))
+  <span class="o">:</span> isProp (<span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x)
+  <span class="o">=&gt;</span> <span class="k">\lam</span> f g <span class="o">=&gt;</span> funcExt B f g (<span class="k">\lam</span> x <span class="o">=&gt;</span> pB x (f x) (g x))</code></pre></div></div>
+
+<p>However, the logic of propositions is not closed in general under sum types
+<span class="inl-highlight">Either A B</span> (Curry-Howard disjunctions),
+sigma types <span class="inl-highlight"><span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)</span> (Curry-Howard existential quantifier)
+and the equality type.</p>
+
+<!-- TODO: prove the nagation or leave as exercise -->
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Either-isProp {A B <span class="o">:</span> <span class="kt">\Type</span>} (pA <span class="o">:</span> isProp A) (pB <span class="o">:</span> isProp B)
+   <span class="o">:</span> isProp (Either A B) <span class="o">=&gt;</span>
+   <span class="g">{?}</span>
+
+<span class="k">\func</span> exists-isProp {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+                    (pB <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> isProp (B x))
+  <span class="o">:</span> isProp (<span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)) <span class="o">=&gt;</span>
+  <span class="g">{?}</span>
+
+<span class="k">\func</span> equality-isProp {A <span class="o">:</span> <span class="kt">\Type</span>} (a a' <span class="o">:</span> A) <span class="o">:</span> isProp (a <span class="o">=</span> a') <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Prove that <span class="inl-highlight">Either</span> is not a proposition in general.</p>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Prove that <span class="inl-highlight"><span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)</span> preserves propositions.</p>
+
+<p>For now we cannot define disjunctions, existential quantifiers and equality. But later
+we will introduce a way to project appropriately any type <span class="inl-highlight">A</span> to the class
+of propositions, and this projection will be applied to the types above to get 
+corresponding logical operations.</p>
+
+<p>We now make several remarks on definitions of predicates.</p>
+
+<p>A recursive definition defines a predicate valued in propositions if all its
+clauses are propositions. For example, the following defines a predicate in the logic
+of mere propositions if expressions <span class="inl-highlight">E-zero</span> and <span class="inl-highlight">E-suc</span> are propositions:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pred (n <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span>
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> E-zero
+  <span class="o">|</span> suc n <span class="o">=&gt;</span> E-suc</code></pre></div></div>
+
+<p>Inductive definitions can be also used to define predicates. One should be careful with
+inductive definitions since a predicate can often have several inductive definitions,
+some of which are valued in propositions and some of which are not. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Defines predicate valued in propositions</span>
+<span class="k">\data</span> <span class="k">\infix</span> <span class="n">4</span> &lt;= (n m <span class="o">:</span> Nat) <span class="k">\with</span>
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> zero&lt;=_
+  <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> suc&lt;=suc (n &lt;= m)
+
+<span class="c">-- Does not define a predicate valued in propositions</span>
+<span class="k">\data</span> <span class="k">\infix</span> <span class="n">4</span> &lt;=' (n m <span class="o">:</span> Nat) <span class="k">\elim</span> m
+  <span class="o">|</span> m <span class="o">=&gt;</span> &lt;=-refl (n <span class="o">=</span> m)
+  <span class="o">|</span> <span class="n">1</span> <span class="o">=&gt;</span> zero&lt;=one (n <span class="o">=</span> <span class="n">0</span>)
+  <span class="o">|</span> suc m <span class="o">=&gt;</span> &lt;=-step (n &lt;=' m)</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Prove that <span class="inl-highlight">&lt;=</span> and <span class="inl-highlight">&lt;=’’</span>
+are predicates. It is allowed to use the fact that <span class="inl-highlight">Nat</span> is a set
+without a proof.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> &lt;='' (n m <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Set0</span> <span class="k">\elim</span> m
+  <span class="o">|</span> suc m <span class="o">=&gt;</span> &lt;=-step (&lt;='' n m)
+  <span class="o">|</span> m <span class="o">=&gt;</span> &lt;=-refl (n <span class="o">=</span> m)</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Prove that <span class="inl-highlight">ReflClosure &lt;=</span> is not a predicate, but
+<span class="inl-highlight">ReflClosure (<span class="k">\lam</span> x y <span class="o">=&gt;</span> T (x &lt; y))</span> is a predicate.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infix</span> <span class="n">4</span> &lt; (n m <span class="o">:</span> Nat) <span class="o">:</span> Bool
+  <span class="o">|</span> <span class="u">_</span><span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> false
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> suc <span class="u">_</span> <span class="o">=&gt;</span> true
+  <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> n &lt; m
+
+<span class="k">\data</span> ReflClosure (R <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>) (x y <span class="o">:</span> Nat)
+  <span class="o">|</span> refl (x <span class="o">=</span> y)
+  <span class="o">|</span> inc (R x y)</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 8:</strong> Prove that if <span class="inl-highlight">A</span> embeds in <span class="inl-highlight">B</span> and 
+<span class="inl-highlight">B</span> is a proposition, then <span class="inl-highlight">A</span> is proposition.</p>
+
+<h1 id="sets">Sets</h1>
+
+<p>Although, as we have just seen, equality of elements of a type <span class="inl-highlight">A</span> is not
+a proposition in general, it holds for many types <span class="inl-highlight">A</span>. Such types are
+called <em>sets</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isSet (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> isProp (a <span class="o">=</span> a')
+
+<span class="c">-- By definition equality is mere porosition for sets</span>
+<span class="k">\func</span> equality-isProp {A <span class="o">:</span> <span class="kt">\Type</span>} (p <span class="o">:</span> isSet A) (a a' <span class="o">:</span> A) <span class="o">:</span> isProp (a <span class="o">=</span> a') <span class="o">=&gt;</span> p a a'</code></pre></div></div>
+
+<p>This can be interated further: we may consider types <span class="inl-highlight">A</span> such that 
+<span class="inl-highlight">a=a’</span> are sets for all <span class="inl-highlight">a a’ <span class="o">:</span> A</span> and so on. Define
+the <em>homotopy level</em> of a type inductively as follows:</p>
+
+<ul>
+  <li>Mere propositions are of homotopy level -1.</li>
+  <li>A type <span class="inl-highlight">A</span> has homotopy level <span class="inl-highlight">suc n</span> iff
+<span class="inl-highlight">a=a’</span> is of homotopy level <span class="inl-highlight">n</span>.</li>
+</ul>
+
+<p>The predicate <span class="inl-highlight">hasLevel A suc-l</span>, saying that <span class="inl-highlight">A</span> has homotopy level 
+<span class="inl-highlight">suc-l - <span class="n">1</span></span>, can be defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> hasLevel (A <span class="o">:</span> <span class="kt">\Type</span>) (suc-l <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\elim</span> suc-l
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> isProp A
+  <span class="o">|</span> suc suc-l <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> (x <span class="o">=</span> y) <span class="o">`hasLevel`</span> suc-l</code></pre></div></div>
+
+<p>The sets are thus precisely all the types of homotopy level 0. This is a large class of types, 
+which includes, for example, <span class="inl-highlight">Nat</span>, <span class="inl-highlight">Unit</span>, <span class="inl-highlight">Bool</span>, 
+lists of sets and so on. All set-theoretic reasoning can be done entirely in the levels of sets
+and propositions.</p>
+
+<p>Let us consider several types and prove that they are sets. First of all, the empty type is trivially
+a set:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Empty-isSet <span class="o">:</span> isSet Empty <span class="o">=&gt;</span> <span class="k">\lam</span> x y <span class="u">_</span> <span class="u">_</span> <span class="o">=&gt;</span> <span class="k">\case</span> x <span class="k">\with</span> {}</code></pre></div></div>
+
+<p>Let us prove that the unit type is a set. We will need a lemma saying that if <span class="inl-highlight">B</span>
+is a proposition and <span class="inl-highlight">A</span> is a retract of <span class="inl-highlight">B</span>, then <span class="inl-highlight">A</span>
+is also a proposition. Recall that <span class="inl-highlight">A</span> is called a retract of <span class="inl-highlight">B</span>
+if there exist functions <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">g <span class="o">:</span> B <span class="o">-&gt;</span> A</span> such that
+the composition <span class="inl-highlight">g <span class="o"><code class="highlighter-rouge">o</code></span> f</span> is identity.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> retract-isProp {A B <span class="o">:</span> <span class="kt">\Type</span>} (pB <span class="o">:</span> isProp B) (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (g <span class="o">:</span> B <span class="o">-&gt;</span> A)
+  (h <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> g (f x) <span class="o">=</span> x)
+  <span class="o">:</span> isProp A
+  <span class="o">=&gt;</span> <span class="k">\lam</span> x y <span class="o">=&gt;</span> sym (h x) <span class="o">*</span>&gt; pmap g (pB (f x) (f y)) <span class="o">*</span>&gt; h y</code></pre></div></div>
+
+<p>By this lemma we reduce proving that <span class="inl-highlight">isProp (x=y)</span> for all <span class="inl-highlight">x y <span class="o">:</span> Unit</span> to proving
+that <span class="inl-highlight">x=y</span> is a retract of <span class="inl-highlight"><span class="k">\Sigma</span></span> and using <span class="inl-highlight">Unit-isProp</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Unit <span class="o">|</span> unit
+
+<span class="k">\func</span> Unit-isProp (x y <span class="o">:</span> Unit) <span class="o">:</span> x <span class="o">=</span> y
+  <span class="o">|</span> unit<span class="o">,</span> unit <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> Unit-isSet <span class="o">:</span> isSet Unit <span class="o">=&gt;</span> <span class="k">\lam</span> x y <span class="o">=&gt;</span> retract-isProp {x <span class="o">=</span> y} Unit-isProp
+  (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> unit) (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> Unit-isProp x y)
+  (<span class="k">\lam</span> p <span class="o">=&gt;</span> <span class="k">\case</span> <span class="k">\elim</span> x<span class="o">,</span> <span class="k">\elim</span> y<span class="o">,</span> <span class="k">\elim</span> p <span class="k">\with</span> { <span class="o">|</span> unit<span class="o">,</span> <span class="u">_</span><span class="o">,</span> idp <span class="o">=&gt;</span> idp })</code></pre></div></div>
+
+<p>Consider another example: the type <span class="inl-highlight"><span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)</span> of dependent pairs is a set
+if <span class="inl-highlight">A</span> is a set and <span class="inl-highlight">B x</span> is a set for all <span class="inl-highlight">x</span>. 
+We need two lemmas to prove this: the first one is the same statement with the word “set” replaced 
+with “proposition”, and the second one is another variant of the retract lemma:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Sigma-isProp {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+                    (pA <span class="o">:</span> isProp A) (pB <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> isProp (B x))
+  <span class="o">:</span> isProp (<span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)) <span class="o">=&gt;</span> <span class="k">\lam</span> p q <span class="o">=&gt;</span> sigmaEq B p q (pA <span class="u">_</span> <span class="u">_</span>) (pB <span class="u">_</span> <span class="u">_</span> <span class="u">_</span>)
+
+<span class="k">\func</span> retract'-isProp {A B <span class="o">:</span> <span class="kt">\Type</span>} (pB <span class="o">:</span> isProp B) (g <span class="o">:</span> B <span class="o">-&gt;</span> A)
+                      (H <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> <span class="k">\Sigma</span> (y <span class="o">:</span> B) (g y <span class="o">=</span> x))
+  <span class="o">:</span> isProp A
+  <span class="o">=&gt;</span> <span class="k">\lam</span> x y <span class="o">=&gt;</span> sym (H x).<span class="n">2</span> <span class="o">*</span>&gt; pmap g (pB (H x).<span class="n">1</span> (H y).<span class="n">1</span>) <span class="o">*</span>&gt; (H y).<span class="n">2</span></code></pre></div></div>
+
+<p>We can now prove that dependent pairs of sets is a set as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Sigma-isSet {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+                  (pA <span class="o">:</span> isSet A) (pB <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> isSet (B x))
+  <span class="o">:</span> isSet (<span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x))
+  <span class="o">=&gt;</span> <span class="k">\lam</span> t t' <span class="o">=&gt;</span> retract'-isProp
+      {t <span class="o">=</span> t'}
+      {<span class="k">\Sigma</span> (p <span class="o">:</span> t.<span class="n">1</span> <span class="o">=</span> t'.<span class="n">1</span>) (transport B p t.<span class="n">2</span> <span class="o">=</span> t'.<span class="n">2</span>)}
+      (Sigma-isProp (<span class="k">\lam</span> p <span class="o">=&gt;</span> transport B p t.<span class="n">2</span> <span class="o">=</span> t'.<span class="n">2</span>) (pA <span class="u">_</span> <span class="u">_</span>) (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> pB <span class="u">_</span> <span class="u">_</span> <span class="u">_</span>))
+      (<span class="k">\lam</span> s <span class="o">=&gt;</span> sigmaEq B t t' s.<span class="n">1</span> s.<span class="n">2</span>)
+      (<span class="k">\lam</span> p <span class="o">=&gt;</span> <span class="k">\case</span> <span class="k">\elim</span> t'<span class="o">,</span> <span class="k">\elim</span> p <span class="k">\with</span> { <span class="o">|</span> <span class="u">_</span><span class="o">,</span> idp <span class="o">=&gt;</span> ((idp<span class="o">,</span>idp)<span class="o">,</span>idp) })</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 9:</strong> Prove that a type with decidable equality is a set. Note that this implies that
+<span class="inl-highlight">Nat</span> is a set since we have already proved that <span class="inl-highlight">Nat</span> has decidable
+equality.</p>
+
+<p class="notice--info"><strong>Exercise 10:</strong> Prove that if <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span> are sets, then
+<span class="inl-highlight">A <span class="o"><code class="highlighter-rouge">Or</code></span> B</span> is also a set.</p>
+
+<p class="notice--info"><strong>Exercise 11:</strong> Prove that if <span class="inl-highlight">B x</span> is a set, then <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x</span> is a set.</p>
+
+<p class="notice--info"><strong>Exercise 12:</strong> Prove that if <span class="inl-highlight">A</span> is a set, then <span class="inl-highlight">List A</span> is a set.</p>
+
+<h1 id="groupoid-structure-on-types">Groupoid structure on types</h1>
+
+<p>We conclude with description of a structure that characterizes types of higher homotopy levels. 
+The types of homotopy level 1, or 1-types for short, have structure of what is called a <em>groupoid</em>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isGpd (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> isSet (x <span class="o">=</span> y)</code></pre></div></div>
+
+<p>A groupoid is a categorical generalization of the notion of a group: it is a category, where
+every morphism is invertible. In particular, all endomorphisms
+of any object in a groupoid is a group with composition as the group operation. In the groupoid
+of a 1-type <span class="inl-highlight">A</span> the set of morphisms between objects <span class="inl-highlight">x y <span class="o">:</span> A</span> is given
+by elements of <span class="inl-highlight">x=y</span>. The identity morphism is <span class="inl-highlight">idp</span> and the composition
+is given by transitivity <span class="inl-highlight"><span class="o">*</span>&gt;</span> of equality, which turnes out to be in this case a nontrivial
+function rather than mere implication:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infixr</span> <span class="n">5</span> <span class="o">*</span>&gt; {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' a'' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (q <span class="o">:</span> a' <span class="o">=</span> a'') <span class="o">:</span> a <span class="o">=</span> a''
+  <span class="k">\elim</span> q
+  <span class="o">|</span> idp <span class="o">=&gt;</span> p</code></pre></div></div>
+
+<p>For example, the universe <span class="inl-highlight"><span class="kt">\Set</span></span> of sets is 1-type and <span class="inl-highlight"><span class="o">*</span>&gt;</span> in this case
+defines the composition of bijections between sets.</p>
+
+<p>We can prove that <span class="inl-highlight"><span class="o">*</span>&gt;</span> and <span class="inl-highlight">idp</span> satisfy the required properties:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- 'idp' is left and right identity</span>
+<span class="k">\func</span> idp-right {A <span class="o">:</span> <span class="kt">\Type</span>} {x y <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> p <span class="o">*</span>&gt; idp <span class="o">=</span> p <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> idp-left {A <span class="o">:</span> <span class="kt">\Type</span>} {x y <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> idp <span class="o">*</span>&gt; p <span class="o">=</span> p <span class="k">\elim</span> p
+  <span class="o">|</span> idp <span class="o">=&gt;</span> idp
+
+<span class="c">-- * is associative</span>
+<span class="k">\func</span> <span class="o">*</span>-assoc {A <span class="o">:</span> <span class="kt">\Type</span>} {x y z w <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) (q <span class="o">:</span> y <span class="o">=</span> z) (r <span class="o">:</span> z <span class="o">=</span> w)
+  <span class="o">:</span> (p <span class="o">*</span>&gt; q) <span class="o">*</span>&gt; r <span class="o">=</span> p <span class="o">*</span>&gt; (q <span class="o">*</span>&gt; r) <span class="k">\elim</span> r
+  <span class="o">|</span> idp <span class="o">=&gt;</span> idp
+
+<span class="c">-- 'sym' is inverse </span>
+<span class="k">\func</span> sym-left {A <span class="o">:</span> <span class="kt">\Type</span>} {x y <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> sym p <span class="o">*</span>&gt; p <span class="o">=</span> idp
+  <span class="k">\elim</span> p
+  <span class="o">|</span> idp <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> sym-right {A <span class="o">:</span> <span class="kt">\Type</span>} {x y <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> p <span class="o">*</span>&gt; sym p <span class="o">=</span> idp
+  <span class="k">\elim</span> p
+  <span class="o">|</span> idp <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>The function <span class="inl-highlight"><span class="o">*</span>&gt;</span> is thus similar to a group operation. For example, we can
+prove the left cancelation property for it:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> cancelLeft {A <span class="o">:</span> <span class="kt">\Type</span>} {x y z <span class="o">:</span> A}
+                 (p <span class="o">:</span> x <span class="o">=</span> y) (q r <span class="o">:</span> y <span class="o">=</span> z) (s <span class="o">:</span> p <span class="o">*</span>&gt; q <span class="o">=</span> p <span class="o">*</span>&gt; r) <span class="o">:</span> q <span class="o">=</span> r
+  <span class="k">\elim</span> p<span class="o">,</span> r
+  <span class="o">|</span> idp<span class="o">,</span> idp <span class="o">=&gt;</span> sym (idp-left q) <span class="o">*</span>&gt; s</code></pre></div></div>
+
+<p>We can generalize this structure and define inductively n-groupoid as a category, where morphisms
+form (n-1)-groupoid. This is precisely the structure corresponding to homotopy level n, where n&gt;=-1 
+is an integer. The types
+with infinite homotopy level correspond to infinity-groupoids, which are not necessarily merely
+limits of n-groupoids and should be defined in a special way.</p>
+
+<p class="notice--info"><strong>Exercise 13:</strong> Prove that n-types are closed under \Pi-types.
+Hint: Proof by induction. For the induction step ‘suc n’ one should prove that if <span class="inl-highlight">f<span class="o">,</span>g <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x</span>,
+then <span class="inl-highlight">f <span class="o">=</span> g</span> is equivalent to <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> g x</span>.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

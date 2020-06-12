@@ -1,0 +1,705 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Basic Set Theory - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Basic Set Theory">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/sets.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/sets.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation" >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download" >Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hprops" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Sets</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hom-levels" class="">&nbsp;&nbsp;&nbsp;&nbsp;Stratified Universes and Univalence</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/sets" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Basic Set Theory</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartII/hits" class="">&nbsp;&nbsp;&nbsp;&nbsp;Spaces and Homotopy Theory</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Basic Set Theory">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Basic Set Theory
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Basic Set Theory</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#surjections-injections-and-bijections">Surjections, injections and bijections</a></li>
+  <li><a href="#a-definition-of-int-datatypes-with-conditions">A definition of Int, datatypes with conditions</a></li>
+  <li><a href="#quotient-sets">Quotient sets</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartII/src/Sets.ard">PartII/Sets.ard</a> <br />
+The source code for the exercises: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartII/src/Exercises/SetsEx.ard">PartII/SetsEx.ard</a></p>
+
+<p>The types, which are sets according to the view adopted in the last modules, behave like sets in set theory.
+This means that many theorems of set theory can be proven for the sets in this sense.</p>
+
+<p>For example, we can prove the Cantor’s theorem saying that the cardinality of a set <span class="inl-highlight">X</span> is 
+strictly less than the cardinality of the set of its subsets <span class="inl-highlight">X <span class="o">-&gt;</span> <span class="kt">\Prop</span></span>.</p>
+
+<p>The assertion that the cardinality is less (not necessarily strictly) means that there exists injection 
+of <span class="inl-highlight">X</span> into <span class="inl-highlight">X <span class="o">-&gt;</span> <span class="kt">\Prop</span></span>. Clearly, the equality predicate 
+<span class="inl-highlight">(<span class="o">=</span>) <span class="o">:</span> X <span class="o">-&gt;</span> (X <span class="o">-&gt;</span> <span class="kt">\Prop</span>)</span> is an injection.</p>
+
+<p>The assetrion that the cardinality is strictly less means that, in addition, there is no surjection 
+<span class="inl-highlight">f <span class="o">:</span> X <span class="o">-&gt;</span> (X <span class="o">-&gt;</span> <span class="kt">\Prop</span>)</span>. This can be easily proven by adopting the classical Cantor’s
+argument.</p>
+
+<p>Note, however, that a number of theorems of the classical set theory are not provable in type theory
+without assuming the excluded middle or the axiom of choice. For example, the Schroder-Bernstein 
+theorem, which says that if for two sets there exist injective functions both ways between them then
+there exists a bijection between them, is not provable without excluded middle.</p>
+
+<h1 id="surjections-injections-and-bijections">Surjections, injections and bijections</h1>
+
+<p>We have already seen the definitions of injection and surjections, but let us briefly recall it. 
+Note that the definition of surjection requires the propositional truncation.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isInj {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> f y <span class="o">-&gt;</span> x <span class="o">=</span> y
+
+<span class="k">\truncated</span> <span class="k">\data</span> Trunc (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Prop</span>
+  <span class="o">|</span> in A
+  <span class="k">\where</span> {
+    <span class="k">\func</span> map {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (x <span class="o">:</span> Trunc A) <span class="o">:</span> Trunc B <span class="k">\elim</span> x
+      <span class="o">|</span> in a <span class="o">=&gt;</span> in (f a)
+
+    <span class="k">\lemma</span> extract {A <span class="o">:</span> <span class="kt">\Type</span>} (x <span class="o">:</span> Trunc A) (p <span class="o">:</span> isProp A) <span class="o">:</span> <span class="k">\level</span> A p <span class="k">\elim</span> x
+      <span class="o">|</span> in a <span class="o">=&gt;</span> a
+  }
+
+<span class="c">-- Note that \Sigma (a : A) (f a = b) is not</span>
+<span class="c">-- necessarily a proposition and should be truncated.</span>
+<span class="k">\func</span> isSur {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">:</span> <span class="kt">\Prop</span> <span class="o">=&gt;</span>
+     <span class="k">\Pi</span> (b <span class="o">:</span> B) <span class="o">-&gt;</span> Trunc (<span class="k">\Sigma</span> (a <span class="o">:</span> A) (f a <span class="o">=</span> b))
+  <span class="c">-- \Pi (b : B) -&gt;        \Sigma (a : A) (f a = b)</span></code></pre></div></div>
+
+<p>We now give an obvious definition of a bijection and prove that bijectivity
+is a conjuction of injectivity and surjectivity.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isBij {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (g <span class="o">:</span> B <span class="o">-&gt;</span> A) (<span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> g (f x) <span class="o">=</span> x) (<span class="k">\Pi</span> (y <span class="o">:</span> B) <span class="o">-&gt;</span> f (g y) <span class="o">=</span> y)
+
+<span class="k">\func</span> isBij-&gt;isInj {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isBij f) <span class="o">:</span> isInj f <span class="o">=&gt;</span> <span class="k">\lam</span> x y q <span class="o">=&gt;</span> sym (p.<span class="n">2</span> x) <span class="o">*</span>&gt; pmap p.<span class="n">1</span> q <span class="o">*</span>&gt; p.<span class="n">2</span> y
+
+<span class="k">\func</span> isBij-&gt;isSur {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isBij f) <span class="o">:</span> isSur f <span class="o">=&gt;</span> <span class="k">\lam</span> b <span class="o">=&gt;</span> in (p.<span class="n">1</span> b<span class="o">,</span> p.<span class="n">3</span> b)
+
+<span class="k">\func</span> sigmaEq' {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (t1 t2 <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)) (p <span class="o">:</span> t1.<span class="n">1</span> <span class="o">=</span> t2.<span class="n">1</span>)
+  <span class="o">=&gt;</span> sigmaEq B t1 t2 p (Path.inProp <span class="u">_</span> <span class="u">_</span>)
+
+<span class="k">\func</span> isInj+isSur-&gt;isBij {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (ip <span class="o">:</span> isInj f) (sp <span class="o">:</span> isSur f) <span class="o">:</span> isBij f
+  <span class="o">=&gt;</span> <span class="k">\let</span> t (b <span class="o">:</span> B) <span class="o">=&gt;</span> Trunc.extract (sp b) (<span class="k">\lam</span> t1 t2 <span class="o">=&gt;</span> sigmaEq' (<span class="k">\lam</span> a <span class="o">=&gt;</span> f a <span class="o">=</span> b) t1 t2 (ip t1.<span class="n">1</span> t2.<span class="n">1</span> (t1.<span class="n">2</span> <span class="o">*</span>&gt; sym t2.<span class="n">2</span>)))
+     <span class="k">\in</span> (<span class="k">\lam</span> b <span class="o">=&gt;</span> (t b).<span class="n">1</span><span class="o">,</span> <span class="k">\lam</span> a <span class="o">=&gt;</span> ip <span class="u">_</span> <span class="u">_</span> (t (f a)).<span class="n">2</span><span class="o">,</span> <span class="k">\lam</span> b <span class="o">=&gt;</span> (t b).<span class="n">2</span>)</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Prove that the predecessor function <span class="inl-highlight">pred</span> on <span class="inl-highlight">Nat</span> is surjective.</p>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Prove that <span class="inl-highlight">suc</span> is not surjective.</p>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Let <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">g <span class="o">:</span> B <span class="o">-&gt;</span> C</span> be some functions.
+    Prove that if <span class="inl-highlight">f</span> and <span class="inl-highlight">g</span> are surjective, then <span class="inl-highlight">g <span class="o"><code class="highlighter-rouge">o</code></span> f</span> is also surjective.
+    Prove that if <span class="inl-highlight">g <span class="o"><code class="highlighter-rouge">o</code></span> f</span> is surjective, then <span class="inl-highlight">g</span> is also surjective.</p>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Prove the Cantor’s theorem.</p>
+
+<h1 id="a-definition-of-int-datatypes-with-conditions">A definition of Int, datatypes with conditions</h1>
+
+<p>Here we introduce a useful construct for data definitions, which allows quotioning
+or, in other words, gluing, and apply it to the definition of the type <span class="inl-highlight">Int</span>
+of integers.</p>
+
+<p>Consider first the definition of the type of integers as the ordinary datatype containing
+two copies of <span class="inl-highlight">Nat</span>: nonegative and nonpositive numbers.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Int'
+  <span class="o">|</span> pos' Nat
+  <span class="o">|</span> neg' Nat</code></pre></div></div>
+
+<p>Totalities of elements defined by different constructors in an ordinary datatype do
+not intersect. For example, we can prove that <span class="inl-highlight">pos’ n</span> is always not
+equal to <span class="inl-highlight">neg’ m</span>. Sometimes it is not convenient: for example, 
+we would like <span class="inl-highlight">pos’ <span class="n">0</span></span> to be the same as <span class="inl-highlight">neg’ <span class="n">0</span></span>.</p>
+
+<p>It is possible to specify such identifications of constructors by supplementing
+definitions of constructors with conditions. The syntax for conditions is the same
+as for functions defined by pattern matching. The only differences are that
+some cases can be uncovered and matching on the interval type <span class="inl-highlight">I</span> is allowed.</p>
+
+<p>Let us modify the definition of integers as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Int
+  <span class="o">|</span> pos Nat
+  <span class="o">|</span> neg (n <span class="o">:</span> Nat) <span class="k">\elim</span> n {
+    <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> pos <span class="n">0</span>
+  }</code></pre></div></div>
+
+<p>The new definition <span class="inl-highlight">Int</span> now has a useful property that <span class="inl-highlight">neg <span class="n">0</span></span>
+evaluates to <span class="inl-highlight">pos <span class="n">0</span></span>.</p>
+
+<p>Whenever a function over such a type is defined, the typechecker checks if its 
+values on equivalent constructors coincide. For example, the following definition
+does not typecheck, because <span class="inl-highlight">intEx (pos <span class="n">0</span>)</span> is 3, but 
+<span class="inl-highlight">intEx (pos <span class="n">0</span>)</span> is 7:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This does not typecheck!</span>
+<span class="k">\func</span> intEx (z <span class="o">:</span> Int) <span class="o">:</span> Nat
+  <span class="o">|</span> pos n <span class="o">=&gt;</span> <span class="n">3</span>
+  <span class="o">|</span> neg n <span class="o">=&gt;</span> <span class="n">7</span></code></pre></div></div>
+
+<p>We can fix this by replacing the second pattern with <span class="inl-highlight">neg (suc n)</span> and 
+omitting the pattern <span class="inl-highlight">neg <span class="n">0</span></span> since it evaluates:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> intEx' (z <span class="o">:</span> Int) <span class="o">:</span> Nat
+  <span class="o">|</span> pos n <span class="o">=&gt;</span> <span class="n">3</span>
+  <span class="o">|</span> neg (suc n) <span class="o">=&gt;</span> <span class="n">7</span></code></pre></div></div>
+
+<p>Let us give a couple of examples of functions over <span class="inl-highlight">Int</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> negative (x <span class="o">:</span> Int) <span class="o">:</span> Int
+  <span class="o">|</span> pos n <span class="o">=&gt;</span> neg n
+  <span class="o">|</span> neg n <span class="o">=&gt;</span> pos n
+
+<span class="k">\func</span> abs (x <span class="o">:</span> Int) <span class="o">:</span> Nat
+  <span class="o">|</span> pos n <span class="o">=&gt;</span> n
+  <span class="o">|</span> neg n <span class="o">=&gt;</span> n</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Define the function <span class="inl-highlight">negPred <span class="o">:</span> Int <span class="o">-&gt;</span> Int</span> such that 
+<span class="inl-highlight">negPred x <span class="o">=</span> x</span> if <span class="inl-highlight">x &gt; <span class="n">0</span></span> and <span class="inl-highlight">negPred x <span class="o">=</span> x - <span class="n">1</span></span>
+if <span class="inl-highlight">x &lt;= <span class="n">0</span></span>.</p>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Define addition and multiplication for <span class="inl-highlight">Int</span>.</p>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Define the datatype <span class="inl-highlight">BinNat</span> for the binary natural numbers.
+    It should have three constructors: for 0, for even numbers 2n and for odd numbers 2n+1.
+    This type contains several different representations of zero.
+    Use datatypes with conditions to identify different representations of zero.</p>
+
+<p class="notice--info"><strong>Exercise 8:</strong> Define mutually inverse functions <span class="inl-highlight">Nat <span class="o">-&gt;</span> BinNat</span> and <span class="inl-highlight">BinNat <span class="o">-&gt;</span> Nat</span>
+ and prove that they are mutually inverse.</p>
+
+<h1 id="quotient-sets">Quotient sets</h1>
+
+<p>Let <span class="inl-highlight">A</span> be a set together with an equivalence relation ~ on it. 
+We can define the <em>quotient set</em> <span class="inl-highlight">A/~</span> together with the function 
+<span class="inl-highlight">in~ <span class="o">:</span> A <span class="o">-&gt;</span> A/~</span> such that any two equivalent elements of <span class="inl-highlight">A</span>
+are identified in <span class="inl-highlight">A/~</span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A <span class="o">:</span> <span class="kt">\Set</span>
+~ <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Prop</span>
+A/~ <span class="o">:</span> <span class="kt">\Set</span>
+in~ <span class="o">:</span> A <span class="o">-&gt;</span> A/~
+(in~ a <span class="o">=</span> in~ a') &lt;-&gt; (a ~ a')</code></pre></div></div>
+
+<p>A function over <span class="inl-highlight">A/~</span> can be defined as a function over <span class="inl-highlight">A</span>
+satisfying the condition that equivalent elements are mapped to equal elements. With
+the proof of the condition omitted and using simplified syntax (the full definition is given below)
+we can write:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- A simplification. This is not intended to be typechecking.</span>
+<span class="k">\func</span> f (x <span class="o">:</span> A/~) <span class="o">:</span> B
+   <span class="o">|</span> in~ a <span class="o">=&gt;</span> b</code></pre></div></div>
+
+<p>An important of example of quotient set – the set of rational numbers, which is defined
+as the set of pairs of natural numbers quotioned by the equivalence relation ~ such that
+<span class="inl-highlight">(n<span class="o">,</span> m) ~ (n’<span class="o">,</span> m’)</span> iff <span class="inl-highlight">n <span class="o">*</span> m’ <span class="o">=</span> n’ <span class="o">*</span> m</span>.</p>
+
+<p>We can define the quotient set as a datatype with conditions: we simply add
+an equality between <span class="inl-highlight">inR a</span> and <span class="inl-highlight">inR a’</span> if
+<span class="inl-highlight">R a a’</span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\truncated</span> <span class="k">\data</span> Quotient (A <span class="o">:</span> <span class="kt">\Type</span>) (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Set</span>
+  <span class="o">|</span> inR A
+  <span class="o">|</span> eq (a a' <span class="o">:</span> A) (r <span class="o">:</span> R a a') (i <span class="o">:</span> I) <span class="k">\elim</span> i {
+    <span class="o">|</span> left <span class="o">=&gt;</span> inR a
+    <span class="o">|</span> right <span class="o">=&gt;</span> inR a'
+  }</code></pre></div></div>
+
+<p>Note that we have to use the truncation to the level of sets, otherwise we will
+not get a set.</p>
+
+<p>The equivalent elements are indeed equal:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> quotientEq {A <span class="o">:</span> <span class="kt">\Type</span>} {R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>} (a a' <span class="o">:</span> A) (r <span class="o">:</span> R a a')
+  <span class="o">:</span> inR a <span class="o">=</span> {Quotient A R} inR a'
+  <span class="o">=&gt;</span> path (eq a a' r)</code></pre></div></div>
+
+<p>We can prove, for example, that <span class="inl-highlight">inR</span> is surjective:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> inR-sur {A <span class="o">:</span> <span class="kt">\Type</span>} {R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>} <span class="o">:</span> isSur (inR {A} {R}) <span class="o">=&gt;</span>
+  <span class="k">\lam</span> [a] <span class="o">=&gt;</span> <span class="k">\case</span> <span class="k">\elim</span> [a] <span class="k">\with</span> {
+    <span class="o">|</span> inR a <span class="o">=&gt;</span> in (a<span class="o">,</span> idp)
+  }</code></pre></div></div>
+
+<p>If we want to define a function over <span class="inl-highlight">Quotient A R</span> we need
+to define a function on elements of the form <span class="inl-highlight">inR a</span> and 
+on the constructor <span class="inl-highlight">eq</span>. The latter corresponds to a proof
+that the function maps equivalent elements to equal values.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> quotientEx {A <span class="o">:</span> <span class="kt">\Type</span>} {R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>} {B <span class="o">:</span> <span class="kt">\Set</span>}
+                 (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> R a a' <span class="o">-&gt;</span> f a <span class="o">=</span> f a')
+                 (x <span class="o">:</span> Quotient A R) <span class="o">:</span> B <span class="k">\elim</span> x
+  <span class="o">|</span> inR a <span class="o">=&gt;</span> f a
+  <span class="o">|</span> eq a a' r i <span class="o">=&gt;</span> p a a' r <span class="o">@</span> i</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 9:</strong> Define the set of finite subsets of a set <span class="inl-highlight">A</span>,
+ that is of finite lists of elements of <span class="inl-highlight">A</span> defined up to permutations
+ and repetitions of elements.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

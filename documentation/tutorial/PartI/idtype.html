@@ -324,6 +324,17 @@
               
             
           
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
         </ul>
         
       </li>
@@ -379,7 +390,8 @@
             </nav>
           </aside>
         
-        <p class="notice--success">The source code for this module: <a href="code/equality.zip">equality.zip</a>.</p>
+        <p class="notice--success">The source code for this module: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/Equality.ard">PartI/Equality.ard</a> <br />
+The source code for the exercises: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/Exercises/EqualityEx.ard">PartI/EqualityEx.ard</a></p>
 
 <p>In the previous modules we treated the identity type <span class="inl-highlight"><span class="o">=</span></span> in a rather hand-wavy manner as in most of the cases
 we needed just reflexivity <span class="inl-highlight">idp {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} <span class="o">:</span> a <span class="o">=</span> a</span>. Here we will get into details of the definition
@@ -440,7 +452,7 @@ but actually it is not: these constructors are made equal (by means of <span cla
 there exists a function <span class="inl-highlight">f <span class="o">:</span> I <span class="o">-&gt;</span> A</span> such that <span class="inl-highlight">f left <span class="o">==</span>&gt; a</span> and <span class="inl-highlight">f right <span class="o">==</span>&gt; a’</span>
 (where <span class="inl-highlight"><span class="o">==</span>&gt;</span> denotes computational equality). The type <span class="inl-highlight">a <span class="o">=</span> {A} a’</span> is defined simply as the type
 of all functions <span class="inl-highlight">f <span class="o">:</span> I <span class="o">-&gt;</span> A</span> satisfying this property. The constructor <span class="inl-highlight">path (f <span class="o">:</span> I <span class="o">-&gt;</span> A) <span class="o">:</span> f left <span class="o">=</span> f right</span>
-allows to construct equality proofs out of such functions and the function <span class="inl-highlight"><span class="o">@</span> (p <span class="o">:</span> a <span class="o">=</span> a’) (i <span class="o">:</span> I) <span class="o">:</span> A</span> makes the
+allows to construct equality proofs out of such functions and the function <span class="inl-highlight"><span class="o">@</span> (p <span class="o">:</span> a <span class="o">=</span> a’) (i <span class="o">:</span> I) <span class="o">:</span> A</span> does the
 inverse operation:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path f <span class="o">@</span> i <span class="o">==</span>&gt; f i <span class="c">-- beta-equivalence</span>
@@ -514,12 +526,6 @@ for <span class="inl-highlight">Nat</span> and <span class="inl-highlight">Bool<
   <span class="o">|</span> zero <span class="o">=&gt;</span> z
   <span class="o">|</span> suc n <span class="o">=&gt;</span> s n (Nat-rec P z s n)
 
-<span class="o">*</span><span class="o">*</span>Exercise <span class="n">7</span><span class="o">:</span><span class="o">*</span><span class="o">*</span> Define factorial via Nat-rec (i.e.<span class="o">,</span> without recursion and pattern matching).
-{<span class="o">:</span> .notice--info}
-
-<span class="o">*</span><span class="o">*</span>Exercise <span class="n">8</span><span class="o">:</span><span class="o">*</span><span class="o">*</span> Prove associativity of Nat.<span class="o">+</span> via Nat-elim (i.e.<span class="o">,</span> without recursion and pattern matching).
-{<span class="o">:</span> .notice--info}
-
 <span class="c">-- Dependent eliminator for Bool (recursor for Bool is just 'if').</span>
 <span class="k">\func</span> Bool-elim (P <span class="o">:</span> Bool <span class="o">-&gt;</span> <span class="kt">\Type</span>)
                 (t <span class="o">:</span> P true)
@@ -527,6 +533,10 @@ for <span class="inl-highlight">Nat</span> and <span class="inl-highlight">Bool<
                 (x <span class="o">:</span> Bool) <span class="o">:</span> P x <span class="k">\elim</span> x
   <span class="o">|</span> true <span class="o">=&gt;</span> t
   <span class="o">|</span> false <span class="o">=&gt;</span> f</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Define factorial via Nat-rec (i.e., without recursion and pattern matching).</p>
+
+<p class="notice--info"><strong>Exercise 8:</strong> Prove associativity of Nat.+ via Nat-elim (i.e., without recursion and pattern matching).</p>
 
 <p class="notice--info"><strong>Exercise 9:</strong> Define recursor and eliminator for <span class="inl-highlight"><span class="k">\data</span> D <span class="o">|</span> con1 Nat <span class="o">|</span> con2 D D <span class="o">|</span> con3 (Nat <span class="o">-&gt;</span> D)</span>.</p>
 

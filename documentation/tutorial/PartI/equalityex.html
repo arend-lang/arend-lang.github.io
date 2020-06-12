@@ -324,6 +324,17 @@
               
             
           
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
         </ul>
         
       </li>
@@ -377,7 +388,8 @@
             </nav>
           </aside>
         
-        <p class="notice--success">The source code for this module: <a href="code/eqproofs.zip">eqproofs.zip</a>.</p>
+        <p class="notice--success">The source code for this module: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/EqualityProofs.ard">PartI/EqualityProofs.ard</a> <br />
+The source code for the exercises: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/Exercises/EqualityProofsEx.ard">PartI/EqualityProofsEx.ard</a></p>
 
 <p>In this module we give a number of examples, demonstrating techniques used in more advanced proofs of equalities.
 We introduce a convention for writing more readable equality proofs called <em>equational reasoning</em>. 
@@ -389,11 +401,9 @@ called <em>eliminator J</em>.</p>
 <h1 id="commutativity-of-">Commutativity of +</h1>
 
 <p>Let’s apply notions from the previous module and prove commutativity of <span class="inl-highlight"><span class="o">+</span> <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">-&gt;</span> Nat</span>.
-Note that <span class="inl-highlight">transport</span> satisfies the following property:</p>
+Note that <span class="inl-highlight">transport</span> satisfies the property <span class="inl-highlight">transport B idp b <span class="o">==</span>&gt; b</span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- transport B idp b ==&gt; b</span>
-
-<span class="c">-- recall the definition of transport:</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- recall the definition of transport:</span>
 <span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (b <span class="o">:</span> B a)
    <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)) b right
 

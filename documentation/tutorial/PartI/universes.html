@@ -324,6 +324,17 @@
               
             
           
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
         </ul>
         
       </li>
@@ -378,7 +389,9 @@
             </nav>
           </aside>
         
-        <p class="notice--success">The source code for this module: <a href="code/universes.zip">universes.zip</a>.</p>
+        <p class="notice--success">The source code for this module: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/Universes.ard">PartI/Universes.ard</a>,
+ <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/sort.ard">PartI/sort.ard</a> <br />
+The source code for the exercises: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/Exercises/UniversesEx.ard">PartI/UniversesEx.ard</a></p>
 
 <p>In this module we take a closer look at the structure of the hierarchy of universes and
 explain how polymorphism works.</p>
@@ -625,7 +638,7 @@ specifications can be formulated as follows:</p>
 
 <h1 id="correctness-of-insertion-sort">Correctness of Insertion Sort</h1>
 
-<p>We now finally prove the correctness of the insertion sort algorithm, defined in <a href="datanproofs">Simple Examples</a>:</p>
+<p>We now finally prove the correctness of the insertion sort algorithm, defined in <a href="datanproofs">Indexed Data Types</a>:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sort {A <span class="o">:</span> TotalPreorder} (xs <span class="o">:</span> List A) <span class="o">:</span> List A
   <span class="o">|</span> nil <span class="o">=&gt;</span> nil
   <span class="o">|</span> cons a xs <span class="o">=&gt;</span> insert a (sort xs)
