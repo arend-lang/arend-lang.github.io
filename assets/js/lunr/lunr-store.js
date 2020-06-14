@@ -23,4 +23,9 @@ var store = [{
         "excerpt":"We implemented language extensions. This can be used to implement custom operations on the abstract syntax tree which are not supported by the language. They can also be used to implement various decision procedures for proof automation. Language updates: Implemented language extensions. Arend now shows conditions in goals which makes...","categories": [],
         "tags": [],
         "url": "https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html",
+        "teaser":null},{
+        "title": "Tutorial Part II",
+        "excerpt":"The second part of our tutorial is ready.  ","categories": [],
+        "tags": [],
+        "url": "https://arend-lang.github.io/2020/06/14/tutorial-part-II.html",
         "teaser":null}]
