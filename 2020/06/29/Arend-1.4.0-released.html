@@ -9,34 +9,34 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Arend 1.3.0 released - Arend Theorem Prover</title>
-<meta name="description" content="We implemented language extensions.This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.They can also be used to implement various decision procedures for proof automation.">
+<!-- begin _includes/seo.html --><title>Arend 1.4.0 released - Arend Theorem Prover</title>
+<meta name="description" content="Language updates:  Implicit lambdas.  Tests directory can be used to store files with tests, examples, and other code which is not a part of the library.  Improved pretty printer: if some definition is not available in the current context, it will be replaced with its full name.  REPL. To run it, use -i flag.  Arend now supports unicode symbols through aliases.  Equality between disjoint constructors is now considered empty.  Added support for incomplete lambdas, let expressions, and tuples. Missing expressions are treated as goals.  Implemented tail call optimization.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Arend 1.3.0 released">
-<meta property="og:url" content="https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html">
+<meta property="og:title" content="Arend 1.4.0 released">
+<meta property="og:url" content="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html">
 
 
-  <meta property="og:description" content="We implemented language extensions.This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.They can also be used to implement various decision procedures for proof automation.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2020-04-13T00:00:00+03:00">
+  <meta property="og:description" content="Language updates:  Implicit lambdas.  Tests directory can be used to store files with tests, examples, and other code which is not a part of the library.  Improved pretty printer: if some definition is not available in the current context, it will be replaced with its full name.  REPL. To run it, use -i flag.  Arend now supports unicode symbols through aliases.  Equality between disjoint constructors is now considered empty.  Added support for incomplete lambdas, let expressions, and tuples. Missing expressions are treated as goals.  Implemented tail call optimization.">
 
 
 
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html">
+
+  <meta property="article:published_time" content="2020-06-29T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html">
 
 
 
@@ -151,25 +151,40 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">Arend 1.3.0 released</h1>
+      <h1 id="page-title" class="page__title">Arend 1.4.0 released</h1>
     
-    <p>We implemented language extensions.
-This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.
-They can also be used to implement various decision procedures for proof automation.</p>
-
-<p>Language updates:</p>
+    <p>Language updates:</p>
 <ul>
-  <li>Implemented <a href="/about/arend-features#language-extensions">language extensions</a>.</li>
-  <li>Arend now shows conditions in goals which makes it easier to write functions over higher inductive types.</li>
+  <li><a href="/documentation/language-reference/expressions/pi#implicit-lambdas">Implicit lambdas</a>.</li>
+  <li><a href="/documentation/libraries">Tests directory</a> can be used to store files with tests, examples, and other code which is not a part of the library.</li>
+  <li>Improved pretty printer: if some definition is not available in the current context, it will be replaced with its full name.</li>
+  <li>REPL. To run it, use <code class="highlighter-rouge">-i</code> flag.</li>
+  <li>Arend now supports unicode symbols through <a href="/documentation/language-reference/definitions#aliases">aliases</a>.</li>
+  <li>Equality between disjoint constructors is now considered empty.</li>
+  <li>Added support for incomplete lambdas, let expressions, and tuples. Missing expressions are treated as goals.</li>
+  <li>Implemented tail call optimization.</li>
 </ul>
 
 <p>Plugin updates:</p>
 <ul>
-  <li>Implemented “<a href="/about/intellij-features#show-types">show type</a>” feature.</li>
-  <li>Implemented “<a href="/about/intellij-features#show-expr">show (normalized) expression</a>” feature.
-This can be used to see inferred implicit arguments or the result of invocation of some function.</li>
-  <li>Implemented “<a href="/about/intellij-features#normalize-expr">replace (sub)expression</a>” feature.
-This can be used to replace an expression with its normalized result.</li>
+  <li>Highlighting and resolving of expressions in error messages.</li>
+  <li><a href="/about/intellij-features#goals">Fill goal and refine</a> intentions can be invoked on goals. The latter is implemented through language extensions.</li>
+  <li>REPL can be invoked from the main menu: <strong>Tools | Show Arend REPL</strong>.</li>
+  <li><a href="/about/intellij-features#aliases">Aliases support</a>.</li>
+  <li>Improved goto next/previous error. By default, these actions can be invoked by shortcuts <strong>Alt+F2</strong> and <strong>Alt+Shift+F2</strong>.</li>
+  <li>To debug meta definitions, you need to specify a path to Arend jar file in the settings on page <strong>Language &amp; Frameworks | Arend</strong>.
+To run the debugger, click on the gutter icon near some Arend definition and choose “Debug ‘Typecheck …’”.</li>
+  <li>Improved <a href="/about/intellij-features#quick-documentation">documentation support</a>.</li>
+</ul>
+
+<p>API:</p>
+<ul>
+  <li>Goal solvers can be used to replace goals with expressions.</li>
+  <li>Arend UI allows meta definitions to interact with the user.</li>
+  <li>Level solvers can be used to automatically prove that a type belongs to a certain homotopy level.</li>
+  <li>Number type-checker can be used to elaborate numerical literals to arbitrary expressions.</li>
+  <li>User data in definitions can be used to store arbitrary user data.</li>
+  <li>User data in ContextData can be used to pass information between meta definitions.</li>
 </ul>
 
 

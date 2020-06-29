@@ -460,11 +460,11 @@ In case the value is not a numeral, it can be passed as an ordinary first parame
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5 <span class="o">=&gt;</span> id (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="kt">\Type</span> <span class="k">\lp)</span> Nat</code></pre></div></div>
 
-<p>Alternatively, it can be done using the construct <span class="inl-highlight"><span class="k">\level</span> p h</span>, where <span class="inl-highlight">p</span> is the level
+<p>Alternatively, it can be done using the construct <span class="inl-highlight"><span class="k">\levels</span> p h</span>, where <span class="inl-highlight">p</span> is the level
 (we ignore <span class="inl-highlight">h</span> for now). It is useful when the value is a numeral.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5' <span class="o">=&gt;</span> id (<span class="k">\level</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="u">_</span>) (<span class="kt">\Type</span> <span class="k">\lp)</span> Nat
-<span class="k">\func</span> test6 <span class="o">=&gt;</span> id (<span class="k">\level</span> <span class="n">2</span> <span class="u">_</span>) <span class="kt">\Type1</span> <span class="kt">\Type0</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5' <span class="o">=&gt;</span> id (<span class="k">\levels</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="u">_</span>) (<span class="kt">\Type</span> <span class="k">\lp)</span> Nat
+<span class="k">\func</span> test6 <span class="o">=&gt;</span> id (<span class="k">\levels</span> <span class="n">2</span> <span class="u">_</span>) <span class="kt">\Type1</span> <span class="kt">\Type0</span></code></pre></div></div>
 
 <p>In case a definition is invoked without explicit specification for the value of its level, the level will be infered
 by the typechecker. In most cases there is no need to specify the level explicitly.</p>

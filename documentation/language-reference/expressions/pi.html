@@ -392,6 +392,21 @@ of type <span class="inl-highlight">B[a/x]</span>.</p>
 
 <p>An expression of the form <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> f x</span> is equivalent to <span class="inl-highlight">f</span> if <span class="inl-highlight">x</span> is not free in <span class="inl-highlight">f</span> (eta equivalence for Pi types).</p>
 
+<h2 id="implicit-lambdas">Implicit lambdas</h2>
+
+<p>An implicit lambda is written as <span class="inl-highlight"><span class="u">_</span><span class="u">_</span></span>.
+When this expression appears inside some other expression, the outer expression is replaced with a lambda and <span class="inl-highlight"><span class="u">_</span><span class="u">_</span></span> is replaced with the argument of this lambda.
+The outer expression is the closest ancestor of <span class="inl-highlight"><span class="u">_</span><span class="u">_</span></span> in which “it is possible to insert a lambda”.
+Lambda is never inserted in case arguments, anonymous class extensions, after <span class="inl-highlight"><span class="k">\new</span></span>, on the left of the function application, under <span class="inl-highlight"><span class="k">\pi</span></span> or <span class="inl-highlight"><span class="k">\sigma</span></span>, and under binary operators.</p>
+
+<p>Examples:</p>
+<ul>
+  <li><span class="inl-highlight"><span class="k">\case</span> f <span class="u">_</span><span class="u">_</span> <span class="k">\with</span> { … } <span class="o">==</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> <span class="k">\case</span> f x <span class="k">\with</span> { … }</span></li>
+  <li><span class="inl-highlight"><span class="u">_</span><span class="u">_</span> a <span class="o">+</span> <span class="u">_</span><span class="u">_</span> <span class="k">`f`</span> g <span class="u">_</span><span class="u">_</span> (h <span class="u">_</span><span class="u">_</span> <span class="n">0</span>) <span class="o">==</span> <span class="k">\lam</span> x y z <span class="o">=&gt;</span> x a <span class="o">+</span> y <span class="k">`f`</span> g z (<span class="k">\lam</span> t <span class="o">=&gt;</span> h t <span class="n">0</span>)</span></li>
+  <li><span class="inl-highlight"><span class="o">+</span> (f <span class="u">_</span><span class="u">_</span>) <span class="u">_</span><span class="u">_</span> <span class="o">==</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> <span class="o">+</span> (<span class="k">\lam</span> y <span class="o">=&gt;</span> f y) x</span></li>
+  <li><span class="inl-highlight"><span class="u">_</span><span class="u">_</span> <span class="o">-&gt;</span> <span class="k">\Sigma</span> <span class="u">_</span><span class="u">_</span> <span class="u">_</span><span class="u">_</span> <span class="o">==</span> <span class="k">\lam</span> A B C <span class="o">=&gt;</span> A <span class="o">-&gt;</span> <span class="k">\Sigma</span> B C</span></li>
+</ul>
+
         
       </section>
 

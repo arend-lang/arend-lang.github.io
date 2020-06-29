@@ -28,4 +28,9 @@ var store = [{
         "excerpt":"The second part of our tutorial is ready.  ","categories": [],
         "tags": [],
         "url": "https://arend-lang.github.io/2020/06/14/tutorial-part-II.html",
+        "teaser":null},{
+        "title": "Arend 1.4.0 released",
+        "excerpt":"Language updates: Implicit lambdas. Tests directory can be used to store files with tests, examples, and other code which is not a part of the library. Improved pretty printer: if some definition is not available in the current context, it will be replaced with its full name. REPL. To run...","categories": [],
+        "tags": [],
+        "url": "https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html",
         "teaser":null}]

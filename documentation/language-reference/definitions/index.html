@@ -388,6 +388,7 @@
               <ul class="toc__menu">
   <li><a href="#precedence">Precedence</a></li>
   <li><a href="#infix-operators">Infix operators</a></li>
+  <li><a href="#aliases">Aliases</a></li>
 </ul>
             </nav>
           </aside>
@@ -445,6 +446,14 @@ is <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span>
 <p>As noted above, it is possible to use a left section of an operator, that is <span class="inl-highlight">x <span class="o">+</span></span> is equivalent to <span class="inl-highlight"><span class="k">\lam</span> y <span class="o">=&gt;</span> x <span class="o">+</span> y</span>.
 It is also possible to use right sections:
 if a postfix notation is applied to an argument from the right as in <span class="inl-highlight"><span class="o">`+</span> y</span>, then such an expression is equivalent to <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="o">+</span> y</span>.</p>
+
+<h2 id="aliases">Aliases</h2>
+
+<p>An alias is an alternative name for the definition.
+It can be specified by putting <span class="inl-highlight"><span class="k">\alias</span> aliasName</span> after the name of a definition.
+The definition itself and its alias can be used interchangeably.
+Aliases can have their own precedence which is specified before the alias name.
+Aliases can also contain unicode symbols between <code class="highlighter-rouge">U+2200</code> and <code class="highlighter-rouge">U+22FF</code>.</p>
 
         
       </section>

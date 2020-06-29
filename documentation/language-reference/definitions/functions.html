@@ -556,6 +556,8 @@ For example, you can define function <span class="inl-highlight">absurd</span> a
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> absurd {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Empty) <span class="o">:</span> A</code></pre></div></div>
 
+<p>Finally, the type <span class="inl-highlight">con1 <span class="o">=</span> con2</span> is considered empty if <span class="inl-highlight">con1</span> and <span class="inl-highlight">con2</span> are disjoint constructors of some data type.</p>
+
 <h2 id="elim">Elim</h2>
 
 <p>It is often true that one only needs to pattern match on a single parameter of a function (or a few parameters), but the function has much more parameters.

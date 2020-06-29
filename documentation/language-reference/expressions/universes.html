@@ -433,10 +433,10 @@ over <span class="inl-highlight"><span class="n">0</span><span class="o">,</span
 <p>Every definition is considered to be polymorphic in both levels.
 That is, every definition has two additional parameters: one for a predicative level and one for a homotopy level.
 These parameters are denoted by <span class="inl-highlight"><span class="k">\lp</span></span> and <span class="inl-highlight"><span class="k">\lh</span></span> respectively.
-Level arguments can be specified explicitly in a defcall by writing <span class="inl-highlight"><span class="k">\level</span> p h</span>, where <span class="inl-highlight">p</span> and <span class="inl-highlight">h</span> are level expressions of the corresponding kind.
-For example, <span class="inl-highlight">Path (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> Nat) <span class="n">0</span> <span class="n">0</span></span> is equivalent to <span class="inl-highlight">Path <span class="k">\level</span> <span class="n">0</span> <span class="n">0</span> (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> Nat) <span class="n">0</span> <span class="n">0</span></span>.<br />
-Keyword <span class="inl-highlight"><span class="k">\level</span></span> can often be omitted (if the resulting expression is unambiguous).
-The <span class="inl-highlight"><span class="kt">\Prop</span></span> level can be specified by the expression <span class="inl-highlight"><span class="k">\level</span> <span class="kt">\Prop</span></span>.
+Level arguments can be specified explicitly in a defcall by writing <span class="inl-highlight"><span class="k">\levels</span> p h</span>, where <span class="inl-highlight">p</span> and <span class="inl-highlight">h</span> are level expressions of the corresponding kind.
+For example, <span class="inl-highlight">Path (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> Nat) <span class="n">0</span> <span class="n">0</span></span> is equivalent to <span class="inl-highlight">Path <span class="k">\levels</span> <span class="n">0</span> <span class="n">0</span> (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> Nat) <span class="n">0</span> <span class="n">0</span></span>.<br />
+Keyword <span class="inl-highlight"><span class="k">\levels</span></span> can often be omitted (if the resulting expression is unambiguous).
+The <span class="inl-highlight"><span class="kt">\Prop</span></span> level can be specified by the expression <span class="inl-highlight"><span class="k">\levels</span> <span class="kt">\Prop</span></span>.
 Level expressions are defined inductively:</p>
 
 <ul>
@@ -528,7 +528,7 @@ For example, the following function typechecks:</p>
 <p>A definition is marked as <em>universe-like</em> if it contains universes or universe-like definitions applied to either <span class="inl-highlight"><span class="k">\lp</span></span> or <span class="inl-highlight"><span class="k">\lh</span></span>.
 It is often true that the level of a definition can be inferred to either <span class="inl-highlight">c</span> or <span class="inl-highlight"><span class="k">\lp</span> <span class="o">+</span> c</span> for some constant <span class="inl-highlight">c</span>.
 If a definition is universe-like, then the inference algorithm uses the latter option, otherwise it uses the former option.
-Also, if <span class="inl-highlight">D</span> is a universe-like definition, then <span class="inl-highlight">D <span class="k">\level</span> p h</span> is equivalent to <span class="inl-highlight">D <span class="k">\level</span> p’ h’</span> only if <span class="inl-highlight">p <span class="o">=</span> p’</span> and <span class="inl-highlight">h <span class="o">=</span> h’</span>.
+Also, if <span class="inl-highlight">D</span> is a universe-like definition, then <span class="inl-highlight">D <span class="k">\levels</span> p h</span> is equivalent to <span class="inl-highlight">D <span class="k">\levels</span> p’ h’</span> only if <span class="inl-highlight">p <span class="o">=</span> p’</span> and <span class="inl-highlight">h <span class="o">=</span> h’</span>.
 If <span class="inl-highlight">D</span> is not universe-like, then these expressions are always equivalent.</p>
 
         
