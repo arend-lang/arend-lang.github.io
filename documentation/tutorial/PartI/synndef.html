@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Basics">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/synndef.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -358,6 +361,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Basics">
     
@@ -391,6 +395,7 @@
   <li><a href="#type-synonyms">Type synonyms</a></li>
   <li><a href="#namespaces-and-modules">Namespaces and modules</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -417,7 +422,7 @@ keywords <span class="inl-highlight"><span class="k">\func</span></span> and <sp
 non-negative numerals are of type <span class="inl-highlight">Nat</span>, negative numerals are of type <span class="inl-highlight">Int</span>.</p>
 
 <p>Arend allows considerable amount of freedom in the choice of identifiers. With a few exceptions, names of definitions, variables
-etc may contain upper or lower case letters, digits and characters from the list <code class="highlighter-rouge">~!@#$%^&amp;*-+=&lt;&gt;?/|[]:_</code>.</p>
+etc may contain upper or lower case letters, digits and characters from the list <code class="language-plaintext highlighter-rouge">~!@#$%^&amp;*-+=&lt;&gt;?/|[]:_</code>.</p>
 
 <h1 id="functions">Functions</h1>
 
@@ -425,7 +430,7 @@ etc may contain upper or lower case letters, digits and characters from the list
 In particular, this means that they are <em>pure</em> and do not interact with the environment via input-output.</p>
 
 <p>The simplest definition of a function must contain the name of a function
-and its body. For example, the zero constant function <code class="highlighter-rouge">f</code> without parameters can be defined as follows:</p>
+and its body. For example, the zero constant function <code class="language-plaintext highlighter-rouge">f</code> without parameters can be defined as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span> <span class="c">-- constant function</span>
 <span class="c">{- Haskell:
@@ -457,7 +462,7 @@ function as shown below:</p>
 -}</span></code></pre></div></div>
 
 <p>As demonstrated in the definition of <span class="inl-highlight">foo</span>, if a parameter is not used, you can omit the specification
-of its name by using the symbol <code class="highlighter-rouge">_</code>. Also, if several consecutive parameters have the same type, they can be merged:
+of its name by using the symbol <code class="language-plaintext highlighter-rouge">_</code>. Also, if several consecutive parameters have the same type, they can be merged:
 <span class="inl-highlight">(x <span class="u">_</span> <span class="o">:</span> Nat)</span> is equivalent to <span class="inl-highlight">(x <span class="o">:</span> Nat) (<span class="u">_</span> <span class="o">:</span> Nat)</span>.</p>
 
 <p>Note that in contrast to Haskell, types of parameters should always be specified:</p>
@@ -972,7 +977,6 @@ everything that <span class="inl-highlight"><span class="k">\open</span></span> 
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

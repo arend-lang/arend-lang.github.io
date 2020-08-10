@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Propositions and Proofs">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/propsnproofs.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -358,6 +361,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Propositions and Proofs">
     
@@ -383,6 +387,7 @@
   <li><a href="#examples-of-propositions-and-proofs">Examples of propositions and proofs</a></li>
   <li><a href="#identity-type">Identity type</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -485,10 +490,10 @@ The type corresponding to this principle is the sum type:</p>
 In particular, it is not true that the conjunction <span class="inl-highlight">P &amp;&amp; Q</span> can be expressed as <span class="inl-highlight">Not (Not P <span class="o">|</span><span class="o">|</span> Not Q)</span>.
 Similarly, the disjunction <span class="inl-highlight">P <span class="o">|</span><span class="o">|</span> Q</span> cannot be expressed as <span class="inl-highlight">Not (Not P &amp;&amp; Not Q)</span> and the implication <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span> cannot be expressed as <span class="inl-highlight">Not P <span class="o">|</span><span class="o">|</span> Q</span>.</p>
 
-<p class="notice--info"><strong>Exercise 7:</strong> Russell’s paradox shows that there is no set of all sets. If such a set exists, then we can form the set <code class="highlighter-rouge">B</code> of sets which are not members of themselves.
-Then <code class="highlighter-rouge">B</code> belongs to itself if and only if it is not.
+<p class="notice--info"><strong>Exercise 7:</strong> Russell’s paradox shows that there is no set of all sets. If such a set exists, then we can form the set <code class="language-plaintext highlighter-rouge">B</code> of sets which are not members of themselves.
+Then <code class="language-plaintext highlighter-rouge">B</code> belongs to itself if and only if it is not.
 This implies a contradiction.
-Cantor’s theorem states that there is no set <code class="highlighter-rouge">X</code> with a surjection from <code class="highlighter-rouge">X</code> onto the set of subsets of <code class="highlighter-rouge">X</code>.
+Cantor’s theorem states that there is no set <code class="language-plaintext highlighter-rouge">X</code> with a surjection from <code class="language-plaintext highlighter-rouge">X</code> onto the set of subsets of <code class="language-plaintext highlighter-rouge">X</code>.
 Its proof also constructs a proposition which is true if and only if it is false.
 Prove that more generally the existence of any such proposition implies a contradiction.</p>
 
@@ -584,7 +589,7 @@ the equality <span class="inl-highlight">not (not x) <span class="o">=</span> x<
   <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of true = false is expected</span>
   <span class="o">|</span> false <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of false = true is expected</span></code></pre></div></div>
 
-<p class="notice--info"><strong>Exercise 12:</strong> Prove associativity of <code class="highlighter-rouge">and</code> and <code class="highlighter-rouge">or</code>.</p>
+<p class="notice--info"><strong>Exercise 12:</strong> Prove associativity of <code class="language-plaintext highlighter-rouge">and</code> and <code class="language-plaintext highlighter-rouge">or</code>.</p>
 
 <p class="notice--info"><strong>Exercise 13:</strong> Prove that 2 * 2 equals to 4.</p>
 
@@ -649,7 +654,6 @@ the equality <span class="inl-highlight">not (not x) <span class="o">=</span> x<
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

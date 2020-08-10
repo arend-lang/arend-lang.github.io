@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Lexical Structure">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/lexical-structure.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -302,6 +305,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Lexical Structure">
     
@@ -329,12 +333,13 @@
   <li><a href="#infix-and-postfix-notation">Infix and postfix notation</a></li>
   <li><a href="#comments">Comments</a></li>
 </ul>
+
             </nav>
           </aside>
         
         <h2 id="keywords">Keywords</h2>
 
-<p>All Arend’s <em>keywords</em> begin with <code class="highlighter-rouge">\</code>.
+<p>All Arend’s <em>keywords</em> begin with <code class="language-plaintext highlighter-rouge">\</code>.
 Here’s the complete list of keywords:</p>
 
 <p><a href="definitions/modules#open-commands">\open</a> <a href="definitions/modules#import-commands">\import</a> <a href="definitions/modules#open-commands">\hiding</a> <a href="definitions/modules#open-commands">\as</a> <a href="definitions/modules#open-commands">\using</a>
@@ -351,31 +356,31 @@ Here’s the complete list of keywords:</p>
 <h2 id="numerals">Numerals</h2>
 
 <p>A <em>positive numeral</em> is a non-empty sequence of digits.
-A <em>negative numeral</em> consists of symbol <code class="highlighter-rouge">-</code> followed by a non-empty sequence of digits.</p>
+A <em>negative numeral</em> consists of symbol <code class="language-plaintext highlighter-rouge">-</code> followed by a non-empty sequence of digits.</p>
 
 <h2 id="identifiers">Identifiers</h2>
 
-<p>An <em>identifier</em> consists of a non-empty sequence of lower and upper case letters, digits, and characters from the list <code class="highlighter-rouge">~!@#$%^&amp;*-+=&lt;&gt;?/|[]:_</code>.
-Exceptions are sequences that begin with a digit or symbol <code class="highlighter-rouge">'</code>, numerals, and reserved names such as <code class="highlighter-rouge">-&gt;</code>, <code class="highlighter-rouge">=&gt;</code>, <code class="highlighter-rouge">_</code>, <code class="highlighter-rouge">:</code>, and <code class="highlighter-rouge">|</code>.</p>
+<p>An <em>identifier</em> consists of a non-empty sequence of lower and upper case letters, digits, and characters from the list <code class="language-plaintext highlighter-rouge">~!@#$%^&amp;*-+=&lt;&gt;?/|[]:_</code>.
+Exceptions are sequences that begin with a digit or symbol <code class="language-plaintext highlighter-rouge">'</code>, numerals, and reserved names such as <code class="language-plaintext highlighter-rouge">-&gt;</code>, <code class="language-plaintext highlighter-rouge">=&gt;</code>, <code class="language-plaintext highlighter-rouge">_</code>, <code class="language-plaintext highlighter-rouge">:</code>, and <code class="language-plaintext highlighter-rouge">|</code>.</p>
 
 <p>Examples:</p>
 
 <ul>
-  <li>Valid identifiers: <code class="highlighter-rouge">xxx</code>, <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">$^~]!005x</code>, <code class="highlighter-rouge">::</code>, <code class="highlighter-rouge">-&gt;x</code>, <code class="highlighter-rouge">x:Nat</code>, <code class="highlighter-rouge">-5b</code>, <code class="highlighter-rouge">-33+7</code>, <code class="highlighter-rouge">--xxx</code>.</li>
-  <li>Invalid identifiers: <code class="highlighter-rouge">5b</code>, <code class="highlighter-rouge">-33</code>, <code class="highlighter-rouge">=&gt;</code>.</li>
+  <li>Valid identifiers: <code class="language-plaintext highlighter-rouge">xxx</code>, <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">$^~]!005x</code>, <code class="language-plaintext highlighter-rouge">::</code>, <code class="language-plaintext highlighter-rouge">-&gt;x</code>, <code class="language-plaintext highlighter-rouge">x:Nat</code>, <code class="language-plaintext highlighter-rouge">-5b</code>, <code class="language-plaintext highlighter-rouge">-33+7</code>, <code class="language-plaintext highlighter-rouge">--xxx</code>.</li>
+  <li>Invalid identifiers: <code class="language-plaintext highlighter-rouge">5b</code>, <code class="language-plaintext highlighter-rouge">-33</code>, <code class="language-plaintext highlighter-rouge">=&gt;</code>.</li>
 </ul>
 
 <h2 id="infix-and-postfix-notation">Infix and postfix notation</h2>
 
-<p>A <em>postfix notation</em> is an identifier which follows <code class="highlighter-rouge">`</code>.
-An <em>infix notation</em> is an identifier surrounded by <code class="highlighter-rouge">`</code>.
+<p>A <em>postfix notation</em> is an identifier which follows <code class="language-plaintext highlighter-rouge">`</code>.
+An <em>infix notation</em> is an identifier surrounded by <code class="language-plaintext highlighter-rouge">`</code>.
 Both of these notations are described in <a href="definitions">Definitions</a>.</p>
 
 <h2 id="comments">Comments</h2>
 
-<p><em>Multi-line comments</em> are enclosed in <code class="highlighter-rouge">{-</code> and <code class="highlighter-rouge">-}</code> and can be nested.
-<em>Single-line comments</em> consist of a sequence of symbols <code class="highlighter-rouge">-</code> of length at least 2 followed by a whitespace followed by an arbitrary text until the end of the line.
-To give an example, <code class="highlighter-rouge">--</code>, <code class="highlighter-rouge">--------</code>, <code class="highlighter-rouge">-- foo</code>, and <code class="highlighter-rouge">------- foobar</code> are comments but <code class="highlighter-rouge">--foo</code>, <code class="highlighter-rouge">foo--bar</code>, and <code class="highlighter-rouge">------foobar</code> are not.</p>
+<p><em>Multi-line comments</em> are enclosed in <code class="language-plaintext highlighter-rouge">{-</code> and <code class="language-plaintext highlighter-rouge">-}</code> and can be nested.
+<em>Single-line comments</em> consist of a sequence of symbols <code class="language-plaintext highlighter-rouge">-</code> of length at least 2 followed by a whitespace followed by an arbitrary text until the end of the line.
+To give an example, <code class="language-plaintext highlighter-rouge">--</code>, <code class="language-plaintext highlighter-rouge">--------</code>, <code class="language-plaintext highlighter-rouge">-- foo</code>, and <code class="language-plaintext highlighter-rouge">------- foobar</code> are comments but <code class="language-plaintext highlighter-rouge">--foo</code>, <code class="language-plaintext highlighter-rouge">foo--bar</code>, and <code class="language-plaintext highlighter-rouge">------foobar</code> are not.</p>
 
         
       </section>
@@ -436,7 +441,6 @@ To give an example, <code class="highlighter-rouge">--</code>, <code class="high
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Stratified Universes and Univalence">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/hom-levels.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -388,6 +391,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Stratified Universes and Univalence">
     
@@ -418,6 +422,7 @@
   <li><a href="#an-example-of-application-of-univalence">An example of application of univalence</a></li>
   <li><a href="#implications-of-univalence-for-prop-and-set">Implications of univalence for \Prop and \Set</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -543,7 +548,7 @@ it does not have predicative level.</p>
   <span class="o">|</span> suc suc-l <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> (x <span class="o">=</span> y) <span class="o">`hasLevel`</span> suc-l</code></pre></div></div>
 
 <p>For any natural number n&gt;0, the equivalence between <span class="inl-highlight"><span class="k">\(n-1)-Type</span></span> and the subuniverse 
-<span class="inl-highlight"><span class="k">\Sigma</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (A <span class="o"><code class="highlighter-rouge">hasLevel</code></span> n)</span> can be constructed in the same way as for
+<span class="inl-highlight"><span class="k">\Sigma</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (A <span class="o"><code class="language-plaintext highlighter-rouge">hasLevel</code></span> n)</span> can be constructed in the same way as for
 <span class="inl-highlight"><span class="kt">\Set</span></span>.</p>
 
 <p>The computation of homotopy levels of types is in many respects similar to the computation of predicative
@@ -643,10 +648,10 @@ truncation. “or” can be equivalently defined either as a truncation of <span
 
 <span class="k">\func</span> <span class="k">\fixr</span> <span class="n">2</span> Or' (A B <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Prop</span> <span class="o">=&gt;</span> Trunc (Either A B)</code></pre></div></div>
 
-<p>It is easy to see that <span class="inl-highlight">Or</span> satisfies the required properties: <span class="inl-highlight">A <span class="o">-&gt;</span> A <span class="o"><code class="highlighter-rouge">Or</code></span> B</span>
-(constructor <span class="inl-highlight">inl</span>), <span class="inl-highlight">B <span class="o">-&gt;</span> A <span class="o"><code class="highlighter-rouge">Or</code></span> B</span> (constructor <span class="inl-highlight">inr</span>) and
+<p>It is easy to see that <span class="inl-highlight">Or</span> satisfies the required properties: <span class="inl-highlight">A <span class="o">-&gt;</span> A <span class="o"><code class="language-plaintext highlighter-rouge">Or</code></span> B</span>
+(constructor <span class="inl-highlight">inl</span>), <span class="inl-highlight">B <span class="o">-&gt;</span> A <span class="o"><code class="language-plaintext highlighter-rouge">Or</code></span> B</span> (constructor <span class="inl-highlight">inr</span>) and
 for any proposition <span class="inl-highlight">C</span> and all types <span class="inl-highlight">A</span>, <span class="inl-highlight">B</span> if 
-<span class="inl-highlight">A <span class="o">-&gt;</span> C</span> and <span class="inl-highlight">B <span class="o">-&gt;</span> C</span>, then <span class="inl-highlight">A <span class="o"><code class="highlighter-rouge">Or</code></span> B <span class="o">-&gt;</span> C</span>. The latter is
+<span class="inl-highlight">A <span class="o">-&gt;</span> C</span> and <span class="inl-highlight">B <span class="o">-&gt;</span> C</span>, then <span class="inl-highlight">A <span class="o"><code class="language-plaintext highlighter-rouge">Or</code></span> B <span class="o">-&gt;</span> C</span>. The latter is
 the recursor for <span class="inl-highlight">Or</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Or-rec {A B C <span class="o">:</span> <span class="kt">\Prop</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> C) (g <span class="o">:</span> B <span class="o">-&gt;</span> C) (p <span class="o">:</span> A <span class="o">`Or`</span> B) <span class="o">:</span> C <span class="k">\elim</span> p
@@ -680,7 +685,7 @@ image of a function:</p>
 <span class="c">-- image' {Nat} {\Sigma} (\lam _ =&gt; ()) == Nat</span></code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 5:</strong> A type <span class="inl-highlight">C</span> is called cogenerator if for every sets <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span>
- and all functions <span class="inl-highlight">f<span class="o">,</span>g <span class="o">:</span> A <span class="o">-&gt;</span> B</span> whenever <span class="inl-highlight">h <span class="o"><code class="highlighter-rouge">o</code></span> f <span class="o">=</span> h <span class="o"><code class="highlighter-rouge">o</code></span> g</span> holds for all <span class="inl-highlight">h <span class="o">:</span> B <span class="o">-&gt;</span> C</span>,
+ and all functions <span class="inl-highlight">f<span class="o">,</span>g <span class="o">:</span> A <span class="o">-&gt;</span> B</span> whenever <span class="inl-highlight">h <span class="o"><code class="language-plaintext highlighter-rouge">o</code></span> f <span class="o">=</span> h <span class="o"><code class="language-plaintext highlighter-rouge">o</code></span> g</span> holds for all <span class="inl-highlight">h <span class="o">:</span> B <span class="o">-&gt;</span> C</span>,
  then <span class="inl-highlight">f <span class="o">=</span> g</span>. Prove that <span class="inl-highlight"><span class="kt">\Prop</span></span> is cogenerator.</p>
 
 <h1 id="equality-of-types-iso">Equality of types, ‘iso’</h1>
@@ -832,7 +837,7 @@ and <span class="inl-highlight">not</span>:</p>
 
 <p class="notice--info"><strong>Exercise 9:</strong> We say that a type <span class="inl-highlight">X</span> is injective if for any function 
 <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> X</span> and any injection <span class="inl-highlight">i <span class="o">:</span> A <span class="o">-&gt;</span> B</span>
-    there exists a function <span class="inl-highlight">l <span class="o">:</span> B <span class="o">-&gt;</span> X</span> such that <span class="inl-highlight">l <span class="o"><code class="highlighter-rouge">o</code></span> i <span class="o">=</span> f</span>.
+    there exists a function <span class="inl-highlight">l <span class="o">:</span> B <span class="o">-&gt;</span> X</span> such that <span class="inl-highlight">l <span class="o"><code class="language-plaintext highlighter-rouge">o</code></span> i <span class="o">=</span> f</span>.
     Prove that <span class="inl-highlight"><span class="kt">\Prop</span></span> is injective.</p>
 
 
@@ -895,7 +900,6 @@ and <span class="inl-highlight">not</span>:</p>
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

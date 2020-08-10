@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Propositions and Sets">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/hprops.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -388,6 +391,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Propositions and Sets">
     
@@ -414,6 +418,7 @@
   <li><a href="#sets">Sets</a></li>
   <li><a href="#groupoid-structure-on-types">Groupoid structure on types</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -505,8 +510,8 @@ that <span class="inl-highlight">Even-inc</span> is injective:</p>
   <span class="k">\lam</span> x y p <span class="o">=&gt;</span> sigmaEq (<span class="k">\lam</span> n <span class="o">=&gt;</span> T (isEven n)) x y p T-lem</code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 1:</strong> Let <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">g <span class="o">:</span> B <span class="o">-&gt;</span> C</span> be some functions.
- Prove that if <span class="inl-highlight">f</span> and <span class="inl-highlight">g</span> are injective, then <span class="inl-highlight">g <span class="o"><code class="highlighter-rouge">o</code></span> f</span>
- is also injective. Prove that if <span class="inl-highlight">g <span class="o"><code class="highlighter-rouge">o</code></span> f</span> is injective, then <span class="inl-highlight">f</span> is also injective.</p>
+ Prove that if <span class="inl-highlight">f</span> and <span class="inl-highlight">g</span> are injective, then <span class="inl-highlight">g <span class="o"><code class="language-plaintext highlighter-rouge">o</code></span> f</span>
+ is also injective. Prove that if <span class="inl-highlight">g <span class="o"><code class="language-plaintext highlighter-rouge">o</code></span> f</span> is injective, then <span class="inl-highlight">f</span> is also injective.</p>
 
 <p>Consider one more example. Define functions computing residuals modulo 3 and 5 and define the type
 of all natural numbers that are divisible by 3 or 5:</p>
@@ -538,7 +543,7 @@ of all natural numbers that are divisible by 3 or 5:</p>
 <!-- TODO: prove not-Mul-inc-isInj or leave as exercise -->
 
 <p>This is so because for some <span class="inl-highlight">n</span>, namely for those that are divisible
-by both 3 and 5, there are several non-equal proofs of <span class="inl-highlight">(mod3 n <span class="o">=</span> <span class="n">0</span>) <span class="o"><code class="highlighter-rouge">Either</code></span> (mod5 n <span class="o">=</span> <span class="n">0</span>)</span>.
+by both 3 and 5, there are several non-equal proofs of <span class="inl-highlight">(mod3 n <span class="o">=</span> <span class="n">0</span>) <span class="o"><code class="language-plaintext highlighter-rouge">Either</code></span> (mod5 n <span class="o">=</span> <span class="n">0</span>)</span>.
 Thus <span class="inl-highlight">MultipleOf3Or5</span> is not a subtype of <span class="inl-highlight">Nat</span>.</p>
 
 <p class="notice--info"><strong>Exercise 2:</strong> Define the predicate “divisible by 3 or by 5” in such a way that it becomes a proposition.
@@ -714,7 +719,7 @@ a set:</p>
 is a proposition and <span class="inl-highlight">A</span> is a retract of <span class="inl-highlight">B</span>, then <span class="inl-highlight">A</span>
 is also a proposition. Recall that <span class="inl-highlight">A</span> is called a retract of <span class="inl-highlight">B</span>
 if there exist functions <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">g <span class="o">:</span> B <span class="o">-&gt;</span> A</span> such that
-the composition <span class="inl-highlight">g <span class="o"><code class="highlighter-rouge">o</code></span> f</span> is identity.</p>
+the composition <span class="inl-highlight">g <span class="o"><code class="language-plaintext highlighter-rouge">o</code></span> f</span> is identity.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> retract-isProp {A B <span class="o">:</span> <span class="kt">\Type</span>} (pB <span class="o">:</span> isProp B) (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (g <span class="o">:</span> B <span class="o">-&gt;</span> A)
   (h <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> g (f x) <span class="o">=</span> x)
@@ -764,7 +769,7 @@ with “proposition”, and the second one is another variant of the retract lem
 equality.</p>
 
 <p class="notice--info"><strong>Exercise 10:</strong> Prove that if <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span> are sets, then
-<span class="inl-highlight">A <span class="o"><code class="highlighter-rouge">Or</code></span> B</span> is also a set.</p>
+<span class="inl-highlight">A <span class="o"><code class="language-plaintext highlighter-rouge">Or</code></span> B</span> is also a set.</p>
 
 <p class="notice--info"><strong>Exercise 11:</strong> Prove that if <span class="inl-highlight">B x</span> is a set, then <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x</span> is a set.</p>
 
@@ -892,7 +897,6 @@ then <span class="inl-highlight">f <span class="o">=</span> g</span> is equivale
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

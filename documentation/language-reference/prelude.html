@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Prelude">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/prelude.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -302,6 +305,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Prelude">
     
@@ -330,6 +334,7 @@
   <li><a href="#coe-and-coe2">coe and coe2</a></li>
   <li><a href="#iso">iso</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -338,7 +343,7 @@ It is always imported implicitly in every module.
 You can also import it explicitly to hide or rename some of its definitions.</p>
 
 <p>We will discuss these definitions in this module.
-You can look at the file <code class="highlighter-rouge">Prelude.ard</code>, which contains these definitions, but note that they only roughly correspond
+You can look at the file <code class="language-plaintext highlighter-rouge">Prelude.ard</code>, which contains these definitions, but note that they only roughly correspond
 to actual definitions since most of them cannot be actually defined in the ordinary syntax.</p>
 
 <h1 id="nat-and-int">Nat and Int</h1>
@@ -506,7 +511,6 @@ This definition implies the univalence axiom.</p>
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

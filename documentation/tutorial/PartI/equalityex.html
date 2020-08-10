@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Proofs of Equality">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/equalityex.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -358,6 +361,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Proofs of Equality">
     
@@ -385,6 +389,7 @@
   <li><a href="#associativity-of-append-for-vectors">Associativity of append for vectors</a></li>
   <li><a href="#predicates">Predicates</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -431,9 +436,9 @@ we do not need it yet.</p>
 <h1 id="equational-reasoning-proof-of--comm-rewritten">Equational reasoning, proof of +-comm rewritten</h1>
 
 <p>There is one clever trick that allows to write sequences of equality proofs joining by transitivity in a
-more readable form. Namely, one can define operators <span class="inl-highlight"><span class="o"><code class="highlighter-rouge">==&lt;</code></span></span>, <span class="inl-highlight"><span class="o"><code class="highlighter-rouge">&gt;==</code></span></span> and
-<span class="inl-highlight"><span class="o"><code class="highlighter-rouge">qed</code></span></span> such that it is possible to write instead of a chain of equality proofs 
-<span class="inl-highlight">p1 <span class="o"><code class="highlighter-rouge">*&gt;</code></span> … <span class="o"><code class="highlighter-rouge">*&gt;</code></span> pn</span> an extended chain <span class="inl-highlight">a1 <span class="o"><code class="highlighter-rouge">==&lt;</code></span> p1 <span class="o"><code class="highlighter-rouge">&gt;==</code></span> a2 <span class="o"><code class="highlighter-rouge">==&lt;</code></span> p2 <span class="o"><code class="highlighter-rouge">&gt;==</code></span> a3 … <span class="o">`qed</span></span>,
+more readable form. Namely, one can define operators <span class="inl-highlight"><span class="o"><code class="language-plaintext highlighter-rouge">==&lt;</code></span></span>, <span class="inl-highlight"><span class="o"><code class="language-plaintext highlighter-rouge">&gt;==</code></span></span> and
+<span class="inl-highlight"><span class="o"><code class="language-plaintext highlighter-rouge">qed</code></span></span> such that it is possible to write instead of a chain of equality proofs 
+<span class="inl-highlight">p1 <span class="o"><code class="language-plaintext highlighter-rouge">*&gt;</code></span> … <span class="o"><code class="language-plaintext highlighter-rouge">*&gt;</code></span> pn</span> an extended chain <span class="inl-highlight">a1 <span class="o"><code class="language-plaintext highlighter-rouge">==&lt;</code></span> p1 <span class="o"><code class="language-plaintext highlighter-rouge">&gt;==</code></span> a2 <span class="o"><code class="language-plaintext highlighter-rouge">==&lt;</code></span> p2 <span class="o"><code class="language-plaintext highlighter-rouge">&gt;==</code></span> a3 … <span class="o">`qed</span></span>,
 where we also specify the objects equality of which is proven at each step (in other words, <span class="inl-highlight">pi <span class="o">:</span> ai <span class="o">=</span> a(i+1)</span>).
 The proof <span class="inl-highlight"><span class="o">+</span>-comm</span> rewritten in this way looks as follows:</p>
 
@@ -716,7 +721,6 @@ sublist of <span class="inl-highlight">ys</span>”.</p>
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

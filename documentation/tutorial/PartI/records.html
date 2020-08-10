@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Records and Classes">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/records.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -358,6 +361,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Records and Classes">
     
@@ -391,6 +395,7 @@
   <li><a href="#classes-without-classifying-fields">Classes without classifying fields</a></li>
   <li><a href="#functor">Functor</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -856,7 +861,7 @@ For example, consider the following snippet that defines injective, surjective, 
 
 <span class="k">\func</span> IsBij=&gt;isSur {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isBij f) <span class="o">:</span> isSur f <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
 
-<p>Functions above have 3 common parameters: <code class="highlighter-rouge">A</code>, <code class="highlighter-rouge">B</code>, and <code class="highlighter-rouge">f</code>.
+<p>Functions above have 3 common parameters: <code class="language-plaintext highlighter-rouge">A</code>, <code class="language-plaintext highlighter-rouge">B</code>, and <code class="language-plaintext highlighter-rouge">f</code>.
 Classes without classifying fields can be used to extract these parameters so that we do not have to type in them for every function.
 A class without classifying fields can be defined in two ways: as a class without explicit parameters, or as a class with the keyword <span class="inl-highlight"><span class="k">\noclassifying</span></span>.</p>
 
@@ -975,7 +980,6 @@ Define <span class="inl-highlight"><span class="k">\instance</span></span> of th
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

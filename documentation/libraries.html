@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Libraries">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/libraries.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -300,6 +303,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Libraries">
     
@@ -324,22 +328,22 @@ information about a library is contained inside the header file and may include 
 
 <ul>
   <li>
-    <p>Language version can be specified by writing <code class="highlighter-rouge">langVersion: VERSION</code>, where <code class="highlighter-rouge">VERSION</code> is either a specific version of the language or a range,
-which is written as either <code class="highlighter-rouge">&gt;= VERSION</code>, <code class="highlighter-rouge">&lt;= VERSION</code>, or <code class="highlighter-rouge">&gt;= VERSION_1, &lt;= VERSION_2</code>.</p>
+    <p>Language version can be specified by writing <code class="language-plaintext highlighter-rouge">langVersion: VERSION</code>, where <code class="language-plaintext highlighter-rouge">VERSION</code> is either a specific version of the language or a range,
+which is written as either <code class="language-plaintext highlighter-rouge">&gt;= VERSION</code>, <code class="language-plaintext highlighter-rouge">&lt;= VERSION</code>, or <code class="language-plaintext highlighter-rouge">&gt;= VERSION_1, &lt;= VERSION_2</code>.</p>
   </li>
   <li>
-    <p>Directories with library’s source, test, and binary files. It can be specified by writing <code class="highlighter-rouge">sourcesDir: PATH</code>,
-<code class="highlighter-rouge">testsDir: PATH</code>, and <code class="highlighter-rouge">binariesDir: PATH</code> for sources, tests, and binaries respectively, where <code class="highlighter-rouge">PATH</code> is either
+    <p>Directories with library’s source, test, and binary files. It can be specified by writing <code class="language-plaintext highlighter-rouge">sourcesDir: PATH</code>,
+<code class="language-plaintext highlighter-rouge">testsDir: PATH</code>, and <code class="language-plaintext highlighter-rouge">binariesDir: PATH</code> for sources, tests, and binaries respectively, where <code class="language-plaintext highlighter-rouge">PATH</code> is either
 a path relative to the library’s root directory or an absolute path.</p>
   </li>
   <li>
     <p>The list of names of libraries this library depends on. The list of library’s dependencies can be specified by writing
-<code class="highlighter-rouge">dependencies: [NAME_1, ..., NAME_k]</code>, where <code class="highlighter-rouge">NAME_1</code>, … <code class="highlighter-rouge">NAME_k</code> are names of the libraries.</p>
+<code class="language-plaintext highlighter-rouge">dependencies: [NAME_1, ..., NAME_k]</code>, where <code class="language-plaintext highlighter-rouge">NAME_1</code>, … <code class="language-plaintext highlighter-rouge">NAME_k</code> are names of the libraries.</p>
   </li>
 </ul>
 
 <p>All libraries should be put in some specific directory.
-The path to this directory can be specified either with command line option <code class="highlighter-rouge">-L</code> in the console application or in module settings in IntelliJ IDEA.</p>
+The path to this directory can be specified either with command line option <code class="language-plaintext highlighter-rouge">-L</code> in the console application or in module settings in IntelliJ IDEA.</p>
 
         
       </section>
@@ -400,7 +404,6 @@ The path to this directory can be specified either with command line option <cod
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

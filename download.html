@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Download">
 <meta property="og:url" content="https://arend-lang.github.io/download.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -144,6 +147,7 @@
 
 <div id="main" role="main">
   
+
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Download">
@@ -170,6 +174,7 @@
   <li><a href="#console-application">Console Application</a></li>
   <li><a href="#standard-library">Standard Library</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -197,7 +202,7 @@ To create an Arend project, follow instructions <a href="/documentation/getting-
 <ul>
   <li>Download the Arend <a href="https://github.com/JetBrains/Arend/releases/latest/download/arend.jar">jar file</a>.
 You can also get the latest version of the application by following instructions on <a href="https://github.com/JetBrains/arend/blob/master/README.md">GitHub</a>.</li>
-  <li>Run <code class="highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">$</span> java -jar arend.jar
@@ -205,7 +210,7 @@ You can also get the latest version of the application by following instructions
 [INFO] Loaded library prelude
 Nothing to load</code></pre></div></div>
 
-<p>To see command line options, run <code class="highlighter-rouge">java -jar arend.jar --help</code>.</p>
+<p>To see command line options, run <code class="language-plaintext highlighter-rouge">java -jar arend.jar --help</code>.</p>
 
 <p>To create an Arend project, follow instructions <a href="/documentation/getting-started#console-application">here</a>.</p>
 
@@ -213,8 +218,8 @@ Nothing to load</code></pre></div></div>
 
 <p>The standard library contains a number of essential definitions and proofs, in particular, in constructive algebra and homotopy theory.
 It can be downloaded from <a href="https://github.com/JetBrains/arend-lib/releases/latest/download/arend-lib.zip">GitHub</a>.
-It should be unpacked and the directory <code class="highlighter-rouge">arend-lib</code> should be put in some specific directory <code class="highlighter-rouge">libs</code> in which all Arend libraries are stored.
-The path to <code class="highlighter-rouge">libs</code> can be specified either with command line option <code class="highlighter-rouge">-L</code> in the console application or in module settings in IntelliJ IDEA.</p>
+It should be unpacked and the directory <code class="language-plaintext highlighter-rouge">arend-lib</code> should be put in some specific directory <code class="language-plaintext highlighter-rouge">libs</code> in which all Arend libraries are stored.
+The path to <code class="language-plaintext highlighter-rouge">libs</code> can be specified either with command line option <code class="language-plaintext highlighter-rouge">-L</code> in the console application or in module settings in IntelliJ IDEA.</p>
 
         
       </section>
@@ -275,7 +280,6 @@ The path to <code class="highlighter-rouge">libs</code> can be specified either 
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

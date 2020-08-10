@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Getting Started">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/getting-started.html">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -300,6 +303,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Getting Started">
     
@@ -325,6 +329,7 @@
   <li><a href="#console-application">Console Application</a></li>
   <li><a href="#standard-library">Standard Library</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -354,8 +359,8 @@ these libraries in the panel on the right. In order to do this, click <strong>+<
   <li>Click <strong>Next</strong>. In the successive steps set up the name of the project, directories for sources and binaries and click <strong>Finish</strong>.</li>
 </ul>
 
-<p>You should get a new project which contains (among other files) a file <code class="highlighter-rouge">arend.yaml</code> and an empty source directory 
-(<code class="highlighter-rouge">src</code> by default).
+<p>You should get a new project which contains (among other files) a file <code class="language-plaintext highlighter-rouge">arend.yaml</code> and an empty source directory 
+(<code class="language-plaintext highlighter-rouge">src</code> by default).
 The yaml file contains a description of the project.
 You can read more about this configuration file <a href="libraries">here</a>.</p>
 
@@ -365,12 +370,12 @@ section of <strong>File | Project Structure | Project</strong>.  Once this is do
 <strong>File | Project Structure | Modules</strong>, select <strong>Library | Arend library</strong> and choose the libraries to be added as 
 dependencies.</p>
 
-<p>Create a new file <code class="highlighter-rouge">example.ard</code> in the source directory.
+<p>Create a new file <code class="language-plaintext highlighter-rouge">example.ard</code> in the source directory.
 Add the following line to this file:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<p>You should see a green gutter icon next to the declaration of <code class="highlighter-rouge">f</code>, which indicates that <code class="highlighter-rouge">f</code> was successfully typechecked.
+<p>You should see a green gutter icon next to the declaration of <code class="language-plaintext highlighter-rouge">f</code>, which indicates that <code class="language-plaintext highlighter-rouge">f</code> was successfully typechecked.
 Modify the file as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
@@ -393,7 +398,7 @@ To learn more about Arend, see the <a href="language-reference">language referen
 <ul>
   <li>Download the Arend <a href="https://github.com/JetBrains/Arend/releases/latest/download/arend.jar">jar file</a>.
 You can also get the latest version of the application by following instructions on <a href="https://github.com/JetBrains/arend/blob/master/README.md">GitHub</a>.</li>
-  <li>Run <code class="highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">$</span> java -jar arend.jar
@@ -401,7 +406,7 @@ You can also get the latest version of the application by following instructions
 [INFO] Loaded library prelude
 Nothing to load</code></pre></div></div>
 
-<p>To see command line options, run <code class="highlighter-rouge">java -jar arend.jar --help</code>.</p>
+<p>To see command line options, run <code class="language-plaintext highlighter-rouge">java -jar arend.jar --help</code>.</p>
 
 <p>Let’s create our first Arend project.
 Create a directory for your project:</p>
@@ -409,22 +414,22 @@ Create a directory for your project:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">$</span> mkdir testProject
 <span class="o">$</span> cd testProject</code></pre></div></div>
 
-<p>Create file <code class="highlighter-rouge">arend.yaml</code> inside this directory.
+<p>Create file <code class="language-plaintext highlighter-rouge">arend.yaml</code> inside this directory.
 This file contains the description of your project.
 Minimally, we just need to specify the location of source files of your project.
-Add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sourcesDir: src
+Add the following line to <code class="language-plaintext highlighter-rouge">arend.yaml</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sourcesDir: src
 </code></pre></div></div>
 
-<p>Create directory <code class="highlighter-rouge">src</code> which will contain source files for this project.
-Create a file <code class="highlighter-rouge">example.ard</code> inside <code class="highlighter-rouge">src</code> with the following content:</p>
+<p>Create directory <code class="language-plaintext highlighter-rouge">src</code> which will contain source files for this project.
+Create a file <code class="language-plaintext highlighter-rouge">example.ard</code> inside <code class="language-plaintext highlighter-rouge">src</code> with the following content:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<p>Run <code class="highlighter-rouge">java -jar $arend -L$libs $myProject</code>, where <code class="highlighter-rouge">$arend</code> is the path to <code class="highlighter-rouge">arend.jar</code>, <code class="highlighter-rouge">$myProject</code> is the path to <code class="highlighter-rouge">arend.yaml</code>,
-and <code class="highlighter-rouge">$libs</code> is the path to the directory with Arend libraries (if the project does not have dependencies, this option can be omitted).
+<p>Run <code class="language-plaintext highlighter-rouge">java -jar $arend -L$libs $myProject</code>, where <code class="language-plaintext highlighter-rouge">$arend</code> is the path to <code class="language-plaintext highlighter-rouge">arend.jar</code>, <code class="language-plaintext highlighter-rouge">$myProject</code> is the path to <code class="language-plaintext highlighter-rouge">arend.yaml</code>,
+and <code class="language-plaintext highlighter-rouge">$libs</code> is the path to the directory with Arend libraries (if the project does not have dependencies, this option can be omitted).
 You should see the following output:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
 [INFO] Loaded library prelude
 [INFO] Loading library myProject
 [INFO] Loaded library myProject
@@ -433,14 +438,14 @@ You should see the following output:</p>
 --- Done ---
 </code></pre></div></div>
 
-<p>This means that module <code class="highlighter-rouge">example</code> was successfully typechecked.
-Modify file <code class="highlighter-rouge">example.ard</code> as follows:</p>
+<p>This means that module <code class="language-plaintext highlighter-rouge">example</code> was successfully typechecked.
+Modify file <code class="language-plaintext highlighter-rouge">example.ard</code> as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<p>If you run <code class="highlighter-rouge">java -jar $arend $myProject</code> again, it should produce the following error message:</p>
+<p>If you run <code class="language-plaintext highlighter-rouge">java -jar $arend $myProject</code> again, it should produce the following error message:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
 [INFO] Loaded library prelude
 [INFO] Loading library myProject
 [INFO] Loaded library myProject
@@ -459,8 +464,8 @@ Number of modules with errors: 1
 
 <h1 id="standard-library">Standard Library</h1>
 
-<p>In case you would also like to use the standard library, download it as described <a href="/download#standard-library">here</a> and add the following line to <code class="highlighter-rouge">arend.yaml</code>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies: [arend-lib]
+<p>In case you would also like to use the standard library, download it as described <a href="/download#standard-library">here</a> and add the following line to <code class="language-plaintext highlighter-rouge">arend.yaml</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies: [arend-lib]
 </code></pre></div></div>
 <p>You can read more about this configuration file <a href="libraries">here</a>.</p>
 
@@ -523,7 +528,6 @@ Number of modules with errors: 1
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -20,6 +20,8 @@
 <meta property="og:title" content="Definitions">
 <meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/">
 
+
+  <meta property="og:description" content="The Arend Theorem Prover">
 
 
 
@@ -67,8 +69,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-<!--[if IE ]>
+<!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -119,11 +122,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about" >About</a>
+              <a href="/about">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/documentation" >Documentation</a>
+              <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
-              <a href="/download" >Download</a>
+              <a href="/download">Download</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -365,6 +368,7 @@
   </div>
 
 
+
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Definitions">
     
@@ -390,6 +394,7 @@
   <li><a href="#infix-operators">Infix operators</a></li>
   <li><a href="#aliases">Aliases</a></li>
 </ul>
+
             </nav>
           </aside>
         
@@ -429,7 +434,7 @@ different types of associativity or are non-associative, then the parsing error 
 <h2 id="infix-operators">Infix operators</h2>
 
 <p>A definition can be labeled as an <em>infix operator</em>.
-This means that its defcalls are parsed as infix notations even without <code class="highlighter-rouge">` `</code>.
+This means that its defcalls are parsed as infix notations even without <code class="language-plaintext highlighter-rouge">` `</code>.
 An infix operator is defined by specifying one of keywords <span class="inl-highlight"><span class="k">\infixl</span></span>, <span class="inl-highlight"><span class="k">\infixr</span></span>, <span class="inl-highlight"><span class="k">\infix</span></span> before the name of operator.
 These keywords have the same syntax and semantics as keywords <span class="inl-highlight"><span class="k">\fixl</span></span>, <span class="inl-highlight"><span class="k">\fixr</span></span>, and <span class="inl-highlight"><span class="k">\fix</span></span>, which are described above.</p>
 
@@ -437,7 +442,7 @@ These keywords have the same syntax and semantics as keywords <span class="inl-h
 For example, if the function <span class="inl-highlight"><span class="o">+</span></span> is defined as <span class="inl-highlight"><span class="k">\infixl</span> <span class="n">6</span> <span class="o">+</span></span>, then it is allowed to write either <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span> <span class="n">2</span></span> or <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span> <span class="n">2</span></span>; 
 these expressions are equivalent.</p>
 
-<p>Finally, if <span class="inl-highlight">f</span> is an infix operator or an operator surrounded with <code class="highlighter-rouge">` `</code>, then it is allowed to write <span class="inl-highlight">e f</span> and
+<p>Finally, if <span class="inl-highlight">f</span> is an infix operator or an operator surrounded with <code class="language-plaintext highlighter-rouge">` `</code>, then it is allowed to write <span class="inl-highlight">e f</span> and
 this is equivalent to <span class="inl-highlight">f e</span>.
 For example, the function that adds <span class="inl-highlight"><span class="n">1</span></span> to its argument can be written either as <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span></span> or as <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span></span>.
 The result of application of the first function to <span class="inl-highlight"><span class="n">2</span></span> is <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span> <span class="n">2</span></span>, the result of application of the second one to <span class="inl-highlight"><span class="n">2</span></span>
@@ -453,7 +458,7 @@ if a postfix notation is applied to an argument from the right as in <span class
 It can be specified by putting <span class="inl-highlight"><span class="k">\alias</span> aliasName</span> after the name of a definition.
 The definition itself and its alias can be used interchangeably.
 Aliases can have their own precedence which is specified before the alias name.
-Aliases can also contain unicode symbols between <code class="highlighter-rouge">U+2200</code> and <code class="highlighter-rouge">U+22FF</code>.</p>
+Aliases can also contain unicode symbols between <code class="language-plaintext highlighter-rouge">U+2200</code> and <code class="language-plaintext highlighter-rouge">U+22FF</code>.</p>
 
         
       </section>
@@ -514,7 +519,6 @@ Aliases can also contain unicode symbols between <code class="highlighter-rouge"
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 
