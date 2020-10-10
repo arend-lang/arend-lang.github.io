@@ -353,10 +353,11 @@ To install it, follow the instructions below.</p>
 <ul>
   <li>Run Intellij IDEA and choose either <strong>Create New Project</strong> if you are on a <em>Welcome screen</em> or <strong>File | New | Project</strong> from the main menu if a project is open.</li>
   <li>Choose <strong>Arend</strong> in the list on the left. If you want to use external libraries, for example, the standard library, 
-you can set up the path to a directory with
-these libraries in the panel on the right. In order to do this, click <strong>+</strong> button in the top left corner of the panel, select
-<strong>Arend libraries</strong> and choose a path in the dialog.</li>
-  <li>Click <strong>Next</strong>. In the successive steps set up the name of the project, directories for sources and binaries and click <strong>Finish</strong>.</li>
+you can set up the path to a directory with these libraries in the field <strong>Path to libraries</strong>.
+Available libraries will be displayed in the list on the right.
+To add them to the project, move them to the left list.
+The standard library <strong>arend-lib</strong> is always available; it will be downloaded if the file is missing.</li>
+  <li>Click <strong>Next</strong>. In the successive step set up the name of the project and the path to it and click <strong>Finish</strong>.</li>
 </ul>
 
 <p>You should get a new project which contains (among other files) a file <code class="language-plaintext highlighter-rouge">arend.yaml</code> and an empty source directory 
@@ -364,13 +365,8 @@ these libraries in the panel on the right. In order to do this, click <strong>+<
 The yaml file contains a description of the project.
 You can read more about this configuration file <a href="libraries">here</a>.</p>
 
-<p>If you want to use the standard library, you should add it to the list of dependencies in <strong>File | Project Structure</strong>.
-In case you did not specify the path to Arend external libraries on creation of the project, you should do it in Project SDK
-section of <strong>File | Project Structure | Project</strong>.  Once this is done, click <strong>+</strong> button on the right of the panel
-<strong>File | Project Structure | Modules</strong>, select <strong>Library | Arend library</strong> and choose the libraries to be added as 
-dependencies.</p>
-
-<p>Create a new file <code class="language-plaintext highlighter-rouge">example.ard</code> in the source directory.
+<p>Now, let us write some code.
+Create a new file <code class="language-plaintext highlighter-rouge">example.ard</code> in the source directory.
 Add the following line to this file:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
@@ -464,7 +460,7 @@ Number of modules with errors: 1
 
 <h1 id="standard-library">Standard Library</h1>
 
-<p>In case you would also like to use the standard library, download it as described <a href="/download#standard-library">here</a> and add the following line to <code class="language-plaintext highlighter-rouge">arend.yaml</code>:</p>
+<p>In case you would also like to use the standard library, download it as described <a href="/download#standard-library">here</a> (if you are using the IntelliJ plugin, it can be downloaded from the IDE) and add the following line to <code class="language-plaintext highlighter-rouge">arend.yaml</code>:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies: [arend-lib]
 </code></pre></div></div>
 <p>You can read more about this configuration file <a href="libraries">here</a>.</p>

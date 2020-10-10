@@ -275,6 +275,13 @@
 
                 
 
+                <li><a href="/documentation/language-reference/definitions/metas" class="">&nbsp;&nbsp;&nbsp;&nbsp;Meta definitions</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/language-reference/definitions/coercion" class="">&nbsp;&nbsp;&nbsp;&nbsp;Coercion</a></li>
               
                 
@@ -391,6 +398,7 @@
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Parameters</h4></header>
               <ul class="toc__menu">
   <li><a href="#syntax">Syntax</a></li>
+  <li><a href="#strict-parameters">Strict parameters</a></li>
   <li><a href="#implicit-arguments">Implicit arguments</a></li>
 </ul>
 
@@ -451,6 +459,14 @@ parameters <span class="inl-highlight">y1</span>, <span class="inl-highlight">y2
 
 <p>If a parameter is never used, its name can be replaced with <span class="inl-highlight"><span class="u">_</span></span>.
 Such a name cannot be refered to, so this simply indicated that this parameter is ignored.</p>
+
+<h2 id="strict-parameters">Strict parameters</h2>
+
+<p>Parameters of functions and constructors of <a href="data">data types</a> can be marked as <em>strict</em> using the following syntax:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (n <span class="o">:</span> Nat) (<span class="k">\strict</span> m k <span class="o">:</span> Nat) (l <span class="o">:</span> Nat) <span class="o">=&gt;</span> n</code></pre></div></div>
+<p>In this example, <span class="inl-highlight">m</span> and <span class="inl-highlight">k</span> are strict, but <span class="inl-highlight">n</span> and <span class="inl-highlight">l</span> are not.
+Strict parameters will be evaluated immediately when the function is invoked.
+This does not affect the semantics, but it can improve performance of the program.</p>
 
 <h2 id="implicit-arguments">Implicit arguments</h2>
 

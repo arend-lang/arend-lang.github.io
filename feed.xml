@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2020-09-20T21:02:47+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><entry><title type="html">Arend 1.4.0 released</title><link href="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html" rel="alternate" type="text/html" title="Arend 1.4.0 released" /><published>2020-06-29T00:00:00+03:00</published><updated>2020-06-29T00:00:00+03:00</updated><id>https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2020-10-10T14:03:36+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><entry><title type="html">Arend 1.5.0 released</title><link href="https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html" rel="alternate" type="text/html" title="Arend 1.5.0 released" /><published>2020-10-10T00:00:00+03:00</published><updated>2020-10-10T00:00:00+03:00</updated><id>https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;String literals, which can be used in meta code&lt;/li&gt;
+  &lt;li&gt;Meta resolvers, which can be used to modify the scoping rules for meta definitions&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/definitions/parameters#strict-parameters&quot;&gt;\strict parameters&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Improved performance&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/definitions/metas&quot;&gt;Defined metas&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Libraries can be loaded from zip archives without unpacking&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Plugin updates:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Completion of not-imported definitions&lt;/li&gt;
+  &lt;li&gt;Rainbow highlighting&lt;/li&gt;
+  &lt;li&gt;arend-lib can be downloaded and upgraded from the IDE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;API:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Arend console, which can be used to print information in the IDE instead of stdout&lt;/li&gt;
+  &lt;li&gt;Clauses and coclauses can be passed to metas now&lt;/li&gt;
+  &lt;li&gt;Saving and loading of typechecker state&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;arend-lib:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Debug metas (&lt;span class=&quot;inl-highlight&quot;&gt;println&lt;/span&gt;, &lt;span class=&quot;inl-highlight&quot;&gt;random&lt;/span&gt;, &lt;span class=&quot;inl-highlight&quot;&gt;time&lt;/span&gt;)&lt;/li&gt;
+  &lt;li&gt;Congruence closure&lt;/li&gt;
+  &lt;li&gt;Insertion and tree sort functions&lt;/li&gt;
+  &lt;li&gt;Meta &lt;span class=&quot;inl-highlight&quot;&gt;mcases&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Language updates: String literals, which can be used in meta code Meta resolvers, which can be used to modify the scoping rules for meta definitions \strict parameters Improved performance Defined metas Libraries can be loaded from zip archives without unpacking</summary></entry><entry><title type="html">Arend 1.4.0 released</title><link href="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html" rel="alternate" type="text/html" title="Arend 1.4.0 released" /><published>2020-06-29T00:00:00+03:00</published><updated>2020-06-29T00:00:00+03:00</updated><id>https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/expressions/pi#implicit-lambdas&quot;&gt;Implicit lambdas&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/libraries&quot;&gt;Tests directory&lt;/a&gt; can be used to store files with tests, examples, and other code which is not a part of the library.&lt;/li&gt;

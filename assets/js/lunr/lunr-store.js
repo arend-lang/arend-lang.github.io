@@ -40,4 +40,10 @@ var store = [{
         "tags": [],
         "url": "https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html",
         "teaser": null
+      },{
+        "title": "Arend 1.5.0 released",
+        "excerpt":"Language updates: String literals, which can be used in meta code Meta resolvers, which can be used to modify the scoping rules for meta definitions \\strict parameters Improved performance Defined metas Libraries can be loaded from zip archives without unpacking Plugin updates: Completion of not-imported definitions Rainbow highlighting arend-lib can...","categories": [],
+        "tags": [],
+        "url": "https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html",
+        "teaser": null
       }]

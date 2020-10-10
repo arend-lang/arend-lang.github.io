@@ -29,6 +29,10 @@
 <lastmod>2020-06-29T00:00:00+03:00</lastmod>
 </url>
 <url>
+<loc>https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html</loc>
+<lastmod>2020-10-10T00:00:00+03:00</lastmod>
+</url>
+<url>
 <loc>https://arend-lang.github.io/about/arend-features.html</loc>
 </url>
 <url>
@@ -120,6 +124,9 @@
 </url>
 <url>
 <loc>https://arend-lang.github.io/documentation/libraries.html</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/documentation/language-reference/definitions/metas.html</loc>
 </url>
 <url>
 <loc>https://arend-lang.github.io/documentation/language-reference/definitions/modules.html</loc>

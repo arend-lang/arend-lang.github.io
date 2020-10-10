@@ -9,34 +9,34 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>The first part of our tutorial is ready - Arend Theorem Prover</title>
-<meta name="description" content="We finished the first part of our new tutorial. It covers all the basic constructions of Arend. It does not mention anything related to homotopy theory. This will be the topic of the second part.">
+<!-- begin _includes/seo.html --><title>Arend 1.5.0 released - Arend Theorem Prover</title>
+<meta name="description" content="Language updates:    String literals, which can be used in meta code   Meta resolvers, which can be used to modify the scoping rules for meta definitions   \strict parameters   Improved performance   Defined metas   Libraries can be loaded from zip archives without unpacking">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="The first part of our tutorial is ready">
-<meta property="og:url" content="https://arend-lang.github.io/2020/01/17/tutorial-part-I.html">
+<meta property="og:title" content="Arend 1.5.0 released">
+<meta property="og:url" content="https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html">
 
 
-  <meta property="og:description" content="We finished the first part of our new tutorial. It covers all the basic constructions of Arend. It does not mention anything related to homotopy theory. This will be the topic of the second part.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2020-01-17T00:00:00+03:00">
+  <meta property="og:description" content="Language updates:    String literals, which can be used in meta code   Meta resolvers, which can be used to modify the scoping rules for meta definitions   \strict parameters   Improved performance   Defined metas   Libraries can be loaded from zip archives without unpacking">
 
 
 
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/2020/01/17/tutorial-part-I.html">
+
+  <meta property="article:published_time" content="2020-10-10T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html">
 
 
 
@@ -153,12 +153,39 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">The first part of our tutorial is ready</h1>
+      <h1 id="page-title" class="page__title">Arend 1.5.0 released</h1>
     
-    <p>We finished the first part of our new <a href="/documentation/tutorial">tutorial</a>.
-It covers all the basic constructions of Arend.
-It does not mention anything related to homotopy theory.
-This will be the topic of the second part.</p>
+    <p>Language updates:</p>
+<ul>
+  <li>String literals, which can be used in meta code</li>
+  <li>Meta resolvers, which can be used to modify the scoping rules for meta definitions</li>
+  <li><a href="/documentation/language-reference/definitions/parameters#strict-parameters">\strict parameters</a></li>
+  <li>Improved performance</li>
+  <li><a href="/documentation/language-reference/definitions/metas">Defined metas</a></li>
+  <li>Libraries can be loaded from zip archives without unpacking</li>
+</ul>
+
+<p>Plugin updates:</p>
+<ul>
+  <li>Completion of not-imported definitions</li>
+  <li>Rainbow highlighting</li>
+  <li>arend-lib can be downloaded and upgraded from the IDE</li>
+</ul>
+
+<p>API:</p>
+<ul>
+  <li>Arend console, which can be used to print information in the IDE instead of stdout</li>
+  <li>Clauses and coclauses can be passed to metas now</li>
+  <li>Saving and loading of typechecker state</li>
+</ul>
+
+<p>arend-lib:</p>
+<ul>
+  <li>Debug metas (<span class="inl-highlight">println</span>, <span class="inl-highlight">random</span>, <span class="inl-highlight">time</span>)</li>
+  <li>Congruence closure</li>
+  <li>Insertion and tree sort functions</li>
+  <li>Meta <span class="inl-highlight">mcases</span></li>
+</ul>
 
 
 <ul class="taxonomy__index">
