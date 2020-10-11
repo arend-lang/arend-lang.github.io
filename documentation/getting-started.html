@@ -333,7 +333,7 @@
             </nav>
           </aside>
         
-        <p>You need to have <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">JRE 8</a> installed on your computer to use Arend.
+        <p>You need to have <a href="https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html">JRE 11</a> installed on your computer to use Arend.
 Arend is available either as an <a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a> plugin (see <a href="#intellij-arend">IntelliJ Arend</a> for the installation instructions)
 or as a console application (see <a href="#console-application">Console Application</a> for the installation instructions).</p>
 
@@ -352,7 +352,7 @@ To install it, follow the instructions below.</p>
 
 <ul>
   <li>Run Intellij IDEA and choose either <strong>Create New Project</strong> if you are on a <em>Welcome screen</em> or <strong>File | New | Project</strong> from the main menu if a project is open.</li>
-  <li>Choose <strong>Arend</strong> in the list on the left. If you want to use external libraries, for example, the standard library, 
+  <li>Choose <strong>Arend</strong> in the list on the left. If you want to use external libraries, for example, the standard library,
 you can set up the path to a directory with these libraries in the field <strong>Path to libraries</strong>.
 Available libraries will be displayed in the list on the right.
 To add them to the project, move them to the left list.
@@ -360,13 +360,13 @@ The standard library <strong>arend-lib</strong> is always available; it will be 
   <li>Click <strong>Next</strong>. In the successive step set up the name of the project and the path to it and click <strong>Finish</strong>.</li>
 </ul>
 
-<p>You should get a new project which contains (among other files) a file <code class="language-plaintext highlighter-rouge">arend.yaml</code> and an empty source directory 
+<p>You should get a new project which contains (among other files) a file <code class="language-plaintext highlighter-rouge">arend.yaml</code> and an empty source directory
 (<code class="language-plaintext highlighter-rouge">src</code> by default).
 The yaml file contains a description of the project.
 You can read more about this configuration file <a href="libraries">here</a>.</p>
 
 <p>Now, let us write some code.
-Create a new file <code class="language-plaintext highlighter-rouge">example.ard</code> in the source directory.
+Create a new file <code class="language-plaintext highlighter-rouge">Example.ard</code> in the source directory.
 Add the following line to this file:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
@@ -392,50 +392,53 @@ To learn more about Arend, see the <a href="language-reference">language referen
 <p>To install the console application, follow the instructions below.</p>
 
 <ul>
-  <li>Download the Arend <a href="https://github.com/JetBrains/Arend/releases/latest/download/arend.jar">jar file</a>.
-You can also get the latest version of the application by following instructions on <a href="https://github.com/JetBrains/arend/blob/master/README.md">GitHub</a>.</li>
-  <li>Run <code class="language-plaintext highlighter-rouge">java -jar arend.jar</code> to check that everything is alright. You should see the following output:</li>
+  <li>Download the Arend <a href="https://github.com/JetBrains/Arend/releases/latest/download/Arend.jar">jar file</a>.
+You can also get the latest version of the application by following instructions on <a href="https://github.com/JetBrains/Arend/blob/master/README.md">GitHub</a>.</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">java -jar Arend.jar</code> to check that everything is alright. You should see an output similar to the following:</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">$</span> java -jar arend.jar
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -jar Arend.jar
 [INFO] Loading library prelude
-[INFO] Loaded library prelude
-Nothing to load</code></pre></div></div>
+[INFO] Loaded library prelude (233ms)
+Nothing to load
+</code></pre></div></div>
 
-<p>To see command line options, run <code class="language-plaintext highlighter-rouge">java -jar arend.jar --help</code>.</p>
+<p>To see command line options, run <code class="language-plaintext highlighter-rouge">java -jar Arend.jar --help</code>.</p>
 
 <p>Let’s create our first Arend project.
 Create a directory for your project:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">$</span> mkdir testProject
-<span class="o">$</span> cd testProject</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>testProject
+<span class="nv">$ </span><span class="nb">cd </span>testProject
+</code></pre></div></div>
 
 <p>Create file <code class="language-plaintext highlighter-rouge">arend.yaml</code> inside this directory.
 This file contains the description of your project.
 Minimally, we just need to specify the location of source files of your project.
 Add the following line to <code class="language-plaintext highlighter-rouge">arend.yaml</code>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sourcesDir: src
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">sourcesDir</span><span class="pi">:</span> <span class="s">src</span>
 </code></pre></div></div>
 
 <p>Create directory <code class="language-plaintext highlighter-rouge">src</code> which will contain source files for this project.
-Create a file <code class="language-plaintext highlighter-rouge">example.ard</code> inside <code class="language-plaintext highlighter-rouge">src</code> with the following content:</p>
+Create a file <code class="language-plaintext highlighter-rouge">Example.ard</code> inside <code class="language-plaintext highlighter-rouge">src</code> with the following content:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<p>Run <code class="language-plaintext highlighter-rouge">java -jar $arend -L$libs $myProject</code>, where <code class="language-plaintext highlighter-rouge">$arend</code> is the path to <code class="language-plaintext highlighter-rouge">arend.jar</code>, <code class="language-plaintext highlighter-rouge">$myProject</code> is the path to <code class="language-plaintext highlighter-rouge">arend.yaml</code>,
-and <code class="language-plaintext highlighter-rouge">$libs</code> is the path to the directory with Arend libraries (if the project does not have dependencies, this option can be omitted).
+<p>Run <code class="language-plaintext highlighter-rouge">java -jar $arend $myProject</code>, where <code class="language-plaintext highlighter-rouge">$arend</code> is the path to <code class="language-plaintext highlighter-rouge">arend.jar</code>, <code class="language-plaintext highlighter-rouge">$myProject</code> is the path to <code class="language-plaintext highlighter-rouge">arend.yaml</code> or the directory containing it,
+and you can optionally pass <code class="language-plaintext highlighter-rouge">-L$libs</code> where <code class="language-plaintext highlighter-rouge">$libs</code> is the path to the directory with Arend libraries (if the project does not have dependencies, this option can be omitted).
+When <code class="language-plaintext highlighter-rouge">$myProject</code> equals <code class="language-plaintext highlighter-rouge">.</code>, it can be omitted.
 You should see the following output:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[INFO] Loading library prelude
 [INFO] Loaded library prelude
 [INFO] Loading library myProject
 [INFO] Loaded library myProject
 --- Typechecking myProject ---
-[ ] example
+[ ] Example
 --- Done ---
 </code></pre></div></div>
 
-<p>This means that module <code class="language-plaintext highlighter-rouge">example</code> was successfully typechecked.
-Modify file <code class="language-plaintext highlighter-rouge">example.ard</code> as follows:</p>
+<p>This means that module <code class="language-plaintext highlighter-rouge">Example</code> was successfully typechecked.
+Modify file <code class="language-plaintext highlighter-rouge">Example.ard</code> as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
@@ -446,12 +449,12 @@ Modify file <code class="language-plaintext highlighter-rouge">example.ard</code
 [INFO] Loading library myProject
 [INFO] Loaded library myProject
 --- Typechecking myProject ---
-[ERROR] example:1:25: Type mismatch
+[ERROR] Example:1:25: Type mismatch
   Expected type: Nat -&gt; Nat
     Actual type: Nat
   In: 0
   While processing: f
-[✗] example
+[✗] Example
 Number of modules with errors: 1
 --- Done ---
 </code></pre></div></div>

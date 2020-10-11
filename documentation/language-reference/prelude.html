@@ -356,9 +356,9 @@ Definitions of <span class="inl-highlight">Nat.divMod</span>, <span class="inl-h
 <h1 id="interval-and-squeeze-functions">Interval and squeeze functions</h1>
 
 <p>The definition of the interval type <span class="inl-highlight"><span class="k">\data</span> I <span class="o">|</span> left <span class="o">|</span> right</span> looks like the definition of the set with two
-elements, but this is not true actually. 
-One way to think about this data type is that it has one more constructor, which connects <span class="inl-highlight">left</span> and 
-<span class="inl-highlight">right</span> and which cannot be accessed explicitly. This means that it is forbidden to define a function 
+elements, but this is not true actually.
+One way to think about this data type is that it has one more constructor, which connects <span class="inl-highlight">left</span> and
+<span class="inl-highlight">right</span> and which cannot be accessed explicitly. This means that it is forbidden to define a function
 on <span class="inl-highlight">I</span> by pattern matching. Functions from <span class="inl-highlight">I</span> can be defined by means of several auxiliary functions:
 <span class="inl-highlight">coe</span>, <span class="inl-highlight">coe2</span>, <span class="inl-highlight">squeeze</span>, <span class="inl-highlight">squeezeR</span>. Function <span class="inl-highlight">coe</span> plays the role of eliminator for <span class="inl-highlight">I</span>, it is discussed
 further in this module.</p>
