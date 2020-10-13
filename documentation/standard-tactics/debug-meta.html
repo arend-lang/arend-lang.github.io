@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Goals - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>\module Debug.Meta - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Goals">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/goals.html">
+<meta property="og:title" content="\module Debug.Meta">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/standard-tactics/debug-meta.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -34,7 +34,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/goals.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/standard-tactics/debug-meta.html">
 
 
 
@@ -231,57 +231,6 @@
             
             
             
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/goals" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Goals</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/pi" class="">&nbsp;&nbsp;&nbsp;&nbsp;Pi types</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/sigma" class="">&nbsp;&nbsp;&nbsp;&nbsp;Sigma types</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/let" class="">&nbsp;&nbsp;&nbsp;&nbsp;Let</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case</a></li>
-              
-                
-                
-
-                
-
-                <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
-              
-            
           
             
             
@@ -417,10 +366,12 @@
 
             
 
-            <li><a href="/documentation/standard-tactics/debug-meta" class="">Debugging metas</a></li>
+            <li><a href="/documentation/standard-tactics/debug-meta" class="active">Debugging metas</a></li>
 
             
             
+            
+              
             
           
         </ul>
@@ -437,7 +388,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Goals">
+    <meta itemprop="headline" content="\module Debug.Meta">
     
     
     
@@ -445,7 +396,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Goals
+          <h1 id="page-title" class="page__title" itemprop="headline">\module Debug.Meta
 </h1>
           
         </header>
@@ -453,28 +404,46 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>A <em>goal</em> marks an unfinished expression.
-It always produces an error message which contains the expected type of an expression that should replace the goal and
-the context of the goal, that is the list of available variables with their types.
-A goal is written as <span class="inl-highlight"><span class="g">{?}</span></span> or <span class="inl-highlight"><span class="g">{?id}</span></span>, where <span class="inl-highlight">id</span> is any identifier which denotes the name of the goal.
-The name of a goal only appears in error messages and does not affect the code in any way.</p>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Debug.Meta</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#time">time</a></li>
+  <li><a href="#random">random</a></li>
+  <li><a href="#println">println</a></li>
+</ul>
 
-<p>For example, consider the following code:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x y <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> y <span class="o">=</span> x
-  <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+            </nav>
+          </aside>
+        
+        <p>This module defines some debugging helper metas.</p>
 
-<p>It will produce the following error message:</p>
+<h1 id="time"><code class="language-plaintext highlighter-rouge">time</code></h1>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[GOAL] test.ard:1:44:
-  Expected type: y <span class="o">=</span> {Nat} x
-  Context:
-    y <span class="o">:</span> Nat
-    x <span class="o">:</span> Nat
-    p <span class="o">:</span> x <span class="o">=</span> {Nat} y
-  In: <span class="g">{?}</span>
-  While processing: f</code></pre></div></div>
+<p>Returns current time in milliseconds, as an integer literal.</p>
 
-<p>The information in the error message might be especially useful, when the expected type or types of variables are inferred by the typechecker.</p>
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> currentTime <span class="o">:</span> Nat <span class="o">=&gt;</span> time
+<span class="k">\func</span> currentTimeInt <span class="o">:</span> Int <span class="o">=&gt;</span> time</code></pre></div></div>
+
+<h1 id="random"><code class="language-plaintext highlighter-rouge">random</code></h1>
+
+<p>Returns a random number as an integer literal.
+It can take some arguments which specifies the returned random number.</p>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>random <span class="c">-- returns a random number.</span>
+
+random n <span class="c">-- returns a random number between 0 and `n`</span>
+
+random (l<span class="o">,</span>u) <span class="c">-- returns a random number between `l` and `u`</span></code></pre></div></div>
+
+<h1 id="println"><code class="language-plaintext highlighter-rouge">println</code></h1>
+
+<p>Prints the argument to the console.
+In the IDE, it will open a tool window and display the argument.</p>
 
         
       </section>
