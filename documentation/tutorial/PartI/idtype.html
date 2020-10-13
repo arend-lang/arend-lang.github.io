@@ -407,7 +407,7 @@ recall the general concept of eliminator.</p>
 
 <h1 id="symmetry-transitivity-leibniz-principle">Symmetry, transitivity, Leibniz principle</h1>
 
-<p>First of all, we show that the identity type satisfies some basic properties of equality: it is an equivalence relation and 
+<p>First of all, we show that the identity type satisfies some basic properties of equality: it is an equivalence relation and
 it satisfies the Leibniz principle.</p>
 
 <p>The Leibniz principle says that if <span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> satisfy the same properties, then they are
@@ -418,7 +418,7 @@ equal. It can be easily proven that <span class="inl-highlight"><span class="o">
   <span class="o">=&gt;</span> (f (<span class="k">\lam</span> x <span class="o">=&gt;</span> a <span class="o">=</span> x)).<span class="n">1</span> idp</code></pre></div></div>
 
 <p>The inverse Leibniz principle (which we will call merely Leibniz principle as well) says that if <span class="inl-highlight">a <span class="o">=</span> a’</span>, then
-<span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> satisfy the same properties, that is if <span class="inl-highlight">P a</span> is true, then 
+<span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> satisfy the same properties, that is if <span class="inl-highlight">P a</span> is true, then
 <span class="inl-highlight">P a’</span> is true. The proof of this is easy, but requires some constructs that will be introduced very shortly
 further in this module:</p>
 
@@ -469,14 +469,14 @@ path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p <span class="
 
 <p class="notice--info"><strong>Exercise 3:</strong> Prove that <span class="inl-highlight">left <span class="o">=</span> right</span> without using <span class="inl-highlight">transport</span> or <span class="inl-highlight">coe</span>.</p>
 
-<p>If <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">g <span class="o">:</span> I <span class="o">-&gt;</span> A</span>, then <span class="inl-highlight">g</span> determines a proof of the equality 
+<p>If <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">g <span class="o">:</span> I <span class="o">-&gt;</span> A</span>, then <span class="inl-highlight">g</span> determines a proof of the equality
 <span class="inl-highlight">g left <span class="o">=</span> g right</span> and the congruence <span class="inl-highlight">pmap</span> can be interpreted as simply the composition of
 <span class="inl-highlight">f</span> and <span class="inl-highlight">g</span>. This observation suggests an alternative definition of <span class="inl-highlight">pmap</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> f a <span class="o">=</span> f a'
     <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> f (p <span class="o">@</span> i))</code></pre></div></div>
 
-<p>This definition of <span class="inl-highlight">pmap</span> behaves better than others with respect to computational properties. For example, 
+<p>This definition of <span class="inl-highlight">pmap</span> behaves better than others with respect to computational properties. For example,
 <span class="inl-highlight">pmap id</span> is computationally the same as <span class="inl-highlight">id</span> and <span class="inl-highlight">pmap (f . g)</span> is
 computationally the same as <span class="inl-highlight">pmap f . pmap g</span>, where (.) is the composition:</p>
 
@@ -498,7 +498,7 @@ pointwise, then they are equal functions. Our definition of equality allows us t
 
 <p>This useful principle is unprovable in many other intensional dependently typed theories. In such theories function extensionality
 can be introduced as an axiom, that is as a function without implementation, however adding new axioms worsens computational properties
-of the theory. For example, if we add the axiom of excluded middle <span class="inl-highlight">lem</span>, then we can define a constant 
+of the theory. For example, if we add the axiom of excluded middle <span class="inl-highlight">lem</span>, then we can define a constant
 <span class="inl-highlight">ugly_num <span class="o">:</span> Nat</span> that does not evaluate to any concrete natural number:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> lem <span class="o">:</span> <span class="k">\Pi</span> (X <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> Either X (X <span class="o">-&gt;</span> Empty) <span class="o">=&gt;</span> <span class="g">{?}</span>
@@ -510,9 +510,9 @@ of the theory. For example, if we add the axiom of excluded middle <span class="
 
 <p>Elimination principles for a data type <span class="inl-highlight">D</span> specify what kind of data
 should be provided in order to define a function from <span class="inl-highlight">D</span> to a non-dependent or
-dependent type. And, essentially, these principles say that it is enough to show how “generators” 
+dependent type. And, essentially, these principles say that it is enough to show how “generators”
 (that is constructors) of <span class="inl-highlight">D</span> are mapped to a type <span class="inl-highlight">A</span> and
-that that would uniquely determine a function <span class="inl-highlight">D <span class="o">-&gt;</span> A</span>. For example, eliminators 
+that that would uniquely determine a function <span class="inl-highlight">D <span class="o">-&gt;</span> A</span>. For example, eliminators
 for <span class="inl-highlight">Nat</span> and <span class="inl-highlight">Bool</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Dependent eliminator for Nat (induction).</span>
