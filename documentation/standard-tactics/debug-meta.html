@@ -445,6 +445,24 @@ random (l<span class="o">,</span>u) <span class="c">-- returns a random number b
 <p>Prints the argument to the console.
 In the IDE, it will open a tool window and display the argument.</p>
 
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Debug.Meta
+<span class="k">\import</span> Meta (run)
+
+<span class="c">-- A defined meta</span>
+<span class="k">\meta</span> runTimed m <span class="o">=&gt;</span> run {
+  <span class="c">-- Record the start time</span>
+  <span class="k">\let</span> startTime <span class="o">=&gt;</span> time<span class="o">,</span>
+  <span class="c">-- Type check the input and print it</span>
+  println m<span class="o">,</span>
+  <span class="c">-- Calculate the elapsed time and print it</span>
+  println (time Nat.- startTime)
+}
+
+<span class="c">-- Usage</span>
+<span class="k">\func</span> test <span class="o">=&gt;</span> runTimed (<span class="n">114</span> Nat.<span class="o">+</span> <span class="n">514</span>)</code></pre></div></div>
+
         
       </section>
 

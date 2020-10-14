@@ -407,12 +407,27 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Function.Meta</h4></header>
-              
+              <ul class="toc__menu">
+  <li><a href="#-and-">$ and #</a></li>
+  <li><a href="#repeat">repeat</a></li>
+</ul>
 
             </nav>
           </aside>
         
-        
+        <h1 id="-and-"><code class="language-plaintext highlighter-rouge">$</code> and <code class="language-plaintext highlighter-rouge">#</code></h1>
+
+<p>These metas are analogical to Haskell’s <code class="language-plaintext highlighter-rouge">$</code> operator
+(<code class="language-plaintext highlighter-rouge">$</code> is right-associative and <code class="language-plaintext highlighter-rouge">#</code> is left-associative), but they also work with implicit arguments.</p>
+
+<p>Also, it’s also possible to define <code class="language-plaintext highlighter-rouge">$</code> as a <a href="(/documentation/language-reference/definitions/metas)">defined meta</a>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\meta</span> <span class="k">\infixr</span> <span class="n">0</span> <span class="o">$</span> f a <span class="o">=&gt;</span> f a</code></pre></div></div>
+
+<p>But then it won’t work with implicit arguments.
+In Haskell, you can apply <code class="language-plaintext highlighter-rouge">$</code> partially (like <code class="language-plaintext highlighter-rouge">$ a</code>), and you can do this in Arend via implicit lambdas ( <span class="inl-highlight"><span class="u">_</span><span class="u">_</span> <span class="o">$</span> a</span>).</p>
+
+<h1 id="repeat"><code class="language-plaintext highlighter-rouge">repeat</code></h1>
 
         
       </section>
