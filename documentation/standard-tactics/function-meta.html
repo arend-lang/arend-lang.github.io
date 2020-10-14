@@ -429,6 +429,15 @@ In Haskell, you can apply <code class="language-plaintext highlighter-rouge">$</
 
 <h1 id="repeat"><code class="language-plaintext highlighter-rouge">repeat</code></h1>
 
+<p>There are two ways to invoke this meta:</p>
+
+<ul>
+  <li><span class="inl-highlight">repeat {n} f x</span> – it reduces to <code class="language-plaintext highlighter-rouge">x</code> if <code class="language-plaintext highlighter-rouge">n</code> is <code class="language-plaintext highlighter-rouge">0</code> and
+<span class="inl-highlight">repeat {x} f (f x)</span> if <code class="language-plaintext highlighter-rouge">n</code> is <code class="language-plaintext highlighter-rouge">suc x</code>.</li>
+  <li><span class="inl-highlight">repeat f x</span> – it tries to typecheck <code class="language-plaintext highlighter-rouge">f x</code>, and if it fails, return <code class="language-plaintext highlighter-rouge">x</code>,
+otherwise return <span class="inl-highlight">f (repeat f x)</span>.</li>
+</ul>
+
         
       </section>
 
