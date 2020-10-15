@@ -407,12 +407,48 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Logic.Meta</h4></header>
-              
+              <ul class="toc__menu">
+  <li><a href="#contradiction">contradiction</a></li>
+</ul>
 
             </nav>
           </aside>
         
-        
+        <h1 id="contradiction"><code class="language-plaintext highlighter-rouge">contradiction</code></h1>
+
+<p>This meta will try to derive a contradiction from the context if no arguments are specified.
+Implicit <code class="language-plaintext highlighter-rouge">using</code>, <code class="language-plaintext highlighter-rouge">usingOnly</code> and <code class="language-plaintext highlighter-rouge">hiding</code> (description of these metas can be found <a href="/documentation/standard-tactics/meta#scope-metas">here</a>) arguments can be used to modify the context it uses.
+Examples (requires arend-lib):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Logic.Meta
+<span class="k">\import</span> Logic
+<span class="k">\import</span> Meta
+<span class="k">\import</span> Order.StrictOrder
+<span class="k">\import</span> Set
+
+<span class="k">\lemma</span> equality {x y <span class="o">:</span> Nat} (p <span class="o">:</span> x <span class="o">=</span> y) (q <span class="o">:</span> Not (x <span class="o">=</span> y)) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> contradiction
+
+<span class="k">\lemma</span> irreflexivity {A <span class="o">:</span> Set#} {x y <span class="o">:</span> A} (p <span class="o">:</span> x # x) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> contradiction
+
+<span class="k">\lemma</span> irreflexivity2 {A <span class="o">:</span> Set#} {x y <span class="o">:</span> A} (p <span class="o">:</span> x # y) (q <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> contradiction
+
+<span class="k">\lemma</span> irreflexivity3 {A <span class="o">:</span> StrictPoset} {x y z <span class="o">:</span> A} (p <span class="o">:</span> x &lt; y) (q <span class="o">:</span> x <span class="o">=</span> z) (s <span class="o">:</span> y <span class="o">=</span> z) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> contradiction
+
+<span class="k">\lemma</span> usingTest (P Q <span class="o">:</span> <span class="kt">\Prop</span>) (q <span class="o">:</span> Q) (e <span class="o">:</span> P <span class="o">-&gt;</span> Empty) (p <span class="o">:</span> P) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> contradiction {usingOnly (e<span class="o">,</span>p)}</code></pre></div></div>
+
+<p>It can also be specified with an implicit argument which itself is a contradiction.
+Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> explicitProof (P <span class="o">:</span> <span class="kt">\Prop</span>) (e <span class="o">:</span> Empty) <span class="o">:</span> P
+  <span class="o">=&gt;</span> contradiction {e}
+
+<span class="k">\lemma</span> explicitProof2 (P <span class="o">:</span> <span class="kt">\Prop</span>) (e <span class="o">:</span> P <span class="o">-&gt;</span> Not P) (p <span class="o">:</span> P) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> contradiction {e}</code></pre></div></div>
 
         
       </section>

@@ -407,12 +407,28 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Meta</h4></header>
-              
+              <ul class="toc__menu">
+  <li><a href="#scope-metas">Scope metas</a></li>
+</ul>
 
             </nav>
           </aside>
         
-        
+        <h1 id="scope-metas">Scope metas</h1>
+
+<p>Meta <code class="language-plaintext highlighter-rouge">using</code>, <code class="language-plaintext highlighter-rouge">usingOnly</code> and <code class="language-plaintext highlighter-rouge">hiding</code> controls the scope.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">using (e_1, ... e_n) e</code> adds <code class="language-plaintext highlighter-rouge">e_1</code>, … <code class="language-plaintext highlighter-rouge">e_n</code> to the context before checking <code class="language-plaintext highlighter-rouge">e</code>.
+<code class="language-plaintext highlighter-rouge">using (e_1, ... e_n)</code> is sometimes used in other context-manipulating metas,
+that adds <code class="language-plaintext highlighter-rouge">e_1</code>, … <code class="language-plaintext highlighter-rouge">e_n</code> to the context it uses.</li>
+  <li><code class="language-plaintext highlighter-rouge">usingOnly (e_1, ... e_n) e</code> replaces the context with <code class="language-plaintext highlighter-rouge">e_1</code>, … <code class="language-plaintext highlighter-rouge">e_n</code> before checking <code class="language-plaintext highlighter-rouge">e</code>.
+<code class="language-plaintext highlighter-rouge">usingOnly (e_1, ... e_n)</code> is sometimes used in other context-manipulating metas,
+that replaces the context is uses with <code class="language-plaintext highlighter-rouge">e_1</code>, … <code class="language-plaintext highlighter-rouge">e_n</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">hiding (e_1, ... e_n) e</code> hides local bindings <code class="language-plaintext highlighter-rouge">e_1</code>, … <code class="language-plaintext highlighter-rouge">e_n</code> from the context before checking <code class="language-plaintext highlighter-rouge">e</code>.
+<code class="language-plaintext highlighter-rouge">hiding (e_1, ... e_n)</code> is sometimes used in other context-manipulating metas,
+that hides <code class="language-plaintext highlighter-rouge">e_1</code>, … <code class="language-plaintext highlighter-rouge">e_n</code> from the context it uses.</li>
+</ul>
 
         
       </section>
