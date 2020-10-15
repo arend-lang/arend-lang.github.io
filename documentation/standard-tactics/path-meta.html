@@ -407,12 +407,65 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Paths.Meta</h4></header>
-              
+              <ul class="toc__menu">
+  <li><a href="#rewriting-metas">Rewriting metas</a></li>
+</ul>
 
             </nav>
           </aside>
         
-        
+        <h1 id="rewriting-metas">Rewriting metas</h1>
+
+<p>Meta <code class="language-plaintext highlighter-rouge">rewrite</code>, <code class="language-plaintext highlighter-rouge">rewriteI</code> and <code class="language-plaintext highlighter-rouge">rewriteF</code> works just like the rewriting mechanism in other languages,
+such as Coq or Idris (in Agda, <code class="language-plaintext highlighter-rouge">rewrite</code> is allowed only in the LHS of a clause, so it’s different).</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">rewrite p t : T</code> where <code class="language-plaintext highlighter-rouge">p : a = b</code> replaces occurrences of <code class="language-plaintext highlighter-rouge">a</code> in <code class="language-plaintext highlighter-rouge">T</code> with a variable <code class="language-plaintext highlighter-rouge">x</code>
+obtaining a type <code class="language-plaintext highlighter-rouge">T[x/a]</code> and returns <code class="language-plaintext highlighter-rouge">transport (\lam x =&gt; T[x/a]) p t</code>.
+Note that <code class="language-plaintext highlighter-rouge">T</code> is the expected type from the context, not the type of <code class="language-plaintext highlighter-rouge">t</code>.
+When the expected type is unknown, the type of <code class="language-plaintext highlighter-rouge">t</code> will be used instead of <code class="language-plaintext highlighter-rouge">T</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">rewriteF</code> is like <code class="language-plaintext highlighter-rouge">rewrite</code> but it enforces to use the type of <code class="language-plaintext highlighter-rouge">t</code> instead of the expected type.</li>
+  <li><code class="language-plaintext highlighter-rouge">rewriteI p t</code> is equivalent to <code class="language-plaintext highlighter-rouge">rewrite (inv p) t</code>.</li>
+</ul>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Function.Meta
+<span class="k">\import</span> Paths.Meta
+<span class="k">\import</span> Data.List
+
+<span class="k">\lemma</span> <span class="o">+</span>-assoc (a b c <span class="o">:</span> Nat) <span class="o">:</span> a <span class="o">+</span> b <span class="o">+</span> c <span class="o">=</span> a <span class="o">+</span> (b <span class="o">+</span> c) <span class="k">\elim</span> c
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+  <span class="o">|</span> suc c <span class="o">=&gt;</span> rewrite (<span class="o">+</span>-assoc a b c) idp
+
+<span class="k">\lemma</span> <span class="o">+</span>-comm-rw (a b <span class="o">:</span> Nat) <span class="o">:</span> a <span class="o">+</span> b <span class="o">=</span> b <span class="o">+</span> a
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> suc b <span class="o">=&gt;</span> rewrite (<span class="o">+</span>-comm-rw <span class="n">0</span> b) idp
+  <span class="o">|</span> suc a<span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> rewriteI (<span class="o">+</span>-comm-rw a <span class="n">0</span>) idp
+  <span class="o">|</span> suc a<span class="o">,</span> suc b <span class="o">=&gt;</span> rewrite (<span class="o">+</span>-comm-rw <span class="o">$</span> suc a) <span class="o">$</span>
+       rewriteI (<span class="o">+</span>-comm-rw a b) <span class="o">$</span> rewriteI (<span class="o">+</span>-comm-rw a <span class="o">$</span> suc b) idp
+
+<span class="k">\lemma</span> test1 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> <span class="n">0</span>) (q <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y <span class="o">=&gt;</span> rewrite p q
+
+<span class="k">\lemma</span> test2 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> x) (q <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y <span class="o">=&gt;</span> rewriteI p q
+
+<span class="k">\lemma</span> test3 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> x) (q <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y <span class="o">=&gt;</span> rewriteF p q
+
+<span class="k">\lemma</span> test4 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> x) (q <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> y) <span class="o">=&gt;</span> rewriteF p q
+
+<span class="k">\lemma</span> test5 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> x) (q <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> y) <span class="o">=&gt;</span> rewrite p q
+
+<span class="k">\lemma</span> test6 {A <span class="o">:</span> <span class="kt">\Set</span>} (x <span class="o">:</span> A) (f <span class="o">:</span> A <span class="o">-&gt;</span> A) (h <span class="o">:</span> <span class="k">\Pi</span> (z <span class="o">:</span> A) <span class="o">-&gt;</span> f z <span class="o">=</span> z) <span class="o">:</span> f (f x) <span class="o">=</span> x
+  <span class="o">=&gt;</span> rewrite h (rewrite h idp)
+
+<span class="k">\lemma</span> test7 {A <span class="o">:</span> Nat} (x y <span class="o">:</span> A) (f <span class="o">:</span> A <span class="o">-&gt;</span> A) <span class="o">:</span> f (x <span class="o">+</span> y) <span class="o">=</span> f (y <span class="o">+</span> x)
+  <span class="o">=&gt;</span> rewrite <span class="o">+</span>-comm-rw idp
+
+<span class="k">\lemma</span> testNorm {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) (l <span class="o">:</span> List A) (P <span class="o">:</span> List A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (p <span class="o">:</span> P (a <span class="o">:</span><span class="o">:</span> l)) <span class="o">:</span> P ((a <span class="o">:</span><span class="o">:</span> l) <span class="o">+</span><span class="o">+</span> nil)
+  <span class="o">=&gt;</span> rewrite <span class="o">+</span><span class="o">+</span><span class="u">_</span>nil p
+
+<span class="k">\lemma</span> testRestore {A <span class="o">:</span> <span class="kt">\Type</span>} (xs ys zs <span class="o">:</span> List A) (P <span class="o">:</span> List A <span class="o">-&gt;</span> List A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (p <span class="o">:</span> P (xs <span class="o">+</span><span class="o">+</span> ys) zs) <span class="o">:</span> P (xs <span class="o">+</span><span class="o">+</span> ys) (zs <span class="o">+</span><span class="o">+</span> nil)
+  <span class="o">=&gt;</span> rewrite <span class="o">+</span><span class="o">+</span><span class="u">_</span>nil p</code></pre></div></div>
 
         
       </section>
