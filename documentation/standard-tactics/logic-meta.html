@@ -410,6 +410,7 @@
               <ul class="toc__menu">
   <li><a href="#contradiction">contradiction</a></li>
   <li><a href="#exists">Exists</a></li>
+  <li><a href="#constructor">constructor</a></li>
 </ul>
 
             </nav>
@@ -471,6 +472,26 @@ Examples:</p>
 <span class="k">\func</span> test4 <span class="o">:</span> ∃ {x} (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp
 
 <span class="k">\func</span> test5 <span class="o">:</span> ∃ {x y} (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x y <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<h1 id="constructor"><code class="language-plaintext highlighter-rouge">constructor</code></h1>
+
+<p>Returns either a tuple, a <code class="language-plaintext highlighter-rouge">\new</code> expression, or a single constructor of a data type depending on the expected type.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> tuple0 <span class="o">:</span> <span class="k">\Sigma</span> (<span class="k">\Sigma)</span> (<span class="k">\Sigma)</span> <span class="o">=&gt;</span> constructor constructor constructor
+
+<span class="k">\func</span> tuple1 <span class="o">:</span> <span class="k">\Sigma</span> Nat Nat <span class="o">=&gt;</span> constructor <span class="n">0</span> <span class="n">1</span>
+
+<span class="k">\func</span> tuple2 <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> <span class="n">0</span>) <span class="o">=&gt;</span> constructor <span class="n">0</span> idp
+
+<span class="k">\func</span> data2 <span class="o">:</span> D <span class="o">=&gt;</span> constructor <span class="n">0</span> <span class="n">1</span> <span class="n">2</span>
+  <span class="k">\where</span>
+    <span class="k">\data</span> D <span class="o">|</span> con {x <span class="o">:</span> Nat} (y z <span class="o">:</span> Nat)
+
+<span class="k">\record</span> R (x <span class="o">:</span> Nat) (y <span class="o">:</span> Nat) (z <span class="o">:</span> Nat)
+
+<span class="k">\func</span> class1 <span class="o">:</span> R <span class="o">=&gt;</span> constructor <span class="n">1</span> <span class="n">2</span> <span class="n">3</span>
+
+<span class="k">\func</span> class2 <span class="o">:</span> R <span class="n">1</span> <span class="o">=&gt;</span> constructor <span class="n">2</span> <span class="n">3</span></code></pre></div></div>
 
         
       </section>
