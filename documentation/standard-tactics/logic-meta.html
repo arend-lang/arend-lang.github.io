@@ -409,6 +409,7 @@
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Logic.Meta</h4></header>
               <ul class="toc__menu">
   <li><a href="#contradiction">contradiction</a></li>
+  <li><a href="#exists">Exists</a></li>
 </ul>
 
             </nav>
@@ -449,6 +450,27 @@ Examples:</p>
 
 <span class="k">\lemma</span> explicitProof2 (P <span class="o">:</span> <span class="kt">\Prop</span>) (e <span class="o">:</span> P <span class="o">-&gt;</span> Not P) (p <span class="o">:</span> P) <span class="o">:</span> Empty
   <span class="o">=&gt;</span> contradiction {e}</code></pre></div></div>
+
+<h1 id="exists"><code class="language-plaintext highlighter-rouge">Exists</code></h1>
+
+<p>The alias of this meta is <code class="language-plaintext highlighter-rouge">∃</code>, which is convenient to read.</p>
+
+<ul>
+  <li><span class="inl-highlight">Exists {x y z} B</span> is equivalent to <span class="inl-highlight">TruncP (<span class="k">\Sigma</span> (x y z <span class="o">:</span> <span class="u">_</span>) B)</span>.</li>
+  <li><span class="inl-highlight">Exists (x y z <span class="o">:</span> A) B</span> is equivalent to <span class="inl-highlight">TruncP (<span class="k">\Sigma</span> (x y z <span class="o">:</span> A) B)</span>.</li>
+</ul>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 <span class="o">:</span> ∃ <span class="o">=</span> (<span class="k">\Sigma)</span> <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> test2 <span class="o">:</span> ∃ Nat <span class="o">=</span> TruncP Nat <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> test3 <span class="o">:</span> ∃ (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> test4 <span class="o">:</span> ∃ {x} (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> test5 <span class="o">:</span> ∃ {x y} (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x y <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp</code></pre></div></div>
 
         
       </section>
