@@ -633,7 +633,7 @@ both <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</sp
   <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, an element of Empty is expected</span>
   <span class="o">|</span> false <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, an element of Empty is expected</span>
 
-<span class="c">-- we can prove negation of not-isIdempoten</span>
+<span class="c">-- we can prove negation of not-isIdempotent</span>
 <span class="k">\func</span> not-isIdempotent' (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> not x) <span class="o">-&gt;</span> Empty
   <span class="o">|</span> true <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- a proof of Empty -&gt; Empty</span>
   <span class="o">|</span> false <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- again a proof of Empty -&gt; Empty</span></code></pre></div></div>

@@ -643,7 +643,7 @@ define all fields as parameters. For example, the following is an equivalent ver
   <span class="o">|</span> snd'' <span class="o">=&gt;</span> <span class="n">0</span>
 }</code></pre></div></div>
 
-<p>And, conversly, the type <span class="inl-highlight">Pair</span> has equivalent definition without parameters:</p>
+<p>And, conversely, the type <span class="inl-highlight">Pair</span> has equivalent definition without parameters:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Pair'
   <span class="o">|</span> A <span class="o">:</span> <span class="kt">\Type</span>
@@ -728,7 +728,7 @@ monoid on <span class="inl-highlight"><span class="o">*</span></span>.</p>
 <span class="c">-- alternative definition of the latter:</span>
 <span class="k">\instance</span> <span class="o">*</span>-NatMonoid' <span class="o">:</span> Monoid Nat <span class="n">1</span> (Nat.<span class="o">*</span>) <span class="g">{?}</span> <span class="g">{?}</span> <span class="g">{?}</span></code></pre></div></div>
 
-<p>The first explicit pararameter of a class is of special significance and is called <em>classifying field</em> of a class.
+<p>The first explicit parameter of a class is of special significance and is called <em>classifying field</em> of a class.
 The classifying field of a class is typically a carrier, on top of which all other fields of the class define some structure.
 Thus the type of the classifying field is often <span class="inl-highlight"><span class="kt">\Type</span></span> or <span class="inl-highlight"><span class="kt">\Set</span></span>.
 Classifying fields significantly affect the behavior of the instance inference algorithm. Basically, in case there are no local instances, the algorithm
@@ -743,7 +743,7 @@ searches for a first appropriate global instance (appropriate in the sense that 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- ok, +-NatMonoid is inferred since it was declared the first</span>
 <span class="c">-- id-left x here is equivalent to id-left {+-NatMonoid} x</span>
 <span class="k">\func</span> <span class="o">+</span>-test (x <span class="o">:</span> Nat) <span class="o">:</span> <span class="n">0</span> Nat.<span class="o">+</span> x <span class="o">=</span> x <span class="o">=&gt;</span> id-left x
-<span class="c">-- error, because +-NatMonoid is inferred, not *-NatMoniod</span>
+<span class="c">-- error, because +-NatMonoid is inferred, not *-NatMonoid</span>
 <span class="k">\func</span> <span class="o">*</span>-test (x <span class="o">:</span> Nat) <span class="o">:</span> <span class="n">1</span> Nat.<span class="o">*</span> x <span class="o">=</span> x <span class="o">=&gt;</span> id-left x</code></pre></div></div>
 
 <p>Such global instances behave like ordinary functions defined by copattern matching:</p>
@@ -806,7 +806,7 @@ with <span class="inl-highlight">f a</span> if they are used in a context, where
 <span class="c">-- Elements of type XXX are implicitly converted to type YYY by function fromXXX.</span>
 <span class="k">\func</span> ggg <span class="o">=&gt;</span> fff con
 
-<span class="c">-- Implicit convertion from Nat to Int is done in this way:</span>
+<span class="c">-- Implicit conversion from Nat to Int is done in this way:</span>
 <span class="k">\func</span> hhh <span class="o">:</span> Int <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
 <h1 id="extensions-diamond-problem">Extensions, diamond problem</h1>

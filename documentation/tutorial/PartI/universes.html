@@ -491,7 +491,7 @@ explain how polymorphism works.</p>
 <p>As we mentioned <a href="synndef#polymorphism">earlier</a> there is no actual type of all types in Arend. 
 The type <span class="inl-highlight"><span class="kt">\Type</span></span> behaves pretty much like the one, but not quite, and the difference
 is precisely that <span class="inl-highlight"><span class="kt">\Type</span></span> cannot be used for contradictory circular definitions.
-This is so because <span class="inl-highlight"><span class="kt">\Type</span></span> actually hides the hierarchy of unverses <span class="inl-highlight"><span class="kt">\Type0</span></span>,
+This is so because <span class="inl-highlight"><span class="kt">\Type</span></span> actually hides the hierarchy of universes <span class="inl-highlight"><span class="kt">\Type0</span></span>,
 <span class="inl-highlight"><span class="kt">\Type1</span></span>, … as we explain below.</p>
 
 <p>The type <span class="inl-highlight"><span class="kt">\Type</span> n</span>, where the natural number <span class="inl-highlight">n</span> is called <em>the predicative level</em>
@@ -552,7 +552,7 @@ In case the value is not a numeral, it can be passed as an ordinary first parame
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5' <span class="o">=&gt;</span> id (<span class="k">\levels</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="u">_</span>) (<span class="kt">\Type</span> <span class="k">\lp)</span> Nat
 <span class="k">\func</span> test6 <span class="o">=&gt;</span> id (<span class="k">\levels</span> <span class="n">2</span> <span class="u">_</span>) <span class="kt">\Type1</span> <span class="kt">\Type0</span></code></pre></div></div>
 
-<p>In case a definition is invoked without explicit specification for the value of its level, the level will be infered
+<p>In case a definition is invoked without explicit specification for the value of its level, the level will be inferred
 by the typechecker. In most cases there is no need to specify the level explicitly.</p>
 
 <p>The level of the universe of a data definition is the maximum among the levels of parameters of its constructors.
@@ -605,7 +605,7 @@ Specify explicitly result types for all idTest*.</p>
 <h1 id="induction-principles">Induction principles</h1>
 
 <p>We have already seen that data types have canonical eliminators associated with them and that
-non-dependent and dependent eliminators correspond to recursion and indunction principles 
+non-dependent and dependent eliminators correspond to recursion and induction principles
 respectively. It is also possible to define custom eliminators and, thus, custom induction
 principles that in some case are more convenient to use. For example, we can define an
 induction principle for natural numbers that allows to use induction hypothesis for <em>any</em>

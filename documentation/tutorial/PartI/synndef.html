@@ -555,7 +555,7 @@ of its name by using the symbol <code class="language-plaintext highlighter-roug
 
 <p>Equivalently, parameters of a function can be moved from the signature to the body by means of lambda expressions:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- types of parameters cannot be infered as before</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- types of parameters cannot be inferred as before</span>
 <span class="k">\func</span> foo' <span class="o">=&gt;</span> <span class="k">\lam</span> (x <span class="u">_</span> <span class="o">:</span> Nat) (<span class="u">_</span> <span class="o">:</span> Int) <span class="o">=&gt;</span> x
 <span class="c">-- but types of parameters can be omitted if the result type is specified explicitly</span>
 <span class="k">\func</span> foo'' <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">-&gt;</span> Int <span class="o">-&gt;</span> Nat <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="u">_</span> <span class="u">_</span> <span class="o">=&gt;</span> x  
@@ -772,7 +772,7 @@ number of recursive steps:</p>
 
 <h1 id="polymorphism">Polymorphism</h1>
 
-<p>Some definitions are polymorphic, that is they can be naturally parameterised by a type. Such definitions
+<p>Some definitions are polymorphic, that is they can be naturally parameterized by a type. Such definitions
 can be stated with the use of the type <span class="inl-highlight"><span class="kt">\Type</span></span> of all types. For example, the polymorphic identity
 function can be stated as follows:</p>
 
@@ -820,7 +820,7 @@ as <em>implicit</em> by surrounding it in curly braces. In this case the corresp
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id' {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a
 
 <span class="k">\func</span> id'Test <span class="o">=&gt;</span> id' <span class="n">0</span>
-<span class="k">\func</span> id'Test' <span class="o">=&gt;</span> id' {Nat} <span class="n">0</span> <span class="c">-- implicit arguments can be specifyed explicitly</span></code></pre></div></div>
+<span class="k">\func</span> id'Test' <span class="o">=&gt;</span> id' {Nat} <span class="n">0</span> <span class="c">-- implicit arguments can be specified explicitly</span></code></pre></div></div>
 
 <p>Of course, the argument inference algorithm is limited and it cannot do too fancy things. Consider, for instance, the following
 example:</p>
@@ -879,7 +879,7 @@ is equivalent to the data type defined as follows:</p>
 
 <p>More generally, for any family of types <span class="inl-highlight">A1</span>, …, <span class="inl-highlight">An</span> one can form the type 
 <span class="inl-highlight"><span class="k">\Sigma</span> A1 … An</span> of tuples <span class="inl-highlight">(a1<span class="o">,</span> …<span class="o">,</span> an)</span>, where <span class="inl-highlight">ai <span class="o">:</span> Ai</span>.
-A trivial example – the type <span class="inl-highlight"><span class="k">\Sigma</span></span>, which is equivalemt to the one-element type <span class="inl-highlight">Unit</span>.</p>
+A trivial example – the type <span class="inl-highlight"><span class="k">\Sigma</span></span>, which is equivalent to the one-element type <span class="inl-highlight">Unit</span>.</p>
 
 <p>The tuples can be dependent in the sense that <span class="inl-highlight">Ai</span> can depend on <span class="inl-highlight">a1</span>, …, <span class="inl-highlight">a{i-1}</span>.
 Let us give a few examples of dependent <span class="inl-highlight"><span class="k">\Sigma</span></span>-types:</p>

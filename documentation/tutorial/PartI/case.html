@@ -488,7 +488,7 @@ The source code for the exercises: <a href="https://github.com/arend-lang/tutori
 
 <p>Firstly, we discuss case expressions and alternatives to them in the form of the helper
 functions. We also compare <span class="inl-highlight"><span class="k">\case</span></span> to <span class="inl-highlight"><span class="k">\elim</span></span>, point
-out at peculiarities of using case expressions in a dependently typed language and 
+out at peculiarities of using case expressions in a dependently typed language and
 explain pattern matching on <span class="inl-highlight">idp</span> in <span class="inl-highlight"><span class="k">\case</span></span>.</p>
 
 <p>Secondly, we explain a technique of <em>views</em>, allowing to define custom pattern matching
@@ -720,7 +720,7 @@ on the original expression <span class="inl-highlight">e</span> and on <span cla
 
 <h1 id="views">Views</h1>
 
-<p>Views – is a techique that allows to define some kind of custom pattern matching for data types.
+<p>Views – is a technique that allows to define some kind of custom pattern matching for data types.
 For example, <span class="inl-highlight">Nat</span> has constructors <span class="inl-highlight">zero</span> and <span class="inl-highlight">suc</span>
 and by default we pattern match on them whenever we define a function from <span class="inl-highlight">Nat</span>.
 But we can also define a custom pattern matching for <span class="inl-highlight">Nat</span> as if <span class="inl-highlight">Nat</span>
@@ -841,7 +841,7 @@ not necessarily having anything to do with equality.</p>
 <span class="k">\func</span> test1 <span class="o">:</span> (<span class="n">0</span> <span class="o">==</span> <span class="n">0</span>) <span class="o">=</span> true <span class="o">=&gt;</span> idp
 <span class="k">\func</span> test2 <span class="o">:</span> (<span class="n">0</span> <span class="o">==</span> <span class="n">1</span>) <span class="o">=</span> false <span class="o">=&gt;</span> idp</code></pre></div></div>
 
-<p class="notice--info"><strong>Exercise 6:</strong> Prove that if equality of elements of a type <span class="inl-highlight">A</span> is decidable, then eqiality of elements if <span class="inl-highlight">List A</span> is
+<p class="notice--info"><strong>Exercise 6:</strong> Prove that if equality of elements of a type <span class="inl-highlight">A</span> is decidable, then equality of elements if <span class="inl-highlight">List A</span> is
 also decidable.</p>
 
 <p class="notice--info"><strong>Exercise 7:</strong> Prove that if equality of elements of a type <span class="inl-highlight">A</span> is decidable, then every list of elements of <span class="inl-highlight">A</span> is either empty,

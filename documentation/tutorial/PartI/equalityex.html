@@ -668,7 +668,7 @@ evaluates to <span class="inl-highlight">vcons x ((xs v++ ys) v++ zs)</span>. So
 <p>And this is precisely the commutativity of <span class="inl-highlight">transport</span> with <span class="inl-highlight">vcons</span>, which we 
 prove in <span class="inl-highlight">transport-vcons-comm</span> lemma. 
 Note that it is important that we generalize the statement and prove the commutativity not only for
-<span class="inl-highlight"><span class="o">+</span>-assoc k m n</span> but for all <span class="inl-highlight">e <span class="o">:</span> Nat</span> satisfying <span class="inl-highlight">p <span class="o">:</span> k <span class="o">+</span> m <span class="o">+</span> n <span class="o">=</span> e</span> (otherwise, we would not be able to use pattern mathing or the J operator to prove this statement).</p>
+<span class="inl-highlight"><span class="o">+</span>-assoc k m n</span> but for all <span class="inl-highlight">e <span class="o">:</span> Nat</span> satisfying <span class="inl-highlight">p <span class="o">:</span> k <span class="o">+</span> m <span class="o">+</span> n <span class="o">=</span> e</span> (otherwise, we would not be able to use pattern matching or the J operator to prove this statement).</p>
 
 <p class="notice--info"><strong>Exercise 2:</strong> Prove that <span class="inl-highlight">vnil</span> is identity for the operation <span class="inl-highlight">v++</span>.</p>
 
@@ -715,11 +715,11 @@ In particular, in propositions-as-types logic predicates are functions <span cla
   <span class="o">|</span> s&lt;=s' {n' m' <span class="o">:</span> Nat} (n <span class="o">=</span> suc n') (m <span class="o">=</span> suc m') (LessOrEq' n' m')</code></pre></div></div>
 
 <p>There are usually many ways to choose constructors for inductive definitions. To define a predicate inductively, we need to
-come up with a set of axioms that characterise the predicate.</p>
+come up with a set of axioms that characterize the predicate.</p>
 
 <p>For example, for <span class="inl-highlight">LessOrEq</span> we chose two axioms:
 1) 0 &lt;= m for all m, 2) if n &lt;= m, then suc n &lt;= suc m for all n, m. Every inequality can be derived from these axioms.
-But this is not the only way to characterise <span class="inl-highlight">LessOrEq</span>. For example, we could use the following two axioms:
+But this is not the only way to characterize <span class="inl-highlight">LessOrEq</span>. For example, we could use the following two axioms:
 1) n &lt;= n for all n, 2) if n &lt;= m, then n &lt;= suc m for all n, m:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Third inductive definition of &lt;=.</span>
