@@ -515,7 +515,7 @@ strictly less than the cardinality of the set of its subsets <span class="inl-hi
 of <span class="inl-highlight">X</span> into <span class="inl-highlight">X <span class="o">-&gt;</span> <span class="kt">\Prop</span></span>. Clearly, the equality predicate 
 <span class="inl-highlight">(<span class="o">=</span>) <span class="o">:</span> X <span class="o">-&gt;</span> (X <span class="o">-&gt;</span> <span class="kt">\Prop</span>)</span> is an injection.</p>
 
-<p>The assetrion that the cardinality is strictly less means that, in addition, there is no surjection 
+<p>The assertion that the cardinality is strictly less means that, in addition, there is no surjection
 <span class="inl-highlight">f <span class="o">:</span> X <span class="o">-&gt;</span> (X <span class="o">-&gt;</span> <span class="kt">\Prop</span>)</span>. This can be easily proven by adopting the classical Cantor’s
 argument.</p>
 
@@ -548,7 +548,7 @@ Note that the definition of surjection requires the propositional truncation.</p
   <span class="c">-- \Pi (b : B) -&gt;        \Sigma (a : A) (f a = b)</span></code></pre></div></div>
 
 <p>We now give an obvious definition of a bijection and prove that bijectivity
-is a conjuction of injectivity and surjectivity.</p>
+is a conjunction of injectivity and surjectivity.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isBij {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (g <span class="o">:</span> B <span class="o">-&gt;</span> A) (<span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> g (f x) <span class="o">=</span> x) (<span class="k">\Pi</span> (y <span class="o">:</span> B) <span class="o">-&gt;</span> f (g y) <span class="o">=</span> y)
 
@@ -580,7 +580,7 @@ or, in other words, gluing, and apply it to the definition of the type <span cla
 of integers.</p>
 
 <p>Consider first the definition of the type of integers as the ordinary datatype containing
-two copies of <span class="inl-highlight">Nat</span>: nonegative and nonpositive numbers.</p>
+two copies of <span class="inl-highlight">Nat</span>: nonnegative and nonpositive numbers.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Int'
   <span class="o">|</span> pos' Nat

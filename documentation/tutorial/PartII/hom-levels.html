@@ -578,7 +578,7 @@ in <span class="inl-highlight"><span class="kt">\Prop</span></span> by means of 
 
 <p>Recall that in the previous module we noted that the equality <span class="inl-highlight">x=y</span> is not always a proposition
 and defined sets as those types <span class="inl-highlight">A</span>, for which equality <span class="inl-highlight">a=a’</span> between any two 
-elements <span class="inl-highlight">a a’ <span class="o">:</span> A</span> is a propoposition:</p>
+elements <span class="inl-highlight">a a’ <span class="o">:</span> A</span> is a proposition:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isSet (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> isProp (x <span class="o">=</span> y)</code></pre></div></div>
 
@@ -822,7 +822,7 @@ holds by reflexivity:</p>
   <span class="o">:</span> transport (<span class="k">\lam</span> X <span class="o">=&gt;</span> X) (equivalence=&gt;equality A B e) <span class="o">=</span> e.<span class="n">1</span>
   <span class="o">=&gt;</span> idp</code></pre></div></div>
 
-<p>The property <span class="inl-highlight">equavalence=&gt;equality</span> does not still fully characterize equalities
+<p>The property <span class="inl-highlight">equivalence=&gt;equality</span> does not still fully characterize equalities
 between types: the type <span class="inl-highlight">A <span class="o">=</span> B</span> should be equivalent to the type <span class="inl-highlight">Equiv A B</span>.
 The computational rule for <span class="inl-highlight">iso</span> mentioned above allows to prove that 
 the composition of <span class="inl-highlight">equivalence=&gt;equality</span> and  <span class="inl-highlight">equality=&gt;equivalence</span>

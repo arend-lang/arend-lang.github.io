@@ -514,7 +514,7 @@ usually does not contain any data and is merely a proof of the proposition. It i
 homotopy type theory to use the term “proposition” for mere propositions.</p>
 
 <p>Subsequently we discuss another important subclass of types, consisting of those types that can be
-idenified with sets.</p>
+identified with sets.</p>
 
 <h1 id="subsets-injective-functions">Subsets, injective functions</h1>
 
@@ -668,7 +668,7 @@ corresponding to the proposition “True”:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Sigma-isProp {A B <span class="o">:</span> <span class="kt">\Type</span>} (pA <span class="o">:</span> isProp A) (pB <span class="o">:</span> isProp B)
   <span class="o">:</span> isProp (<span class="k">\Sigma</span> A B) <span class="o">=&gt;</span> <span class="k">\lam</span> p q <span class="o">=&gt;</span> prodEq p q (pA p.<span class="n">1</span> q.<span class="n">1</span>) (pB p.<span class="n">2</span> q.<span class="n">2</span>)</code></pre></div></div>
 
-<p>The function type (implication) between propositions is poposition:</p>
+<p>The function type (implication) between propositions is proposition:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> funcExt {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) (f g <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x)
               (p <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> g x) <span class="o">:</span> f <span class="o">=</span> g <span class="o">=&gt;</span>
@@ -766,7 +766,7 @@ called <em>sets</em>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isSet (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> isProp (a <span class="o">=</span> a')
 
-<span class="c">-- By definition equality is mere porosition for sets</span>
+<span class="c">-- By definition equality is mere proposition for sets</span>
 <span class="k">\func</span> equality-isProp {A <span class="o">:</span> <span class="kt">\Type</span>} (p <span class="o">:</span> isSet A) (a a' <span class="o">:</span> A) <span class="o">:</span> isProp (a <span class="o">=</span> a') <span class="o">=&gt;</span> p a a'</code></pre></div></div>
 
 <p>This can be interated further: we may consider types <span class="inl-highlight">A</span> such that 
@@ -868,7 +868,7 @@ every morphism is invertible. In particular, all endomorphisms
 of any object in a groupoid is a group with composition as the group operation. In the groupoid
 of a 1-type <span class="inl-highlight">A</span> the set of morphisms between objects <span class="inl-highlight">x y <span class="o">:</span> A</span> is given
 by elements of <span class="inl-highlight">x=y</span>. The identity morphism is <span class="inl-highlight">idp</span> and the composition
-is given by transitivity <span class="inl-highlight"><span class="o">*</span>&gt;</span> of equality, which turnes out to be in this case a nontrivial
+is given by transitivity <span class="inl-highlight"><span class="o">*</span>&gt;</span> of equality, which turns out to be in this case a nontrivial
 function rather than mere implication:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infixr</span> <span class="n">5</span> <span class="o">*</span>&gt; {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' a'' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (q <span class="o">:</span> a' <span class="o">=</span> a'') <span class="o">:</span> a <span class="o">=</span> a''
@@ -901,7 +901,7 @@ defines the composition of bijections between sets.</p>
   <span class="o">|</span> idp <span class="o">=&gt;</span> idp</code></pre></div></div>
 
 <p>The function <span class="inl-highlight"><span class="o">*</span>&gt;</span> is thus similar to a group operation. For example, we can
-prove the left cancelation property for it:</p>
+prove the left cancellation property for it:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> cancelLeft {A <span class="o">:</span> <span class="kt">\Type</span>} {x y z <span class="o">:</span> A}
                  (p <span class="o">:</span> x <span class="o">=</span> y) (q r <span class="o">:</span> y <span class="o">=</span> z) (s <span class="o">:</span> p <span class="o">*</span>&gt; q <span class="o">=</span> p <span class="o">*</span>&gt; r) <span class="o">:</span> q <span class="o">=</span> r

@@ -543,7 +543,7 @@ This path in general goes across different types <span class="inl-highlight">B i
 <span class="inl-highlight">Path B b (coe B b right)</span>. The right point <span class="inl-highlight">transport B p b <span class="o">==</span>&gt; (coe B b right)</span> can
 be thought of as <span class="inl-highlight">b</span> transported along the path <span class="inl-highlight">p</span>.</p>
 
-<p>Thus one can recognise that <span class="inl-highlight">B</span> defines <em>a fibration</em> over <span class="inl-highlight">I</span> and <span class="inl-highlight">(<span class="k">\lam</span> i <span class="o">=&gt;</span> coe B b i) <span class="o">:</span> <span class="k">\Pi</span> (i <span class="o">:</span> I) <span class="o">-&gt;</span> B i</span>
+<p>Thus one can recognize that <span class="inl-highlight">B</span> defines <em>a fibration</em> over <span class="inl-highlight">I</span> and <span class="inl-highlight">(<span class="k">\lam</span> i <span class="o">=&gt;</span> coe B b i) <span class="o">:</span> <span class="k">\Pi</span> (i <span class="o">:</span> I) <span class="o">-&gt;</span> B i</span>
 is a section of the fibration. More generally, dependent types <span class="inl-highlight">B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span></span> correspond to fibrations <span class="inl-highlight">p1 <span class="o">:</span> <span class="k">\Sigma</span> A B <span class="o">-&gt;</span> A</span> (here 
 <span class="inl-highlight">p1</span> is the projection to the first component) over <span class="inl-highlight">A</span> with fibers <span class="inl-highlight">B x</span>
 over points <span class="inl-highlight">x <span class="o">:</span> A</span> and the total space <span class="inl-highlight"><span class="k">\Sigma</span> A B</span>. Note that if <span class="inl-highlight">b <span class="o">:</span> B x</span>, then
@@ -735,7 +735,7 @@ it is very easy to construct a “winding” homomorphism from the group <span c
   <span class="o">|</span> pos (suc n) <span class="o">=&gt;</span> wind (pos n) <span class="o">*</span>&gt; path loop
   <span class="o">|</span> neg (suc n) <span class="o">=&gt;</span> wind (neg n) <span class="o">*</span>&gt; inv (path loop)</code></pre></div></div>
 
-<p>In order to costruct the inverse map we will need to define a fibration over the circle, called the <em>universal cover</em>.
+<p>In order to construct the inverse map we will need to define a fibration over the circle, called the <em>universal cover</em>.
 This amouts to constructing a specific dependent type, which we denote as <span class="inl-highlight">code</span>.</p>
 
 <p>Geometrically the universal cover of the circle is a winding of the real line over the circle and
@@ -775,7 +775,7 @@ Arend standard library.</p>
 
 <h1 id="eilenberg-maclane-space">Eilenberg-Maclane space</h1>
 
-<p>Given a group <span class="inl-highlight">G</span> we now construct a pointed connected 1-type <span class="inl-highlight">K1 G</span> such that the fundametal group of <span class="inl-highlight">K1 G</span> is 
+<p>Given a group <span class="inl-highlight">G</span> we now construct a pointed connected 1-type <span class="inl-highlight">K1 G</span> such that the fundamental group of <span class="inl-highlight">K1 G</span> is 
 <span class="inl-highlight">G</span>. The type <span class="inl-highlight">K1 G</span> is called the <em>Eilenberg-Maclane space</em>. This type can be defined as the type with the base point <span class="inl-highlight">base</span>,
 for every <span class="inl-highlight">g <span class="o">:</span> G</span> the loop constructor <span class="inl-highlight">loop g i</span> and for every <span class="inl-highlight">g g’ <span class="o">:</span> G</span> the 2-cell <span class="inl-highlight">relation g g’ i j</span>,
 which equalizes the composition of loops <span class="inl-highlight">path (loop g) <span class="o">*</span>&gt; path (loop g’)</span> and the loop <span class="inl-highlight">path (loop (g <span class="o">*</span> g’))</span>.</p>
