@@ -537,7 +537,7 @@ See <a href="../expressions/class-ext">Class extensions</a> for more information
 <span class="k">\func</span> r2 <span class="o">=&gt;</span> <span class="k">\new</span> R { <span class="o">|</span> p_1 <span class="o">=&gt;</span> a_1 ... <span class="o">|</span> p_n <span class="o">=&gt;</span> a_n <span class="o">|</span> f_1 <span class="o">=&gt;</span> b_1 ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }
 <span class="k">\func</span> r3 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_n b_1 ... b_k
 <span class="k">\func</span> r4 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_i { <span class="o">|</span> p_{i+1} <span class="o">=&gt;</span> a_{i+1} ... <span class="o">|</span> p_n <span class="o">=&gt;</span> a_n <span class="o">|</span> f_1 <span class="o">=&gt;</span> b_1 ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }
-<span class="k">\func</span> r5 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_n b_1 ... b_i { f_{i+1} <span class="o">=&gt;</span> b_{i+1} ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }</code></pre></div></div>
+<span class="k">\func</span> r5 <span class="o">=&gt;</span> <span class="k">\new</span> R a_1 ... a_n b_1 ... b_i { <span class="o">|</span> f_{i+1} <span class="o">=&gt;</span> b_{i+1} ... <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k }</code></pre></div></div>
 
 <p>The same function can also be defined using <a href="functions#copattern-matching">copattern matching</a>:</p>
 

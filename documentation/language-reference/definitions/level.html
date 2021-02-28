@@ -540,7 +540,7 @@ Its first argument is the type and the second is the proof that it belongs to so
 <p>Similarly, a property of type <span class="inl-highlight">A</span> can be defined as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R {
-  <span class="k">\property</span> p <span class="o">:</span> <span class="k">\level</span> A p
+  <span class="k">\property</span> s <span class="o">:</span> <span class="k">\level</span> A p
 }</code></pre></div></div>
 
 <p>While defining a function or a case expression over a truncated type with values in <span class="inl-highlight">A</span>,
@@ -566,7 +566,7 @@ So, in this case, <span class="inl-highlight"><span class="k">\use</span> <span 
 If some function <span class="inl-highlight">f</span> is defined with a <span class="inl-highlight"><span class="k">\use</span> <span class="k">\level</span></span> annotation, this does not change the type of <span class="inl-highlight">f</span>,
 but it will be treated as a type in a lower universe in situations described in <a href="#level-of-a-type">Level of a type</a>.</p>
 
-<p>For example, we can prove that <span class="inl-highlight">isProp</span> is itslef a proposition and then define lemmas which prove that some type is a proposition:</p>
+<p>For example, we can prove that <span class="inl-highlight">isProp</span> is itself a proposition and then define lemmas which prove that some type is a proposition:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isProp (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a'
   <span class="k">\where</span> <span class="k">\use</span> <span class="k">\level</span> proof (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> isProp (isProp A) <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- the proof is omitted</span>
 
