@@ -394,7 +394,7 @@
 
             
 
-            <li><a href="/documentation/standard-tactics/path-meta" class="">Path metas</a></li>
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
 
             
             
@@ -505,6 +505,17 @@ For example, <span class="inl-highlight">Nat</span> can be coerced to <span clas
 
 <p>It is possible to define several coercing functions for a single type.</p>
 
+<p>If some data type or record can be coerced to a function, then elements of this type can be applied to arguments, in which case the coercing function will be inserted.</p>
+
+<h1 id="fields-and-constructors">Fields and constructors</h1>
+
+<p>A field or a constructor can be marked with the <span class="inl-highlight"><span class="k">\coerce</span></span> keyword like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R (<span class="k">\coerce</span> A <span class="o">:</span> <span class="kt">\Type</span>) (a <span class="o">:</span> A)
+<span class="k">\data</span> D <span class="o">|</span> <span class="k">\coerce</span> con1 Nat <span class="o">|</span> con2</code></pre></div></div>
+
+<p>Then the marked field or constructor will be used just as coercing functions.</p>
+
         
       </section>
 
@@ -557,7 +568,7 @@ For example, <span class="inl-highlight">Nat</span> can be coerced to <span clas
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

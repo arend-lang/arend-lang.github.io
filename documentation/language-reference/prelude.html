@@ -324,7 +324,7 @@
 
             
 
-            <li><a href="/documentation/standard-tactics/path-meta" class="">Path metas</a></li>
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
 
             
             
@@ -409,6 +409,7 @@
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Prelude</h4></header>
               <ul class="toc__menu">
   <li><a href="#nat-and-int">Nat and Int</a></li>
+  <li><a href="#fin">Fin</a></li>
   <li><a href="#interval-and-squeeze-functions">Interval and squeeze functions</a></li>
   <li><a href="#path">Path</a></li>
   <li><a href="#idp">idp</a></li>
@@ -429,10 +430,27 @@ to actual definitions since most of them cannot be actually defined in the ordin
 
 <h1 id="nat-and-int">Nat and Int</h1>
 
-<p>The definitions of <span class="inl-highlight">Nat</span>, <span class="inl-highlight">Int</span>, <span class="inl-highlight">Nat.<span class="o">+</span></span>, <span class="inl-highlight">Nat.<span class="o">*</span></span>, <span class="inl-highlight">Nat.-</span>, <span class="inl-highlight">Nat.&lt;=</span>, <span class="inl-highlight">Nat.div</span>, <span class="inl-highlight">Nat.mod</span>, and <span class="inl-highlight">Int.fromNat</span> are actually correct,
+<p>The definitions of <span class="inl-highlight">Nat</span>, <span class="inl-highlight">Int</span>, <span class="inl-highlight">Nat.<span class="o">*</span></span>, <span class="inl-highlight">Nat.&lt;=</span>, and <span class="inl-highlight">Nat.div</span> are actually correct,
 they could have been as well defined in an ordinary file and successfully typechecked according to normal Arend typechecking rules.
 The only difference is that these definitions from Prelude are implemented more efficiently.
 Definitions of <span class="inl-highlight">Nat.divMod</span>, <span class="inl-highlight">Nat.divModProp</span>, and <span class="inl-highlight">Nat.modProp</span> are omitted, but these functions also can be defined in Arend.</p>
+
+<p>Functions <span class="inl-highlight">Nat.<span class="o">+</span></span> and <span class="inl-highlight">Nat.-</span> have more computational rules than can be defined normally:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n <span class="o">+</span> <span class="n">0</span> <span class="o">=&gt;</span> n
+n <span class="o">+</span> suc m <span class="o">=&gt;</span> suc (n <span class="o">+</span> m)
+<span class="n">0</span> <span class="o">+</span> m <span class="o">=&gt;</span> m
+suc n <span class="o">+</span> m <span class="o">=&gt;</span> suc (n <span class="o">+</span> m)
+
+<span class="n">0</span> - m <span class="o">=&gt;</span> neg m
+n - <span class="n">0</span> <span class="o">=&gt;</span> pos n
+suc n - suc m <span class="o">=&gt;</span> n - m</code></pre></div></div>
+
+<p>Finally, <span class="inl-highlight">Nat.mod (suc n)</span> has type <span class="inl-highlight">Fin (suc n)</span> and <span class="inl-highlight">Nat.divMod (suc n)</span> has type <span class="inl-highlight"><span class="k">\Sigma</span> Nat (Fin (suc n))</span>.</p>
+
+<h1 id="fin">Fin</h1>
+
+<p>The type <span class="inl-highlight">Fin n</span> is a subtype of <span class="inl-highlight">Nat</span> and also a subtype of <span class="inl-highlight">Fin (suc n)</span>.
+Constructors of <span class="inl-highlight">Nat</span> are also constructors of <span class="inl-highlight">Fin n</span>: <span class="inl-highlight">zero</span> has type <span class="inl-highlight">Fin (suc n)</span> and if <span class="inl-highlight">x <span class="o">:</span> Fin n</span>, then <span class="inl-highlight">suc x <span class="o">:</span> Fin (suc n)</span>.</p>
 
 <h1 id="interval-and-squeeze-functions">Interval and squeeze functions</h1>
 
@@ -585,7 +603,7 @@ This definition implies the univalence axiom.</p>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

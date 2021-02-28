@@ -322,7 +322,7 @@
 
             
 
-            <li><a href="/documentation/standard-tactics/path-meta" class="">Path metas</a></li>
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
 
             
             
@@ -408,15 +408,26 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Algebra.Meta</h4></header>
               <ul class="toc__menu">
+  <li><a href="#equation">equation</a></li>
   <li><a href="#cong">cong</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h1 id="cong"><code class="language-plaintext highlighter-rouge">cong</code></h1>
+        <h1 id="equation">equation</h1>
 
-<p>This meta implements the congruence closure algorithm.</p>
+<p><span class="inl-highlight">equation a_1 … a_n</span> proves an equation <span class="inl-highlight">a_0 <span class="o">=</span> a_{n+1}</span> using <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> as intermediate steps.
+A proof of <span class="inl-highlight">a_i <span class="o">=</span> a_{i+1}</span> can be specified as implicit arguments between them.
+<span class="inl-highlight">using</span>, <span class="inl-highlight">usingOnly</span>, and <span class="inl-highlight">hiding</span> with a single argument can be used instead of a proof to control the context.
+The first implicit argument can be either a universe or a subclass of either <span class="inl-highlight">Monoid</span>, <span class="inl-highlight">AddMonoid</span>, or <span class="inl-highlight">Order.Lattice.Bounded.MeetSemilattice</span>.
+In the former case, the meta will prove an equality in a type without using any additional structure on it.
+In the latter case, the meta will prove an equality using only structure available in the specified class.</p>
+
+<h1 id="cong">cong</h1>
+
+<p>This meta implements the congruence closure algorithm.
+For example, given assumptions <span class="inl-highlight">x <span class="o">=</span> x’</span> and <span class="inl-highlight">y <span class="o">=</span> y’</span>, it can prove <span class="inl-highlight">f x y <span class="o">=</span> f x’ y’</span>.</p>
 
         
       </section>
@@ -470,7 +481,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

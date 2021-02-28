@@ -373,7 +373,7 @@
 
             
 
-            <li><a href="/documentation/standard-tactics/path-meta" class="">Path metas</a></li>
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
 
             
             
@@ -484,9 +484,23 @@ That is, instead of <span class="inl-highlight"><span class="o">|</span> x_i <sp
 where <span class="inl-highlight">p^i_1<span class="o">,</span> … p^i_{n_i}</span> are either variables or named parameters to which <span class="inl-highlight">e_i</span> can refer.
 Such a clause is equivalent to <span class="inl-highlight"><span class="o">|</span> x_i <span class="o">=&gt;</span> <span class="k">\lam</span> p^i_1 … p^i_{n_i} <span class="o">=&gt;</span> e_i</span>.</p>
 
-<p>Let expressions also can be <em>strict</em>.
+<h1 id="strict-let-expressions">Strict let expressions</h1>
+
+<p>Let expressions can be <em>strict</em>.
 This means that expressions <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> will be evaluated immediately when the let expression is evaluated.
 To define a strict let expression, use the keyword <span class="inl-highlight"><span class="k">\let!</span></span> instead of <span class="inl-highlight"><span class="k">\let</span></span>.</p>
+
+<h1 id="have">\have</h1>
+
+<p>The <span class="inl-highlight"><span class="k">\have</span></span> keyword can be used instead of the <span class="inl-highlight"><span class="k">\let</span></span> keyword.
+The resulting expression will not change, but defined variables will not unfold inside the expression.
+For example, the following code will not work because <span class="inl-highlight">x</span> is not equivalent to <span class="inl-highlight"><span class="n">0</span></span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\have</span> x <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\in</span> (idp <span class="o">:</span> x <span class="o">=</span> <span class="n">0</span>)</code></pre></div></div>
+
+<p>This can be useful when the actual value of the variable is not important.
+For example, this is usually the case when it is a proof of some fact.</p>
 
         
       </section>
@@ -540,7 +554,7 @@ To define a strict let expression, use the keyword <span class="inl-highlight"><
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

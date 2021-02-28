@@ -46,4 +46,10 @@ var store = [{
         "tags": [],
         "url": "https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html",
         "teaser": null
+      },{
+        "title": "Arend 1.6.0 released",
+        "excerpt":"Language updates: Built-in finite types \\default implementations \\coerce to function types \\coerce for fields and constructors \\have declaration Dot-syntax for dynamic definitions Added more computational rules for + and - functions Plugin updates: Quick fixes for “impossible elimination” and “expected constructor” errors API: Pattern typechecker arend-lib: Locales and topological spaces...","categories": [],
+        "tags": [],
+        "url": "https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html",
+        "teaser": null
       }]

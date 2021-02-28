@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Lexical Structure - Arend Theorem Prover</title>
+<!-- begin _includes/seo.html --><title>\module Category.Meta - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Lexical Structure">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/lexical-structure.html">
+<meta property="og:title" content="\module Category.Meta">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/standard-tactics/category-meta.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -34,7 +34,7 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/lexical-structure.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/standard-tactics/category-meta.html">
 
 
 
@@ -204,12 +204,10 @@
 
             
 
-            <li><a href="/documentation/language-reference/lexical-structure" class="active">Lexical structure</a></li>
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
 
             
             
-            
-              
             
           
             
@@ -388,7 +386,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Lexical Structure">
+    <meta itemprop="headline" content="\module Category.Meta">
     
     
     
@@ -396,7 +394,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Lexical Structure
+          <h1 id="page-title" class="page__title" itemprop="headline">\module Category.Meta
 </h1>
           
         </header>
@@ -406,62 +404,18 @@
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Lexical Structure</h4></header>
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Category.Meta</h4></header>
               <ul class="toc__menu">
-  <li><a href="#keywords">Keywords</a></li>
-  <li><a href="#numerals">Numerals</a></li>
-  <li><a href="#identifiers">Identifiers</a></li>
-  <li><a href="#infix-and-postfix-notation">Infix and postfix notation</a></li>
-  <li><a href="#comments">Comments</a></li>
+  <li><a href="#structure-identity-principle">Structure Identity Principle</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="keywords">Keywords</h2>
+        <h1 id="structure-identity-principle">Structure Identity Principle</h1>
 
-<p>All Arend’s <em>keywords</em> begin with <code class="language-plaintext highlighter-rouge">\</code>.
-Here’s the complete list of keywords:</p>
-
-<p><a href="definitions/modules#open-commands">\open</a> <a href="definitions/modules#import-commands">\import</a> <a href="definitions/modules#open-commands">\hiding</a> <a href="definitions/modules#open-commands">\as</a> <a href="definitions/modules#open-commands">\using</a>
-<a href="definitions/data#truncation">\truncated</a> <a href="definitions/data">\data</a> <a href="definitions/data#constructor-synonyms">\cons</a> <a href="definitions/functions">\func</a> <a href="definitions/functions#lemmas">\lemma</a> <a href="definitions/functions#sfunc">\sfunc</a> <a href="definitions/classes">\class</a> <a href="definitions/records">\record</a>
-<a href="definitions/classes#classifying-fields">\classifying</a> <a href="definitions/classes#classifying-fields">\noclassifying</a> <a href="definitions/parameters#strict-parameters">\strict</a> <a href="definitions#aliases">\alias</a>
-<a href="definitions/records">\field</a> <a href="definitions/records#properties">\property</a> <a href="definitions/records#override">\override</a> <a href="definitions/records">\extends</a> <a href="definitions/modules#modules">\module</a> <a href="definitions/classes">\instance</a>
-<a href="definitions/coercion">\use</a> <a href="definitions/coercion">\coerce</a> <a href="definitions/level">\level</a> <a href="expressions/universes#level-polymorphism">\levels</a> <a href="definitions/functions#sfunc">\eval</a> <a href="definitions/functions#sfunc">\peval</a>
-<a href="definitions/functions#pattern-matching">\with</a> <a href="definitions/functions#elim">\elim</a> <a href="definitions/functions#copattern-matching">\cowith</a> <a href="definitions/modules#where-blocks">\where</a>
-<a href="definitions#infix-operators">\infix</a> <a href="definitions#infix-operators">\infixl</a> <a href="definitions#infix-operators">\infixr</a> <a href="definitions#precedence">\fix</a> <a href="definitions#precedence">\fixl</a> <a href="definitions#precedence">\fixr</a>
-<a href="expressions/class-ext">\new</a> <a href="definitions/records">\this</a> <a href="expressions/pi">\Pi</a> <a href="expressions/sigma">\Sigma</a> <a href="expressions/pi">\lam</a> <a href="expressions/let">\let</a> <a href="expressions/let">\let!</a> <a href="(expressions/let)">\in</a> <a href="expressions/case">\case</a> <a href="expressions/case#scase">\scase</a> <a href="expressions/case">\return</a>
-<a href="expressions/universes#level-polymorphism">\lp</a> <a href="expressions/universes#level-polymorphism">\lh</a> <a href="expressions/universes#level-polymorphism">\suc</a> <a href="expressions/universes#level-polymorphism">\max</a> <a href="expressions/universes#level-polymorphism">\oo</a>
-<a href="expressions/universes">\Prop</a> <a href="expressions/universes">\Set</a> <a href="expressions/universes">\Type</a>.</p>
-
-<h2 id="numerals">Numerals</h2>
-
-<p>A <em>positive numeral</em> is a non-empty sequence of digits.
-A <em>negative numeral</em> consists of symbol <code class="language-plaintext highlighter-rouge">-</code> followed by a non-empty sequence of digits.</p>
-
-<h2 id="identifiers">Identifiers</h2>
-
-<p>An <em>identifier</em> consists of a non-empty sequence of lower and upper case letters, digits, and characters from the list <code class="language-plaintext highlighter-rouge">'~!@#$%^&amp;*-+=&lt;&gt;?/|[]:_</code>.
-Exceptions are sequences that begin with a digit or symbol <code class="language-plaintext highlighter-rouge">'</code>, numerals, and reserved names such as <code class="language-plaintext highlighter-rouge">-&gt;</code>, <code class="language-plaintext highlighter-rouge">=&gt;</code>, <code class="language-plaintext highlighter-rouge">_</code>, <code class="language-plaintext highlighter-rouge">:</code>, and <code class="language-plaintext highlighter-rouge">|</code>.</p>
-
-<p>Examples:</p>
-
-<ul>
-  <li>Valid identifiers: <code class="language-plaintext highlighter-rouge">xxx</code>, <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">$^~]!005x</code>, <code class="language-plaintext highlighter-rouge">::</code>, <code class="language-plaintext highlighter-rouge">-&gt;x</code>, <code class="language-plaintext highlighter-rouge">x:Nat</code>, <code class="language-plaintext highlighter-rouge">-5b</code>, <code class="language-plaintext highlighter-rouge">-33+7</code>, <code class="language-plaintext highlighter-rouge">--xxx</code>, <code class="language-plaintext highlighter-rouge">f'</code>.</li>
-  <li>Invalid identifiers: <code class="language-plaintext highlighter-rouge">5b</code>, <code class="language-plaintext highlighter-rouge">-33</code>, <code class="language-plaintext highlighter-rouge">=&gt;</code>, <code class="language-plaintext highlighter-rouge">α</code>.</li>
-</ul>
-
-<h2 id="infix-and-postfix-notation">Infix and postfix notation</h2>
-
-<p>A <em>postfix notation</em> is an identifier which follows <code class="language-plaintext highlighter-rouge">`</code>.
-An <em>infix notation</em> is an identifier surrounded by <code class="language-plaintext highlighter-rouge">`</code>.
-Both of these notations are described in <a href="definitions">Definitions</a>.</p>
-
-<h2 id="comments">Comments</h2>
-
-<p><em>Multi-line comments</em> are enclosed in <code class="language-plaintext highlighter-rouge">{-</code> and <code class="language-plaintext highlighter-rouge">-}</code> and can be nested.
-<em>Single-line comments</em> consist of a sequence of symbols <code class="language-plaintext highlighter-rouge">-</code> of length at least 2 followed by a whitespace followed by an arbitrary text until the end of the line.
-To give an example, <code class="language-plaintext highlighter-rouge">--</code>, <code class="language-plaintext highlighter-rouge">--------</code>, <code class="language-plaintext highlighter-rouge">-- foo</code>, and <code class="language-plaintext highlighter-rouge">------- foobar</code> are comments but <code class="language-plaintext highlighter-rouge">--foo</code>, <code class="language-plaintext highlighter-rouge">foo--bar</code>, and <code class="language-plaintext highlighter-rouge">------foobar</code> are not.</p>
+<p><span class="inl-highlight">sip</span> proves univalence for categories.
+The type of objects must extend <span class="inl-highlight">BaseSet</span> and the Hom-set must extend <span class="inl-highlight">SetHom</span> with properties only.</p>
 
         
       </section>

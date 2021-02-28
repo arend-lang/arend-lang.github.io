@@ -33,6 +33,10 @@
 <lastmod>2020-10-10T00:00:00+03:00</lastmod>
 </url>
 <url>
+<loc>https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html</loc>
+<lastmod>2021-02-28T00:00:00+03:00</lastmod>
+</url>
+<url>
 <loc>https://arend-lang.github.io/documentation/standard-tactics/algebra-meta.html</loc>
 </url>
 <url>
@@ -43,6 +47,9 @@
 </url>
 <url>
 <loc>https://arend-lang.github.io/documentation/language-reference/expressions/case.html</loc>
+</url>
+<url>
+<loc>https://arend-lang.github.io/documentation/standard-tactics/category-meta.html</loc>
 </url>
 <url>
 <loc>https://arend-lang.github.io/documentation/language-reference/expressions/class-ext.html</loc>
@@ -150,7 +157,7 @@
 <loc>https://arend-lang.github.io/documentation/language-reference/definitions/parameters.html</loc>
 </url>
 <url>
-<loc>https://arend-lang.github.io/documentation/standard-tactics/path-meta.html</loc>
+<loc>https://arend-lang.github.io/documentation/standard-tactics/paths-meta.html</loc>
 </url>
 <url>
 <loc>https://arend-lang.github.io/documentation/language-reference/expressions/pi.html</loc>

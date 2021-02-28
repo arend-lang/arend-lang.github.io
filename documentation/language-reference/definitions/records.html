@@ -394,7 +394,7 @@
 
             
 
-            <li><a href="/documentation/standard-tactics/path-meta" class="">Path metas</a></li>
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
 
             
             
@@ -481,7 +481,9 @@
   <li><a href="#properties">Properties</a></li>
   <li><a href="#extensions">Extensions</a></li>
   <li><a href="#this">This</a></li>
+  <li><a href="#dynamic-definitions">Dynamic definitions</a></li>
   <li><a href="#override">Override</a></li>
+  <li><a href="#default">\default</a></li>
 </ul>
 
             </nav>
@@ -657,6 +659,29 @@ In order to access these fields, fully qualified names should be used:</p>
 
 <p>The keyword <span class="inl-highlight"><span class="k">\this</span></span> can appear only in arguments of definitions and only in those arguments, which in turn satisfy this condition.</p>
 
+<h2 id="dynamic-definitions">Dynamic definitions</h2>
+
+<p>A function or a data type can be put inside a record definition:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R {
+  <span class="o">|</span> n <span class="o">:</span> Nat
+
+  <span class="k">\func</span> f (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x Nat.<span class="o">+</span> n
+}</code></pre></div></div>
+
+<p>Such a definition will have an addition implicit parameter of type <span class="inl-highlight">R</span>.
+Thus, the code above is equivalent to the following one:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R {
+  <span class="o">|</span> n <span class="o">:</span> Nat
+} <span class="k">\where</span> {
+  <span class="k">\func</span> f {this <span class="o">:</span> R} (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x Nat.<span class="o">+</span> this.n
+}</code></pre></div></div>
+
+<p>Such functions and data types are called dynamic and can be accessed with the dot-syntax:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> g (r <span class="o">:</span> R) <span class="o">:</span> Nat <span class="o">=&gt;</span> r.f <span class="n">1</span></code></pre></div></div>
+
 <h2 id="override">Override</h2>
 
 <p>The type of a field or a property can be overridden with a subtype in a subclass using keyword <span class="inl-highlight"><span class="k">\override</span></span>:</p>
@@ -672,6 +697,97 @@ In order to access these fields, fully qualified names should be used:</p>
 <span class="k">\record</span> B <span class="k">\extends</span> A {
   <span class="k">\override</span> f <span class="o">:</span> S
 }</code></pre></div></div>
+
+<h2 id="default">\default</h2>
+
+<p>A default implementation does not modify the record, but it will be used when a new instance is created if the implementation is not specified.
+Default implementations are defined with the <span class="inl-highlight"><span class="k">\default</span></span> keyword:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R
+  <span class="o">|</span> f <span class="o">:</span> Nat
+  <span class="o">|</span> g <span class="o">:</span> Nat
+
+<span class="k">\record</span> S <span class="k">\extends</span> R {
+  <span class="k">\default</span> f <span class="o">=&gt;</span> <span class="n">0</span>
+}</code></pre></div></div>
+
+<p>In this example, the type <span class="inl-highlight">S</span> is equivalent to <span class="inl-highlight">R</span>.
+An instance of <span class="inl-highlight">S</span> can be created as usual or the implementation of <span class="inl-highlight">f</span> can be omitted:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> inst1 <span class="o">:</span> S <span class="k">\cowith</span>
+  <span class="o">|</span> f <span class="o">=&gt;</span> <span class="n">1</span>
+  <span class="o">|</span> g <span class="o">=&gt;</span> <span class="n">2</span>
+
+<span class="k">\func</span> inst2 <span class="o">:</span> S <span class="k">\cowith</span>
+  <span class="o">|</span> g <span class="o">=&gt;</span> <span class="n">2</span>
+
+<span class="k">\func</span> test1 <span class="o">:</span> inst1.f <span class="o">=</span> <span class="n">1</span> <span class="o">=&gt;</span> idp
+
+<span class="k">\func</span> test2 <span class="o">:</span> inst2.f <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>Defaullt implementations can be defined by pattern matching as usual:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R
+  <span class="o">|</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat
+
+<span class="k">\record</span> S <span class="k">\extends</span> R {
+  <span class="k">\default</span> f (n <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="k">\with</span> {
+    <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">0</span>
+    <span class="o">|</span> suc n <span class="o">=&gt;</span> n
+  }
+}</code></pre></div></div>
+
+<p>In this case, a function with the same name as the field will be created in the namespace of the record.
+The name of the function can be changed with the <span class="inl-highlight"><span class="k">\as</span></span> keyword:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> S' <span class="k">\extends</span> R {
+  <span class="k">\default</span> f <span class="k">\as</span> fImpl (n <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="k">\with</span> {
+    <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">0</span>
+    <span class="o">|</span> suc n <span class="o">=&gt;</span> n
+  }
+}</code></pre></div></div>
+
+<p>Default implementations do not see each other by default.
+For example, the following code does not work:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R
+  <span class="o">|</span> x <span class="o">:</span> Nat
+  <span class="o">|</span> p <span class="o">:</span> x <span class="o">=</span> <span class="n">0</span>
+
+<span class="k">\record</span> S <span class="k">\extends</span> R {
+  <span class="k">\default</span> x <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="k">\default</span> p <span class="o">=&gt;</span> idp <span class="c">-- does not work</span>
+}</code></pre></div></div>
+
+<p>To fix this, the first default implementation must be given a name and in the second one its type must be explicitly specified:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> S' <span class="k">\extends</span> R {
+  <span class="k">\default</span> x <span class="k">\as</span> x' <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="k">\default</span> p <span class="o">:</span> x' <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+}</code></pre></div></div>
+
+<p>Default implementations can also be implemented in terms of each other:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R
+  <span class="o">|</span> x <span class="o">:</span> Nat
+  <span class="o">|</span> y <span class="o">:</span> Nat
+
+<span class="k">\record</span> S <span class="k">\extends</span> R {
+  <span class="k">\default</span> x <span class="o">=&gt;</span> y
+  <span class="k">\default</span> y <span class="o">=&gt;</span> x
+}</code></pre></div></div>
+
+<p>To define an instance of <span class="inl-highlight">S</span>, you need to specify one of the fields (or both):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 <span class="o">:</span> S <span class="k">\cowith</span>
+  <span class="o">|</span> x <span class="o">=&gt;</span> <span class="n">0</span>
+
+<span class="k">\func</span> test2 <span class="o">:</span> S <span class="k">\cowith</span>
+  <span class="o">|</span> y <span class="o">=&gt;</span> <span class="n">1</span>
+
+<span class="k">\func</span> test3 <span class="o">:</span> S <span class="k">\cowith</span>
+  <span class="o">|</span> x <span class="o">=&gt;</span> <span class="n">2</span>
+  <span class="o">|</span> y <span class="o">=&gt;</span> <span class="n">3</span></code></pre></div></div>
 
         
       </section>
@@ -725,7 +841,7 @@ In order to access these fields, fully qualified names should be used:</p>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

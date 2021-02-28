@@ -394,7 +394,7 @@
 
             
 
-            <li><a href="/documentation/standard-tactics/path-meta" class="">Path metas</a></li>
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
 
             
             
@@ -519,8 +519,14 @@ If the class has some explicit parameters, then this can be done using keyword <
 To do this, one needs to use the keyword <span class="inl-highlight"><span class="k">\instance</span></span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\instance</span> NatSemigroup <span class="o">:</span> Semigroup Nat
-  <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> Nat.<span class="o">*</span>
-  <span class="o">|</span> <span class="o">*</span>-assoc <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- the proof is omitted</span></code></pre></div></div>
+  <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> Nat.<span class="o">+</span>
+  <span class="o">|</span> <span class="o">*</span>-assoc (x y z <span class="o">:</span> Nat) <span class="o">:</span> (x Nat.<span class="o">+</span> y) Nat.<span class="o">+</span> z <span class="o">=</span> x Nat.<span class="o">+</span> (y Nat.<span class="o">+</span> z) <span class="k">\elim</span> z {
+    <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+    <span class="o">|</span> suc z <span class="o">=&gt;</span> pmap suc (<span class="o">*</span>-assoc x y z)
+  }</code></pre></div></div>
+
+<p>An implementation of a field can be defined by pattern matching as demonstrated above.
+In this case, a separate function with the same name as the field is created in the namespace of the instance.</p>
 
 <p>A global instance is just a function, defined by <a href="functions#copattern-matching">copattern matching</a>.
 It can be used as an ordinary function.
@@ -589,7 +595,7 @@ is appropriate even if the data or the record are applied to different arguments
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
