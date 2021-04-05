@@ -607,7 +607,7 @@ evaluates to <span class="inl-highlight">pos <span class="n">0</span></span>.</p
 <p>Whenever a function over such a type is defined, the typechecker checks if its 
 values on equivalent constructors coincide. For example, the following definition
 does not typecheck, because <span class="inl-highlight">intEx (pos <span class="n">0</span>)</span> is 3, but 
-<span class="inl-highlight">intEx (pos <span class="n">0</span>)</span> is 7:</p>
+<span class="inl-highlight">intEx (neg <span class="n">0</span>)</span> is 7:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This does not typecheck!</span>
 <span class="k">\func</span> intEx (z <span class="o">:</span> Int) <span class="o">:</span> Nat
