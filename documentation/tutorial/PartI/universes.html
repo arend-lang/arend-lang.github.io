@@ -576,8 +576,8 @@ non-implemented fields of <span class="inl-highlight">Magma <span class="k">\lp<
 
 <p>Consider one more example, the class <span class="inl-highlight">Functor</span> of functors:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Functor (F <span class="o">:</span> <span class="kt">\Type</span> <span class="o">-&gt;</span> <span class="kt">\Type</span>)
-  <span class="o">|</span> fmap {A B <span class="o">:</span> <span class="kt">\Type</span>} <span class="o">:</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> F A <span class="o">-&gt;</span> F B</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Functor (F <span class="o">:</span> <span class="kt">\Set</span> <span class="o">-&gt;</span> <span class="kt">\Set</span>) <span class="c">-- \Set is almost the same as \Type, we will discuss the difference later</span>
+  <span class="o">|</span> fmap {A B <span class="o">:</span> <span class="kt">\Set</span>} <span class="o">:</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> F A <span class="o">-&gt;</span> F B</code></pre></div></div>
 
 <p>The level of <span class="inl-highlight">Functor</span> will be <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span></span> even if the field <span class="inl-highlight">F</span> is
 implemented since <span class="inl-highlight">fmap</span> also refers to <span class="inl-highlight"><span class="kt">\Type</span> <span class="k">\lp</span></span>.</p>
@@ -594,7 +594,7 @@ Specify explicitly result types for all idTest*.</p>
 <span class="k">\func</span> idTest2 <span class="o">=&gt;</span> id'' Maybe
 <span class="k">\func</span> idTest3 <span class="o">=&gt;</span> id'' Functor
 <span class="k">\func</span> idTest4 <span class="o">=&gt;</span> id'' (Functor Maybe)
-<span class="k">\func</span> idTest5 (f <span class="o">:</span> <span class="k">\Pi</span> {A B <span class="o">:</span> <span class="kt">\Type</span>} <span class="o">-&gt;</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> Maybe A <span class="o">-&gt;</span> Maybe B) <span class="o">=&gt;</span> id'' (Functor Maybe f)</code></pre></div></div>
+<span class="k">\func</span> idTest5 (f <span class="o">:</span> <span class="k">\Pi</span> {A B <span class="o">:</span> <span class="kt">\Set</span>} <span class="o">-&gt;</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> Maybe A <span class="o">-&gt;</span> Maybe B) <span class="o">=&gt;</span> id'' (Functor Maybe f)</code></pre></div></div>
 
 <h1 id="induction-principles">Induction principles</h1>
 
@@ -659,7 +659,7 @@ done below.</p>
 <p>The type <span class="inl-highlight">Type</span> can be thought of as a type contains codes of types. We should also define a
 function that realizes them as actual types:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> El (t <span class="o">:</span> Type) <span class="o">:</span> <span class="kt">\Set0</span> <span class="k">\elim</span> t <span class="c">-- \Set0 is almost the same as \Type0, we will discuss the difference later</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> El (t <span class="o">:</span> Type) <span class="o">:</span> <span class="kt">\Set0</span> <span class="k">\elim</span> t
   <span class="o">|</span> nat <span class="o">=&gt;</span> Nat
   <span class="o">|</span> list t <span class="o">=&gt;</span> List (El t)
   <span class="o">|</span> arr t1 t2 <span class="o">=&gt;</span> El t1 <span class="o">-&gt;</span> El t2
