@@ -567,16 +567,17 @@ conditions saying that endpoints of the loop evaluate to the basepoint: <span cl
   }</code></pre></div></div>
 
 <p>Higher dimensional spheres are also easy to define using the construction called <em>suspension</em>. For a type
-<span class="inl-highlight">A</span> its suspension <span class="inl-highlight">Susp A</span> is a type with two points <span class="inl-highlight">S</span>
-and <span class="inl-highlight">N</span> and for every element <span class="inl-highlight">a <span class="o">:</span> A</span> a path <span class="inl-highlight">merid a i</span>
-between <span class="inl-highlight">S</span> and <span class="inl-highlight">N</span>: <span class="inl-highlight">merid a left <span class="o">==</span>&gt; S</span>,
-<span class="inl-highlight">merid a right <span class="o">==</span>&gt; N</span>.</p>
+<span class="inl-highlight">A</span> its suspension <span class="inl-highlight">Susp A</span> is a type with two points <span class="inl-highlight">south</span>
+and <span class="inl-highlight">north</span> and for every element <span class="inl-highlight">a <span class="o">:</span> A</span> a path <span class="inl-highlight">merid a i</span>
+between <span class="inl-highlight">north</span> and <span class="inl-highlight">south</span>: <span class="inl-highlight">merid a left <span class="o">==</span>&gt; north</span>,
+<span class="inl-highlight">merid a right <span class="o">==</span>&gt; south</span>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Susp (A <span class="o">:</span> <span class="kt">\Type</span>)
-   <span class="o">|</span> S <span class="o">|</span> N
+   <span class="o">|</span> south
+   <span class="o">|</span> north
    <span class="o">|</span> merid A (i <span class="o">:</span> I) <span class="k">\elim</span> i {
-      	<span class="o">|</span> left <span class="o">=&gt;</span> S
-        <span class="o">|</span> right <span class="o">=&gt;</span> N
+      	<span class="o">|</span> left <span class="o">=&gt;</span> north
+        <span class="o">|</span> right <span class="o">=&gt;</span> south
    }</code></pre></div></div>
 
 <p>The spheres can now be defined inductively as follows:</p>
@@ -588,14 +589,14 @@ between <span class="inl-highlight">S</span> and <span class="inl-highlight">N</
 <p>It is easy to see that the type <span class="inl-highlight">Circle</span> is equivalent to the type <span class="inl-highlight">Sphere <span class="n">1</span></span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> CircleToSphere1 (x <span class="o">:</span> Circle) <span class="o">:</span> Sphere <span class="n">1</span>
-    <span class="o">|</span> base <span class="o">=&gt;</span> S
-    <span class="o">|</span> loop i <span class="o">=&gt;</span> (path (merid N) <span class="o">*</span>&gt; inv (path (merid S))) <span class="o">@</span> i 
+    <span class="o">|</span> base <span class="o">=&gt;</span> north
+    <span class="o">|</span> loop i <span class="o">=&gt;</span> (path (merid north) <span class="o">*</span>&gt; inv (path (merid south))) <span class="o">@</span> i 
 
 <span class="k">\func</span> Sphere1ToCircle (x <span class="o">:</span> Sphere <span class="n">1</span>) <span class="o">:</span> Circle
-    <span class="o">|</span> S <span class="o">=&gt;</span> base
-    <span class="o">|</span> N <span class="o">=&gt;</span> base
-    <span class="o">|</span> merid S i <span class="o">=&gt;</span> loop i
-    <span class="o">|</span> merid N i <span class="o">=&gt;</span> base
+    <span class="o">|</span> south <span class="o">=&gt;</span> base
+    <span class="o">|</span> north <span class="o">=&gt;</span> base
+    <span class="o">|</span> merid north i <span class="o">=&gt;</span> loop i
+    <span class="o">|</span> merid south i <span class="o">=&gt;</span> base
     <span class="o">|</span> merid (merid () <span class="u">_</span>) <span class="u">_</span></code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 1:</strong> Prove that <span class="inl-highlight">CircleToSphere1</span> and <span class="inl-highlight">Sphere1ToCircle</span> are mutually
