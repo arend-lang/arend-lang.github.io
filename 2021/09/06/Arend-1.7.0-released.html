@@ -1,0 +1,606 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Arend 1.7.0 released - Arend Theorem Prover</title>
+<meta name="description" content="Language updates:">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Arend 1.7.0 released">
+<meta property="og:url" content="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html">
+
+
+  <meta property="og:description" content="Language updates:">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-09-06T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--posts">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download">Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Arend 1.7.0 released</h1>
+    
+    <p>Language updates:</p>
+
+<ul>
+  <li><a href="/documentation/language-reference/definitions/types">Type synonyms</a></li>
+  <li><a href="/documentation/language-reference/prelude#array">Arrays</a></li>
+  <li>Pattern matching in <a href="/documentation/language-reference/expressions/pi#pattern-matching">lambdas</a> and <a href="/documentation/language-reference/expressions/let#pattern-matching">\let expressions</a></li>
+  <li><a href="/documentation/language-reference/expressions/universes#level-parameters">Multiple level parameters</a></li>
+  <li>Ability to <a href="/documentation/language-reference/definitions/records#levels">change levels in subclasses</a></li>
+  <li>Improved inference of implicit arguments of function types</li>
+</ul>
+
+<p>Plugin updates:</p>
+
+<ul>
+  <li>New quick-fixes:
+    <ul>
+      <li><a href="#hide-import">Hide import</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/259">#259</a>)</li>
+      <li><a href="#instance-inference-fixes">Fix failed class instance inference</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/114">#114</a>)</li>
+    </ul>
+  </li>
+  <li>New intentions:
+    <ul>
+      <li><a href="#replace-long-name">Replace with short name</a></li>
+      <li><a href="#generate-function">Generate function</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/104">#104</a>)</li>
+      <li><a href="#swap-infix-operator">Swap infix operator arguments</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/44">#44</a>)</li>
+      <li><a href="#add-remove-parens">Add and Remove clarifying parentheses</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/238">#238</a>)</li>
+    </ul>
+  </li>
+  <li><a href="#redundant-parens">New “Redundant parentheses” inspection</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/237">#237</a>)</li>
+  <li><a href="#prelude">Better support for Prelude</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/254">#254</a>)</li>
+  <li><a href="#metas">Better support for Metas</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/261">#261</a>)</li>
+</ul>
+
+<p>arend-lib:</p>
+
+<ul>
+  <li><a href="https://github.com/JetBrains/arend-lib/blob/master/src/Topology/Real.ard">The locale of real numbers</a></li>
+  <li><a href="https://github.com/JetBrains/arend-lib/blob/master/src/Topology/Real.ard">Compactness of the interval and local compactness of reals</a></li>
+  <li><a href="https://github.com/JetBrains/arend-lib/blob/master/src/AG/Scheme.ard">Spectrum of a ring</a></li>
+  <li><a href="https://github.com/JetBrains/arend-lib/blob/master/src/Category/Topos/Sheaf.ard">Sheaves</a></li>
+  <li><a href="/documentation/standard-tactics/paths-meta#algebraic-rewrite">Algebraic rewrite</a></li>
+</ul>
+
+<h2 id="plugin-updates">Plugin updates</h2>
+
+<h3 id="hide-import">Hide import</h3>
+
+<p>To bring some declarations to the current scope we use imports. If some imported names are already in scope,
+they will be ignored and plugin will show a warning. New “Hide import” quick-fix explicitly hides such names 
+by adding them to the <code class="language-plaintext highlighter-rouge">\hiding</code> directive:</p>
+
+<p><img src="/assets/Arend-1.7.0-released/hide-import.gif" alt="" /></p>
+
+<h3 id="instance-inference-fixes">Fix failed class instance inference</h3>
+
+<p>If you use fields of some class and Arend cannot infer an appropriate instance for it, you will get an error. 
+New quick-fixes help to handle this issue:</p>
+<ul>
+  <li>“Import instance” imports an instance available somewhere outside the current scope, say, from arend-lib.</li>
+  <li>“Add local instance” adds an implicit parameter of the class type to the current function.</li>
+  <li>“Replace local parameter with local instance” is suggested when you already have a parameter 
+that can be used as a classifying field. The fix replaces a type of that parameter with the class type.</li>
+</ul>
+
+<p><img src="/assets/Arend-1.7.0-released/instance-inference-fixes.gif" alt="" /></p>
+
+<h3 id="replace-long-name">Replace with short name</h3>
+
+<p>Replaces a reference of the form <code class="language-plaintext highlighter-rouge">A.B</code> with <code class="language-plaintext highlighter-rouge">B</code> adding an appropriate <code class="language-plaintext highlighter-rouge">\open</code> directive:</p>
+
+<p><img src="/assets/Arend-1.7.0-released/replace-long-name.gif" alt="" /></p>
+
+<h3 id="generate-function">Generate function</h3>
+
+<p>This intention comes in 2 flavors. The first one generates a function from a goal:</p>
+
+<p><img src="/assets/Arend-1.7.0-released/extract-goal.gif" alt="" /></p>
+
+<p>The second one extracts a selected expression to a separate function:</p>
+
+<p><img src="/assets/Arend-1.7.0-released/extract-expression.gif" alt="" /></p>
+
+<p>In both cases you get a function with parameters and return type inferred from the type of the initial expression.</p>
+
+<h3 id="swap-infix-operator">Swap infix operator arguments</h3>
+
+<p>Swaps arguments of an infix operator:</p>
+
+<p><img src="/assets/Arend-1.7.0-released/swap-infix-operator.gif" alt="" /></p>
+
+<h3 id="add-remove-parens">Add and Remove clarifying parentheses</h3>
+
+<p>Allows adding and removing clarifying parentheses to a sequence of binary operators:</p>
+
+<p><img src="/assets/Arend-1.7.0-released/add-remove-parens.gif" alt="" /></p>
+
+<h3 id="redundant-parens">“Redundant parentheses” inspection</h3>
+
+<p>Detects redundant parentheses and suggests a fix to remove them:</p>
+
+<p><img src="/assets/Arend-1.7.0-released/redundant-parens.gif" alt="" /></p>
+
+<h3 id="prelude">Better support for Prelude</h3>
+
+<p>This release brings a couple of improvements that make Prelude more discoverable:</p>
+<ul>
+  <li>Prelude is shown in External Libraries.</li>
+  <li>Definitions from Prelude are discoverable via Navigate Symbol, Navigate File, and Find Usages.</li>
+</ul>
+
+<p><img src="/assets/Arend-1.7.0-released/prelude.png" alt="" /></p>
+
+<h3 id="metas">Better support for Metas</h3>
+
+<p>Discoverability of language extensions (aka metas) is also improved in the following ways:</p>
+<ul>
+  <li>Metas are shown as Arend files in External Libraries.</li>
+  <li>Metas are discoverable via Navigate Symbol and Navigate File.</li>
+</ul>
+
+<p><img src="/assets/Arend-1.7.0-released/metas.png" alt="" /></p>
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2021">
+        <strong>2021</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2020">
+        <strong>2020</strong> <span class="taxonomy__count">5</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">3</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+
+  <section id="2021" class="taxonomy__section">
+    <h2 class="archive__subtitle">2021</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/09/06/Arend-1.7.0-released.html" rel="permalink">Arend 1.7.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/02/28/Arend-1.6.0-released.html" rel="permalink">Arend 1.6.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  Built-in finite types
+  \default implementations
+  \coerce to function types
+  \coerce for fields and constructors
+  \have declaration
+ ...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2020" class="taxonomy__section">
+    <h2 class="archive__subtitle">2020</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/10/10/Arend-1.5.0-released.html" rel="permalink">Arend 1.5.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  String literals, which can be used in meta code
+  Meta resolvers, which can be used to modify the scoping rules for meta definitions
+  \...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/06/29/Arend-1.4.0-released.html" rel="permalink">Arend 1.4.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  Implicit lambdas.
+  Tests directory can be used to store files with tests, examples, and other code which is not a part of the library.
+...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/06/14/tutorial-part-II.html" rel="permalink">Tutorial Part II
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The second part of our tutorial is ready.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/04/13/Arend-1.3.0-released.html" rel="permalink">Arend 1.3.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We implemented language extensions.
+This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.
+They...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/01/17/tutorial-part-I.html" rel="permalink">The first part of our tutorial is ready
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We finished the first part of our new tutorial.
+It covers all the basic constructions of Arend.
+It does not mention anything related to homotopy theory.
+This...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/12/16/Arend-1.2.0-released.html" rel="permalink">Arend 1.2.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We implemented a few features related to classes and pattern matching.
+One of these features is pattern matching on idp : a = a, which can be used instead of...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/10/01/Arend-1.1.0-released.html" rel="permalink">Arend 1.1.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/07/17/Arend-1.0.0-released.html" rel="permalink">Arend 1.0.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The first version of Arend is released!
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
