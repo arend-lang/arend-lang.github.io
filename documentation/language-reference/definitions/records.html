@@ -235,6 +235,13 @@
 
                 
 
+                <li><a href="/documentation/language-reference/definitions/types" class="">&nbsp;&nbsp;&nbsp;&nbsp;Type synonyms</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/language-reference/definitions/data" class="">&nbsp;&nbsp;&nbsp;&nbsp;Data</a></li>
               
                 
@@ -465,7 +472,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Records</h4></header>
-              <ul class="toc__menu"><li><a href="#properties">Properties</a></li><li><a href="#extensions">Extensions</a></li><li><a href="#this">This</a></li><li><a href="#dynamic-definitions">Dynamic definitions</a></li><li><a href="#override">Override</a></li><li><a href="#default">\default</a></li></ul>
+              <ul class="toc__menu"><li><a href="#properties">Properties</a></li><li><a href="#extensions">Extensions</a></li><li><a href="#this">This</a></li><li><a href="#dynamic-definitions">Dynamic definitions</a></li><li><a href="#override">Override</a></li><li><a href="#default">\default</a></li><li><a href="#levels">Levels</a></li></ul>
 
             </nav>
           </aside>
@@ -769,6 +776,19 @@ For example, the following code does not work:</p>
 <span class="k">\func</span> test3 <span class="o">:</span> S <span class="k">\cowith</span>
   <span class="o">|</span> x <span class="o">=&gt;</span> <span class="n">2</span>
   <span class="o">|</span> y <span class="o">=&gt;</span> <span class="n">3</span></code></pre></div></div>
+
+<h2 id="levels">Levels</h2>
+
+<p>It is possible to specify levels of a super class:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R
+  <span class="o">|</span> A <span class="o">:</span> <span class="kt">\Type</span>
+  <span class="o">|</span> B <span class="o">:</span> <span class="kt">\1-Type</span>
+  <span class="o">|</span> C <span class="o">:</span> <span class="kt">\Type1</span>
+
+<span class="k">\record</span> S <span class="k">\extends</span> R (<span class="n">0</span><span class="o">,</span><span class="n">0</span>)</code></pre></div></div>
+
+<p>Now, if we have <span class="inl-highlight">s <span class="o">:</span> S</span>, then <span class="inl-highlight">s.A <span class="o">:</span> <span class="kt">\Set0</span></span>, <span class="inl-highlight">s.B <span class="o">:</span> <span class="kt">\1-Type0</span></span>, and <span class="inl-highlight">s.C <span class="o">:</span> <span class="kt">\Set1</span></span>.</p>
 
         
       </section>

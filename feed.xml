@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2021-07-13T21:45:22+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><entry><title type="html">Arend 1.6.0 released</title><link href="https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html" rel="alternate" type="text/html" title="Arend 1.6.0 released" /><published>2021-02-28T00:00:00+03:00</published><updated>2021-02-28T00:00:00+03:00</updated><id>https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2021-09-06T22:47:13+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><entry><title type="html">Arend 1.7.0 released</title><link href="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html" rel="alternate" type="text/html" title="Arend 1.7.0 released" /><published>2021-09-06T00:00:00+03:00</published><updated>2021-09-06T00:00:00+03:00</updated><id>https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/definitions/types&quot;&gt;Type synonyms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/prelude#array&quot;&gt;Arrays&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Pattern matching in &lt;a href=&quot;/documentation/language-reference/expressions/pi#pattern-matching&quot;&gt;lambdas&lt;/a&gt; and &lt;a href=&quot;/documentation/language-reference/expressions/let#pattern-matching&quot;&gt;\let expressions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/expressions/universes#level-parameters&quot;&gt;Multiple level parameters&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Ability to &lt;a href=&quot;/documentation/language-reference/definitions/records#levels&quot;&gt;change levels in subclasses&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Improved inference of implicit arguments of function types&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Plugin updates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New quick-fixes:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#hide-import&quot;&gt;Hide import&lt;/a&gt; (&lt;a href=&quot;https://github.com/JetBrains/intellij-arend/issues/259&quot;&gt;#259&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#instance-inference-fixes&quot;&gt;Fix failed class instance inference&lt;/a&gt; (&lt;a href=&quot;https://github.com/JetBrains/intellij-arend/issues/114&quot;&gt;#114&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;New intentions:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#replace-long-name&quot;&gt;Replace with short name&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#generate-function&quot;&gt;Generate function&lt;/a&gt; (&lt;a href=&quot;https://github.com/JetBrains/intellij-arend/issues/104&quot;&gt;#104&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#swap-infix-operator&quot;&gt;Swap infix operator arguments&lt;/a&gt; (&lt;a href=&quot;https://github.com/JetBrains/intellij-arend/issues/44&quot;&gt;#44&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#add-remove-parens&quot;&gt;Add and Remove clarifying parentheses&lt;/a&gt; (&lt;a href=&quot;https://github.com/JetBrains/intellij-arend/issues/238&quot;&gt;#238&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#redundant-parens&quot;&gt;New “Redundant parentheses” inspection&lt;/a&gt; (&lt;a href=&quot;https://github.com/JetBrains/intellij-arend/issues/237&quot;&gt;#237&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#prelude&quot;&gt;Better support for Prelude&lt;/a&gt; (&lt;a href=&quot;https://github.com/JetBrains/intellij-arend/issues/254&quot;&gt;#254&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#metas&quot;&gt;Better support for Metas&lt;/a&gt; (&lt;a href=&quot;https://github.com/JetBrains/intellij-arend/issues/261&quot;&gt;#261&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;arend-lib:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/JetBrains/arend-lib/blob/master/src/Topology/Real.ard&quot;&gt;The locale of real numbers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/JetBrains/arend-lib/blob/master/src/Topology/Real.ard&quot;&gt;Compactness of the interval and local compactness of reals&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/JetBrains/arend-lib/blob/master/src/AG/Scheme.ard&quot;&gt;Spectrum of a ring&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/JetBrains/arend-lib/blob/master/src/Category/Topos/Sheaf.ard&quot;&gt;Sheaves&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/standard-tactics/paths-meta#algebraic-rewrite&quot;&gt;Algebraic rewrite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;plugin-updates&quot;&gt;Plugin updates&lt;/h2&gt;
+
+&lt;h3 id=&quot;hide-import&quot;&gt;Hide import&lt;/h3&gt;
+
+&lt;p&gt;To bring some declarations to the current scope we use imports. If some imported names are already in scope,
+they will be ignored and plugin will show a warning. New “Hide import” quick-fix explicitly hides such names 
+by adding them to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\hiding&lt;/code&gt; directive:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/hide-import.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;instance-inference-fixes&quot;&gt;Fix failed class instance inference&lt;/h3&gt;
+
+&lt;p&gt;If you use fields of some class and Arend cannot infer an appropriate instance for it, you will get an error. 
+New quick-fixes help to handle this issue:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;“Import instance” imports an instance available somewhere outside the current scope, say, from arend-lib.&lt;/li&gt;
+  &lt;li&gt;“Add local instance” adds an implicit parameter of the class type to the current function.&lt;/li&gt;
+  &lt;li&gt;“Replace local parameter with local instance” is suggested when you already have a parameter 
+that can be used as a classifying field. The fix replaces a type of that parameter with the class type.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/instance-inference-fixes.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;replace-long-name&quot;&gt;Replace with short name&lt;/h3&gt;
+
+&lt;p&gt;Replaces a reference of the form &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A.B&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; adding an appropriate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\open&lt;/code&gt; directive:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/replace-long-name.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;generate-function&quot;&gt;Generate function&lt;/h3&gt;
+
+&lt;p&gt;This intention comes in 2 flavors. The first one generates a function from a goal:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/extract-goal.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The second one extracts a selected expression to a separate function:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/extract-expression.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In both cases you get a function with parameters and return type inferred from the type of the initial expression.&lt;/p&gt;
+
+&lt;h3 id=&quot;swap-infix-operator&quot;&gt;Swap infix operator arguments&lt;/h3&gt;
+
+&lt;p&gt;Swaps arguments of an infix operator:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/swap-infix-operator.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;add-remove-parens&quot;&gt;Add and Remove clarifying parentheses&lt;/h3&gt;
+
+&lt;p&gt;Allows adding and removing clarifying parentheses to a sequence of binary operators:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/add-remove-parens.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;redundant-parens&quot;&gt;“Redundant parentheses” inspection&lt;/h3&gt;
+
+&lt;p&gt;Detects redundant parentheses and suggests a fix to remove them:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/redundant-parens.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;prelude&quot;&gt;Better support for Prelude&lt;/h3&gt;
+
+&lt;p&gt;This release brings a couple of improvements that make Prelude more discoverable:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Prelude is shown in External Libraries.&lt;/li&gt;
+  &lt;li&gt;Definitions from Prelude are discoverable via Navigate Symbol, Navigate File, and Find Usages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/prelude.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;metas&quot;&gt;Better support for Metas&lt;/h3&gt;
+
+&lt;p&gt;Discoverability of language extensions (aka metas) is also improved in the following ways:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Metas are shown as Arend files in External Libraries.&lt;/li&gt;
+  &lt;li&gt;Metas are discoverable via Navigate Symbol and Navigate File.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/metas.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates:</summary></entry><entry><title type="html">Arend 1.6.0 released</title><link href="https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html" rel="alternate" type="text/html" title="Arend 1.6.0 released" /><published>2021-02-28T00:00:00+03:00</published><updated>2021-02-28T00:00:00+03:00</updated><id>https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/prelude#fin&quot;&gt;Built-in finite types&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/definitions/records#default&quot;&gt;\default&lt;/a&gt; implementations&lt;/li&gt;

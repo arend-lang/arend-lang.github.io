@@ -395,7 +395,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Prelude</h4></header>
-              <ul class="toc__menu"><li><a href="#nat-and-int">Nat and Int</a></li><li><a href="#fin">Fin</a></li><li><a href="#interval-and-squeeze-functions">Interval and squeeze functions</a></li><li><a href="#path">Path</a></li><li><a href="#idp">idp</a></li><li><a href="#coe-and-coe2">coe and coe2</a></li><li><a href="#iso">iso</a></li></ul>
+              <ul class="toc__menu"><li><a href="#nat-and-int">Nat and Int</a></li><li><a href="#fin">Fin</a></li><li><a href="#array">Array</a></li><li><a href="#interval-and-squeeze-functions">Interval and squeeze functions</a></li><li><a href="#path">Path</a></li><li><a href="#idp">idp</a></li><li><a href="#coe-and-coe2">coe and coe2</a></li><li><a href="#iso">iso</a></li></ul>
 
             </nav>
           </aside>
@@ -431,6 +431,13 @@ suc n - suc m <span class="o">=&gt;</span> n - m</code></pre></div></div>
 
 <p>The type <span class="inl-highlight">Fin n</span> is a subtype of <span class="inl-highlight">Nat</span> and also a subtype of <span class="inl-highlight">Fin (suc n)</span>.
 Constructors of <span class="inl-highlight">Nat</span> are also constructors of <span class="inl-highlight">Fin n</span>: <span class="inl-highlight">zero</span> has type <span class="inl-highlight">Fin (suc n)</span> and if <span class="inl-highlight">x <span class="o">:</span> Fin n</span>, then <span class="inl-highlight">suc x <span class="o">:</span> Fin (suc n)</span>.</p>
+
+<h1 id="array">Array</h1>
+
+<p><span class="inl-highlight">Array</span> is a record consisting of a type of its elements <span class="inl-highlight">A</span>, its length <span class="inl-highlight">len</span>, and a function <span class="inl-highlight">Fin len <span class="o">-&gt;</span> A</span>.
+Thus, <span class="inl-highlight">Array A</span> is equivalent to the type of lists of elements of type <span class="inl-highlight">A</span> and <span class="inl-highlight">Array A n</span> is equivalent to the type of vectors of elements of type <span class="inl-highlight">A</span> and length <span class="inl-highlight">n</span>.</p>
+
+<p>The type of dependent arrays <span class="inl-highlight">DArray</span> is a generalization of <span class="inl-highlight">Array</span> in which <span class="inl-highlight">A <span class="o">:</span> Fin len <span class="o">-&gt;</span> <span class="kt">\Type</span></span> is a dependent type and elements are given by a dependent function <span class="inl-highlight"><span class="k">\Pi</span> (j <span class="o">:</span> Fin len) <span class="o">-&gt;</span> A j</span>.</p>
 
 <h1 id="interval-and-squeeze-functions">Interval and squeeze functions</h1>
 

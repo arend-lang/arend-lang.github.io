@@ -444,7 +444,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Universes</h4></header>
-              <ul class="toc__menu"><li><a href="#universe-placement-rules">Universe placement rules</a></li><li><a href="#level-polymorphism">Level polymorphism</a></li><li><a href="#level-inference">Level inference</a></li></ul>
+              <ul class="toc__menu"><li><a href="#universe-placement-rules">Universe placement rules</a></li><li><a href="#level-polymorphism">Level polymorphism</a></li><li><a href="#level-parameters">Level parameters</a></li><li><a href="#level-inference">Level inference</a></li></ul>
 
             </nav>
           </aside>
@@ -468,9 +468,9 @@ Some of these universes have alternative names: the universe of propositions (-1
 Note that the universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is <em>impredicative</em>: it does not have predicative level. Practically, this means that
 if <span class="inl-highlight">B <span class="o">:</span> <span class="kt">\Prop</span></span>, then the type <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">-&gt;</span> B</span> is in <span class="inl-highlight"><span class="kt">\Prop</span></span>.</p>
 
-<p>The universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is not proof irrelevant, but some elements of propositions are definitionally equal.
-If <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Prop</span></span> and <span class="inl-highlight">a<span class="o">,</span> a’ <span class="o">:</span> A</span> are such that they never evaluate to a constructor, then they are definitionally equal.
-For example, if the type is an empty data type, then this is true for any pair of its elements, so they always be definitionally equal.</p>
+<p>The universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is not proof irrelevant, but some elements of propositions are computationally equal.
+If <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Prop</span></span> and <span class="inl-highlight">a<span class="o">,</span> a’ <span class="o">:</span> A</span> are such that they never evaluate to a constructor, then they are computationally equal.
+For example, if the type is an empty data type, then this is true for any pair of its elements, so they always be computationally equal.</p>
 
 <p>Universes with h equal to ∞ are represented in the syntax as <span class="inl-highlight"><span class="k">\oo-Type</span> p</span>. The homotopy level can also be 
 specified after the predicative level: <span class="inl-highlight"><span class="kt">\Type</span> p h</span> is equivalent to <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.</p>
@@ -518,6 +518,18 @@ Level expressions are defined inductively:</p>
 </ul>
 
 <p>Since the only level variables are <span class="inl-highlight"><span class="k">\lp</span></span> and <span class="inl-highlight"><span class="k">\lh</span></span>, the expression <span class="inl-highlight"><span class="k">\max</span> l1 l2</span> is useful only when one of the levels is a constant.</p>
+
+<h2 id="level-parameters">Level parameters</h2>
+
+<p>It is possible to declare definitions with several level parameters with the following syntax:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> func <span class="k">\plevels</span> p1 &lt;= p2 &lt;= p3 <span class="k">\hlevels</span> h1 &gt;= h2 (A <span class="o">:</span> <span class="kt">\Type</span> p2 h1) (B <span class="o">:</span> <span class="kt">\Type</span> p3 h2) <span class="o">=&gt;</span> <span class="kt">\Type</span> p1</code></pre></div></div>
+
+<p>All level parameters of the same type must be linearly ordered.
+In the example above, <span class="inl-highlight">func</span> has three predicative level parameters which are declared in ascending order and two homotopy level parameters in descending order.
+Level arguments for a definition with multiple level parameters can be specified as before:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> example <span class="o">=&gt;</span> func <span class="k">\levels</span> (<span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span>) (<span class="n">2</span><span class="o">,</span><span class="n">1</span>) Nat Nat</code></pre></div></div>
+
+<p>If level parameters are not explicitly declared for a class, they are inhereted from the first super class (if any).</p>
 
 <h2 id="level-inference">Level inference</h2>
 

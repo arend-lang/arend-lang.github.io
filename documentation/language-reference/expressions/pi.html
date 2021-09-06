@@ -465,7 +465,12 @@ of type <span class="inl-highlight">B[a/x]</span>.</p>
 
 <p>An expression of the form <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> f x</span> is equivalent to <span class="inl-highlight">f</span> if <span class="inl-highlight">x</span> is not free in <span class="inl-highlight">f</span> (eta equivalence for Pi types).</p>
 
-<h2 id="implicit-lambdas">Implicit lambdas</h2>
+<h1 id="pattern-matching">Pattern matching</h1>
+
+<p>It is possible to use pattern matching in lambda parameters with the following syntax: <span class="inl-highlight"><span class="k">\lam</span> (p) <span class="o">=&gt;</span> e</span>, where <span class="inl-highlight">p</span> is a pattern.
+This expression is equivalent to <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> <span class="k">\let</span> (p) <span class="o">=&gt;</span> x <span class="k">\in</span> e</span>.</p>
+
+<h1 id="implicit-lambdas">Implicit lambdas</h1>
 
 <p>An implicit lambda is written as <span class="inl-highlight"><span class="u">_</span><span class="u">_</span></span>.
 When this expression appears inside some other expression, the outer expression is replaced with a lambda and <span class="inl-highlight"><span class="u">_</span><span class="u">_</span></span> is replaced with the argument of this lambda.

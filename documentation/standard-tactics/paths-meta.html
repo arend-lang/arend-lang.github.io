@@ -395,7 +395,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Paths.Meta</h4></header>
-              <ul class="toc__menu"><li><a href="#rewriting-metas">Rewriting metas</a></li><li><a href="#extensionality-meta">Extensionality meta</a></li><li><a href="#simp_coe">simp_coe</a></li></ul>
+              <ul class="toc__menu"><li><a href="#rewriting-metas">Rewriting metas</a></li><li><a href="#algebraic-rewrite">Algebraic rewrite</a></li><li><a href="#extensionality-meta">Extensionality meta</a></li><li><a href="#simp_coe">simp_coe</a></li></ul>
 
             </nav>
           </aside>
@@ -413,6 +413,9 @@ When the expected type is unknown, the type of <span class="inl-highlight">t</sp
   <li><span class="inl-highlight">rewriteF</span> is like <span class="inl-highlight">rewrite</span> but it enforces to use the type of <span class="inl-highlight">t</span> instead of the expected type.</li>
   <li><span class="inl-highlight">rewriteI p t</span> is equivalent to <span class="inl-highlight">rewrite (inv p) t</span>.</li>
 </ul>
+
+<p>To any of the metas above it is possible to add specification of numbers of occurrences. For example, <span class="inl-highlight">rewrite {i1<span class="o">,</span> i2<span class="o">,</span> … ik} p t <span class="o">:</span> T</span> rewrites only occurrences
+with numbers <span class="inl-highlight">i1<span class="o">,</span> i2<span class="o">,</span> … ik</span> where occurrence <span class="inl-highlight">ij</span> is the number of occurrence after all previous occurrences have been replaced.</p>
 
 <p>Examples:</p>
 
@@ -446,12 +449,35 @@ When the expected type is unknown, the type of <span class="inl-highlight">t</sp
 
 <span class="k">\lemma</span> test7 {A <span class="o">:</span> Nat} (x y <span class="o">:</span> A) (f <span class="o">:</span> A <span class="o">-&gt;</span> A) <span class="o">:</span> f (x <span class="o">+</span> y) <span class="o">=</span> f (y <span class="o">+</span> x)
   <span class="o">=&gt;</span> rewrite <span class="o">+</span>-comm-rw idp
+  
+<span class="k">\lemma</span> testOccur {x <span class="o">:</span> Nat} (p <span class="o">:</span> suc x <span class="o">=</span> suc (suc x)) <span class="o">:</span> suc (suc x) <span class="o">=</span> x Nat.<span class="o">+</span> <span class="n">3</span> <span class="o">=&gt;</span> rewrite {<span class="n">1</span>} p idp  
 
 <span class="k">\lemma</span> testNorm {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) (l <span class="o">:</span> List A) (P <span class="o">:</span> List A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (p <span class="o">:</span> P (a <span class="o">:</span><span class="o">:</span> l)) <span class="o">:</span> P ((a <span class="o">:</span><span class="o">:</span> l) <span class="o">+</span><span class="o">+</span> nil)
   <span class="o">=&gt;</span> rewrite <span class="o">+</span><span class="o">+</span><span class="u">_</span>nil p
 
 <span class="k">\lemma</span> testRestore {A <span class="o">:</span> <span class="kt">\Type</span>} (xs ys zs <span class="o">:</span> List A) (P <span class="o">:</span> List A <span class="o">-&gt;</span> List A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (p <span class="o">:</span> P (xs <span class="o">+</span><span class="o">+</span> ys) zs) <span class="o">:</span> P (xs <span class="o">+</span><span class="o">+</span> ys) (zs <span class="o">+</span><span class="o">+</span> nil)
   <span class="o">=&gt;</span> rewrite <span class="o">+</span><span class="o">+</span><span class="u">_</span>nil p</code></pre></div></div>
+
+<h1 id="algebraic-rewrite">Algebraic rewrite</h1>
+
+<p>Meta <span class="inl-highlight">rewriteEq</span> allows for more advanced rewriting in algebraic subexpressions. <span class="inl-highlight">rewriteEq p t <span class="o">:</span> T</span>,
+where <span class="inl-highlight">p <span class="o">:</span> a <span class="o">=</span> b</span>, like <span class="inl-highlight">rewrite</span> replaces literal occurrences of <span class="inl-highlight">a</span> in <span class="inl-highlight">T</span>
+with <span class="inl-highlight">b</span>, but it also finds and replaces occurrences up to algebraic equivalences. Currently, this meta supports noncommutative monoids and categories.</p>
+
+<p>For example, if <span class="inl-highlight">((a <span class="o">*</span> b) <span class="o">*</span> (ide <span class="o">*</span> c)) <span class="o">*</span> (d <span class="o">*</span> ide)</span> is an expression of type <span class="inl-highlight">Monoid</span> in <span class="inl-highlight">T</span>,
+then <span class="inl-highlight">b <span class="o">*</span> c <span class="o">*</span> ide</span> counts as an occurrence. If <span class="inl-highlight">p <span class="o">:</span> b <span class="o">*</span> c <span class="o">*</span> ide <span class="o">=</span> x</span>, then 
+<span class="inl-highlight">rewriteEq p t</span> will rewrite <span class="inl-highlight">((a <span class="o">*</span> b) <span class="o">*</span> (ide <span class="o">*</span> c)) <span class="o">*</span> (d <span class="o">*</span> ide)</span> as <span class="inl-highlight">((a <span class="o">*</span> x) <span class="o">*</span> d)</span>.</p>
+
+<p>Meta <span class="inl-highlight">rewriteEq</span> also supports specification of numbers of occurrences which works similarly to the one for <span class="inl-highlight">rewrite</span>.
+Note that occurrences can overlap in this case. The counting is natural from left to right.</p>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> test1 {A <span class="o">:</span> Monoid} (a b c d x <span class="o">:</span> A) (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (p <span class="o">:</span> b <span class="o">*</span> c <span class="o">=</span> x) (t <span class="o">:</span> B (a <span class="o">*</span> x <span class="o">*</span> d)) <span class="o">:</span> B (((a <span class="o">*</span> b) <span class="o">*</span> (ide <span class="o">*</span> c)) <span class="o">*</span> (d <span class="o">*</span> ide))
+  <span class="o">=&gt;</span> rewriteEq p t
+  
+<span class="k">\lemma</span> test2 {C <span class="o">:</span> Precat} {a b c d <span class="o">:</span> C} (P <span class="o">:</span> Hom a d <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (f <span class="o">:</span> Hom a b) (g <span class="o">:</span> Hom b c) (g' <span class="o">:</span> Hom c b) (h <span class="o">:</span> Hom c d) (p <span class="o">:</span> g ∘ g' <span class="o">=</span> id c) (t <span class="o">:</span> P ((h ∘ g) ∘ (id b ∘ f))) <span class="o">:</span> P ((h ∘ id c ∘ g) ∘ (g' ∘ g ∘ f))
+  <span class="o">=&gt;</span> rewriteEq p (rewriteEq (idp {<span class="u">_</span>} {(h ∘ g) ∘ (id b ∘ f)}) t)</code></pre></div></div>
 
 <h1 id="extensionality-meta">Extensionality meta</h1>
 

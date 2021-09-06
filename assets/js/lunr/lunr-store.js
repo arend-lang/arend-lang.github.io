@@ -52,4 +52,10 @@ var store = [{
         "tags": [],
         "url": "/2021/02/28/Arend-1.6.0-released.html",
         "teaser": null
+      },{
+        "title": "Arend 1.7.0 released",
+        "excerpt":"Language updates: Type synonyms Arrays Pattern matching in lambdas and \\let expressions Multiple level parameters Ability to change levels in subclasses Improved inference of implicit arguments of function types Plugin updates: New quick-fixes: Hide import (#259) Fix failed class instance inference (#114) New intentions: Replace with short name Generate function...","categories": [],
+        "tags": [],
+        "url": "/2021/09/06/Arend-1.7.0-released.html",
+        "teaser": null
       }]

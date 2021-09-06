@@ -472,6 +472,18 @@ That is, instead of <span class="inl-highlight"><span class="o">|</span> x_i <sp
 where <span class="inl-highlight">p^i_1<span class="o">,</span> … p^i_{n_i}</span> are either variables or named parameters to which <span class="inl-highlight">e_i</span> can refer.
 Such a clause is equivalent to <span class="inl-highlight"><span class="o">|</span> x_i <span class="o">=&gt;</span> <span class="k">\lam</span> p^i_1 … p^i_{n_i} <span class="o">=&gt;</span> e_i</span>.</p>
 
+<h1 id="pattern-matching">Pattern matching</h1>
+
+<p>It is also possible to match constructors of data types as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\let</span> (con x_1 ... x_k) <span class="o">=&gt;</span> e1
+<span class="k">\in</span> e2</code></pre></div></div>
+<p>where <span class="inl-highlight">x_1<span class="o">,</span> … x_k</span> are patterns and <span class="inl-highlight">con</span> is a constructor.</p>
+
+<p>This expression is equivalent to the following one:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> e1 <span class="k">\with</span> {
+  <span class="o">|</span> con x_1 ... x_k <span class="o">=&gt;</span> e2
+}</code></pre></div></div>
+
 <h1 id="strict-let-expressions">Strict let expressions</h1>
 
 <p>Let expressions can be <em>strict</em>.
