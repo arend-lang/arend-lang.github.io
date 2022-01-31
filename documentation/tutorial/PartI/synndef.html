@@ -6,7 +6,14 @@
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 <html lang="en" class="no-js">
-  <head>
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Basics - Arend Theorem Prover</title>
@@ -83,10 +90,14 @@
 
 <!-- end custom head snippets -->
 
-  </head>
+</head>
 
-  <body class="layout--single">
-    <nav class="skip-links">
+<body class="layout--single">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -94,11 +105,11 @@
   </ul>
 </nav>
 
-    <!--[if lt IE 9]>
+<!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
 
-    
+
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -128,8 +139,8 @@
 </div>
 
 
-    <div class="initial-content">
-      
+<div class="initial-content">
+    
 
 
 
@@ -770,7 +781,7 @@ For example, the type <span class="inl-highlight"><span class="k">\Pi</span> (b 
 If we pass <span class="inl-highlight">true</span> to such a function, it returns an element of <span class="inl-highlight">Nat</span>; otherwise, it returns an element of <span class="inl-highlight">Bool</span>.</p>
 
 <p>The type <span class="inl-highlight"><span class="k">\Pi</span> (A <span class="o">:</span> <span class="kt">\Type</span>) (a <span class="o">:</span> A) <span class="o">-&gt;</span> A</span> can be equivalently written as <span class="inl-highlight"><span class="k">\Pi</span> (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A</span> since its codomain does not depend on the second argument.
-This is the type functions which accept a type <span class="inl-highlight">A</span> and return a function of type <span class="inl-highlight">A <span class="o">-&gt;</span> A</span>.</p>
+This is the type of functions which accept a type <span class="inl-highlight">A</span> and return a function of type <span class="inl-highlight">A <span class="o">-&gt;</span> A</span>.</p>
 
 <p>Note that <span class="inl-highlight"><span class="kt">\Type</span></span> is not a type of <em>all</em> types: the famous Girard’s paradox states that intensional Martin-Lof’s
 type theory is inconsistent with the type of all types.
@@ -782,7 +793,7 @@ Levels are inferred automatically and hidden from the user, unless he or she use
 
 <p>It is quite often the case that some arguments in a function application are completely determined by others. In 
 such cases user may ask typechecker to infer these arguments by writing <span class="inl-highlight"><span class="u">_</span></span> in place of them. For 
-example, an application of <span class="inl-highlight">id</span> function defined above may look as follows:</p>
+example, an application of the <span class="inl-highlight">id</span> function defined above may look as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> idTest <span class="o">=&gt;</span> id <span class="u">_</span> <span class="n">0</span></code></pre></div></div>
 
@@ -871,7 +882,7 @@ that are full squares: its elements are pairs <span class="inl-highlight">(n<spa
 <span class="inl-highlight">p <span class="o">:</span> <span class="k">\Sigma</span> (k <span class="o">:</span> Nat) (n <span class="o">=</span> k <span class="o">*</span> k)</span> is a proof that <span class="inl-highlight">n</span> is a square.</li>
 </ul>
 
-<p>If <span class="inl-highlight">x</span> is an element of type <span class="inl-highlight"><span class="k">\Sigma</span> A1 … An</span>, i-th component of <span class="inl-highlight">x</span>, where
+<p>If <span class="inl-highlight">x</span> is an element of type <span class="inl-highlight"><span class="k">\Sigma</span> A1 … An</span>, the i-th component of <span class="inl-highlight">x</span>, where
 i is a numeral, can be accessed by the projection operator <span class="inl-highlight">x.i</span>. Note that eta equivalence holds for 
 Sigma-types: if <span class="inl-highlight">x <span class="o">:</span> <span class="k">\Sigma</span> A1… An</span>, then <span class="inl-highlight">(x.<span class="n">1</span><span class="o">,</span> …<span class="o">,</span> x.n)</span> is computationally equal
 to <span class="inl-highlight">x</span>.</p>
@@ -998,12 +1009,12 @@ everything that <span class="inl-highlight"><span class="k">\open</span></span> 
   
 </div>
 
-    </div>
+</div>
 
-    
 
-    <div id="footer" class="page__footer">
-      <footer>
+
+<div id="footer" class="page__footer">
+    <footer>
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
@@ -1029,12 +1040,12 @@ everything that <span class="inl-highlight"><span class="k">\open</span></span> 
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
-      </footer>
-    </div>
+    </footer>
+</div>
 
-    
+
   <script src="/assets/js/main.min.js"></script>
 
 
@@ -1046,5 +1057,5 @@ everything that <span class="inl-highlight"><span class="k">\open</span></span> 
 
 
 
-  </body>
+</body>
 </html>
