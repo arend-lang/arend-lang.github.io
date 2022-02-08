@@ -58,4 +58,10 @@ var store = [{
         "tags": [],
         "url": "/2021/09/06/Arend-1.7.0-released.html",
         "teaser": null
+      },{
+        "title": "New IntelliJ Arend tutorial",
+        "excerpt":"There is a new tutorial on interactive theorem proving with IntelliJ Arend.  Check it out to learn about the features of IntelliJ Arend that speed-up theorem proving, make it more convenient and truly interactive!  ","categories": [],
+        "tags": [],
+        "url": "/2022/02/08/New-IntelliJ-Arend-tutorial.html",
+        "teaser": null
       }]

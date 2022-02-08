@@ -1,0 +1,639 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Interactive theorem proving with IntelliJ Arend - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Interactive theorem proving with IntelliJ Arend">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/intellij-arend-tutorial.html">
+
+
+  <meta property="og:description" content="The Arend Theorem Prover">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/intellij-arend-tutorial.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    
+    <link rel="stylesheet" href="/assets/css/video.css">
+
+</head>
+
+<body class="layout--single">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+<!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download">Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="initial-content">
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/libraries"><span class="nav__sub-title">Libraries</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/standard-tactics"><span class="nav__sub-title">Standard metas</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/meta" class="">Unclassified metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/function-meta" class="">Functional metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/algebra-meta" class="">Algebraic metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/logic-meta" class="">Logical metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/debug-meta" class="">Debugging metas</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Interactive theorem proving with IntelliJ Arend">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Interactive theorem proving with IntelliJ Arend
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Interactive theorem proving with IntelliJ Arend</h4></header>
+              
+
+            </nav>
+          </aside>
+        
+        <p>This tutorial has two goals:</p>
+
+<ul>
+  <li>Show how to prove a simple theorem in Arend.</li>
+  <li>Demonstrate the features of IntelliJ Arend that speed-up theorem proving, make it more convenient and truly interactive.</li>
+</ul>
+
+<p>Before getting started, make sure you have <a href="getting-started">installed IntelliJ Arend and created a new project</a>. 
+Here we use Arend 1.7 and IntelliJ Arend 2021.3.2.</p>
+
+<p>As a working example, we are going to prove the following property of natural numbers:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\open</span> Nat (<span class="o">+</span>)
+
+<span class="k">\func</span> cancel-right {n m <span class="o">:</span> Nat} (k <span class="o">:</span> Nat) (p <span class="o">:</span> n <span class="o">+</span> k <span class="o">=</span> m <span class="o">+</span> k) <span class="o">:</span> n <span class="o">=</span> m <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+
+<p>We start by pattern matching on <span class="inl-highlight">k</span>:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/elim-k.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>As we type, we notice that the IDE provides completion for keywords like <span class="inl-highlight"><span class="k">\elim</span></span>. 
+The completion is also available for definitions even if they are not imported to the current file. We will see this later.</p>
+
+<p>Another feature of the IDE we see here is background typechecking: as we finish typing, IDE typechecks the definition and shows that it has an error. 
+This process is incremental; only the last modified definition is re-typechecked.</p>
+
+<p>The error tells us that we need to consider <span class="inl-highlight"><span class="n">0</span></span> and <span class="inl-highlight">suc n</span> patterns when matching <span class="inl-highlight">Nat</span>. 
+Instead of typing them manually, we can ask the IDE to generate the code:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/quick-fix.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>This is called a quick-fix. Quick-fixes are available for errors when it is possible to generate some code that fixes the error.</p>
+
+<p>Let’s continue with the proof by examining the first goal:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/arend-errors.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>The <strong>Arend Errors</strong> view shows us all the information about the goal. We can control the presentation using <strong>Goals pretty printer options</strong>.</p>
+
+<p>We need to prove that <span class="inl-highlight">n <span class="o">=</span> m</span>, and when <span class="inl-highlight">k</span> is <span class="inl-highlight"><span class="n">0</span></span> we have exactly that proof in the context, it is <span class="inl-highlight">p</span>. 
+We fill the goal with <span class="inl-highlight">p</span> and move to the second one:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/second-goal.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>This time <span class="inl-highlight">p</span> is different. We notice that if we drop <span class="inl-highlight">suc</span> from both sides of the equation, we will get our induction hypothesis. 
+And having that we can finish the proof by calling <span class="inl-highlight">cancel-right</span> recursively. Let’s do that step by step:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/call-cancel-right.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>To drop <span class="inl-highlight">suc</span> we will use the <span class="inl-highlight">pmap</span> function from the standard library:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/auto-import-pmap.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>There are two things to notice here. Firstly, we <strong>Pin</strong> the goal view before typing <span class="inl-highlight">pmap</span>.
+When we remove a goal from the file, the goal view is cleared. 
+To prevent this, we use <strong>Pin</strong> which will hold the contents of the view until we press it again.</p>
+
+<p>Secondly, in spite of <span class="inl-highlight">pmap</span> being defined in some external module, it is suggested by the completion. 
+And when we select the completion item, IDE inserts a corresponding import in our file. 
+This feature is called “Auto Import”, and thanks to it we do not need to memorize import paths or ever type them manually.</p>
+
+<p>Let’s examine the <span class="inl-highlight">pmap</span> function in a bit more detail:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/examine-pmap.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>The IDE provides a number of tools that help to learn more about declarations like <span class="inl-highlight">pmap</span>:</p>
+
+<ul>
+  <li><strong>Quick Documentation</strong> pop-up shows various information about the function, for example, its signature.</li>
+  <li><strong>Navigate | Declaration or Usage</strong> brings us to the place where the function is declared. 
+Here we can check out how exactly <span class="inl-highlight">pmap</span> is defined.</li>
+  <li><strong>External Libraries</strong> in the <strong>Project View</strong> allows us to browse the standard library. 
+Aside from <span class="inl-highlight">Paths.ard</span> that contains <span class="inl-highlight">pmap</span> we see a lot of modules that could be useful for our proofs.</li>
+  <li><strong>Find usages</strong> shows all the places where the function is used. We see that <span class="inl-highlight">pmap</span> is used quite extensively in the standard library.</li>
+</ul>
+
+<p>The signature of <span class="inl-highlight">pmap</span> tells us that we need to pass 2 explicit arguments: a function that will be applied to both sides of the equation, and the equation itself.</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/pmap-arguments.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>The function we need to provide should basically subtract 1 from a natural number. When the number is 0, the function will have no effect:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/fill-subtract-function.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>As the first step, we create a lambda function. Again, IDE helps us here by providing the <strong>Replace with constructor</strong> context action. 
+This action is suggested because our goal has the type <span class="inl-highlight">Nat <span class="o">-&gt;</span> Nat</span> and the IDE knows the only constructor for such a type is lambda. 
+Then, we use the quick-fix to generate patterns that we have already seen before. And this actually finishes our proof!</p>
+
+<p>Before we finish, let’s do a bit of clean-up. To give auto generated variables better names, we can use the <strong>Rename</strong> feature:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/rename.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>The function that subtracts 1 from a natural number could be useful on its own. 
+We can extract it to a separate declaration using the <strong>Extract expression to function</strong> context action:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/intellij-arend-tutorial/extract-function.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>To learn more about context actions like <strong>Extract expression to function</strong>, check out <strong>Preferences | Editor | Intentions | Arend</strong>:</p>
+
+<p><img src="/assets/intellij-arend-tutorial/intentions.png" alt="" /></p>
+
+<p>This brings us to the end of the tutorial. To learn more, please visit the <a href="/about/intellij-features">IntelliJ Arend Features</a> page.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+</div>
+
+
+
+<div id="footer" class="page__footer">
+    <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+</div>
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
