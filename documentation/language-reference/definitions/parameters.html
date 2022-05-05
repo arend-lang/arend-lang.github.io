@@ -582,6 +582,9 @@ In other words, implicit arguments which are written immediately after an infix 
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\lam</span> a b <span class="o">=&gt;</span> a <span class="o">=</span> {A} b</code></pre></div></div>
 
+<p>An implicit argument can also be inferred if its type has a unique element definitionally.
+That is, if it is a <span class="inl-highlight"><span class="k">\Sigma</span></span>-type with no parameters or a record with no fields.</p>
+
         
       </section>
 

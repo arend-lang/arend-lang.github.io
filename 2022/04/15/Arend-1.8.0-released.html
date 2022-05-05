@@ -1,0 +1,740 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Arend 1.8.0 released - Arend Theorem Prover</title>
+<meta name="description" content="Language updates:">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Arend 1.8.0 released">
+<meta property="og:url" content="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html">
+
+
+  <meta property="og:description" content="Language updates:">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-04-15T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    
+    <link rel="stylesheet" href="/assets/css/video.css">
+
+</head>
+
+<body class="layout--posts">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+<!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download">Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="initial-content">
+    
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Arend 1.8.0 released</h1>
+    
+    <p>Language updates:</p>
+
+<ul>
+  <li>Improved performance</li>
+  <li>Inference of <a href="/documentation/language-reference/definitions/parameters#implicit-arguments">unique implicit arguments</a></li>
+  <li><a href="/documentation/language-reference/prelude#path">Coercion between paths and functions</a></li>
+  <li>A convenient syntax for <a href="/documentation/language-reference/definitions/hits#another-syntax-for-hits">defining</a> HITs and <a href="/documentation/language-reference/definitions/hits#pattern-matching-on-hits">pattern matching</a> on them</li>
+</ul>
+
+<p>Plugin updates:</p>
+
+<ul>
+  <li><a href="#proof-search">Proof Search</a> – find declarations by their type (<a href="https://github.com/JetBrains/intellij-arend/issues/319">#319</a>)</li>
+  <li><a href="#tracer">Tracer</a> – step-by-step typechecking (<a href="https://github.com/JetBrains/intellij-arend/issues/168">#168</a>)</li>
+  <li><a href="#arend-messages-panel">Re-worked “Arend Messages” panel</a> (<a href="https://github.com/JetBrains/intellij-arend/issues/336">#336</a>)
+    <ul>
+      <li><a href="#arend-messages-printing-customization">Printing customization</a> - control over the way of displaying expressions</li>
+    </ul>
+  </li>
+  <li>Editing:
+    <ul>
+      <li><a href="#live-templates">Live templates</a> – advanced completion for keywords (<a href="https://github.com/JetBrains/intellij-arend/issues/252">#252</a>)</li>
+      <li><a href="#optimize-imports">Optimize imports</a> – detecting and removing unused imports (<a href="https://github.com/JetBrains/intellij-arend/issues/11">#11</a>)</li>
+      <li><a href="#extract-let">Extract expression to <code class="language-plaintext highlighter-rouge">\let</code> binding</a></li>
+      <li><a href="#generate-from-goal">Generate function from a goal with arguments</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>arend-lib:</p>
+
+<ul>
+  <li>New and improved metas:
+    <ul>
+      <li>Improved <a href="/documentation/standard-tactics/logic-meta#exists">Exists</a> meta and new metas <a href="/documentation/standard-tactics/logic-meta#given">Given</a> and <a href="/documentation/standard-tactics/logic-meta#forall">Forall</a>.</li>
+      <li>Improved <a href="/documentation/standard-tactics/logic-meta#contradiction">contradiction</a> meta. Now, it can derive contradictions from transitive closure of <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&lt;=</code>, and <code class="language-plaintext highlighter-rouge">=</code>.</li>
+      <li>New <a href="/documentation/standard-tactics/paths-meta#simplify">simplify</a> meta.</li>
+    </ul>
+  </li>
+  <li>Locales:
+    <ul>
+      <li>The definition of <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1116">discrete locales</a> and the <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Real.ard#L288">embedding of rationals into reals</a>.</li>
+      <li>The definition of <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L200">overt locales</a> and <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L325">open maps</a>.</li>
+      <li>The construction of <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1322">dense-closed</a> and <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1348">strongly dense-weakly closed</a> factorization systems on the category of locales.</li>
+      <li>A proof that <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L403">nuclei form a frame</a>.</li>
+      <li><a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1153">Limits</a> and <a href="(https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1154)">colimits</a> of locales.</li>
+      <li>A characterization of embeddings of locales: a map of locales is a regular monomorphism <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1219">if</a> and <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1237">only if</a> the left adjoint is surjective.</li>
+      <li>The definition of (<a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L157">weakly</a>) <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L155">regular</a> locales and a proof that <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Real.ard#L253">the locale of reals is regular</a>.</li>
+      <li>The definition of <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1253">Hausdorff locales</a> and a proof that <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale.ard#L1298">regular locales are Hausdorff</a>.</li>
+      <li>The definition of <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale/Uniform.ard#L64">uniform locales</a> and the construction of their <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Topology/Locale/Uniform.ard#L235">completion</a>.</li>
+    </ul>
+  </li>
+  <li>The definition of <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Logic/Rewriting/ARS/AbstractReductionSystem.ard">abstract reduction systems</a>, <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Logic/Rewriting/TRS/HRS.ard#L173">second-order term rewriting systems</a>, and a proof that <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Logic/Rewriting/TRS/Union/Embedding.ard#L22">the disjoint union of confluent left-linear systems is confluent</a>.</li>
+  <li>The definition of <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Logic/FirstOrder/Algebraic.ard#L27">algebraic theories</a>, <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Logic/FirstOrder/Algebraic/Category.ard#L27">the category of its models</a>, and a proof that it has all small <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Logic/FirstOrder/Algebraic/Category.ard#L34">limits</a> and <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Logic/FirstOrder/Algebraic/Category.ard#L55">colimits</a>.</li>
+  <li>The preorder of <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Category/Subobj.ard#L15">subobjects</a> and <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/Category/Subobj.ard#L37">regular subobjects</a>.</li>
+  <li>The construction of the <a href="https://github.com/JetBrains/arend-lib/blob/4ea97da483c5bb2e6a22c8d09c03becf17756c7e/src/AG/Scheme.ard#L89">structure sheaf</a> on the spectrum of a ring.</li>
+</ul>
+
+<h2 id="plugin-updates">Plugin updates</h2>
+
+<h3 id="proof-search">Proof Search</h3>
+
+<p>Nearly every proof assistant has a problem of the discoverability for proven theorems. For instance, try to recall how a lemma describing the commutativity of addition is called in your favorite proof assistant. Is it <code class="language-plaintext highlighter-rouge">add_comm</code>? Or <code class="language-plaintext highlighter-rouge">+-comm</code>?</p>
+
+<p>The new “Proof Search” action helps in this situation. Invoke it and type in a signature of the declaration you are interested in – the IDE will find the declarations with such a signature:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/Arend-1.8.0-released/proof-search.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>For more information, please see the <a href="/documentation/proof-search">full documentation</a>.</p>
+
+<h3 id="tracer">Tracer</h3>
+
+<p>The tracer is a new feature that allows you typechecking a declaration step-by-step. 
+At each step, the IDE shows you the typechecking context for the current expression.</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/Arend-1.8.0-released/tracer.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>To use the tracer:</p>
+
+<ol>
+  <li>Start it via a pop-up menu on a declaration or expression.</li>
+  <li>Step through the expressions back and forth, jump to a specific expression via “Run to Cursor”, and stop early if needed.</li>
+  <li>Inspect the stack and the context in the editor view at each tracing step.</li>
+</ol>
+
+<p>Compared to the “Show Expression Type” action, the tracer works in more contexts, shows more info, but could be slower.</p>
+
+<h3 id="arend-messages-panel">Re-worked “Arend Messages” panel</h3>
+
+<p>The “Arend Messages” panel shows current goals and errors. We did a number of changes that are aimed to improve the UX around it:</p>
+
+<ul>
+  <li>Goals and errors are shown in separate panels.</li>
+  <li>Goals’ panel is not cleaned up when you remove the goal. It is only removed when a declaration, which contained a goal, has no more errors or other goals.</li>
+  <li>Implicit goals (goals without a corresponding <code class="language-plaintext highlighter-rouge">{?}</code> element in the source code) are not shown by default.</li>
+  <li>The vertical layout is supported.</li>
+</ul>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/Arend-1.8.0-released/arend-messages.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<h4 id="arend-messages-printing-customization">Printing customization</h4>
+
+<p><em>This feature is incubating, it may be completely changed in future releases, even minor ones.</em></p>
+
+<p>The proof terms which appear during the development of some theory may be quite large. It is often hard to read and understand them, so in order to show these terms to the user we sometimes omit certain subterms. A typical example of a kind of these subterms is implicit arguments – they often may be inferred from the context of the term, so displaying them just adds unnecessary noise. However, we also need a way to show these subterms for the purposes of debugging or better understanding the term semantics. Arend allows to configure pretty-printer options by the eye button in Arend Messages toolwindow.</p>
+
+<p><img src="/assets/Arend-1.8.0-released/show-pretty-printer-options.png" alt="" /></p>
+
+<p>This approach has a flaw: it is done in an all-or-nothing way. You are offered to display <em>every</em> omitted subterm of a certain kind, or not display them at all. Therefore, after changing an option of the pretty printer you become lost in the term.</p>
+
+<p>Arend 1.8.0 offers a solution: we introduce <em>printing customization</em> right in the displayed term. You can put a cursor to a source of omittable subterms and then the appeared popup will help you to uncover what was hidden. Currently it works only for implicit arguments and types of parameters in lambda expression.</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/Arend-1.8.0-released/revealing.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<h3 id="live-templates">Live templates</h3>
+
+<p>Live templates are smart code snippets. They speed up editing by providing a completion for common code patterns. 
+This release includes such templates for the majority of Arend keywords:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/Arend-1.8.0-released/live-templates.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>In addition, you can define your own templates in “Preferences | Editor | Live Templates | Arend”:</p>
+
+<p><img src="/assets/Arend-1.8.0-released/live-templates-custom.png" alt="" /></p>
+
+<h3 id="optimize-imports">Optimize imports</h3>
+
+<p>Keeping imports clean is easier with this release. The IDE detects unused imports and highlights them in grey color.
+To remove such imports use the new “Code | Optimize Imports” action:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/Arend-1.8.0-released/optimize-imports.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>Aside from just removing, this action can optimize the imports in various ways, for example, import all declarations from a module explicitly.
+See “Preferences | Editor | Code Style | Arend” for the options.</p>
+
+<h3 id="extract-let">Extract expression to <code class="language-plaintext highlighter-rouge">\let</code> binding</h3>
+
+<p>If you have a complex expression and want to extract some of its parts into <code class="language-plaintext highlighter-rouge">\let</code> bindings, 
+the new “Create \let-binding” intention is there to automate the process:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/Arend-1.8.0-released/let.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<h3 id="generate-from-goal">Generate function from a goal with arguments</h3>
+
+<p>The “Generate function from a goal” intention is smarter now. When you invoke it on a goal with arguments, 
+the resulting function will get parameters corresponding to those arguments:</p>
+
+<div class="wrapper">
+    <video class="video-resizable" controls="" preload="metadata">
+        <source src="/assets/Arend-1.8.0-released/gen-func.mp4" />
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2022">
+        <strong>2022</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2021">
+        <strong>2021</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2020">
+        <strong>2020</strong> <span class="taxonomy__count">5</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">3</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+
+  <section id="2022" class="taxonomy__section">
+    <h2 class="archive__subtitle">2022</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022/04/15/Arend-1.8.0-released.html" rel="permalink">Arend 1.8.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022/02/08/New-IntelliJ-Arend-tutorial.html" rel="permalink">New IntelliJ Arend tutorial
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">There is a new tutorial on interactive theorem proving with IntelliJ Arend. 
+Check it out to learn about the features of IntelliJ Arend that speed-up theorem...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2021" class="taxonomy__section">
+    <h2 class="archive__subtitle">2021</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/09/06/Arend-1.7.0-released.html" rel="permalink">Arend 1.7.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/02/28/Arend-1.6.0-released.html" rel="permalink">Arend 1.6.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  Built-in finite types
+  \default implementations
+  \coerce to function types
+  \coerce for fields and constructors
+  \have declaration
+ ...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2020" class="taxonomy__section">
+    <h2 class="archive__subtitle">2020</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/10/10/Arend-1.5.0-released.html" rel="permalink">Arend 1.5.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  String literals, which can be used in meta code
+  Meta resolvers, which can be used to modify the scoping rules for meta definitions
+  \...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/06/29/Arend-1.4.0-released.html" rel="permalink">Arend 1.4.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  Implicit lambdas.
+  Tests directory can be used to store files with tests, examples, and other code which is not a part of the library.
+...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/06/14/tutorial-part-II.html" rel="permalink">Tutorial Part II
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The second part of our tutorial is ready.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/04/13/Arend-1.3.0-released.html" rel="permalink">Arend 1.3.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We implemented language extensions.
+This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.
+They...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/01/17/tutorial-part-I.html" rel="permalink">The first part of our tutorial is ready
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We finished the first part of our new tutorial.
+It covers all the basic constructions of Arend.
+It does not mention anything related to homotopy theory.
+This...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/12/16/Arend-1.2.0-released.html" rel="permalink">Arend 1.2.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We implemented a few features related to classes and pattern matching.
+One of these features is pattern matching on idp : a = a, which can be used instead of...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/10/01/Arend-1.1.0-released.html" rel="permalink">Arend 1.1.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/07/17/Arend-1.0.0-released.html" rel="permalink">Arend 1.0.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The first version of Arend is released!
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+</div>
+
+
+
+<div id="footer" class="page__footer">
+    <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+</div>
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

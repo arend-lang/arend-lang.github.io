@@ -401,7 +401,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Logic.Meta</h4></header>
-              <ul class="toc__menu"><li><a href="#contradiction">contradiction</a></li><li><a href="#exists">Exists</a></li><li><a href="#constructor">constructor</a></li></ul>
+              <ul class="toc__menu"><li><a href="#contradiction">contradiction</a></li><li><a href="#exists">Exists</a></li><li><a href="#given">Given</a></li><li><a href="#forall">Forall</a></li><li><a href="#constructor">constructor</a></li></ul>
 
             </nav>
           </aside>
@@ -431,7 +431,12 @@ Examples (requires arend-lib):</p>
   <span class="o">=&gt;</span> contradiction
 
 <span class="k">\lemma</span> usingTest (P Q <span class="o">:</span> <span class="kt">\Prop</span>) (q <span class="o">:</span> Q) (e <span class="o">:</span> P <span class="o">-&gt;</span> Empty) (p <span class="o">:</span> P) <span class="o">:</span> Empty
-  <span class="o">=&gt;</span> contradiction {usingOnly (e<span class="o">,</span>p)}</code></pre></div></div>
+  <span class="o">=&gt;</span> contradiction {usingOnly (e<span class="o">,</span>p)}
+
+<span class="k">\lemma</span> transTest {A <span class="o">:</span> LinearOrder} {x y z u v w <span class="o">:</span> A}
+  (p <span class="o">:</span> x &lt; y) (q <span class="o">:</span> y <span class="o">=</span> z) (a <span class="o">:</span> z &lt;= u) (b <span class="o">:</span> u <span class="o">=</span> v) (c <span class="o">:</span> v &lt; w) (d <span class="o">:</span> w &lt;= x)
+  <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> contradiction</code></pre></div></div>
 
 <p>It can also be specified with an implicit argument which itself is a contradiction.
 Examples:</p>
@@ -453,19 +458,108 @@ Examples:</p>
 
 <p>Examples:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 <span class="o">:</span> ∃ <span class="o">=</span> (<span class="k">\Sigma)</span> <span class="o">=&gt;</span> idp
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> test1 <span class="o">:</span> ∃ <span class="o">=</span> (<span class="k">\Sigma)</span> <span class="o">=&gt;</span> idp
 
-<span class="k">\func</span> test2 <span class="o">:</span> ∃ Nat <span class="o">=</span> TruncP Nat <span class="o">=&gt;</span> idp
+<span class="k">\lemma</span> test2 <span class="o">:</span> ∃ Nat <span class="o">=</span> TruncP Nat <span class="o">=&gt;</span> idp
 
-<span class="k">\func</span> test3 <span class="o">:</span> ∃ (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp
+<span class="k">\lemma</span> test3 <span class="o">:</span> ∃ (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp
 
-<span class="k">\func</span> test4 <span class="o">:</span> ∃ {x} (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp
+<span class="k">\lemma</span> test4 <span class="o">:</span> ∃ {x} (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp
 
-<span class="k">\func</span> test5 <span class="o">:</span> ∃ {x y} (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x y <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp</code></pre></div></div>
+<span class="k">\lemma</span> test5 <span class="o">:</span> ∃ {x y} (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x y <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>If the argument of <code class="language-plaintext highlighter-rouge">∃</code> is a predicate, it will be treated as a subset:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> test7 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">:</span> ∃ P
+  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (P x))
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> test8 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">:</span> ∃ P
+  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x y <span class="o">:</span> Nat) (P x y))
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> test9 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">:</span> ∃ (x <span class="o">:</span> P) (x <span class="o">=</span> x)
+  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (P x) (x <span class="o">=</span> x))
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> test10 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">:</span> ∃ (x y <span class="o">:</span> P) (x <span class="o">=</span> y) (y <span class="o">=</span> x)
+  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x y <span class="o">:</span> Nat) (P x) (P y) (x <span class="o">=</span> y) (y <span class="o">=</span> x))
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> test11 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> Bool <span class="o">-&gt;</span> Array Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">:</span> ∃ ((x<span class="o">,</span>y<span class="o">,</span>z) (a<span class="o">,</span>b<span class="o">,</span>c) <span class="o">:</span> P) (x <span class="o">=</span> a) (y <span class="o">=</span> b) (z <span class="o">=</span> c)
+  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (x a <span class="o">:</span> Nat) (y b <span class="o">:</span> Bool) (z c <span class="o">:</span> Array Nat) (P x y z) (P a b c) (x <span class="o">=</span> a) (y <span class="o">=</span> b) (z <span class="o">=</span> c))
+  <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<p>If the argument of <code class="language-plaintext highlighter-rouge">∃</code> is an array, it will be treated as a set of its elements:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> test12 (l <span class="o">:</span> Array Nat)
+  <span class="o">:</span> ∃ l
+  <span class="o">=</span> TruncP (Fin l.len)
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> test13 {A <span class="o">:</span> <span class="kt">\Type</span>} (y <span class="o">:</span> A) (l <span class="o">:</span> Array A)
+  <span class="o">:</span> ∃ (x <span class="o">:</span> l) (x <span class="o">=</span> y)
+  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (j <span class="o">:</span> Fin l.len) (l j <span class="o">=</span> y))
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> test14 {A <span class="o">:</span> <span class="kt">\Type</span>} (l <span class="o">:</span> Array A)
+  <span class="o">:</span> ∃ (x y <span class="o">:</span> l) (x <span class="o">=</span> y)
+  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (j j' <span class="o">:</span> Fin l.len) (l j <span class="o">=</span> l j'))
+  <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<h1 id="given"><code class="language-plaintext highlighter-rouge">Given</code></h1>
+
+<p>This meta has the same syntax as <code class="language-plaintext highlighter-rouge">Exists</code>, but returns an untruncated <span class="inl-highlight"><span class="k">\Sigma</span></span>-expression.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sigmaTest <span class="o">:</span> Given (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>) <span class="o">=</span> (<span class="k">\Sigma</span> (x <span class="o">:</span> Nat) (x <span class="o">=</span> <span class="n">0</span>)) <span class="o">=&gt;</span> idp</code></pre></div></div>
+
+<h1 id="forall"><code class="language-plaintext highlighter-rouge">Forall</code></h1>
+
+<p>The alias of this meta is <code class="language-plaintext highlighter-rouge">∀</code>.
+This meta has a similar syntax to <code class="language-plaintext highlighter-rouge">Exists</code>, but returns a <span class="inl-highlight"><span class="k">\Pi</span></span>-expression.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> piTest1 <span class="o">:</span> ∀ (x y <span class="o">:</span> Nat) (x <span class="o">=</span> y) <span class="o">=</span> (<span class="k">\Pi</span> (x y <span class="o">:</span> Nat) <span class="o">-&gt;</span> x <span class="o">=</span> y) <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> piTest2 <span class="o">:</span> ∀ {x y <span class="o">:</span> Nat} (x <span class="o">=</span> y) <span class="o">=</span> (<span class="k">\Pi</span> {x y <span class="o">:</span> Nat} <span class="o">-&gt;</span> x <span class="o">=</span> y) <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> piTest3
+  <span class="o">:</span> ∀ x y (pos x <span class="o">=</span> y)
+  <span class="o">=</span> (<span class="k">\Pi</span> (x <span class="o">:</span> Nat) (y <span class="o">:</span> Int) <span class="o">-&gt;</span> pos x <span class="o">=</span> y)
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> piTest4
+  <span class="o">:</span> ∀ {x y} {z} (pos x <span class="o">=</span> z)
+  <span class="o">=</span> (<span class="k">\Pi</span> {x y <span class="o">:</span> Nat} {z <span class="o">:</span> Int} <span class="o">-&gt;</span> pos x <span class="o">=</span> z)
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> piTest5 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">:</span> ∀ (x y <span class="o">:</span> P) (x <span class="o">=</span> y) (y <span class="o">=</span> x)
+  <span class="o">=</span> (<span class="k">\Pi</span> (x y <span class="o">:</span> Nat) (P x) (P y) <span class="o">-&gt;</span> x <span class="o">=</span> y <span class="o">-&gt;</span> y <span class="o">=</span> x)
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> piTest6 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">:</span> ∀ {x y <span class="o">:</span> P} (x <span class="o">=</span> y) (y <span class="o">=</span> x)
+  <span class="o">=</span> (<span class="k">\Pi</span> {x y <span class="o">:</span> Nat} (P x) (P y) <span class="o">-&gt;</span> x <span class="o">=</span> y <span class="o">-&gt;</span> y <span class="o">=</span> x)
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> piTest7 {A <span class="o">:</span> <span class="kt">\Set</span>} (l <span class="o">:</span> Array A)
+  <span class="o">:</span> ∀ (x y <span class="o">:</span> l) (x <span class="o">=</span> y) (y <span class="o">=</span> x)
+  <span class="o">=</span> (<span class="k">\Pi</span> (j j' <span class="o">:</span> Fin l.len) <span class="o">-&gt;</span> l j <span class="o">=</span> l j' <span class="o">-&gt;</span> l j' <span class="o">=</span> l j)
+  <span class="o">=&gt;</span> idp
+
+<span class="k">\lemma</span> piTest8 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> Bool <span class="o">-&gt;</span> Array Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">:</span> ∀ ((x<span class="o">,</span>y<span class="o">,</span>z) (a<span class="o">,</span>b<span class="o">,</span>c) <span class="o">:</span> P) (x <span class="o">=</span> a) (y <span class="o">=</span> b) (z <span class="o">=</span> c)
+  <span class="o">=</span> (<span class="k">\Pi</span> (x a <span class="o">:</span> Nat) (y b <span class="o">:</span> Bool) (z c <span class="o">:</span> Array Nat) <span class="o">-&gt;</span> P x y z <span class="o">-&gt;</span> P a b c <span class="o">-&gt;</span> x <span class="o">=</span> a <span class="o">-&gt;</span> y <span class="o">=</span> b <span class="o">-&gt;</span> z <span class="o">=</span> c)
+  <span class="o">=&gt;</span> idp</code></pre></div></div>
 
 <h1 id="constructor"><code class="language-plaintext highlighter-rouge">constructor</code></h1>
 
-<p>Returns either a tuple, a <code class="language-plaintext highlighter-rouge">\new</code> expression, or a single constructor of a data type depending on the expected type.</p>
+<p>Returns either a tuple, a <span class="inl-highlight"><span class="k">\new</span></span> expression, or a single constructor of a data type depending on the expected type.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> tuple0 <span class="o">:</span> <span class="k">\Sigma</span> (<span class="k">\Sigma)</span> (<span class="k">\Sigma)</span> <span class="o">=&gt;</span> constructor constructor constructor
 

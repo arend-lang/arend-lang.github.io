@@ -401,7 +401,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Paths.Meta</h4></header>
-              <ul class="toc__menu"><li><a href="#rewriting-metas">Rewriting metas</a></li><li><a href="#algebraic-rewrite">Algebraic rewrite</a></li><li><a href="#extensionality-meta">Extensionality meta</a></li><li><a href="#simp_coe">simp_coe</a></li></ul>
+              <ul class="toc__menu"><li><a href="#rewriting-metas">Rewriting metas</a></li><li><a href="#algebraic-rewrite">Algebraic rewrite</a></li><li><a href="#extensionality-meta">Extensionality meta</a></li><li><a href="#simp_coe">simp_coe</a></li><li><a href="#simplify">simplify</a></li></ul>
 
             </nav>
           </aside>
@@ -514,6 +514,40 @@ It is also possible to use the following syntax in this case: <span class="inl-h
   <li>All of the above cases also work for goals with {transport} instead of {coe} since the former evaluates to the latter.</li>
   <li>If the goal is <span class="inl-highlight">transport (<span class="k">\lam</span> x <span class="o">=&gt;</span> f x <span class="o">=</span> g x) p q <span class="o">=</span> s</span>, then the subgoal is <span class="inl-highlight">q <span class="o">*</span>&gt; pmap g p <span class="o">=</span> pmap f p <span class="o">*</span>&gt; s</span>. If <span class="inl-highlight">f</span> does not depend on <span class="inl-highlight">x</span>, then the right hand side of the subgoal is simply <span class="inl-highlight">s</span>.</li>
 </ul>
+
+<h1 id="simplify">simplify</h1>
+
+<p>Simplifies the expected type.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 {M <span class="o">:</span> Monoid} (x <span class="o">:</span> M) <span class="o">:</span> x <span class="o">=</span> x <span class="o">*</span> ide
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test2 {M <span class="o">:</span> Monoid} (x <span class="o">:</span> M) <span class="o">:</span> x <span class="o">*</span> x <span class="o">=</span> (x <span class="o">*</span> (ide <span class="o">*</span> x)) <span class="o">*</span> ide
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test3 {M <span class="o">:</span> Monoid} (x <span class="o">:</span> M) <span class="o">:</span> ide <span class="o">*</span> x <span class="o">*</span> x <span class="o">*</span> ide <span class="o">=</span> x <span class="o">*</span> ide <span class="o">*</span> x <span class="o">*</span> ide <span class="o">*</span> ide
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test4 {M <span class="o">:</span> AddMonoid} (x <span class="o">:</span> M) <span class="o">:</span> x <span class="o">+</span> x <span class="o">=</span> x <span class="o">+</span> x <span class="o">+</span> zro
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test5 {R <span class="o">:</span> Semiring} (x <span class="o">:</span> R) <span class="o">:</span> zro <span class="o">=</span> x <span class="o">*</span> zro
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test6 {R <span class="o">:</span> Ring} (x <span class="o">:</span> R) <span class="o">:</span> negative (x <span class="o">*</span> x) <span class="o">=</span> x <span class="o">*</span> negative x
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test6' {R <span class="o">:</span> Ring} (x y <span class="o">:</span> R) <span class="o">:</span> x <span class="o">*</span> negative y <span class="o">=</span> negative (x <span class="o">*</span> y)
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test7 {R <span class="o">:</span> AddGroup} (x <span class="o">:</span> R) <span class="o">:</span> negative (negative x) <span class="o">=</span> x
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test8 {R <span class="o">:</span> Ring} (x <span class="o">:</span> R) <span class="o">:</span> x <span class="o">*</span> negative ide <span class="o">=</span> negative x
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\func</span> test9 {M <span class="o">:</span> Monoid} (x y <span class="o">:</span> M) (p <span class="o">:</span> x <span class="o">*</span> x <span class="o">=</span> y) <span class="o">:</span> x <span class="o">*</span> (<span class="n">1</span> <span class="o">*</span> x) <span class="o">=</span> y <span class="o">*</span> <span class="n">1</span>
+  <span class="o">=&gt;</span> simplify p</code></pre></div></div>
 
         
       </section>

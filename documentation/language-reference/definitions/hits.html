@@ -478,7 +478,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Higher Inductive Types</h4></header>
-              <ul class="toc__menu"><li><a href="#conditions">Conditions</a></li><li><a href="#higher-inductive-types">Higher inductive types</a></li></ul>
+              <ul class="toc__menu"><li><a href="#conditions">Conditions</a></li><li><a href="#higher-inductive-types">Higher inductive types</a></li><li><a href="#another-syntax-for-hits">Another syntax for HITs</a></li><li><a href="#pattern-matching-on-hits">Pattern matching on HITs</a></li></ul>
 
             </nav>
           </aside>
@@ -520,7 +520,7 @@ Thus, one cannot define the following function:</p>
 
 <h2 id="higher-inductive-types">Higher inductive types</h2>
 
-<p>A higher inductive type is a data type with a constructor that has conditions of the form <span class="inl-highlight"><span class="o">|</span> left <span class="o">=&gt;</span> e</span> and <span class="inl-highlight"><span class="o">|</span> right <span class="o">=&gt;</span> e’</span>.
+<p>A higher inductive type (HIT) is a data type with a constructor that has conditions of the form <span class="inl-highlight"><span class="o">|</span> left <span class="o">=&gt;</span> e</span> and <span class="inl-highlight"><span class="o">|</span> right <span class="o">=&gt;</span> e’</span>.
 Let us give a few examples:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle</span>
@@ -569,6 +569,54 @@ if <span class="inl-highlight">X</span> is a set and only for <span class="inl-h
 This also works for several arguments.
 For example, if <span class="inl-highlight">X</span> is a set, then, to define a function <span class="inl-highlight">Quotient A R <span class="o">-&gt;</span> Quotient A R <span class="o">-&gt;</span> X</span>,
 it is enough to specify its value for <span class="inl-highlight">inQ a<span class="o">,</span> inQ a’</span>, <span class="inl-highlight">inQ a<span class="o">,</span> equivQ x y r i</span>, and <span class="inl-highlight">equivQ x y r i<span class="o">,</span> inQ a</span>.</p>
+
+<h2 id="another-syntax-for-hits">Another syntax for HITs</h2>
+
+<p>There is a special syntax for defining higher inductive types.
+Instead of writing down conditions explicitly, they can be specified by giving the type of the constructor.
+The type of each constructor must be an iterated path type in the data itself.
+The endpoints of these path types specify the conditions.
+The examples above can be rewritten in this syntax as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle</span>
+<span class="k">\data</span> S1
+  <span class="o">|</span> base
+  <span class="o">|</span> loop <span class="o">:</span> base <span class="o">=</span> base
+
+<span class="c">-- Suspension</span>
+<span class="k">\data</span> Susp (A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> north
+  <span class="o">|</span> south
+  <span class="o">|</span> merid A <span class="o">:</span> north <span class="o">=</span> south
+
+<span class="c">-- Propositional truncation</span>
+<span class="k">\data</span> Trunc (A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> inT A
+  <span class="o">|</span> truncT (x y <span class="o">:</span> Trunc A) <span class="o">:</span> x <span class="o">=</span> y
+
+<span class="c">-- Set quotient</span>
+<span class="k">\data</span> Quotient (A <span class="o">:</span> <span class="kt">\Type</span>) (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> inQ A
+  <span class="o">|</span> equivQ (x y <span class="o">:</span> A) (R x y) <span class="o">:</span> inQ x <span class="o">=</span> inQ y
+  <span class="o">|</span> truncQ (a a' <span class="o">:</span> Quotient A R) (p p' <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> Path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p i <span class="o">=</span> p' i) idp idp</code></pre></div></div>
+
+<h2 id="pattern-matching-on-hits">Pattern matching on HITs</h2>
+
+<p>There is also a special syntax for pattern matching on HITs.
+In this syntax, the interval variables can be omitted and the right hand side should be a path.
+Then the typechecker will insert missing variables and apply the right hand side to them.</p>
+
+<p>For example, function <span class="inl-highlight">double</span> below is equivalent to <span class="inl-highlight">double’</span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> double (x <span class="o">:</span> S1) <span class="o">:</span> S1
+  <span class="o">|</span> base <span class="o">=&gt;</span> base
+  <span class="o">|</span> loop <span class="o">=&gt;</span> loop <span class="o">*</span>&gt; loop
+
+<span class="k">\func</span> double' (x <span class="o">:</span> S1) <span class="o">:</span> S1
+  <span class="o">|</span> base <span class="o">=&gt;</span> base
+  <span class="o">|</span> loop i <span class="o">=&gt;</span> (loop <span class="o">*</span>&gt; loop) i</code></pre></div></div>
+
+<p>Here, <span class="inl-highlight"><span class="o">*</span>&gt;</span> is the path concatenation function.</p>
 
         
       </section>

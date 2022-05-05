@@ -64,4 +64,10 @@ var store = [{
         "tags": [],
         "url": "/2022/02/08/New-IntelliJ-Arend-tutorial.html",
         "teaser": null
+      },{
+        "title": "Arend 1.8.0 released",
+        "excerpt":"Language updates: Improved performance Inference of unique implicit arguments Coercion between paths and functions A convenient syntax for defining HITs and pattern matching on them Plugin updates: Proof Search – find declarations by their type (#319) Tracer – step-by-step typechecking (#168) Re-worked “Arend Messages” panel (#336) Printing customization - control...","categories": [],
+        "tags": [],
+        "url": "/2022/04/15/Arend-1.8.0-released.html",
+        "teaser": null
       }]

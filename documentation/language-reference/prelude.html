@@ -401,7 +401,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Prelude</h4></header>
-              <ul class="toc__menu"><li><a href="#nat-and-int">Nat and Int</a></li><li><a href="#fin">Fin</a></li><li><a href="#array">Array</a></li><li><a href="#interval-and-squeeze-functions">Interval and squeeze functions</a></li><li><a href="#path">Path</a></li><li><a href="#idp">idp</a></li><li><a href="#coe-and-coe2">coe and coe2</a></li><li><a href="#iso">iso</a></li></ul>
+              <ul class="toc__menu"><li><a href="#nat-and-int">Nat and Int</a></li><li><a href="#fin">Fin</a></li><li><a href="#array">Array</a></li><li><a href="#interval-and-squeeze-functions">Interval and squeeze functions</a></li><li><a href="#path">Path</a></li><li><a href="#pathinprop">Path.inProp</a></li><li><a href="#idp">idp</a></li><li><a href="#coe-and-coe2">coe and coe2</a></li><li><a href="#iso">iso</a></li></ul>
 
             </nav>
           </aside>
@@ -495,7 +495,13 @@ The definition of <span class="inl-highlight"><span class="o">@</span></span> is
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p <span class="o">@</span> i) <span class="o">==</span> p</code></pre></div></div>
 <p>This rule does not apply to functions <span class="inl-highlight"><span class="o">@</span></span> defined in other files.</p>
 
-<p>Finally, function <span class="inl-highlight">Path.inProp</span> is not correct since it does not have a body.
+<p>There is also an implicit coercion between paths and functions of type <span class="inl-highlight"><span class="k">\Pi</span> (i <span class="o">:</span> I) <span class="o">-&gt;</span> A i</span>.
+That is, when such a function occurs in a place where a path is expected, <span class="inl-highlight">path</span> is automatically inserted.
+The converse is also true: paths are automatically converted to such functions with <span class="inl-highlight"><span class="o">@</span></span>.</p>
+
+<h1 id="pathinprop">Path.inProp</h1>
+
+<p>The function <span class="inl-highlight">Path.inProp</span> is not correct since it does not have a body.
 It postulates the proof irrelevance for types in <span class="inl-highlight"><span class="kt">\Prop</span></span>, namely that any two elements of a type in <span class="inl-highlight"><span class="kt">\Prop</span></span> are equal.</p>
 
 <h1 id="idp">idp</h1>
