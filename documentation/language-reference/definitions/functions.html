@@ -643,6 +643,19 @@ For example, you can define function <span class="inl-highlight">absurd</span> a
 
 <p>Finally, the type <span class="inl-highlight">con1 <span class="o">=</span> con2</span> is considered empty if <span class="inl-highlight">con1</span> and <span class="inl-highlight">con2</span> are disjoint constructors of some data type.</p>
 
+<p>If the constructor is infix, then it can be used in the infix form in a pattern.
+For example, functions <span class="inl-highlight">tail</span> and <span class="inl-highlight">tail’</span> below are equivalent:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> List (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">|</span> nil <span class="o">|</span> <span class="k">\infixr</span> <span class="n">5</span> <span class="o">:</span><span class="o">:</span> A (List A)
+
+<span class="k">\func</span> tail {A <span class="o">:</span> <span class="kt">\Type</span>} (l <span class="o">:</span> List A) <span class="o">:</span> List A
+  <span class="o">|</span> nil <span class="o">=&gt;</span> nil
+  <span class="o">|</span> <span class="o">:</span><span class="o">:</span> <span class="u">_</span> l <span class="o">=&gt;</span> l
+
+<span class="k">\func</span> tail' {A <span class="o">:</span> <span class="kt">\Type</span>} (l <span class="o">:</span> List A) <span class="o">:</span> List A
+  <span class="o">|</span> nil <span class="o">=&gt;</span> nil
+  <span class="o">|</span> <span class="u">_</span> <span class="o">:</span><span class="o">:</span> l <span class="o">=&gt;</span> l</code></pre></div></div>
+
 <h2 id="elim">Elim</h2>
 
 <p>It is often true that one only needs to pattern match on a single parameter of a function (or a few parameters), but the function has much more parameters.
@@ -724,6 +737,9 @@ without computational content, and, thus, it does not evaluate.
 To define a lemma use the keyword <span class="inl-highlight"><span class="k">\lemma</span></span> instead of <span class="inl-highlight"><span class="k">\func</span></span>.
 If the result type of a lemma does not belong to <span class="inl-highlight"><span class="kt">\Prop</span></span>, but is provably a proposition, you can use the keywords <a href="level#level-of-a-type">\level</a> to define a lemma with this result type.
 The fact that lemmas do not evaluate may greatly improve performance of typechecking if their proofs are too lengthy.</p>
+
+<p>An <em>axiom</em> is a lemma without a body.
+Axioms are defined with the keyword <span class="inl-highlight"><span class="k">\axiom</span></span>.</p>
 
 <h2 id="sfunc">\sfunc</h2>
 

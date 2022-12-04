@@ -478,7 +478,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Parameters</h4></header>
-              <ul class="toc__menu"><li><a href="#syntax">Syntax</a></li><li><a href="#strict-parameters">Strict parameters</a></li><li><a href="#implicit-arguments">Implicit arguments</a></li></ul>
+              <ul class="toc__menu"><li><a href="#syntax">Syntax</a></li><li><a href="#strict-parameters">Strict parameters</a></li><li><a href="#implicit-arguments">Implicit arguments</a></li><li><a href="#where-block">Where block</a></li></ul>
 
             </nav>
           </aside>
@@ -584,6 +584,22 @@ In other words, implicit arguments which are written immediately after an infix 
 
 <p>An implicit argument can also be inferred if its type has a unique element definitionally.
 That is, if it is a <span class="inl-highlight"><span class="k">\Sigma</span></span>-type with no parameters or a record with no fields.</p>
+
+<h2 id="where-block">Where block</h2>
+
+<p>Parameters of a definition are visible in its <span class="inl-highlight"><span class="k">\where</span></span> block.
+If some parameter is used in some definition in this block, then this parameter and all parameters on which it depends are added to the definition.
+When this definition is invoked within the <span class="inl-highlight"><span class="k">\where</span></span> block, these additional parameters are added to the invocation automatically.
+If the definition is invoked from somewhere else, they must be specified as ordinary parameters.
+For example, the following code is valid:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> <span class="n">0</span>) <span class="o">=&gt;</span> p
+  <span class="k">\where</span> {
+    <span class="k">\func</span> g <span class="o">=&gt;</span> p
+    <span class="k">\func</span> h <span class="o">:</span> x <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> g
+  }
+<span class="k">\func</span> g <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> f.g <span class="n">0</span> idp
+<span class="k">\func</span> h <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> f.h <span class="n">0</span> idp</code></pre></div></div>
 
         
       </section>

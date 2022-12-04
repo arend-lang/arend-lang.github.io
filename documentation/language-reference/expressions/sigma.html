@@ -275,6 +275,13 @@
 
                 <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
               
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/expressions/box" class="">&nbsp;&nbsp;&nbsp;&nbsp;Box</a></li>
+              
             
           
             
@@ -470,6 +477,10 @@ type <span class="inl-highlight">A_i[p.<span class="n">1</span>/x_1<span class="
 <p>An expression of the form <span class="inl-highlight">(a_1<span class="o">,</span> … a_n).i</span> reduces to <span class="inl-highlight">a_i</span>.</p>
 
 <p>An expression of the form <span class="inl-highlight">(p.<span class="n">1</span><span class="o">,</span> … p.n)</span> is equivalent to <span class="inl-highlight">p</span> (eta equivalence for Sigma types).</p>
+
+<p>A field can be marked as a property with the following syntax: <span class="inl-highlight"><span class="k">\Sigma</span> p_1 … (<span class="k">\property</span> p_i) … p_n</span>.
+Properties work just like <a href="../definitions/records#properties">record properties</a>.
+That is, the type of a property must live in <span class="inl-highlight"><span class="kt">\Prop</span></span> and <span class="inl-highlight">(a_1<span class="o">,</span> … a_n).i</span> does not evaluate if the i-th field is a property.</p>
 
         
       </section>

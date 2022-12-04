@@ -16,34 +16,34 @@
 <!-- End Google Tag Manager -->
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Arend 1.0.0 released - Arend Theorem Prover</title>
-<meta name="description" content="The first version of Arend is released!">
+<!-- begin _includes/seo.html --><title>Arend 1.9.0 released - Arend Theorem Prover</title>
+<meta name="description" content="Language updates:">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
-<meta property="og:title" content="Arend 1.0.0 released">
-<meta property="og:url" content="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html">
+<meta property="og:title" content="Arend 1.9.0 released">
+<meta property="og:url" content="https://arend-lang.github.io/2022/12/04/Arend-1.9.0-released.html">
 
 
-  <meta property="og:description" content="The first version of Arend is released!">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-07-17T00:00:00+02:00">
+  <meta property="og:description" content="Language updates:">
 
 
 
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/2019/07/17/Arend-1.0.0-released.html">
+
+  <meta property="article:published_time" content="2022-12-04T00:00:00+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2022/12/04/Arend-1.9.0-released.html">
 
 
 
@@ -147,31 +147,41 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">Arend 1.0.0 released</h1>
+      <h1 id="page-title" class="page__title">Arend 1.9.0 released</h1>
     
-    <p>The first version of Arend is released!</p>
+    <p>Language updates:</p>
 
-<p>It implements the following features:</p>
 <ul>
-  <li><a href="/about/arend-features#path-types">Path types</a> based on the interval type.</li>
-  <li><a href="/about/arend-features#higher-inductive-types">Higher inductive types</a>, including higher inductive-inductive types.</li>
-  <li><a href="/about/arend-features#class-system">Class system</a>.</li>
-  <li><a href="/about/arend-features#universe-polymorphism">Universe polymorphism</a>.</li>
+  <li><a href="/documentation/language-reference/expressions/sigma">Properties</a> in <span class="inl-highlight"><span class="k">\Sigma</span></span>-types</li>
+  <li>Definition parameters are <a href="/documentation/language-reference/definitions/parameters#where-block">visible</a> in the <span class="inl-highlight"><span class="k">\where</span></span> block</li>
+  <li><a href="/documentation/language-reference/expressions/universes#global-level-declarations">Global level declarations</a></li>
+  <li><a href="/documentation/language-reference/definitions/functions#pattern-matching">Infix patterns</a></li>
+  <li><a href="/documentation/language-reference/definitions/functions#lemmas">Axioms</a></li>
+  <li><a href="/documentation/language-reference/expressions/box">Box expressions</a></li>
+  <li><a href="/documentation/language-reference/expressions/box">Property parameters</a></li>
 </ul>
 
-<p>The IntelliJ Arend plugin implements the following features:</p>
+<p>Plugin updates:</p>
+
 <ul>
-  <li>Syntax highlighting</li>
-  <li><a href="/about/intellij-features#code-completion">Code completion</a></li>
-  <li><a href="/about/intellij-features#find-usages">Find usages</a></li>
-  <li><a href="/about/intellij-features#quick-documentation">Quick documentation</a></li>
-  <li><a href="/about/intellij-features#parameter-hints">Parameter hints</a></li>
-  <li><a href="/about/intellij-features#class-hierarchy">Class hierarchy</a></li>
-  <li><a href="/about/intellij-features#code-formatter">Code formatter</a></li>
-  <li><a href="/about/intellij-features#auto-import">Auto import</a></li>
-  <li>“<a href="/about/intellij-features#implement-missing-fields">Implement missing fields</a>” quick fix</li>
-  <li><a href="/about/intellij-features#move-refactoring">Move Refactoring</a></li>
-  <li><a href="/about/intellij-features#typechecking">Incremental typechecking</a></li>
+  <li>Inlays for levels, added parameters, and used axioms</li>
+  <li>“Change arguments explicitness” refactoring</li>
+  <li>“Change signature” refactoring</li>
+  <li>Revealing information in error messages</li>
+</ul>
+
+<p>arend-lib:</p>
+
+<ul>
+  <li>The definion of <a href="https://github.com/JetBrains/arend-lib/blob/89dcfface988607c266f76ee9fb1609111fd6e0a/src/Algebra/Module.ard">modules</a>,
+<a href="https://github.com/JetBrains/arend-lib/blob/89dcfface988607c266f76ee9fb1609111fd6e0a/src/Algebra/Algebra.ard">algebras</a>,
+<a href="https://github.com/JetBrains/arend-lib/blob/89dcfface988607c266f76ee9fb1609111fd6e0a/src/Algebra/Domain.ard#L96">strict domains</a>,
+<a href="https://github.com/JetBrains/arend-lib/blob/89dcfface988607c266f76ee9fb1609111fd6e0a/src/Algebra/Ring/Poly.ard">polynomials, and various structures on them</a></li>
+  <li>A synthetic definition of a <a href="https://github.com/JetBrains/arend-lib/blob/89dcfface988607c266f76ee9fb1609111fd6e0a/src/Analysis/Calculus/Derivative.ard">derivative</a> and its basic properties</li>
+  <li>The definition of <a href="https://github.com/JetBrains/arend-lib/blob/89dcfface988607c266f76ee9fb1609111fd6e0a/src/Arith/Real.ard">real numbers</a> and the construction of the structure of an ordered field on them (except for multiplication).</li>
+  <li>A <a href="/documentation/standard-tactics/algebra-meta#linarith">tactic</a> for solving systems of linear equations</li>
+  <li>The definition of <a href="https://github.com/JetBrains/arend-lib/blob/89dcfface988607c266f76ee9fb1609111fd6e0a/src/AG/Scheme.ard#L435">schemes</a>, affine schemes, and a prove that affine schemes are schemes.</li>
+  <li>A partial prove of the <a href="https://github.com/JetBrains/arend-lib/blob/89dcfface988607c266f76ee9fb1609111fd6e0a/src/AG/Scheme.ard#L216">univalence</a> for the precategory of ringed locales.</li>
 </ul>
 
 

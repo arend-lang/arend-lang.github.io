@@ -275,6 +275,13 @@
 
                 <li><a href="/documentation/language-reference/expressions/class-ext" class="">&nbsp;&nbsp;&nbsp;&nbsp;Class extensions</a></li>
               
+                
+                
+
+                
+
+                <li><a href="/documentation/language-reference/expressions/box" class="">&nbsp;&nbsp;&nbsp;&nbsp;Box</a></li>
+              
             
           
             
@@ -450,7 +457,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Universes</h4></header>
-              <ul class="toc__menu"><li><a href="#universe-placement-rules">Universe placement rules</a></li><li><a href="#level-polymorphism">Level polymorphism</a></li><li><a href="#level-parameters">Level parameters</a></li><li><a href="#level-inference">Level inference</a></li></ul>
+              <ul class="toc__menu"><li><a href="#universe-placement-rules">Universe placement rules</a></li><li><a href="#level-polymorphism">Level polymorphism</a></li><li><a href="#level-parameters">Level parameters</a></li><li><a href="#global-level-declarations">Global level declarations</a></li><li><a href="#level-inference">Level inference</a></li></ul>
 
             </nav>
           </aside>
@@ -535,7 +542,16 @@ In the example above, <span class="inl-highlight">func</span> has three predicat
 Level arguments for a definition with multiple level parameters can be specified as before:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> example <span class="o">=&gt;</span> func <span class="k">\levels</span> (<span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span>) (<span class="n">2</span><span class="o">,</span><span class="n">1</span>) Nat Nat</code></pre></div></div>
 
-<p>If level parameters are not explicitly declared for a class, they are inhereted from the first super class (if any).</p>
+<p>If level parameters are not explicitly declared for a definition, they will be inhereted from definitions that appear in parameters if all of them have the same levels.</p>
+
+<h2 id="global-level-declarations">Global level declarations</h2>
+
+<p>Levels can be also declared on the top level as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\plevels</span> p1 &lt;= p2 &lt;= p3
+<span class="k">\hlevels</span> h1 &gt;= h2</code></pre></div></div>
+
+<p>These levels can be used in any definition, in which case they will be used as level parameters of this definition.</p>
 
 <h2 id="level-inference">Level inference</h2>
 

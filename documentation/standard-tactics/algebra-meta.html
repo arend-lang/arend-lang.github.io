@@ -401,7 +401,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Algebra.Meta</h4></header>
-              <ul class="toc__menu"><li><a href="#equation">equation</a></li><li><a href="#cong">cong</a></li></ul>
+              <ul class="toc__menu"><li><a href="#equation">equation</a></li><li><a href="#cong">cong</a></li><li><a href="#linarith">linarith</a></li></ul>
 
             </nav>
           </aside>
@@ -419,6 +419,10 @@ In the latter case, the meta will prove an equality using only structure availab
 
 <p>This meta implements the congruence closure algorithm.
 For example, given assumptions <span class="inl-highlight">x <span class="o">=</span> x’</span> and <span class="inl-highlight">y <span class="o">=</span> y’</span>, it can prove <span class="inl-highlight">f x y <span class="o">=</span> f x’ y’</span>.</p>
+
+<h1 id="linarith">linarith</h1>
+
+<p>This meta solves systems of linear equations in ordered rings using Fourier–Motzkin elimination.</p>
 
         
       </section>
