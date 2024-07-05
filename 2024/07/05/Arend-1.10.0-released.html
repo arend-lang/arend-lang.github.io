@@ -1,0 +1,726 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Arend 1.10.0 released - Arend Theorem Prover</title>
+<meta name="description" content="Language updates:">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Arend 1.10.0 released">
+<meta property="og:url" content="https://arend-lang.github.io/2024/07/05/Arend-1.10.0-released.html">
+
+
+  <meta property="og:description" content="Language updates:">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-07-05T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2024/07/05/Arend-1.10.0-released.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Arend",
+      "url": "https://arend-lang.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    
+</head>
+
+<body class="layout--posts">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+<!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download">Download</a>
+            </li><li class="masthead__menu-item">
+              <a href="/arend-lib">Arend Library</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="initial-content">
+    
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Arend 1.10.0 released</h1>
+    
+    <p>Language updates:</p>
+
+<ul>
+  <li>Bug fixes and minor improvements</li>
+</ul>
+
+<p>Plugin updates:</p>
+
+<ul>
+  <li>Keyword documentation</li>
+  <li>Improved <a href="/about/intellij-features#change-signature">change signature</a> refactoring</li>
+  <li>Improved <a href="/about/intellij-features#move-refactoring">move refactoring</a></li>
+  <li>Improved <a href="/about/intellij-features#parameter-hints">parameter hints</a></li>
+  <li>Improved REPL, completion, auto-import, and import optimization</li>
+  <li>Improved settings synchronization</li>
+  <li><a href="/about/intellij-features#latex-doc">Latex</a> in documentation strings</li>
+  <li><a href="/assets/images/BaseSet-v1.10.0.svg">Class diagrams</a></li>
+  <li>Quick braces switch intention</li>
+</ul>
+
+<p>arend-lib:</p>
+
+<ul>
+  <li>Tactics:
+    <ul>
+      <li><a href="/documentation/standard-tactics/meta#assumption">assumption</a> meta</li>
+      <li><a href="/documentation/standard-tactics/meta#in">in</a> meta</li>
+      <li><a href="/documentation/standard-tactics/meta#defaultimpl">defaultImpl</a> meta</li>
+    </ul>
+  </li>
+  <li>Sets and logic:
+    <ul>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Set/Fin/Pigeonhole.html">Pigeonhole principle</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Set/Fin/KFin.html">Kuratowski-finite sets</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Logic.html#310600">“The following are equivalent”</a> proofs</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Set/Countable.html#51491">Countable</a> sets</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Set/Subset.html">Subset operations</a></li>
+      <li>Simplified syntax for quantifiers</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Set/Partial.html#44948">Partial elements</a></li>
+    </ul>
+  </li>
+  <li>Algebra:
+    <ul>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Graded.html#14671">Graded rings</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Graded/Ideal.html#304129">homogeneous ideals</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Graded/Localization.html#18630">homogeneous localizations</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/AG/Projective.html#18410">Proj construction</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/Lagrange.html#491723">Lagrange’s theorem</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring.html#514276">Dimension</a> of a ring, a characterization of <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring.html#398078">zero-dimensional</a> rings, <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring.html#647851">zero-dimensional local</a> rings, and <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring.html#648606">von Neumann regular</a> rings</li>
+      <li>A <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix/Smith.html#538959">characterization</a> of Smith rings</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/PID.html#517204">PIDs are Smith domains</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/PID.html#517321">PIDs are 1-dimensional</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/Euclidean.html#346219">Euclidean domains are PIDs</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Poly.html#337632">Polynomial division</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#420406">Matrix ring</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#420469">Various</a> <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#549395">definitions</a> of determinant and a <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#549398">proof</a> that they are equivalent</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#577543">Various</a> <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#551944">properties</a> of determinant</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/Symmetric.html#492942">Symmetric group</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/Symmetric.html#498941">its cardinality</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/Symmetric.html#507208">sign homomorphism</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix/CharPoly.html#408775">Characteristic polynomial</a> of a matrix and a <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix/CharPoly.html#408817">proof</a> that eigenvalues are its roots</li>
+      <li>Integral <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Integral.html#310498">elements</a> and <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Integral.html#408990">extensions</a>, a <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Integral.html#410666">characterization</a> of finitely generated integral extensions</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/MonoidRing.html#427709">Monoid rings</a> and <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/MPoly.html#362613">multivariate polynomials</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/Valuation.html#534128">Valuation rings</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Ideal.html#52919">Factor rings</a> and <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Ideal.html#310426">factor fields</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Nakayama.html#419815">Nakayama’s lemma</a></li>
+      <li>The <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Integral/MinPoly.html">minimal polynomial</a> of an element of a ring extension</li>
+      <li>A <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Field/Algebraic.html#456353">proof</a> that a finitely generated extension is integral if and only if it is zero-dimensional</li>
+      <li>The <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/Bezout.html#521103">Chinese remainder theorem</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Module/FinModule.html#593719">Dimension</a> of a finite free module</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Module.html#595469">Independent sets</a>, bases, and their various properties</li>
+      <li>The <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/VectorSpace.html#592652">image</a> and the <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/VectorSpace.html#593799">kernel</a> of a linear map between finite modules over a Smith domain are finite</li>
+      <li>Linear dependency is <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/VectorSpace.html#311502">decidable</a> in a finite module over a Smith domain</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Field/Splitting.html#458070">Splitting fields</a> of polynomials over countable fields</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/VectorSpace.html#588666">Rank</a> of a matrix over a Smith domain</li>
+      <li>Surjective linear endomaps on a finitely generated module are <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Nakayama.html#421323">bijective</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix/CayleyHamilton.html#557949">Cayley-Hamilton theorem</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/LatticeColimit.html">Direct limits</a> of algebraic structures over semilattices</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Field/AlgebraicClosure.html#460050">Algebraically closed fields</a> and the <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Field/AlgebraicClosure.html#462033">algebraic closure</a> of a countable field</li>
+      <li>The <a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ordered.html#127016">absolute value</a> for linearly ordered abelian groups</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/GSet/GSet.html#463423">Group actions</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/QuotientProperties.html#512479">First isomorphism theorem</a></li>
+    </ul>
+  </li>
+  <li>Topology:
+    <ul>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace.html#730948">Cover spaces</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace/Complete.html#731717">Completion</a> of cover spaces</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/UniformSpace.html#732248">Uniform spaces</a> and their <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/UniformSpace/Complete.html#987099">completion</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/MetricSpace.html#995528">Metric spaces</a> and their <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/MetricSpace/Complete.html#999103">completion</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace/Locale.html">Equivalence</a> between appropriate subcategories of complete cover spaces and regular locales</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/TopAbGroup.html#732859">Topological abeliean groups</a> and their <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/TopAbGroup/Complete.html#987076">completion</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/NormedAbGroup.html#1011217">Normed abelian groups</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/NormedRing.html#1035141">normed rings</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/BanachSpace.html#1040009">Banach spaces</a></li>
+      <li>Products of <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/TopSpace/Product.html#126599">topological spaces</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace/Product.html#124210">cover spaces</a>, <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/UniformSpace/Product.html#985359">uniform spaces</a>, and <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/TopAbGroup/Product.html#985326">topological abelian groups</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/NormedAbGroup/Real.html#123206">Normed abelian group of real numbers</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/Compact.html#990497">Compact spaces</a> and a <a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/Compact.html#995166">characteriization</a> of cover maps</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace/Directed.html#730974">Cover space structure</a> on directed sets</li>
+    </ul>
+  </li>
+  <li>Analysis:
+    <ul>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Analysis/Limit.html#731628">Limit</a> of a function on a directed set</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Analysis/FuncLimit.html#742698">Uniform convergence</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Analysis/Series.html">Series</a> and various convergence tests</li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Analysis/PowerSeries.html#123230">Power series</a> and their <a href="/arend-lib/v1.10.0/arend-html-files/src/Analysis/PowerSeries.html#747090">radius of convergence</a></li>
+    </ul>
+  </li>
+  <li>Real and complex numbers:
+    <ul>
+      <li>The <a href="/arend-lib/v1.10.0/arend-html-files/src/Arith/Real/Field.html#123570">field</a> of real numbers</li>
+      <li>The <a href="/arend-lib/v1.10.0/arend-html-files/src/Arith/Complex.html#187217">field</a> of complex numbers</li>
+      <li>The <a href="/arend-lib/v1.10.0/arend-html-files/src/Arith/Real/Exp.html#123199">exponential function</a> on real numbers</li>
+    </ul>
+  </li>
+  <li>Categories:
+    <ul>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Order/HeytingAlgebra.html#301303">Heyting algebras</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Category/CartesianClosed.html#301307">Cartesian closed categories</a></li>
+      <li><a href="/arend-lib/v1.10.0/arend-html-files/src/Category/Topos.html#788817">Elementary topoi</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2024">
+        <strong>2024</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2022">
+        <strong>2022</strong> <span class="taxonomy__count">3</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2021">
+        <strong>2021</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2020">
+        <strong>2020</strong> <span class="taxonomy__count">5</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">3</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+
+  <section id="2024" class="taxonomy__section">
+    <h2 class="archive__subtitle">2024</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2024/07/05/Arend-1.10.0-released.html" rel="permalink">Arend 1.10.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2022" class="taxonomy__section">
+    <h2 class="archive__subtitle">2022</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022/12/05/Arend-1.9.0-released.html" rel="permalink">Arend 1.9.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022/04/15/Arend-1.8.0-released.html" rel="permalink">Arend 1.8.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022/02/08/New-IntelliJ-Arend-tutorial.html" rel="permalink">New IntelliJ Arend tutorial
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">There is a new tutorial on interactive theorem proving with IntelliJ Arend. 
+Check it out to learn about the features of IntelliJ Arend that speed-up theorem...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2021" class="taxonomy__section">
+    <h2 class="archive__subtitle">2021</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/09/06/Arend-1.7.0-released.html" rel="permalink">Arend 1.7.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/02/28/Arend-1.6.0-released.html" rel="permalink">Arend 1.6.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  Built-in finite types
+  \default implementations
+  \coerce to function types
+  \coerce for fields and constructors
+  \have declaration
+ ...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2020" class="taxonomy__section">
+    <h2 class="archive__subtitle">2020</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/10/10/Arend-1.5.0-released.html" rel="permalink">Arend 1.5.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  String literals, which can be used in meta code
+  Meta resolvers, which can be used to modify the scoping rules for meta definitions
+  \...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/06/29/Arend-1.4.0-released.html" rel="permalink">Arend 1.4.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+  Implicit lambdas.
+  Tests directory can be used to store files with tests, examples, and other code which is not a part of the library.
+...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/06/14/tutorial-part-II.html" rel="permalink">Tutorial Part II
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The second part of our tutorial is ready.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/04/13/Arend-1.3.0-released.html" rel="permalink">Arend 1.3.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We implemented language extensions.
+This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.
+They...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020/01/17/tutorial-part-I.html" rel="permalink">The first part of our tutorial is ready
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We finished the first part of our new tutorial.
+It covers all the basic constructions of Arend.
+It does not mention anything related to homotopy theory.
+This...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/12/16/Arend-1.2.0-released.html" rel="permalink">Arend 1.2.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">We implemented a few features related to classes and pattern matching.
+One of these features is pattern matching on idp : a = a, which can be used instead of...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/10/01/Arend-1.1.0-released.html" rel="permalink">Arend 1.1.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2019/07/17/Arend-1.0.0-released.html" rel="permalink">Arend 1.0.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The first version of Arend is released!
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+</div>
+
+
+
+<div id="footer" class="page__footer">
+    <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+</div>
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

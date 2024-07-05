@@ -1,4 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2023-01-14T21:22:04+01:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><entry><title type="html">Arend 1.8.0 released</title><link href="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html" rel="alternate" type="text/html" title="Arend 1.8.0 released" /><published>2022-04-15T00:00:00+02:00</published><updated>2022-04-15T00:00:00+02:00</updated><id>https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2024-07-05T22:47:54+03:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><entry><title type="html">Arend 1.10.0 released</title><link href="https://arend-lang.github.io/2024/07/05/Arend-1.10.0-released.html" rel="alternate" type="text/html" title="Arend 1.10.0 released" /><published>2024-07-05T00:00:00+03:00</published><updated>2024-07-05T00:00:00+03:00</updated><id>https://arend-lang.github.io/2024/07/05/Arend-1.10.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2024/07/05/Arend-1.10.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug fixes and minor improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Plugin updates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Keyword documentation&lt;/li&gt;
+  &lt;li&gt;Improved &lt;a href=&quot;/about/intellij-features#change-signature&quot;&gt;change signature&lt;/a&gt; refactoring&lt;/li&gt;
+  &lt;li&gt;Improved &lt;a href=&quot;/about/intellij-features#move-refactoring&quot;&gt;move refactoring&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Improved &lt;a href=&quot;/about/intellij-features#parameter-hints&quot;&gt;parameter hints&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Improved REPL, completion, auto-import, and import optimization&lt;/li&gt;
+  &lt;li&gt;Improved settings synchronization&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about/intellij-features#latex-doc&quot;&gt;Latex&lt;/a&gt; in documentation strings&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/assets/images/BaseSet-v1.10.0.svg&quot;&gt;Class diagrams&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Quick braces switch intention&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;arend-lib:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tactics:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/documentation/standard-tactics/meta#assumption&quot;&gt;assumption&lt;/a&gt; meta&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/documentation/standard-tactics/meta#in&quot;&gt;in&lt;/a&gt; meta&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/documentation/standard-tactics/meta#defaultimpl&quot;&gt;defaultImpl&lt;/a&gt; meta&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Sets and logic:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Set/Fin/Pigeonhole.html&quot;&gt;Pigeonhole principle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Set/Fin/KFin.html&quot;&gt;Kuratowski-finite sets&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Logic.html#310600&quot;&gt;“The following are equivalent”&lt;/a&gt; proofs&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Set/Countable.html#51491&quot;&gt;Countable&lt;/a&gt; sets&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Set/Subset.html&quot;&gt;Subset operations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Simplified syntax for quantifiers&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Set/Partial.html#44948&quot;&gt;Partial elements&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Algebra:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Graded.html#14671&quot;&gt;Graded rings&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Graded/Ideal.html#304129&quot;&gt;homogeneous ideals&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Graded/Localization.html#18630&quot;&gt;homogeneous localizations&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/AG/Projective.html#18410&quot;&gt;Proj construction&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/Lagrange.html#491723&quot;&gt;Lagrange’s theorem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring.html#514276&quot;&gt;Dimension&lt;/a&gt; of a ring, a characterization of &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring.html#398078&quot;&gt;zero-dimensional&lt;/a&gt; rings, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring.html#647851&quot;&gt;zero-dimensional local&lt;/a&gt; rings, and &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring.html#648606&quot;&gt;von Neumann regular&lt;/a&gt; rings&lt;/li&gt;
+      &lt;li&gt;A &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix/Smith.html#538959&quot;&gt;characterization&lt;/a&gt; of Smith rings&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/PID.html#517204&quot;&gt;PIDs are Smith domains&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/PID.html#517321&quot;&gt;PIDs are 1-dimensional&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/Euclidean.html#346219&quot;&gt;Euclidean domains are PIDs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Poly.html#337632&quot;&gt;Polynomial division&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#420406&quot;&gt;Matrix ring&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#420469&quot;&gt;Various&lt;/a&gt; &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#549395&quot;&gt;definitions&lt;/a&gt; of determinant and a &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#549398&quot;&gt;proof&lt;/a&gt; that they are equivalent&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#577543&quot;&gt;Various&lt;/a&gt; &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix.html#551944&quot;&gt;properties&lt;/a&gt; of determinant&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/Symmetric.html#492942&quot;&gt;Symmetric group&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/Symmetric.html#498941&quot;&gt;its cardinality&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/Symmetric.html#507208&quot;&gt;sign homomorphism&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix/CharPoly.html#408775&quot;&gt;Characteristic polynomial&lt;/a&gt; of a matrix and a &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix/CharPoly.html#408817&quot;&gt;proof&lt;/a&gt; that eigenvalues are its roots&lt;/li&gt;
+      &lt;li&gt;Integral &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Integral.html#310498&quot;&gt;elements&lt;/a&gt; and &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Integral.html#408990&quot;&gt;extensions&lt;/a&gt;, a &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Integral.html#410666&quot;&gt;characterization&lt;/a&gt; of finitely generated integral extensions&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/MonoidRing.html#427709&quot;&gt;Monoid rings&lt;/a&gt; and &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/MPoly.html#362613&quot;&gt;multivariate polynomials&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/Valuation.html#534128&quot;&gt;Valuation rings&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Ideal.html#52919&quot;&gt;Factor rings&lt;/a&gt; and &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Ideal.html#310426&quot;&gt;factor fields&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Nakayama.html#419815&quot;&gt;Nakayama’s lemma&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;The &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Integral/MinPoly.html&quot;&gt;minimal polynomial&lt;/a&gt; of an element of a ring extension&lt;/li&gt;
+      &lt;li&gt;A &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Field/Algebraic.html#456353&quot;&gt;proof&lt;/a&gt; that a finitely generated extension is integral if and only if it is zero-dimensional&lt;/li&gt;
+      &lt;li&gt;The &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Domain/Bezout.html#521103&quot;&gt;Chinese remainder theorem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Module/FinModule.html#593719&quot;&gt;Dimension&lt;/a&gt; of a finite free module&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Module.html#595469&quot;&gt;Independent sets&lt;/a&gt;, bases, and their various properties&lt;/li&gt;
+      &lt;li&gt;The &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/VectorSpace.html#592652&quot;&gt;image&lt;/a&gt; and the &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/VectorSpace.html#593799&quot;&gt;kernel&lt;/a&gt; of a linear map between finite modules over a Smith domain are finite&lt;/li&gt;
+      &lt;li&gt;Linear dependency is &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/VectorSpace.html#311502&quot;&gt;decidable&lt;/a&gt; in a finite module over a Smith domain&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Field/Splitting.html#458070&quot;&gt;Splitting fields&lt;/a&gt; of polynomials over countable fields&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/VectorSpace.html#588666&quot;&gt;Rank&lt;/a&gt; of a matrix over a Smith domain&lt;/li&gt;
+      &lt;li&gt;Surjective linear endomaps on a finitely generated module are &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ring/Nakayama.html#421323&quot;&gt;bijective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Linear/Matrix/CayleyHamilton.html#557949&quot;&gt;Cayley-Hamilton theorem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/LatticeColimit.html&quot;&gt;Direct limits&lt;/a&gt; of algebraic structures over semilattices&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Field/AlgebraicClosure.html#460050&quot;&gt;Algebraically closed fields&lt;/a&gt; and the &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Field/AlgebraicClosure.html#462033&quot;&gt;algebraic closure&lt;/a&gt; of a countable field&lt;/li&gt;
+      &lt;li&gt;The &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Ordered.html#127016&quot;&gt;absolute value&lt;/a&gt; for linearly ordered abelian groups&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/GSet/GSet.html#463423&quot;&gt;Group actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Algebra/Group/QuotientProperties.html#512479&quot;&gt;First isomorphism theorem&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Topology:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace.html#730948&quot;&gt;Cover spaces&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace/Complete.html#731717&quot;&gt;Completion&lt;/a&gt; of cover spaces&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/UniformSpace.html#732248&quot;&gt;Uniform spaces&lt;/a&gt; and their &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/UniformSpace/Complete.html#987099&quot;&gt;completion&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/MetricSpace.html#995528&quot;&gt;Metric spaces&lt;/a&gt; and their &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/MetricSpace/Complete.html#999103&quot;&gt;completion&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace/Locale.html&quot;&gt;Equivalence&lt;/a&gt; between appropriate subcategories of complete cover spaces and regular locales&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/TopAbGroup.html#732859&quot;&gt;Topological abeliean groups&lt;/a&gt; and their &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/TopAbGroup/Complete.html#987076&quot;&gt;completion&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/NormedAbGroup.html#1011217&quot;&gt;Normed abelian groups&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/NormedRing.html#1035141&quot;&gt;normed rings&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/BanachSpace.html#1040009&quot;&gt;Banach spaces&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Products of &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/TopSpace/Product.html#126599&quot;&gt;topological spaces&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace/Product.html#124210&quot;&gt;cover spaces&lt;/a&gt;, &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/UniformSpace/Product.html#985359&quot;&gt;uniform spaces&lt;/a&gt;, and &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/TopAbGroup/Product.html#985326&quot;&gt;topological abelian groups&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/NormedAbGroup/Real.html#123206&quot;&gt;Normed abelian group of real numbers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/Compact.html#990497&quot;&gt;Compact spaces&lt;/a&gt; and a &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/Compact.html#995166&quot;&gt;characteriization&lt;/a&gt; of cover maps&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Topology/CoverSpace/Directed.html#730974&quot;&gt;Cover space structure&lt;/a&gt; on directed sets&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Analysis:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Analysis/Limit.html#731628&quot;&gt;Limit&lt;/a&gt; of a function on a directed set&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Analysis/FuncLimit.html#742698&quot;&gt;Uniform convergence&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Analysis/Series.html&quot;&gt;Series&lt;/a&gt; and various convergence tests&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Analysis/PowerSeries.html#123230&quot;&gt;Power series&lt;/a&gt; and their &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Analysis/PowerSeries.html#747090&quot;&gt;radius of convergence&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Real and complex numbers:
+    &lt;ul&gt;
+      &lt;li&gt;The &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Arith/Real/Field.html#123570&quot;&gt;field&lt;/a&gt; of real numbers&lt;/li&gt;
+      &lt;li&gt;The &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Arith/Complex.html#187217&quot;&gt;field&lt;/a&gt; of complex numbers&lt;/li&gt;
+      &lt;li&gt;The &lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Arith/Real/Exp.html#123199&quot;&gt;exponential function&lt;/a&gt; on real numbers&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Categories:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Order/HeytingAlgebra.html#301303&quot;&gt;Heyting algebras&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Category/CartesianClosed.html#301307&quot;&gt;Cartesian closed categories&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/arend-lib/v1.10.0/arend-html-files/src/Category/Topos.html#788817&quot;&gt;Elementary topoi&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates:</summary></entry><entry><title type="html">Arend 1.9.0 released</title><link href="https://arend-lang.github.io/2022/12/05/Arend-1.9.0-released.html" rel="alternate" type="text/html" title="Arend 1.9.0 released" /><published>2022-12-05T00:00:00+03:00</published><updated>2022-12-05T00:00:00+03:00</updated><id>https://arend-lang.github.io/2022/12/05/Arend-1.9.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2022/12/05/Arend-1.9.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/expressions/sigma&quot;&gt;Properties in \Sigma-types&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Definition parameters are visible in the \where block&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/expressions/universes#global-level-declarations&quot;&gt;Global level declarations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Infix patterns&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/definitions/functions#lemmas&quot;&gt;Axioms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/expressions/box&quot;&gt;Box expressions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/expressions/box&quot;&gt;Property parameters&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Plugin updates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Inlays for levels, added parameters, and used axioms&lt;/li&gt;
+  &lt;li&gt;“Change arguments explicitness” refactoring&lt;/li&gt;
+  &lt;li&gt;“Change signature” refactoring&lt;/li&gt;
+  &lt;li&gt;Revealing information in error messages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;arend-lib:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The definion of modules, algebras, strict domains, polynomials, and various structures on them&lt;/li&gt;
+  &lt;li&gt;A synthetic definition of a derivative and its basic properties&lt;/li&gt;
+  &lt;li&gt;The definition of real numbers and the construction of the structure of an ordered field on them (except for multiplication).&lt;/li&gt;
+  &lt;li&gt;A &lt;a href=&quot;/documentation/standard-tactics/algebra-meta#linarith&quot;&gt;tactic&lt;/a&gt; for solving systems of linear equations&lt;/li&gt;
+  &lt;li&gt;The definition of schemes, affine schemes, and a prove that affine schemes are schemes.&lt;/li&gt;
+  &lt;li&gt;A partial prove of the univalence for the precategory of ringed locales.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates:</summary></entry><entry><title type="html">Arend 1.8.0 released</title><link href="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html" rel="alternate" type="text/html" title="Arend 1.8.0 released" /><published>2022-04-15T00:00:00+03:00</published><updated>2022-04-15T00:00:00+03:00</updated><id>https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Improved performance&lt;/li&gt;
@@ -185,8 +331,8 @@ the resulting function will get parameters corresponding to those arguments:&lt;
         &lt;source src=&quot;/assets/Arend-1.8.0-released/gen-func.mp4&quot; /&gt;
         Sorry, your browser doesn&apos;t support embedded videos.
     &lt;/video&gt;
-&lt;/div&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates:</summary></entry><entry><title type="html">New IntelliJ Arend tutorial</title><link href="https://arend-lang.github.io/2022/02/08/New-IntelliJ-Arend-tutorial.html" rel="alternate" type="text/html" title="New IntelliJ Arend tutorial" /><published>2022-02-08T00:00:00+01:00</published><updated>2022-02-08T00:00:00+01:00</updated><id>https://arend-lang.github.io/2022/02/08/New-IntelliJ-Arend-tutorial</id><content type="html" xml:base="https://arend-lang.github.io/2022/02/08/New-IntelliJ-Arend-tutorial.html">&lt;p&gt;There is a new tutorial on &lt;a href=&quot;/documentation/intellij-arend-tutorial&quot;&gt;interactive theorem proving with IntelliJ Arend&lt;/a&gt;. 
-Check it out to learn about the features of IntelliJ Arend that speed-up theorem proving, make it more convenient and truly interactive!&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">There is a new tutorial on interactive theorem proving with IntelliJ Arend. Check it out to learn about the features of IntelliJ Arend that speed-up theorem proving, make it more convenient and truly interactive!</summary></entry><entry><title type="html">Arend 1.7.0 released</title><link href="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html" rel="alternate" type="text/html" title="Arend 1.7.0 released" /><published>2021-09-06T00:00:00+02:00</published><updated>2021-09-06T00:00:00+02:00</updated><id>https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+&lt;/div&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates:</summary></entry><entry><title type="html">New IntelliJ Arend tutorial</title><link href="https://arend-lang.github.io/2022/02/08/New-IntelliJ-Arend-tutorial.html" rel="alternate" type="text/html" title="New IntelliJ Arend tutorial" /><published>2022-02-08T00:00:00+03:00</published><updated>2022-02-08T00:00:00+03:00</updated><id>https://arend-lang.github.io/2022/02/08/New-IntelliJ-Arend-tutorial</id><content type="html" xml:base="https://arend-lang.github.io/2022/02/08/New-IntelliJ-Arend-tutorial.html">&lt;p&gt;There is a new tutorial on &lt;a href=&quot;/documentation/intellij-arend-tutorial&quot;&gt;interactive theorem proving with IntelliJ Arend&lt;/a&gt;. 
+Check it out to learn about the features of IntelliJ Arend that speed-up theorem proving, make it more convenient and truly interactive!&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">There is a new tutorial on interactive theorem proving with IntelliJ Arend. Check it out to learn about the features of IntelliJ Arend that speed-up theorem proving, make it more convenient and truly interactive!</summary></entry><entry><title type="html">Arend 1.7.0 released</title><link href="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html" rel="alternate" type="text/html" title="Arend 1.7.0 released" /><published>2021-09-06T00:00:00+03:00</published><updated>2021-09-06T00:00:00+03:00</updated><id>https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/definitions/types&quot;&gt;Type synonyms&lt;/a&gt;&lt;/li&gt;
@@ -306,7 +452,7 @@ that can be used as a classifying field. The fix replaces a type of that paramet
   &lt;li&gt;Metas are discoverable via Navigate Symbol and Navigate File.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/metas.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates:</summary></entry><entry><title type="html">Arend 1.6.0 released</title><link href="https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html" rel="alternate" type="text/html" title="Arend 1.6.0 released" /><published>2021-02-28T00:00:00+01:00</published><updated>2021-02-28T00:00:00+01:00</updated><id>https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/Arend-1.7.0-released/metas.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates:</summary></entry><entry><title type="html">Arend 1.6.0 released</title><link href="https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html" rel="alternate" type="text/html" title="Arend 1.6.0 released" /><published>2021-02-28T00:00:00+03:00</published><updated>2021-02-28T00:00:00+03:00</updated><id>https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2021/02/28/Arend-1.6.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/prelude#fin&quot;&gt;Built-in finite types&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/definitions/records#default&quot;&gt;\default&lt;/a&gt; implementations&lt;/li&gt;
@@ -339,7 +485,7 @@ that can be used as a classifying field. The fix replaces a type of that paramet
   &lt;li&gt;&lt;a href=&quot;/documentation/standard-tactics/paths-meta#simp_coe&quot;&gt;simp_coe&lt;/a&gt; meta&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/standard-tactics/meta#cases&quot;&gt;cases&lt;/a&gt; meta and improved &lt;a href=&quot;/documentation/standard-tactics/meta#mcases&quot;&gt;mcases&lt;/a&gt; meta&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/standard-tactics/meta#unfold&quot;&gt;unfold&lt;/a&gt; and &lt;a href=&quot;/documentation/standard-tactics/meta#unfold_let&quot;&gt;unfold_let&lt;/a&gt; metas&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates: Built-in finite types \default implementations \coerce to function types \coerce for fields and constructors \have declaration Dot-syntax for dynamic definitions Added more computational rules for + and - functions</summary></entry><entry><title type="html">Arend 1.5.0 released</title><link href="https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html" rel="alternate" type="text/html" title="Arend 1.5.0 released" /><published>2020-10-10T00:00:00+02:00</published><updated>2020-10-10T00:00:00+02:00</updated><id>https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates: Built-in finite types \default implementations \coerce to function types \coerce for fields and constructors \have declaration Dot-syntax for dynamic definitions Added more computational rules for + and - functions</summary></entry><entry><title type="html">Arend 1.5.0 released</title><link href="https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html" rel="alternate" type="text/html" title="Arend 1.5.0 released" /><published>2020-10-10T00:00:00+03:00</published><updated>2020-10-10T00:00:00+03:00</updated><id>https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/10/10/Arend-1.5.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;String literals, which can be used in meta code&lt;/li&gt;
   &lt;li&gt;Meta resolvers, which can be used to modify the scoping rules for meta definitions&lt;/li&gt;
@@ -369,7 +515,7 @@ that can be used as a classifying field. The fix replaces a type of that paramet
   &lt;li&gt;Congruence closure &lt;span class=&quot;inl-highlight&quot;&gt;cong&lt;/span&gt;&lt;/li&gt;
   &lt;li&gt;Insertion and tree sort functions&lt;/li&gt;
   &lt;li&gt;Meta &lt;span class=&quot;inl-highlight&quot;&gt;mcases&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates: String literals, which can be used in meta code Meta resolvers, which can be used to modify the scoping rules for meta definitions \strict parameters Improved performance Defined metas Libraries can be loaded from zip archives without unpacking</summary></entry><entry><title type="html">Arend 1.4.0 released</title><link href="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html" rel="alternate" type="text/html" title="Arend 1.4.0 released" /><published>2020-06-29T00:00:00+02:00</published><updated>2020-06-29T00:00:00+02:00</updated><id>https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates: String literals, which can be used in meta code Meta resolvers, which can be used to modify the scoping rules for meta definitions \strict parameters Improved performance Defined metas Libraries can be loaded from zip archives without unpacking</summary></entry><entry><title type="html">Arend 1.4.0 released</title><link href="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html" rel="alternate" type="text/html" title="Arend 1.4.0 released" /><published>2020-06-29T00:00:00+03:00</published><updated>2020-06-29T00:00:00+03:00</updated><id>https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/06/29/Arend-1.4.0-released.html">&lt;p&gt;Language updates:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/language-reference/expressions/pi#implicit-lambdas&quot;&gt;Implicit lambdas&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/documentation/libraries&quot;&gt;Tests directory&lt;/a&gt; can be used to store files with tests, examples, and other code which is not a part of the library.&lt;/li&gt;
@@ -401,7 +547,7 @@ To run the debugger, click on the gutter icon near some Arend definition and cho
   &lt;li&gt;Number type-checker can be used to elaborate numerical literals to arbitrary expressions.&lt;/li&gt;
   &lt;li&gt;User data in definitions can be used to store arbitrary user data.&lt;/li&gt;
   &lt;li&gt;User data in ContextData can be used to pass information between meta definitions.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates: Implicit lambdas. Tests directory can be used to store files with tests, examples, and other code which is not a part of the library. Improved pretty printer: if some definition is not available in the current context, it will be replaced with its full name. REPL. To run it, use -i flag. Arend now supports unicode symbols through aliases. Equality between disjoint constructors is now considered empty. Added support for incomplete lambdas, let expressions, and tuples. Missing expressions are treated as goals. Implemented tail call optimization.</summary></entry><entry><title type="html">Tutorial Part II</title><link href="https://arend-lang.github.io/2020/06/14/tutorial-part-II.html" rel="alternate" type="text/html" title="Tutorial Part II" /><published>2020-06-14T00:00:00+02:00</published><updated>2020-06-14T00:00:00+02:00</updated><id>https://arend-lang.github.io/2020/06/14/tutorial-part-II</id><content type="html" xml:base="https://arend-lang.github.io/2020/06/14/tutorial-part-II.html">&lt;p&gt;The &lt;a href=&quot;/documentation/tutorial/PartII&quot;&gt;second part&lt;/a&gt; of our tutorial is ready.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">The second part of our tutorial is ready.</summary></entry><entry><title type="html">Arend 1.3.0 released</title><link href="https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html" rel="alternate" type="text/html" title="Arend 1.3.0 released" /><published>2020-04-13T00:00:00+02:00</published><updated>2020-04-13T00:00:00+02:00</updated><id>https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html">&lt;p&gt;We implemented language extensions.
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">Language updates: Implicit lambdas. Tests directory can be used to store files with tests, examples, and other code which is not a part of the library. Improved pretty printer: if some definition is not available in the current context, it will be replaced with its full name. REPL. To run it, use -i flag. Arend now supports unicode symbols through aliases. Equality between disjoint constructors is now considered empty. Added support for incomplete lambdas, let expressions, and tuples. Missing expressions are treated as goals. Implemented tail call optimization.</summary></entry><entry><title type="html">Tutorial Part II</title><link href="https://arend-lang.github.io/2020/06/14/tutorial-part-II.html" rel="alternate" type="text/html" title="Tutorial Part II" /><published>2020-06-14T00:00:00+03:00</published><updated>2020-06-14T00:00:00+03:00</updated><id>https://arend-lang.github.io/2020/06/14/tutorial-part-II</id><content type="html" xml:base="https://arend-lang.github.io/2020/06/14/tutorial-part-II.html">&lt;p&gt;The &lt;a href=&quot;/documentation/tutorial/PartII&quot;&gt;second part&lt;/a&gt; of our tutorial is ready.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">The second part of our tutorial is ready.</summary></entry><entry><title type="html">Arend 1.3.0 released</title><link href="https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html" rel="alternate" type="text/html" title="Arend 1.3.0 released" /><published>2020-04-13T00:00:00+03:00</published><updated>2020-04-13T00:00:00+03:00</updated><id>https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2020/04/13/Arend-1.3.0-released.html">&lt;p&gt;We implemented language extensions.
 This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.
 They can also be used to implement various decision procedures for proof automation.&lt;/p&gt;
 
@@ -418,30 +564,4 @@ They can also be used to implement various decision procedures for proof automat
 This can be used to see inferred implicit arguments or the result of invocation of some function.&lt;/li&gt;
   &lt;li&gt;Implemented “&lt;a href=&quot;/about/intellij-features#normalize-expr&quot;&gt;replace (sub)expression&lt;/a&gt;” feature.
 This can be used to replace an expression with its normalized result.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">We implemented language extensions. This can be used to implement custom operations on the abstract syntax tree which are not supported by the language. They can also be used to implement various decision procedures for proof automation.</summary></entry><entry><title type="html">The first part of our tutorial is ready</title><link href="https://arend-lang.github.io/2020/01/17/tutorial-part-I.html" rel="alternate" type="text/html" title="The first part of our tutorial is ready" /><published>2020-01-17T00:00:00+01:00</published><updated>2020-01-17T00:00:00+01:00</updated><id>https://arend-lang.github.io/2020/01/17/tutorial-part-I</id><content type="html" xml:base="https://arend-lang.github.io/2020/01/17/tutorial-part-I.html">&lt;p&gt;We finished the first part of our new &lt;a href=&quot;/documentation/tutorial&quot;&gt;tutorial&lt;/a&gt;.
-It covers all the basic constructions of Arend.
-It does not mention anything related to homotopy theory.
-This will be the topic of the second part.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">We finished the first part of our new tutorial. It covers all the basic constructions of Arend. It does not mention anything related to homotopy theory. This will be the topic of the second part.</summary></entry><entry><title type="html">Arend 1.2.0 released</title><link href="https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html" rel="alternate" type="text/html" title="Arend 1.2.0 released" /><published>2019-12-16T00:00:00+01:00</published><updated>2019-12-16T00:00:00+01:00</updated><id>https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html">&lt;p&gt;We implemented a few features related to classes and pattern matching.
-One of these features is pattern matching on &lt;span class=&quot;inl-highlight&quot;&gt;idp &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; a &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; a&lt;/span&gt;, which can be used instead of the J operator.&lt;/p&gt;
-
-&lt;p&gt;Language updates:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Implemented pattern matching on &lt;a href=&quot;/documentation/language-reference/prelude#idp&quot;&gt;idp&lt;/a&gt;.
-This feature can be used instead of the J operator to define functions on path types.
-This is a standard feature in other proof assistants, but was missing from Arend since it has a different definition of path types.&lt;/li&gt;
-  &lt;li&gt;New keyword &lt;a href=&quot;/documentation/language-reference/definitions/classes#classifying-fields&quot;&gt;\noclassifying&lt;/a&gt; can be used to define classes without classifying fields.
-Such classes are similar to Agda’s modules and Coq’s sections.&lt;/li&gt;
-  &lt;li&gt;The type of a field can be overridden with a subtype in a subclass using new keyword &lt;a href=&quot;/documentation/language-reference/definitions/records#override&quot;&gt;\override&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Variables can be &lt;a href=&quot;/documentation/language-reference/expressions/case#elim-in-case&quot;&gt;eliminated&lt;/a&gt; in &lt;span class=&quot;inl-highlight&quot;&gt;&lt;span class=&quot;k&quot;&gt;\case&lt;/span&gt;&lt;/span&gt; expressions now.&lt;/li&gt;
-  &lt;li&gt;Implemented &lt;a href=&quot;/documentation/language-reference/definitions/data#constructor-synonyms&quot;&gt;constructor synonyms&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;It is possible now to implement fields using &lt;a href=&quot;/documentation/language-reference/definitions/functions#patterns-in-coclauses&quot;&gt;pattern matching&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;We decided to make &lt;a href=&quot;/documentation/language-reference/expressions/universes&quot;&gt;\Prop&lt;/a&gt; proof relevant in general (but it is still proof irrelevant in some cases).
-The implementation in 1.1.0 was incorrect and it turns out that it is &lt;a href=&quot;https://arxiv.org/abs/1911.08174v1&quot;&gt;impossible&lt;/a&gt; to implement it without loss of the normalization property.&lt;/li&gt;
-  &lt;li&gt;Now, fields and implementations in a class are typechecked in the order they are specified (before now implementations were typechecked after fields).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Plugin updates:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Fixed some problems with pattern generator and implemented case split for \Sigma-types and records.&lt;/li&gt;
-  &lt;li&gt;It is possible now to adjust the verbosity of pretty printer in error messages.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">We implemented a few features related to classes and pattern matching. One of these features is pattern matching on idp : a = a, which can be used instead of the J operator.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html">We implemented language extensions. This can be used to implement custom operations on the abstract syntax tree which are not supported by the language. They can also be used to implement various decision procedures for proof automation.</summary></entry></feed>

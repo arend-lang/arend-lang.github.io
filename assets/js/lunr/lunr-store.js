@@ -70,4 +70,16 @@ var store = [{
         "tags": [],
         "url": "/2022/04/15/Arend-1.8.0-released.html",
         "teaser": null
+      },{
+        "title": "Arend 1.9.0 released",
+        "excerpt":"Language updates: Properties in \\Sigma-types Definition parameters are visible in the \\where block Global level declarations Infix patterns Axioms Box expressions Property parameters Plugin updates: Inlays for levels, added parameters, and used axioms “Change arguments explicitness” refactoring “Change signature” refactoring Revealing information in error messages arend-lib: The definion of modules,...","categories": [],
+        "tags": [],
+        "url": "/2022/12/05/Arend-1.9.0-released.html",
+        "teaser": null
+      },{
+        "title": "Arend 1.10.0 released",
+        "excerpt":"Language updates: Bug fixes and minor improvements Plugin updates: Keyword documentation Improved change signature refactoring Improved move refactoring Improved parameter hints Improved REPL, completion, auto-import, and import optimization Improved settings synchronization Latex in documentation strings Class diagrams Quick braces switch intention arend-lib: Tactics: assumption meta in meta defaultImpl meta Sets...","categories": [],
+        "tags": [],
+        "url": "/2024/07/05/Arend-1.10.0-released.html",
+        "teaser": null
       }]

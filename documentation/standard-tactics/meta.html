@@ -121,6 +121,8 @@
               <a href="/documentation">Documentation</a>
             </li><li class="masthead__menu-item">
               <a href="/download">Download</a>
+            </li><li class="masthead__menu-item">
+              <a href="/arend-lib">Arend Library</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -401,7 +403,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> \module Meta</h4></header>
-              <ul class="toc__menu"><li><a href="#scope-metas">Scope metas</a></li><li><a href="#cases">cases</a></li><li><a href="#mcases">mcases</a></li><li><a href="#unfold">unfold</a></li><li><a href="#unfold_let">unfold_let</a></li></ul>
+              <ul class="toc__menu"><li><a href="#scope-metas">Scope metas</a></li><li><a href="#cases">cases</a></li><li><a href="#mcases">mcases</a></li><li><a href="#unfold">unfold</a></li><li><a href="#unfold_let">unfold_let</a></li><li><a href="#assumption">assumption</a></li><li><a href="#in">in</a></li><li><a href="#defaultimpl">defaultImpl</a></li></ul>
 
             </nav>
           </aside>
@@ -466,6 +468,23 @@ If the expected type is unknown, it unfolds these function in the result type of
 
 <p><span class="inl-highlight">unfold_let</span> unfolds <span class="inl-highlight"><span class="k">\let</span></span> expressions</p>
 
+<h1 id="assumption">assumption</h1>
+
+<p><span class="inl-highlight">assumption</span> searches for a proof in the context. It tries variables that are declared later first.
+<span class="inl-highlight">assumption {n}</span> returns the n-th variables from the context counting from the end.
+<span class="inl-highlight">assumption {n} a1 … ak</span> applies n-th variable from the context to arguments a1, … ak.</p>
+
+<h1 id="in">in</h1>
+
+<p><span class="inl-highlight">f in x</span> is equivalent to <span class="inl-highlight"><span class="k">\let</span> r <span class="o">=&gt;</span> f x <span class="k">\in</span> r</span>.
+Also, <span class="inl-highlight">(f_1<span class="o">,</span> … f_n) in x</span> is equivalent to <span class="inl-highlight">f_1 in … f_n in x</span>.
+This meta is usually used with <span class="inl-highlight">f</span> being a meta such as <span class="inl-highlight">rewrite</span>, <span class="inl-highlight">simplify</span>, <span class="inl-highlight">simp_coe</span>, or <span class="inl-highlight">unfold</span>.</p>
+
+<h1 id="defaultimpl">defaultImpl</h1>
+
+<p><span class="inl-highlight">defaultImpl C F E</span> returns the default implementation of field <span class="inl-highlight">F</span> in class <span class="inl-highlight">C</span> applied to expression <span class="inl-highlight">E</span>.
+The third argument can be omitted, in which case either <span class="inl-highlight"><span class="k">\this</span></span> or <span class="inl-highlight"><span class="u">_</span></span> will be used instead,</p>
+
         
       </section>
 
@@ -520,7 +539,7 @@ If the expected type is unknown, it unfolds these function in the result type of
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2023 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2024 Arend. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>
