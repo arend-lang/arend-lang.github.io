@@ -1,0 +1,652 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Refactoring - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Refactoring">
+<meta property="og:url" content="http://localhost:4000/documentation/plugin-manual/refactoring.html">
+
+
+  <meta property="og:description" content="The Arend Theorem Prover">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/plugin-manual/refactoring.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+</head>
+
+<body class="layout--single">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation"
+                
+                
+              >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation/getting-started/download"
+                
+                
+              >Download</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/arend-lib"
+                
+                
+              >Arend Library</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="initial-content">
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/arend-features" class="">Arend features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/download" class="">Downloading Arend</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/started" class="">Creating first project</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/libraries" class="">Arend libraries</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/intellij-arend-tutorial" class="">Short tutorial</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/standard-tactics"><span class="nav__sub-title">Standard metas</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/meta" class="">Unclassified metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/function-meta" class="">Functional metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/algebra-meta" class="">Algebraic metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/logic-meta" class="">Logical metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/debug-meta" class="">Debugging metas</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/plugin-manual"><span class="nav__sub-title">Plugin reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/editor-features" class="">Editor features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/navigating" class="">Navigation</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/refactoring" class="active">Refactoring</a></li>
+
+            
+            
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Refactoring">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Refactoring
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Refactoring</h4></header>
+              <ul class="toc__menu"><li><a href="#code-formatting">Code formatting</a></li><li><a href="#optimize-imports">Optimize Imports</a><ul><li><a href="#limitations">Limitations</a></li></ul></li><li><a href="#rename-refactoring">Rename refactoring</a></li><li><a href="#change-signature-refactoring">Change Signature refactoring</a><ul><li><a href="#current-limitations">Current limitations</a></li></ul></li><li><a href="#move-refactoring">Move Refactoring</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="code-formatting">Code formatting</h1>
+<p><img src="/about//intellij-features/CodeFormatter.gif" alt="Short video illustrating Reformat Code feature" style="display: block; margin: 0 auto;" /></p>
+
+<p>Pressing <strong>Ctrl+Alt+L</strong> (or <strong>⌘⌥L</strong> on macOS) will format the selected Arend file (or a selected piece of code) according to Arend’s text formatting conventions, just as it would for Java or Kotlin files.</p>
+
+<h1 id="optimize-imports">Optimize Imports</h1>
+<p><img src="/about/intellij-features/UnusedImports.gif" alt="Short video illustrating Unused Imports feature" style="display: block; margin: 0 auto;" /></p>
+
+<p>Similar to other languages supported by IntelliJ IDEA, the Arend plugin provides a tool to analyze import headers in each file for potentially superfluous import directives.
+ These unnecessary directives are highlighted in gray and can be removed using the corresponding intention action. To use this feature:</p>
+<ul>
+  <li>Place the caret on the highlighted (superfluous) import directive.</li>
+  <li>Press <strong>Alt+Enter</strong> (or <strong>⌥Enter</strong> on macOS) to trigger the action and remove it.</li>
+</ul>
+
+<h2 id="limitations">Limitations</h2>
+<p>The <strong>Optimize Imports</strong> tool requires the file upon which it is invoked to be fully type checked  to produce fully accurate results.
+In particular, the type checker must be in the <strong>Smart</strong> mode.
+This limitation exists because, in Arend, an <code class="language-plaintext highlighter-rouge">\import</code> directive might still be necessary even if there are no explicit references to the contents of the imported file. 
+For example, a file may export a class instance which is used implicitly via the <a href="/documentation/language-reference/definitions/classes#instances">instance inference mechanism</a>.
+To avoid false positives, the tool will not mark <code class="language-plaintext highlighter-rouge">\import</code> directives as superfluous in <strong>Dumb</strong> mode if they refer to files containing <code class="language-plaintext highlighter-rouge">\instance</code> declarations.</p>
+
+<h1 id="rename-refactoring">Rename refactoring</h1>
+<p>The Rename feature in IntelliJ IDEA allows the user to change the name of variables, classes, functions, data types, or other identifiers across the Arend project. 
+This ensures consistency and prevents manual errors. The feature can be invoked using <strong>Shift+F6</strong> (or <strong>⇧F6</strong> on macOS). 
+When the user renames a symbol, IntelliJ automatically updates all references, comments, and related files.</p>
+
+<h1 id="change-signature-refactoring">Change Signature refactoring</h1>
+<p><img src="/about/intellij-features/ChangeSignature.gif" alt="Short video showing the operation of Change Signature feature" style="display: block; margin: 0 auto;" /></p>
+
+<p>The Arend plugin supports the Change Signature refactoring feature of IntelliJ IDEA, providing a tool for modifying function or theorem signatures while preserving the correctness of call expressions and types throughout the entire Arend codebase. 
+This feature can be activated by pressing <strong>Ctrl+F6</strong> (or <strong>⌘F6</strong> on macOS) when the caret is positioned on the header of the definition whose signature is to be changed.
+Parameters of the definition are displayed in a table format with three columns: <strong>Name</strong>, <strong>Type</strong>, and <strong>Explicitness</strong>.</p>
+
+<p>Users can add, remove, reorder, and rename parameters, as well as toggle their explicitness (i.e. switch between explicit and implicit). 
+Changes to a parameter’s name are automatically updated in all references to that parameter within the table.
+Clicking the <strong>Refactor</strong> button applies these changes across the codebase, ensuring that type dependencies—such as variables referenced in the types of other parameters—are accurately adjusted. For example, renaming a parameter used in a type declaration automatically updates all type definitions that reference it.</p>
+
+<h2 id="current-limitations">Current limitations</h2>
+<p>The <strong>Change Signature</strong> refactoring, like the <strong>Parameter Hints</strong> feature, aims to handle dynamically inferred implicit parameters in definitions’ signatures. 
+For accurate results, it is recommended to use this refactoring only when the target definition and its surrounding definitions are fully type-checked. 
+Without full type-checking, the tool may fail to correctly infer the definition’s signature.</p>
+
+<p>A known limitation occurs when the refactoring processes a function call that ends with an implicit tail argument. 
+At the syntactic level (without type-checking), the tool cannot distinguish between the following two cases:
+Passing a function <code class="language-plaintext highlighter-rouge">f</code> as an argument to another function (e.g., <code class="language-plaintext highlighter-rouge">g f</code>).
+Invoking f with an implicit parameter, inferred by the type checker, then passing the result to another function (e.g., <code class="language-plaintext highlighter-rouge">g f</code>, but actually <code class="language-plaintext highlighter-rouge">g (f {_})</code>).
+These two cases require different handling by the refactoring tool:</p>
+<ul>
+  <li>Case 1: The refactoring should generate <code class="language-plaintext highlighter-rouge">g (\lam {x} =&gt; f x)</code>.</li>
+  <li>Case 2: The output should be <code class="language-plaintext highlighter-rouge">g (f _)</code>.</li>
+</ul>
+
+<p>To properly handle such an ambiguity, the tool would need to perform type-checking on every syntactically ambiguous expression with implicit tail arguments. 
+However, this feature is currently not implemented due to performance limitations. 
+As a result, the tool processes all tail implicit arguments as in Case 1, which may produce erroneous code requiring manual correction.</p>
+
+<h1 id="move-refactoring">Move Refactoring</h1>
+<p><img src="/about//intellij-features/MoveRefactoring.gif" alt="Short video showing the operation of Move Refactoring feature" style="display: block; margin: 0 auto;" /></p>
+
+<p>The Arend plugin implements IntelliJ IDEA’s Move Refactoring feature, enabling the user to reorganize code by moving classes, functions, data types, or fields to a new location within the same file or to a different Arend file. 
+This operation automatically updates all references and corrects file imports.</p>
+
+<p>To use the feature, the user must place the cursor on the definition to be moved and press <strong>F6</strong> (or <strong>⌃T</strong>, followed by <strong>6</strong> on macOS). A dialog window will appear, allowing the user to specify the new destination, including the target Arend file and the fully qualified name of the target namespace.</p>
+
+<p>If the selected namespace is an Arend class, the user can choose whether to place the definition in the “static” namespace (the class’s <code class="language-plaintext highlighter-rouge">\where</code> block) or the “dynamic” namespace (the main class body where all members implicitly have a <code class="language-plaintext highlighter-rouge">\this</code> parameter).</p>
+
+<p>Multiple definitions can be moved simultaneously. In this case, the dialog provides a list of definitions located within the same namespace, and the user can select items to be moved by checking their corresponding boxes.</p>
+
+<p>The refactoring process ensures safety by highlighting potential name conflicts and offering suggestions to resolve them before finalizing the operation.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+</div>
+
+
+
+<div id="footer" class="page__footer">
+    <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+</div>
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

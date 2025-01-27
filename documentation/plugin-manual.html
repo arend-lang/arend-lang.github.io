@@ -1,0 +1,1354 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Arend plugin manual - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Arend plugin manual">
+<meta property="og:url" content="http://localhost:4000/documentation/plugin-manual.html">
+
+
+  <meta property="og:description" content="The Arend Theorem Prover">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/plugin-manual.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+</head>
+
+<body class="layout--single">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation"
+                
+                
+              >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation/getting-started/download"
+                
+                
+              >Download</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/arend-lib"
+                
+                
+              >Arend Library</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="initial-content">
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/arend-features" class="">Arend features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/download" class="">Downloading Arend</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/started" class="">Creating first project</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/libraries" class="">Arend libraries</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/intellij-arend-tutorial" class="">Short tutorial</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/standard-tactics"><span class="nav__sub-title">Standard metas</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/meta" class="">Unclassified metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/function-meta" class="">Functional metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/algebra-meta" class="">Algebraic metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/logic-meta" class="">Logical metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/debug-meta" class="">Debugging metas</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/plugin-manual"><span class="nav__sub-title">Plugin reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/editor-features" class="">Editor features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/navigating" class="">Navigation</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/refactoring" class="">Refactoring</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Arend plugin manual">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Arend plugin manual
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        
+<div class="feature__wrapper">
+
+  
+
+    
+
+    <div id="code-completion" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/CodeCompletion-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Code Completion</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Code completion is invoked automatically by typing and shows all symbols available in the given context.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/editor-features#auto-completion" class="btn btn--inverse">Open Reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="typechecking" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/Typechecking-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Background Incremental Typechecking</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend can typecheck definitions individially. This means that it is enough to rerun the typechecker only on the last modified definition and not the whole file. Also, typechecker is invoked automatically in background.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/editor-features#incremental-background-type-checking" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="goals" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/Goals-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Goals</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Custom goal solvers can be used to replace goals with expressions.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about/intellij-features/Goals.gif" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="quick-documentation" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/QuickDocumentation-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Quick Documentation</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Quick documentation is invoked by <strong>Ctrl+Q</strong> and shows available information for the symbol at the caret.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/editor-features#quick-documentation" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="parameter-hints" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/ParameterHints-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Parameter Hints</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Parameter hints is invoked by <strong>Ctrl+P</strong> and shows types of parameters of the definition near the caret.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/editor-features#parameter-hints" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="code-formatter" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/CodeFormatter-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Code Formatter</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Code formatter helps to format the code while typing. It also can be invoked explicitly by pressing <strong>Ctrl+Alt+F7</strong> to format the whole file.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/refactoring#code-formatting" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="auto-import" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/AutoImport-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Auto Import</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Auto import adds missing imports. To invoke it, press <strong>Ctrl+Space</strong> on an unresolved symbol. It can also add unambiguous imports on the fly (this can be enabled in <strong>Settings | Editor | General | Auto Import</strong>).</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/editor-features#auto-import-quick-fix" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="pattern-generator" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/PatternGenerator-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Pattern Generator</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend can add missing clauses in pattern matching. It also can split a variable in a pattern into available constructors. The quick fix is invoked by pressing <strong>Alt+Enter</strong>.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/editor-features#pattern-generators" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="implement-missing-fields" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/ImplementMissingFields-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Implement Missing Fields</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend can add implementation stubs for missing fields. The quick fix is invoked by pressing <strong>Alt+Enter</strong>.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/editor-features#implement-fields-quick-fix" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="show-types" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/ShowTypes-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Show Types</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend can show types of (sub)expressions. To invoke it press <strong>Ctrl+Shift+P</strong> on an expression.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about//intellij-features/ShowTypes.gif" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="show-expr" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/ShowExpr-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Show Expression</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend can show (normalized) representation of an arbitrary expression. To invoke it press <strong>Ctrl+Shift+O</strong> on an expression.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about//intellij-features/ShowExpr.gif" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="normalize-expr" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/NormalizeExpr-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Normalize Expression</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend can replace an expression with its normalized result.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about//intellij-features/NormalizeExpr.gif" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="aliases" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/Aliases-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Aliases</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Definitions are replaced with their aliases during completion.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/editor-features#unicode-symbols-and-aliases" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="parens" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/RedundantParens-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Redundant Parentheses Inspection</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend detects and suggests to remove redundant parentheses.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about/intellij-features/Parens.gif" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="generate-function" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/GenerateFunction-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Generate Function</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend allows to extract goals and selected expressions to a separate function.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about/intellij-features/GenerateFunction.gif" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="extract-to-let" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/ExtractToLet-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Extract to \let-binding</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend allows to extract selected expressions to a \let-binding.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about/intellij-features/ExtractToLet.gif" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="revealing" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/Revealing-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Incremental Term Inspection</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend allows to incrementally reveal hidden information about the term, which reduces visual noise.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about/intellij-features/Reveal.gif" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="find-usages" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/FindUsages-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Find Usages</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>To find usages of the symbol at the caret, press <strong>Alt+F7</strong>. The usages are classified by the context in which they appear.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/navigating#find-usages" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="proof-search" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/ProofSearch-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Proof Search</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend provides a flexible search engine that allows to discover theorems by their signature. To invoke it, press <strong>Ctrl+Alt+P</strong>.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/navigating#proof-search" class="btn btn--inverse">Open Reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="class-hierarchy" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/ClassHierarchy-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Class Hierarchy</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Class hierarchy is invoked by <strong>Ctrl+H</strong> and shows subclasses and superclasses of the class at the caret.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/navigating#class-hierarchy" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="change-signature" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/ChangeSignature-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Change signature</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>This refactoring can be used to modify the signature of a definition by adding or deleting parameters and changing their explicitness and types. It can be invoked by pressing <strong>Ctrl+F6</strong>.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/refactoring#change-signature-refactoring" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="move-refactoring" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/MoveRefactoring-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Move Refactoring</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend can move a declaration to another module or file. It automatically fixes all references to this declaration. This refactoring can also move a file to another directory.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/refactoring#move-refactoring" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="unused-imports" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/UnusedImports-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Unused Imports</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>IntelliJ Arend detects and suggests to remove import statements that are not used in a module.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/documentation/plugin-manual/refactoring#optimize-imports" class="btn btn--inverse">Open reference</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="latex-doc" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/LatexDoc-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Latex documentation</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Documentation may contain latex commands which are rendered in the documentation preview.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about/intellij-features/LatexDoc.png" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div id="tracer" class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img style="max-width: 460px; max-height: 200px" src="/assets/images/Tracer-460x200.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Tracer</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Tracer allows to analyze the typechecking process of Arend terms step-by-step.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about/intellij-features/Tracer.mp4" class="btn btn--inverse">Show More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+</div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+</div>
+
+
+
+<div id="footer" class="page__footer">
+    <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+</div>
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
