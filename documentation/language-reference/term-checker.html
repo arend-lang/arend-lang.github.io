@@ -1,0 +1,871 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Arend termination checker - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Arend termination checker">
+<meta property="og:url" content="http://localhost:4000/documentation/language-reference/term-checker.html">
+
+
+  <meta property="og:description" content="The Arend Theorem Prover">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/language-reference/term-checker.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+</head>
+
+<body class="layout--single">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+<!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation"
+                
+                
+              >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation/getting-started/download"
+                
+                
+              >Download</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/arend-lib"
+                
+                
+              >Arend Library</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="initial-content">
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/arend-features" class="">Arend features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/download" class="">Downloading Arend</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/started" class="">Creating first project</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/libraries" class="">Arend libraries</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/intellij-arend-tutorial" class="">Short tutorial</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/standard-tactics"><span class="nav__sub-title">Standard metas</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/meta" class="">Unclassified metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/function-meta" class="">Functional metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/algebra-meta" class="">Algebraic metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/logic-meta" class="">Logical metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/debug-meta" class="">Debugging metas</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/term-checker" class="active">Termination checker</a></li>
+
+            
+            
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/plugin-manual"><span class="nav__sub-title">Plugin reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/editor-features" class="">Editor features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/navigating" class="">Navigation</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/refactoring" class="">Refactoring</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Arend termination checker">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Arend termination checker
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Arend termination checker</h4></header>
+              <ul class="toc__menu"><li><a href="#1-detection-of-circular-dependencies">1. Detection of Circular Dependencies</a></li><li><a href="#2-preparation-of-call-matrices">2. Preparation of Call Matrices</a><ul><li><a href="#the-set-of-comparison-results">The set of comparison results</a></li><li><a href="#call-matrices-in-arends-termination-checker">Call matrices in Arend’s termination checker</a></li><li><a href="#computing-entries">Computing entries</a></li><li><a href="#current-limitations-the-detection-of-eliminations">Current limitations: the detection of eliminations</a></li><li><a href="#tuples-records-and-classes">Tuples, records, and classes</a></li></ul></li><li><a href="#3-the-call-graph-and-its-completion">3. The Call Graph and its completion</a><ul><li><a href="#matrix-composition">Matrix composition</a></li><li><a href="#matrix-dimensions">Matrix dimensions</a></li><li><a href="#call-graph-completion">Call graph completion</a></li><li><a href="#visualizing-the-call-graph">Visualizing the call graph</a></li></ul></li><li><a href="#4-analysis-of-loops">4 Analysis of loops</a><ul><li><a href="#the-model-case">The model case</a></li><li><a href="#the-general-case">The general case</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p>The need for termination checking in Arend stems from two main problems:</p>
+
+<ol>
+  <li>
+    <p>Under the <strong>Curry–Howard correspondence</strong>, recursive calls to a theorem within its own proof correspond to inductive reasoning in classical mathematics. 
+It is essential that such recursive calls are <em>well-founded</em>—meaning they must follow a valid induction schema and avoid circular reasoning.</p>
+  </li>
+  <li>
+    <p>Any system based on dependent type theory would become inconsistent if it allowed nonterminating functions like</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo <span class="o">:</span> Nat <span class="o">=&gt;</span> foo zero</code></pre></div></div>
+
+<p>If such a function were permitted, one could derive <code class="language-plaintext highlighter-rouge">False</code> (for example, deducing it from <code class="language-plaintext highlighter-rouge">suc (foo) = foo</code>).</p>
+
+<p>The version of the termination checker used in Arend is heavily inspired by the <strong>FOETUS</strong> termination checker described by A. Abel in his <a href="https://arxiv.org/abs/2407.06924">master’s thesis</a> (with some enhancements and optimizations).</p>
+
+<p>This page outlines the main steps of Arend’s termination checking algorithm and is intended as a guide for users who encounter termination issues in their Arend code.</p>
+
+<hr />
+
+<h2 id="1-detection-of-circular-dependencies">1. Detection of Circular Dependencies</h2>
+
+<p>The first step made by the Arend termination checker is to detect circular dependencies in definitions. 
+Since Arend does not allow coinductive or nested inductive types, recursion in functions and theorems is the only possible source of non-termination.</p>
+
+<ul>
+  <li>If a group of functions/theorems call each other, a directed graph of function calls is constructed.</li>
+  <li>In this graph:
+    <ul>
+      <li><strong>vertices</strong> correspond to functions/theorems,</li>
+      <li><strong>edges</strong> correspond to calls. 
+(If function <code class="language-plaintext highlighter-rouge">f</code> calls function <code class="language-plaintext highlighter-rouge">g</code> twice in its implementation, then 2 separate edges are constructed.)</li>
+    </ul>
+  </li>
+  <li>Every <strong>strongly connected component</strong> of this graph then is analyzed on the next stage of the termination checking algorithm.</li>
+</ul>
+
+<p>In particular, if a function/theorem is defined recursively and does not rely on mutual recursion, the resulting graph has only one vertex, and the number of loops on that vertex is the number of different recursive calls inside its body.</p>
+
+<hr />
+
+<h2 id="2-preparation-of-call-matrices">2. Preparation of Call Matrices</h2>
+<p>Once a graph of recursion is found, the next step is to analyze how the arguments evolve in recursive calls. 
+This is encoded in <strong>call matrices</strong>, a key concept borrowed from Abel’s FOETUS framework.</p>
+
+<h3 id="the-set-of-comparison-results">The set of comparison results</h3>
+
+<p>Denote by R the set {“<strong>?</strong>”, “<strong>=</strong>”, “<strong>&lt;</strong>”}. This set encodes possible comparison results between function parameters and call arguments. These labels should be read as follows:</p>
+
+<ul>
+  <li>“<strong>?</strong>” = “no information”</li>
+  <li>“<strong>=</strong>” = “same”</li>
+  <li>“<strong>&lt;</strong>” = “less than”</li>
+</ul>
+
+<h3 id="call-matrices-in-arends-termination-checker">Call matrices in Arend’s termination checker</h3>
+
+<p>After a strongly connected directed graph of calls is constructed, the Arend typechecker assigns a call matrix to each call (i.e. each edge of the graph).</p>
+
+<p>The algorithm responsible for this is run during the <strong>type checking</strong> phase. 
+During this phase it makes no distinction between explicit and implicit parameters: all function arguments are already inferred, and expressions are normalized with implicit parameters filled in.</p>
+
+<p>For clarity, we assume that all parameters and arguments of functions are explicit.</p>
+
+<p>Let:</p>
+
+<ul>
+  <li><em>f</em> have parameters x<sub>1</sub>, …, x<sub>n</sub>,</li>
+  <li><em>g</em> have parameters y<sub>1</sub>, …, y<sub>m</sub>.</li>
+</ul>
+
+<p>Suppose that, after normalization and deduction of implicit arguments, the body of <em>f</em> contains a call <em>G = g z<sub>1</sub> … z<sub>s</sub></em>, where each <em>z</em><sub><em>j</em></sub> is an expression referring to parameters <em>x</em><sub><em>1</em></sub>, …, <em>x</em><sub><em>n</em></sub> and pattern variables introduced by eliminating <em>x</em><sub><em>i</em></sub>.</p>
+
+<p>To this call we associate a call matrix <em>C = C(G)</em> of dimension <em>n × m</em>:</p>
+
+<ul>
+  <li><strong>Rows</strong> correspond to parameters of the caller <em>f</em> (<em>n</em> rows).</li>
+  <li><strong>Columns</strong> correspond to parameters of the callee <em>g</em> (<em>m</em> columns).</li>
+</ul>
+
+<p>The entry <em>C</em><sub><em>ij</em></sub> in row <em>i</em>, column <em>j</em> describes how the caller’s parameter <em>x</em><sub><em>i</em></sub> relates to the argument <em>z</em><sub><em>j</em></sub> (which is the argument for the callee’s parameter <em>y</em><sub><em>j</em></sub>).</p>
+
+<hr />
+
+<h3 id="computing-entries">Computing entries</h3>
+
+<p>The value of each matrix entry <em>C</em><sub><em>ij</em></sub> is one of “<strong>&lt;</strong>”, “<strong>=</strong>”, or “<strong>?</strong>”.
+It is computed according to the following list of rules:</p>
+
+<ol>
+  <li>
+    <p><strong>Missing argument</strong>: If the <em>j</em>-th parameter of <em>g</em> is not supplied (i.e. <em>j &gt; s</em>), then <em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
+  </li>
+  <li>
+    <p><strong>Direct identity</strong>: If <em>z</em><sub><em>j</em></sub> is a reference to a variable <em>x</em><sub><em>i</em></sub>, then <em>C</em><sub><em>ij</em></sub> = “<strong>=</strong>”.</p>
+  </li>
+  <li>
+    <p><strong>Eliminated variable</strong>: If <em>z</em><sub><em>j</em></sub> is a reference to a pattern variable obtained from <em>x</em><sub><em>i</em></sub> by elimination in a <code class="language-plaintext highlighter-rouge">\elim</code> or <code class="language-plaintext highlighter-rouge">\with</code> statement, then 
+<em>C</em><sub><em>ij</em></sub> = “<strong>&lt;</strong>”.</p>
+  </li>
+  <li>
+    <p><strong>Application</strong>: If <em>z</em><sub><em>j</em></sub> is an application expression <code class="language-plaintext highlighter-rouge">a b</code>, compute <em>C</em><sub><em>ij</em></sub> as if <em>z</em><sub><em>j</em></sub> were just <code class="language-plaintext highlighter-rouge">a</code>. (Intuitively, applying an argument never makes the term “larger,” so only the head matters.)</p>
+  </li>
+  <li>
+    <p><strong>Projection or field accessor</strong>: If <em>z</em><sub><em>j</em></sub> is a sigma projection <code class="language-plaintext highlighter-rouge">a.1</code>, <code class="language-plaintext highlighter-rouge">a.2</code> or a field accessor <code class="language-plaintext highlighter-rouge">a.foo</code>, compute <em>C</em><sub><em>ij</em></sub> as if <em>z</em><sub><em>j</em></sub> were just <code class="language-plaintext highlighter-rouge">a</code>.</p>
+  </li>
+  <li>
+    <p><strong>At-expression</strong>: If <em>z</em><sub><em>j</em></sub> = <code class="language-plaintext highlighter-rouge">p @ a</code>, compute <em>C</em><sub><em>ij</em></sub> as if <em>z</em><sub><em>j</em></sub> were just <code class="language-plaintext highlighter-rouge">a</code>.</p>
+  </li>
+  <li>
+    <p><strong>Otherwise</strong>: If none of the above apply then 
+<em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
+  </li>
+</ol>
+
+<hr />
+
+<p>Notice that for each column <em>j</em>, there is at most one row <em>i</em> such that <em>C</em><sub><em>ij</em></sub> <em>≠</em> “<strong>?</strong>”. 
+Intuitively, every argument <em>z</em><sub><em>j</em></sub> is related to at most one caller parameter.</p>
+
+<hr />
+
+<h3 id="current-limitations-the-detection-of-eliminations">Current limitations: the detection of eliminations</h3>
+
+<p>The termination checker detects variable elimination <strong>only</strong> in <code class="language-plaintext highlighter-rouge">\elim</code> and <code class="language-plaintext highlighter-rouge">\with</code> clauses that appear at the <strong>top level</strong> of a function or theorem definition.</p>
+
+<p>Eliminations that occur inside <code class="language-plaintext highlighter-rouge">\case</code> expressions are ignored, even if a bare variable is eliminated and even if the <code class="language-plaintext highlighter-rouge">\case \elim</code> version is used. 
+As a result, if a variable introduced in a <code class="language-plaintext highlighter-rouge">\case</code> block is used as an argument in a recursive call, the corresponding entry in the call matrix will be “<strong>?</strong>”.</p>
+
+<hr />
+
+<h3 id="tuples-records-and-classes">Tuples, records, and classes</h3>
+
+<p>When a parameter of a function has a Σ-type (tuple), record, or class type, and the corresponding argument at a call site is:</p>
+
+<ul>
+  <li>a tuple literal (for Σ-types), or</li>
+  <li>a <code class="language-plaintext highlighter-rouge">\new</code> expression (for records/classes),</li>
+</ul>
+
+<p>then the checker attempts to analyze the components or fields separately.</p>
+
+<p>This means that the call matrix is filled <strong>component-wise</strong>, rather than treating the entire tuple or record as a single opaque argument.</p>
+
+<hr />
+
+<h2 id="3-the-call-graph-and-its-completion">3. The Call Graph and its completion</h2>
+
+<p>At this stage, we have constructed a <strong>call graph</strong>:</p>
+
+<ul>
+  <li><strong>Vertices</strong> correspond to functions/theorems.</li>
+  <li><strong>Edges</strong> correspond to calls between them.</li>
+  <li>Each edge is labeled with a call matrix describing how the arguments of the callee relate to the parameters of the caller.</li>
+</ul>
+
+<p>Looking only at the call matrices of individual edges is not enough to guarantee termination. 
+For instance, every edge in the graph might contain a “<strong>&lt;</strong>” entry somewhere, suggesting that some argument decreases on every call. 
+At first sight, termination may appear plausible.</p>
+
+<p>Yet this local evidence can be misleading: when arguments are carefully traced around an entire cycle of calls, it may turn out that no single argument decreases consistently, and the cycle can loop forever.</p>
+
+<p>To rule this out, the termination checker builds the <strong>completion of the call graph</strong>, in which call matrices are <strong>composed along all paths</strong> inside the graph. 
+This completion captures the <em>net effect</em> of each cycle on the parameters of every function, making it possible to distinguish genuine structural descent from misleading local decreases.</p>
+
+<hr />
+
+<h3 id="matrix-composition">Matrix composition</h3>
+
+<p>We equip the set R = {“<strong>?</strong>”, “<strong>=</strong>”, “<strong>&lt;</strong>”} of comparison results with a <a href="https://en.wikipedia.org/wiki/Semiring"><strong>semiring structure</strong></a>:</p>
+
+<ul>
+  <li><strong>Addition</strong> <code class="language-plaintext highlighter-rouge">+</code> represents taking the “best possible” relation (union of evidence).</li>
+  <li><strong>Multiplication</strong> <code class="language-plaintext highlighter-rouge">*</code> represents composing relations across successive calls.
+    <ul>
+      <li>Composing “<strong>&lt;</strong>” with “<strong>&lt;</strong>” or “<strong>=</strong>” yields “<strong>&lt;</strong>”.</li>
+      <li>Composing with “<strong>=</strong>” preserves the other relation.</li>
+      <li>Composing with “<strong>?</strong>” loses information.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Operation tables:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+ | &lt;   =   ?			* | &lt;   =   ?
+-------------			-------------
+&lt; | &lt;   &lt;   &lt;			&lt; | &lt;   &lt;   ?
+= | &lt;   =   =			= | &lt;   =   ?
+? | &lt;   =   ?			? | ?   ?   ?
+</code></pre></div></div>
+<hr />
+
+<h3 id="matrix-dimensions">Matrix dimensions</h3>
+
+<p>The dimensions of each call matrix are determined by the number of parameters of the domain (caller) and codomain (callee).</p>
+
+<p>If an edge <em>e</em> ends in a vertex <em>v</em>, and another edge <em>f</em> starts from <em>v</em>, then:
+the number of columns of <em>C</em><sub><em>e</em></sub> coincides with the number of rows of <em>C</em><sub><em>f</em></sub>.</p>
+
+<p>This suggests we can define the matrix product <em>C</em><sub><em>e</em></sub> * <em>C</em><sub><em>f</em></sub> (with the usual <a href="https://en.wikipedia.org/wiki/Matrix_multiplication">matrix multiplication formula</a> but using operations of <em>R</em> described above). The resulting matrix describes the evolution of arguments after following first <em>e</em> and then <em>f</em>.</p>
+
+<hr />
+
+<h3 id="call-graph-completion">Call graph completion</h3>
+
+<p>The <strong>completed call graph</strong> is obtained by finding all possible compositions of edges and computing their labels (products of call matrices). 
+Since there are only finitely many different call matrices between any two vertices, the completion graph can be computed in finitely many steps.</p>
+
+<p>In categorical language the completed call graph is the subcategory generated by the original call graph (considered as a subgraph of the category in which vertices are functions and hom-sets are sets of call matrices of appropriate sizes).</p>
+
+<hr />
+
+<h3 id="visualizing-the-call-graph">Visualizing the call graph</h3>
+
+<p>In Arend, recursive functions/theorems are marked with <img src="/assets/images/complexRecursion.svg" alt="a special" /> icon in the gutter.</p>
+
+<ul>
+  <li>Clicking the icon opens a dialog window in which the call graph is visualized.
+<img src="/assets/images/CallGraph.png" alt="Call graph dialog" /></li>
+  <li>Clicking an edge of the graph displays its call matrix.</li>
+  <li>A <strong>Before/After completion</strong> checkbox switches between showing the call graph <em>before</em> and <em>after</em> the completion operation.</li>
+</ul>
+
+<h2 id="4-analysis-of-loops">4 Analysis of loops</h2>
+
+<h3 id="the-model-case">The model case</h3>
+
+<p>Let <em>f(x</em><sub><em>1</em></sub>, … ,<em>x</em><sub><em>n</em></sub><em>)</em> be a function that makes <em>m</em> different recursive calls to itself. 
+Each call is represented by an <em>n × n</em> call matrix <em>c</em><sup><em>1</em></sup>, …, <em>c</em><sup><em>m</em></sup>.</p>
+
+<p>We say that <em>f</em> admits a (lexicographic) <strong>termination order</strong> if there exists a sequence of parameter indices <em>i</em><sub><em>1</em></sub>, <em>i</em><sub><em>2</em></sub>, …, <em>i</em><sub><em>s</em></sub>, where 1 ≤ i<sub><em>k</em></sub> ≤ n such that the following conditions hold:</p>
+<ol>
+  <li>For every call <em>c</em><sup><em>j</em></sup>, the diagonal entry <em>c</em><sup><em>j</em></sup><sub>i<sub>1</sub>, i<sub>1</sub></sub> is either “<strong>&lt;</strong>” or “<strong>=</strong>”.
+    <ul>
+      <li>Let <em>I</em><sub><em>1</em></sub> be the set of all <em>j</em> for which <em>c</em><sup><em>j</em></sup><sub>i<sub>1</sub>, i<sub>1</sub></sub> = “<strong>=</strong>”.</li>
+    </ul>
+  </li>
+  <li>Restrict attention to calls with indices in <em>I</em><sub><em>1</em></sub>. For each <em>j</em> ∊ <em>I</em><sub><em>1</em></sub>, 
+the diagonal entry <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> is required to be either “<strong>&lt;</strong>” or “<strong>=</strong>”.
+    <ul>
+      <li>Let <em>I</em><sub><em>2</em></sub> be the those <em>j</em> from <em>I</em><sub><em>1</em></sub> for which <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> = “<strong>=</strong>”.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Continue in the same way: at stage <em>k</em>, look only at calls indexed by <em>I</em><sub><em>k-1</em></sub>. 
+For each such call, the diagonal entry at position <em>i</em><sub><em>k</em></sub> must be “<strong>&lt;</strong>” or “<strong>=</strong>”, 
+and define <em>I</em><sub><em>k</em></sub> as those with “<strong>=</strong>”.</p>
+  </li>
+  <li>In the end <em>I</em><sub><em>s</em></sub> is empty, i.e. at the last chosen parameter all remaining calls decrease strictly.</li>
+</ol>
+
+<p>The question of whether <em>f</em> admits a termination order can be restated more compactly in terms of matrices:</p>
+
+<ul>
+  <li>For each call matrix <em>c</em><sup><em>j</em></sup>, keep only its diagonal entries and discard the rest.</li>
+  <li>Collect these diagonals into an <em>m × n</em> matrix, where each row corresponds to the diagonal of one call matrix.</li>
+</ul>
+
+<p>A termination order for <em>f</em> exists <strong>iff</strong> the columns of this combined matrix can be reordered so that it takes the following staircase form (where “<code class="language-plaintext highlighter-rouge">*</code>” denotes an arbitrary entry):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;   *   *   *
+&lt;   *   *   *
+=   &lt;   *   *
+=   &lt;   *   *
+=   =   &lt;   *
+    .....
+</code></pre></div></div>
+<hr />
+
+<p>It is clear that a function that admits a termination order is guaranteed to terminate. Indeed, every recursive call strictly decreases its arguments in a fixed lexicographic order: the first parameter where a difference appears becomes smaller, while all earlier ones remain unchanged. Since each parameter is drawn from a well-founded domain (e.g. inductive type), and the lexicographic product of well-founded orders is itself well-founded, infinite descent is impossible, so the recursion must eventually stop.</p>
+
+<h3 id="the-general-case">The general case</h3>
+
+<p>Once the completed call graph has been constructed, Arend’s termination checker keeps only loops at each vertex of the call graph and discards all other edges. Intuitively, this makes sense since only self-cycles can sustain infinite recursion. For every vertex, the Arend termination checker then attempts to find a termination order in the sense formulated above. If every function in the strongly connected component admits termination order, the whole component of calls is accepted; otherwise, the checker reports a termination error.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+</div>
+
+
+
+<div id="footer" class="page__footer">
+    <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+</div>
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
