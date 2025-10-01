@@ -531,7 +531,7 @@ It is essential that such recursive calls are <em>well-founded</em>—meaning th
   </li>
 </ol>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo <span class="o">:</span> Nat <span class="o">=&gt;</span> foo zero</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo <span class="o">:</span> Nat <span class="o">=&gt;</span> suc foo</code></pre></div></div>
 
 <p>If such a function were permitted, one could derive <code class="language-plaintext highlighter-rouge">False</code> (for example, deducing it from <code class="language-plaintext highlighter-rouge">suc (foo) = foo</code>).</p>
 
@@ -578,7 +578,7 @@ This is encoded in <strong>call matrices</strong>, a key concept borrowed from A
 
 <h3 id="call-matrices-in-arends-termination-checker">Call matrices in Arend’s termination checker</h3>
 
-<p>After a strongly connected directed graph of calls is constructed, the Arend typechecker assigns a call matrix to each call (i.e. each edge of the graph).</p>
+<p>After a strongly connected directed graph of calls is constructed, the termination checker assigns a call matrix to each call (i.e. each edge of the graph).</p>
 
 <p>The algorithm responsible for this is run during the <strong>type checking</strong> phase. 
 During this phase it makes no distinction between explicit and implicit parameters: all function arguments are already inferred, and expressions are normalized with implicit parameters filled in.</p>
