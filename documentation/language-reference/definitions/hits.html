@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Higher Inductive Types">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/hits.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/hits.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/hits.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/hits.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -636,8 +632,7 @@ Thus, one cannot define the following function:</p>
 <p>A higher inductive type (HIT) is a data type with a constructor that has conditions of the form <span class="inl-highlight"><span class="o">|</span> left <span class="o">=&gt;</span> e</span> and <span class="inl-highlight"><span class="o">|</span> right <span class="o">=&gt;</span> e’</span>.
 Let us give a few examples:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle</span>
 <span class="k">\data</span> S1
   <span class="o">|</span> base
   <span class="o">|</span> loop I <span class="k">\with</span> {
@@ -645,8 +640,7 @@ Let us give a few examples:</p>
     <span class="o">|</span> right <span class="o">=&gt;</span> base
   }
 
-<span class="c">-- Suspension
-</span>
+<span class="c">-- Suspension</span>
 <span class="k">\data</span> Susp (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> north
   <span class="o">|</span> south
@@ -655,8 +649,7 @@ Let us give a few examples:</p>
     <span class="o">|</span> right <span class="o">=&gt;</span> south
   }
 
-<span class="c">-- Propositional truncation
-</span>
+<span class="c">-- Propositional truncation</span>
 <span class="k">\data</span> Trunc (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inT A
   <span class="o">|</span> truncT (x y <span class="o">:</span> Trunc A) (i <span class="o">:</span> I) <span class="k">\elim</span> i {
@@ -664,8 +657,7 @@ Let us give a few examples:</p>
     <span class="o">|</span> right <span class="o">=&gt;</span> y
   }
 
-<span class="c">-- Set quotient
-</span>
+<span class="c">-- Set quotient</span>
 <span class="k">\data</span> Quotient (A <span class="o">:</span> <span class="kt">\Type</span>) (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inQ A
   <span class="o">|</span> equivQ (x y <span class="o">:</span> A) (R x y) (i <span class="o">:</span> I) <span class="k">\elim</span> i {
@@ -695,27 +687,23 @@ The type of each constructor must be an iterated path type in the data itself.
 The endpoints of these path types specify the conditions.
 The examples above can be rewritten in this syntax as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle</span>
 <span class="k">\data</span> S1
   <span class="o">|</span> base
   <span class="o">|</span> loop <span class="o">:</span> base <span class="o">=</span> base
 
-<span class="c">-- Suspension
-</span>
+<span class="c">-- Suspension</span>
 <span class="k">\data</span> Susp (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> north
   <span class="o">|</span> south
   <span class="o">|</span> merid A <span class="o">:</span> north <span class="o">=</span> south
 
-<span class="c">-- Propositional truncation
-</span>
+<span class="c">-- Propositional truncation</span>
 <span class="k">\data</span> Trunc (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inT A
   <span class="o">|</span> truncT (x y <span class="o">:</span> Trunc A) <span class="o">:</span> x <span class="o">=</span> y
 
-<span class="c">-- Set quotient
-</span>
+<span class="c">-- Set quotient</span>
 <span class="k">\data</span> Quotient (A <span class="o">:</span> <span class="kt">\Type</span>) (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inQ A
   <span class="o">|</span> equivQ (x y <span class="o">:</span> A) (R x y) <span class="o">:</span> inQ x <span class="o">=</span> inQ y
@@ -793,7 +781,7 @@ Then the typechecker will insert missing variables and apply the right hand side
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

@@ -17,7 +17,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Arend 1.8.0 released - Arend Theorem Prover</title>
-<meta name="description" content="Language updates:     Improved performance   Inference of unique implicit arguments   Coercion between paths and functions   A convenient syntax for defining HITs and pattern matching on them   Plugin updates:     Proof Search – find declarations by their type (#319)   Tracer – step-by-step typechecking (#168)   Re-worked “Arend Messages” panel (#336)            Printing customization - control over the way of displaying expressions           Editing:            Live templates – advanced completion for keywords (#252)       Optimize imports – detecting and removing unused imports (#11)       Extract expression to \let binding       Generate function from a goal with arguments           arend-lib:     New and improved metas:            Improved Exists meta and new metas Given and Forall.       Improved contradiction meta. Now, it can derive contradictions from transitive closure of &lt;, &lt;=, and =.       New simplify meta.           Locales:            The definition of discrete locales and the embedding of rationals into reals.       The definition of overt locales and open maps.       The construction of dense-closed and strongly dense-weakly closed factorization systems on the category of locales.       A proof that nuclei form a frame.       Limits and colimits of locales.       A characterization of embeddings of locales: a map of locales is a regular monomorphism if and only if the left adjoint is surjective.       The definition of (weakly) regular locales and a proof that the locale of reals is regular.       The definition of Hausdorff locales and a proof that regular locales are Hausdorff.       The definition of uniform locales and the construction of their completion.           The definition of abstract reduction systems, second-order term rewriting systems, and a proof that the disjoint union of confluent left-linear systems is confluent.   The definition of algebraic theories, the category of its models, and a proof that it has all small limits and colimits.   The preorder of subobjects and regular subobjects.   The construction of the structure sheaf on the spectrum of a ring.   Plugin updates  Proof Search  Nearly every proof assistant has a problem of the discoverability for proven theorems. For instance, try to recall how a lemma describing the commutativity of addition is called in your favorite proof assistant. Is it add_comm? Or +-comm?  The new “Proof Search” action helps in this situation. Invoke it and type in a signature of the declaration you are interested in – the IDE will find the declarations with such a signature:                         Sorry, your browser doesn&#39;t support embedded videos.        For more information, please see the full documentation.  Tracer  The tracer is a new feature that allows you typechecking a declaration step-by-step.  At each step, the IDE shows you the typechecking context for the current expression.                         Sorry, your browser doesn&#39;t support embedded videos.        To use the tracer:     Start it via a pop-up menu on a declaration or expression.   Step through the expressions back and forth, jump to a specific expression via “Run to Cursor”, and stop early if needed.   Inspect the stack and the context in the editor view at each tracing step.   Compared to the “Show Expression Type” action, the tracer works in more contexts, shows more info, but could be slower.  Re-worked “Arend Messages” panel  The “Arend Messages” panel shows current goals and errors. We did a number of changes that are aimed to improve the UX around it:     Goals and errors are shown in separate panels.   Goals’ panel is not cleaned up when you remove the goal. It is only removed when a declaration, which contained a goal, has no more errors or other goals.   Implicit goals (goals without a corresponding {?} element in the source code) are not shown by default.   The vertical layout is supported.                          Sorry, your browser doesn&#39;t support embedded videos.        Printing customization  This feature is incubating, it may be completely changed in future releases, even minor ones.  The proof terms which appear during the development of some theory may be quite large. It is often hard to read and understand them, so in order to show these terms to the user we sometimes omit certain subterms. A typical example of a kind of these subterms is implicit arguments – they often may be inferred from the context of the term, so displaying them just adds unnecessary noise. However, we also need a way to show these subterms for the purposes of debugging or better understanding the term semantics. Arend allows to configure pretty-printer options by the eye button in Arend Messages toolwindow.    This approach has a flaw: it is done in an all-or-nothing way. You are offered to display every omitted subterm of a certain kind, or not display them at all. Therefore, after changing an option of the pretty printer you become lost in the term.  Arend 1.8.0 offers a solution: we introduce printing customization right in the displayed term. You can put a cursor to a source of omittable subterms and then the appeared popup will help you to uncover what was hidden. Currently it works only for implicit arguments and types of parameters in lambda expression.                         Sorry, your browser doesn&#39;t support embedded videos.        Live templates  Live templates are smart code snippets. They speed up editing by providing a completion for common code patterns.  This release includes such templates for the majority of Arend keywords:                         Sorry, your browser doesn&#39;t support embedded videos.        In addition, you can define your own templates in “Preferences | Editor | Live Templates | Arend”:    Optimize imports  Keeping imports clean is easier with this release. The IDE detects unused imports and highlights them in grey color. To remove such imports use the new “Code | Optimize Imports” action:                         Sorry, your browser doesn&#39;t support embedded videos.        Aside from just removing, this action can optimize the imports in various ways, for example, import all declarations from a module explicitly. See “Preferences | Editor | Code Style | Arend” for the options.  Extract expression to \let binding  If you have a complex expression and want to extract some of its parts into \let bindings,  the new “Create \let-binding” intention is there to automate the process:                         Sorry, your browser doesn&#39;t support embedded videos.        Generate function from a goal with arguments  The “Generate function from a goal” intention is smarter now. When you invoke it on a goal with arguments,  the resulting function will get parameters corresponding to those arguments:                         Sorry, your browser doesn&#39;t support embedded videos.">
+<meta name="description" content="Language updates:">
 
 
 
@@ -25,25 +25,25 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend 1.8.0 released">
-<meta property="og:url" content="http://localhost:4000/2022/04/15/Arend-1.8.0-released.html">
+<meta property="og:url" content="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html">
 
 
-  <meta property="og:description" content="Language updates:     Improved performance   Inference of unique implicit arguments   Coercion between paths and functions   A convenient syntax for defining HITs and pattern matching on them   Plugin updates:     Proof Search – find declarations by their type (#319)   Tracer – step-by-step typechecking (#168)   Re-worked “Arend Messages” panel (#336)            Printing customization - control over the way of displaying expressions           Editing:            Live templates – advanced completion for keywords (#252)       Optimize imports – detecting and removing unused imports (#11)       Extract expression to \let binding       Generate function from a goal with arguments           arend-lib:     New and improved metas:            Improved Exists meta and new metas Given and Forall.       Improved contradiction meta. Now, it can derive contradictions from transitive closure of &lt;, &lt;=, and =.       New simplify meta.           Locales:            The definition of discrete locales and the embedding of rationals into reals.       The definition of overt locales and open maps.       The construction of dense-closed and strongly dense-weakly closed factorization systems on the category of locales.       A proof that nuclei form a frame.       Limits and colimits of locales.       A characterization of embeddings of locales: a map of locales is a regular monomorphism if and only if the left adjoint is surjective.       The definition of (weakly) regular locales and a proof that the locale of reals is regular.       The definition of Hausdorff locales and a proof that regular locales are Hausdorff.       The definition of uniform locales and the construction of their completion.           The definition of abstract reduction systems, second-order term rewriting systems, and a proof that the disjoint union of confluent left-linear systems is confluent.   The definition of algebraic theories, the category of its models, and a proof that it has all small limits and colimits.   The preorder of subobjects and regular subobjects.   The construction of the structure sheaf on the spectrum of a ring.   Plugin updates  Proof Search  Nearly every proof assistant has a problem of the discoverability for proven theorems. For instance, try to recall how a lemma describing the commutativity of addition is called in your favorite proof assistant. Is it add_comm? Or +-comm?  The new “Proof Search” action helps in this situation. Invoke it and type in a signature of the declaration you are interested in – the IDE will find the declarations with such a signature:                         Sorry, your browser doesn&#39;t support embedded videos.        For more information, please see the full documentation.  Tracer  The tracer is a new feature that allows you typechecking a declaration step-by-step.  At each step, the IDE shows you the typechecking context for the current expression.                         Sorry, your browser doesn&#39;t support embedded videos.        To use the tracer:     Start it via a pop-up menu on a declaration or expression.   Step through the expressions back and forth, jump to a specific expression via “Run to Cursor”, and stop early if needed.   Inspect the stack and the context in the editor view at each tracing step.   Compared to the “Show Expression Type” action, the tracer works in more contexts, shows more info, but could be slower.  Re-worked “Arend Messages” panel  The “Arend Messages” panel shows current goals and errors. We did a number of changes that are aimed to improve the UX around it:     Goals and errors are shown in separate panels.   Goals’ panel is not cleaned up when you remove the goal. It is only removed when a declaration, which contained a goal, has no more errors or other goals.   Implicit goals (goals without a corresponding {?} element in the source code) are not shown by default.   The vertical layout is supported.                          Sorry, your browser doesn&#39;t support embedded videos.        Printing customization  This feature is incubating, it may be completely changed in future releases, even minor ones.  The proof terms which appear during the development of some theory may be quite large. It is often hard to read and understand them, so in order to show these terms to the user we sometimes omit certain subterms. A typical example of a kind of these subterms is implicit arguments – they often may be inferred from the context of the term, so displaying them just adds unnecessary noise. However, we also need a way to show these subterms for the purposes of debugging or better understanding the term semantics. Arend allows to configure pretty-printer options by the eye button in Arend Messages toolwindow.    This approach has a flaw: it is done in an all-or-nothing way. You are offered to display every omitted subterm of a certain kind, or not display them at all. Therefore, after changing an option of the pretty printer you become lost in the term.  Arend 1.8.0 offers a solution: we introduce printing customization right in the displayed term. You can put a cursor to a source of omittable subterms and then the appeared popup will help you to uncover what was hidden. Currently it works only for implicit arguments and types of parameters in lambda expression.                         Sorry, your browser doesn&#39;t support embedded videos.        Live templates  Live templates are smart code snippets. They speed up editing by providing a completion for common code patterns.  This release includes such templates for the majority of Arend keywords:                         Sorry, your browser doesn&#39;t support embedded videos.        In addition, you can define your own templates in “Preferences | Editor | Live Templates | Arend”:    Optimize imports  Keeping imports clean is easier with this release. The IDE detects unused imports and highlights them in grey color. To remove such imports use the new “Code | Optimize Imports” action:                         Sorry, your browser doesn&#39;t support embedded videos.        Aside from just removing, this action can optimize the imports in various ways, for example, import all declarations from a module explicitly. See “Preferences | Editor | Code Style | Arend” for the options.  Extract expression to \let binding  If you have a complex expression and want to extract some of its parts into \let bindings,  the new “Create \let-binding” intention is there to automate the process:                         Sorry, your browser doesn&#39;t support embedded videos.        Generate function from a goal with arguments  The “Generate function from a goal” intention is smarter now. When you invoke it on a goal with arguments,  the resulting function will get parameters corresponding to those arguments:                         Sorry, your browser doesn&#39;t support embedded videos.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-04-15T00:00:00+02:00">
+  <meta property="og:description" content="Language updates:">
 
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/2022/04/15/Arend-1.8.0-released.html">
+
+  <meta property="article:published_time" content="2022-04-15T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html">
 
 
 
@@ -92,10 +92,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -353,6 +349,12 @@ the resulting function will get parameters corresponding to those arguments:</p>
   
   
     <li>
+      <a href="#2025">
+        <strong>2025</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
       <a href="#2024">
         <strong>2024</strong> <span class="taxonomy__count">1</span>
       </a>
@@ -387,6 +389,36 @@ the resulting function will get parameters corresponding to those arguments:</p>
 
 
 
+  <section id="2025" class="taxonomy__section">
+    <h2 class="archive__subtitle">2025</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2025/12/11/Arend-1.11.0-released.html" rel="permalink">Arend 1.11.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">This release focuses primarily on internal enhancements aimed at improving overall stability.
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
   <section id="2024" class="taxonomy__section">
     <h2 class="archive__subtitle">2024</h2>
     <div class="entries-list">
@@ -408,17 +440,7 @@ the resulting function will get parameters corresponding to those arguments:</p>
 
 
     <p class="archive__item-excerpt" itemprop="description">Language updates:
-
-
-  Bug fixes and minor improvements
-
-
-Plugin updates:
-
-
-  Keyword documentation
-  Improved change signature refactoring
-  Improved move re...</p>
+</p>
   </article>
 </div>
 
@@ -448,13 +470,7 @@ Plugin updates:
 
 
     <p class="archive__item-excerpt" itemprop="description">Language updates:
-
-
-  Properties in \Sigma-types
-  Definition parameters are visible in the \where block
-  Global level declarations
-  Infix patterns
-  Axiom...</p>
+</p>
   </article>
 </div>
 
@@ -476,12 +492,7 @@ Plugin updates:
 
 
     <p class="archive__item-excerpt" itemprop="description">Language updates:
-
-
-  Improved performance
-  Inference of unique implicit arguments
-  Coercion between paths and functions
-  A convenient syntax for defining...</p>
+</p>
   </article>
 </div>
 
@@ -533,13 +544,7 @@ Check it out to learn about the features of IntelliJ Arend that speed-up theorem
 
 
     <p class="archive__item-excerpt" itemprop="description">Language updates:
-
-
-  Type synonyms
-  Arrays
-  Pattern matching in lambdas and \let expressions
-  Multiple level parameters
-  Ability to change levels in sub...</p>
+</p>
   </article>
 </div>
 
@@ -746,10 +751,7 @@ One of these features is pattern matching on idp : a = a, which can be used inst
 
 
     <p class="archive__item-excerpt" itemprop="description">Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.
-
-Language updates:
-
-  \Prop is now...</p>
+</p>
   </article>
 </div>
 
@@ -771,11 +773,7 @@ Language updates:
 
 
     <p class="archive__item-excerpt" itemprop="description">The first version of Arend is released!
-
-It implements the following features:
-
-  Path types based on the interval type.
-  Higher inductive types, including ...</p>
+</p>
   </article>
 </div>
 
@@ -819,7 +817,7 @@ It implements the following features:
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

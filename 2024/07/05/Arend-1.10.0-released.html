@@ -17,7 +17,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Arend 1.10.0 released - Arend Theorem Prover</title>
-<meta name="description" content="Language updates:     Bug fixes and minor improvements   Plugin updates:     Keyword documentation   Improved change signature refactoring   Improved move refactoring   Improved parameter hints   Improved REPL, completion, auto-import, and import optimization   Improved settings synchronization   Latex in documentation strings   Class diagrams   Quick braces switch intention   arend-lib:     Tactics:            assumption meta       in meta       defaultImpl meta           Sets and logic:            Pigeonhole principle       Kuratowski-finite sets       “The following are equivalent” proofs       Countable sets       Subset operations       Simplified syntax for quantifiers       Partial elements           Algebra:            Graded rings, homogeneous ideals, homogeneous localizations, Proj construction       Lagrange’s theorem       Dimension of a ring, a characterization of zero-dimensional rings, zero-dimensional local rings, and von Neumann regular rings       A characterization of Smith rings       PIDs are Smith domains       PIDs are 1-dimensional       Euclidean domains are PIDs       Polynomial division       Matrix ring       Various definitions of determinant and a proof that they are equivalent       Various properties of determinant       Symmetric group, its cardinality, sign homomorphism       Characteristic polynomial of a matrix and a proof that eigenvalues are its roots       Integral elements and extensions, a characterization of finitely generated integral extensions       Monoid rings and multivariate polynomials       Valuation rings       Factor rings and factor fields       Nakayama’s lemma       The minimal polynomial of an element of a ring extension       A proof that a finitely generated extension is integral if and only if it is zero-dimensional       The Chinese remainder theorem       Dimension of a finite free module       Independent sets, bases, and their various properties       The image and the kernel of a linear map between finite modules over a Smith domain are finite       Linear dependency is decidable in a finite module over a Smith domain       Splitting fields of polynomials over countable fields       Rank of a matrix over a Smith domain       Surjective linear endomaps on a finitely generated module are bijective       Cayley-Hamilton theorem       Direct limits of algebraic structures over semilattices       Algebraically closed fields and the algebraic closure of a countable field       The absolute value for linearly ordered abelian groups       Group actions       First isomorphism theorem           Topology:            Cover spaces       Completion of cover spaces       Uniform spaces and their completion       Metric spaces and their completion       Equivalence between appropriate subcategories of complete cover spaces and regular locales       Topological abeliean groups and their completion       Normed abelian groups, normed rings, Banach spaces       Products of topological spaces, cover spaces, uniform spaces, and topological abelian groups       Normed abelian group of real numbers       Compact spaces and a characteriization of cover maps       Cover space structure on directed sets           Analysis:            Limit of a function on a directed set       Uniform convergence       Series and various convergence tests       Power series and their radius of convergence           Real and complex numbers:            The field of real numbers       The field of complex numbers       The exponential function on real numbers           Categories:            Heyting algebras       Cartesian closed categories       Elementary topoi">
+<meta name="description" content="Language updates:">
 
 
 
@@ -25,25 +25,25 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend 1.10.0 released">
-<meta property="og:url" content="http://localhost:4000/2024/07/05/Arend-1.10.0-released.html">
+<meta property="og:url" content="https://arend-lang.github.io/2024/07/05/Arend-1.10.0-released.html">
 
 
-  <meta property="og:description" content="Language updates:     Bug fixes and minor improvements   Plugin updates:     Keyword documentation   Improved change signature refactoring   Improved move refactoring   Improved parameter hints   Improved REPL, completion, auto-import, and import optimization   Improved settings synchronization   Latex in documentation strings   Class diagrams   Quick braces switch intention   arend-lib:     Tactics:            assumption meta       in meta       defaultImpl meta           Sets and logic:            Pigeonhole principle       Kuratowski-finite sets       “The following are equivalent” proofs       Countable sets       Subset operations       Simplified syntax for quantifiers       Partial elements           Algebra:            Graded rings, homogeneous ideals, homogeneous localizations, Proj construction       Lagrange’s theorem       Dimension of a ring, a characterization of zero-dimensional rings, zero-dimensional local rings, and von Neumann regular rings       A characterization of Smith rings       PIDs are Smith domains       PIDs are 1-dimensional       Euclidean domains are PIDs       Polynomial division       Matrix ring       Various definitions of determinant and a proof that they are equivalent       Various properties of determinant       Symmetric group, its cardinality, sign homomorphism       Characteristic polynomial of a matrix and a proof that eigenvalues are its roots       Integral elements and extensions, a characterization of finitely generated integral extensions       Monoid rings and multivariate polynomials       Valuation rings       Factor rings and factor fields       Nakayama’s lemma       The minimal polynomial of an element of a ring extension       A proof that a finitely generated extension is integral if and only if it is zero-dimensional       The Chinese remainder theorem       Dimension of a finite free module       Independent sets, bases, and their various properties       The image and the kernel of a linear map between finite modules over a Smith domain are finite       Linear dependency is decidable in a finite module over a Smith domain       Splitting fields of polynomials over countable fields       Rank of a matrix over a Smith domain       Surjective linear endomaps on a finitely generated module are bijective       Cayley-Hamilton theorem       Direct limits of algebraic structures over semilattices       Algebraically closed fields and the algebraic closure of a countable field       The absolute value for linearly ordered abelian groups       Group actions       First isomorphism theorem           Topology:            Cover spaces       Completion of cover spaces       Uniform spaces and their completion       Metric spaces and their completion       Equivalence between appropriate subcategories of complete cover spaces and regular locales       Topological abeliean groups and their completion       Normed abelian groups, normed rings, Banach spaces       Products of topological spaces, cover spaces, uniform spaces, and topological abelian groups       Normed abelian group of real numbers       Compact spaces and a characteriization of cover maps       Cover space structure on directed sets           Analysis:            Limit of a function on a directed set       Uniform convergence       Series and various convergence tests       Power series and their radius of convergence           Real and complex numbers:            The field of real numbers       The field of complex numbers       The exponential function on real numbers           Categories:            Heyting algebras       Cartesian closed categories       Elementary topoi">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2024-07-05T00:00:00+02:00">
+  <meta property="og:description" content="Language updates:">
 
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/2024/07/05/Arend-1.10.0-released.html">
+
+  <meta property="article:published_time" content="2024-07-05T00:00:00+03:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/2024/07/05/Arend-1.10.0-released.html">
 
 
 
@@ -90,10 +90,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -279,6 +275,12 @@
   
   
     <li>
+      <a href="#2025">
+        <strong>2025</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
       <a href="#2024">
         <strong>2024</strong> <span class="taxonomy__count">1</span>
       </a>
@@ -313,6 +315,36 @@
 
 
 
+  <section id="2025" class="taxonomy__section">
+    <h2 class="archive__subtitle">2025</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2025/12/11/Arend-1.11.0-released.html" rel="permalink">Arend 1.11.0 released
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">This release focuses primarily on internal enhancements aimed at improving overall stability.
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
   <section id="2024" class="taxonomy__section">
     <h2 class="archive__subtitle">2024</h2>
     <div class="entries-list">
@@ -334,17 +366,7 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Language updates:
-
-
-  Bug fixes and minor improvements
-
-
-Plugin updates:
-
-
-  Keyword documentation
-  Improved change signature refactoring
-  Improved move re...</p>
+</p>
   </article>
 </div>
 
@@ -374,13 +396,7 @@ Plugin updates:
 
 
     <p class="archive__item-excerpt" itemprop="description">Language updates:
-
-
-  Properties in \Sigma-types
-  Definition parameters are visible in the \where block
-  Global level declarations
-  Infix patterns
-  Axiom...</p>
+</p>
   </article>
 </div>
 
@@ -402,12 +418,7 @@ Plugin updates:
 
 
     <p class="archive__item-excerpt" itemprop="description">Language updates:
-
-
-  Improved performance
-  Inference of unique implicit arguments
-  Coercion between paths and functions
-  A convenient syntax for defining...</p>
+</p>
   </article>
 </div>
 
@@ -459,13 +470,7 @@ Check it out to learn about the features of IntelliJ Arend that speed-up theorem
 
 
     <p class="archive__item-excerpt" itemprop="description">Language updates:
-
-
-  Type synonyms
-  Arrays
-  Pattern matching in lambdas and \let expressions
-  Multiple level parameters
-  Ability to change levels in sub...</p>
+</p>
   </article>
 </div>
 
@@ -672,10 +677,7 @@ One of these features is pattern matching on idp : a = a, which can be used inst
 
 
     <p class="archive__item-excerpt" itemprop="description">Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.
-
-Language updates:
-
-  \Prop is now...</p>
+</p>
   </article>
 </div>
 
@@ -697,11 +699,7 @@ Language updates:
 
 
     <p class="archive__item-excerpt" itemprop="description">The first version of Arend is released!
-
-It implements the following features:
-
-  Path types based on the interval type.
-  Higher inductive types, including ...</p>
+</p>
   </article>
 </div>
 
@@ -745,7 +743,7 @@ It implements the following features:
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

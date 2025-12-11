@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Propositions and Sets">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartII/hprops.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/hprops.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartII/hprops.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/hprops.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -642,13 +638,10 @@ types. This class is precisely the class of all mere propositions.</p>
   <span class="o">|</span> <span class="n">1</span> <span class="o">=&gt;</span> false
   <span class="o">|</span> suc (suc n) <span class="o">=&gt;</span> isEven n
 
-<span class="c">-- { n : Nat | T (isEven n) } -- set-theoretic notation 
-</span>
-<span class="k">\func</span> Even <span class="o">=&gt;</span> <span class="k">\Sigma</span> (n <span class="o">:</span> Nat) (T (isEven n)) <span class="c">-- subtype of even numbers
-</span>
+<span class="c">-- { n : Nat | T (isEven n) } -- set-theoretic notation </span>
+<span class="k">\func</span> Even <span class="o">=&gt;</span> <span class="k">\Sigma</span> (n <span class="o">:</span> Nat) (T (isEven n)) <span class="c">-- subtype of even numbers</span>
 
-<span class="c">-- Embedding of even numbers into the type of all natural numbers
-</span>
+<span class="c">-- Embedding of even numbers into the type of all natural numbers</span>
 <span class="k">\func</span> Even-inc (e <span class="o">:</span> Even) <span class="o">=&gt;</span> e.<span class="n">1</span></code></pre></div></div>
 
 <p>Let us show that <span class="inl-highlight">Even-inc</span> is an injection, namely that it satisfies the predicate
@@ -656,10 +649,8 @@ types. This class is precisely the class of all mere propositions.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isInj {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span>
    <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> f y <span class="o">-&gt;</span> x <span class="o">=</span> y
-<span class="c">-- This is equivalent to the predicate below only in
-</span>
-<span class="c">-- presence of the excluded middle:
-</span>
+<span class="c">-- This is equivalent to the predicate below only in</span>
+<span class="c">-- presence of the excluded middle:</span>
 <span class="c">-- \Pi (x y : A) -&gt; Not (x = y) -&gt; Not (f x = f y)</span></code></pre></div></div>
 
 <p>This requires proving equalities between pairs. For non-dependent pairs this is completely
@@ -675,10 +666,8 @@ equality between their first components and a proof of equality between the seco
 of one of the pairs and transported second component of the other pair:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sigmaEq {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) (t1 t2 <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x))
-  <span class="c">-- t1.2 : B t1.1
-</span>
-  <span class="c">-- t2.2 : B t2.1
-</span>
+  <span class="c">-- t1.2 : B t1.1</span>
+  <span class="c">-- t2.2 : B t2.1</span>
               (p <span class="o">:</span> t1.<span class="n">1</span> <span class="o">=</span> t2.<span class="n">1</span>) (q <span class="o">:</span> transport B p t1.<span class="n">2</span> <span class="o">=</span> t2.<span class="n">2</span>)
   <span class="o">:</span> t1 <span class="o">=</span> t2
   <span class="c">{-
@@ -727,8 +716,7 @@ of all natural numbers that are divisible by 3 or 5:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Mul-inc (m <span class="o">:</span> MultipleOf3Or5) <span class="o">=&gt;</span> m.<span class="n">1</span>
 
-<span class="c">-- One can prove that Mul-inc is not injective
-</span>
+<span class="c">-- One can prove that Mul-inc is not injective</span>
 <span class="k">\func</span> not-Mul-inc-isInj (p <span class="o">:</span> isInj Mul-inc) <span class="o">:</span> Empty <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
 
 <!-- TODO: prove not-Mul-inc-isInj or leave as exercise -->
@@ -787,8 +775,7 @@ the proposition “True”:</p>
 
 <span class="k">\func</span> Impl-isProp {A B <span class="o">:</span> <span class="kt">\Type</span>} <span class="c">{- (pA : isProp A) -}</span> (pB <span class="o">:</span> isProp B) <span class="o">:</span> isProp (A <span class="o">-&gt;</span> B)
   <span class="o">=&gt;</span> <span class="k">\lam</span> f g <span class="o">=&gt;</span>
-      <span class="c">-- path (\lam i x =&gt; pB (f x) (g x) @ i)
-</span>
+      <span class="c">-- path (\lam i x =&gt; pB (f x) (g x) @ i)</span>
       funcExt (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> B) f g (<span class="k">\lam</span> x <span class="o">=&gt;</span> pB (f x) (g x))</code></pre></div></div>
 
 <p>Propositions are closed under Pi-types (universal quantification):</p>
@@ -837,14 +824,12 @@ of mere propositions if expressions <span class="inl-highlight">E-zero</span> an
 inductive definitions since a predicate can often have several inductive definitions,
 some of which are valued in propositions and some of which are not. For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Defines predicate valued in propositions
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Defines predicate valued in propositions</span>
 <span class="k">\data</span> <span class="k">\infix</span> <span class="n">4</span> &lt;= (n m <span class="o">:</span> Nat) <span class="k">\with</span>
   <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> zero&lt;=_
   <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> suc&lt;=suc (n &lt;= m)
 
-<span class="c">-- Does not define a predicate valued in propositions
-</span>
+<span class="c">-- Does not define a predicate valued in propositions</span>
 <span class="k">\data</span> <span class="k">\infix</span> <span class="n">4</span> &lt;=' (n m <span class="o">:</span> Nat) <span class="k">\elim</span> m
   <span class="o">|</span> m <span class="o">=&gt;</span> &lt;=-refl (n <span class="o">=</span> m)
   <span class="o">|</span> <span class="n">1</span> <span class="o">=&gt;</span> zero&lt;=one (n <span class="o">=</span> <span class="n">0</span>)
@@ -879,8 +864,7 @@ called <em>sets</em>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isSet (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> isProp (a <span class="o">=</span> a')
 
-<span class="c">-- By definition equality is mere proposition for sets
-</span>
+<span class="c">-- By definition equality is mere proposition for sets</span>
 <span class="k">\func</span> equality-isProp {A <span class="o">:</span> <span class="kt">\Type</span>} (p <span class="o">:</span> isSet A) (a a' <span class="o">:</span> A) <span class="o">:</span> isProp (a <span class="o">=</span> a') <span class="o">=&gt;</span> p a a'</code></pre></div></div>
 
 <p>This can be interated further: we may consider types <span class="inl-highlight">A</span> such that 
@@ -994,21 +978,18 @@ defines the composition of bijections between sets.</p>
 
 <p>We can prove that <span class="inl-highlight"><span class="o">*</span>&gt;</span> and <span class="inl-highlight">idp</span> satisfy the required properties:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- 'idp' is left and right identity
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- 'idp' is left and right identity</span>
 <span class="k">\func</span> idp-right {A <span class="o">:</span> <span class="kt">\Type</span>} {x y <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> p <span class="o">*</span>&gt; idp <span class="o">=</span> p <span class="o">=&gt;</span> idp
 
 <span class="k">\func</span> idp-left {A <span class="o">:</span> <span class="kt">\Type</span>} {x y <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> idp <span class="o">*</span>&gt; p <span class="o">=</span> p <span class="k">\elim</span> p
   <span class="o">|</span> idp <span class="o">=&gt;</span> idp
 
-<span class="c">-- * is associative
-</span>
+<span class="c">-- * is associative</span>
 <span class="k">\func</span> <span class="o">*</span>-assoc {A <span class="o">:</span> <span class="kt">\Type</span>} {x y z w <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) (q <span class="o">:</span> y <span class="o">=</span> z) (r <span class="o">:</span> z <span class="o">=</span> w)
   <span class="o">:</span> (p <span class="o">*</span>&gt; q) <span class="o">*</span>&gt; r <span class="o">=</span> p <span class="o">*</span>&gt; (q <span class="o">*</span>&gt; r) <span class="k">\elim</span> r
   <span class="o">|</span> idp <span class="o">=&gt;</span> idp
 
-<span class="c">-- 'sym' is inverse 
-</span>
+<span class="c">-- 'sym' is inverse </span>
 <span class="k">\func</span> sym-left {A <span class="o">:</span> <span class="kt">\Type</span>} {x y <span class="o">:</span> A} (p <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> sym p <span class="o">*</span>&gt; p <span class="o">=</span> idp
   <span class="k">\elim</span> p
   <span class="o">|</span> idp <span class="o">=&gt;</span> idp
@@ -1090,7 +1071,7 @@ then <span class="inl-highlight">f <span class="o">=</span> g</span> is equivale
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Navigation">
-<meta property="og:url" content="http://localhost:4000/documentation/plugin-manual/navigating.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/plugin-manual/navigating.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/plugin-manual/navigating.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/plugin-manual/navigating.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -601,16 +597,13 @@ The preceding <code class="language-plaintext highlighter-rouge">and_pattern</co
 Importantly, the result of matching these and_pattern entries is insensitive to both the order of patterns and the order of parameters.
 For example, the query <code class="language-plaintext highlighter-rouge">Foo -&gt; Bar</code> will produce the following results:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo (f <span class="o">:</span> Foo) <span class="o">:</span> Bar <span class="c">-- matched
-</span>
-<span class="k">\func</span> bar <span class="o">:</span>    Foo <span class="o">-&gt;</span> Bar <span class="c">-- matched
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo (f <span class="o">:</span> Foo) <span class="o">:</span> Bar <span class="c">-- matched</span>
+<span class="k">\func</span> bar <span class="o">:</span>    Foo <span class="o">-&gt;</span> Bar <span class="c">-- matched</span>
 <span class="k">\func</span> baz <span class="o">:</span>           Bar <span class="c">-- not matched</span></code></pre></div></div>
 
 <p>Similarly, the query Nat -&gt; Bool -&gt; List Nat will produce the following results:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo (n <span class="o">:</span> Nat)  (b <span class="o">:</span> Bool) <span class="o">:</span> List Nat <span class="c">-- matched
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo (n <span class="o">:</span> Nat)  (b <span class="o">:</span> Bool) <span class="o">:</span> List Nat <span class="c">-- matched</span>
 <span class="k">\func</span> bar (b <span class="o">:</span> Bool) (n <span class="o">:</span> Nat)  <span class="o">:</span> List Nat <span class="c">-- matched</span></code></pre></div></div>
 
 <p>When an <code class="language-plaintext highlighter-rouge">and_pattern</code> includes multiple <code class="language-plaintext highlighter-rouge">app_patterns</code> separated with <code class="language-plaintext highlighter-rouge">\and</code> keyword, a parameter of a definition is matched with the pattern only if it matches all indicated <code class="language-plaintext highlighter-rouge">app_pattern</code>’s simultaneously. 
@@ -671,7 +664,7 @@ For example, the query <code class="language-plaintext highlighter-rouge">Nat -&
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

@@ -82,4 +82,10 @@ var store = [{
         "tags": [],
         "url": "/2024/07/05/Arend-1.10.0-released.html",
         "teaser": null
+      },{
+        "title": "Arend 1.11.0 released",
+        "excerpt":"This release focuses primarily on internal enhancements aimed at improving overall stability. Language updates: Introduce Arend server that store the state of the type-checker. Improved interaction between Java and Arend code. Previously, changes in Arend code that affected meta definitions required reloading the plugin; now they are picked up on...","categories": [],
+        "tags": [],
+        "url": "/2025/12/11/Arend-1.11.0-released.html",
+        "teaser": null
       }]

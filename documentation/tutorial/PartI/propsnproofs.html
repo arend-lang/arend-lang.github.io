@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Propositions and Proofs">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/propsnproofs.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/propsnproofs.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/propsnproofs.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/propsnproofs.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -596,15 +592,11 @@ For example, the type of natural numbers corresponds to the proposition that nat
 that False implies everything by constructing an element of any type from an element in <span class="inl-highlight">Empty</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> absurd {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Empty) <span class="o">:</span> A
-<span class="c">-- There are no patterns since Empty does not have constructors.
-</span>
+<span class="c">-- There are no patterns since Empty does not have constructors.</span>
 
-<span class="c">-- This can be expressed more explicitly by means of the absurd patterns.
-</span>
-<span class="c">-- This pattern indicates that the data type of the corresponding variable does not have constructors.
-</span>
-<span class="c">-- If such a pattern is used, the right hand side of the clause can (and should) be omitted.
-</span>
+<span class="c">-- This can be expressed more explicitly by means of the absurd patterns.</span>
+<span class="c">-- This pattern indicates that the data type of the corresponding variable does not have constructors.</span>
+<span class="c">-- If such a pattern is used, the right hand side of the clause can (and should) be omitted.</span>
 <span class="k">\func</span> absurd' {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Empty) <span class="o">:</span> A <span class="k">\elim</span> e
   <span class="o">|</span> () <span class="c">-- absurd pattern</span></code></pre></div></div>
 
@@ -635,16 +627,13 @@ That is, the type corresponding to <span class="inl-highlight">P &amp;&amp; Q</s
 
 <p>It is easy to prove conjunction axioms:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function proves that P -&gt; Q -&gt; (P &amp;&amp; Q)
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function proves that P -&gt; Q -&gt; (P &amp;&amp; Q)</span>
 <span class="k">\func</span> &amp;&amp;-intro {P Q <span class="o">:</span> <span class="kt">\Type</span>} (p <span class="o">:</span> P) (q <span class="o">:</span> Q) <span class="o">:</span> <span class="k">\Sigma</span> P Q <span class="o">=&gt;</span> (p<span class="o">,</span> q)
 
-<span class="c">-- This function proves that (P &amp;&amp; Q) -&gt; P
-</span>
+<span class="c">-- This function proves that (P &amp;&amp; Q) -&gt; P</span>
 <span class="k">\func</span> &amp;&amp;-elim1 {P Q <span class="o">:</span> <span class="kt">\Type</span>} (t <span class="o">:</span> <span class="k">\Sigma</span> P Q) <span class="o">:</span> P <span class="o">=&gt;</span> t.<span class="n">1</span>
 
-<span class="c">-- This function proves that (P &amp;&amp; Q) -&gt; Q
-</span>
+<span class="c">-- This function proves that (P &amp;&amp; Q) -&gt; Q</span>
 <span class="k">\func</span> &amp;&amp;-elim2 {P Q <span class="o">:</span> <span class="kt">\Type</span>} (t <span class="o">:</span> <span class="k">\Sigma</span> P Q) <span class="o">:</span> Q <span class="o">=&gt;</span> t.<span class="n">2</span></code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 3:</strong> Prove that <span class="inl-highlight">((P &amp;&amp; Q) <span class="o">-&gt;</span> R) <span class="o">-&gt;</span> P <span class="o">-&gt;</span> Q <span class="o">-&gt;</span> R</span>.</p>
@@ -660,16 +649,13 @@ The type corresponding to this principle is the sum type:</p>
 
 <p>It is easy to prove disjunction axioms:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function proves that P -&gt; (P || Q)
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function proves that P -&gt; (P || Q)</span>
 <span class="k">\func</span> <span class="o">|</span><span class="o">|</span>-intro1 {P Q <span class="o">:</span> <span class="kt">\Type</span>} (p <span class="o">:</span> P) <span class="o">:</span> P <span class="o">|</span><span class="o">|</span> Q <span class="o">=&gt;</span> inl p
 
-<span class="c">-- This function proves that Q -&gt; (P || Q)
-</span>
+<span class="c">-- This function proves that Q -&gt; (P || Q)</span>
 <span class="k">\func</span> <span class="o">|</span><span class="o">|</span>-intro2 {P Q <span class="o">:</span> <span class="kt">\Type</span>} (q <span class="o">:</span> Q) <span class="o">:</span> P <span class="o">|</span><span class="o">|</span> Q <span class="o">=&gt;</span> inr q
 
-<span class="c">-- This function proves that (P -&gt; R) -&gt; (Q -&gt; R) -&gt; (P || Q) -&gt; R
-</span>
+<span class="c">-- This function proves that (P -&gt; R) -&gt; (Q -&gt; R) -&gt; (P || Q) -&gt; R</span>
 <span class="k">\func</span> <span class="o">|</span><span class="o">|</span>-elim {P Q R <span class="o">:</span> <span class="kt">\Type</span>} (l <span class="o">:</span> P <span class="o">-&gt;</span> R) (r <span class="o">:</span> Q <span class="o">-&gt;</span> R) (x <span class="o">:</span> P <span class="o">|</span><span class="o">|</span> Q) <span class="o">:</span> R <span class="k">\elim</span> x
   <span class="o">|</span> inl p <span class="o">=&gt;</span> l p
   <span class="o">|</span> inr q <span class="o">=&gt;</span> r q</code></pre></div></div>
@@ -727,13 +713,10 @@ We formulate some properties of <span class="inl-highlight">Bool</span>, express
 <p>For example, propositions <span class="inl-highlight">T (x <span class="o">==</span> x)</span> and <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</span> can be proven by case analysis:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isInvolution (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> x)
-  <span class="o">|</span> true <span class="o">=&gt;</span> unit <span class="c">-- if x is true, then T (not (not true) == true) evaluates to Unit
-</span>
-  <span class="o">|</span> false <span class="o">=&gt;</span> unit <span class="c">-- if x is false, then T (not (not false) == false) again evaluates to Unit
-</span>
+  <span class="o">|</span> true <span class="o">=&gt;</span> unit <span class="c">-- if x is true, then T (not (not true) == true) evaluates to Unit</span>
+  <span class="o">|</span> false <span class="o">=&gt;</span> unit <span class="c">-- if x is false, then T (not (not false) == false) again evaluates to Unit</span>
 
-<span class="c">-- proof of reflexivity of == is analogous 
-</span>
+<span class="c">-- proof of reflexivity of == is analogous </span>
 <span class="k">\func</span> <span class="o">==</span>-refl (x <span class="o">:</span> Bool) <span class="o">:</span> T (x <span class="o">==</span> x)
   <span class="o">|</span> true <span class="o">=&gt;</span> unit
   <span class="o">|</span> false <span class="o">=&gt;</span> unit</code></pre></div></div>
@@ -746,22 +729,17 @@ both <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</sp
 <p>It is not possible to prove false statements in this way:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isIdempotent (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> not x)
-  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, an element of Empty is expected
-</span>
-  <span class="o">|</span> false <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, an element of Empty is expected
-</span>
+  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, an element of Empty is expected</span>
+  <span class="o">|</span> false <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, an element of Empty is expected</span>
 
-<span class="c">-- we can prove negation of not-isIdempotent
-</span>
+<span class="c">-- we can prove negation of not-isIdempotent</span>
 <span class="k">\func</span> not-isIdempotent' (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> not x) <span class="o">-&gt;</span> Empty
-  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- a proof of Empty -&gt; Empty
-</span>
+  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- a proof of Empty -&gt; Empty</span>
   <span class="o">|</span> false <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- again a proof of Empty -&gt; Empty</span></code></pre></div></div>
 
 <p>Let us also prove something involving quantification. For example, the statement 
 “for every <span class="inl-highlight">x <span class="o">:</span> Bool</span> there exists <span class="inl-highlight">y <span class="o">:</span> Bool</span> such that x == y”:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Sigma-types are used to express existential quantification
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Sigma-types are used to express existential quantification</span>
 <span class="k">\func</span> lemma (x <span class="o">:</span> Bool) <span class="o">:</span> <span class="k">\Sigma</span> (y <span class="o">:</span> Bool) (T (x <span class="o">==</span> y)) <span class="o">=&gt;</span> (x<span class="o">,</span> <span class="o">==</span>-refl x)</code></pre></div></div>
 
 <p>The following is a proof of rather awkward statement “if every <span class="inl-highlight">x <span class="o">:</span> Bool</span> equals itself, then <span class="inl-highlight">true <span class="o">:</span> Bool</span>
@@ -788,8 +766,7 @@ the equality <span class="inl-highlight">not (not x) <span class="o">=</span> x<
 <p>And as before, we cannot prove false statements:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isIdempotent'' (x <span class="o">:</span> Bool) <span class="o">:</span> not (not x) <span class="o">=</span> not x
-  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of true = false is expected
-</span>
+  <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of true = false is expected</span>
   <span class="o">|</span> false <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of false = true is expected</span></code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 12:</strong> Prove associativity of <code class="language-plaintext highlighter-rouge">and</code> and <code class="language-plaintext highlighter-rouge">or</code>.</p>
@@ -850,7 +827,7 @@ the equality <span class="inl-highlight">not (not x) <span class="o">=</span> x<
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

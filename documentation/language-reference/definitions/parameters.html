@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Parameters">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/parameters.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/parameters.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/parameters.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/parameters.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -605,23 +601,17 @@ Most of the other constructions require their parameter declarations to be named
  (exceptions to this rule are functions, records and instances which require parameter declarations to be named and typed at the same time).</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> d
-  <span class="o">|</span> c1 (a <span class="o">:</span> Nat)   <span class="c">-- typed named explicit
-</span>
-  <span class="o">|</span> c2 Nat         <span class="c">-- typed unnamed explicit
-</span>
-  <span class="o">|</span> c3 {a <span class="o">:</span> Nat}   <span class="c">-- typed named implicit
-</span>
-  <span class="o">|</span> c4 {Nat}       <span class="c">-- typed unnamed implicit
-</span>
+  <span class="o">|</span> c1 (a <span class="o">:</span> Nat)   <span class="c">-- typed named explicit</span>
+  <span class="o">|</span> c2 Nat         <span class="c">-- typed unnamed explicit</span>
+  <span class="o">|</span> c3 {a <span class="o">:</span> Nat}   <span class="c">-- typed named implicit</span>
+  <span class="o">|</span> c4 {Nat}       <span class="c">-- typed unnamed implicit</span>
 <span class="c">{-| c5 b           -- untyped parameter declarations are not allowed in constructors -}</span>
 
 <span class="k">\func</span> g1 <span class="o">=&gt;</span> 
-  <span class="k">\lam</span> a <span class="o">=&gt;</span> suc a  <span class="c">-- untyped named explicit
-</span>
+  <span class="k">\lam</span> a <span class="o">=&gt;</span> suc a  <span class="c">-- untyped named explicit</span>
 
 <span class="k">\func</span> g2 <span class="o">=&gt;</span>
-  <span class="k">\lam</span> {a} <span class="o">=&gt;</span>      <span class="c">-- untyped named implicit
-</span>
+  <span class="k">\lam</span> {a} <span class="o">=&gt;</span>      <span class="c">-- untyped named implicit</span>
     suc a
 
 <span class="c">{-
@@ -774,7 +764,7 @@ For example, the following code is valid:</p>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

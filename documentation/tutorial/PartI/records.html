@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Records and Classes">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/records.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/records.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/records.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/records.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -621,8 +617,7 @@ write <span class="inl-highlight">x.fst</span> and <span class="inl-highlight">x
 <p>Every field of a record is simply a function that has an instance of the record
 as its first implicit parameter:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- fst : \Pi {x : NatPair'} -&gt; Nat
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- fst : \Pi {x : NatPair'} -&gt; Nat</span>
 <span class="k">\func</span> foo (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> fst {p}</code></pre></div></div>
 
 <p>There is a namespace corresponding to a record, which contains all the fields of the record:</p>
@@ -634,15 +629,11 @@ is a variable and its type is specified explicitly:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> bar (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> p.snd
 
-<span class="c">-- (f x).snd -- This is not allowed. It can be replaced with one of the following variants:
-</span>
-<span class="c">-- \let e : NatPair' =&gt; f x \in e.snd
-</span>
-<span class="c">-- snd {f x}
-</span>
+<span class="c">-- (f x).snd -- This is not allowed. It can be replaced with one of the following variants:</span>
+<span class="c">-- \let e : NatPair' =&gt; f x \in e.snd</span>
+<span class="c">-- snd {f x}</span>
 
-<span class="c">-- This code will not typecheck since the type of p is not specified explicitly
-</span>
+<span class="c">-- This code will not typecheck since the type of p is not specified explicitly</span>
 <span class="c">-- \func baz {p p' : NatPair'} (q : p = p') =&gt; pmap (\lam p =&gt; p.fst) q</span></code></pre></div></div>
 
 <p>An element of a record can be created using the keyword <span class="inl-highlight"><span class="k">\new</span></span>:</p>
@@ -670,12 +661,9 @@ used for pattern matching on variables of Sigma-types:</p>
 <p>If we want to define a function that returns an element of a record, we can do this by means of
 <em>copattern matching</em> using the keyword <span class="inl-highlight"><span class="k">\cowith</span></span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function is equivalent to zeroPair defined above.
-</span>
-<span class="c">-- \cowith is followed with a set of clauses, each starting
-</span>
-<span class="c">-- with | and specifying a field and its value
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This function is equivalent to zeroPair defined above.</span>
+<span class="c">-- \cowith is followed with a set of clauses, each starting</span>
+<span class="c">-- with | and specifying a field and its value</span>
 <span class="k">\func</span> zeroPair' <span class="o">:</span> NatPair' <span class="k">\cowith</span>
   <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span>
   <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
@@ -764,8 +752,7 @@ Sigma-types, the only difference is that components of a record are named.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Bool <span class="o">|</span> true <span class="o">|</span> false
 
-<span class="c">-- compare this definition of T with the one in module Basics
-</span>
+<span class="c">-- compare this definition of T with the one in module Basics</span>
 <span class="k">\data</span> T (b <span class="o">:</span> Bool) <span class="k">\with</span>
   <span class="o">|</span> true <span class="o">=&gt;</span> tt
 
@@ -791,8 +778,7 @@ classes in more detail below.</p>
   <span class="o">|</span> id <span class="o">:</span> A
   <span class="o">|</span> <span class="k">\infixl</span> <span class="n">6</span> <span class="o">*</span> <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A
   <span class="o">|</span> <span class="o">*</span>-assoc (x y z <span class="o">:</span> A) <span class="o">:</span> (x <span class="o">*</span> y) <span class="o">*</span> z <span class="o">=</span> x <span class="o">*</span> (y <span class="o">*</span> z)
-  <span class="c">-- | *-assoc : \Pi (x y z : A) -&gt; (x * y) * z = x * (y * z)
-</span>
+  <span class="c">-- | *-assoc : \Pi (x y z : A) -&gt; (x * y) * z = x * (y * z)</span>
   <span class="o">|</span> id-left (x <span class="o">:</span> A) <span class="o">:</span> id <span class="o">*</span> x <span class="o">=</span> x
   <span class="o">|</span> id-right (x <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> id <span class="o">=</span> x
 
@@ -830,8 +816,7 @@ monoid on <span class="inl-highlight"><span class="o">*</span></span>.</p>
   <span class="o">|</span> id-left <span class="o">=&gt;</span> <span class="g">{?}</span>
   <span class="o">|</span> id-right <span class="o">=&gt;</span> <span class="g">{?}</span>
 
-<span class="c">-- alternative definition of the latter:
-</span>
+<span class="c">-- alternative definition of the latter:</span>
 <span class="k">\instance</span> <span class="o">*</span>-NatMonoid' <span class="o">:</span> Monoid Nat <span class="n">1</span> (Nat.<span class="o">*</span>) <span class="g">{?}</span> <span class="g">{?}</span> <span class="g">{?}</span></code></pre></div></div>
 
 <p>The first explicit parameter of a class is of special significance and is called <em>classifying field</em> of a class.
@@ -846,13 +831,10 @@ searches for a first appropriate global instance (appropriate in the sense that 
 
 <p>Consider the following examples:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- ok, +-NatMonoid is inferred since it was declared the first
-</span>
-<span class="c">-- id-left x here is equivalent to id-left {+-NatMonoid} x
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- ok, +-NatMonoid is inferred since it was declared the first</span>
+<span class="c">-- id-left x here is equivalent to id-left {+-NatMonoid} x</span>
 <span class="k">\func</span> <span class="o">+</span>-test (x <span class="o">:</span> Nat) <span class="o">:</span> <span class="n">0</span> Nat.<span class="o">+</span> x <span class="o">=</span> x <span class="o">=&gt;</span> id-left x
-<span class="c">-- error, because +-NatMonoid is inferred, not *-NatMonoid
-</span>
+<span class="c">-- error, because +-NatMonoid is inferred, not *-NatMonoid</span>
 <span class="k">\func</span> <span class="o">*</span>-test (x <span class="o">:</span> Nat) <span class="o">:</span> <span class="n">1</span> Nat.<span class="o">*</span> x <span class="o">=</span> x <span class="o">=&gt;</span> id-left x</code></pre></div></div>
 
 <p>Such global instances behave like ordinary functions defined by copattern matching:</p>
@@ -867,12 +849,9 @@ searches for a first appropriate global instance (appropriate in the sense that 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Eq (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> <span class="k">\infix</span> <span class="n">3</span> <span class="o">==</span> (x y <span class="o">:</span> A) <span class="o">:</span> Bool
 
-<span class="c">-- function refl from Haskell can be defined in two ways
-</span>
-<span class="c">-- refl :: Eq a =&gt; a -&gt; Bool
-</span>
-<span class="c">-- refl x = x == x
-</span>
+<span class="c">-- function refl from Haskell can be defined in two ways</span>
+<span class="c">-- refl :: Eq a =&gt; a -&gt; Bool</span>
+<span class="c">-- refl x = x == x</span>
 <span class="k">\func</span> refl {A <span class="o">:</span> <span class="kt">\Type</span>} {e <span class="o">:</span> Eq A} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a <span class="o">==</span> a
 
 <span class="k">\func</span> refl' {E <span class="o">:</span> Eq} (a <span class="o">:</span> E) <span class="o">=&gt;</span> a <span class="o">==</span> a
@@ -903,29 +882,22 @@ with <span class="inl-highlight">f a</span> if they are used in a context, where
 
 <span class="k">\data</span> YYY <span class="o">|</span> con' XXX Nat <span class="o">|</span> con''
   <span class="k">\where</span> {
-    <span class="c">-- We can define coercions TO this type.
-</span>
-    <span class="c">-- The return type of the function must be YYY.
-</span>
+    <span class="c">-- We can define coercions TO this type.</span>
+    <span class="c">-- The return type of the function must be YYY.</span>
     <span class="k">\use</span> <span class="k">\coerce</span> fromXXX (x <span class="o">:</span> XXX) <span class="o">=&gt;</span> con' x <span class="n">0</span>
     
-    <span class="c">-- We can also define coercions FROM this type.
-</span>
-    <span class="c">-- The type of the last parameter of the function must 
-</span>
-    <span class="c">-- be YYY.
-</span>
+    <span class="c">-- We can also define coercions FROM this type.</span>
+    <span class="c">-- The type of the last parameter of the function must </span>
+    <span class="c">-- be YYY.</span>
     <span class="k">\use</span> <span class="k">\coerce</span> toXXX (y <span class="o">:</span> YYY) <span class="o">=&gt;</span> con
   }
 
 <span class="k">\func</span> fff (y <span class="o">:</span> YYY) <span class="o">=&gt;</span> y
 
-<span class="c">-- Elements of type XXX are implicitly converted to type YYY by function fromXXX.
-</span>
+<span class="c">-- Elements of type XXX are implicitly converted to type YYY by function fromXXX.</span>
 <span class="k">\func</span> ggg <span class="o">=&gt;</span> fff con
 
-<span class="c">-- Implicit conversion from Nat to Int is done in this way:
-</span>
+<span class="c">-- Implicit conversion from Nat to Int is done in this way:</span>
 <span class="k">\func</span> hhh <span class="o">:</span> Int <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
 <h1 id="extensions-diamond-problem">Extensions, diamond problem</h1>
@@ -967,8 +939,7 @@ record, say, <span class="inl-highlight">Base</span>, then <span class="inl-high
 <span class="k">\record</span> Y' <span class="k">\extends</span> Base
   <span class="o">|</span> bb <span class="o">:</span> A
 
-<span class="c">-- Z' has three fields: aa, bb, A
-</span>
+<span class="c">-- Z' has three fields: aa, bb, A</span>
 <span class="k">\record</span> Z' <span class="k">\extends</span> X'<span class="o">,</span> Y'</code></pre></div></div>
 
 <p>Consider an example from algebra: the type of rings. With a few simplifications, a possible definition might look as
@@ -992,8 +963,7 @@ follows:</p>
   <span class="o">|</span> inv-right (x <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> inverse x <span class="o">=</span> id
 }
 
-<span class="c">-- We omit distributivity
-</span>
+<span class="c">-- We omit distributivity</span>
 <span class="k">\class</span> Ring <span class="k">\extends</span> AbGroup
   <span class="o">|</span> mulMonoid <span class="o">:</span> Monoid A</code></pre></div></div>
 
@@ -1004,21 +974,16 @@ so that it matches with the carrier of the ring’s additive group structure.</p
 <p>If we try to define the type of rings that extends class AbGroup for the abelian group of addition and class Monoid for the monoid of multiplication,
 we will get into trouble: the clash of two monoidal structures. This is called the <em>diamond problem</em>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This is not a correct way to define the class Ring:
-</span>
-<span class="c">-- the structures of addition and multiplication coincide.
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This is not a correct way to define the class Ring:</span>
+<span class="c">-- the structures of addition and multiplication coincide.</span>
 <span class="k">\class</span> Ring <span class="k">\extends</span> AbGroup<span class="o">,</span> Monoid</code></pre></div></div>
 
 <p>A possible way to make it work is to define another copy of AbGroup that does not extend Monoid:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This class does not extend Monoid
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This class does not extend Monoid</span>
 <span class="k">\class</span> AbGroup' (A <span class="o">:</span> <span class="kt">\Type</span>) {
-  <span class="c">-- Here all the fields of Monoid, CommMonoid and AbGroup 
-</span>
-  <span class="c">-- should be repeated
-</span>
+  <span class="c">-- Here all the fields of Monoid, CommMonoid and AbGroup </span>
+  <span class="c">-- should be repeated</span>
 }
 
 <span class="k">\class</span> Ring' <span class="k">\extends</span> AbGroup'<span class="o">,</span> Monoid
@@ -1054,8 +1019,7 @@ Thus, the definition above is equivalent to the following:</p>
 
 <p>It is often necessary to have a group of functions with a common set of parameters.
 For example, consider the following snippet that defines injective, surjective, and bijective functions and proves their properties:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Implementations are omitted
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Implementations are omitted</span>
 
 <span class="k">\func</span> isInj {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
 
@@ -1183,7 +1147,7 @@ Define <span class="inl-highlight"><span class="k">\instance</span></span> of th
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

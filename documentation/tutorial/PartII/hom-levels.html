@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Stratified Universes and Univalence">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartII/hom-levels.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/hom-levels.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartII/hom-levels.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/hom-levels.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -649,14 +645,10 @@ with <span class="inl-highlight"><span class="k">\use</span> <span class="k">\le
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> PropInType-to-Prop (A <span class="o">:</span> <span class="kt">\Type</span>) (p <span class="o">:</span> isProp A)
   <span class="o">|</span> inc A
   <span class="k">\where</span> {
-    <span class="c">-- Here we prove that 'PropInType-to-Prop' satisfies 'isProp'.
-</span>
-    <span class="c">-- This results in 'PropInType-to-Prop A p : \Prop' for all 'A' and 'p'.
-</span>
-    <span class="c">-- Without '\use \level' 'PropInType-to-Prop A p' would not be in '\Prop'
-</span>
-    <span class="c">--   unless 'A' is in '\Prop'.
-</span>
+    <span class="c">-- Here we prove that 'PropInType-to-Prop' satisfies 'isProp'.</span>
+    <span class="c">-- This results in 'PropInType-to-Prop A p : \Prop' for all 'A' and 'p'.</span>
+    <span class="c">-- Without '\use \level' 'PropInType-to-Prop A p' would not be in '\Prop'</span>
+    <span class="c">--   unless 'A' is in '\Prop'.</span>
     <span class="k">\use</span> <span class="k">\level</span> dataIsProp {A <span class="o">:</span> <span class="kt">\Type</span>} {p <span class="o">:</span> isProp A} 
                      (d1 d2 <span class="o">:</span> PropInType-to-Prop A p) <span class="o">:</span> d1 <span class="o">=</span> d2 <span class="k">\elim</span> d1<span class="o">,</span> d2
       <span class="o">|</span> inc a1<span class="o">,</span> inc a2 <span class="o">=&gt;</span> pmap inc (p a1 a2)
@@ -711,8 +703,7 @@ predicative level) or before <span class="inl-highlight">Type</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> bak <span class="o">=&gt;</span> <span class="kt">\Type</span> <span class="n">30</span> <span class="n">66</span>
 <span class="k">\func</span> bak' <span class="o">=&gt;</span> <span class="kt">\66-Type</span> <span class="n">30</span>
-<span class="c">-- With predicative level omitted.
-</span>
+<span class="c">-- With predicative level omitted.</span>
 <span class="k">\func</span> bak'' <span class="o">=&gt;</span> <span class="kt">\66-Type</span></code></pre></div></div>
 
 <p>There are two equivalent ways to refer to the universe of sets: as <span class="inl-highlight"><span class="kt">\Set</span></span> or as <span class="inl-highlight"><span class="kt">\0-Type</span></span>. 
@@ -726,8 +717,7 @@ it does not have predicative level.</p>
 
 <p>Recall the definition of <span class="inl-highlight">hasLevel</span> from the previous module:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The predicate saying "A has level suc-l - 1"
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The predicate saying "A has level suc-l - 1"</span>
 <span class="k">\func</span> hasLevel (A <span class="o">:</span> <span class="kt">\Type</span>) (suc-l <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\elim</span> suc-l
   <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> isProp A
   <span class="o">|</span> suc suc-l <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> (x <span class="o">=</span> y) <span class="o">`hasLevel`</span> suc-l</code></pre></div></div>
@@ -750,30 +740,25 @@ to be in the universe of a given homotopy level by using the keyword <span class
 of the data definition must, of course, be specified explicitly. For example, the projection of types to propositions, which is called
 <em>propositional truncation</em>, is a truncated data:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Proposition 'Trunc A' says "A is nonempty".
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Proposition 'Trunc A' says "A is nonempty".</span>
 <span class="k">\truncated</span> <span class="k">\data</span> Trunc (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Prop</span>
   <span class="o">|</span> trunc A
 
-<span class="c">-- Example: 'Trunc Nat'.
-</span>
+<span class="c">-- Example: 'Trunc Nat'.</span>
 <span class="k">\func</span> truncNat <span class="o">:</span> trunc <span class="n">0</span> <span class="o">=</span> trunc <span class="n">1</span> <span class="o">=&gt;</span> Path.inProp (trunc <span class="n">0</span>) (trunc <span class="n">1</span>)
 
-<span class="c">-- We can prove the negation of "Empty is nonempty".
-</span>
+<span class="c">-- We can prove the negation of "Empty is nonempty".</span>
 <span class="k">\func</span> Trunc-Empty (t <span class="o">:</span> Trunc Empty) <span class="o">:</span> Empty <span class="k">\elim</span> t
   <span class="o">|</span> trunc a <span class="o">=&gt;</span> a</code></pre></div></div>
 
 <p>Truncating a data has one crucial consequence: any function defined by recursion over a truncated data must have the 
 codomain lying in the universe of the data. For example, the following function does not typecheck:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This does not typecheck!
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This does not typecheck!</span>
 <span class="k">\func</span> ex1 (t <span class="o">:</span> Trunc Nat) <span class="o">:</span> Nat
   <span class="o">|</span> trunc n <span class="o">=&gt;</span> n
 
-<span class="c">-- But we can define 'ex2' since 0 = 0 is in \Prop.
-</span>
+<span class="c">-- But we can define 'ex2' since 0 = 0 is in \Prop.</span>
 <span class="k">\func</span> ex2 (t <span class="o">:</span> Trunc Nat) <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> <span class="n">0</span>
   <span class="o">|</span> trunc n <span class="o">=&gt;</span> idp</code></pre></div></div>
 
@@ -782,8 +767,7 @@ is a proposition and there is a function <span class="inl-highlight">A <span cla
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Trunc-elim {A <span class="o">:</span> <span class="kt">\Type</span>} {B <span class="o">:</span> <span class="kt">\Prop</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (a <span class="o">:</span> Trunc A) <span class="o">:</span> B <span class="k">\elim</span> a
   <span class="o">|</span> trunc a <span class="o">=&gt;</span> f a
-<span class="c">-- The eliminator computes on constructor:
-</span>
+<span class="c">-- The eliminator computes on constructor:</span>
 <span class="c">-- Trunc-elim f (trunc a) ===&gt; f a</span></code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 2:</strong> Prove that if <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Prop</span></span>, then <span class="inl-highlight">Trunc A</span> is equivalent to <span class="inl-highlight">A</span>.</p>
@@ -872,8 +856,7 @@ image of a function:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> image' {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (b <span class="o">:</span> B) (<span class="k">\Sigma</span> (a <span class="o">:</span> A) (f a <span class="o">=</span> b))
 
-<span class="c">-- image {Nat} {\Sigma} (\lam _ =&gt; ()) == \Sigma
-</span>
+<span class="c">-- image {Nat} {\Sigma} (\lam _ =&gt; ()) == \Sigma</span>
 <span class="c">-- image' {Nat} {\Sigma} (\lam _ =&gt; ()) == Nat</span></code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 5:</strong> A type <span class="inl-highlight">C</span> is called cogenerator if for every sets <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span>
@@ -967,8 +950,7 @@ we immediately conclude that all countable sets are also decidable.</p>
 
 <span class="k">\func</span> DecEq (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> Dec (x <span class="o">=</span> y)
 
-<span class="c">-- We proved this earlier.
-</span>
+<span class="c">-- We proved this earlier.</span>
 <span class="k">\func</span> NatDecEq <span class="o">:</span> DecEq Nat <span class="o">=&gt;</span> <span class="g">{?}</span> 
 
 <span class="k">\func</span> isCountable (X <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> Equiv Nat X
@@ -1011,25 +993,17 @@ and <span class="inl-highlight">not</span>:</p>
 
 <span class="k">\func</span> Set-isNotSet (p <span class="o">:</span> isSet <span class="kt">\Set</span>) <span class="o">:</span> Empty <span class="o">=&gt;</span>
   <span class="k">\let</span> 
-  <span class="c">-- We first prove equality between 'idp' and 
-</span>
-  <span class="c">-- the equality, corresponding to 'not'.
-</span>
+  <span class="c">-- We first prove equality between 'idp' and </span>
+  <span class="c">-- the equality, corresponding to 'not'.</span>
        <span class="o">|</span> idp=not <span class="o">=&gt;</span> 
           p Bool Bool
-          idp <span class="c">-- : Bool = Bool
-</span>
-          (equivalence=&gt;equality Bool Bool (not<span class="o">,</span> not<span class="o">,</span> not-not<span class="o">,</span> not-not)) <span class="c">-- : Bool = Bool
-</span>
-  <span class="c">-- Now we can prove the equality between the two bijections 
-</span>
-  <span class="c">-- corresponding to 'idp' and 'not', that is that 'id'
-</span>
-  <span class="c">-- equals 'not'.
-</span>
+          idp <span class="c">-- : Bool = Bool</span>
+          (equivalence=&gt;equality Bool Bool (not<span class="o">,</span> not<span class="o">,</span> not-not<span class="o">,</span> not-not)) <span class="c">-- : Bool = Bool</span>
+  <span class="c">-- Now we can prove the equality between the two bijections </span>
+  <span class="c">-- corresponding to 'idp' and 'not', that is that 'id'</span>
+  <span class="c">-- equals 'not'.</span>
        <span class="o">|</span> id=not <span class="o">:</span> (<span class="k">\lam</span> x <span class="o">=&gt;</span> x) <span class="o">=</span> not <span class="o">=&gt;</span> pmap (transport (<span class="k">\lam</span> X <span class="o">=&gt;</span> X)) idp=not
-  <span class="c">-- The contradiction follows easily.
-</span>
+  <span class="c">-- The contradiction follows easily.</span>
   <span class="k">\in</span> true/=false (pmap (<span class="k">\lam</span> f <span class="o">=&gt;</span> f true) id=not)</code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 7:</strong> Prove that (Bool = Bool) = Bool.</p>
@@ -1096,7 +1070,7 @@ and <span class="inl-highlight">not</span>:</p>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

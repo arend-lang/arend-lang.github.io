@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Proofs of Equality">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/equalityex.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/equalityex.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/equalityex.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/equalityex.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -590,13 +586,11 @@ called <em>eliminator J</em>.</p>
 <p>Let’s apply notions from the previous module and prove commutativity of <span class="inl-highlight"><span class="o">+</span> <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat <span class="o">-&gt;</span> Nat</span>.
 Note that <span class="inl-highlight">transport</span> satisfies the property <span class="inl-highlight">transport B idp b <span class="o">==</span>&gt; b</span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- recall the definition of transport:
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- recall the definition of transport:</span>
 <span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (b <span class="o">:</span> B a)
    <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)) b right
 
-<span class="c">-- indeed, coe (\lam i =&gt; B (idp @ i)) b right ==&gt;
-</span>
+<span class="c">-- indeed, coe (\lam i =&gt; B (idp @ i)) b right ==&gt;</span>
 <span class="c">-- ==&gt; coe (\lam i =&gt; B a) b right ==&gt; b</span></code></pre></div></div>
 
 <p>It will be more convenient to have transitivity of <span class="inl-highlight"><span class="o">=</span></span>, which we proved in the previous module, in
@@ -637,10 +631,8 @@ The proof <span class="inl-highlight"><span class="o">+</span>-comm</span> rewri
     suc m <span class="o">+</span> n   <span class="o">`qed</span>
   )
 
-<span class="c">-- recall that:
-</span>
-<span class="c">-- x `f == f x -- postfix notation
-</span>
+<span class="c">-- recall that:</span>
+<span class="c">-- x `f == f x -- postfix notation</span>
 <span class="c">-- x `f` y == f x y -- infix notation</span></code></pre></div></div>
 
 <p>These operators can be defined as follows:</p>
@@ -679,8 +671,7 @@ a function <span class="inl-highlight"><span class="k">\Pi</span> (x <span class
     (b <span class="o">:</span> B a idp)
     {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a')
     <span class="o">:</span> B a' p
-  <span class="c">-- the details of the definition are not important for now
-</span>
+  <span class="c">-- the details of the definition are not important for now</span>
   <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i) (psqueeze p i)) b right
   <span class="k">\where</span>
     <span class="k">\func</span> psqueeze  {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (i <span class="o">:</span> I) <span class="o">:</span> a <span class="o">=</span> p <span class="o">@</span> i <span class="o">=&gt;</span> path (<span class="k">\lam</span> j <span class="o">=&gt;</span> p <span class="o">@</span> I.squeeze i j)</code></pre></div></div>
@@ -748,10 +739,8 @@ element of <span class="inl-highlight">Vec A y</span> if <span class="inl-highli
       pmap (vcons x) (v++-assoc xs ys zs) <span class="o">*</span>&gt;
       inv (transport-vcons-comm (<span class="o">+</span>-assoc k m n) x (xs v++ (ys v++ zs)))
   <span class="k">\where</span>
-    <span class="c">-- transport commutes with all constructors
-</span>
-    <span class="c">-- here is the proof that it commutes with vcons
-</span>
+    <span class="c">-- transport commutes with all constructors</span>
+    <span class="c">-- here is the proof that it commutes with vcons</span>
     <span class="k">\func</span> transport-vcons-comm {A <span class="o">:</span> <span class="kt">\Type</span>} {n m <span class="o">:</span> Nat} (p <span class="o">:</span> n <span class="o">=</span> m) (x <span class="o">:</span> A) (xs <span class="o">:</span> Vec A n)
       <span class="o">:</span> transport (Vec A) (pmap suc p) (vcons x xs) <span class="o">=</span> vcons x (transport (Vec A) p xs)
       <span class="o">|</span> idp<span class="o">,</span> <span class="u">_</span><span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> idp
@@ -796,36 +785,28 @@ In particular, in propositions-as-types logic predicates are functions <span cla
 
 <p>We now illustrate all these ways in case of the predicate &lt;= for natural numbers.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Definition of &lt;= via equality.
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Definition of &lt;= via equality.</span>
 <span class="k">\func</span> LessOrEq''' (n m <span class="o">:</span> Nat) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (k <span class="o">:</span> Nat) (k <span class="o">+</span> n <span class="o">=</span> m)
 
-<span class="c">-- Recursive definition of &lt;=.
-</span>
+<span class="c">-- Recursive definition of &lt;=.</span>
 <span class="k">\func</span> lessOrEq (n m <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span>
   <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> Unit
   <span class="o">|</span> suc <span class="u">_</span><span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> Empty
   <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> lessOrEq n m
 
-<span class="c">-- First inductive definition of &lt;=.
-</span>
+<span class="c">-- First inductive definition of &lt;=.</span>
 <span class="k">\data</span> LessOrEq (n m <span class="o">:</span> Nat) <span class="k">\with</span>
   <span class="o">|</span> <span class="n">0</span><span class="o">,</span> m <span class="o">=&gt;</span> z&lt;=n
   <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> s&lt;=s (LessOrEq n m)
 
 <span class="k">\func</span> test11 <span class="o">:</span> LessOrEq <span class="n">0</span> <span class="n">100</span> <span class="o">=&gt;</span> z&lt;=n
 <span class="k">\func</span> test12 <span class="o">:</span> LessOrEq <span class="n">3</span> <span class="n">67</span> <span class="o">=&gt;</span> s&lt;=s (s&lt;=s (s&lt;=s z&lt;=n))
-<span class="c">-- Of course, there is no proof of 1 &lt;= 0.
-</span>
-<span class="c">-- \func test10 : LessOrEq 1 0 =&gt; ...
-</span>
+<span class="c">-- Of course, there is no proof of 1 &lt;= 0.</span>
+<span class="c">-- \func test10 : LessOrEq 1 0 =&gt; ...</span>
 
-<span class="c">-- Second inductive definition of &lt;=.
-</span>
-<span class="c">-- This is a modification of the first inductive definition,
-</span>
-<span class="c">-- where we avoid constructor patterns.
-</span>
+<span class="c">-- Second inductive definition of &lt;=.</span>
+<span class="c">-- This is a modification of the first inductive definition,</span>
+<span class="c">-- where we avoid constructor patterns.</span>
 <span class="k">\data</span> LessOrEq' (n m <span class="o">:</span> Nat)
   <span class="o">|</span> z&lt;=n' (n <span class="o">=</span> <span class="n">0</span>)
   <span class="o">|</span> s&lt;=s' {n' m' <span class="o">:</span> Nat} (n <span class="o">=</span> suc n') (m <span class="o">=</span> suc m') (LessOrEq' n' m')</code></pre></div></div>
@@ -838,8 +819,7 @@ come up with a set of axioms that characterize the predicate.</p>
 But this is not the only way to characterize <span class="inl-highlight">LessOrEq</span>. For example, we could use the following two axioms:
 1) n &lt;= n for all n, 2) if n &lt;= m, then n &lt;= suc m for all n, m:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Third inductive definition of &lt;=.
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Third inductive definition of &lt;=.</span>
 <span class="k">\data</span> LessOrEq'' (n m <span class="o">:</span> Nat) <span class="k">\elim</span> m
   <span class="o">|</span> suc m <span class="o">=&gt;</span> &lt;=-step (LessOrEq'' n m)
   <span class="o">|</span> m <span class="o">=&gt;</span> &lt;=-refl (n <span class="o">=</span> m)</code></pre></div></div>
@@ -914,7 +894,7 @@ sublist of <span class="inl-highlight">ys</span>”.</p>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

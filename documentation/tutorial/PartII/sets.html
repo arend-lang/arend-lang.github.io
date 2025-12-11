@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Basic Set Theory">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartII/sets.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/sets.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartII/sets.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/sets.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -644,10 +640,8 @@ Note that the definition of surjection requires the propositional truncation.</p
       <span class="o">|</span> in a <span class="o">=&gt;</span> a
   }
 
-<span class="c">-- Note that \Sigma (a : A) (f a = b) is not
-</span>
-<span class="c">-- necessarily a proposition and should be truncated.
-</span>
+<span class="c">-- Note that \Sigma (a : A) (f a = b) is not</span>
+<span class="c">-- necessarily a proposition and should be truncated.</span>
 <span class="k">\func</span> isSur {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">:</span> <span class="kt">\Prop</span> <span class="o">=&gt;</span>
      <span class="k">\Pi</span> (b <span class="o">:</span> B) <span class="o">-&gt;</span> Trunc (<span class="k">\Sigma</span> (a <span class="o">:</span> A) (f a <span class="o">=</span> b))
   <span class="c">-- \Pi (b : B) -&gt;        \Sigma (a : A) (f a = b)</span></code></pre></div></div>
@@ -717,8 +711,7 @@ values on equivalent constructors coincide. For example, the following definitio
 does not typecheck, because <span class="inl-highlight">intEx (pos <span class="n">0</span>)</span> is 3, but 
 <span class="inl-highlight">intEx (neg <span class="n">0</span>)</span> is 7:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This does not typecheck!
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This does not typecheck!</span>
 <span class="k">\func</span> intEx (z <span class="o">:</span> Int) <span class="o">:</span> Nat
   <span class="o">|</span> pos n <span class="o">=&gt;</span> <span class="n">3</span>
   <span class="o">|</span> neg n <span class="o">=&gt;</span> <span class="n">7</span></code></pre></div></div>
@@ -772,8 +765,7 @@ satisfying the condition that equivalent elements are mapped to equal elements. 
 the proof of the condition omitted and using simplified syntax (the full definition is given below)
 we can write:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- A simplification. This is not intended to be typechecking.
-</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- A simplification. This is not intended to be typechecking.</span>
 <span class="k">\func</span> f (x <span class="o">:</span> A/~) <span class="o">:</span> B
    <span class="o">|</span> in~ a <span class="o">=&gt;</span> b</code></pre></div></div>
 
@@ -878,7 +870,7 @@ that the function maps equivalent elements to equal values.</p>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

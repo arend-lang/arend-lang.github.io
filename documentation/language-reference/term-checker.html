@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend termination checker">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/term-checker.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/term-checker.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/term-checker.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/term-checker.html">
 
 
 
@@ -88,10 +88,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-<!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
 
 
@@ -515,7 +511,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Arend termination checker</h4></header>
-              <ul class="toc__menu"><li><a href="#1-detection-of-circular-dependencies">1. Detection of Circular Dependencies</a></li><li><a href="#2-preparation-of-call-matrices">2. Preparation of Call Matrices</a><ul><li><a href="#the-set-of-comparison-results">The set of comparison results</a></li><li><a href="#call-matrices-in-arends-termination-checker">Call matrices in Arend’s termination checker</a></li><li><a href="#computing-entries">Computing entries</a></li><li><a href="#current-limitations-the-detection-of-eliminations">Current limitations: the detection of eliminations</a></li><li><a href="#tuples-records-and-classes">Tuples, records, and classes</a></li></ul></li><li><a href="#3-the-call-graph-and-its-completion">3. The Call Graph and its completion</a><ul><li><a href="#matrix-composition">Matrix composition</a></li><li><a href="#matrix-dimensions">Matrix dimensions</a></li><li><a href="#call-graph-completion">Call graph completion</a></li><li><a href="#visualizing-the-call-graph">Visualizing the call graph</a></li></ul></li><li><a href="#4-analysis-of-loops">4 Analysis of loops</a><ul><li><a href="#the-model-case">The model case</a></li><li><a href="#the-general-case">The general case</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#1-detection-of-circular-dependencies">1. Detection of Circular Dependencies</a></li><li><a href="#2-preparation-of-call-matrices">2. Preparation of Call Matrices</a><ul><li><a href="#the-set-of-comparison-results">The set of comparison results</a></li><li><a href="#call-matrices-in-arends-termination-checker">Call matrices in Arend’s termination checker</a><ul><li><a href="#exact-match">Exact match</a></li><li><a href="#match-with-a-subpattern">Match with a subpattern</a></li><li><a href="#special-case-arrays">Special case: arrays</a></li></ul></li><li><a href="#current-limitations-the-detection-of-eliminations">Current limitations: the detection of eliminations</a></li><li><a href="#tuples-records-and-classes">Tuples, records, and classes</a></li></ul></li><li><a href="#3-termination-criterion-1-existence-of-a-termination-order">3. Termination criterion 1: existence of a termination order</a></li><li><a href="#4-the-call-graph-and-its-completion">4. The Call Graph and its completion</a><ul><li><a href="#matrix-composition">Matrix composition</a></li><li><a href="#matrix-dimensions">Matrix dimensions</a></li><li><a href="#call-graph-completion">Call graph completion</a></li><li><a href="#current-limitations-performance-constraints">Current limitations: performance constraints</a></li><li><a href="#visualizing-the-call-graph">Visualizing the call graph</a></li></ul></li><li><a href="#5-termination-criterion-2-size-change-principle">5. Termination criterion 2: size-change principle</a></li></ul>
             </nav>
           </aside>
         
@@ -535,7 +531,12 @@ It is essential that such recursive calls are <em>well-founded</em>—meaning th
 
 <p>If such a function were permitted, one could derive <code class="language-plaintext highlighter-rouge">False</code> (for example, deducing it from <code class="language-plaintext highlighter-rouge">suc (foo) = foo</code>).</p>
 
-<p>The version of the termination checker used in Arend is heavily inspired by the <strong>FOETUS</strong> termination checker described by A. Abel in his <a href="https://arxiv.org/abs/2407.06924">master’s thesis</a> (with some enhancements and optimizations).</p>
+<p>The Arend termination checker relies on the following two sufficient criteria for termination:</p>
+
+<ul>
+  <li>the existence of a <strong>termination order</strong> in the style of Abels’ FOETUS, see <a href="https://arxiv.org/abs/2407.06924">this paper</a>;</li>
+  <li>the <strong>size-change termination principle</strong> of Lee, Jones, and Ben-Amram, see <a href="https://doi.org/10.1145/360204.360210">this paper</a>.</li>
+</ul>
 
 <p>This page outlines the main steps of Arend’s termination checking algorithm and is intended as a guide for users who encounter termination issues in their Arend code.</p>
 
@@ -555,7 +556,7 @@ Since Arend does not allow coinductive or nested inductive types, recursion in f
 (If function <code class="language-plaintext highlighter-rouge">f</code> calls function <code class="language-plaintext highlighter-rouge">g</code> twice in its implementation, then 2 separate edges are constructed.)</li>
     </ul>
   </li>
-  <li>Every <strong>strongly connected component</strong> of this graph then is analyzed on the next stage of the termination checking algorithm.</li>
+  <li>Every <strong>strongly connected component</strong> (SCC) of this graph then is analyzed on the next stage of the termination checking algorithm.</li>
 </ul>
 
 <p>In particular, if a function/theorem is defined recursively and does not rely on mutual recursion, the resulting graph has only one vertex, and the number of loops on that vertex is the number of different recursive calls inside its body.</p>
@@ -564,7 +565,7 @@ Since Arend does not allow coinductive or nested inductive types, recursion in f
 
 <h2 id="2-preparation-of-call-matrices">2. Preparation of Call Matrices</h2>
 <p>Once a graph of recursion is found, the next step is to analyze how the arguments evolve in recursive calls. 
-This is encoded in <strong>call matrices</strong>, a key concept borrowed from Abel’s FOETUS framework.</p>
+This information is encoded by means of <strong>call matrices</strong>.</p>
 
 <h3 id="the-set-of-comparison-results">The set of comparison results</h3>
 
@@ -588,58 +589,159 @@ During this phase it makes no distinction between explicit and implicit paramete
 <p>Let:</p>
 
 <ul>
-  <li><em>f</em> have parameters x<sub>1</sub>, …, x<sub>n</sub>,</li>
-  <li><em>g</em> have parameters y<sub>1</sub>, …, y<sub>m</sub>.</li>
+  <li>
+    <p><em>f</em> have parameters x<sub>1</sub>, …, x<sub>n</sub>,</p>
+  </li>
+  <li>
+    <p><em>g</em> have parameters y<sub>1</sub>, …, y<sub>m</sub>.</p>
+  </li>
 </ul>
 
-<p>Suppose that, after normalization and deduction of implicit arguments, the body of <em>f</em> contains a call <em>G = g z<sub>1</sub> … z<sub>s</sub></em>, where each <em>z</em><sub><em>j</em></sub> is an expression referring to parameters <em>x</em><sub><em>1</em></sub>, …, <em>x</em><sub><em>n</em></sub> and pattern variables introduced by eliminating <em>x</em><sub><em>i</em></sub>.</p>
-
-<p>To this call we associate a call matrix <em>C = C(G)</em> of dimension <em>n × m</em>:</p>
+<p>Suppose that, after normalization and deduction of implicit arguments, the body of <em>f</em> contains a call <em>G = g z<sub>1</sub> … z<sub>s</sub></em>, 
+ where each <em>z</em><sub><em>j</em></sub> is an expression referring to parameters <em>x</em><sub><em>1</em></sub>, …, <em>x</em><sub><em>n</em></sub> and pattern variables introduced by eliminating <em>x</em><sub><em>i</em></sub>.
+To this call we associate a call matrix <em>C = C(G)</em> of dimension <em>n × m</em>:</p>
 
 <ul>
-  <li><strong>Rows</strong> correspond to parameters of the caller <em>f</em> (<em>n</em> rows).</li>
-  <li><strong>Columns</strong> correspond to parameters of the callee <em>g</em> (<em>m</em> columns).</li>
+  <li>
+    <p><strong>Rows</strong> correspond to parameters of the caller <em>f</em> (<em>n</em> rows).</p>
+  </li>
+  <li>
+    <p><strong>Columns</strong> correspond to parameters of the callee <em>g</em> (<em>m</em> columns).</p>
+  </li>
 </ul>
 
-<p>The entry <em>C</em><sub><em>ij</em></sub> in row <em>i</em>, column <em>j</em> describes how the caller’s parameter <em>x</em><sub><em>i</em></sub> relates to the argument <em>z</em><sub><em>j</em></sub> (which is the argument for the callee’s parameter <em>y</em><sub><em>j</em></sub>).</p>
+<p>Each matrix entry <em>C</em><sub><em>ij</em></sub> belongs to <em>R</em>.
+Conceptually, it expresses how the argument <em>z</em><sub><em>j</em></sub> relates to the caller’s parameter <em>x</em><sub><em>i</em></sub>.</p>
+
+<p>To begin, each parameter <em>x</em><sub>1</sub>, …, <em>x</em><sub><em>n</em></sub> of <em>f</em> is assigned a <strong>pattern</strong> <em>P</em><sub><em>i</em></sub>.
+This pattern represents the form of the parameter <em>x</em><sub><em>i</em></sub> in the current elimination clause of <em>f</em>.
+If the call <em>G</em> appears outside any elimination clause, then <em>P</em><sub><em>i</em></sub> is simply the variable pattern <em>x</em><sub><em>i</em></sub>.</p>
+
+<p>The termination checker tracks variable elimination <strong>only</strong> inside function bodies defined with <code class="language-plaintext highlighter-rouge">\elim</code> or <code class="language-plaintext highlighter-rouge">\with</code>.
+These elimination constructs may occur only at the <strong>top level</strong> of a function or theorem definition.
+As a result, nested elimination blocks do not arise, and the patterns <em>P</em><sub><em>i</em></sub> never need to be computed by repeated pattern substitution.</p>
+
+<p>The exact value of <em>C</em><sub><em>ij</em></sub> now computed from <em>P</em><sub><em>i</em></sub> and <em>z</em><sub><em>j</em></sub> according to the set of rules described below.</p>
+
+<p>First of all, if the <em>j</em>-th parameter of <em>g</em> is not supplied (i.e. <em>j &gt; s</em>), then set <em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
+
+<p>In what follows assume <em>j ≤ s</em>.</p>
+
+<p>If the pattern for <em>x</em><sub><em>i</em></sub> is a variable (i.e. <em>P</em><sub><em>i</em></sub> is just <em>x</em><sub><em>i</em></sub>), then 
+<em>C</em><sub><em>ij</em></sub> = “<strong>=</strong>” if <em>z</em><sub><em>j</em></sub> is exactly a reference to <em>x</em><sub><em>i</em></sub>, otherwise, <em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
+
+<p>Now suppose <em>P</em><sub><em>i</em></sub>= c <em>q</em><sub><em>1</em></sub>, … <em>q</em><sub><em>k</em></sub> is a constructor pattern of some data type <em>D</em> with subpatterns <em>q</em><sub><em>r</em></sub>.</p>
 
 <hr />
 
-<h3 id="computing-entries">Computing entries</h3>
+<h4 id="exact-match">Exact match</h4>
 
-<p>The value of each matrix entry <em>C</em><sub><em>ij</em></sub> is one of “<strong>&lt;</strong>”, “<strong>=</strong>”, or “<strong>?</strong>”.
-It is computed according to the following list of rules:</p>
+<p>First, the checker attempts to match the argument <em>z</em><sub><em>j</em></sub> directly against the whole constructor pattern <em>P</em><sub><em>i</em></sub>:</p>
+
+<ul>
+  <li>If <em>z</em><sub><em>j</em></sub> is a call to the same constructor <em>c</em> and all its arguments match the subpatterns
+<em>q</em><sub><em>1</em></sub>, …, <em>q</em><sub><em>k</em></sub> (recursively using the same rules), then <em>C</em><sub><em>ij</em></sub> = “<strong>=</strong>”.</li>
+</ul>
+
+<p>More precisely, if the list of constructor arguments of <em>z</em><sub><em>j</em></sub> matches the list of subpatterns, and
+all component comparisons return “<strong>=</strong>”, the whole comparison returns “<strong>=</strong>”.
+If some component returns “<strong>&lt;</strong>”, the whole comparison returns “<strong>&lt;</strong>”.
+If some component returns “<strong>?</strong>” or there are too few arguments, the result is “<strong>?</strong>”.</p>
+
+<hr />
+
+<h4 id="match-with-a-subpattern">Match with a subpattern</h4>
+
+<p>If <em>P</em><sub><em>i</em></sub> is a constructor pattern, the checker also attempts to check if <em>z</em><sub><em>j</em></sub> matches some subpattern of <em>P</em><sub><em>i</em></sub>.</p>
+
+<p>For each subpattern <em>q</em><sub><em>r</em></sub> of <em>P</em><sub><em>i</em></sub>, with type <em>T</em><sub><em>r</em></sub>, the checker attempts the following procedure:</p>
 
 <ol>
   <li>
-    <p><strong>Missing argument</strong>: If the <em>j</em>-th parameter of <em>g</em> is not supplied (i.e. <em>j &gt; s</em>), then <em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
+    <p><strong>Strip off applications from</strong> <em>z</em><sub><em>j</em></sub> <strong>expression until it becomes a plain constructor call</strong></p>
+
+    <p>Starting from <em>e</em><sub><em>0</em></sub> := <em>z</em><sub><em>j</em></sub>, the algorithm performs following simplifications:</p>
+
+    <ul>
+      <li>if <em>e</em> is an application <em>e’ u</em>, replace it by its function part <em>e’</em>;</li>
+      <li>if <em>e</em> is a Σ-projection or field projection <em>e’.n</em> or <em>e’.foo</em>,
+replace it by <em>e’</em>;</li>
+      <li>if <em>e</em> is a path “at” expression <em>p @ a</em>, replace it by the path argument <em>a</em>;</li>
+      <li>otherwise, stop.</li>
+    </ul>
+
+    <p>The checker records the sequence of eliminators that were performed in a list, denote it <em>E</em>.</p>
   </li>
   <li>
-    <p><strong>Direct identity</strong>: If <em>z</em><sub><em>j</em></sub> is a reference to a variable <em>x</em><sub><em>i</em></sub>, then <em>C</em><sub><em>ij</em></sub> = “<strong>=</strong>”.</p>
+    <p><strong>Replay the eliminations on the type of subpattern</strong></p>
+
+    <p>Starting from the type <em>T</em><sub><em>r</em></sub> of the subpattern <em>q</em><sub><em>r</em></sub>, the checker applies
+eliminators recorded in the list <em>E</em> <em>backwards</em>:</p>
+
+    <ul>
+      <li>For a Π-eliminator, it requires <em>T</em> to be a Π-type and moves to its codomain
+(or the Π-type with the first parameter removed, in the case of multiple parameters).</li>
+      <li>For a Σ-eliminator selecting component <em>n</em>, it requires <em>T</em> to be a Σ-type
+and moves to the type of the <em>n</em>-th component.</li>
+      <li>For a path eliminator (coming from a <em>p @ a</em> expression), it requires <em>T</em> to be
+a path type and moves to the underlying “family” type.</li>
+      <li>For a class-field eliminator selecting field <em>f</em>, it requires <em>T</em> to be a
+record/class type and moves to the type of the field <em>f</em> (with the appropriate
+“this” substitution). Arrays are normalized at this point so that their class
+representation is visible.</li>
+    </ul>
+
+    <p>If at any step the current type does not have the expected form, the procedure aborts
+for this subpattern <em>q</em><sub><em>r</em></sub>.</p>
   </li>
   <li>
-    <p><strong>Eliminated variable</strong>: If <em>z</em><sub><em>j</em></sub> is a reference to a pattern variable obtained from <em>x</em><sub><em>i</em></sub> by elimination in a <code class="language-plaintext highlighter-rouge">\elim</code> or <code class="language-plaintext highlighter-rouge">\with</code> statement, then 
-<em>C</em><sub><em>ij</em></sub> = “<strong>&lt;</strong>”.</p>
+    <p><strong>Check recursion</strong></p>
+
+    <p>After replaying all eliminations, suppose the resulting type is <em>T’</em>.</p>
+
+    <ul>
+      <li>
+        <p>If <em>T’</em> is a data call which is a <strong>recursive occurrence of D</strong> (or of one of its
+mutually recursive relatives), then <em>e</em> is considered a recursive subterm of the
+original argument corresponding to <em>q</em><sub><em>r</em></sub> and the procedure goes to the next step.</p>
+      </li>
+      <li>
+        <p>Otherwise, the procedure for this subpattern aborts.</p>
+      </li>
+    </ul>
   </li>
   <li>
-    <p><strong>Application</strong>: If <em>z</em><sub><em>j</em></sub> is an application expression <code class="language-plaintext highlighter-rouge">a b</code>, compute <em>C</em><sub><em>ij</em></sub> as if <em>z</em><sub><em>j</em></sub> were just <code class="language-plaintext highlighter-rouge">a</code>. (Intuitively, applying an argument never makes the term “larger,” so only the head matters.)</p>
-  </li>
-  <li>
-    <p><strong>Projection or field accessor</strong>: If <em>z</em><sub><em>j</em></sub> is a sigma projection <code class="language-plaintext highlighter-rouge">a.1</code>, <code class="language-plaintext highlighter-rouge">a.2</code> or a field accessor <code class="language-plaintext highlighter-rouge">a.foo</code>, compute <em>C</em><sub><em>ij</em></sub> as if <em>z</em><sub><em>j</em></sub> were just <code class="language-plaintext highlighter-rouge">a</code>.</p>
-  </li>
-  <li>
-    <p><strong>At-expression</strong>: If <em>z</em><sub><em>j</em></sub> = <code class="language-plaintext highlighter-rouge">p @ a</code>, compute <em>C</em><sub><em>ij</em></sub> as if <em>z</em><sub><em>j</em></sub> were just <code class="language-plaintext highlighter-rouge">a</code>.</p>
-  </li>
-  <li>
-    <p><strong>Otherwise</strong>: If none of the above apply then 
-<em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
+    <p><strong>Compare the “stripped-off” expression with the subpattern</strong></p>
+
+    <p>If <em>T’</em> is recursive for <em>D</em> as above, we recursively compare <em>e</em> with <em>q</em><sub><em>r</em></sub>.</p>
+
+    <ul>
+      <li>If the comparison result is either “<strong>=</strong>” or “<strong>&lt;</strong>”, then we conclude that
+<em>z</em><sub><em>j</em></sub> is strictly smaller than <em>P</em><sub><em>i</em></sub> and set <em>C</em><sub><em>ij</em></sub> = “<strong>&lt;</strong>”.</li>
+    </ul>
   </li>
 </ol>
 
+<p>If this procedure fails for all subpatterns <em>q</em><sub><em>r</em></sub>,
+ then the checker cannot establish any comparison results, and it sets <em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
+
 <hr />
 
-<p>Notice that for each column <em>j</em>, there is at most one row <em>i</em> such that <em>C</em><sub><em>ij</em></sub> <em>≠</em> “<strong>?</strong>”. 
-Intuitively, every argument <em>z</em><sub><em>j</em></sub> is related to at most one caller parameter.</p>
+<h4 id="special-case-arrays">Special case: arrays</h4>
+
+<p>In constructor patterns for arrays, the <strong>length</strong> component is not considered a recursive
+argument, whereas the “tail” (the third component) is.</p>
+
+<p>In terms of the algorithm above, this means:</p>
+
+<ul>
+  <li>when comparing the arguments of a <code class="language-plaintext highlighter-rouge">::</code> pattern against the subpatterns, the checker
+<strong>skips the length component</strong> when looking for a structural descent; only the
+element and tail components are candidates for producing a “<strong>&lt;</strong>” result.</li>
+</ul>
+
+<p>Formally, when matching a call to <code class="language-plaintext highlighter-rouge">::</code> with 3 subpatterns, the comparison loop over
+arguments/subpatterns starts from index 1 (element) rather than 0 (length).</p>
 
 <hr />
 
@@ -667,7 +769,59 @@ As a result, if a variable introduced in a <code class="language-plaintext highl
 
 <hr />
 
-<h2 id="3-the-call-graph-and-its-completion">3. The Call Graph and its completion</h2>
+<h2 id="3-termination-criterion-1-existence-of-a-termination-order">3. Termination criterion 1: existence of a termination order</h2>
+
+<p>This criterion is only tried if the strong connected component in the call graph consists of only vertex, i.e. one deals with a recursive function and not with mutual recursion.
+Otherwise this step is skipped and Termination criterion 2 is tried, see below.</p>
+
+<p>Let <em>f(x</em><sub><em>1</em></sub>, … ,<em>x</em><sub><em>n</em></sub><em>)</em> be a function that makes <em>m</em> different recursive calls to itself. 
+Each call is represented by an <em>n × n</em> call matrix <em>c</em><sup><em>1</em></sup>, …, <em>c</em><sup><em>m</em></sup>.</p>
+
+<p>We say that <em>f</em> admits a (lexicographic) <strong>termination order</strong> if there exists a sequence of parameter indices <em>i</em><sub><em>1</em></sub>, <em>i</em><sub><em>2</em></sub>, …, <em>i</em><sub><em>s</em></sub>, where 1 ≤ i<sub><em>k</em></sub> ≤ n such that the following conditions hold:</p>
+<ol>
+  <li>For every call <em>c</em><sup><em>j</em></sup>, the diagonal entry <em>c</em><sup><em>j</em></sup><sub>i<sub>1</sub>, i<sub>1</sub></sub> is either “<strong>&lt;</strong>” or “<strong>=</strong>”.
+    <ul>
+      <li>Let <em>I</em><sub><em>1</em></sub> be the set of all <em>j</em> for which <em>c</em><sup><em>j</em></sup><sub>i<sub>1</sub>, i<sub>1</sub></sub> = “<strong>=</strong>”.</li>
+    </ul>
+  </li>
+  <li>Restrict attention to calls with indices in <em>I</em><sub><em>1</em></sub>. For each <em>j</em> ∊ <em>I</em><sub><em>1</em></sub>, 
+the diagonal entry <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> is required to be either “<strong>&lt;</strong>” or “<strong>=</strong>”.
+    <ul>
+      <li>Let <em>I</em><sub><em>2</em></sub> be the those <em>j</em> from <em>I</em><sub><em>1</em></sub> for which <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> = “<strong>=</strong>”.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Continue in the same way: at stage <em>k</em>, look only at calls indexed by <em>I</em><sub><em>k-1</em></sub>. 
+For each such call, the diagonal entry at position <em>i</em><sub><em>k</em></sub> must be “<strong>&lt;</strong>” or “<strong>=</strong>”, 
+and define <em>I</em><sub><em>k</em></sub> as those with “<strong>=</strong>”.</p>
+  </li>
+  <li>In the end <em>I</em><sub><em>s</em></sub> is empty, i.e. at the last chosen parameter all remaining calls decrease strictly.</li>
+</ol>
+
+<p>The question of whether <em>f</em> admits a termination order can be restated more compactly in terms of matrices:</p>
+
+<ul>
+  <li>For each call matrix <em>c</em><sup><em>j</em></sup>, keep only its diagonal entries and discard the rest.</li>
+  <li>Collect these diagonals into an <em>m × n</em> matrix, where each row corresponds to the diagonal of one call matrix.</li>
+</ul>
+
+<p>A termination order for <em>f</em> exists <strong>iff</strong> the columns of this combined matrix can be reordered so that it takes the following staircase form (where “<code class="language-plaintext highlighter-rouge">*</code>” denotes an arbitrary entry):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;   *   *   *
+&lt;   *   *   *
+=   &lt;   *   *
+=   &lt;   *   *
+=   =   &lt;   *
+    .....
+</code></pre></div></div>
+<hr />
+
+<p>It is clear that a function that admits a termination order is guaranteed to terminate. Indeed, every recursive call strictly decreases its arguments in a fixed lexicographic order: the first parameter where a difference appears becomes smaller, while all earlier ones remain unchanged. Since each parameter is drawn from a well-founded domain (e.g. inductive type), and the lexicographic product of well-founded orders is itself well-founded, infinite descent is impossible, so the recursion must eventually stop.</p>
+
+<p>If termination criterion 1 succeeds, the Arend termination checker will accept the one-vertex SCC and will not do anything else.
+Otherwise, it would try to compute the completion of the call graph and will try to check if Termination Criterion 2 holds.</p>
+
+<h2 id="4-the-call-graph-and-its-completion">4. The Call Graph and its completion</h2>
 
 <p>At this stage, we have constructed a <strong>call graph</strong>:</p>
 
@@ -733,6 +887,35 @@ Since there are only finitely many different call matrices between any two verti
 
 <hr />
 
+<h3 id="current-limitations-performance-constraints">Current limitations: performance constraints</h3>
+
+<p>Calculation of the call graph completion is potentially a heavy computation.</p>
+
+<p>Suppose we have a recursive function on 9 arguments</p>
+
+<p><em>f</em> (<em>x</em><sub><em>1</em></sub>, <em>x</em><sub><em>2</em></sub>, …, <em>x</em>_<sub><em>9</em></sub>)</p>
+
+<p>and it makes two different kinds of self-calls:</p>
+
+<ol>
+  <li>
+    <p><strong>Cyclic permutation (A)</strong></p>
+
+    <p>The function calls itself by rotating the arguments in a 9-cycle: <em>f</em> (<em>x</em><sub><em>9</em></sub>, <em>x</em><sub><em>1</em></sub>, …, <em>x</em>_<sub><em>8</em></sub>)</p>
+  </li>
+  <li>
+    <p><strong>Swap of the first two arguments (B)</strong></p>
+  </li>
+</ol>
+
+<p>The function calls itself by swapping only the first two parameters, leaving the others unchanged: <em>f</em> (<em>x</em><sub><em>2</em></sub>, <em>x</em><sub><em>1</em></sub>, …, <em>x</em>_<sub><em>9</em></sub>)</p>
+
+<p>Together, these two kinds of recursive calls generate a subgroup of the symmetric group <em>S</em><sub><em>9</em></sub>: the 9-cycle and the transposition generate <strong>all</strong> permutations of the 9 arguments. From the point of view of size-change termination, this means that completing the call graph (or closing the size-change graphs under composition) can produce a large number of distinct permutations.</p>
+
+<p>For this reason the Arend termination checker will stop the computation of the completion and will reject the SCC as nonterminating if at least 100 different loops are generated at least on one call graph vertex.</p>
+
+<hr />
+
 <h3 id="visualizing-the-call-graph">Visualizing the call graph</h3>
 
 <p>In Arend, recursive functions/theorems are marked with <img src="/assets/images/complexRecursion.svg" alt="a special" /> icon in the gutter.</p>
@@ -744,57 +927,16 @@ Since there are only finitely many different call matrices between any two verti
   <li>A <strong>Before/After completion</strong> checkbox switches between showing the call graph <em>before</em> and <em>after</em> the completion operation.</li>
 </ul>
 
-<h2 id="4-analysis-of-loops">4 Analysis of loops</h2>
+<h2 id="5-termination-criterion-2-size-change-principle">5. Termination criterion 2: size-change principle</h2>
+<p>The final step of the algorithm is to apply the <strong>size-change termination principle</strong> to the calculated completed call graph.</p>
 
-<h3 id="the-model-case">The model case</h3>
+<p>For each vertex <em>v</em> in the SCC component, we inspect the resulting <strong>idempotent</strong> matrices labeling a loop at <em>v</em> of the completed call graph.</p>
 
-<p>Let <em>f(x</em><sub><em>1</em></sub>, … ,<em>x</em><sub><em>n</em></sub><em>)</em> be a function that makes <em>m</em> different recursive calls to itself. 
-Each call is represented by an <em>n × n</em> call matrix <em>c</em><sup><em>1</em></sup>, …, <em>c</em><sup><em>m</em></sup>.</p>
+<p>The component is accepted if in every idempotent call matrix <em>M</em> labeling a loop there is a (“<strong>&lt;</strong>”) on some diagonal entry.</p>
 
-<p>We say that <em>f</em> admits a (lexicographic) <strong>termination order</strong> if there exists a sequence of parameter indices <em>i</em><sub><em>1</em></sub>, <em>i</em><sub><em>2</em></sub>, …, <em>i</em><sub><em>s</em></sub>, where 1 ≤ i<sub><em>k</em></sub> ≤ n such that the following conditions hold:</p>
-<ol>
-  <li>For every call <em>c</em><sup><em>j</em></sup>, the diagonal entry <em>c</em><sup><em>j</em></sup><sub>i<sub>1</sub>, i<sub>1</sub></sub> is either “<strong>&lt;</strong>” or “<strong>=</strong>”.
-    <ul>
-      <li>Let <em>I</em><sub><em>1</em></sub> be the set of all <em>j</em> for which <em>c</em><sup><em>j</em></sup><sub>i<sub>1</sub>, i<sub>1</sub></sub> = “<strong>=</strong>”.</li>
-    </ul>
-  </li>
-  <li>Restrict attention to calls with indices in <em>I</em><sub><em>1</em></sub>. For each <em>j</em> ∊ <em>I</em><sub><em>1</em></sub>, 
-the diagonal entry <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> is required to be either “<strong>&lt;</strong>” or “<strong>=</strong>”.
-    <ul>
-      <li>Let <em>I</em><sub><em>2</em></sub> be the those <em>j</em> from <em>I</em><sub><em>1</em></sub> for which <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> = “<strong>=</strong>”.</li>
-    </ul>
-  </li>
-  <li>
-    <p>Continue in the same way: at stage <em>k</em>, look only at calls indexed by <em>I</em><sub><em>k-1</em></sub>. 
-For each such call, the diagonal entry at position <em>i</em><sub><em>k</em></sub> must be “<strong>&lt;</strong>” or “<strong>=</strong>”, 
-and define <em>I</em><sub><em>k</em></sub> as those with “<strong>=</strong>”.</p>
-  </li>
-  <li>In the end <em>I</em><sub><em>s</em></sub> is empty, i.e. at the last chosen parameter all remaining calls decrease strictly.</li>
-</ol>
-
-<p>The question of whether <em>f</em> admits a termination order can be restated more compactly in terms of matrices:</p>
-
-<ul>
-  <li>For each call matrix <em>c</em><sup><em>j</em></sup>, keep only its diagonal entries and discard the rest.</li>
-  <li>Collect these diagonals into an <em>m × n</em> matrix, where each row corresponds to the diagonal of one call matrix.</li>
-</ul>
-
-<p>A termination order for <em>f</em> exists <strong>iff</strong> the columns of this combined matrix can be reordered so that it takes the following staircase form (where “<code class="language-plaintext highlighter-rouge">*</code>” denotes an arbitrary entry):</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;   *   *   *
-&lt;   *   *   *
-=   &lt;   *   *
-=   &lt;   *   *
-=   =   &lt;   *
-    .....
-</code></pre></div></div>
-<hr />
-
-<p>It is clear that a function that admits a termination order is guaranteed to terminate. Indeed, every recursive call strictly decreases its arguments in a fixed lexicographic order: the first parameter where a difference appears becomes smaller, while all earlier ones remain unchanged. Since each parameter is drawn from a well-founded domain (e.g. inductive type), and the lexicographic product of well-founded orders is itself well-founded, infinite descent is impossible, so the recursion must eventually stop.</p>
-
-<h3 id="the-general-case">The general case</h3>
-
-<p>Once the completed call graph has been constructed, Arend’s termination checker keeps only loops at each vertex of the call graph and discards all other edges. Intuitively, this makes sense since only self-cycles can sustain infinite recursion. For every vertex, the Arend termination checker then attempts to find a termination order in the sense formulated above. If every function in the strongly connected component admits termination order, the whole component of calls is accepted; otherwise, the checker reports a termination error.</p>
+<p>Intution behind this sufficient condition is the following.
+Every infinite call sequence generates an idempotent loop matrix eventually (essentially, this follows from the pigeonhole principle).
+If every idempotent matrix contains a <strong>&lt;</strong> somewhere, then some parameter position experiences infinitely many decreases along each infinite sequence of calls, which guarantees termination.</p>
 
         
       </section>
@@ -850,7 +992,7 @@ and define <em>I</em><sub><em>k</em></sub> as those with “<strong>=</strong>�
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>
