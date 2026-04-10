@@ -14,7 +14,9 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5P98');</script>
 <!-- End Google Tag Manager -->
-    <meta charset="utf-8">
+    
+<meta charset="utf-8">
+
 
 <!-- begin _includes/seo.html --><title>\module Debug.Meta - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
@@ -25,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="\module Debug.Meta">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/standard-tactics/debug-meta.html">
+<meta property="og:url" content="http://localhost:4000/documentation/standard-tactics/debug-meta.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +43,9 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/standard-tactics/debug-meta.html">
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/standard-tactics/debug-meta.html">
 
 
 
@@ -61,7 +65,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -81,7 +85,8 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<nav class="skip-links">
+
+<nav class="skip-links" aria-label="Skip links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -91,10 +96,11 @@
 
 
 
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         
         <a class="site-title" href="/">
           Arend Theorem Prover
@@ -144,6 +150,7 @@
 
 <div id="main" role="main">
   
+
   <div class="sidebar sticky">
   
   
@@ -487,6 +494,7 @@
 
     
   
+  
   </div>
 
 
@@ -533,9 +541,11 @@ It can take some arguments which specifies the returned random number.</p>
 
 <p>Examples:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>random <span class="c">-- returns a random number.</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>random <span class="c">-- returns a random number.
+</span>
 
-random n <span class="c">-- returns a random number between 0 and `n`</span>
+random n <span class="c">-- returns a random number between 0 and `n`
+</span>
 
 random (l<span class="o">,</span>u) <span class="c">-- returns a random number between `l` and `u`</span></code></pre></div></div>
 
@@ -549,17 +559,22 @@ In the IDE, it will open a tool window and display the argument.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Debug.Meta
 <span class="k">\import</span> Meta (run)
 
-<span class="c">-- A defined meta</span>
+<span class="c">-- A defined meta
+</span>
 <span class="k">\meta</span> runTimed m <span class="o">=&gt;</span> run {
-  <span class="c">-- Record the start time</span>
+  <span class="c">-- Record the start time
+</span>
   <span class="k">\let</span> startTime <span class="o">=&gt;</span> time<span class="o">,</span>
-  <span class="c">-- Type check the input and print it</span>
+  <span class="c">-- Type check the input and print it
+</span>
   println m<span class="o">,</span>
-  <span class="c">-- Calculate the elapsed time and print it</span>
+  <span class="c">-- Calculate the elapsed time and print it
+</span>
   println (time Nat.- startTime)
 }
 
-<span class="c">-- Usage</span>
+<span class="c">-- Usage
+</span>
 <span class="k">\func</span> test <span class="o">=&gt;</span> runTimed (<span class="n">114</span> Nat.<span class="o">+</span> <span class="n">514</span>)</code></pre></div></div>
 
         
@@ -569,6 +584,10 @@ In the IDE, it will open a tool window and display the argument.</p>
         
         
 
+  
+
+  
+
 
         
       </footer>
@@ -576,6 +595,8 @@ In the IDE, it will open a tool window and display the argument.</p>
       
 
       
+
+
     </div>
 
     
@@ -594,7 +615,10 @@ In the IDE, it will open a tool window and display the argument.</p>
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
-        <div class="page__footer-follow">
+        
+
+
+<div class="page__footer-follow">
   <ul class="social-icons">
     
 
@@ -611,18 +635,21 @@ In the IDE, it will open a tool window and display the argument.</p>
     
 
     
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
     
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>
 
 
+
   <script src="/assets/js/main.min.js"></script>
+
 
 
 

@@ -14,7 +14,9 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5P98');</script>
 <!-- End Google Tag Manager -->
-    <meta charset="utf-8">
+    
+<meta charset="utf-8">
+
 
 <!-- begin _includes/seo.html --><title>Higher Inductive Types - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
@@ -25,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Higher Inductive Types">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/hits.html">
+<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/hits.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +43,9 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/hits.html">
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/hits.html">
 
 
 
@@ -61,7 +65,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -81,7 +85,8 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<nav class="skip-links">
+
+<nav class="skip-links" aria-label="Skip links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -91,10 +96,11 @@
 
 
 
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         
         <a class="site-title" href="/">
           Arend Theorem Prover
@@ -144,6 +150,7 @@
 
 <div id="main" role="main">
   
+
   <div class="sidebar sticky">
   
   
@@ -564,6 +571,7 @@
 
     
   
+  
   </div>
 
 
@@ -632,7 +640,8 @@ Thus, one cannot define the following function:</p>
 <p>A higher inductive type (HIT) is a data type with a constructor that has conditions of the form <span class="inl-highlight"><span class="o">|</span> left <span class="o">=&gt;</span> e</span> and <span class="inl-highlight"><span class="o">|</span> right <span class="o">=&gt;</span> e’</span>.
 Let us give a few examples:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle
+</span>
 <span class="k">\data</span> S1
   <span class="o">|</span> base
   <span class="o">|</span> loop I <span class="k">\with</span> {
@@ -640,7 +649,8 @@ Let us give a few examples:</p>
     <span class="o">|</span> right <span class="o">=&gt;</span> base
   }
 
-<span class="c">-- Suspension</span>
+<span class="c">-- Suspension
+</span>
 <span class="k">\data</span> Susp (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> north
   <span class="o">|</span> south
@@ -649,7 +659,8 @@ Let us give a few examples:</p>
     <span class="o">|</span> right <span class="o">=&gt;</span> south
   }
 
-<span class="c">-- Propositional truncation</span>
+<span class="c">-- Propositional truncation
+</span>
 <span class="k">\data</span> Trunc (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inT A
   <span class="o">|</span> truncT (x y <span class="o">:</span> Trunc A) (i <span class="o">:</span> I) <span class="k">\elim</span> i {
@@ -657,7 +668,8 @@ Let us give a few examples:</p>
     <span class="o">|</span> right <span class="o">=&gt;</span> y
   }
 
-<span class="c">-- Set quotient</span>
+<span class="c">-- Set quotient
+</span>
 <span class="k">\data</span> Quotient (A <span class="o">:</span> <span class="kt">\Type</span>) (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inQ A
   <span class="o">|</span> equivQ (x y <span class="o">:</span> A) (R x y) (i <span class="o">:</span> I) <span class="k">\elim</span> i {
@@ -687,23 +699,27 @@ The type of each constructor must be an iterated path type in the data itself.
 The endpoints of these path types specify the conditions.
 The examples above can be rewritten in this syntax as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle
+</span>
 <span class="k">\data</span> S1
   <span class="o">|</span> base
   <span class="o">|</span> loop <span class="o">:</span> base <span class="o">=</span> base
 
-<span class="c">-- Suspension</span>
+<span class="c">-- Suspension
+</span>
 <span class="k">\data</span> Susp (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> north
   <span class="o">|</span> south
   <span class="o">|</span> merid A <span class="o">:</span> north <span class="o">=</span> south
 
-<span class="c">-- Propositional truncation</span>
+<span class="c">-- Propositional truncation
+</span>
 <span class="k">\data</span> Trunc (A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inT A
   <span class="o">|</span> truncT (x y <span class="o">:</span> Trunc A) <span class="o">:</span> x <span class="o">=</span> y
 
-<span class="c">-- Set quotient</span>
+<span class="c">-- Set quotient
+</span>
 <span class="k">\data</span> Quotient (A <span class="o">:</span> <span class="kt">\Type</span>) (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inQ A
   <span class="o">|</span> equivQ (x y <span class="o">:</span> A) (R x y) <span class="o">:</span> inQ x <span class="o">=</span> inQ y
@@ -734,6 +750,10 @@ Then the typechecker will insert missing variables and apply the right hand side
         
         
 
+  
+
+  
+
 
         
       </footer>
@@ -741,6 +761,8 @@ Then the typechecker will insert missing variables and apply the right hand side
       
 
       
+
+
     </div>
 
     
@@ -759,7 +781,10 @@ Then the typechecker will insert missing variables and apply the right hand side
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
-        <div class="page__footer-follow">
+        
+
+
+<div class="page__footer-follow">
   <ul class="social-icons">
     
 
@@ -776,18 +801,21 @@ Then the typechecker will insert missing variables and apply the right hand side
     
 
     
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
     
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>
 
 
+
   <script src="/assets/js/main.min.js"></script>
+
 
 
 

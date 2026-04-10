@@ -14,10 +14,12 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5P98');</script>
 <!-- End Google Tag Manager -->
-    <meta charset="utf-8">
+    
+<meta charset="utf-8">
+
 
 <!-- begin _includes/seo.html --><title>Arend 1.8.0 released - Arend Theorem Prover</title>
-<meta name="description" content="Language updates:">
+<meta name="description" content="Language updates:     Improved performance   Inference of unique implicit arguments   Coercion between paths and functions   A convenient syntax for defining HITs and pattern matching on them   Plugin updates:     Proof Search – find declarations by their type (#319)   Tracer – step-by-step typechecking (#168)   Re-worked “Arend Messages” panel (#336)            Printing customization - control over the way of displaying expressions           Editing:            Live templates – advanced completion for keywords (#252)       Optimize imports – detecting and removing unused imports (#11)       Extract expression to \let binding       Generate function from a goal with arguments           arend-lib:     New and improved metas:            Improved Exists meta and new metas Given and Forall.       Improved contradiction meta. Now, it can derive contradictions from transitive closure of &lt;, &lt;=, and =.       New simplify meta.           Locales:            The definition of discrete locales and the embedding of rationals into reals.       The definition of overt locales and open maps.       The construction of dense-closed and strongly dense-weakly closed factorization systems on the category of locales.       A proof that nuclei form a frame.       Limits and colimits of locales.       A characterization of embeddings of locales: a map of locales is a regular monomorphism if and only if the left adjoint is surjective.       The definition of (weakly) regular locales and a proof that the locale of reals is regular.       The definition of Hausdorff locales and a proof that regular locales are Hausdorff.       The definition of uniform locales and the construction of their completion.           The definition of abstract reduction systems, second-order term rewriting systems, and a proof that the disjoint union of confluent left-linear systems is confluent.   The definition of algebraic theories, the category of its models, and a proof that it has all small limits and colimits.   The preorder of subobjects and regular subobjects.   The construction of the structure sheaf on the spectrum of a ring.   Plugin updates  Proof Search  Nearly every proof assistant has a problem of the discoverability for proven theorems. For instance, try to recall how a lemma describing the commutativity of addition is called in your favorite proof assistant. Is it add_comm? Or +-comm?  The new “Proof Search” action helps in this situation. Invoke it and type in a signature of the declaration you are interested in – the IDE will find the declarations with such a signature:                         Sorry, your browser doesn&#39;t support embedded videos.        For more information, please see the full documentation.  Tracer  The tracer is a new feature that allows you typechecking a declaration step-by-step.  At each step, the IDE shows you the typechecking context for the current expression.                         Sorry, your browser doesn&#39;t support embedded videos.        To use the tracer:     Start it via a pop-up menu on a declaration or expression.   Step through the expressions back and forth, jump to a specific expression via “Run to Cursor”, and stop early if needed.   Inspect the stack and the context in the editor view at each tracing step.   Compared to the “Show Expression Type” action, the tracer works in more contexts, shows more info, but could be slower.  Re-worked “Arend Messages” panel  The “Arend Messages” panel shows current goals and errors. We did a number of changes that are aimed to improve the UX around it:     Goals and errors are shown in separate panels.   Goals’ panel is not cleaned up when you remove the goal. It is only removed when a declaration, which contained a goal, has no more errors or other goals.   Implicit goals (goals without a corresponding {?} element in the source code) are not shown by default.   The vertical layout is supported.                          Sorry, your browser doesn&#39;t support embedded videos.        Printing customization  This feature is incubating, it may be completely changed in future releases, even minor ones.  The proof terms which appear during the development of some theory may be quite large. It is often hard to read and understand them, so in order to show these terms to the user we sometimes omit certain subterms. A typical example of a kind of these subterms is implicit arguments – they often may be inferred from the context of the term, so displaying them just adds unnecessary noise. However, we also need a way to show these subterms for the purposes of debugging or better understanding the term semantics. Arend allows to configure pretty-printer options by the eye button in Arend Messages toolwindow.    This approach has a flaw: it is done in an all-or-nothing way. You are offered to display every omitted subterm of a certain kind, or not display them at all. Therefore, after changing an option of the pretty printer you become lost in the term.  Arend 1.8.0 offers a solution: we introduce printing customization right in the displayed term. You can put a cursor to a source of omittable subterms and then the appeared popup will help you to uncover what was hidden. Currently it works only for implicit arguments and types of parameters in lambda expression.                         Sorry, your browser doesn&#39;t support embedded videos.        Live templates  Live templates are smart code snippets. They speed up editing by providing a completion for common code patterns.  This release includes such templates for the majority of Arend keywords:                         Sorry, your browser doesn&#39;t support embedded videos.        In addition, you can define your own templates in “Preferences | Editor | Live Templates | Arend”:    Optimize imports  Keeping imports clean is easier with this release. The IDE detects unused imports and highlights them in grey color. To remove such imports use the new “Code | Optimize Imports” action:                         Sorry, your browser doesn&#39;t support embedded videos.        Aside from just removing, this action can optimize the imports in various ways, for example, import all declarations from a module explicitly. See “Preferences | Editor | Code Style | Arend” for the options.  Extract expression to \let binding  If you have a complex expression and want to extract some of its parts into \let bindings,  the new “Create \let-binding” intention is there to automate the process:                         Sorry, your browser doesn&#39;t support embedded videos.        Generate function from a goal with arguments  The “Generate function from a goal” intention is smarter now. When you invoke it on a goal with arguments,  the resulting function will get parameters corresponding to those arguments:                         Sorry, your browser doesn&#39;t support embedded videos.">
 
 
 
@@ -25,25 +27,27 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend 1.8.0 released">
-<meta property="og:url" content="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html">
+<meta property="og:url" content="http://localhost:4000/2022/04/15/Arend-1.8.0-released.html">
 
 
-  <meta property="og:description" content="Language updates:">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-04-15T00:00:00+03:00">
+  <meta property="og:description" content="Language updates:     Improved performance   Inference of unique implicit arguments   Coercion between paths and functions   A convenient syntax for defining HITs and pattern matching on them   Plugin updates:     Proof Search – find declarations by their type (#319)   Tracer – step-by-step typechecking (#168)   Re-worked “Arend Messages” panel (#336)            Printing customization - control over the way of displaying expressions           Editing:            Live templates – advanced completion for keywords (#252)       Optimize imports – detecting and removing unused imports (#11)       Extract expression to \let binding       Generate function from a goal with arguments           arend-lib:     New and improved metas:            Improved Exists meta and new metas Given and Forall.       Improved contradiction meta. Now, it can derive contradictions from transitive closure of &lt;, &lt;=, and =.       New simplify meta.           Locales:            The definition of discrete locales and the embedding of rationals into reals.       The definition of overt locales and open maps.       The construction of dense-closed and strongly dense-weakly closed factorization systems on the category of locales.       A proof that nuclei form a frame.       Limits and colimits of locales.       A characterization of embeddings of locales: a map of locales is a regular monomorphism if and only if the left adjoint is surjective.       The definition of (weakly) regular locales and a proof that the locale of reals is regular.       The definition of Hausdorff locales and a proof that regular locales are Hausdorff.       The definition of uniform locales and the construction of their completion.           The definition of abstract reduction systems, second-order term rewriting systems, and a proof that the disjoint union of confluent left-linear systems is confluent.   The definition of algebraic theories, the category of its models, and a proof that it has all small limits and colimits.   The preorder of subobjects and regular subobjects.   The construction of the structure sheaf on the spectrum of a ring.   Plugin updates  Proof Search  Nearly every proof assistant has a problem of the discoverability for proven theorems. For instance, try to recall how a lemma describing the commutativity of addition is called in your favorite proof assistant. Is it add_comm? Or +-comm?  The new “Proof Search” action helps in this situation. Invoke it and type in a signature of the declaration you are interested in – the IDE will find the declarations with such a signature:                         Sorry, your browser doesn&#39;t support embedded videos.        For more information, please see the full documentation.  Tracer  The tracer is a new feature that allows you typechecking a declaration step-by-step.  At each step, the IDE shows you the typechecking context for the current expression.                         Sorry, your browser doesn&#39;t support embedded videos.        To use the tracer:     Start it via a pop-up menu on a declaration or expression.   Step through the expressions back and forth, jump to a specific expression via “Run to Cursor”, and stop early if needed.   Inspect the stack and the context in the editor view at each tracing step.   Compared to the “Show Expression Type” action, the tracer works in more contexts, shows more info, but could be slower.  Re-worked “Arend Messages” panel  The “Arend Messages” panel shows current goals and errors. We did a number of changes that are aimed to improve the UX around it:     Goals and errors are shown in separate panels.   Goals’ panel is not cleaned up when you remove the goal. It is only removed when a declaration, which contained a goal, has no more errors or other goals.   Implicit goals (goals without a corresponding {?} element in the source code) are not shown by default.   The vertical layout is supported.                          Sorry, your browser doesn&#39;t support embedded videos.        Printing customization  This feature is incubating, it may be completely changed in future releases, even minor ones.  The proof terms which appear during the development of some theory may be quite large. It is often hard to read and understand them, so in order to show these terms to the user we sometimes omit certain subterms. A typical example of a kind of these subterms is implicit arguments – they often may be inferred from the context of the term, so displaying them just adds unnecessary noise. However, we also need a way to show these subterms for the purposes of debugging or better understanding the term semantics. Arend allows to configure pretty-printer options by the eye button in Arend Messages toolwindow.    This approach has a flaw: it is done in an all-or-nothing way. You are offered to display every omitted subterm of a certain kind, or not display them at all. Therefore, after changing an option of the pretty printer you become lost in the term.  Arend 1.8.0 offers a solution: we introduce printing customization right in the displayed term. You can put a cursor to a source of omittable subterms and then the appeared popup will help you to uncover what was hidden. Currently it works only for implicit arguments and types of parameters in lambda expression.                         Sorry, your browser doesn&#39;t support embedded videos.        Live templates  Live templates are smart code snippets. They speed up editing by providing a completion for common code patterns.  This release includes such templates for the majority of Arend keywords:                         Sorry, your browser doesn&#39;t support embedded videos.        In addition, you can define your own templates in “Preferences | Editor | Live Templates | Arend”:    Optimize imports  Keeping imports clean is easier with this release. The IDE detects unused imports and highlights them in grey color. To remove such imports use the new “Code | Optimize Imports” action:                         Sorry, your browser doesn&#39;t support embedded videos.        Aside from just removing, this action can optimize the imports in various ways, for example, import all declarations from a module explicitly. See “Preferences | Editor | Code Style | Arend” for the options.  Extract expression to \let binding  If you have a complex expression and want to extract some of its parts into \let bindings,  the new “Create \let-binding” intention is there to automate the process:                         Sorry, your browser doesn&#39;t support embedded videos.        Generate function from a goal with arguments  The “Generate function from a goal” intention is smarter now. When you invoke it on a goal with arguments,  the resulting function will get parameters corresponding to those arguments:                         Sorry, your browser doesn&#39;t support embedded videos.">
 
 
 
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/2022/04/15/Arend-1.8.0-released.html">
+
+
+
+  <meta property="article:published_time" content="2022-04-15T00:00:00+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2022/04/15/Arend-1.8.0-released.html">
 
 
 
@@ -63,7 +67,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -85,7 +89,8 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<nav class="skip-links">
+
+<nav class="skip-links" aria-label="Skip links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -95,10 +100,11 @@
 
 
 
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         
         <a class="site-title" href="/">
           Arend Theorem Prover
@@ -146,15 +152,20 @@
 
 
 
+
+
 <div id="main" role="main">
   
+
 
 
   <div class="archive">
     
       <h1 id="page-title" class="page__title">Arend 1.8.0 released</h1>
     
-    <p>Language updates:</p>
+    
+
+<p>Language updates:</p>
 
 <ul>
   <li>Improved performance</li>
@@ -397,20 +408,26 @@ the resulting function will get parameters corresponding to those arguments:</p>
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2025/12/11/Arend-1.11.0-released.html" rel="permalink">Arend 1.11.0 released
+        <a class="u-url" href="/2025/12/11/Arend-1.11.0-released.html" rel="permalink">Arend 1.11.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">This release focuses primarily on internal enhancements aimed at improving overall stability.
-</p>
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">This release focuses primarily on internal enhancements aimed at improving overall stability.
+
+Language updates:
+
+
+  Introduce Arend server that store the st...</p>
   </article>
 </div>
 
@@ -427,20 +444,32 @@ the resulting function will get parameters corresponding to those arguments:</p>
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2024/07/05/Arend-1.10.0-released.html" rel="permalink">Arend 1.10.0 released
+        <a class="u-url" href="/2024/07/05/Arend-1.10.0-released.html" rel="permalink">Arend 1.10.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">Language updates:
-</p>
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Language updates:
+
+
+  Bug fixes and minor improvements
+
+
+Plugin updates:
+
+
+  Keyword documentation
+  Improved change signature refactoring
+  Improved move re...</p>
   </article>
 </div>
 
@@ -457,20 +486,28 @@ the resulting function will get parameters corresponding to those arguments:</p>
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2022/12/05/Arend-1.9.0-released.html" rel="permalink">Arend 1.9.0 released
+        <a class="u-url" href="/2022/12/05/Arend-1.9.0-released.html" rel="permalink">Arend 1.9.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">Language updates:
-</p>
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Language updates:
+
+
+  Properties in \Sigma-types
+  Definition parameters are visible in the \where block
+  Global level declarations
+  Infix patterns
+  Axiom...</p>
   </article>
 </div>
 
@@ -479,20 +516,27 @@ the resulting function will get parameters corresponding to those arguments:</p>
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2022/04/15/Arend-1.8.0-released.html" rel="permalink">Arend 1.8.0 released
+        <a class="u-url" href="/2022/04/15/Arend-1.8.0-released.html" rel="permalink">Arend 1.8.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">Language updates:
-</p>
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Language updates:
+
+
+  Improved performance
+  Inference of unique implicit arguments
+  Coercion between paths and functions
+  A convenient syntax for defining...</p>
   </article>
 </div>
 
@@ -501,19 +545,21 @@ the resulting function will get parameters corresponding to those arguments:</p>
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2022/02/08/New-IntelliJ-Arend-tutorial.html" rel="permalink">New IntelliJ Arend tutorial
+        <a class="u-url" href="/2022/02/08/New-IntelliJ-Arend-tutorial.html" rel="permalink">New IntelliJ Arend tutorial
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">There is a new tutorial on interactive theorem proving with IntelliJ Arend. 
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">There is a new tutorial on interactive theorem proving with IntelliJ Arend. 
 Check it out to learn about the features of IntelliJ Arend that speed-up theorem...</p>
   </article>
 </div>
@@ -531,20 +577,28 @@ Check it out to learn about the features of IntelliJ Arend that speed-up theorem
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2021/09/06/Arend-1.7.0-released.html" rel="permalink">Arend 1.7.0 released
+        <a class="u-url" href="/2021/09/06/Arend-1.7.0-released.html" rel="permalink">Arend 1.7.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">Language updates:
-</p>
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Language updates:
+
+
+  Type synonyms
+  Arrays
+  Pattern matching in lambdas and \let expressions
+  Multiple level parameters
+  Ability to change levels in sub...</p>
   </article>
 </div>
 
@@ -553,19 +607,21 @@ Check it out to learn about the features of IntelliJ Arend that speed-up theorem
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2021/02/28/Arend-1.6.0-released.html" rel="permalink">Arend 1.6.0 released
+        <a class="u-url" href="/2021/02/28/Arend-1.6.0-released.html" rel="permalink">Arend 1.6.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Language updates:
 
   Built-in finite types
   \default implementations
@@ -589,19 +645,21 @@ Check it out to learn about the features of IntelliJ Arend that speed-up theorem
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2020/10/10/Arend-1.5.0-released.html" rel="permalink">Arend 1.5.0 released
+        <a class="u-url" href="/2020/10/10/Arend-1.5.0-released.html" rel="permalink">Arend 1.5.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Language updates:
 
   String literals, which can be used in meta code
   Meta resolvers, which can be used to modify the scoping rules for meta definitions
@@ -614,19 +672,21 @@ Check it out to learn about the features of IntelliJ Arend that speed-up theorem
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2020/06/29/Arend-1.4.0-released.html" rel="permalink">Arend 1.4.0 released
+        <a class="u-url" href="/2020/06/29/Arend-1.4.0-released.html" rel="permalink">Arend 1.4.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">Language updates:
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Language updates:
 
   Implicit lambdas.
   Tests directory can be used to store files with tests, examples, and other code which is not a part of the library.
@@ -639,19 +699,21 @@ Check it out to learn about the features of IntelliJ Arend that speed-up theorem
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2020/06/14/tutorial-part-II.html" rel="permalink">Tutorial Part II
+        <a class="u-url" href="/2020/06/14/tutorial-part-II.html" rel="permalink">Tutorial Part II
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">The second part of our tutorial is ready.
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">The second part of our tutorial is ready.
 </p>
   </article>
 </div>
@@ -661,19 +723,21 @@ Check it out to learn about the features of IntelliJ Arend that speed-up theorem
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2020/04/13/Arend-1.3.0-released.html" rel="permalink">Arend 1.3.0 released
+        <a class="u-url" href="/2020/04/13/Arend-1.3.0-released.html" rel="permalink">Arend 1.3.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">We implemented language extensions.
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">We implemented language extensions.
 This can be used to implement custom operations on the abstract syntax tree which are not supported by the language.
 They...</p>
   </article>
@@ -684,19 +748,21 @@ They...</p>
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2020/01/17/tutorial-part-I.html" rel="permalink">The first part of our tutorial is ready
+        <a class="u-url" href="/2020/01/17/tutorial-part-I.html" rel="permalink">The first part of our tutorial is ready
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">We finished the first part of our new tutorial.
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">We finished the first part of our new tutorial.
 It covers all the basic constructions of Arend.
 It does not mention anything related to homotopy theory.
 This...</p>
@@ -716,19 +782,21 @@ This...</p>
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2019/12/16/Arend-1.2.0-released.html" rel="permalink">Arend 1.2.0 released
+        <a class="u-url" href="/2019/12/16/Arend-1.2.0-released.html" rel="permalink">Arend 1.2.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">We implemented a few features related to classes and pattern matching.
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">We implemented a few features related to classes and pattern matching.
 One of these features is pattern matching on idp : a = a, which can be used instead of...</p>
   </article>
 </div>
@@ -738,20 +806,25 @@ One of these features is pattern matching on idp : a = a, which can be used inst
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2019/10/01/Arend-1.1.0-released.html" rel="permalink">Arend 1.1.0 released
+        <a class="u-url" href="/2019/10/01/Arend-1.1.0-released.html" rel="permalink">Arend 1.1.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.
-</p>
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Arend now has proof irrelevant universe of proposition and the plugin can run the typechecker automatically in background.
+
+Language updates:
+
+  \Prop is now...</p>
   </article>
 </div>
 
@@ -760,20 +833,26 @@ One of these features is pattern matching on idp : a = a, which can be used inst
 
 
 
+
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2019/07/17/Arend-1.0.0-released.html" rel="permalink">Arend 1.0.0 released
+        <a class="u-url" href="/2019/07/17/Arend-1.0.0-released.html" rel="permalink">Arend 1.0.0 released
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">The first version of Arend is released!
-</p>
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">The first version of Arend is released!
+
+It implements the following features:
+
+  Path types based on the interval type.
+  Higher inductive types, including ...</p>
   </article>
 </div>
 
@@ -795,7 +874,10 @@ One of these features is pattern matching on idp : a = a, which can be used inst
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
-        <div class="page__footer-follow">
+        
+
+
+<div class="page__footer-follow">
   <ul class="social-icons">
     
 
@@ -812,18 +894,21 @@ One of these features is pattern matching on idp : a = a, which can be used inst
     
 
     
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
     
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>
 
 
+
   <script src="/assets/js/main.min.js"></script>
+
 
 
 

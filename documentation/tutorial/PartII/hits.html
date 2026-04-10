@@ -14,7 +14,9 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5P98');</script>
 <!-- End Google Tag Manager -->
-    <meta charset="utf-8">
+    
+<meta charset="utf-8">
+
 
 <!-- begin _includes/seo.html --><title>Spaces and Homotopy Theory - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
@@ -25,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Spaces and Homotopy Theory">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/hits.html">
+<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartII/hits.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +43,9 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/hits.html">
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartII/hits.html">
 
 
 
@@ -61,7 +65,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -81,7 +85,8 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<nav class="skip-links">
+
+<nav class="skip-links" aria-label="Skip links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -91,10 +96,11 @@
 
 
 
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         
         <a class="site-title" href="/">
           Arend Theorem Prover
@@ -144,6 +150,7 @@
 
 <div id="main" role="main">
   
+
   <div class="sidebar sticky">
   
   
@@ -573,6 +580,7 @@
 
     
   
+  
   </div>
 
 
@@ -767,7 +775,8 @@ In particular, the loops <span class="inl-highlight">x <span class="o">=</span> 
 This group <span class="inl-highlight">pi1(X<span class="o">,</span> x)</span> is called <em>the fundamental group</em> of <span class="inl-highlight">X</span>. In the Arend standard library the 
 corresponding instance of the class <span class="inl-highlight">Group</span> is called <span class="inl-highlight">Aut</span>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The instance of 'Group' defined in 'Algebra.Group.Aut' </span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The instance of 'Group' defined in 'Algebra.Group.Aut' 
+</span>
 <span class="k">\instance</span> Aut {A <span class="o">:</span> <span class="kt">\1-Type</span>} (a <span class="o">:</span> A) <span class="o">:</span> Group (a <span class="o">=</span> a)
   <span class="o">|</span> ide <span class="o">=&gt;</span> idp
   <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> <span class="o">*</span>&gt;
@@ -802,15 +811,18 @@ isomorphic for all <span class="inl-highlight">x y <span class="o">:</span> X</s
 <span class="k">\truncated</span> <span class="k">\data</span> Trunc0 (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Set</span>
   <span class="o">|</span> trunc A
 
-<span class="c">-- Equivalently, we can truncate 'x = x'.</span>
-<span class="c">-- The group structure 'Aut' can be straightforwardly translated to this case.</span>
+<span class="c">-- Equivalently, we can truncate 'x = x'.
+</span>
+<span class="c">-- The group structure 'Aut' can be straightforwardly translated to this case.
+</span>
 <span class="k">\func</span> pi1' (X <span class="o">:</span> <span class="kt">\Type</span>) (x <span class="o">:</span> X) <span class="o">:</span> <span class="kt">\Set</span> <span class="o">=&gt;</span> Trunc0 (x <span class="o">=</span> x)</code></pre></div></div>
 
 <p>Exercise 3 implies that <span class="inl-highlight">pi1</span> maps connected pointed spaces to groups:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isConnected (X <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> X) <span class="o">-&gt;</span> TruncP (x <span class="o">=</span> y)
 
-<span class="c">-- The class 'Pointed' is defined in 'Homotopy.Pointed'.</span>
+<span class="c">-- The class 'Pointed' is defined in 'Homotopy.Pointed'.
+</span>
 <span class="k">\func</span> pi1 (A <span class="o">:</span> <span class="k">\Sigma</span> (X <span class="o">:</span> Pointed) (isConnected X)) <span class="o">:</span> Group  <span class="o">=&gt;</span> pi1-1 (Trunc1 A.<span class="n">1</span>) (trunc base)</code></pre></div></div>
 
 <p>As we will see later in this module, there is an inverse function <span class="inl-highlight">K1 <span class="o">:</span> Group <span class="o">-&gt;</span> <span class="k">\Sigma</span> (X <span class="o">:</span> Pointed) (isConnected X)</span>, called
@@ -922,15 +934,18 @@ are mutually inverse.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> code {G <span class="o">:</span> Group} (x <span class="o">:</span> K1 G) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\oo</span> <span class="k">\elim</span> x
   <span class="o">|</span> base <span class="o">=&gt;</span> G
   <span class="o">|</span> loop g j <span class="o">=&gt;</span> Equiv-to-= (rightMulEquiv g) <span class="o">@</span> j 
-             <span class="c">-- 'Equiv-to-=' is essentially 'iso'.</span>
+             <span class="c">-- 'Equiv-to-=' is essentially 'iso'.
+</span>
   <span class="o">|</span> relation g g' i j <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
 
 <p>It remains to define a filling of the square with sides <span class="inl-highlight">Equiv-to-= (rightMulEquiv g)</span> (top), <span class="inl-highlight">Equiv-to-= (rightMulEquiv g’)</span> (right),
 <span class="inl-highlight">Equiv-to-= (rightMulEquiv (g <span class="o">*</span> g’))</span> (bottom), <span class="inl-highlight">idp</span> (left). The function <span class="inl-highlight">Cube2.map</span> allows to construct
 such filling out of a proof that <span class="inl-highlight">code</span> preserves the relation <span class="inl-highlight">path (loop g) <span class="o">*</span>&gt; path (loop g’) <span class="o">=</span> path (loop (g <span class="o">*</span> g’))</span>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Proof that 'code' preserves the relation on loops.</span>
-<span class="c">-- path (\lam i =&gt; code (loop g i)) *&gt; path (\lam i =&gt; code (loop g' i)) = path (\lam i =&gt; code (loop (g * g') i))</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Proof that 'code' preserves the relation on loops.
+</span>
+<span class="c">-- path (\lam i =&gt; code (loop g i)) *&gt; path (\lam i =&gt; code (loop g' i)) = path (\lam i =&gt; code (loop (g * g') i))
+</span>
 <span class="k">\func</span> equivPathComposition {G <span class="o">:</span> Group} (g g' <span class="o">:</span> G)
   <span class="o">:</span> (Equiv-to-= (rightMulEquiv g)) <span class="o">*</span>&gt; (Equiv-to-= (rightMulEquiv g')) <span class="o">=</span> (Equiv-to-= (rightMulEquiv (g <span class="o">*</span> g')))
 <span class="o">=&gt;</span> <span class="g">{?}</span>
@@ -955,6 +970,10 @@ parts of the proof for the circle. It can be found in the Arend standard library
         
         
 
+  
+
+  
+
 
         
       </footer>
@@ -962,6 +981,8 @@ parts of the proof for the circle. It can be found in the Arend standard library
       
 
       
+
+
     </div>
 
     
@@ -980,7 +1001,10 @@ parts of the proof for the circle. It can be found in the Arend standard library
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
-        <div class="page__footer-follow">
+        
+
+
+<div class="page__footer-follow">
   <ul class="social-icons">
     
 
@@ -997,18 +1021,21 @@ parts of the proof for the circle. It can be found in the Arend standard library
     
 
     
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
     
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>
 
 
+
   <script src="/assets/js/main.min.js"></script>
+
 
 
 

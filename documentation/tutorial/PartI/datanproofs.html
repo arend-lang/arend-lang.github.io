@@ -14,7 +14,9 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5P98');</script>
 <!-- End Google Tag Manager -->
-    <meta charset="utf-8">
+    
+<meta charset="utf-8">
+
 
 <!-- begin _includes/seo.html --><title>Indexed Data Types - Arend Theorem Prover</title>
 <meta name="description" content="The Arend Theorem Prover">
@@ -25,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Indexed Data Types">
-<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/datanproofs.html">
+<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/datanproofs.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -41,7 +43,9 @@
 
 
 
-<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/datanproofs.html">
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/datanproofs.html">
 
 
 
@@ -61,7 +65,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -81,7 +85,8 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<nav class="skip-links">
+
+<nav class="skip-links" aria-label="Skip links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -91,10 +96,11 @@
 
 
 
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         
         <a class="site-title" href="/">
           Arend Theorem Prover
@@ -144,6 +150,7 @@
 
 <div id="main" role="main">
   
+
   <div class="sidebar sticky">
   
   
@@ -543,6 +550,7 @@
 
     
   
+  
   </div>
 
 
@@ -612,7 +620,8 @@ its argument <span class="inl-highlight">xs</span>. This specification of correc
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isLinOrder {A <span class="o">:</span> <span class="kt">\Type</span>} (lessOrEq <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> Bool) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
 <span class="k">\func</span> isSorted {A <span class="o">:</span> <span class="kt">\Type</span>} (lessOrEq <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> Bool) (xs <span class="o">:</span> List A) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
-<span class="c">-- isPerm says that xs' is permutation of xs</span>
+<span class="c">-- isPerm says that xs' is permutation of xs
+</span>
 <span class="k">\func</span> isPerm {A <span class="o">:</span> <span class="kt">\Type</span>} (xs xs' <span class="o">:</span> List A) <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="g">{?}</span>
 <span class="k">\func</span> sort-isCorrect {A <span class="o">:</span> <span class="kt">\Type</span>} (lessOrEq <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> Bool) (p <span class="o">:</span> isLinOrder lessOrEq) (xs <span class="o">:</span> List A)
        <span class="o">:</span> <span class="k">\Sigma</span> (isSorted lessOrEq (sort lessOrEq xs)) (isPerm xs (sort lessOrEq xs)) <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
@@ -630,7 +639,8 @@ a list <span class="inl-highlight">xs</span> via an auxiliary function that accu
       <span class="o">|</span> nil <span class="o">=&gt;</span> acc
       <span class="o">|</span> cons x xs <span class="o">=&gt;</span> rev (cons x acc) xs
 
-<span class="c">-- reverse (cons x xs) =&gt; rev nil (cons x xs) =&gt; rev (cons x nil) xs</span>
+<span class="c">-- reverse (cons x xs) =&gt; rev nil (cons x xs) =&gt; rev (cons x nil) xs
+</span>
 <span class="c">-- reverse (reverse (cons x xs)) =&gt; reverse (rev (cons x nil) xs) =&gt; rev nil (rev (cons x nil) xs)</span></code></pre></div></div>
 
 <p>Below we prove that <span class="inl-highlight">reverse</span> is an involution.</p>
@@ -657,8 +667,10 @@ we defined <span class="inl-highlight"><span class="o">+</span></span> by recurs
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="o">+</span>-assoc (x y z <span class="o">:</span> Nat) <span class="o">:</span> (x <span class="o">+</span> y) <span class="o">+</span> z <span class="o">=</span> x <span class="o">+</span> (y <span class="o">+</span> z) <span class="k">\elim</span> z
   <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
   <span class="o">|</span> suc z <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-assoc x y z)
-<span class="c">-- we can apply pmap because of the reductions:</span>
-<span class="c">-- (x + y) + suc z =&gt; suc ((x + y) + z)</span>
+<span class="c">-- we can apply pmap because of the reductions:
+</span>
+<span class="c">-- (x + y) + suc z =&gt; suc ((x + y) + z)
+</span>
 <span class="c">-- x + (y + suc z) =&gt; x + suc (y + z) =&gt; suc (x + (y + z))</span></code></pre></div></div>
 
 <h1 id="lists-of-fixed-length">Lists of fixed length</h1>
@@ -751,13 +763,15 @@ one can define it as a subtype of <span class="inl-highlight">Nat</span>:</p>
 
 <p>Consider several examples:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Fin 0 -- empty type</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Fin 0 -- empty type
+</span>
 <span class="k">\func</span> absurd {A <span class="o">:</span> <span class="kt">\Type</span>} (x <span class="o">:</span> Fin <span class="n">0</span>) <span class="o">:</span> A
 
 <span class="k">\func</span> fin0 <span class="o">:</span> Fin <span class="n">3</span> <span class="o">=&gt;</span> fzero
 <span class="k">\func</span> fin1 <span class="o">:</span> Fin <span class="n">3</span> <span class="o">=&gt;</span> fsuc fzero
 <span class="k">\func</span> fin2 <span class="o">:</span> Fin <span class="n">3</span> <span class="o">=&gt;</span> fsuc (fsuc fzero)
-<span class="c">-- The following does not typecheck</span>
+<span class="c">-- The following does not typecheck
+</span>
 <span class="c">-- \func fin3 : Fin 3 =&gt; fsuc (fsuc (fsuc fzero))</span></code></pre></div></div>
 
 <p>It can be easily proven that <span class="inl-highlight">Fin <span class="n">3</span></span> has no more than three elements.
@@ -803,6 +817,10 @@ Define the function that computes the height of a tree.</p>
         
         
 
+  
+
+  
+
 
         
       </footer>
@@ -810,6 +828,8 @@ Define the function that computes the height of a tree.</p>
       
 
       
+
+
     </div>
 
     
@@ -828,7 +848,10 @@ Define the function that computes the height of a tree.</p>
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
-        <div class="page__footer-follow">
+        
+
+
+<div class="page__footer-follow">
   <ul class="social-icons">
     
 
@@ -845,18 +868,21 @@ Define the function that computes the height of a tree.</p>
     
 
     
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
     
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>
 
 
+
   <script src="/assets/js/main.min.js"></script>
+
 
 
 
