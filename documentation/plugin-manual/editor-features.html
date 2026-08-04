@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Editor features of Arend plugin">
-<meta property="og:url" content="http://localhost:4000/documentation/plugin-manual/editor-features.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/plugin-manual/editor-features.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/plugin-manual/editor-features.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/plugin-manual/editor-features.html">
 
 
 
@@ -546,7 +546,7 @@
 <p>In IntelliJ IDEA, there are three types of issues which are displayed in the <a href="#arend-messages-tool-window"><strong>Arend messages tool window</strong></a> and simultaneously are indicated in Arend files using wavy underline highlighting beneath the affected code:</p>
 <ul>
   <li><strong>Errors</strong>. A red wavy underline indicates an error encountered during the processing of a definition. For example, syntax errors and type errors are marked with this highlighting.</li>
-  <li><strong>Warnings</strong>. An orange wavy underline highlights a potential issue in the . For instance, unused variables or unresolved goals are marked with orange wavy lines.</li>
+  <li><strong>Warnings</strong>. An orange wavy underline highlights a potential issue in the code. For instance, unused variables or unresolved goals are marked with orange wavy lines.</li>
   <li><strong>Weak Warnings</strong>. An olive-colored wavy underline signifies a minor issue in the code, such as an expression unnecessarily surrounded by extra parentheses.</li>
 </ul>
 
@@ -580,7 +580,7 @@ The links provided in the Latest Goal and Current Error panels are interactive, 
 <p>To use this mechanism for a definition called <code class="language-plaintext highlighter-rouge">defName</code>, the user needs to add <code class="language-plaintext highlighter-rouge">\alias aliasName</code> after the definition name. Consider, for example, the Arend’s analogue of exists tactics from Coq or Lean:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\meta</span> Exists <span class="k">\alias</span> ∃</code></pre></div></div>
 
-<p>When the user types the prefix of definition having an alias (e.g. the prefix of the word <code class="language-plaintext highlighter-rouge">Exists</code>), the IDE will show an auto-completion menu  where the user could choose the item <code class="language-plaintext highlighter-rouge">defName</code>. If they do so or if the user presses <strong>Ctrl+Space</strong> (or <strong>⌘Space</strong> on macOS), the IDE will automatically replace the entered prefix with <code class="language-plaintext highlighter-rouge">aliasName</code> (in this case with the symbol “∃”).</p>
+<p>When the user types the prefix of a definition having an alias (e.g. the prefix of the word <code class="language-plaintext highlighter-rouge">Exists</code>), the IDE will show an auto-completion menu where the user could choose the item <code class="language-plaintext highlighter-rouge">defName</code>. If they do so or if the user presses <strong>Ctrl+Space</strong> (or <strong>⌘Space</strong> on macOS), the IDE will automatically replace the entered prefix with <code class="language-plaintext highlighter-rouge">aliasName</code> (in this case with the symbol “∃”).</p>
 
 <h1 id="quick-documentation">Quick documentation</h1>
 <p><img src="/about//intellij-features/QuickDocumentation.gif" alt="Short video illustrating the usage of Quick Documentation feature" style="display: block; margin: 0 auto;" /></p>
@@ -594,7 +594,7 @@ The links provided in the Latest Goal and Current Error panels are interactive, 
 <p>Pressing <strong>Ctrl+Q</strong> (or <strong>F1</strong> on macOS) while the quick documentation popup is open will expand it into a dockable panel in the IDE sidebar. This panel will then display the documentation for any identifier the user hovers over or places the caret on.</p>
 
 <p>The documentation for a definition should be written as a line comment or a block comment directly before the definition it refers to. 
-The comment should begin with a space followed by vertical bar symbol ‘|’ after the comment start, as shown in the example:</p>
+The comment should begin with a space followed by the vertical bar symbol ‘|’ after the comment start, as shown in the example:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- | ``Meets x y`` is the type of elements which are meets of {x} and {y}.
 </span>
@@ -615,7 +615,7 @@ Header2
 
 <ul>
   <li><strong>Block quotes</strong>: Created by adding <code class="language-plaintext highlighter-rouge">&gt;</code> before the quoted text.</li>
-  <li><strong>Multi-level</strong> lists: Indented by two spaces for each nesting level. Each list item should start either with an item number of symbol <code class="language-plaintext highlighter-rouge">+</code> or <code class="language-plaintext highlighter-rouge">-</code>.</li>
+  <li><strong>Multi-level</strong> lists: Indented by two spaces for each nesting level. Each list item should start either with an item number or symbol <code class="language-plaintext highlighter-rouge">+</code> or <code class="language-plaintext highlighter-rouge">-</code>.</li>
   <li><strong>LaTeX Formulas</strong>: The user can insert LaTeX formulas by enclosing the formula in <code class="language-plaintext highlighter-rouge">$...$</code> for inline formulas or <code class="language-plaintext highlighter-rouge">$$...$$</code> for centered, block-level formulas. 
 This feature relies on the JLatexMath library (a fork of JMathTex), which supports a subset of LaTeX functionality similar to that provided by MathJax, used on sites like MathOverflow.</li>
 </ul>
@@ -655,7 +655,7 @@ However, a fallback mechanism is available: it tries to match the arguments of t
 <h1 id="auto-completion">Auto-completion</h1>
 <p><img src="/about/intellij-features/CodeCompletion.gif" alt="Short video illustrating the operation of code completion" style="display: block; margin: 0 auto;" /></p>
 
-<p>Auto-completion is a feature that helps identify available identifiers in the current scope and to complete partially entered identifiers. 
+<p>Auto-completion is a feature that helps identify available identifiers in the current scope and complete partially entered identifiers. 
 Also, it imports definitions from scopes that have not yet been imported. 
 The current scope is determined by the set of active imports, along with surrounding local and global declarations and variables. 
 Auto-completion can always be triggered manually using the <strong>Ctrl+Space</strong> (or <strong>⌘Space</strong> on macOS) keystroke.
@@ -714,7 +714,7 @@ This quick fix works for both <code class="language-plaintext highlighter-rouge"
 <h2 id="auto-import-quick-fix">Auto import quick fix</h2>
 <p><img src="/about//intellij-features/AutoImport.gif" alt="Short video illustrating the Auto Import quick fix" style="display: block; margin: 0 auto;" /></p>
 
-<p>If the user click on an unresolved identifier or presses <strong>Ctrl+Space</strong> (or <strong>⌘Space</strong> on macOS), this quick fix searches for definitions with this name among the imported Arend libraries. 
+<p>If the user clicks on an unresolved identifier or presses <strong>Ctrl+Space</strong> (or <strong>⌘Space</strong> on macOS), this quick fix searches for definitions with this name among the imported Arend libraries. 
 If multiple matches are found, the user can choose one. 
 Once selected, the quick fix updates the identifier to a valid reference and adds the necessary <code class="language-plaintext highlighter-rouge">\import</code> directives.</p>
 
@@ -786,7 +786,7 @@ These include adding a missing argument or class instance to a function call if 
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

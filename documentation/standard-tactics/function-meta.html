@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="\module Function.Meta">
-<meta property="og:url" content="http://localhost:4000/documentation/standard-tactics/function-meta.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/standard-tactics/function-meta.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/standard-tactics/function-meta.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/standard-tactics/function-meta.html">
 
 
 
@@ -525,10 +525,10 @@
         
         <h1 id="-and-"><code class="language-plaintext highlighter-rouge">$</code> and <code class="language-plaintext highlighter-rouge">#</code></h1>
 
-<p>These metas are analogical to Haskell’s <code class="language-plaintext highlighter-rouge">$</code> operator
+<p>These metas are analogous to Haskell’s <code class="language-plaintext highlighter-rouge">$</code> operator
 (<code class="language-plaintext highlighter-rouge">$</code> is right-associative and <code class="language-plaintext highlighter-rouge">#</code> is left-associative), but they also work with implicit arguments.</p>
 
-<p>Also, it’s also possible to define <code class="language-plaintext highlighter-rouge">$</code> as a <a href="/documentation/language-reference/definitions/metas">defined meta</a>:</p>
+<p>It’s also possible to define <code class="language-plaintext highlighter-rouge">$</code> as a <a href="/documentation/language-reference/definitions/metas">defined meta</a>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\meta</span> <span class="k">\infixr</span> <span class="n">0</span> <span class="o">$</span> f a <span class="o">=&gt;</span> f a</code></pre></div></div>
 
@@ -542,8 +542,8 @@ In Haskell, you can apply <code class="language-plaintext highlighter-rouge">$</
 <ul>
   <li><span class="inl-highlight">repeat {n} f x</span> – it reduces to <code class="language-plaintext highlighter-rouge">x</code> if <code class="language-plaintext highlighter-rouge">n</code> is <code class="language-plaintext highlighter-rouge">0</code> and
 <span class="inl-highlight">repeat {x} f (f x)</span> if <code class="language-plaintext highlighter-rouge">n</code> is <code class="language-plaintext highlighter-rouge">suc x</code>.</li>
-  <li><span class="inl-highlight">repeat f x</span> – it tries to typecheck <code class="language-plaintext highlighter-rouge">f x</code>, and if it fails, return <code class="language-plaintext highlighter-rouge">x</code>,
-otherwise return <span class="inl-highlight">f (repeat f x)</span>.
+  <li><span class="inl-highlight">repeat f x</span> – it tries to typecheck <code class="language-plaintext highlighter-rouge">f x</code>, and if it fails, returns <code class="language-plaintext highlighter-rouge">x</code>,
+otherwise returns <span class="inl-highlight">f (repeat f x)</span>.
     <ul>
       <li>In this case, <code class="language-plaintext highlighter-rouge">f</code> has to be a meta.</li>
     </ul>
@@ -614,7 +614,7 @@ otherwise return <span class="inl-highlight">f (repeat f x)</span>.
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

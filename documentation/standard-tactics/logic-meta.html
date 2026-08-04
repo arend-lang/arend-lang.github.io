@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="\module Logic.Meta">
-<meta property="og:url" content="http://localhost:4000/documentation/standard-tactics/logic-meta.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/standard-tactics/logic-meta.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/standard-tactics/logic-meta.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/standard-tactics/logic-meta.html">
 
 
 
@@ -626,7 +626,7 @@ Examples:</p>
 
 <span class="k">\lemma</span> test14 {A <span class="o">:</span> <span class="kt">\Type</span>} (l <span class="o">:</span> Array A)
   <span class="o">:</span> ∃ (x y <span class="o">:</span> l) (x <span class="o">=</span> y)
-  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (j j' <span class="o">:</span> Fin l.len) (l j <span class="o">=</span> l j'))
+  <span class="o">=</span> TruncP (<span class="k">\Sigma</span> (j j&#39; <span class="o">:</span> Fin l.len) (l j <span class="o">=</span> l j&#39;))
   <span class="o">=&gt;</span> idp</code></pre></div></div>
 
 <h1 id="given"><code class="language-plaintext highlighter-rouge">Given</code></h1>
@@ -666,7 +666,7 @@ This meta has a similar syntax to <code class="language-plaintext highlighter-ro
 
 <span class="k">\lemma</span> piTest7 {A <span class="o">:</span> <span class="kt">\Set</span>} (l <span class="o">:</span> Array A)
   <span class="o">:</span> ∀ (x y <span class="o">:</span> l) (x <span class="o">=</span> y) (y <span class="o">=</span> x)
-  <span class="o">=</span> (<span class="k">\Pi</span> (j j' <span class="o">:</span> Fin l.len) <span class="o">-&gt;</span> l j <span class="o">=</span> l j' <span class="o">-&gt;</span> l j' <span class="o">=</span> l j)
+  <span class="o">=</span> (<span class="k">\Pi</span> (j j&#39; <span class="o">:</span> Fin l.len) <span class="o">-&gt;</span> l j <span class="o">=</span> l j&#39; <span class="o">-&gt;</span> l j&#39; <span class="o">=</span> l j)
   <span class="o">=&gt;</span> idp
 
 <span class="k">\lemma</span> piTest8 (P <span class="o">:</span> Nat <span class="o">-&gt;</span> Bool <span class="o">-&gt;</span> Array Nat <span class="o">-&gt;</span> <span class="kt">\Type</span>)
@@ -758,7 +758,7 @@ This meta has a similar syntax to <code class="language-plaintext highlighter-ro
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

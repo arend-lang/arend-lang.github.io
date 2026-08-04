@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Equality">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/idtype.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/idtype.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/idtype.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/idtype.html">
 
 
 
@@ -313,6 +313,13 @@
 
                 
 
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
               
                 
@@ -328,6 +335,13 @@
                 
 
                 <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
               
             
           
@@ -594,19 +608,19 @@ recall the general concept of eliminator.</p>
 <p>First of all, we show that the identity type satisfies some basic properties of equality: it is an equivalence relation and
 it satisfies the Leibniz principle.</p>
 
-<p>The Leibniz principle says that if <span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> satisfy the same properties, then they are
+<p>The Leibniz principle says that if <span class="inl-highlight">a</span> and <span class="inl-highlight">a&#39;</span> satisfy the same properties, then they are
 equal. It can be easily proven that <span class="inl-highlight"><span class="o">=</span></span> satisfies this principle:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Leibniz {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' <span class="o">:</span> A}
-  (f <span class="o">:</span> <span class="k">\Pi</span> (P <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> <span class="k">\Sigma</span> (P a <span class="o">-&gt;</span> P a') (P a' <span class="o">-&gt;</span> P a)) <span class="o">:</span> a <span class="o">=</span> a'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Leibniz {A <span class="o">:</span> <span class="kt">\Type</span>} {a a&#39; <span class="o">:</span> A}
+  (f <span class="o">:</span> <span class="k">\Pi</span> (P <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> <span class="k">\Sigma</span> (P a <span class="o">-&gt;</span> P a&#39;) (P a&#39; <span class="o">-&gt;</span> P a)) <span class="o">:</span> a <span class="o">=</span> a&#39;
   <span class="o">=&gt;</span> (f (<span class="k">\lam</span> x <span class="o">=&gt;</span> a <span class="o">=</span> x)).<span class="n">1</span> idp</code></pre></div></div>
 
-<p>The inverse Leibniz principle (which we will call merely Leibniz principle as well) says that if <span class="inl-highlight">a <span class="o">=</span> a’</span>, then
-<span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> satisfy the same properties, that is if <span class="inl-highlight">P a</span> is true, then
-<span class="inl-highlight">P a’</span> is true. The proof of this is easy, but requires some constructs that will be introduced very shortly
+<p>The inverse Leibniz principle (which we will call merely Leibniz principle as well) says that if <span class="inl-highlight">a <span class="o">=</span> a&#39;</span>, then
+<span class="inl-highlight">a</span> and <span class="inl-highlight">a&#39;</span> satisfy the same properties, that is if <span class="inl-highlight">P a</span> is true, then
+<span class="inl-highlight">P a&#39;</span> is true. The proof of this is easy, but requires some constructs that will be introduced very shortly
 further in this module:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (b <span class="o">:</span> B a) <span class="o">:</span> B a'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (b <span class="o">:</span> B a) <span class="o">:</span> B a&#39;
     <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)) b right</code></pre></div></div>
 
 <p>Using this latter Leibniz principle, it is easy to prove that <span class="inl-highlight"><span class="o">=</span></span> satisfies (almost) all the properties
@@ -614,17 +628,17 @@ of equality. For example, the following properties:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- symmetry
 </span>
-<span class="k">\func</span> inv {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> a' <span class="o">=</span> a
+<span class="k">\func</span> inv {A <span class="o">:</span> <span class="kt">\Type</span>} {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> a&#39; <span class="o">=</span> a
     <span class="o">=&gt;</span> transport (<span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="o">=</span> a) p idp
 
 <span class="c">-- transitivity
 </span>
-<span class="k">\func</span> trans {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' a'' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (q <span class="o">:</span> a' <span class="o">=</span> a'') <span class="o">:</span> a <span class="o">=</span> a''
+<span class="k">\func</span> trans {A <span class="o">:</span> <span class="kt">\Type</span>} {a a&#39; a&#39;&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (q <span class="o">:</span> a&#39; <span class="o">=</span> a&#39;&#39;) <span class="o">:</span> a <span class="o">=</span> a&#39;&#39;
     <span class="o">=&gt;</span> transport (<span class="k">\lam</span> x <span class="o">=&gt;</span> a <span class="o">=</span> x) q p
 
 <span class="c">-- congruence
 </span>
-<span class="k">\func</span> pmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> f a <span class="o">=</span> f a'
+<span class="k">\func</span> pmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> f a <span class="o">=</span> f a&#39;
     <span class="o">=&gt;</span> transport (<span class="k">\lam</span> x <span class="o">=&gt;</span> f a <span class="o">=</span> f x) p idp</code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 1:</strong> Define congruence for functions with two arguments via transport.
@@ -640,11 +654,11 @@ The type <span class="inl-highlight">I</span> looks like a two-element data type
 but actually it is not: these constructors are made equal (by means of <span class="inl-highlight">coe</span>). Of course, pattern matching on
 <span class="inl-highlight">I</span> is prohibited since it can be used to derive <span class="inl-highlight">Empty <span class="o">=</span> Unit</span>.</p>
 
-<p>The equality <span class="inl-highlight">left <span class="o">=</span> right</span> implies that some <span class="inl-highlight">a <span class="o">:</span> A</span> and <span class="inl-highlight">a’ <span class="o">:</span> A</span> are equal if and only if
-there exists a function <span class="inl-highlight">f <span class="o">:</span> I <span class="o">-&gt;</span> A</span> such that <span class="inl-highlight">f left <span class="o">==</span>&gt; a</span> and <span class="inl-highlight">f right <span class="o">==</span>&gt; a’</span>
-(where <span class="inl-highlight"><span class="o">==</span>&gt;</span> denotes computational equality). The type <span class="inl-highlight">a <span class="o">=</span> {A} a’</span> is defined simply as the type
+<p>The equality <span class="inl-highlight">left <span class="o">=</span> right</span> implies that some <span class="inl-highlight">a <span class="o">:</span> A</span> and <span class="inl-highlight">a&#39; <span class="o">:</span> A</span> are equal if and only if
+there exists a function <span class="inl-highlight">f <span class="o">:</span> I <span class="o">-&gt;</span> A</span> such that <span class="inl-highlight">f left <span class="o">==</span>&gt; a</span> and <span class="inl-highlight">f right <span class="o">==</span>&gt; a&#39;</span>
+(where <span class="inl-highlight"><span class="o">==</span>&gt;</span> denotes computational equality). The type <span class="inl-highlight">a <span class="o">=</span> {A} a&#39;</span> is defined simply as the type
 of all functions <span class="inl-highlight">f <span class="o">:</span> I <span class="o">-&gt;</span> A</span> satisfying this property. The constructor <span class="inl-highlight">path (f <span class="o">:</span> I <span class="o">-&gt;</span> A) <span class="o">:</span> f left <span class="o">=</span> f right</span>
-allows to construct equality proofs out of such functions and the function <span class="inl-highlight"><span class="o">@</span> (p <span class="o">:</span> a <span class="o">=</span> a’) (i <span class="o">:</span> I) <span class="o">:</span> A</span> does the
+allows to construct equality proofs out of such functions and the function <span class="inl-highlight"><span class="o">@</span> (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (i <span class="o">:</span> I) <span class="o">:</span> A</span> does the
 inverse operation:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path f <span class="o">@</span> i <span class="o">==</span>&gt; f i <span class="c">-- beta-equivalence
@@ -661,19 +675,19 @@ path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p <span class="
 <span class="inl-highlight">g left <span class="o">=</span> g right</span> and the congruence <span class="inl-highlight">pmap</span> can be interpreted as simply the composition of
 <span class="inl-highlight">f</span> and <span class="inl-highlight">g</span>. This observation suggests an alternative definition of <span class="inl-highlight">pmap</span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> f a <span class="o">=</span> f a'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> f a <span class="o">=</span> f a&#39;
     <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> f (p <span class="o">@</span> i))</code></pre></div></div>
 
 <p>This definition of <span class="inl-highlight">pmap</span> behaves better than others with respect to computational properties. For example,
 <span class="inl-highlight">pmap id</span> is computationally the same as <span class="inl-highlight">id</span> and <span class="inl-highlight">pmap (f . g)</span> is
 computationally the same as <span class="inl-highlight">pmap f . pmap g</span>, where (.) is the composition:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pmap-idp {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> pmap {A} (<span class="k">\lam</span> x <span class="o">=&gt;</span> x) p <span class="o">=</span> p
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pmap-idp {A <span class="o">:</span> <span class="kt">\Type</span>} {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> pmap {A} (<span class="k">\lam</span> x <span class="o">=&gt;</span> x) p <span class="o">=</span> p
     <span class="o">=&gt;</span> idp</code></pre></div></div>
 
-<p class="notice--info"><strong>Exercise 4:</strong> Prove that <span class="inl-highlight">a <span class="o">=</span> {A} a’</span> and <span class="inl-highlight">b <span class="o">=</span> {B} b’</span> implies <span class="inl-highlight">(a<span class="o">,</span>b) <span class="o">=</span> {<span class="k">\Sigma</span> A B} (a’<span class="o">,</span>b’)</span> without using <span class="inl-highlight">transport</span>.</p>
+<p class="notice--info"><strong>Exercise 4:</strong> Prove that <span class="inl-highlight">a <span class="o">=</span> {A} a&#39;</span> and <span class="inl-highlight">b <span class="o">=</span> {B} b&#39;</span> implies <span class="inl-highlight">(a<span class="o">,</span>b) <span class="o">=</span> {<span class="k">\Sigma</span> A B} (a&#39;<span class="o">,</span>b&#39;)</span> without using <span class="inl-highlight">transport</span>.</p>
 
-<p class="notice--info"><strong>Exercise 5:</strong> Prove that <span class="inl-highlight">p <span class="o">=</span> {<span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)} p’</span> implies <span class="inl-highlight">p.<span class="n">1</span> <span class="o">=</span> {A} p’.<span class="n">1</span></span> without using <span class="inl-highlight">transport</span>.</p>
+<p class="notice--info"><strong>Exercise 5:</strong> Prove that <span class="inl-highlight">p <span class="o">=</span> {<span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)} p&#39;</span> implies <span class="inl-highlight">p.<span class="n">1</span> <span class="o">=</span> {A} p&#39;.<span class="n">1</span></span> without using <span class="inl-highlight">transport</span>.</p>
 
 <h1 id="functional-extensionality">Functional extensionality</h1>
 
@@ -685,12 +699,12 @@ pointwise, then they are equal functions. Our definition of equality allows us t
     <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> <span class="k">\lam</span> a <span class="o">=&gt;</span> p a <span class="o">@</span> i)</code></pre></div></div>
 
 <p>This useful principle is unprovable in many other intensional dependently typed theories. In such theories function extensionality
-can be introduced as an axiom, that is as a function without implementation, however adding new axioms worsens computational properties
+can be introduced as an axiom, that is as a function without implementation; however, adding new axioms worsens computational properties
 of the theory. For example, if we add the axiom of excluded middle <span class="inl-highlight">lem</span>, then we can define a constant
 <span class="inl-highlight">ugly_num <span class="o">:</span> Nat</span> that does not evaluate to any concrete natural number:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> lem <span class="o">:</span> <span class="k">\Pi</span> (X <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> Either X (X <span class="o">-&gt;</span> Empty) <span class="o">=&gt;</span> <span class="g">{?}</span>
-<span class="k">\func</span> ugly_num <span class="o">:</span> Nat <span class="o">=&gt;</span> <span class="k">\case</span> lem Nat <span class="k">\with</span> { <span class="o">|</span> Left <span class="o">=&gt;</span> <span class="n">0</span> <span class="o">|</span> Right <span class="o">=&gt;</span> <span class="n">1</span> }</code></pre></div></div>
+<span class="k">\func</span> ugly_num <span class="o">:</span> Nat <span class="o">=&gt;</span> <span class="k">\case</span> lem Nat <span class="k">\with</span> { <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> <span class="n">0</span> <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> <span class="n">1</span> }</code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 6:</strong> Prove that <span class="inl-highlight">(<span class="k">\lam</span> x <span class="o">=&gt;</span> not (not x)) <span class="o">=</span> (<span class="k">\lam</span> x <span class="o">=&gt;</span> x)</span>.</p>
 
@@ -721,7 +735,7 @@ for <span class="inl-highlight">Nat</span> and <span class="inl-highlight">Bool<
   <span class="o">|</span> zero <span class="o">=&gt;</span> z
   <span class="o">|</span> suc n <span class="o">=&gt;</span> s n (Nat-rec P z s n)
 
-<span class="c">-- Dependent eliminator for Bool (recursor for Bool is just 'if').
+<span class="c">-- Dependent eliminator for Bool (recursor for Bool is just &#39;if&#39;).
 </span>
 <span class="k">\func</span> Bool-elim (P <span class="o">:</span> Bool <span class="o">-&gt;</span> <span class="kt">\Type</span>)
                 (t <span class="o">:</span> P true)
@@ -772,12 +786,12 @@ Is it possible to define <span class="inl-highlight">transport</span> via <span 
 <p>Functions <span class="inl-highlight">coe</span> and <span class="inl-highlight">transport</span> are closely related. Recall the
 definition of <span class="inl-highlight">transport</span> given earlier in this module:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (b <span class="o">:</span> B a) <span class="o">:</span> B a'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (b <span class="o">:</span> B a) <span class="o">:</span> B a&#39;
      <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)) b right</code></pre></div></div>
 
-<p>Denote <span class="inl-highlight"><span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)</span> as <span class="inl-highlight">B’</span>. Then <span class="inl-highlight">B’ <span class="o">:</span> I <span class="o">-&gt;</span> <span class="kt">\Type</span></span>,
-<span class="inl-highlight">B’ left <span class="o">==</span>&gt; B a</span>, <span class="inl-highlight">B’ right <span class="o">==</span>&gt; B a’</span> and 
-<span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> coe B’ x right <span class="o">:</span> B’ left <span class="o">-&gt;</span> B’ right</span>.</p>
+<p>Denote <span class="inl-highlight"><span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)</span> as <span class="inl-highlight">B&#39;</span>. Then <span class="inl-highlight">B&#39; <span class="o">:</span> I <span class="o">-&gt;</span> <span class="kt">\Type</span></span>,
+<span class="inl-highlight">B&#39; left <span class="o">==</span>&gt; B a</span>, <span class="inl-highlight">B&#39; right <span class="o">==</span>&gt; B a&#39;</span> and 
+<span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> coe B&#39; x right <span class="o">:</span> B&#39; left <span class="o">-&gt;</span> B&#39; right</span>.</p>
 
 <h1 id="proofs-of-non-equalities">Proofs of non-equalities</h1>
 
@@ -797,9 +811,9 @@ since such <span class="inl-highlight">T</span> cannot be defined neither recurs
   <span class="o">|</span> left <span class="o">=&gt;</span> <span class="k">\Sigma</span>
   <span class="o">|</span> right <span class="o">=&gt;</span> Empty</code></pre></div></div>
 
-<p class="notice--info"><strong>Exercise 13:</strong> Prove that <span class="inl-highlight"><span class="n">0</span></span> does not equal to <span class="inl-highlight">suc x</span>.</p>
+<p class="notice--info"><strong>Exercise 13:</strong> Prove that <span class="inl-highlight"><span class="n">0</span></span> does not equal <span class="inl-highlight">suc x</span>.</p>
 
-<p class="notice--info"><strong>Exercise 14:</strong> Prove that <span class="inl-highlight">fac</span> does not equal to <span class="inl-highlight">suc</span>.</p>
+<p class="notice--info"><strong>Exercise 14:</strong> Prove that <span class="inl-highlight">fac</span> does not equal <span class="inl-highlight">suc</span>.</p>
 
         
       </section>
@@ -865,7 +879,7 @@ since such <span class="inl-highlight">T</span> cannot be defined neither recurs
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Propositions and Proofs">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/propsnproofs.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/propsnproofs.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/propsnproofs.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/propsnproofs.html">
 
 
 
@@ -313,6 +313,13 @@
 
                 
 
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
               
                 
@@ -328,6 +335,13 @@
                 
 
                 <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
               
             
           
@@ -609,7 +623,7 @@ that False implies everything by constructing an element of any type from an ele
 </span>
 <span class="c">-- If such a pattern is used, the right hand side of the clause can (and should) be omitted.
 </span>
-<span class="k">\func</span> absurd' {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Empty) <span class="o">:</span> A <span class="k">\elim</span> e
+<span class="k">\func</span> absurd&#39; {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Empty) <span class="o">:</span> A <span class="k">\elim</span> e
   <span class="o">|</span> () <span class="c">-- absurd pattern</span></code></pre></div></div>
 
 <p>Of course, we can also prove that <span class="inl-highlight">Unit</span> corresponds to the logical True simply by constructing an element of this type:</p>
@@ -620,7 +634,7 @@ that False implies everything by constructing an element of any type from an ele
 Let us begin with the implication.
 If <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span> is true, then the truth of <span class="inl-highlight">P</span> implies the truth of <span class="inl-highlight">Q</span>.
 Thus, we can think of a proof of <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span> as a function that transforms a proof of <span class="inl-highlight">P</span> into a proof of <span class="inl-highlight">Q</span>.
-That is, the type corresponding to the implications is the type of functions <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span>!</p>
+That is, the type corresponding to the implication is the type of functions <span class="inl-highlight">P <span class="o">-&gt;</span> Q</span>!</p>
 
 <p>We already can prove various propositional tautologies.
 For example, the identity function proves that <span class="inl-highlight">P <span class="o">-&gt;</span> P</span> holds for every proposition <span class="inl-highlight">P</span>.
@@ -721,7 +735,7 @@ as the proposition True (type <span class="inl-highlight">Unit</span>) and <span
   <span class="o">|</span> false <span class="o">=&gt;</span> Empty</code></pre></div></div>
 
 <p>Now let us prove some statements about the two-element type <span class="inl-highlight">Bool</span> defined earlier.
-We formulate some properties of <span class="inl-highlight">Bool</span>, expressable in terms of equality predicate for <span class="inl-highlight">Bool</span>:</p>
+We formulate some properties of <span class="inl-highlight">Bool</span>, expressible in terms of the equality predicate for <span class="inl-highlight">Bool</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infix</span> <span class="n">4</span> <span class="o">==</span> (x y <span class="o">:</span> Bool) <span class="o">:</span> Bool
   <span class="o">|</span> true<span class="o">,</span> true <span class="o">=&gt;</span> true
@@ -743,9 +757,9 @@ We formulate some properties of <span class="inl-highlight">Bool</span>, express
   <span class="o">|</span> false <span class="o">=&gt;</span> unit</code></pre></div></div>
 
 <p>In both cases in both proofs we simply return <span class="inl-highlight">unit</span>. Note that we cannot return <span class="inl-highlight">unit</span> without case analysis since
-both <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</span> and <span class="inl-highlight">T (x <span class="o">==</span> x)</span> do not evalute to <span class="inl-highlight">Unit</span>. The following code does not typecheck:</p>
+both <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</span> and <span class="inl-highlight">T (x <span class="o">==</span> x)</span> do not evaluate to <span class="inl-highlight">Unit</span>. The following code does not typecheck:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isInvolution' (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> x) <span class="o">=&gt;</span> unit</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isInvolution&#39; (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> x) <span class="o">=&gt;</span> unit</code></pre></div></div>
 
 <p>It is not possible to prove false statements in this way:</p>
 
@@ -757,7 +771,7 @@ both <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</sp
 
 <span class="c">-- we can prove negation of not-isIdempotent
 </span>
-<span class="k">\func</span> not-isIdempotent' (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> not x) <span class="o">-&gt;</span> Empty
+<span class="k">\func</span> not-isIdempotent&#39; (x <span class="o">:</span> Bool) <span class="o">:</span> T (not (not x) <span class="o">==</span> not x) <span class="o">-&gt;</span> Empty
   <span class="o">|</span> true <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- a proof of Empty -&gt; Empty
 </span>
   <span class="o">|</span> false <span class="o">=&gt;</span> <span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="c">-- again a proof of Empty -&gt; Empty</span></code></pre></div></div>
@@ -768,7 +782,7 @@ both <span class="inl-highlight">T (not (not x) <span class="o">==</span> x)</sp
 </span>
 <span class="k">\func</span> lemma (x <span class="o">:</span> Bool) <span class="o">:</span> <span class="k">\Sigma</span> (y <span class="o">:</span> Bool) (T (x <span class="o">==</span> y)) <span class="o">=&gt;</span> (x<span class="o">,</span> <span class="o">==</span>-refl x)</code></pre></div></div>
 
-<p>The following is a proof of rather awkward statement “if every <span class="inl-highlight">x <span class="o">:</span> Bool</span> equals itself, then <span class="inl-highlight">true <span class="o">:</span> Bool</span>
+<p>The following is a proof of a rather awkward statement “if every <span class="inl-highlight">x <span class="o">:</span> Bool</span> equals itself, then <span class="inl-highlight">true <span class="o">:</span> Bool</span>
 equals <span class="inl-highlight">true <span class="o">:</span> Bool</span>”:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> higherOrderFunc (f <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> Bool) <span class="o">-&gt;</span> T (x <span class="o">==</span> x)) <span class="o">:</span> T (true <span class="o">==</span> true) <span class="o">=&gt;</span> f true</code></pre></div></div>
@@ -776,7 +790,7 @@ equals <span class="inl-highlight">true <span class="o">:</span> Bool</span>”:
 <h1 id="identity-type">Identity type</h1>
 
 <p>The way how we defined equality <span class="inl-highlight"><span class="o">==</span></span> for <span class="inl-highlight">Bool</span> above is not actually satisfactory. Its definition
-is specific for <span class="inl-highlight">Bool</span>, we need to make analogous definitions for all other types and each time prove, say, that it is
+is specific to <span class="inl-highlight">Bool</span>; we need to make analogous definitions for all other types and each time prove, say, that it is
 an equivalence relation.</p>
 
 <p>Instead, we define an identity type for all types at once. Its definition is located in Prelude (type <span class="inl-highlight">Path</span> and its
@@ -785,20 +799,20 @@ infix form <span class="inl-highlight"><span class="o">=</span></span>). We will
 <p>Now, all the equalities that we proved for <span class="inl-highlight"><span class="o">==</span></span> can similarly be proved for <span class="inl-highlight"><span class="o">=</span></span>. For example, 
 the equality <span class="inl-highlight">not (not x) <span class="o">=</span> x</span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isInvolution'' (x <span class="o">:</span> Bool) <span class="o">:</span> not (not x) <span class="o">=</span> x
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isInvolution&#39;&#39; (x <span class="o">:</span> Bool) <span class="o">:</span> not (not x) <span class="o">=</span> x
   <span class="o">|</span> true <span class="o">=&gt;</span> idp
   <span class="o">|</span> false <span class="o">=&gt;</span> idp</code></pre></div></div>
 
 <p>And as before, we cannot prove false statements:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isIdempotent'' (x <span class="o">:</span> Bool) <span class="o">:</span> not (not x) <span class="o">=</span> not x
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> not-isIdempotent&#39;&#39; (x <span class="o">:</span> Bool) <span class="o">:</span> not (not x) <span class="o">=</span> not x
   <span class="o">|</span> true <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of true = false is expected
 </span>
   <span class="o">|</span> false <span class="o">=&gt;</span> <span class="g">{?}</span> <span class="c">-- goal expression, non-existing proof of false = true is expected</span></code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 12:</strong> Prove associativity of <code class="language-plaintext highlighter-rouge">and</code> and <code class="language-plaintext highlighter-rouge">or</code>.</p>
 
-<p class="notice--info"><strong>Exercise 13:</strong> Prove that 2 * 2 equals to 4.</p>
+<p class="notice--info"><strong>Exercise 13:</strong> Prove that 2 * 2 equals 4.</p>
 
         
       </section>
@@ -864,7 +878,7 @@ the equality <span class="inl-highlight">not (not x) <span class="o">=</span> x<
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

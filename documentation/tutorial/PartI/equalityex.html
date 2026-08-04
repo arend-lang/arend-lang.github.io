@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Proofs of Equality">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/equalityex.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/equalityex.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/equalityex.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/equalityex.html">
 
 
 
@@ -313,6 +313,13 @@
 
                 
 
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
               
                 
@@ -328,6 +335,13 @@
                 
 
                 <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
               
             
           
@@ -596,7 +610,7 @@ Note that <span class="inl-highlight">transport</span> satisfies the property <s
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- recall the definition of transport:
 </span>
-<span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (b <span class="o">:</span> B a)
+<span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (b <span class="o">:</span> B a)
    <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)) b right
 
 <span class="c">-- indeed, coe (\lam i =&gt; B (idp @ i)) b right ==&gt;
@@ -606,10 +620,10 @@ Note that <span class="inl-highlight">transport</span> satisfies the property <s
 <p>It will be more convenient to have transitivity of <span class="inl-highlight"><span class="o">=</span></span>, which we proved in the previous module, in
 infix form:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infixr</span> <span class="n">5</span> <span class="o">*</span>&gt; {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' a'' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (q <span class="o">:</span> a' <span class="o">=</span> a'') <span class="o">:</span> a <span class="o">=</span> a''
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infixr</span> <span class="n">5</span> <span class="o">*&gt;</span> {A <span class="o">:</span> <span class="kt">\Type</span>} {a a&#39; a&#39;&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (q <span class="o">:</span> a&#39; <span class="o">=</span> a&#39;&#39;) <span class="o">:</span> a <span class="o">=</span> a&#39;&#39;
    <span class="o">=&gt;</span> transport (<span class="k">\lam</span> x <span class="o">=&gt;</span> a <span class="o">=</span> x) q p</code></pre></div></div>
 
-<p>Function <span class="inl-highlight"><span class="o">*</span>&gt;</span> thus satisfies the property <span class="inl-highlight">p <span class="o">*</span>&gt; idp <span class="o">==</span>&gt; p</span>.
+<p>Function <span class="inl-highlight"><span class="o">*&gt;</span></span> thus satisfies the property <span class="inl-highlight">p <span class="o">*&gt;</span> idp <span class="o">==</span>&gt; p</span>.
 We can also define transitivity <span class="inl-highlight">&lt;*</span> such that <span class="inl-highlight">idp &lt;* p <span class="o">==</span>&gt; p</span>, but
 we do not need it yet.</p>
 
@@ -619,25 +633,25 @@ we do not need it yet.</p>
   <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
   <span class="o">|</span> suc n<span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm n <span class="n">0</span>)
   <span class="o">|</span> <span class="n">0</span><span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm <span class="n">0</span> m)
-  <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm (suc n) m <span class="o">*</span>&gt; pmap suc (inv (<span class="o">+</span>-comm n m)) <span class="o">*</span>&gt; <span class="o">+</span>-comm n (suc m))</code></pre></div></div>
+  <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm (suc n) m <span class="o">*&gt;</span> pmap suc (inv (<span class="o">+</span>-comm n m)) <span class="o">*&gt;</span> <span class="o">+</span>-comm n (suc m))</code></pre></div></div>
 
 <h1 id="equational-reasoning-proof-of--comm-rewritten">Equational reasoning, proof of +-comm rewritten</h1>
 
-<p>There is one clever trick that allows to write sequences of equality proofs joining by transitivity in a
-more readable form. Namely, one can define operators <span class="inl-highlight"><span class="o"><code class="language-plaintext highlighter-rouge">==&lt;</code></span></span>, <span class="inl-highlight"><span class="o"><code class="language-plaintext highlighter-rouge">&gt;==</code></span></span> and
-<span class="inl-highlight"><span class="o"><code class="language-plaintext highlighter-rouge">qed</code></span></span> such that it is possible to write instead of a chain of equality proofs 
-<span class="inl-highlight">p1 <span class="o"><code class="language-plaintext highlighter-rouge">*&gt;</code></span> … <span class="o"><code class="language-plaintext highlighter-rouge">*&gt;</code></span> pn</span> an extended chain <span class="inl-highlight">a1 <span class="o"><code class="language-plaintext highlighter-rouge">==&lt;</code></span> p1 <span class="o"><code class="language-plaintext highlighter-rouge">&gt;==</code></span> a2 <span class="o"><code class="language-plaintext highlighter-rouge">==&lt;</code></span> p2 <span class="o"><code class="language-plaintext highlighter-rouge">&gt;==</code></span> a3 … <span class="o">`qed</span></span>,
+<p>There is one clever trick that allows to write sequences of equality proofs joined by transitivity in a
+more readable form. Namely, one can define operators <span class="inl-highlight"><span class="o">`==&lt;`</span></span>, <span class="inl-highlight"><span class="o">`&gt;==`</span></span> and
+<span class="inl-highlight"><span class="o">`qed`</span></span> such that it is possible to write instead of a chain of equality proofs 
+<span class="inl-highlight">p1 <span class="o">`*&gt;`</span> ... <span class="o">`*&gt;`</span> pn</span> an extended chain <span class="inl-highlight">a1 <span class="o">`==&lt;`</span> p1 <span class="o">`&gt;==`</span> a2 <span class="o">`==&lt;`</span> p2 <span class="o">`&gt;==`</span> a3 ... <span class="o">`qed</span></span>,
 where we also specify the objects equality of which is proven at each step (in other words, <span class="inl-highlight">pi <span class="o">:</span> ai <span class="o">=</span> a(i+1)</span>).
 The proof <span class="inl-highlight"><span class="o">+</span>-comm</span> rewritten in this way looks as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="o">+</span>-comm' (n m <span class="o">:</span> Nat) <span class="o">:</span> n <span class="o">+</span> m <span class="o">=</span> m <span class="o">+</span> n
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="o">+</span>-comm&#39; (n m <span class="o">:</span> Nat) <span class="o">:</span> n <span class="o">+</span> m <span class="o">=</span> m <span class="o">+</span> n
   <span class="o">|</span> <span class="n">0</span><span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
-  <span class="o">|</span> suc n<span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm' n <span class="n">0</span>)
-  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm' <span class="n">0</span> m)
+  <span class="o">|</span> suc n<span class="o">,</span> <span class="n">0</span> <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm&#39; n <span class="n">0</span>)
+  <span class="o">|</span> <span class="n">0</span><span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (<span class="o">+</span>-comm&#39; <span class="n">0</span> m)
   <span class="o">|</span> suc n<span class="o">,</span> suc m <span class="o">=&gt;</span> pmap suc (
-    suc n <span class="o">+</span> m   <span class="o">==</span>&lt; <span class="o">+</span>-comm' (suc n) m &gt;==
-    suc (m <span class="o">+</span> n) <span class="o">==</span>&lt; pmap suc (inv (<span class="o">+</span>-comm' n m)) &gt;==
-    suc (n <span class="o">+</span> m) <span class="o">==</span>&lt; <span class="o">+</span>-comm' n (suc m) &gt;==
+    suc n <span class="o">+</span> m   <span class="o">==&lt;</span> <span class="o">+</span>-comm&#39; (suc n) m <span class="o">&gt;==</span>
+    suc (m <span class="o">+</span> n) <span class="o">==&lt;</span> pmap suc (inv (<span class="o">+</span>-comm&#39; n m)) <span class="o">&gt;==</span>
+    suc (n <span class="o">+</span> m) <span class="o">==&lt;</span> <span class="o">+</span>-comm&#39; n (suc m) <span class="o">&gt;==</span>
     suc m <span class="o">+</span> n   <span class="o">`qed</span>
   )
 
@@ -651,9 +665,9 @@ The proof <span class="inl-highlight"><span class="o">+</span>-comm</span> rewri
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> <span class="k">\infix</span> <span class="n">2</span> qed {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">:</span> a <span class="o">=</span> a <span class="o">=&gt;</span> idp
 
-<span class="k">\func</span> <span class="k">\infixr</span> <span class="n">1</span> &gt;== {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' a'' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (q <span class="o">:</span> a' <span class="o">=</span> a'') <span class="o">=&gt;</span> p <span class="o">*</span>&gt; q
+<span class="k">\func</span> <span class="k">\infixr</span> <span class="n">1</span> <span class="o">&gt;==</span> {A <span class="o">:</span> <span class="kt">\Type</span>} {a a&#39; a&#39;&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (q <span class="o">:</span> a&#39; <span class="o">=</span> a&#39;&#39;) <span class="o">=&gt;</span> p <span class="o">*&gt;</span> q
 
-<span class="k">\func</span> <span class="k">\infix</span> <span class="n">2</span> <span class="o">==</span>&lt; {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">=&gt;</span> p</code></pre></div></div>
+<span class="k">\func</span> <span class="k">\infix</span> <span class="n">2</span> <span class="o">==&lt;</span> {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) {a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">=&gt;</span> p</code></pre></div></div>
 
 <h1 id="j-operator">J operator</h1>
 
@@ -666,12 +680,12 @@ is “generated” by its constructors.</p>
 the non-dependent version of eliminator says that if we define the value of a function <span class="inl-highlight">a <span class="o">=</span> x <span class="o">-&gt;</span> B x</span>
 on <span class="inl-highlight">idp</span>, that is some value <span class="inl-highlight">b <span class="o">:</span> B a</span>, then we would uniquely determine this function:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport&#39;
     {A <span class="o">:</span> <span class="kt">\Type</span>}
     (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
-    {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a')
+    {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;)
     (b <span class="o">:</span> B a)
-    <span class="o">:</span> B a'
+    <span class="o">:</span> B a&#39;
   <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i)) b right</code></pre></div></div>
 
 <p>The J operator is a dependent version of this, stating that specifying value on <span class="inl-highlight">idp</span> is enough to determine 
@@ -679,49 +693,49 @@ a function <span class="inl-highlight"><span class="k">\Pi</span> (x <span class
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J
     {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A}
-    (B <span class="o">:</span> <span class="k">\Pi</span> (a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+    (B <span class="o">:</span> <span class="k">\Pi</span> (a&#39; <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a&#39; <span class="o">-&gt;</span> <span class="kt">\Type</span>)
     (b <span class="o">:</span> B a idp)
-    {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a')
-    <span class="o">:</span> B a' p
+    {a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;)
+    <span class="o">:</span> B a&#39; p
   <span class="c">-- the details of the definition are not important for now
 </span>
   <span class="o">=&gt;</span> coe (<span class="k">\lam</span> i <span class="o">=&gt;</span> B (p <span class="o">@</span> i) (psqueeze p i)) b right
   <span class="k">\where</span>
-    <span class="k">\func</span> psqueeze  {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (i <span class="o">:</span> I) <span class="o">:</span> a <span class="o">=</span> p <span class="o">@</span> i <span class="o">=&gt;</span> path (<span class="k">\lam</span> j <span class="o">=&gt;</span> p <span class="o">@</span> I.squeeze i j)</code></pre></div></div>
+    <span class="k">\func</span> psqueeze  {A <span class="o">:</span> <span class="kt">\Type</span>} {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (i <span class="o">:</span> I) <span class="o">:</span> a <span class="o">=</span> p <span class="o">@</span> i <span class="o">=&gt;</span> path (<span class="k">\lam</span> j <span class="o">=&gt;</span> p <span class="o">@</span> I.squeeze i j)</code></pre></div></div>
 
-<p>Note that <span class="inl-highlight">B a’ p</span> above depends on both <span class="inl-highlight">a’</span> and <span class="inl-highlight">p</span>. If we make <span class="inl-highlight">a’</span>
+<p>Note that <span class="inl-highlight">B a&#39; p</span> above depends on both <span class="inl-highlight">a&#39;</span> and <span class="inl-highlight">p</span>. If we make <span class="inl-highlight">a&#39;</span>
 fixed and equal to <span class="inl-highlight">a</span> in the definition above, then we obtain <em>K eliminator</em>:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> K {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> a <span class="o">=</span> a <span class="o">-&gt;</span> <span class="kt">\Type</span>)
     (b <span class="o">:</span> B idp)
     (p <span class="o">:</span> a <span class="o">=</span> a) <span class="o">:</span> B p <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
-<p>This eliminator equivalent to the statement that every element of <span class="inl-highlight">a <span class="o">=</span> a</span> is <span class="inl-highlight">idp</span>. 
+<p>This eliminator is equivalent to the statement that every element of <span class="inl-highlight">a <span class="o">=</span> a</span> is <span class="inl-highlight">idp</span>. 
 It may seem natural at first sight to add it as an axiom then to simplify things by making proofs of equalities
-unique (as it implies that <span class="inl-highlight">p <span class="o">=</span> p’</span> for any <span class="inl-highlight">p<span class="o">,</span> p’ <span class="o">:</span> a <span class="o">=</span> a’</span>), but actually it is
+unique (as it implies that <span class="inl-highlight">p <span class="o">=</span> p&#39;</span> for any <span class="inl-highlight">p<span class="o">,</span> p&#39; <span class="o">:</span> a <span class="o">=</span> a&#39;</span>), but actually it is
 important that these proofs are <em>not unique</em>. This issue will be discussed later. <!-- TODO: ref to Part II --></p>
 
 <p>It is not convenient to use the J operator directly.
 For this reason, Arend has the pattern matching principle corresponding to J.
-A parameter of type <span class="inl-highlight">a <span class="o">=</span> a’</span> can be matched with <span class="inl-highlight">idp</span> making <span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> equivalent.
+A parameter of type <span class="inl-highlight">a <span class="o">=</span> a&#39;</span> can be matched with <span class="inl-highlight">idp</span> making <span class="inl-highlight">a</span> and <span class="inl-highlight">a&#39;</span> equivalent.
 For example, <span class="inl-highlight">transport</span> can be defined as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') (b <span class="o">:</span> B a) <span class="o">:</span> B a' <span class="k">\elim</span> p
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> transport {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) (b <span class="o">:</span> B a) <span class="o">:</span> B a&#39; <span class="k">\elim</span> p
   <span class="o">|</span> idp <span class="o">=&gt;</span> b</code></pre></div></div>
 
 <p>Similarly, <span class="inl-highlight">J</span> can be defined in this way.
 See <a href="/documentation/language-reference/prelude#idp">Prelude</a> for more information about this pattern matching principle.</p>
 
-<p>The pattern matching on <span class="inl-highlight">idp</span> may look confusing at first sight. On one hand we claim that <span class="inl-highlight">a <span class="o">=</span> a’</span>
+<p>The pattern matching on <span class="inl-highlight">idp</span> may look confusing at first sight. On one hand we claim that <span class="inl-highlight">a <span class="o">=</span> a&#39;</span>
 can have more than one element, but on the other hand we allow pattern matching on <span class="inl-highlight">idp</span>, which means that
-<span class="inl-highlight">a <span class="o">=</span> a’</span> has one element. This seeming contradiction is resolved by observing that in reality we pattern
-match simultaneously on <em>two</em> variables <span class="inl-highlight">p <span class="o">:</span> a <span class="o">=</span> a’</span> and <span class="inl-highlight">a’</span>, instead of just one
-<span class="inl-highlight">p <span class="o">:</span> a <span class="o">=</span> a’</span>. In other words, we <em>do not</em> match on the type <span class="inl-highlight">a <span class="o">=</span> a’</span>, but match on the
-type <span class="inl-highlight"><span class="k">\Sigma</span> (a’ <span class="o">:</span> A) (a <span class="o">=</span> a’)</span> of pairs instead, which is one-element type.
+<span class="inl-highlight">a <span class="o">=</span> a&#39;</span> has one element. This seeming contradiction is resolved by observing that in reality we pattern
+match simultaneously on <em>two</em> variables <span class="inl-highlight">p <span class="o">:</span> a <span class="o">=</span> a&#39;</span> and <span class="inl-highlight">a&#39;</span>, instead of just one
+<span class="inl-highlight">p <span class="o">:</span> a <span class="o">=</span> a&#39;</span>. In other words, we <em>do not</em> match on the type <span class="inl-highlight">a <span class="o">=</span> a&#39;</span>, but match on the
+type <span class="inl-highlight"><span class="k">\Sigma</span> (a&#39; <span class="o">:</span> A) (a <span class="o">=</span> a&#39;)</span> of pairs instead, which is one-element type.
 Precisely this fact is the source of all the restrictions discussed in <a href="/documentation/language-reference/prelude#idp">Prelude</a>.</p>
 
 <p>The operator <span class="inl-highlight">J</span> has a different form, which we denote <span class="inl-highlight">Jalt</span>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Jalt {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Jalt {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> <span class="k">\Pi</span> (a a&#39; <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a&#39; <span class="o">-&gt;</span> <span class="kt">\Type</span>)
            (b <span class="o">:</span> <span class="k">\Pi</span> (a <span class="o">:</span> A) <span class="o">-&gt;</span> B a a idp)
-           {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> B a a' p <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+           {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> B a a&#39; p <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 1:</strong> Prove that <span class="inl-highlight">J</span> and <span class="inl-highlight">Jalt</span> are equivalent, i.e. define <span class="inl-highlight">J</span> in terms of <span class="inl-highlight">Jalt</span> and vice versa.</p>
 
@@ -749,7 +763,7 @@ element of <span class="inl-highlight">Vec A y</span> if <span class="inl-highli
   <span class="o">:</span> (xs v++ ys) v++ zs <span class="o">=</span> transport (Vec A) (<span class="o">+</span>-assoc k m n) (xs v++ (ys v++ zs)) <span class="k">\elim</span> n<span class="o">,</span> xs
   <span class="o">|</span> <span class="n">0</span><span class="o">,</span> vnil <span class="o">=&gt;</span> idp
   <span class="o">|</span> suc n<span class="o">,</span> vcons x xs <span class="o">=&gt;</span>
-      pmap (vcons x) (v++-assoc xs ys zs) <span class="o">*</span>&gt;
+      pmap (vcons x) (v++-assoc xs ys zs) <span class="o">*&gt;</span>
       inv (transport-vcons-comm (<span class="o">+</span>-assoc k m n) x (xs v++ (ys v++ zs)))
   <span class="k">\where</span>
     <span class="c">-- transport commutes with all constructors
@@ -760,7 +774,7 @@ element of <span class="inl-highlight">Vec A y</span> if <span class="inl-highli
       <span class="o">:</span> transport (Vec A) (pmap suc p) (vcons x xs) <span class="o">=</span> vcons x (transport (Vec A) p xs)
       <span class="o">|</span> idp<span class="o">,</span> <span class="u">_</span><span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> idp
       <span class="c">{- This function can be defined with J as follows:
-      =&gt; J (\lam m' p' =&gt; transport (Vec A) (pmap suc p') (vcons x xs) = vcons x (transport (Vec A) p' xs))
+      =&gt; J (\lam m&#39; p&#39; =&gt; transport (Vec A) (pmap suc p&#39;) (vcons x xs) = vcons x (transport (Vec A) p&#39; xs))
            idp
            p
       -}</span></code></pre></div></div>
@@ -802,7 +816,7 @@ In particular, in propositions-as-types logic predicates are functions <span cla
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Definition of &lt;= via equality.
 </span>
-<span class="k">\func</span> LessOrEq''' (n m <span class="o">:</span> Nat) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (k <span class="o">:</span> Nat) (k <span class="o">+</span> n <span class="o">=</span> m)
+<span class="k">\func</span> LessOrEq&#39;&#39;&#39; (n m <span class="o">:</span> Nat) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (k <span class="o">:</span> Nat) (k <span class="o">+</span> n <span class="o">=</span> m)
 
 <span class="c">-- Recursive definition of &lt;=.
 </span>
@@ -830,9 +844,9 @@ In particular, in propositions-as-types logic predicates are functions <span cla
 </span>
 <span class="c">-- where we avoid constructor patterns.
 </span>
-<span class="k">\data</span> LessOrEq' (n m <span class="o">:</span> Nat)
-  <span class="o">|</span> z&lt;=n' (n <span class="o">=</span> <span class="n">0</span>)
-  <span class="o">|</span> s&lt;=s' {n' m' <span class="o">:</span> Nat} (n <span class="o">=</span> suc n') (m <span class="o">=</span> suc m') (LessOrEq' n' m')</code></pre></div></div>
+<span class="k">\data</span> LessOrEq&#39; (n m <span class="o">:</span> Nat)
+  <span class="o">|</span> z&lt;=n&#39; (n <span class="o">=</span> <span class="n">0</span>)
+  <span class="o">|</span> s&lt;=s&#39; {n&#39; m&#39; <span class="o">:</span> Nat} (n <span class="o">=</span> suc n&#39;) (m <span class="o">=</span> suc m&#39;) (LessOrEq&#39; n&#39; m&#39;)</code></pre></div></div>
 
 <p>There are usually many ways to choose constructors for inductive definitions. To define a predicate inductively, we need to
 come up with a set of axioms that characterize the predicate.</p>
@@ -844,8 +858,8 @@ But this is not the only way to characterize <span class="inl-highlight">LessOrE
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Third inductive definition of &lt;=.
 </span>
-<span class="k">\data</span> LessOrEq'' (n m <span class="o">:</span> Nat) <span class="k">\elim</span> m
-  <span class="o">|</span> suc m <span class="o">=&gt;</span> &lt;=-step (LessOrEq'' n m)
+<span class="k">\data</span> LessOrEq&#39;&#39; (n m <span class="o">:</span> Nat) <span class="k">\elim</span> m
+  <span class="o">|</span> suc m <span class="o">=&gt;</span> &lt;=-step (LessOrEq&#39;&#39; n m)
   <span class="o">|</span> m <span class="o">=&gt;</span> &lt;=-refl (n <span class="o">=</span> m)</code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 3:</strong> Prove that all definitions of &lt;= given above are equivalent.</p>
@@ -853,9 +867,9 @@ But this is not the only way to characterize <span class="inl-highlight">LessOrE
 <p class="notice--info"><strong>Exercise 4:</strong> Define the membership predicate <span class="inl-highlight">In</span> for lists.</p>
 
 <p class="notice--info"><strong>Exercise 5:</strong> Define reflexive and transitive closure of a relation.
-That is <span class="inl-highlight">ReflTransClosure R</span> – is the minimal reflexive and transitive relation containing <span class="inl-highlight">R</span>.</p>
+That is, <span class="inl-highlight">ReflTransClosure R</span> is the minimal reflexive and transitive relation containing <span class="inl-highlight">R</span>.</p>
 
-<p class="notice--info"><strong>Exercise 6:</strong> Prove that if <span class="inl-highlight">R</span> is already reflexive and transitive then <span class="inl-highlight">ReflTransClosure R</span>
+<p class="notice--info"><strong>Exercise 6:</strong> Prove that if <span class="inl-highlight">R</span> is already reflexive and transitive, then <span class="inl-highlight">ReflTransClosure R</span>
 is equivalent to <span class="inl-highlight">R</span>.</p>
 
 <p class="notice--info"><strong>Exercise 7:</strong> Define the predicate <span class="inl-highlight">xs &lt;= ys</span> for lists, which says “the list <span class="inl-highlight">xs</span> is a 
@@ -928,7 +942,7 @@ sublist of <span class="inl-highlight">ys</span>”.</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

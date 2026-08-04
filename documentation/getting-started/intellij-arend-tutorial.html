@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Short tutorial">
-<meta property="og:url" content="http://localhost:4000/documentation/getting-started/intellij-arend-tutorial.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/getting-started/intellij-arend-tutorial.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/getting-started/intellij-arend-tutorial.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/getting-started/intellij-arend-tutorial.html">
 
 
 
@@ -529,7 +529,7 @@
 
 <ul>
   <li>Show how to prove a simple theorem in Arend.</li>
-  <li>Demonstrate the features of IntelliJ Arend that speed-up theorem proving, make it more convenient and truly interactive.</li>
+  <li>Demonstrate the features of IntelliJ Arend that speed up theorem proving, make it more convenient and truly interactive.</li>
 </ul>
 
 <p>Before getting started, make sure you have <a href="/documentation/getting-started/started">installed IntelliJ Arend and created a new project</a>. 
@@ -553,7 +553,7 @@ Here we use Arend 1.7 and IntelliJ Arend 2021.3.2.</p>
 <p>As we type, we notice that the IDE provides completion for keywords like <span class="inl-highlight"><span class="k">\elim</span></span>. 
 The completion is also available for definitions even if they are not imported to the current file. We will see this later.</p>
 
-<p>Another feature of the IDE we see here is background typechecking: as we finish typing, IDE typechecks the definition and shows that it has an error. 
+<p>Another feature of the IDE we see here is background typechecking: as we finish typing, the IDE typechecks the definition and shows that it has an error. 
 This process is incremental; only the last modified definition is re-typechecked.</p>
 
 <p>The error tells us that we need to consider <span class="inl-highlight"><span class="n">0</span></span> and <span class="inl-highlight">suc n</span> patterns when matching <span class="inl-highlight">Nat</span>. 
@@ -613,7 +613,7 @@ When we remove a goal from the file, the goal view is cleared.
 To prevent this, we use <strong>Pin</strong> which will hold the contents of the view until we press it again.</p>
 
 <p>Secondly, in spite of <span class="inl-highlight">pmap</span> being defined in some external module, it is suggested by the completion. 
-And when we select the completion item, IDE inserts a corresponding import in our file. 
+And when we select the completion item, the IDE inserts a corresponding import in our file. 
 This feature is called “Auto Import”, and thanks to it we do not need to memorize import paths or ever type them manually.</p>
 
 <p>Let’s examine the <span class="inl-highlight">pmap</span> function in a bit more detail:</p>
@@ -632,7 +632,7 @@ This feature is called “Auto Import”, and thanks to it we do not need to mem
   <li><strong>Navigate | Declaration or Usage</strong> brings us to the place where the function is declared. 
 Here we can check out how exactly <span class="inl-highlight">pmap</span> is defined.</li>
   <li><strong>External Libraries</strong> in the <strong>Project View</strong> allows us to browse the standard library. 
-Aside from <span class="inl-highlight">Paths.ard</span> that contains <span class="inl-highlight">pmap</span> we see a lot of modules that could be useful for our proofs.</li>
+Aside from <span class="inl-highlight">Paths.ard</span> that contains <span class="inl-highlight">pmap</span>, we see a lot of modules that could be useful for our proofs.</li>
   <li><strong>Find usages</strong> shows all the places where the function is used. We see that <span class="inl-highlight">pmap</span> is used quite extensively in the standard library.</li>
 </ul>
 
@@ -654,11 +654,11 @@ Aside from <span class="inl-highlight">Paths.ard</span> that contains <span clas
     </video>
 </div>
 
-<p>As the first step, we create a lambda function. Again, IDE helps us here by providing the <strong>Replace with constructor</strong> context action. 
+<p>As the first step, we create a lambda function. Again, the IDE helps us here by providing the <strong>Replace with constructor</strong> context action. 
 This action is suggested because our goal has the type <span class="inl-highlight">Nat <span class="o">-&gt;</span> Nat</span> and the IDE knows the only constructor for such a type is lambda. 
 Then, we use the quick-fix to generate patterns that we have already seen before. And this actually finishes our proof!</p>
 
-<p>Before we finish, let’s do a bit of clean-up. To give auto generated variables better names, we can use the <strong>Rename</strong> feature:</p>
+<p>Before we finish, let’s do a bit of clean-up. To give auto-generated variables better names, we can use the <strong>Rename</strong> feature:</p>
 
 <div class="wrapper">
     <video class="video-resizable" controls="" preload="metadata">
@@ -747,7 +747,7 @@ We can extract it to a separate declaration using the <strong>Extract expression
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

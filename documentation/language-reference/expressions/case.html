@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Case">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/expressions/case.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/case.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/expressions/case.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/case.html">
 
 
 
@@ -580,39 +580,39 @@
   <span class="o">|</span> p_1^k<span class="o">,</span> ... p_n^k <span class="o">=&gt;</span> d_k
 }</code></pre></div></div>
 
-<p>where <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> and <span class="inl-highlight">d_1<span class="o">,</span> … d_k</span> are expressions and <span class="inl-highlight">p_1^1<span class="o">,</span> … p_n^k</span> are patterns.
+<p>where <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> and <span class="inl-highlight">d_1<span class="o">,</span> ... d_k</span> are expressions and <span class="inl-highlight">p_1^1<span class="o">,</span> ... p_n^k</span> are patterns.
 Such an expression reduces in the same way as functions defined by pattern matching (see <a href="../definitions/functions#pattern-matching">Functions</a>).
 If the typechecker does not know the type of a case expression, it must be specified explicitly:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> e_1<span class="o">,</span> ... e_n <span class="k">\return</span> T <span class="k">\with</span> { ... }</code></pre></div></div>
 
 <p>The general syntax of case expressions looks like this:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> e_1 <span class="k">\as</span> x_1 <span class="o">:</span> E_1<span class="o">,</span> ... e_n <span class="k">\as</span> x_n <span class="o">:</span> E_n <span class="k">\return</span> T <span class="k">\with</span> { ... }</code></pre></div></div>
-<p>where <span class="inl-highlight">x_1<span class="o">,</span> … x_n</span> are variables and <span class="inl-highlight">E_1<span class="o">,</span> … E_n</span> are expressions.
+<p>where <span class="inl-highlight">x_1<span class="o">,</span> ... x_n</span> are variables and <span class="inl-highlight">E_1<span class="o">,</span> ... E_n</span> are expressions.
 The parts <span class="inl-highlight"><span class="k">\as</span> x_i</span> and <span class="inl-highlight"><span class="o">:</span> E_i</span> can be omitted.
-Expressions <span class="inl-highlight">E_i</span> can refer to <span class="inl-highlight">x_1<span class="o">,</span> … x_{i-1}</span> and expression <span class="inl-highlight">T</span> can refer to <span class="inl-highlight">x_1<span class="o">,</span> … x_n</span>.
-In this case, <span class="inl-highlight">e_i</span> must have type <span class="inl-highlight">E_i[e_1/x_1<span class="o">,</span> … e_{i-1}/x_{i-1}]</span>.
-The type of the case expression is <span class="inl-highlight">T[e_1/x_1<span class="o">,</span> … e_n/x_n]</span>.</p>
+Expressions <span class="inl-highlight">E_i</span> can refer to <span class="inl-highlight">x_1<span class="o">,</span> ... x_{i-1}</span> and expression <span class="inl-highlight">T</span> can refer to <span class="inl-highlight">x_1<span class="o">,</span> ... x_n</span>.
+In this case, <span class="inl-highlight">e_i</span> must have type <span class="inl-highlight">E_i[e_1/x_1<span class="o">,</span> ... e_{i-1}/x_{i-1}]</span>.
+The type of the case expression is <span class="inl-highlight">T[e_1/x_1<span class="o">,</span> ... e_n/x_n]</span>.</p>
 
 <h2 id="scase">\scase</h2>
 
 <p>Expression <span class="inl-highlight"><span class="k">\scase</span></span> is related to <span class="inl-highlight"><span class="k">\case</span></span> in the same way as <a href="/documentation/language-reference/definitions/functions#sfunc">\sfunc</a> is related to <span class="inl-highlight"><span class="k">\func</span></span>.
-That is, expressions of the form <span class="inl-highlight"><span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … }</span> never evaluate.
+That is, expressions of the form <span class="inl-highlight"><span class="k">\scase</span> e_1<span class="o">,</span> ... e_n <span class="k">\with</span> { ... }</span> never evaluate.
 To evaluate such an expression, you need to use keyword <span class="inl-highlight"><span class="k">\eval</span></span> before it.
-Similarly, <span class="inl-highlight"><span class="k">\peval</span> <span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … }</span> has type <span class="inl-highlight"><span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … } <span class="o">=</span> <span class="k">\eval</span> <span class="k">\scase</span> e_1<span class="o">,</span> … e_n <span class="k">\with</span> { … }</span>.</p>
+Similarly, <span class="inl-highlight"><span class="k">\peval</span> <span class="k">\scase</span> e_1<span class="o">,</span> ... e_n <span class="k">\with</span> { ... }</span> has type <span class="inl-highlight"><span class="k">\scase</span> e_1<span class="o">,</span> ... e_n <span class="k">\with</span> { ... } <span class="o">=</span> <span class="k">\eval</span> <span class="k">\scase</span> e_1<span class="o">,</span> ... e_n <span class="k">\with</span> { ... }</span>.</p>
 
 <h2 id="elim-in-case">\elim in \case</h2>
 
-<p>If one of the expressions <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> is a variable, keyword <span class="inl-highlight"><span class="k">\elim</span></span> can be specified before it.
+<p>If one of the expressions <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> is a variable, keyword <span class="inl-highlight"><span class="k">\elim</span></span> can be specified before it.
 This variable will be evaluated from the context in the clauses.
 More importantly, it will be substituted in the types of other arguments and the result type of the case expression.
 Thus, the following two snippets are equivalent if <span class="inl-highlight">e <span class="o">:</span> E</span> and the result type of the case expression is <span class="inl-highlight">A</span>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> <span class="k">\elim</span> x<span class="o">,</span> e <span class="k">\with</span> {
-  <span class="o">|</span> pat<span class="o">,</span> pat' <span class="o">=&gt;</span> result
+  <span class="o">|</span> pat<span class="o">,</span> pat&#39; <span class="o">=&gt;</span> result
 }</code></pre></div></div>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> x <span class="k">\as</span> x<span class="o">,</span> e <span class="o">:</span> E <span class="k">\return</span> A <span class="k">\with</span> {
-  <span class="o">|</span> pat<span class="o">,</span> pat' <span class="o">=&gt;</span> result
+  <span class="o">|</span> pat<span class="o">,</span> pat&#39; <span class="o">=&gt;</span> result
 }</code></pre></div></div>
 
         
@@ -679,7 +679,7 @@ Thus, the following two snippets are equivalent if <span class="inl-highlight">e
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="\module Meta">
-<meta property="og:url" content="http://localhost:4000/documentation/standard-tactics/meta.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/standard-tactics/meta.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/standard-tactics/meta.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/standard-tactics/meta.html">
 
 
 
@@ -528,22 +528,22 @@
 <p>Meta <span class="inl-highlight">using</span>, <span class="inl-highlight">usingOnly</span>, and <span class="inl-highlight">hiding</span> controls the scope.</p>
 
 <ul>
-  <li><span class="inl-highlight">using (e_1<span class="o">,</span> … e_n) e</span> adds <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> to the context before checking <span class="inl-highlight">e</span>.
-<span class="inl-highlight">using (e_1<span class="o">,</span> … e_n)</span> is sometimes used in other context-manipulating metas,
-that adds <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> to the context it uses.</li>
-  <li><span class="inl-highlight">usingOnly (e_1<span class="o">,</span> … e_n) e</span> replaces the context with <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> before checking <span class="inl-highlight">e</span>.
-<span class="inl-highlight">usingOnly (e_1<span class="o">,</span> … e_n)</span> is sometimes used in other context-manipulating metas,
-that replaces the context is uses with <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span>.</li>
-  <li><span class="inl-highlight">hiding (e_1<span class="o">,</span> … e_n) e</span> hides local bindings <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> from the context before checking <span class="inl-highlight">e</span>.
-<span class="inl-highlight">hiding (e_1<span class="o">,</span> … e_n)</span> is sometimes used in other context-manipulating metas,
-that hides <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> from the context it uses.</li>
+  <li><span class="inl-highlight">using (e_1<span class="o">,</span> ... e_n) e</span> adds <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> to the context before checking <span class="inl-highlight">e</span>.
+<span class="inl-highlight">using (e_1<span class="o">,</span> ... e_n)</span> is sometimes used in other context-manipulating metas,
+that adds <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> to the context it uses.</li>
+  <li><span class="inl-highlight">usingOnly (e_1<span class="o">,</span> ... e_n) e</span> replaces the context with <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> before checking <span class="inl-highlight">e</span>.
+<span class="inl-highlight">usingOnly (e_1<span class="o">,</span> ... e_n)</span> is sometimes used in other context-manipulating metas,
+that replaces the context it uses with <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span>.</li>
+  <li><span class="inl-highlight">hiding (e_1<span class="o">,</span> ... e_n) e</span> hides local bindings <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> from the context before checking <span class="inl-highlight">e</span>.
+<span class="inl-highlight">hiding (e_1<span class="o">,</span> ... e_n)</span> is sometimes used in other context-manipulating metas,
+that hides <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> from the context it uses.</li>
 </ul>
 
 <h1 id="cases">cases</h1>
 
 <p><span class="inl-highlight">cases args default</span> works just like <span class="inl-highlight">mcases args default</span>, but does not search for <span class="inl-highlight"><span class="k">\case</span></span> expressions or definition invocations.
 Each argument has a set of parameters that can be configured.
-Parameters are specified after keyword ‘arg’ which is written after the argument.
+Parameters are specified after the keyword ‘arg’ which is written after the argument.
 Available parameters are ‘addPath’ and ‘name’.
 The latter can be used to specify the name of the argument which can be used in types of subsequent arguments.
 The type of an argument is specified as either <span class="inl-highlight">e <span class="o">:</span> E</span> or <span class="inl-highlight">e arg parameters <span class="o">:</span> E</span>.
@@ -552,7 +552,7 @@ That is, <span class="inl-highlight">cases (e arg addPath)</span> is equivalent 
 
 <h1 id="mcases">mcases</h1>
 
-<p><span class="inl-highlight">mcases {def} args default <span class="k">\with</span> { … }</span> finds all invocations of definition <span class="inl-highlight">def</span> in the expected type and generate a <span class="inl-highlight"><span class="k">\case</span></span> expression that matches arguments of those invocations.
+<p><span class="inl-highlight">mcases {def} args default <span class="k">\with</span> { ... }</span> finds all invocations of definition <span class="inl-highlight">def</span> in the expected type and generates a <span class="inl-highlight"><span class="k">\case</span></span> expression that matches arguments of those invocations.
 It matches only those arguments which are matched in <span class="inl-highlight">def</span>.
 If the explicit argument is omitted, then <span class="inl-highlight">mcases</span> searches for <span class="inl-highlight"><span class="k">\case</span></span> expressions instead of definition invocations.
 <span class="inl-highlight">default</span> is an optional argument which is used as a default result for missing clauses.
@@ -563,8 +563,8 @@ These arguments are written in the same syntax as arguments in <span class="inl-
 Parameters of found arguments can be specified in the second implicit argument.
 The syntax is similar to the syntax for arguments in <span class="inl-highlight">cases</span>, but the expression should be omitted.
 If the first implicit argument is <span class="inl-highlight"><span class="u">_</span></span>, it will be skipped.
-<span class="inl-highlight">mcases {def_1<span class="o">,</span> … def_n}</span> searches for occurrences of definitions <span class="inl-highlight">def_1<span class="o">,</span> … def_n</span>.
-<span class="inl-highlight">mcases {def<span class="o">,</span> i_1<span class="o">,</span> … i_n}</span> matches arguments only of <span class="inl-highlight">i_1</span>-th, … <span class="inl-highlight">i_n</span>-th occurrences of <span class="inl-highlight">def</span>.
+<span class="inl-highlight">mcases {def_1<span class="o">,</span> ... def_n}</span> searches for occurrences of definitions <span class="inl-highlight">def_1<span class="o">,</span> ... def_n</span>.
+<span class="inl-highlight">mcases {def<span class="o">,</span> i_1<span class="o">,</span> ... i_n}</span> matches arguments only of <span class="inl-highlight">i_1</span>-th, … <span class="inl-highlight">i_n</span>-th occurrences of <span class="inl-highlight">def</span>.
 For example,</p>
 <ul>
   <li><span class="inl-highlight">mcases {(def1<span class="o">,</span><span class="n">4</span>)<span class="o">,</span>def2<span class="o">,</span>(def3<span class="o">,</span><span class="n">1</span><span class="o">,</span><span class="n">2</span>)}</span> looks for the 4th occurrence of <span class="inl-highlight">def1</span>, all occurrences of <span class="inl-highlight">def2</span>, and the first and the second occurrence of <span class="inl-highlight">def3</span>.</li>
@@ -575,30 +575,30 @@ For example,</p>
 
 <h1 id="unfold">unfold</h1>
 
-<p><span class="inl-highlight">unfold (f_1<span class="o">,</span> … f_n) e</span> unfolds functions <span class="inl-highlight">f_1<span class="o">,</span> … f_n</span> in the expected type before type-checking of <span class="inl-highlight">e</span> and returns <span class="inl-highlight">e</span> itself.
-If the first argument is omitted, it unfold all fields.
-If the expected type is unknown, it unfolds these function in the result type of <span class="inl-highlight">e</span>.</p>
+<p><span class="inl-highlight">unfold (f_1<span class="o">,</span> ... f_n) e</span> unfolds functions <span class="inl-highlight">f_1<span class="o">,</span> ... f_n</span> in the expected type before type-checking of <span class="inl-highlight">e</span> and returns <span class="inl-highlight">e</span> itself.
+If the first argument is omitted, it unfolds all fields.
+If the expected type is unknown, it unfolds these functions in the result type of <span class="inl-highlight">e</span>.</p>
 
 <h1 id="unfold_let">unfold_let</h1>
 
-<p><span class="inl-highlight">unfold_let</span> unfolds <span class="inl-highlight"><span class="k">\let</span></span> expressions</p>
+<p><span class="inl-highlight">unfold_let</span> unfolds <span class="inl-highlight"><span class="k">\let</span></span> expressions.</p>
 
 <h1 id="assumption">assumption</h1>
 
 <p><span class="inl-highlight">assumption</span> searches for a proof in the context. It tries variables that are declared later first.
-<span class="inl-highlight">assumption {n}</span> returns the n-th variables from the context counting from the end.
-<span class="inl-highlight">assumption {n} a1 … ak</span> applies n-th variable from the context to arguments a1, … ak.</p>
+<span class="inl-highlight">assumption {n}</span> returns the n-th variable from the context counting from the end.
+<span class="inl-highlight">assumption {n} a1 ... ak</span> applies n-th variable from the context to arguments a1, … ak.</p>
 
 <h1 id="in">in</h1>
 
 <p><span class="inl-highlight">f in x</span> is equivalent to <span class="inl-highlight"><span class="k">\let</span> r <span class="o">=&gt;</span> f x <span class="k">\in</span> r</span>.
-Also, <span class="inl-highlight">(f_1<span class="o">,</span> … f_n) in x</span> is equivalent to <span class="inl-highlight">f_1 in … f_n in x</span>.
+Also, <span class="inl-highlight">(f_1<span class="o">,</span> ... f_n) in x</span> is equivalent to <span class="inl-highlight">f_1 in ... f_n in x</span>.
 This meta is usually used with <span class="inl-highlight">f</span> being a meta such as <span class="inl-highlight">rewrite</span>, <span class="inl-highlight">simplify</span>, <span class="inl-highlight">simp_coe</span>, or <span class="inl-highlight">unfold</span>.</p>
 
 <h1 id="defaultimpl">defaultImpl</h1>
 
 <p><span class="inl-highlight">defaultImpl C F E</span> returns the default implementation of field <span class="inl-highlight">F</span> in class <span class="inl-highlight">C</span> applied to expression <span class="inl-highlight">E</span>.
-The third argument can be omitted, in which case either <span class="inl-highlight"><span class="k">\this</span></span> or <span class="inl-highlight"><span class="u">_</span></span> will be used instead,</p>
+The third argument can be omitted, in which case either <span class="inl-highlight"><span class="k">\this</span></span> or <span class="inl-highlight"><span class="u">_</span></span> will be used instead.</p>
 
         
       </section>
@@ -664,7 +664,7 @@ The third argument can be omitted, in which case either <span class="inl-highlig
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

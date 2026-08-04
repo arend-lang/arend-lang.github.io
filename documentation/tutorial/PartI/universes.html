@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Universes, Induction, Specifications">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/universes.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/universes.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/universes.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/universes.html">
 
 
 
@@ -313,6 +313,13 @@
 
                 
 
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
               
                 
@@ -328,6 +335,13 @@
                 
 
                 <li><a href="/documentation/tutorial/PartI/universes" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
               
             
           
@@ -604,108 +618,114 @@ of lower predicative level i &lt; n.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> tt <span class="o">:</span> <span class="kt">\Type2</span> <span class="o">=&gt;</span> <span class="kt">\Type0</span> <span class="o">-&gt;</span> <span class="kt">\Type1</span></code></pre></div></div>
 
-<p>In order to see how <span class="inl-highlight"><span class="kt">\Type</span></span> works let us consider a polymorphic definition:</p>
+<p>In order to see how <span class="inl-highlight"><span class="kt">\Type</span></span> works let us consider a definition parameterized by a type:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id (A <span class="o">:</span> <span class="kt">\Type</span>) (a <span class="o">:</span> A) <span class="o">=&gt;</span> a</code></pre></div></div>
 
-<p>This definition is implicitly polymorphic by the level of the universe of <span class="inl-highlight">A</span>, that is
-it has an implicit parameter <span class="inl-highlight"><span class="k">\lp</span></span> for the level. The function <span class="inl-highlight">id</span> above
-can equivalently be defined as follows:</p>
+<p>When <span class="inl-highlight"><span class="kt">\Type</span></span> is written without an explicit level, it denotes the universe with the
+<em>infinite</em> predicative level, that is the universe that contains <span class="inl-highlight"><span class="kt">\Type</span> n</span> for every
+<span class="inl-highlight">n</span>. So the parameter <span class="inl-highlight">A</span> above ranges over this single infinite universe,
+which is convenient when we do not care about the level. Note that the infinite <span class="inl-highlight"><span class="kt">\Type</span></span> is
+not itself a small type, hence it is not a member of any <span class="inl-highlight"><span class="kt">\Type</span> n</span> (in particular, not of
+itself); this is exactly what rules out contradictory circular definitions. For the same reason a
+definition such as <span class="inl-highlight"><span class="k">\func</span> bad <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="kt">\Type</span></span> is not allowed.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id (A <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp)</span> (a <span class="o">:</span> A) <span class="o">=&gt;</span> a</code></pre></div></div>
+<p>Thus <span class="inl-highlight">id</span> above is <em>not</em> polymorphic in the level. To make a definition genuinely
+polymorphic in the predicative level, we declare one or more named <em>level parameters</em> right after its
+name using the syntax <span class="inl-highlight">.{...}</span>, and refer to them in universes such as <span class="inl-highlight"><span class="kt">\Type</span> l</span>:</p>
 
-<p>Whenever we use <span class="inl-highlight"><span class="kt">\Type</span></span> without explicit level, the typechecker infers the minimal appropriate
-level. Consider the following example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id.{l} (A <span class="o">:</span> <span class="kt">\Type</span> l) (a <span class="o">:</span> A) <span class="o">=&gt;</span> a</code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> type <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="kt">\Type</span></code></pre></div></div>
+<p>Now <span class="inl-highlight">id</span> has a level parameter <span class="inl-highlight">l</span> and works uniformly for every predicative
+level. Level polymorphism is always explicit: a definition is polymorphic in the predicative level only if it
+declares a level parameter.</p>
 
-<p>The typechecker will infer the level <span class="inl-highlight"><span class="k">\lp</span></span> for <span class="inl-highlight"><span class="kt">\Type</span></span> in the body of the function
-<span class="inl-highlight">type</span>. Consequently, the typechecker infers <span class="inl-highlight"><span class="k">\suc</span> <span class="k">\lp</span></span> for the level of the universe
-in the result type of <span class="inl-highlight">type</span> since <span class="inl-highlight">n <span class="o">=</span> <span class="k">\suc</span> <span class="k">\lp</span></span> is minimal such that 
-<span class="inl-highlight"><span class="kt">\Type</span> <span class="k">\lp</span> <span class="o">:</span> <span class="kt">\Type</span> n</span>. Thus, the function <span class="inl-highlight">type</span> can be equivalently rewritten
-as follows:</p>
+<p>The level of a universe is one higher than the level of its elements: <span class="inl-highlight"><span class="kt">\Type</span> l <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> l)</span>,
+and <span class="inl-highlight">n <span class="o">=</span> <span class="k">\suc</span> l</span> is minimal such that <span class="inl-highlight"><span class="kt">\Type</span> l <span class="o">:</span> <span class="kt">\Type</span> n</span>. So a function that
+returns the universe <span class="inl-highlight"><span class="kt">\Type</span> l</span> has result type <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> l)</span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> type <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="o">=&gt;</span> <span class="kt">\Type</span> <span class="k">\lp</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> type.{l} <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> l) <span class="o">=&gt;</span> <span class="kt">\Type</span> l</code></pre></div></div>
 
 <p>There are two operations that allow to form level expressions out of atomic ones: <span class="inl-highlight"><span class="k">\suc</span> l</span> and
-<span class="inl-highlight"><span class="k">\max</span> l1 l2</span>. Atomic ones, as we have seen, are just nonnegative numerals and polymorphic parameters
-<span class="inl-highlight"><span class="k">\lp</span></span>. Therefore any level expression is either equivalent to a constant or to an expression of the form
-<span class="inl-highlight"><span class="k">\max</span> (<span class="k">\lp</span> <span class="o">+</span> c) c’</span>, where <span class="inl-highlight">c<span class="o">,</span> c’</span> are constants and <span class="inl-highlight"><span class="k">\lp</span> <span class="o">+</span> c</span> is 
-the c-fold <span class="inl-highlight"><span class="k">\suc</span></span> applied to <span class="inl-highlight"><span class="k">\lp</span></span>.</p>
+<span class="inl-highlight"><span class="k">\max</span> l1 l2</span>. Atomic level expressions are just nonnegative numerals and level parameters (such
+as <span class="inl-highlight">l</span> above). Therefore any level expression built from a single parameter <span class="inl-highlight">l</span> is
+either equivalent to a constant or to an expression of the form <span class="inl-highlight"><span class="k">\max</span> (l <span class="o">+</span> c) c&#39;</span>, where
+<span class="inl-highlight">c<span class="o">,</span> c&#39;</span> are constants and <span class="inl-highlight">l <span class="o">+</span> c</span> is the c-fold <span class="inl-highlight"><span class="k">\suc</span></span> applied to
+<span class="inl-highlight">l</span>.</p>
 
 <p>The level of a Pi-type or other type forming construction is the maximal level among all types contained in this construction:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test0 <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\max</span> (<span class="k">\suc</span> (<span class="k">\suc</span> <span class="k">\lp))</span> <span class="n">4</span>) <span class="o">=&gt;</span> <span class="kt">\Type</span> (<span class="k">\max</span> <span class="k">\lp</span> <span class="n">3</span>) <span class="o">-&gt;</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test0.{l} <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\max</span> (<span class="k">\suc</span> (<span class="k">\suc</span> l)) <span class="n">4</span>) <span class="o">=&gt;</span> <span class="kt">\Type</span> (<span class="k">\max</span> l <span class="n">3</span>) <span class="o">-&gt;</span> <span class="kt">\Type</span> (<span class="k">\suc</span> l)</code></pre></div></div>
 
 <p>We now illustrate the behaviour of universes and polymorphic definitions through a bunch of examples:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 <span class="o">=&gt;</span> id Nat <span class="n">0</span>
 <span class="k">\func</span> test2 <span class="o">=&gt;</span> id <span class="kt">\Type0</span> Nat
 <span class="k">\func</span> test3 <span class="o">=&gt;</span> id (<span class="kt">\Type0</span> <span class="o">-&gt;</span> <span class="kt">\Type1</span>) (<span class="k">\lam</span> X <span class="o">=&gt;</span> X)
-<span class="k">\func</span> test4 <span class="o">=&gt;</span> id <span class="u">_</span> id
-<span class="k">\func</span> test4' <span class="o">=&gt;</span> id (<span class="k">\Pi</span> (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A) id</code></pre></div></div>
+<span class="k">\func</span> test4.{l} <span class="o">=&gt;</span> id (<span class="k">\Pi</span> (A <span class="o">:</span> <span class="kt">\Type</span> l) <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A) id</code></pre></div></div>
 
-<p>While invoking a definition it is possible to specify the value for its polymorphic level parameter <span class="inl-highlight"><span class="k">\lp</span></span>.
-In case the value is not a numeral, it can be passed as an ordinary first parameter:</p>
+<p>When invoking a definition it is possible to specify the values of its level parameters explicitly, again with
+the <span class="inl-highlight">.{...}</span> syntax. The arguments are level expressions, listed in the order in which the
+parameters were declared:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5 <span class="o">=&gt;</span> id (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="kt">\Type</span> <span class="k">\lp)</span> Nat</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5.{l} <span class="o">=&gt;</span> id.{<span class="k">\suc</span> l} (<span class="kt">\Type</span> l) Nat
+<span class="k">\func</span> test6 <span class="o">=&gt;</span> id.{<span class="n">2</span>} <span class="kt">\Type1</span> <span class="kt">\Type0</span></code></pre></div></div>
 
-<p>Alternatively, it can be done using the construct <span class="inl-highlight"><span class="k">\levels</span> p h</span>, where <span class="inl-highlight">p</span> is the level
-(we ignore <span class="inl-highlight">h</span> for now). It is useful when the value is a numeral.</p>
+<p>(The older ways of passing a level — positionally as an ordinary first argument, or via the <span class="inl-highlight"><span class="k">\levels</span> p h</span>
+construct — no longer exist. Homotopy levels have been removed, so a level argument is now a single predicative level.)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5' <span class="o">=&gt;</span> id (<span class="k">\levels</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="u">_</span>) (<span class="kt">\Type</span> <span class="k">\lp)</span> Nat
-<span class="k">\func</span> test6 <span class="o">=&gt;</span> id (<span class="k">\levels</span> <span class="n">2</span> <span class="u">_</span>) <span class="kt">\Type1</span> <span class="kt">\Type0</span></code></pre></div></div>
-
-<p>In case a definition is invoked without explicit specification for the value of its level, the level will be inferred
-by the typechecker. In most cases there is no need to specify the level explicitly.</p>
+<p>In case a definition is invoked without explicit specification for the values of its levels, they will be inferred
+by the typechecker. In most cases there is no need to specify them explicitly.</p>
 
 <p>The level of the universe of a data definition is the maximum among the levels of parameters of its constructors.
 Levels of parameters of the definition do not matter.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Magma (A <span class="o">:</span> <span class="kt">\Type</span>)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Magma.{l} (A <span class="o">:</span> <span class="kt">\Type</span> l)
   <span class="o">|</span> con (A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A)
 
-<span class="k">\data</span> MagmaEx (A <span class="o">:</span> <span class="kt">\Type</span>) (B <span class="o">:</span> <span class="kt">\Type5</span>)
+<span class="k">\data</span> MagmaEx.{l} (A <span class="o">:</span> <span class="kt">\Type</span> l) (B <span class="o">:</span> <span class="kt">\Type5</span>)
   <span class="o">|</span> con (A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A)
 
-<span class="k">\func</span> test7 <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="o">=&gt;</span> MagmaEx <span class="k">\lp</span> Nat <span class="kt">\Type4</span></code></pre></div></div>
+<span class="k">\func</span> test7.{l} <span class="o">:</span> <span class="kt">\Type</span> l <span class="o">=&gt;</span> MagmaEx.{l} Nat <span class="kt">\Type4</span></code></pre></div></div>
 
 <p>The level of a class or a record is determined by its <em>non-implemented</em> fields and parameters (recall that parameters are
 just fields). For example, consider the definition of Magma as a class:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Magma (A <span class="o">:</span> <span class="kt">\Type</span>)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Magma.{l} (A <span class="o">:</span> <span class="kt">\Type</span> l)
   <span class="o">|</span> <span class="k">\infixl</span> <span class="n">6</span> <span class="o">*</span><span class="o">*</span> <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A</code></pre></div></div>
 
-<p>The level of <span class="inl-highlight">Magma <span class="k">\lp</span></span> is <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span></span> since the definition of <span class="inl-highlight">Magma <span class="k">\lp</span></span>
-contains <span class="inl-highlight"><span class="kt">\Type</span> <span class="k">\lp</span></span>. But the level of <span class="inl-highlight">Magma <span class="k">\lp</span> Nat</span> is just <span class="inl-highlight"><span class="kt">\Type0</span></span> since
-non-implemented fields of <span class="inl-highlight">Magma <span class="k">\lp</span> Nat</span> do not contain universes.</p>
+<p>The level of <span class="inl-highlight">Magma.{l}</span> is <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> l)</span> since the definition of <span class="inl-highlight">Magma.{l}</span>
+contains <span class="inl-highlight"><span class="kt">\Type</span> l</span>. Once the field <span class="inl-highlight">A</span> is implemented, that universe disappears from the
+non-implemented fields and the level drops by one: <span class="inl-highlight">Magma.{l} Nat</span> lives in <span class="inl-highlight"><span class="kt">\Type</span> l</span>
+(for instance <span class="inl-highlight">Magma.{<span class="n">5</span>} Nat <span class="o">:</span> <span class="kt">\Type5</span></span>).</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test8 <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="o">=&gt;</span> Magma <span class="k">\lp</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test8.{l} <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> l) <span class="o">=&gt;</span> Magma.{l}
 
-<span class="k">\func</span> test9 <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="o">=&gt;</span> Magma <span class="k">\lp</span> Nat</code></pre></div></div>
+<span class="k">\func</span> test9.{l} <span class="o">:</span> <span class="kt">\Type</span> l <span class="o">=&gt;</span> Magma.{l} Nat</code></pre></div></div>
 
-<p>Consider one more example, the class <span class="inl-highlight">Functor</span> of functors:</p>
+<p>Consider one more example, the class <span class="inl-highlight">Functor</span> of functors. Unlike <span class="inl-highlight"><span class="kt">\Type</span></span>, the universe
+<span class="inl-highlight"><span class="kt">\Set</span></span> cannot be used with the infinite level, so it always requires an explicit predicative level:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Functor (F <span class="o">:</span> <span class="kt">\Set</span> <span class="o">-&gt;</span> <span class="kt">\Set</span>) <span class="c">-- \Set is almost the same as \Type, we will discuss the difference later
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Functor.{l} (F <span class="o">:</span> <span class="kt">\Set</span> l <span class="o">-&gt;</span> <span class="kt">\Set</span> l) <span class="c">-- \Set is almost the same as \Type, we will discuss the difference later
 </span>
-  <span class="o">|</span> fmap {A B <span class="o">:</span> <span class="kt">\Set</span>} <span class="o">:</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> F A <span class="o">-&gt;</span> F B</code></pre></div></div>
+  <span class="o">|</span> fmap {A B <span class="o">:</span> <span class="kt">\Set</span> l} <span class="o">:</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> F A <span class="o">-&gt;</span> F B</code></pre></div></div>
 
-<p>The level of <span class="inl-highlight">Functor</span> will be <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span></span> even if the field <span class="inl-highlight">F</span> is
-implemented since <span class="inl-highlight">fmap</span> also refers to <span class="inl-highlight"><span class="kt">\Type</span> <span class="k">\lp</span></span>.</p>
+<p>The level of <span class="inl-highlight">Functor.{l}</span> will be <span class="inl-highlight"><span class="kt">\Type</span> (<span class="k">\suc</span> l)</span> even if the field <span class="inl-highlight">F</span> is
+implemented since <span class="inl-highlight">fmap</span> also refers to <span class="inl-highlight"><span class="kt">\Set</span> l</span>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Maybe (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">|</span> nothing <span class="o">|</span> just A
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Maybe.{l} (A <span class="o">:</span> <span class="kt">\Set</span> l) <span class="o">|</span> nothing <span class="o">|</span> just A
 
-<span class="k">\func</span> test10 <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> <span class="o">=&gt;</span> Functor <span class="k">\lp</span> Maybe</code></pre></div></div>
+<span class="k">\func</span> test10.{l} <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> l) <span class="o">=&gt;</span> Functor.{l} Maybe</code></pre></div></div>
 
-<p class="notice--info"><strong>Exercise 1:</strong> Calculate levels in each of the the invocations of <span class="inl-highlight">id’’</span> below.
-Specify explicitly result types for all idTest*.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id'' {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a
+<p class="notice--info"><strong>Exercise 1:</strong> Calculate the levels in each of the invocations of <span class="inl-highlight">id&#39;&#39;</span> below.
+Specify explicitly the result types for all idTest* (giving a result type also pins down the levels).</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id&#39;&#39;.{l} {A <span class="o">:</span> <span class="kt">\Type</span> l} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a
 
-<span class="k">\func</span> idTest1 <span class="o">=&gt;</span> id'' (id'' id)
-<span class="k">\func</span> idTest2 <span class="o">=&gt;</span> id'' Maybe
-<span class="k">\func</span> idTest3 <span class="o">=&gt;</span> id'' Functor
-<span class="k">\func</span> idTest4 <span class="o">=&gt;</span> id'' (Functor Maybe)
-<span class="k">\func</span> idTest5 (f <span class="o">:</span> <span class="k">\Pi</span> {A B <span class="o">:</span> <span class="kt">\Set</span>} <span class="o">-&gt;</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> Maybe A <span class="o">-&gt;</span> Maybe B) <span class="o">=&gt;</span> id'' (Functor Maybe f)</code></pre></div></div>
+<span class="k">\func</span> idTest1 <span class="o">=&gt;</span> id&#39;&#39; (id&#39;&#39; id)
+<span class="k">\func</span> idTest2 <span class="o">=&gt;</span> id&#39;&#39; Maybe
+<span class="k">\func</span> idTest3 <span class="o">=&gt;</span> id&#39;&#39; Functor
+<span class="k">\func</span> idTest4 <span class="o">=&gt;</span> id&#39;&#39; (Functor Maybe)
+<span class="k">\func</span> idTest5.{l} (f <span class="o">:</span> <span class="k">\Pi</span> {A B <span class="o">:</span> <span class="kt">\Set</span> l} <span class="o">-&gt;</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> Maybe A <span class="o">-&gt;</span> Maybe B) <span class="o">=&gt;</span> id&#39;&#39; (Functor Maybe f)</code></pre></div></div>
 
 <h1 id="induction-principles">Induction principles</h1>
 
@@ -767,7 +787,7 @@ done below.</p>
   <span class="o">|</span> list Type
   <span class="o">|</span> arr Type Type</code></pre></div></div>
 
-<p>The type <span class="inl-highlight">Type</span> can be thought of as a type contains codes of types. We should also define a
+<p>The type <span class="inl-highlight">Type</span> can be thought of as a type that contains codes of types. We should also define a
 function that realizes them as actual types:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> El (t <span class="o">:</span> Type) <span class="o">:</span> <span class="kt">\Set0</span> <span class="k">\elim</span> t
@@ -780,15 +800,15 @@ function that realizes them as actual types:</p>
 <p>The universe <span class="inl-highlight">Type</span> contains just non-dependent types. If we want to include also dependent types
 to the universe, we should use induction-recursion:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Type' <span class="o">:</span> <span class="kt">\Set0</span>
-  <span class="o">|</span> nat'
-  <span class="o">|</span> list' Type'
-  <span class="o">|</span> pi' (a <span class="o">:</span> Type') (El' a <span class="o">-&gt;</span> Type')
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Type&#39; <span class="o">:</span> <span class="kt">\Set0</span>
+  <span class="o">|</span> nat&#39;
+  <span class="o">|</span> list&#39; Type&#39;
+  <span class="o">|</span> pi&#39; (a <span class="o">:</span> Type&#39;) (El&#39; a <span class="o">-&gt;</span> Type&#39;)
 
-<span class="k">\func</span> El' (t <span class="o">:</span> Type') <span class="o">:</span> <span class="kt">\Set0</span> <span class="k">\elim</span> t
-  <span class="o">|</span> nat' <span class="o">=&gt;</span> Nat
-  <span class="o">|</span> list' t <span class="o">=&gt;</span> List (El' t)
-  <span class="o">|</span> pi' t1 t2 <span class="o">=&gt;</span> <span class="k">\Pi</span> (a <span class="o">:</span> El' t1) <span class="o">-&gt;</span> El' (t2 a)</code></pre></div></div>
+<span class="k">\func</span> El&#39; (t <span class="o">:</span> Type&#39;) <span class="o">:</span> <span class="kt">\Set0</span> <span class="k">\elim</span> t
+  <span class="o">|</span> nat&#39; <span class="o">=&gt;</span> Nat
+  <span class="o">|</span> list&#39; t <span class="o">=&gt;</span> List (El&#39; t)
+  <span class="o">|</span> pi&#39; t1 t2 <span class="o">=&gt;</span> <span class="k">\Pi</span> (a <span class="o">:</span> El&#39; t1) <span class="o">-&gt;</span> El&#39; (t2 a)</code></pre></div></div>
 
 <h1 id="completeness-of-specifications">Completeness of specifications</h1>
 
@@ -802,22 +822,22 @@ A specification <span class="inl-highlight">P</span> is <em>complete</em> for <s
 <p>For example, assume we want to write specification for a function <span class="inl-highlight">fac <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat</span> that computes
 the factorial of a number:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- P1 is correct specification for 'fac', but incomplete.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- P1 is correct specification for &#39;fac&#39;, but incomplete.
 </span>
 <span class="k">\func</span> P1 (f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat) <span class="o">=&gt;</span> f <span class="n">3</span> <span class="o">=</span> <span class="n">6</span>
 <span class="c">-- P2 is complete, but not correct.
 </span>
 <span class="k">\func</span> P2 (f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat) <span class="o">=&gt;</span> Empty
-<span class="c">-- P3 -- correct and complete specification for 'fac'.
+<span class="c">-- P3 -- correct and complete specification for &#39;fac&#39;.
 </span>
 <span class="k">\func</span> P3 (f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (f <span class="n">0</span> <span class="o">=</span> <span class="n">1</span>) (<span class="k">\Pi</span> (n <span class="o">:</span> Nat) <span class="o">-&gt;</span> f (suc n) <span class="o">=</span> suc n <span class="o">*</span> f n)</code></pre></div></div>
 
 <p>Another example of a correct and complete specification for a sort function:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> P (f <span class="o">:</span> List A <span class="o">-&gt;</span> List A) <span class="o">=&gt;</span> <span class="k">\Pi</span> (xs <span class="o">:</span> List A) <span class="o">-&gt;</span> <span class="k">\Sigma</span> (isSorted (f xs)) (isPerm (f xs) xs)
-<span class="c">-- where 'isSorted xs' is true iff  'xs' is sorted and
+<span class="c">-- where &#39;isSorted xs&#39; is true iff  &#39;xs&#39; is sorted and
 </span>
-<span class="c">-- 'isPerm xs ys' is true iff 'xs' is a permutation of 'ys'.</span></code></pre></div></div>
+<span class="c">-- &#39;isPerm xs ys&#39; is true iff &#39;xs&#39; is a permutation of &#39;ys&#39;.</span></code></pre></div></div>
 
 <p>Of course, specifications must always be correct, but one may opt for working with incomplete specifications
 since sometimes it is too hard to write and prove a complete one. Nevertheless, it is useful to understand,
@@ -918,7 +938,7 @@ To prove this, we need to add yet another constructor to <span class="inl-highli
   <span class="o">|</span> nil<span class="o">,</span> nil <span class="o">=&gt;</span> perm-nil
   <span class="o">|</span> cons x xs<span class="o">,</span> cons y ys <span class="o">=&gt;</span> perm-cons (x <span class="o">=</span> y) (Perm xs ys)
   <span class="o">|</span> xs<span class="o">,</span> ys <span class="o">=&gt;</span> perm-trans {zs <span class="o">:</span> List A} (Perm xs zs) (Perm zs ys)
-  <span class="o">|</span> cons x (cons x' xs)<span class="o">,</span> cons y (cons y' ys) <span class="o">=&gt;</span> perm-perm (x <span class="o">=</span> y') (x' <span class="o">=</span> y) (xs <span class="o">=</span> ys)</code></pre></div></div>
+  <span class="o">|</span> cons x (cons x&#39; xs)<span class="o">,</span> cons y (cons y&#39; ys) <span class="o">=&gt;</span> perm-perm (x <span class="o">=</span> y&#39;) (x&#39; <span class="o">=</span> y) (xs <span class="o">=</span> ys)</code></pre></div></div>
 
 <p>Now, we can finish the proof of <span class="inl-highlight">insert-perm</span>:</p>
 
@@ -934,10 +954,10 @@ To prove this, we need to add yet another constructor to <span class="inl-highli
   }</code></pre></div></div>
 
 <p>Our definition of <span class="inl-highlight">Perm</span> might look like cheating, but it is a perfectly valid definition of this predicate.
-It might happen that we already have some fixed definition <span class="inl-highlight">Perm’</span> of this predicate and we want to prove that our sort function satisfies the required property with respect to <span class="inl-highlight">Perm’</span>.
-In this case, we just need to prove that <span class="inl-highlight">Perm xs ys</span> implies <span class="inl-highlight">Perm’ xs ys</span>.
-It is easy to do this: we just need to show that <span class="inl-highlight">Perm’</span> satisfies 4 properties corresponding to 4 constructors of <span class="inl-highlight">Perm</span>.
-We can even omit the intermediate step and replace <span class="inl-highlight">Perm</span> with <span class="inl-highlight">Perm’</span> and constructors of <span class="inl-highlight">Perm</span> with the proofs of corresponding properties.</p>
+It might happen that we already have some fixed definition <span class="inl-highlight">Perm&#39;</span> of this predicate and we want to prove that our sort function satisfies the required property with respect to <span class="inl-highlight">Perm&#39;</span>.
+In this case, we just need to prove that <span class="inl-highlight">Perm xs ys</span> implies <span class="inl-highlight">Perm&#39; xs ys</span>.
+It is easy to do this: we just need to show that <span class="inl-highlight">Perm&#39;</span> satisfies 4 properties corresponding to 4 constructors of <span class="inl-highlight">Perm</span>.
+We can even omit the intermediate step and replace <span class="inl-highlight">Perm</span> with <span class="inl-highlight">Perm&#39;</span> and constructors of <span class="inl-highlight">Perm</span> with the proofs of corresponding properties.</p>
 
 <p>Now, let us prove the remaining property of the sort function.
 We will define predicate <span class="inl-highlight">IsSorted</span> inductively.
@@ -949,7 +969,7 @@ We can consider three cases instead of two and define <span class="inl-highlight
   <span class="o">|</span> cons <span class="u">_</span> nil <span class="o">=&gt;</span> single-sorted
   <span class="o">|</span> cons x (cons y <span class="u">_</span> <span class="k">\as</span> xs) <span class="o">=&gt;</span> cons-sorted (x &lt;= y) (IsSorted xs)</code></pre></div></div>
 
-<p>It turns out that this definition is not very convenient because we need to consider more cases when proof things about sorted list.
+<p>It turns out that this definition is not very convenient because we need to consider more cases when proving things about sorted lists.
 There is another option: we can define the <span class="inl-highlight">head</span> that returns some default value when the list is empty:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> head {A <span class="o">:</span> <span class="kt">\Type</span>} (def <span class="o">:</span> A) (xs <span class="o">:</span> List A) <span class="o">:</span> A <span class="k">\elim</span> xs
   <span class="o">|</span> nil <span class="o">=&gt;</span> def
@@ -964,7 +984,7 @@ There is another option: we can define the <span class="inl-highlight">head</spa
 If <span class="inl-highlight">xs</span> is empty, then condition <span class="inl-highlight">x &lt;= head x xs</span> is always true by reflexivity of <span class="inl-highlight">&lt;=</span>.</p>
 
 <p>The rest of the proof is straightforward.
-We formulate an obvious lemma about <span class="inl-highlight">insert</span> function and prove the required property by induction:</p>
+We formulate an obvious lemma about the <span class="inl-highlight">insert</span> function and prove the required property by induction:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sort-sorted {A <span class="o">:</span> TotalPreorder} (xs <span class="o">:</span> List A) <span class="o">:</span> IsSorted (sort xs) <span class="k">\elim</span> xs
   <span class="o">|</span> nil <span class="o">=&gt;</span> nil-sorted
   <span class="o">|</span> cons a l <span class="o">=&gt;</span> insert-sorted a (sort-sorted l)
@@ -1067,7 +1087,7 @@ The full proof can be found <a href="code/sort.ard">here</a>.</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

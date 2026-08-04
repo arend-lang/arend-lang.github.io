@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Let">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/expressions/let.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/let.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/expressions/let.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/let.html">
 
 
 
@@ -572,7 +572,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Let expressions allow to introduce local variables.
+        <p>Let expressions allow one to introduce local variables.
 Such expressions have the following syntax:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\let</span> <span class="o">|</span> p_1 <span class="o">=&gt;</span> e_1
@@ -580,35 +580,35 @@ Such expressions have the following syntax:</p>
      <span class="o">|</span> p_n <span class="o">=&gt;</span> e_n
 <span class="k">\in</span> e_{n+1}</code></pre></div></div>
 
-<p>where <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are patterns and <span class="inl-highlight">e_1<span class="o">,</span> … e_{n+1}</span> are expressions.</p>
+<p>where <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> are patterns and <span class="inl-highlight">e_1<span class="o">,</span> ... e_{n+1}</span> are expressions.</p>
 
-<p>Every pattern is either a variable or an expression of the form <span class="inl-highlight">(p_1’<span class="o">,</span> … p_k’)</span>,
-where <span class="inl-highlight">p_1’<span class="o">,</span> … p_k’</span> are patterns. This implies that if <span class="inl-highlight">p_i</span> is a tuple of k subpatterns,
+<p>Every pattern is either a variable or an expression of the form <span class="inl-highlight">(p_1&#39;<span class="o">,</span> ... p_k&#39;)</span>,
+where <span class="inl-highlight">p_1&#39;<span class="o">,</span> ... p_k&#39;</span> are patterns. This implies that if <span class="inl-highlight">p_i</span> is a tuple of k subpatterns,
 then the type of <span class="inl-highlight">e_i</span> must be either a k-fold Sigma type or a record with k fields.
 Note that because of the eta-equivalence for Sigma types and records the structure of
 <span class="inl-highlight">e_i</span> does not matter: for example, expression <span class="inl-highlight"><span class="k">\let</span> (x<span class="o">,</span>y) <span class="o">=&gt;</span> z <span class="k">\in</span> e</span> evaluates to
-<span class="inl-highlight">e[z.<span class="n">1</span>/x<span class="o">,</span>z.<span class="n">2</span>/y]</span> if type of <span class="inl-highlight">z</span> is Sigma type (and with fields instead of projections
+<span class="inl-highlight">e[z.<span class="n">1</span>/x<span class="o">,</span>z.<span class="n">2</span>/y]</span> if the type of <span class="inl-highlight">z</span> is a Sigma type (and with fields instead of projections
 <span class="inl-highlight">z.<span class="n">1</span></span> and <span class="inl-highlight">z.<span class="n">2</span></span> in case of a record). In general, if pattern <span class="inl-highlight">p_i</span> contains
-variables <span class="inl-highlight">x_i^1<span class="o">,</span> … x_i^{n_i}</span> expression 
-<span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> p_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> p_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> e</span> evaluates to <span class="inl-highlight">e[… proj_i^j(e_i)/x_i^j …]</span>,
-where <span class="inl-highlight">proj_i^j</span> is the sequence of projections and field access expressions, corresponding to <span class="inl-highlight">j</span>-th variable of <span class="inl-highlight">p_i</span>.</p>
+variables <span class="inl-highlight">x_i^1<span class="o">,</span> ... x_i^{n_i}</span>, the expression 
+<span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> p_1 <span class="o">=&gt;</span> e_1 ... <span class="o">|</span> p_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> e</span> evaluates to <span class="inl-highlight">e[... proj_i^j(e_i)/x_i^j ...]</span>,
+where <span class="inl-highlight">proj_i^j</span> is the sequence of projections and field access expressions, corresponding to the <span class="inl-highlight">j</span>-th variable of <span class="inl-highlight">p_i</span>.</p>
 
-<p>The expression <span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> x_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> x_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> e</span> has type 
-<span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> x_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> x_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> E</span>, where <span class="inl-highlight">E</span> is the type of <span class="inl-highlight">e</span>.</p>
+<p>The expression <span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> x_1 <span class="o">=&gt;</span> e_1 ... <span class="o">|</span> x_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> e</span> has type 
+<span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> x_1 <span class="o">=&gt;</span> e_1 ... <span class="o">|</span> x_n <span class="o">=&gt;</span> e_n <span class="k">\in</span> E</span>, where <span class="inl-highlight">E</span> is the type of <span class="inl-highlight">e</span>.</p>
 
 <p>The type of <span class="inl-highlight">e_i</span> can be explicitly specified as follows: <span class="inl-highlight"><span class="o">|</span> p_i <span class="o">:</span> E_i <span class="o">=&gt;</span> e_i</span>.</p>
 
 <p>It is also allowed to write lambda parameters after a pattern if it is a variable.
-That is, instead of <span class="inl-highlight"><span class="o">|</span> x_i <span class="o">=&gt;</span> e_i</span>, you can write <span class="inl-highlight"><span class="o">|</span> x_i p^i_1 … p^i_{n_i} <span class="o">=&gt;</span> e_i</span>,
-where <span class="inl-highlight">p^i_1<span class="o">,</span> … p^i_{n_i}</span> are either variables or named parameters to which <span class="inl-highlight">e_i</span> can refer.
-Such a clause is equivalent to <span class="inl-highlight"><span class="o">|</span> x_i <span class="o">=&gt;</span> <span class="k">\lam</span> p^i_1 … p^i_{n_i} <span class="o">=&gt;</span> e_i</span>.</p>
+That is, instead of <span class="inl-highlight"><span class="o">|</span> x_i <span class="o">=&gt;</span> e_i</span>, you can write <span class="inl-highlight"><span class="o">|</span> x_i p^i_1 ... p^i_{n_i} <span class="o">=&gt;</span> e_i</span>,
+where <span class="inl-highlight">p^i_1<span class="o">,</span> ... p^i_{n_i}</span> are either variables or named parameters to which <span class="inl-highlight">e_i</span> can refer.
+Such a clause is equivalent to <span class="inl-highlight"><span class="o">|</span> x_i <span class="o">=&gt;</span> <span class="k">\lam</span> p^i_1 ... p^i_{n_i} <span class="o">=&gt;</span> e_i</span>.</p>
 
 <h1 id="pattern-matching">Pattern matching</h1>
 
 <p>It is also possible to match constructors of data types as follows:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\let</span> (con x_1 ... x_k) <span class="o">=&gt;</span> e1
 <span class="k">\in</span> e2</code></pre></div></div>
-<p>where <span class="inl-highlight">x_1<span class="o">,</span> … x_k</span> are patterns and <span class="inl-highlight">con</span> is a constructor.</p>
+<p>where <span class="inl-highlight">x_1<span class="o">,</span> ... x_k</span> are patterns and <span class="inl-highlight">con</span> is a constructor.</p>
 
 <p>This expression is equivalent to the following one:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\case</span> e1 <span class="k">\with</span> {
@@ -618,7 +618,7 @@ Such a clause is equivalent to <span class="inl-highlight"><span class="o">|</sp
 <h1 id="strict-let-expressions">Strict let expressions</h1>
 
 <p>Let expressions can be <em>strict</em>.
-This means that expressions <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> will be evaluated immediately when the let expression is evaluated.
+This means that expressions <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> will be evaluated immediately when the let expression is evaluated.
 To define a strict let expression, use the keyword <span class="inl-highlight"><span class="k">\let!</span></span> instead of <span class="inl-highlight"><span class="k">\let</span></span>.</p>
 
 <h1 id="have">\have</h1>
@@ -697,7 +697,7 @@ For example, this is usually the case when it is a proof of some fact.</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

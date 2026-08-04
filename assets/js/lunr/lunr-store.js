@@ -88,4 +88,10 @@ var store = [{
         "tags": [],
         "url": "/2025/12/11/Arend-1.11.0-released.html",
         "teaser": null
+      },{
+        "title": "Arend 1.12.0 released",
+        "excerpt":"This release includes a major internal overhaul of the universe/level system, an opt-in binary caching mode for the CLI, and substantial additions to arend-lib, most notably in algebraic geometry and analysis. Language updates: Introduce types not bounded by universe levels. Introduce classes not bounded by universe levels, with a local...","categories": [],
+        "tags": [],
+        "url": "/2026/08/04/Arend-1.12.0-released.html",
+        "teaser": null
       }]

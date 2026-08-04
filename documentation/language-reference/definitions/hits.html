@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Higher Inductive Types">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/hits.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/hits.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/hits.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/hits.html">
 
 
 
@@ -608,9 +608,9 @@ type can be defined by means of <em>conditions</em> in data definitions.</p>
 <h2 id="conditions">Conditions</h2>
 
 <p>If <span class="inl-highlight">con</span> is a constructor of an inductive type <span class="inl-highlight">D</span>, then an expression of the form
-<span class="inl-highlight">con a_1 … a_n</span> does not reduce any further unless the definition of <span class="inl-highlight">D</span> contains <em>conditions</em> on <span class="inl-highlight">con</span>.
+<span class="inl-highlight">con a_1 ... a_n</span> does not reduce any further unless the definition of <span class="inl-highlight">D</span> contains <em>conditions</em> on <span class="inl-highlight">con</span>.
 A condition on a constructor is a rule that says how such an expression might be reduced.
-For example, one can define integers as a data type with two constructors: one for positive, and one for negative integers, and a condition on the second constructor telling positive and negative zero have to be computationally equal:</p>
+For example, one can define integers as a data type with two constructors: one for positive, and one for negative integers, and a condition on the second constructor telling that positive and negative zero have to be computationally equal:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Int
   <span class="o">|</span> pos Nat
@@ -622,8 +622,8 @@ For example, one can define integers as a data type with two constructors: one f
 The only differences are that it is not required that all cases are covered and that pattern matching on constructors
 <span class="inl-highlight">left</span> and <span class="inl-highlight">right</span> of the <a href="../prelude">interval type</a> <span class="inl-highlight">I</span> is allowed.
 The general syntax is the same as for ordinary pattern matching.
-Either <span class="inl-highlight"><span class="k">\with</span> { <span class="o">|</span> c_1 <span class="o">|</span> … <span class="o">|</span> c_m }</span> or <span class="inl-highlight"><span class="k">\elim</span> x_1<span class="o">,</span> … x_n { <span class="o">|</span> c_1 <span class="o">|</span> … <span class="o">|</span> c_m }</span> can be added after parameters
-of the constructor, where <span class="inl-highlight"><span class="o">|</span> c_1 <span class="o">|</span> … <span class="o">|</span> c_m</span> is a list of clauses.</p>
+Either <span class="inl-highlight"><span class="k">\with</span> { <span class="o">|</span> c_1 <span class="o">|</span> ... <span class="o">|</span> c_m }</span> or <span class="inl-highlight"><span class="k">\elim</span> x_1<span class="o">,</span> ... x_n { <span class="o">|</span> c_1 <span class="o">|</span> ... <span class="o">|</span> c_m }</span> can be added after parameters
+of the constructor, where <span class="inl-highlight"><span class="o">|</span> c_1 <span class="o">|</span> ... <span class="o">|</span> c_m</span> is a list of clauses.</p>
 
 <p>A constructor with conditions evaluates if its arguments match the specification in the same way as a function defined by pattern matching.
 This means that a function over a data type with conditions must respect the conditions, this is checked
@@ -637,7 +637,7 @@ Thus, one cannot define the following function:</p>
 
 <h2 id="higher-inductive-types">Higher inductive types</h2>
 
-<p>A higher inductive type (HIT) is a data type with a constructor that has conditions of the form <span class="inl-highlight"><span class="o">|</span> left <span class="o">=&gt;</span> e</span> and <span class="inl-highlight"><span class="o">|</span> right <span class="o">=&gt;</span> e’</span>.
+<p>A higher inductive type (HIT) is a data type with a constructor that has conditions of the form <span class="inl-highlight"><span class="o">|</span> left <span class="o">=&gt;</span> e</span> and <span class="inl-highlight"><span class="o">|</span> right <span class="o">=&gt;</span> e&#39;</span>.
 Let us give a few examples:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Circle
@@ -676,11 +676,11 @@ Let us give a few examples:</p>
     <span class="o">|</span> left <span class="o">=&gt;</span> inQ x
     <span class="o">|</span> right <span class="o">=&gt;</span> inQ y
   }
-  <span class="o">|</span> truncQ (a a' <span class="o">:</span> Quotient A R) (p p' <span class="o">:</span> a <span class="o">=</span> a') (i j <span class="o">:</span> I) <span class="k">\elim</span> i<span class="o">,</span> j {
+  <span class="o">|</span> truncQ (a a&#39; <span class="o">:</span> Quotient A R) (p p&#39; <span class="o">:</span> a <span class="o">=</span> a&#39;) (i j <span class="o">:</span> I) <span class="k">\elim</span> i<span class="o">,</span> j {
     <span class="o">|</span> i<span class="o">,</span> left  <span class="o">=&gt;</span> p <span class="o">@</span> i
-    <span class="o">|</span> i<span class="o">,</span> right <span class="o">=&gt;</span> p' <span class="o">@</span> i
+    <span class="o">|</span> i<span class="o">,</span> right <span class="o">=&gt;</span> p&#39; <span class="o">@</span> i
     <span class="o">|</span> left<span class="o">,</span>  <span class="u">_</span> <span class="o">=&gt;</span> a
-    <span class="o">|</span> right<span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> a'
+    <span class="o">|</span> right<span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> a&#39;
   }</code></pre></div></div>
 
 <p>If <span class="inl-highlight">X</span> is a proposition, then, to define a function of type <span class="inl-highlight">Trunc A <span class="o">-&gt;</span> X</span>, it is enough to specify its value for <span class="inl-highlight">inT a</span>.
@@ -689,7 +689,7 @@ For example, to define a function <span class="inl-highlight">Quotient A R <span
 if <span class="inl-highlight">X</span> is a set and only for <span class="inl-highlight">inQ a</span> if it is a proposition.
 This also works for several arguments.
 For example, if <span class="inl-highlight">X</span> is a set, then, to define a function <span class="inl-highlight">Quotient A R <span class="o">-&gt;</span> Quotient A R <span class="o">-&gt;</span> X</span>,
-it is enough to specify its value for <span class="inl-highlight">inQ a<span class="o">,</span> inQ a’</span>, <span class="inl-highlight">inQ a<span class="o">,</span> equivQ x y r i</span>, and <span class="inl-highlight">equivQ x y r i<span class="o">,</span> inQ a</span>.</p>
+it is enough to specify its value for <span class="inl-highlight">inQ a<span class="o">,</span> inQ a&#39;</span>, <span class="inl-highlight">inQ a<span class="o">,</span> equivQ x y r i</span>, and <span class="inl-highlight">equivQ x y r i<span class="o">,</span> inQ a</span>.</p>
 
 <h2 id="another-syntax-for-hits">Another syntax for HITs</h2>
 
@@ -723,7 +723,7 @@ The examples above can be rewritten in this syntax as follows:</p>
 <span class="k">\data</span> Quotient (A <span class="o">:</span> <span class="kt">\Type</span>) (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>)
   <span class="o">|</span> inQ A
   <span class="o">|</span> equivQ (x y <span class="o">:</span> A) (R x y) <span class="o">:</span> inQ x <span class="o">=</span> inQ y
-  <span class="o">|</span> truncQ (a a' <span class="o">:</span> Quotient A R) (p p' <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> Path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p i <span class="o">=</span> p' i) idp idp</code></pre></div></div>
+  <span class="o">|</span> truncQ (a a&#39; <span class="o">:</span> Quotient A R) (p p&#39; <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> Path (<span class="k">\lam</span> i <span class="o">=&gt;</span> p i <span class="o">=</span> p&#39; i) idp idp</code></pre></div></div>
 
 <h2 id="pattern-matching-on-hits">Pattern matching on HITs</h2>
 
@@ -731,17 +731,17 @@ The examples above can be rewritten in this syntax as follows:</p>
 In this syntax, the interval variables can be omitted and the right hand side should be a path.
 Then the typechecker will insert missing variables and apply the right hand side to them.</p>
 
-<p>For example, function <span class="inl-highlight">double</span> below is equivalent to <span class="inl-highlight">double’</span>.</p>
+<p>For example, function <span class="inl-highlight">double</span> below is equivalent to <span class="inl-highlight">double&#39;</span>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> double (x <span class="o">:</span> S1) <span class="o">:</span> S1
   <span class="o">|</span> base <span class="o">=&gt;</span> base
-  <span class="o">|</span> loop <span class="o">=&gt;</span> loop <span class="o">*</span>&gt; loop
+  <span class="o">|</span> loop <span class="o">=&gt;</span> loop <span class="o">*&gt;</span> loop
 
-<span class="k">\func</span> double' (x <span class="o">:</span> S1) <span class="o">:</span> S1
+<span class="k">\func</span> double&#39; (x <span class="o">:</span> S1) <span class="o">:</span> S1
   <span class="o">|</span> base <span class="o">=&gt;</span> base
-  <span class="o">|</span> loop i <span class="o">=&gt;</span> (loop <span class="o">*</span>&gt; loop) i</code></pre></div></div>
+  <span class="o">|</span> loop i <span class="o">=&gt;</span> (loop <span class="o">*&gt;</span> loop) i</code></pre></div></div>
 
-<p>Here, <span class="inl-highlight"><span class="o">*</span>&gt;</span> is the path concatenation function.</p>
+<p>Here, <span class="inl-highlight"><span class="o">*&gt;</span></span> is the path concatenation function.</p>
 
         
       </section>
@@ -807,7 +807,7 @@ Then the typechecker will insert missing variables and apply the right hand side
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

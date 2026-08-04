@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Parameters">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/parameters.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/parameters.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/parameters.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/parameters.html">
 
 
 
@@ -645,7 +645,7 @@ For example, all of the definitions below have three parameters: <span class="in
 <span class="k">\data</span> D (x1 <span class="o">:</span> A1) (x2 <span class="o">:</span> A2) (x3 <span class="o">:</span> A3)
 <span class="k">\class</span> C (x1 <span class="o">:</span> A1) {x2 <span class="o">:</span> A2} (x3 <span class="o">:</span> A3)</code></pre></div></div>
 
-<p>Multiple parameters of the same type can be specified via the following syntax: <span class="inl-highlight">x_1 … x_n <span class="o">:</span> T</span>.
+<p>Multiple parameters of the same type can be specified via the following syntax: <span class="inl-highlight">x_1 ... x_n <span class="o">:</span> T</span>.
 For example, the following function has two implicit parameters of type <span class="inl-highlight">A1</span>, three explicit parameters of type <span class="inl-highlight">A2</span>, and one explicit parameter of type <span class="inl-highlight">A3</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f {x1 x2 <span class="o">:</span> A1} (y1 y2 y3 <span class="o">:</span> A2) (z <span class="o">:</span> A3) <span class="o">=&gt;</span> B</code></pre></div></div>
@@ -659,7 +659,7 @@ In the example above, parameters <span class="inl-highlight">x1</span> and <span
 parameters <span class="inl-highlight">y1</span>, <span class="inl-highlight">y2</span>, and <span class="inl-highlight">y3</span> may appear in <span class="inl-highlight">A3</span>, and all of the parameters may appear in <span class="inl-highlight">B</span>.</p>
 
 <p>If a parameter is never used, its name can be replaced with <span class="inl-highlight"><span class="u">_</span></span>.
-Such a name cannot be refered to, so this simply indicated that this parameter is ignored.</p>
+Such a name cannot be referred to, so this simply indicates that this parameter is ignored.</p>
 
 <h2 id="strict-parameters">Strict parameters</h2>
 
@@ -671,36 +671,36 @@ This does not affect the semantics, but it can improve performance of the progra
 
 <h2 id="implicit-arguments">Implicit arguments</h2>
 
-<p>Let <span class="inl-highlight">f</span> be a definition with parameters of types <span class="inl-highlight">A_1<span class="o">,</span> … A_n</span>.
-If all of the parameters are explicit, then we can form an expression of the form <span class="inl-highlight">f a_1 … a_n</span>, where <span class="inl-highlight">a_i</span> is an expression of type <span class="inl-highlight">A_i</span>.
+<p>Let <span class="inl-highlight">f</span> be a definition with parameters of types <span class="inl-highlight">A_1<span class="o">,</span> ... A_n</span>.
+If all of the parameters are explicit, then we can form an expression of the form <span class="inl-highlight">f a_1 ... a_n</span>, where <span class="inl-highlight">a_i</span> is an expression of type <span class="inl-highlight">A_i</span>.
 Such an expression invokes <span class="inl-highlight">f</span> with the specified arguments.
 If some of the parameters of <span class="inl-highlight">f</span> are implicit, then corresponding arguments must be omitted.
 For example, consider the following code:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y' <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y&#39; <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
 <span class="k">\func</span> g <span class="o">=&gt;</span> f a1 a3</code></pre></div></div>
 
-<p>In the expression <span class="inl-highlight">f a1 a3</span>, arguments corresponding to parameters <span class="inl-highlight">y</span>, <span class="inl-highlight">y’</span>, and <span class="inl-highlight">z</span> are omitted.
+<p>In the expression <span class="inl-highlight">f a1 a3</span>, arguments corresponding to parameters <span class="inl-highlight">y</span>, <span class="inl-highlight">y&#39;</span>, and <span class="inl-highlight">z</span> are omitted.
 The typechecker tries to infer these parameters and reports an error if it fails to do so.
 We can ask typechecker to try to infer an explicit parameter by writing <span class="inl-highlight"><span class="u">_</span></span> instead of the corresponding argument:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y' <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y&#39; <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
 <span class="k">\func</span> g <span class="o">=&gt;</span> f <span class="u">_</span> a3</code></pre></div></div>
 
 <p>In the example above, the typechecker will try to infer the argument corresponding to <span class="inl-highlight">x</span>.
 Actually, the expression <span class="inl-highlight"><span class="u">_</span></span> can be written anywhere at all.
-The typechecker infers the omitted expression only if there is a unique solutions to the inference problem 
+The typechecker infers the omitted expression only if there is a unique solution to the inference problem 
  (i. e. there is only one expression with which <span class="inl-highlight"><span class="u">_</span></span> can be replaced so that the surrounding definition typechecks correctly).</p>
 
 <p>Finally, if the typechecker cannot infer an implicit argument, it can be specified explicitly by writing <span class="inl-highlight">{e}</span>.
 For example, to specify explicitly the second and the last arguments of <span class="inl-highlight">f</span>, we can write the following code:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y' <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x <span class="o">:</span> A1) {y y&#39; <span class="o">:</span> A2} (z <span class="o">:</span> A3) {z <span class="o">:</span> A4} <span class="o">=&gt;</span> <span class="n">0</span>
 <span class="k">\func</span> g <span class="o">=&gt;</span> f <span class="u">_</span> {a2} a3 {a4}</code></pre></div></div>
 
-<p>In this example, arguments corresponding to <span class="inl-highlight">x</span> and <span class="inl-highlight">y’</span> are left implicit and other arguments are explicitly specified.</p>
+<p>In this example, arguments corresponding to <span class="inl-highlight">x</span> and <span class="inl-highlight">y&#39;</span> are left implicit and other arguments are explicitly specified.</p>
 
-<p>If <span class="inl-highlight">op</span> is an infix operator, then we can write <span class="inl-highlight">x op {a_1} … {a_n} y</span>, which is equivalent to <span class="inl-highlight">op {a_1} … {a_n} x y</span>.
+<p>If <span class="inl-highlight">op</span> is an infix operator, then we can write <span class="inl-highlight">x op {a_1} ... {a_n} y</span>, which is equivalent to <span class="inl-highlight">op {a_1} ... {a_n} x y</span>.
 In other words, implicit arguments which are written immediately after an infix operator are considered to be its first arguments.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\lam</span> a b <span class="o">=&gt;</span> a <span class="o">=</span> {A} b</code></pre></div></div>
@@ -788,7 +788,7 @@ For example, the following code is valid:</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

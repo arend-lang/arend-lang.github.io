@@ -1,0 +1,778 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Algebraic Metas - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Algebraic Metas">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/metas-algebra.html">
+
+
+  <meta property="og:description" content="The Arend Theorem Prover">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/metas-algebra.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+</head>
+
+<body class="layout--single">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation"
+                
+                
+              >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation/getting-started/download"
+                
+                
+              >Download</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/arend-lib"
+                
+                
+              >Arend Library</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="initial-content">
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/arend-features" class="">Arend features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/download" class="">Downloading Arend</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/started" class="">Creating first project</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/libraries" class="">Arend libraries</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/intellij-arend-tutorial" class="">Short tutorial</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/standard-tactics"><span class="nav__sub-title">Standard metas</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/meta" class="">Unclassified metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/function-meta" class="">Functional metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/algebra-meta" class="">Algebraic metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/logic-meta" class="">Logical metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/debug-meta" class="">Debugging metas</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/term-checker" class="">Termination checker</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/plugin-manual"><span class="nav__sub-title">Plugin reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/editor-features" class="">Editor features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/navigating" class="">Navigation</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/refactoring" class="">Refactoring</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Algebraic Metas">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Algebraic Metas
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Algebraic Metas</h4></header>
+              <ul class="toc__menu"><li><a href="#simplify-algebraic-normalization">simplify: algebraic normalization</a></li><li><a href="#equation-chained-equality-with-implicit-step-proofs">equation: chained equality, with implicit step proofs</a></li><li><a href="#cong-congruence-closure">cong: congruence closure</a></li><li><a href="#ext-extensionality-polymorphic-over-the-equalitys-type">ext: extensionality, polymorphic over the equality’s type</a></li><li><a href="#simp_coe-advanced">simp_coe (advanced)</a></li><li><a href="#exercises">Exercises</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/MetasAlgebra.ard">PartI/MetasAlgebra.ard</a> <br />
+The source code for the exercises: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/Exercises/MetasAlgebraEx.ard">PartI/MetasAlgebraEx.ard</a></p>
+
+<p>In <a href="metas-equality">Standard Metas for Equality</a> we introduced metas for in-the-goal rewriting and chaining (<span class="inl-highlight">rewrite</span>, <span class="inl-highlight">run</span>, <span class="inl-highlight">in</span>, <span class="inl-highlight">at</span>). In <a href="records">Records and Classes</a> we saw <span class="inl-highlight">linarith</span>, a meta that uses class instances to discharge linear arithmetic goals. This chapter introduces three more metas of the same flavor — <span class="inl-highlight">simplify</span>, <span class="inl-highlight">equation</span>, <span class="inl-highlight">cong</span> — plus the universal extensionality meta <span class="inl-highlight">ext</span>.</p>
+
+<p>These metas all live in <span class="inl-highlight">Algebra.Meta</span> and <span class="inl-highlight">Paths.Meta</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Algebra.Meta  <span class="c">-- equation, cong, linarith, simplify</span>
+<span class="k">\import</span> Paths.Meta    <span class="c">-- ext, simp_coe</span></code></pre></div></div>
+
+<h1 id="simplify-algebraic-normalization">simplify: algebraic normalization</h1>
+
+<p><span class="inl-highlight">simplify</span> normalizes monoid/group/ring/lattice expressions: it strips identity elements, eliminates double inverses and double negations, and collapses <span class="inl-highlight">x <span class="o">*</span> <span class="n">0</span></span>-style patterns. The meta inspects the algebraic class instance in scope and applies the laws guaranteed by that class.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> simp-1 {M <span class="o">:</span> Monoid} (x <span class="o">:</span> M) <span class="o">:</span> x <span class="o">=</span> x <span class="o">*</span> ide
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\lemma</span> simp-2 {M <span class="o">:</span> Monoid} (x <span class="o">:</span> M) <span class="o">:</span> x <span class="o">*</span> x <span class="o">=</span> (x <span class="o">*</span> (ide <span class="o">*</span> x)) <span class="o">*</span> ide
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\lemma</span> simp-3 {R <span class="o">:</span> Ring} (x <span class="o">:</span> R) <span class="o">:</span> negative (negative x) <span class="o">=</span> x
+  <span class="o">=&gt;</span> simplify
+
+<span class="k">\lemma</span> simp-4 {R <span class="o">:</span> Semiring} (x <span class="o">:</span> R) <span class="o">:</span> zro <span class="o">=</span> x <span class="o">*</span> zro
+  <span class="o">=&gt;</span> simplify</code></pre></div></div>
+
+<p><span class="inl-highlight">simplify</span> is <em>not</em> a full decision procedure. It does not, for example, know about commutativity (without it, <span class="inl-highlight">x <span class="o">*</span> y <span class="o">=</span> y <span class="o">*</span> x</span> is genuinely unprovable — an axiom is needed) or about distributing multiplication over a sum. Use it as a first-pass normalizer, then reach for <span class="inl-highlight">equation</span> or <span class="inl-highlight">rewrite</span> for the structural rewriting it cannot perform.</p>
+
+<p>The <span class="inl-highlight">in</span>-form of <span class="inl-highlight">simplify</span> normalizes a hypothesis instead of the goal:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> simp-hyp {M <span class="o">:</span> Monoid} (x y <span class="o">:</span> M) (h <span class="o">:</span> x <span class="o">*</span> (ide <span class="o">*</span> y) <span class="o">=</span> ide) <span class="o">:</span> x <span class="o">*</span> y <span class="o">=</span> ide
+  <span class="o">=&gt;</span> simplify in h</code></pre></div></div>
+
+<h1 id="equation-chained-equality-with-implicit-step-proofs">equation: chained equality, with implicit step proofs</h1>
+
+<p><span class="inl-highlight">equation a_1 ... a_n</span> proves a goal of shape <span class="inl-highlight">a_0 <span class="o">=</span> a_{n+1}</span> by treating <span class="inl-highlight">a_1<span class="o">,</span> ...<span class="o">,</span> a_n</span> as intermediate steps. For each adjacent pair, the meta tries to fill in the proof from local hypotheses; if it cannot, you supply that step explicitly as an implicit argument.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> eq-test {M <span class="o">:</span> Monoid} (x y z <span class="o">:</span> M) (p <span class="o">:</span> x <span class="o">=</span> y) (q <span class="o">:</span> y <span class="o">=</span> z) <span class="o">:</span> x <span class="o">=</span> z
+  <span class="o">=&gt;</span> equation x y z</code></pre></div></div>
+
+<p>This is the meta-driven counterpart of the <span class="inl-highlight"><span class="o">==&lt;</span></span> / <span class="inl-highlight"><span class="o">&gt;==</span></span> / <span class="inl-highlight">qed</span> chain from <a href="equalityex#equational-reasoning-proof-of-comm-rewritten">Proofs of Equality</a>. The two coexist: prefer <span class="inl-highlight">equation</span> when the step proofs are uninteresting (or come from <span class="inl-highlight">simplify</span>-style normalization); prefer the explicit chain when each step has a name worth showing in the proof body.</p>
+
+<h1 id="cong-congruence-closure">cong: congruence closure</h1>
+
+<p><span class="inl-highlight">cong</span> proves a goal <span class="inl-highlight">f x_1 ... x_n <span class="o">=</span> f y_1 ... y_n</span> from contextual equalities <span class="inl-highlight">x_i <span class="o">=</span> y_i</span>. It runs the <a href="https://en.wikipedia.org/wiki/Congruence_closure">congruence closure</a> algorithm — a multi-argument generalization of <span class="inl-highlight">pmap</span>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> cong-test {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> B)
+                 (x x&#39; y y&#39; <span class="o">:</span> A) (p <span class="o">:</span> x <span class="o">=</span> x&#39;) (q <span class="o">:</span> y <span class="o">=</span> y&#39;)
+               <span class="o">:</span> f x y <span class="o">=</span> f x&#39; y&#39;
+  <span class="o">=&gt;</span> cong</code></pre></div></div>
+
+<p>The hand-written equivalent would chain <span class="inl-highlight">pmap</span>, <span class="inl-highlight">pmap2</span>, or several <span class="inl-highlight">rewrite</span> steps; <span class="inl-highlight">cong</span> compresses all of them.</p>
+
+<h1 id="ext-extensionality-polymorphic-over-the-equalitys-type">ext: extensionality, polymorphic over the equality’s type</h1>
+
+<p><span class="inl-highlight">ext</span> discharges goals <span class="inl-highlight">a <span class="o">=</span> a&#39;</span> where the two sides have a structural form: a function, a Σ-tuple, a record, a proposition, or a type. Each form yields a different <em>subgoal</em>:</p>
+
+<ul>
+  <li>On <span class="inl-highlight">f <span class="o">=</span> g</span> for <span class="inl-highlight">f<span class="o">,</span> g <span class="o">:</span> <span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B x</span>: subgoal is pointwise equality <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> g x</span> (function extensionality).</li>
+  <li>On <span class="inl-highlight">t <span class="o">=</span> s</span> for <span class="inl-highlight"><span class="k">\Sigma</span> (x <span class="o">:</span> A) (y <span class="o">:</span> B x)</span>: subgoal is a Σ of componentwise equalities, with appropriate <span class="inl-highlight">coe</span>-corrections for the dependent components.</li>
+  <li>On <span class="inl-highlight">t <span class="o">=</span> s</span> for a record: same as the Σ case, with the option of copattern syntax <span class="inl-highlight">ext R { <span class="o">|</span> f_1 <span class="o">=&gt;</span> p_1 <span class="o">|</span> ... }</span>.</li>
+  <li>On <span class="inl-highlight">A <span class="o">=</span> B</span> for <span class="inl-highlight">A<span class="o">,</span> B <span class="o">:</span> <span class="kt">\Prop</span></span>: subgoal is <span class="inl-highlight"><span class="k">\Sigma</span> (A <span class="o">-&gt;</span> B) (B <span class="o">-&gt;</span> A)</span> (propositional extensionality, <em>provable</em> in Arend).</li>
+  <li>On <span class="inl-highlight">A <span class="o">=</span> B</span> for <span class="inl-highlight">A<span class="o">,</span> B <span class="o">:</span> <span class="kt">\Type</span></span>: subgoal is <span class="inl-highlight">Equiv {A} {B}</span> (univalence).</li>
+  <li>On <span class="inl-highlight">x <span class="o">=</span> y</span> for <span class="inl-highlight">P <span class="o">:</span> <span class="kt">\Prop</span></span>: no subgoal — the meta closes the goal because all elements of a <span class="inl-highlight"><span class="kt">\Prop</span></span> are equal.</li>
+</ul>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> ext-fun (f g <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat) (h <span class="o">:</span> <span class="k">\Pi</span> (n <span class="o">:</span> Nat) <span class="o">-&gt;</span> f n <span class="o">=</span> g n) <span class="o">:</span> f <span class="o">=</span> g
+  <span class="o">=&gt;</span> ext h
+
+<span class="k">\lemma</span> ext-sigma (p p&#39; <span class="o">:</span> <span class="k">\Sigma</span> Nat Nat) (h1 <span class="o">:</span> p.<span class="n">1</span> <span class="o">=</span> p&#39;.<span class="n">1</span>) (h2 <span class="o">:</span> p.<span class="n">2</span> <span class="o">=</span> p&#39;.<span class="n">2</span>)
+              <span class="o">:</span> p <span class="o">=</span> p&#39;
+  <span class="o">=&gt;</span> ext (h1<span class="o">,</span> h2)
+
+<span class="k">\lemma</span> ext-prop (A B <span class="o">:</span> <span class="kt">\Prop</span>) (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (g <span class="o">:</span> B <span class="o">-&gt;</span> A) <span class="o">:</span> A <span class="o">=</span> B
+  <span class="o">=&gt;</span> ext (f<span class="o">,</span> g)</code></pre></div></div>
+
+<p>The full grammar for <span class="inl-highlight">ext</span> (including the record copattern form and dependent-Σ corrections) is documented at <a href="/documentation/standard-tactics/paths-meta#extensionality-meta">Paths metas / ext</a>.</p>
+
+<h1 id="simp_coe-advanced">simp_coe (advanced)</h1>
+
+<p>When proofs accumulate <span class="inl-highlight">coe</span>/<span class="inl-highlight">transport</span> over Π-, Σ-, or record-types, <span class="inl-highlight">simp_coe</span> pushes them through the structure. It is most useful when working with higher inductive types in Part II; we mention it here only for completeness. See <a href="/documentation/standard-tactics/paths-meta#simp_coe">Paths metas / simp_coe</a> for details.</p>
+
+<h1 id="exercises">Exercises</h1>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Prove the following one-liners with <span class="inl-highlight">simplify</span>: (a) <span class="inl-highlight">{M <span class="o">:</span> Monoid} (x <span class="o">:</span> M) <span class="o">:</span> x <span class="o">=</span> x <span class="o">*</span> ide</span>, (b) <span class="inl-highlight">{R <span class="o">:</span> Ring} (x <span class="o">:</span> R) <span class="o">:</span> negative (negative x) <span class="o">=</span> x</span>, (c) <span class="inl-highlight">{R <span class="o">:</span> Semiring} (x <span class="o">:</span> R) <span class="o">:</span> zro <span class="o">=</span> x <span class="o">*</span> zro</span>.</p>
+
+<p class="notice--info"><strong>Exercise 2:</strong> Find a goal that <span class="inl-highlight">simplify</span> cannot solve and explain why. Hint: try a goal that requires <em>commutativity</em>.</p>
+
+<p class="notice--info"><strong>Exercise 3:</strong> Prove <span class="inl-highlight">{A <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> A) (x x&#39; y y&#39; z z&#39; <span class="o">:</span> A) (p <span class="o">:</span> x <span class="o">=</span> x&#39;) (q <span class="o">:</span> y <span class="o">=</span> y&#39;) (r <span class="o">:</span> z <span class="o">=</span> z&#39;) <span class="o">:</span> f x y z <span class="o">=</span> f x&#39; y&#39; z&#39;</span> with one <span class="inl-highlight">cong</span>. Then write the equivalent proof using <span class="inl-highlight">pmap</span>/<span class="inl-highlight">pmap2</span>/manual rewriting and compare line counts.</p>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Prove <span class="inl-highlight">(<span class="k">\lam</span> (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x Nat.<span class="o">+</span> <span class="n">0</span>) <span class="o">=</span> (<span class="k">\lam</span> x <span class="o">=&gt;</span> x)</span> using <span class="inl-highlight">ext</span>.</p>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Define a 3-field <span class="inl-highlight"><span class="k">\record</span> R</span> and prove that two values of <span class="inl-highlight">R</span> are equal whenever each pair of components is equal, using the copattern form <span class="inl-highlight">ext R { <span class="o">|</span> f_1 <span class="o">=&gt;</span> p_1 <span class="o">|</span> ... }</span>.</p>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Prove <span class="inl-highlight"><span class="k">\Pi</span> (A B <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">-&gt;</span> (A <span class="o">-&gt;</span> B) <span class="o">-&gt;</span> (B <span class="o">-&gt;</span> A) <span class="o">-&gt;</span> A <span class="o">=</span> B</span> using <span class="inl-highlight">ext</span>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+</div>
+
+
+
+<div id="footer" class="page__footer">
+    <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+</div>
+
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

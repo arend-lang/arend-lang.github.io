@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Spaces and Homotopy Theory">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartII/hits.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/hits.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartII/hits.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/hits.html">
 
 
 
@@ -313,6 +313,13 @@
 
                 
 
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
               
                 
@@ -328,6 +335,13 @@
                 
 
                 <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
               
             
           
@@ -625,7 +639,7 @@ One way to think about these types is as being generated not only by usual const
 <em>path-constructors</em>. The corresponding elimination principles are called <em>higher recursion/induction</em>.</p>
 
 <p>Under the types-are-spaces view one can prove various theorems from homotopy theory. As an example, we discuss
-type-theoretic version of the classical proof that the fundamental group of the circle is isomorphic to integers.
+a type-theoretic version of the classical proof that the fundamental group of the circle is isomorphic to integers.
 We also discuss the Eilenberg-Maclane spaces and equivalence between the category of connected pointed 1-types and
 the category of groups.</p>
 
@@ -692,7 +706,7 @@ between <span class="inl-highlight">north</span> and <span class="inl-highlight"
 
 <p>The spheres can now be defined inductively as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Sphere (n <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\oo</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> Sphere (n <span class="o">:</span> Nat) <span class="o">:</span> <span class="kt">\Type0</span>
     <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> Susp Empty
     <span class="o">|</span> suc n <span class="o">=&gt;</span> Susp (Sphere n)</code></pre></div></div>
 
@@ -700,7 +714,7 @@ between <span class="inl-highlight">north</span> and <span class="inl-highlight"
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> CircleToSphere1 (x <span class="o">:</span> Circle) <span class="o">:</span> Sphere <span class="n">1</span>
     <span class="o">|</span> base <span class="o">=&gt;</span> north
-    <span class="o">|</span> loop i <span class="o">=&gt;</span> (path (merid north) <span class="o">*</span>&gt; inv (path (merid south))) <span class="o">@</span> i 
+    <span class="o">|</span> loop i <span class="o">=&gt;</span> (path (merid north) <span class="o">*&gt;</span> inv (path (merid south))) <span class="o">@</span> i 
 
 <span class="k">\func</span> Sphere1ToCircle (x <span class="o">:</span> Sphere <span class="n">1</span>) <span class="o">:</span> Circle
     <span class="o">|</span> south <span class="o">=&gt;</span> base
@@ -757,7 +771,7 @@ do have in Arend heterogeneous path types, we can specify a dependent loop simpl
 However, in some cases it is more convenient to use characterisation of dependent loops in terms of homogeneous path types:
 it can be shown that dependent loops correspond to paths <span class="inl-highlight">transport B (path loop) b <span class="o">=</span> b</span>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> concat {A <span class="o">:</span> I <span class="o">-&gt;</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A left} {a' a'' <span class="o">:</span> A right} (p <span class="o">:</span> Path A a a') (q <span class="o">:</span> a' <span class="o">=</span> a'') <span class="o">:</span> Path A a a'' <span class="k">\elim</span> q
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> concat {A <span class="o">:</span> I <span class="o">-&gt;</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A left} {a&#39; a&#39;&#39; <span class="o">:</span> A right} (p <span class="o">:</span> Path A a a&#39;) (q <span class="o">:</span> a&#39; <span class="o">=</span> a&#39;&#39;) <span class="o">:</span> Path A a a&#39;&#39; <span class="k">\elim</span> q
   <span class="o">|</span> idp <span class="o">=&gt;</span> p
 
 <span class="k">\func</span> circInd (B <span class="o">:</span> Circle <span class="o">-&gt;</span> <span class="kt">\Type</span>) (b <span class="o">:</span> B base) (l <span class="o">:</span> transport B (path loop) b <span class="o">=</span> b) (x <span class="o">:</span> Circle) <span class="o">:</span> B x <span class="k">\elim</span> x
@@ -770,31 +784,31 @@ it can be shown that dependent loops correspond to paths <span class="inl-highli
 
 <p>In the module <a href="/documentation/tutorial/PartI/idtype">Equality</a> we showed how the equality type of a 1-type <span class="inl-highlight">X</span> gives rise to
 a groupoid structure on <span class="inl-highlight">X</span>. This is precisely the groupoid of paths in the space <span class="inl-highlight">X</span>:
-morphisms between points <span class="inl-highlight">x <span class="o">:</span> X</span> and <span class="inl-highlight">y <span class="o">:</span> Y</span> are paths between <span class="inl-highlight">x</span> and <span class="inl-highlight">y</span>.
+morphisms between points <span class="inl-highlight">x <span class="o">:</span> X</span> and <span class="inl-highlight">y <span class="o">:</span> X</span> are paths between <span class="inl-highlight">x</span> and <span class="inl-highlight">y</span>.
 In particular, the loops <span class="inl-highlight">x <span class="o">=</span> x</span> at a point <span class="inl-highlight">x <span class="o">:</span> X</span> form a group with composition as the group operation.
 This group <span class="inl-highlight">pi1(X<span class="o">,</span> x)</span> is called <em>the fundamental group</em> of <span class="inl-highlight">X</span>. In the Arend standard library the 
 corresponding instance of the class <span class="inl-highlight">Group</span> is called <span class="inl-highlight">Aut</span>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The instance of 'Group' defined in 'Algebra.Group.Aut' 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The instance of &#39;Group&#39; defined in &#39;Algebra.Group.Aut&#39; 
 </span>
 <span class="k">\instance</span> Aut {A <span class="o">:</span> <span class="kt">\1-Type</span>} (a <span class="o">:</span> A) <span class="o">:</span> Group (a <span class="o">=</span> a)
   <span class="o">|</span> ide <span class="o">=&gt;</span> idp
-  <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> <span class="o">*</span>&gt;
+  <span class="o">|</span> <span class="o">*</span> <span class="o">=&gt;</span> <span class="o">*&gt;</span>
   <span class="o">|</span> ide-left <span class="o">=&gt;</span> idp_*&gt;
   <span class="o">|</span> ide-right <span class="u">_</span> <span class="o">=&gt;</span> idp
-  <span class="o">|</span> <span class="o">*</span>-assoc <span class="o">=&gt;</span> <span class="o">*</span>&gt;-assoc
+  <span class="o">|</span> <span class="o">*</span>-assoc <span class="o">=&gt;</span> <span class="o">*&gt;</span>-assoc
   <span class="o">|</span> inverse <span class="o">=&gt;</span> inv
   <span class="o">|</span> inverse-left <span class="o">=&gt;</span> inv_*&gt;
-  <span class="o">|</span> inverse-right <span class="o">=&gt;</span> <span class="o">*</span>&gt;_inv
+  <span class="o">|</span> inverse-right <span class="o">=&gt;</span> <span class="o">*&gt;</span><span class="u">_</span>inv
 
 <span class="k">\func</span> pi1-1 (X <span class="o">:</span> <span class="kt">\1-Type</span>) (x <span class="o">:</span> X) <span class="o">=&gt;</span> Aut x
 
 <span class="k">\func</span> pi1Mult {X <span class="o">:</span> <span class="kt">\1-Type</span>} {x <span class="o">:</span> X} (a b <span class="o">:</span> pi1-1 X x) <span class="o">=&gt;</span> a <span class="o">*</span> b</code></pre></div></div>
 
-<p>Assume <span class="inl-highlight">X</span> is connected, that is for all pairs <span class="inl-highlight">x y <span class="o">:</span> X</span> the proposition <span class="inl-highlight">TruncP (x <span class="o">=</span> y)</span> holds,
+<p>Assume <span class="inl-highlight">X</span> is connected, that is, for all pairs <span class="inl-highlight">x y <span class="o">:</span> X</span> the proposition <span class="inl-highlight">TruncP (x <span class="o">=</span> y)</span> holds,
 where <span class="inl-highlight">TruncP</span> is the propositional truncation.
-It is easy to see, that the definition <span class="inl-highlight">pi1(X<span class="o">,</span> x)</span> does not depend on <span class="inl-highlight">x</span> in the sense that
-the groups <span class="inl-highlight">pi1-1(X<span class="o">,</span> x)</span> for different choice of <span class="inl-highlight">x</span> are isomorphic.
+It is easy to see that the definition <span class="inl-highlight">pi1(X<span class="o">,</span> x)</span> does not depend on <span class="inl-highlight">x</span> in the sense that
+the groups <span class="inl-highlight">pi1-1(X<span class="o">,</span> x)</span> for different choices of <span class="inl-highlight">x</span> are isomorphic.
 This group assigned to a space is one of the simplest examples of an algebraic invariant of a space: the fundamental groups of homotopy equivalent
 spaces are isomorphic.</p>
 
@@ -811,17 +825,17 @@ isomorphic for all <span class="inl-highlight">x y <span class="o">:</span> X</s
 <span class="k">\truncated</span> <span class="k">\data</span> Trunc0 (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Set</span>
   <span class="o">|</span> trunc A
 
-<span class="c">-- Equivalently, we can truncate 'x = x'.
+<span class="c">-- Equivalently, we can truncate &#39;x = x&#39;.
 </span>
-<span class="c">-- The group structure 'Aut' can be straightforwardly translated to this case.
+<span class="c">-- The group structure &#39;Aut&#39; can be straightforwardly translated to this case.
 </span>
-<span class="k">\func</span> pi1' (X <span class="o">:</span> <span class="kt">\Type</span>) (x <span class="o">:</span> X) <span class="o">:</span> <span class="kt">\Set</span> <span class="o">=&gt;</span> Trunc0 (x <span class="o">=</span> x)</code></pre></div></div>
+<span class="k">\func</span> pi1&#39; (X <span class="o">:</span> <span class="kt">\Type</span>) (x <span class="o">:</span> X) <span class="o">:</span> <span class="kt">\Set</span> <span class="o">=&gt;</span> Trunc0 (x <span class="o">=</span> x)</code></pre></div></div>
 
 <p>Exercise 3 implies that <span class="inl-highlight">pi1</span> maps connected pointed spaces to groups:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isConnected (X <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> X) <span class="o">-&gt;</span> TruncP (x <span class="o">=</span> y)
 
-<span class="c">-- The class 'Pointed' is defined in 'Homotopy.Pointed'.
+<span class="c">-- The class &#39;Pointed&#39; is defined in &#39;Homotopy.Pointed&#39;.
 </span>
 <span class="k">\func</span> pi1 (A <span class="o">:</span> <span class="k">\Sigma</span> (X <span class="o">:</span> Pointed) (isConnected X)) <span class="o">:</span> Group  <span class="o">=&gt;</span> pi1-1 (Trunc1 A.<span class="n">1</span>) (trunc base)</code></pre></div></div>
 
@@ -835,17 +849,17 @@ of pointed connected 1-types and the category of groups.</p>
 <span class="inl-highlight">(base1 <span class="o">=</span> base1) <span class="o">=</span> Int</span>, where <span class="inl-highlight">Sphere1</span> is <span class="inl-highlight">Circle</span> and <span class="inl-highlight">base1</span> is <span class="inl-highlight">base</span>
 in the notation we used above. This implies that <span class="inl-highlight">pi1 Sphere1 base1 <span class="o">=</span> Int</span> as well as that <span class="inl-highlight">Sphere1</span> is 1-type.</p>
 
-<p>The type-theoretic proof of <span class="inl-highlight">(base1 <span class="o">=</span> base1) <span class="o">=</span> Int</span> follows quite closely the classical homotopy-theoretic proof. First note, that
+<p>The type-theoretic proof of <span class="inl-highlight">(base1 <span class="o">=</span> base1) <span class="o">=</span> Int</span> follows quite closely the classical homotopy-theoretic proof. First note that
 it is very easy to construct a “winding” homomorphism from the group <span class="inl-highlight">Int</span> to the group <span class="inl-highlight">base1 <span class="o">=</span> base1</span>, which sends the generator
 <span class="inl-highlight"><span class="n">1</span></span> to the generator <span class="inl-highlight">path loop</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> wind (x <span class="o">:</span> Int) <span class="o">:</span> base1 <span class="o">=</span> base1
   <span class="o">|</span> pos <span class="n">0</span> <span class="o">=&gt;</span> idp
-  <span class="o">|</span> pos (suc n) <span class="o">=&gt;</span> wind (pos n) <span class="o">*</span>&gt; path loop
-  <span class="o">|</span> neg (suc n) <span class="o">=&gt;</span> wind (neg n) <span class="o">*</span>&gt; inv (path loop)</code></pre></div></div>
+  <span class="o">|</span> pos (suc n) <span class="o">=&gt;</span> wind (pos n) <span class="o">*&gt;</span> path loop
+  <span class="o">|</span> neg (suc n) <span class="o">=&gt;</span> wind (neg n) <span class="o">*&gt;</span> inv (path loop)</code></pre></div></div>
 
 <p>In order to construct the inverse map we will need to define a fibration over the circle, called the <em>universal cover</em>.
-This amouts to constructing a specific dependent type, which we denote as <span class="inl-highlight">code</span>.</p>
+This amounts to constructing a specific dependent type, which we denote as <span class="inl-highlight">code</span>.</p>
 
 <p>Geometrically the universal cover of the circle is a winding of the real line over the circle and
 can be visualized as a helix. Note that <span class="inl-highlight">code x</span> would be the fiber over <span class="inl-highlight">x</span> and <span class="inl-highlight"><span class="k">\Sigma</span> (x <span class="o">:</span> Sphere1) (code x)</span>
@@ -858,7 +872,7 @@ is a point in the same fiber.</p>
 We can identify the fiber with <span class="inl-highlight">Int</span> so that the map becomes a homomorphism of groups: simply set <span class="inl-highlight">code base1 <span class="o">==</span>&gt; Int</span>
 and define <span class="inl-highlight">code (loop i)</span> in such a way that transporting of <span class="inl-highlight">n</span> along <span class="inl-highlight">path loop</span> results in 
 <span class="inl-highlight">n <span class="o">+</span> <span class="n">1</span></span>. The latter can be easily done by means of employing nontrivial structure of equality of types given by <span class="inl-highlight">iso</span>
-and univalence: mutually inverse automorphisms <span class="inl-highlight">isuc</span> (which is <span class="inl-highlight">(<span class="o">+</span><span class="n">1</span>)</span>) and <span class="inl-highlight">ipred</span>(which is <span class="inl-highlight">(-1)</span>) of
+and univalence: mutually inverse automorphisms <span class="inl-highlight">isuc</span> (which is <span class="inl-highlight">(<span class="o">+</span><span class="n">1</span>)</span>) and <span class="inl-highlight">ipred</span> (which is <span class="inl-highlight">(-1)</span>) of
 <span class="inl-highlight">Int</span> define a loop on <span class="inl-highlight">Int</span>, which we can use!</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> code (x <span class="o">:</span> Sphere1) <span class="o">:</span> <span class="kt">\Set0</span>
@@ -878,7 +892,7 @@ one endpoint fixed at <span class="inl-highlight">base1</span>. The equivalence 
 
 <p>We have already defined the map <span class="inl-highlight">encode</span> from path fibration to universal cover. The inverse function 
 <span class="inl-highlight">decode (x <span class="o">:</span> Sphere1) <span class="o">:</span> code x <span class="o">-&gt;</span> base1 <span class="o">=</span> x</span> can be defined using the higher induction principle for the circle, which we described above.
-The full definition of  <span class="inl-highlight">decode</span> as well as the proofs <span class="inl-highlight">encode_decode</span>, <span class="inl-highlight">decode_encode</span> that
+The full definition of <span class="inl-highlight">decode</span> as well as the proofs <span class="inl-highlight">encode_decode</span>, <span class="inl-highlight">decode_encode</span> that
 <span class="inl-highlight">encode</span> and <span class="inl-highlight">decode</span> are mutually inverse are technical, we omit them here. The rest of the proof can be found in the
 Arend standard library.</p>
 
@@ -886,8 +900,8 @@ Arend standard library.</p>
 
 <p>Given a group <span class="inl-highlight">G</span> we now construct a pointed connected 1-type <span class="inl-highlight">K1 G</span> such that the fundamental group of <span class="inl-highlight">K1 G</span> is 
 <span class="inl-highlight">G</span>. The type <span class="inl-highlight">K1 G</span> is called the <em>Eilenberg-Maclane space</em>. This type can be defined as the type with the base point <span class="inl-highlight">base</span>,
-for every <span class="inl-highlight">g <span class="o">:</span> G</span> the loop constructor <span class="inl-highlight">loop g i</span> and for every <span class="inl-highlight">g g’ <span class="o">:</span> G</span> the 2-cell <span class="inl-highlight">relation g g’ i j</span>,
-which equalizes the composition of loops <span class="inl-highlight">path (loop g) <span class="o">*</span>&gt; path (loop g’)</span> and the loop <span class="inl-highlight">path (loop (g <span class="o">*</span> g’))</span>.</p>
+for every <span class="inl-highlight">g <span class="o">:</span> G</span> the loop constructor <span class="inl-highlight">loop g i</span> and for every <span class="inl-highlight">g g&#39; <span class="o">:</span> G</span> the 2-cell <span class="inl-highlight">relation g g&#39; i j</span>,
+which equalizes the composition of loops <span class="inl-highlight">path (loop g) <span class="o">*&gt;</span> path (loop g&#39;)</span> and the loop <span class="inl-highlight">path (loop (g <span class="o">*</span> g&#39;))</span>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> K1 (G <span class="o">:</span> Group)
   <span class="o">|</span> base
@@ -895,11 +909,11 @@ which equalizes the composition of loops <span class="inl-highlight">path (loop 
     <span class="o">|</span> left <span class="o">=&gt;</span> base
     <span class="o">|</span> right <span class="o">=&gt;</span> base
   }
-  <span class="o">|</span> relation (g g' <span class="o">:</span> G) (i <span class="o">:</span> I) (j <span class="o">:</span> I) <span class="k">\elim</span> i<span class="o">,</span> j {
+  <span class="o">|</span> relation (g g&#39; <span class="o">:</span> G) (i <span class="o">:</span> I) (j <span class="o">:</span> I) <span class="k">\elim</span> i<span class="o">,</span> j {
     <span class="o">|</span> left<span class="o">,</span> j <span class="o">=&gt;</span> base
-    <span class="o">|</span> right<span class="o">,</span> j <span class="o">=&gt;</span> loop g' j
+    <span class="o">|</span> right<span class="o">,</span> j <span class="o">=&gt;</span> loop g&#39; j
     <span class="o">|</span> i<span class="o">,</span> left <span class="o">=&gt;</span> loop g i
-    <span class="o">|</span> i<span class="o">,</span> right <span class="o">=&gt;</span> loop (g <span class="o">*</span> g') i
+    <span class="o">|</span> i<span class="o">,</span> right <span class="o">=&gt;</span> loop (g <span class="o">*</span> g&#39;) i
   }
 
 <span class="k">\func</span> K1-connected (G <span class="o">:</span> Group) <span class="o">:</span> isConnected (K1 G)
@@ -909,8 +923,8 @@ which equalizes the composition of loops <span class="inl-highlight">path (loop 
 
 <p class="notice--info"><strong>Exercise 4:</strong> Prove that <span class="inl-highlight">K1 G</span> is connected.</p>
 
-<p>Note that <span class="inl-highlight">relation g g’</span> fills the square with <span class="inl-highlight">path (loop g)</span> (top), <span class="inl-highlight">path (loop g’)</span> (right),
-<span class="inl-highlight">path (loop (g <span class="o">*</span> g’))</span> (bottom) and <span class="inl-highlight">idp</span> (left). Therefore <span class="inl-highlight">path (loop g) <span class="o">*</span>&gt; path (loop g’) <span class="o">=</span> path (loop (g <span class="o">*</span> g’))</span>.</p>
+<p>Note that <span class="inl-highlight">relation g g&#39;</span> fills the square with <span class="inl-highlight">path (loop g)</span> (top), <span class="inl-highlight">path (loop g&#39;)</span> (right),
+<span class="inl-highlight">path (loop (g <span class="o">*</span> g&#39;))</span> (bottom) and <span class="inl-highlight">idp</span> (left). Therefore <span class="inl-highlight">path (loop g) <span class="o">*&gt;</span> path (loop g&#39;) <span class="o">=</span> path (loop (g <span class="o">*</span> g&#39;))</span>.</p>
 
 <p>The homomorphism, analogous to <span class="inl-highlight">wind <span class="o">:</span> Int <span class="o">-&gt;</span> base1 <span class="o">=</span> base1</span> for <span class="inl-highlight">Sphere1</span>, is simply <span class="inl-highlight"><span class="k">\lam</span> g <span class="o">=&gt;</span> path (loop g) <span class="o">:</span> G <span class="o">-&gt;</span> base <span class="o">=</span> base</span>.</p>
 
@@ -919,45 +933,45 @@ we need to define the universal cover <span class="inl-highlight">code <span cla
 and <span class="inl-highlight">decode (x <span class="o">:</span> K1 G) <span class="o">:</span> base <span class="o">=</span> x <span class="o">-&gt;</span> code x</span> between the universal cover and the path fibration.</p>
 
 <p>As in the case of <span class="inl-highlight">Sphere1</span>, the fiber of <span class="inl-highlight">code</span> over <span class="inl-highlight">base</span> is <span class="inl-highlight">G</span> and the 
-transport along <span class="inl-highlight">path (loop g)</span> defines the homomorphism <span class="inl-highlight"><span class="k">\lam</span> g’ <span class="o">=&gt;</span> g’ <span class="o">*</span> g <span class="o">:</span> G <span class="o">-&gt;</span> G</span>. In order to ensure
+transport along <span class="inl-highlight">path (loop g)</span> defines the homomorphism <span class="inl-highlight"><span class="k">\lam</span> g&#39; <span class="o">=&gt;</span> g&#39; <span class="o">*</span> g <span class="o">:</span> G <span class="o">-&gt;</span> G</span>. In order to ensure
 the latter we need to prove that the right multiplication is an equivalence. We can use the class <span class="inl-highlight">QEquiv</span> of quasi-equivalences
 to store the data: the inverse map <span class="inl-highlight"><span class="o">*</span> (inverse g)</span> and the proofs that the maps <span class="inl-highlight"><span class="o">*</span> g</span> and <span class="inl-highlight"><span class="o">*</span> (inverse g)</span>
 are mutually inverse.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> rightMulEquiv {G <span class="o">:</span> Group} (g <span class="o">:</span> G) <span class="o">:</span> QEquiv (<span class="o">`*</span> g) <span class="k">\cowith</span>
   <span class="o">|</span> ret <span class="o">=&gt;</span> <span class="o">`*</span> (inverse g) 
-  <span class="o">|</span> ret_f h <span class="o">=&gt;</span> (<span class="o">*</span>-assoc <span class="u">_</span> <span class="u">_</span> <span class="u">_</span>) <span class="o">*</span>&gt; pmap (h <span class="o">*</span>) (inverse-right g) <span class="o">*</span>&gt; ide-right h
-  <span class="o">|</span> f_sec h <span class="o">=&gt;</span> (<span class="o">*</span>-assoc <span class="u">_</span> <span class="u">_</span> <span class="u">_</span>) <span class="o">*</span>&gt; pmap (h <span class="o">*</span> ) (inverse-left g) <span class="o">*</span>&gt; ide-right h</code></pre></div></div>
+  <span class="o">|</span> ret_f h <span class="o">=&gt;</span> (<span class="o">*</span>-assoc <span class="u">_</span> <span class="u">_</span> <span class="u">_</span>) <span class="o">*&gt;</span> pmap (h <span class="o">*</span>) (inverse-right g) <span class="o">*&gt;</span> ide-right h
+  <span class="o">|</span> f_sec h <span class="o">=&gt;</span> (<span class="o">*</span>-assoc <span class="u">_</span> <span class="u">_</span> <span class="u">_</span>) <span class="o">*&gt;</span> pmap (h <span class="o">*</span> ) (inverse-left g) <span class="o">*&gt;</span> ide-right h</code></pre></div></div>
 
 <p>We can now define <span class="inl-highlight">code</span> on <span class="inl-highlight">base</span> and <span class="inl-highlight">loop g i</span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> code {G <span class="o">:</span> Group} (x <span class="o">:</span> K1 G) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\oo</span> <span class="k">\elim</span> x
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> code {G <span class="o">:</span> Group.{u}} (x <span class="o">:</span> K1 G) <span class="o">:</span> <span class="kt">\Set</span> u <span class="k">\elim</span> x
   <span class="o">|</span> base <span class="o">=&gt;</span> G
   <span class="o">|</span> loop g j <span class="o">=&gt;</span> Equiv-to-= (rightMulEquiv g) <span class="o">@</span> j 
-             <span class="c">-- 'Equiv-to-=' is essentially 'iso'.
+             <span class="c">-- &#39;Equiv-to-=&#39; is essentially &#39;iso&#39;.
 </span>
-  <span class="o">|</span> relation g g' i j <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
+  <span class="o">|</span> relation g g&#39; i j <span class="o">=&gt;</span> <span class="g">{?}</span></code></pre></div></div>
 
-<p>It remains to define a filling of the square with sides <span class="inl-highlight">Equiv-to-= (rightMulEquiv g)</span> (top), <span class="inl-highlight">Equiv-to-= (rightMulEquiv g’)</span> (right),
-<span class="inl-highlight">Equiv-to-= (rightMulEquiv (g <span class="o">*</span> g’))</span> (bottom), <span class="inl-highlight">idp</span> (left). The function <span class="inl-highlight">Cube2.map</span> allows to construct
-such filling out of a proof that <span class="inl-highlight">code</span> preserves the relation <span class="inl-highlight">path (loop g) <span class="o">*</span>&gt; path (loop g’) <span class="o">=</span> path (loop (g <span class="o">*</span> g’))</span>.</p>
+<p>It remains to define a filling of the square with sides <span class="inl-highlight">Equiv-to-= (rightMulEquiv g)</span> (top), <span class="inl-highlight">Equiv-to-= (rightMulEquiv g&#39;)</span> (right),
+<span class="inl-highlight">Equiv-to-= (rightMulEquiv (g <span class="o">*</span> g&#39;))</span> (bottom), <span class="inl-highlight">idp</span> (left). The function <span class="inl-highlight">Cube2.map</span> allows to construct
+such filling out of a proof that <span class="inl-highlight">code</span> preserves the relation <span class="inl-highlight">path (loop g) <span class="o">*&gt;</span> path (loop g&#39;) <span class="o">=</span> path (loop (g <span class="o">*</span> g&#39;))</span>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Proof that 'code' preserves the relation on loops.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Proof that &#39;code&#39; preserves the relation on loops.
 </span>
-<span class="c">-- path (\lam i =&gt; code (loop g i)) *&gt; path (\lam i =&gt; code (loop g' i)) = path (\lam i =&gt; code (loop (g * g') i))
+<span class="c">-- path (\lam i =&gt; code (loop g i)) *&gt; path (\lam i =&gt; code (loop g&#39; i)) = path (\lam i =&gt; code (loop (g * g&#39;) i))
 </span>
-<span class="k">\func</span> equivPathComposition {G <span class="o">:</span> Group} (g g' <span class="o">:</span> G)
-  <span class="o">:</span> (Equiv-to-= (rightMulEquiv g)) <span class="o">*</span>&gt; (Equiv-to-= (rightMulEquiv g')) <span class="o">=</span> (Equiv-to-= (rightMulEquiv (g <span class="o">*</span> g')))
+<span class="k">\func</span> equivPathComposition {G <span class="o">:</span> Group} (g g&#39; <span class="o">:</span> G)
+  <span class="o">:</span> (Equiv-to-= (rightMulEquiv g)) <span class="o">*&gt;</span> (Equiv-to-= (rightMulEquiv g&#39;)) <span class="o">=</span> (Equiv-to-= (rightMulEquiv (g <span class="o">*</span> g&#39;)))
 <span class="o">=&gt;</span> <span class="g">{?}</span>
 
-<span class="k">\func</span> code {G <span class="o">:</span> Group} (x <span class="o">:</span> K1 G) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\oo</span> <span class="k">\elim</span> x
+<span class="k">\func</span> code {G <span class="o">:</span> Group.{u}} (x <span class="o">:</span> K1 G) <span class="o">:</span> <span class="kt">\Set</span> u <span class="k">\elim</span> x
   <span class="o">|</span> base <span class="o">=&gt;</span> G
   <span class="o">|</span> loop g j <span class="o">=&gt;</span> Equiv-to-= (rightMulEquiv g) <span class="o">@</span> j 
-  <span class="o">|</span> relation g g' i j <span class="o">=&gt;</span> Cube2.map (Equiv-to-= (rightMulEquiv g)) (Equiv-to-= (rightMulEquiv (g <span class="o">*</span> g'))) idp (Equiv-to-= (rightMulEquiv g'))
-                                   (movePath (equivPathComposition g g')) <span class="o">@</span> j <span class="o">@</span> i
+  <span class="o">|</span> relation g g&#39; i j <span class="o">=&gt;</span> Cube2.map (Equiv-to-= (rightMulEquiv g)) (Equiv-to-= (rightMulEquiv (g <span class="o">*</span> g&#39;))) idp (Equiv-to-= (rightMulEquiv g&#39;))
+                                   (movePath (equivPathComposition g g&#39;)) <span class="o">@</span> j <span class="o">@</span> i
   <span class="k">\where</span> {
-    <span class="k">\func</span> movePath {A <span class="o">:</span> <span class="kt">\Type</span>} {a a' a'' <span class="o">:</span> A} {p <span class="o">:</span> a <span class="o">=</span> a'} {q <span class="o">:</span> a' <span class="o">=</span> a''} {r <span class="o">:</span> a <span class="o">=</span> a''} (h <span class="o">:</span> p <span class="o">*</span>&gt; q <span class="o">=</span> r) <span class="o">:</span> p <span class="o">=</span> r <span class="o">*</span>&gt; inv q
-      <span class="o">=&gt;</span> (inv (pmap (p <span class="o">*</span>&gt;) (<span class="o">*</span>&gt;_inv q)) <span class="o">*</span>&gt; inv (<span class="o">*</span>&gt;-assoc p q (inv q))) <span class="o">*</span>&gt; pmap (<span class="o">`*&gt;</span> inv q) h
+    <span class="k">\func</span> movePath {A <span class="o">:</span> <span class="kt">\Type</span>} {a a&#39; a&#39;&#39; <span class="o">:</span> A} {p <span class="o">:</span> a <span class="o">=</span> a&#39;} {q <span class="o">:</span> a&#39; <span class="o">=</span> a&#39;&#39;} {r <span class="o">:</span> a <span class="o">=</span> a&#39;&#39;} (h <span class="o">:</span> p <span class="o">*&gt;</span> q <span class="o">=</span> r) <span class="o">:</span> p <span class="o">=</span> r <span class="o">*&gt;</span> inv q
+      <span class="o">=&gt;</span> (inv (pmap (p <span class="o">*&gt;</span>) (<span class="o">*&gt;</span><span class="u">_</span>inv q)) <span class="o">*&gt;</span> inv (<span class="o">*&gt;</span>-assoc p q (inv q))) <span class="o">*&gt;</span> pmap (<span class="o">`*&gt;</span> inv q) h
   }</code></pre></div></div>
 
 <p>The rest of the proof, which includes definitions of <span class="inl-highlight">encode</span> and <span class="inl-highlight">decode</span>, is technical and essentially repeats the corresponding
@@ -1027,7 +1041,7 @@ parts of the proof for the circle. It can be found in the Arend standard library
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

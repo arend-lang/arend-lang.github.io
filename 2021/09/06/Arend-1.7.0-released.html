@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend 1.7.0 released">
-<meta property="og:url" content="http://localhost:4000/2021/09/06/Arend-1.7.0-released.html">
+<meta property="og:url" content="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html">
 
 
   <meta property="og:description" content="Language updates:     Type synonyms   Arrays   Pattern matching in lambdas and \let expressions   Multiple level parameters   Ability to change levels in subclasses   Improved inference of implicit arguments of function types   Plugin updates:     New quick-fixes:            Hide import (#259)       Fix failed class instance inference (#114)           New intentions:            Replace with short name       Generate function (#104)       Swap infix operator arguments (#44)       Add and Remove clarifying parentheses (#238)           New “Redundant parentheses” inspection (#237)   Better support for Prelude (#254)   Better support for Metas (#261)   arend-lib:     The locale of real numbers   Compactness of the interval and local compactness of reals   Spectrum of a ring   Sheaves   Algebraic rewrite   Plugin updates  Hide import  To bring some declarations to the current scope we use imports. If some imported names are already in scope, they will be ignored and plugin will show a warning. New “Hide import” quick-fix explicitly hides such names  by adding them to the \hiding directive:    Fix failed class instance inference  If you use fields of some class and Arend cannot infer an appropriate instance for it, you will get an error.  New quick-fixes help to handle this issue:    “Import instance” imports an instance available somewhere outside the current scope, say, from arend-lib.   “Add local instance” adds an implicit parameter of the class type to the current function.   “Replace local parameter with local instance” is suggested when you already have a parameter  that can be used as a classifying field. The fix replaces a type of that parameter with the class type.     Replace with short name  Replaces a reference of the form A.B with B adding an appropriate \open directive:    Generate function  This intention comes in 2 flavors. The first one generates a function from a goal:    The second one extracts a selected expression to a separate function:    In both cases you get a function with parameters and return type inferred from the type of the initial expression.  Swap infix operator arguments  Swaps arguments of an infix operator:    Add and Remove clarifying parentheses  Allows adding and removing clarifying parentheses to a sequence of binary operators:    “Redundant parentheses” inspection  Detects redundant parentheses and suggests a fix to remove them:    Better support for Prelude  This release brings a couple of improvements that make Prelude more discoverable:    Prelude is shown in External Libraries.   Definitions from Prelude are discoverable via Navigate Symbol, Navigate File, and Find Usages.     Better support for Metas  Discoverability of language extensions (aka metas) is also improved in the following ways:    Metas are shown as Arend files in External Libraries.   Metas are discoverable via Navigate Symbol and Navigate File.">
@@ -47,7 +47,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/2021/09/06/Arend-1.7.0-released.html">
+<link rel="canonical" href="https://arend-lang.github.io/2021/09/06/Arend-1.7.0-released.html">
 
 
 
@@ -290,6 +290,12 @@ that can be used as a classifying field. The fix replaces a type of that paramet
   
   
     <li>
+      <a href="#2026">
+        <strong>2026</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
       <a href="#2025">
         <strong>2025</strong> <span class="taxonomy__count">1</span>
       </a>
@@ -329,6 +335,38 @@ that can be used as a classifying field. The fix replaces a type of that paramet
 
 
 
+
+  <section id="2026" class="taxonomy__section">
+    <h2 class="archive__subtitle">2026</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/2026/08/04/Arend-1.12.0-released.html" rel="permalink">Arend 1.12.0 released
+</a>
+      
+    </h2>
+    
+
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">This release includes a major internal overhaul of the universe/level system, an opt-in binary caching mode for the CLI,
+and substantial additions to arend-l...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
 
   <section id="2025" class="taxonomy__section">
     <h2 class="archive__subtitle">2025</h2>
@@ -830,7 +868,7 @@ It implements the following features:
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

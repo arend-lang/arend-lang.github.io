@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend Features">
-<meta property="og:url" content="http://localhost:4000/documentation/getting-started/arend-features.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/getting-started/arend-features.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/getting-started/arend-features.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/getting-started/arend-features.html">
 
 
 
@@ -537,19 +537,19 @@ For a discussion of the class system, see <a href="/about/arend-features#class-s
 
 <p>Arend is based on homotopy type theory with an interval type.
 This means that it has a built-in contractible interval type together with two constructors <span class="inl-highlight">left<span class="o">,</span> right <span class="o">:</span> I</span>.
-We can use this type to define the type of <em>n</em>-dimensional cubes as <span class="inl-highlight"><span class="k">\Sigma</span> I … I</span>, that is as the product of <em>n</em> intervals.
+We can use this type to define the type of <em>n</em>-dimensional cubes as <span class="inl-highlight"><span class="k">\Sigma</span> I ... I</span>, that is as the product of <em>n</em> intervals.
 These types are not very interesting by themselves since they are contractible,
 but they can be used as types of cells in the definition of a higher inductive type as discussed below.</p>
 
 <h2 id="path-types">Path Types</h2>
 
-<p>A path in a type <span class="inl-highlight">A</span> between points <span class="inl-highlight">a<span class="o">,</span> a’ <span class="o">:</span> A</span> is a function <span class="inl-highlight">f <span class="o">:</span> I <span class="o">-&gt;</span> A</span> such that <span class="inl-highlight">f left <span class="o">==</span> a</span> and <span class="inl-highlight">f right <span class="o">==</span> a’</span> (we use “==” to denote the definitional equality).
-The type of paths is denoted <span class="inl-highlight">a <span class="o">=</span> a’</span>.
-To get a path from a function and vice verse, we can use the following functions:</p>
+<p>A path in a type <span class="inl-highlight">A</span> between points <span class="inl-highlight">a<span class="o">,</span> a&#39; <span class="o">:</span> A</span> is a function <span class="inl-highlight">f <span class="o">:</span> I <span class="o">-&gt;</span> A</span> such that <span class="inl-highlight">f left <span class="o">==</span> a</span> and <span class="inl-highlight">f right <span class="o">==</span> a&#39;</span> (we use “==” to denote the definitional equality).
+The type of paths is denoted <span class="inl-highlight">a <span class="o">=</span> a&#39;</span>.
+To get a path from a function and vice versa, we can use the following functions:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path (f <span class="o">:</span> I <span class="o">-&gt;</span> A) <span class="o">:</span> f left <span class="o">=</span> f right
 
-<span class="o">@</span> (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> I <span class="o">-&gt;</span> A</code></pre></div></div>
+<span class="o">@</span> (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> I <span class="o">-&gt;</span> A</code></pre></div></div>
 
 <p>Function <span class="inl-highlight"><span class="o">@</span></span> is usually written in infix form and pronounced “at”.
 Function <span class="inl-highlight">path</span> is actually the only constructor of the data type <span class="inl-highlight"><span class="o">=</span></span>.
@@ -561,10 +561,10 @@ First, all the usual constructions (such as concatenation of paths, transport, a
 Moreover, some of these constructions satisfy additional computational equalities.
 For example, we can define the function that applies a map to a path as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {a a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> f a <span class="o">=</span> f a'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pmap {A B <span class="o">:</span> <span class="kt">\Type</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) {a a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> f a <span class="o">=</span> f a&#39;
   <span class="o">=&gt;</span> path (<span class="k">\lam</span> i <span class="o">=&gt;</span> f (p <span class="o">@</span> i))</code></pre></div></div>
 
-<p>This function is strictly functorial, that is we have equalities <span class="inl-highlight">pmap id p <span class="o">==</span> p</span>
+<p>This function is strictly functorial, that is, we have equalities <span class="inl-highlight">pmap id p <span class="o">==</span> p</span>
 and <span class="inl-highlight">pmap (<span class="k">\lam</span> x <span class="o">=&gt;</span> g (f x)) p <span class="o">==</span> pmap g (pmap f p)</span>.</p>
 
 <p>It is also easy to <em>prove</em> functional extensionality:</p>
@@ -592,7 +592,7 @@ The syntax of such constructors is the same as the syntax of functions defined b
 
 <p>We can also attach cells of even higher dimensions.
 For example, the 2-dimensional sphere can be defined as the data type with one point <span class="inl-highlight">base2</span> and one 2-dimensional constructor <span class="inl-highlight">loop2</span> attached to this point.
-Since the boundary of 2-dimensional cube consists of four 1-dimensional cubes, we need to specify four conditions on constructor <span class="inl-highlight">loop2</span>:</p>
+Since the boundary of a 2-dimensional cube consists of four 1-dimensional cubes, we need to specify four conditions on constructor <span class="inl-highlight">loop2</span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> S2
   <span class="o">|</span> base2
@@ -642,12 +642,12 @@ This works for the definition of quotients we gave above and also for quotients 
 it is enough to specify it for the constructor <span class="inl-highlight">in~</span>.
 This becomes even more useful when <span class="inl-highlight">P</span> depends on several elements of the quotient.
 For example, if we have 3 elements <span class="inl-highlight">x<span class="o">,</span> y<span class="o">,</span> z <span class="o">:</span> Quotient A R</span> (which is defined as a higher inductive type with 3 constructors),
-then to prove some property about them, we need to consider only one case (since its the only 0-dimensional one) instead of nine.</p>
+then to prove some property about them, we need to consider only one case (since it’s the only 0-dimensional one) instead of nine.</p>
 
 <h1 id="class-system">Class System</h1>
 
 <p>Arend has records and classes.
-Classes are just records with additional functionality, which makes them into a haskell-style type classes.</p>
+Classes are just records with additional functionality, which makes them into haskell-style type classes.</p>
 
 <h2 id="inheritance">Inheritance</h2>
 
@@ -677,7 +677,7 @@ For example, the type of commutative monoids can be defined as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> CMonoid <span class="k">\extends</span> Monoid
   <span class="o">|</span> <span class="o">*</span>-comm (x y <span class="o">:</span> E) <span class="o">:</span> x <span class="o">*</span> y <span class="o">=</span> y <span class="o">*</span> x
-  <span class="o">|</span> ide-right x <span class="o">=&gt;</span> <span class="o">*</span>-comm x ide <span class="o">*</span>&gt; ide-left x</code></pre></div></div>
+  <span class="o">|</span> ide-right x <span class="o">=&gt;</span> <span class="o">*</span>-comm x ide <span class="o">*&gt;</span> ide-left x</code></pre></div></div>
 
 <p>For commutative monoids, it is enough to prove that <span class="inl-highlight">ide</span> is the left identity since the fact that it is the right identity follows from the commutativity.
 We can prove this in the definition of commutative monoids by implementing the corresponding field.</p>
@@ -695,15 +695,15 @@ So, the following two definitions of pointed sets are actually equivalent:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Pointed (E <span class="o">:</span> <span class="kt">\Set</span>)
   <span class="o">|</span> ide <span class="o">:</span> E
 
-<span class="k">\record</span> Pointed'
-  <span class="o">|</span> E' <span class="o">:</span> <span class="kt">\Set</span>
-  <span class="o">|</span> ide' <span class="o">:</span> E'</code></pre></div></div>
+<span class="k">\record</span> Pointed&#39;
+  <span class="o">|</span> E&#39; <span class="o">:</span> <span class="kt">\Set</span>
+  <span class="o">|</span> ide&#39; <span class="o">:</span> E&#39;</code></pre></div></div>
 
 <p>The reason why Arend does not have record parameters is because it has anonymous extensions instead.
-An anonymous extension of a record <span class="inl-highlight">R</span> is an expression of the form <span class="inl-highlight">R { <span class="o">|</span> f_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> f_n <span class="o">=&gt;</span> e_n }</span>,
-where <span class="inl-highlight">f_1<span class="o">,</span> … f_n</span> are fields of <span class="inl-highlight">R</span> and <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> are expressions of the corresponding types.
-Such an expression is the same as a records which extends <span class="inl-highlight">R</span> and implements specified fields, but we do not have to define this record separately.
-The anonymous extension described above can also be written as <span class="inl-highlight">R e_1 … e_n</span>.
+An anonymous extension of a record <span class="inl-highlight">R</span> is an expression of the form <span class="inl-highlight">R { <span class="o">|</span> f_1 <span class="o">=&gt;</span> e_1 ... <span class="o">|</span> f_n <span class="o">=&gt;</span> e_n }</span>,
+where <span class="inl-highlight">f_1<span class="o">,</span> ... f_n</span> are fields of <span class="inl-highlight">R</span> and <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> are expressions of the corresponding types.
+Such an expression is the same as a record which extends <span class="inl-highlight">R</span> and implements specified fields, but we do not have to define this record separately.
+The anonymous extension described above can also be written as <span class="inl-highlight">R e_1 ... e_n</span>.
 In this case, fields are implemented in the same order they were defined in the record.</p>
 
 <p>Let us consider some examples:</p>
@@ -752,7 +752,7 @@ For example, we can prove that <span class="inl-highlight">Nat</span> is an inst
 
 <h1 id="universe-levels">Universe Levels</h1>
 
-<p>Arend has a hieararchy of universes parameterized by two natural number.
+<p>Arend has a hierarchy of universes parameterized by two natural numbers.
 The first parameter corresponds to the usual (predicative) level of the universe.
 The second parameter corresponds to the homotopy level of types in this universe.
 The universe of level (p,h) is written as <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.
@@ -762,21 +762,21 @@ We can also write <span class="inl-highlight"><span class="kt">\Type</span> p h<
 <p>Levels cannot be added with each other, but we have the successor function <span class="inl-highlight"><span class="k">\suc</span></span> and the maximum function <span class="inl-highlight"><span class="k">\max</span></span>.
 There is also the largest homotopy level <span class="inl-highlight"><span class="k">\oo</span></span>, which corresponds to untruncated types.</p>
 
-<p>The universe <span class="inl-highlight"><span class="k">\h-Type</span> p</span> belongs to the universe <span class="inl-highlight"><span class="k">\(h+1)-Type</span> (p+1)</span>.
-Universes are cummulative: if <span class="inl-highlight">A <span class="o">:</span> <span class="k">\h-Type</span> p</span>, then <span class="inl-highlight">A <span class="o">:</span> <span class="k">\h’-Type</span> p’</span> for all h’ and p’ greater than or equal to h and p, respectively.</p>
+<p>The universe <span class="inl-highlight"><span class="k">\h-Type</span> p</span> belongs to the universe <span class="inl-highlight"><span class="k">\\(h+1)-Type</span> (p+1)</span>.
+Universes are cumulative: if <span class="inl-highlight">A <span class="o">:</span> <span class="k">\h-Type</span> p</span>, then <span class="inl-highlight">A <span class="o">:</span> <span class="k">\h'-Type</span> p&#39;</span> for all h’ and p’ greater than or equal to h and p, respectively.</p>
 
 <h2 id="homotopy-levels">Homotopy Levels</h2>
 
-<p>If a type <span class="inl-highlight">A</span> belongs to a universe <span class="inl-highlight"><span class="k">\(h+1)-Type</span> p</span>,
-the type of paths <span class="inl-highlight">a <span class="o">=</span> {A} a’</span> belongs to the universe <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.
+<p>If a type <span class="inl-highlight">A</span> belongs to a universe <span class="inl-highlight"><span class="k">\\(h+1)-Type</span> p</span>,
+the type of paths <span class="inl-highlight">a <span class="o">=</span> {A} a&#39;</span> belongs to the universe <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.
 This means that universes of h-types behave in the same way as the usual ones (defined as subtypes of untruncated universes),
 but we do not have to carry around proofs that some type belongs to some homotopy level.</p>
 
 <h2 id="the-universe-of-propositions">The Universe of Propositions</h2>
 
 <p>The smallest universe is <span class="inl-highlight"><span class="kt">\Prop</span></span>, the universe of propositions.
-This universe is impredicative, that is it does not have the predicative level.
-Thus, if <span class="inl-highlight">A</span> is a set of any predicative level, then <span class="inl-highlight">a <span class="o">=</span> {A} a’</span> belongs to <span class="inl-highlight"><span class="kt">\Prop</span></span>.
+This universe is impredicative, that is, it does not have the predicative level.
+Thus, if <span class="inl-highlight">A</span> is a set of any predicative level, then <span class="inl-highlight">a <span class="o">=</span> {A} a&#39;</span> belongs to <span class="inl-highlight"><span class="kt">\Prop</span></span>.
 Also, if <span class="inl-highlight">B a</span> belongs to <span class="inl-highlight"><span class="kt">\Prop</span></span>, then this is also true for <span class="inl-highlight"><span class="k">\Pi</span> (a <span class="o">:</span> A) <span class="o">-&gt;</span> B a</span> regardless of levels of <span class="inl-highlight">A</span>.</p>
 
 <h2 id="universe-polymorphism">Universe Polymorphism</h2>
@@ -826,11 +826,11 @@ In Arend, circular dependencies are only allowed between recursively defined fun
 The termination checker algorithm implemented in Arend largely follows the one outlined in A. Abel’s master’s thesis <a href="https://www.cse.chalmers.se/~abela/foetus.pdf">FOETUS</a>.</p>
 
 <h1 id="functions-lemmas-and-goals">Functions, lemmas and goals</h1>
-<p>Like in any proof assistant, the process of formal verification of a mathematical fact in Arend involves formulating definitions and proving theorems about them. Mathematical statements in Arend are introduced using either the <code class="language-plaintext highlighter-rouge">\func</code> or <code class="language-plaintext highlighter-rouge">\lemma</code> keyword. The <code class="language-plaintext highlighter-rouge">\lemma</code> keyword does not mean “lemma” in the usual mathematical sense but rather indicates that the value of the marked definition is irrelevant (see e.g. proof irrelevance) and can be discarded after typechecking. Of course, only functions residing in the <code class="language-plaintext highlighter-rouge">Prop</code> universe, i. e. mere proposition in the sense of HoTT, can be marked as <code class="language-plaintext highlighter-rouge">\lemma</code>’s. Otherwise, the syntax of the <code class="language-plaintext highlighter-rouge">\func</code>- and <code class="language-plaintext highlighter-rouge">\lemma</code>-statements is identical. In practice this means that in Arend mathematical lemmas, propositions, theorems and corollaries are all rendered using keywords <code class="language-plaintext highlighter-rouge">\lemma</code> or <code class="language-plaintext highlighter-rouge">\func</code>.</p>
+<p>Like in any proof assistant, the process of formal verification of a mathematical fact in Arend involves formulating definitions and proving theorems about them. Mathematical statements in Arend are introduced using either the <code class="language-plaintext highlighter-rouge">\func</code> or <code class="language-plaintext highlighter-rouge">\lemma</code> keyword. The <code class="language-plaintext highlighter-rouge">\lemma</code> keyword does not mean “lemma” in the usual mathematical sense but rather indicates that the value of the marked definition is irrelevant (see e.g. proof irrelevance) and can be discarded after typechecking. Of course, only functions residing in the <code class="language-plaintext highlighter-rouge">Prop</code> universe, i. e. mere propositions in the sense of HoTT, can be marked as <code class="language-plaintext highlighter-rouge">\lemma</code>’s. Otherwise, the syntax of the <code class="language-plaintext highlighter-rouge">\func</code>- and <code class="language-plaintext highlighter-rouge">\lemma</code>-statements is identical. In practice this means that in Arend mathematical lemmas, propositions, theorems and corollaries are all rendered using keywords <code class="language-plaintext highlighter-rouge">\lemma</code> or <code class="language-plaintext highlighter-rouge">\func</code>.</p>
 
 <p>Like any other definition in Arend, <code class="language-plaintext highlighter-rouge">\lemma</code> or <code class="language-plaintext highlighter-rouge">\func</code> can be defined using pattern matching (with the <code class="language-plaintext highlighter-rouge">\elim</code> or <code class="language-plaintext highlighter-rouge">\with</code> keywords) or by specifying a proof term after the <code class="language-plaintext highlighter-rouge">=&gt;</code> symbol. If a proof is incomplete or omitted, the placeholder <code class="language-plaintext highlighter-rouge">{?}</code>, commonly called an “unresolved goal”, can be used to indicate this. The term “goal” refers to a part of a statement that still needs to be verified or, in terms of the Propositions-as-Types correspondence, the type of the expression that the user still needs to construct.</p>
 
-<p>In Arend, proof terms do not need to be fully detailed. Users can take advantage of the “inference of implicit arguments” mechanism, which allows them to omit some arguments in expressions (more concretely, the ones that can be inferred via the “inference of implicit arguments mechanism” built into the Arend type checker). Additionally, users can employ metas such as rewrite to construct particularly complicated parts of expressions. Metas should be seen as “term-level tactics”, meaning they can be seamlessly interwoven with standard Arend term constructs. In other words, unlike Coq, Arend does not have separate “proof mode”.</p>
+<p>In Arend, proof terms do not need to be fully detailed. Users can take advantage of the “inference of implicit arguments” mechanism, which allows them to omit some arguments in expressions (more concretely, the ones that can be inferred via the “inference of implicit arguments mechanism” built into the Arend type checker). Additionally, users can employ metas such as rewrite to construct particularly complicated parts of expressions. Metas should be seen as “term-level tactics”, meaning they can be seamlessly interwoven with standard Arend term constructs. In other words, unlike Coq, Arend does not have a separate “proof mode”.</p>
 
 
         
@@ -897,7 +897,7 @@ The termination checker algorithm implemented in Arend largely follows the one o
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

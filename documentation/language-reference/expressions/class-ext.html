@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Class extensions">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/expressions/class-ext.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/class-ext.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/expressions/class-ext.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/class-ext.html">
 
 
 
@@ -572,15 +572,15 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>A class extension is an expression of the form <span class="inl-highlight">C { <span class="o">|</span> f_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> f_n <span class="o">=&gt;</span> e_n }</span>, where <span class="inl-highlight">C</span> is a record,
-<span class="inl-highlight">f_1<span class="o">,</span> … f_n</span> are its fields of types <span class="inl-highlight">A_1<span class="o">,</span> … A_n</span> respectively, and <span class="inl-highlight">e_1<span class="o">,</span> … e_n</span> are expressions 
-such that <span class="inl-highlight">e_i <span class="o">:</span> A_i[e_1/f_1<span class="o">,</span> … e_n/f_n]</span>.
-Note that <span class="inl-highlight">A_i</span> cannot depend on any field except for <span class="inl-highlight">f_1<span class="o">,</span> … f_n</span>.
-An expression of the form <span class="inl-highlight">C e_1 … e_n</span> is equivalent to <span class="inl-highlight">C { <span class="o">|</span> f_1 <span class="o">=&gt;</span> e_1 … <span class="o">|</span> f_n <span class="o">=&gt;</span> e_n }</span>, where <span class="inl-highlight">f_1<span class="o">,</span> … f_n</span> is the list of not implemented fields of <span class="inl-highlight">C</span> in the order of their definition.</p>
+        <p>A class extension is an expression of the form <span class="inl-highlight">C { <span class="o">|</span> f_1 <span class="o">=&gt;</span> e_1 ... <span class="o">|</span> f_n <span class="o">=&gt;</span> e_n }</span>, where <span class="inl-highlight">C</span> is a record,
+<span class="inl-highlight">f_1<span class="o">,</span> ... f_n</span> are its fields of types <span class="inl-highlight">A_1<span class="o">,</span> ... A_n</span> respectively, and <span class="inl-highlight">e_1<span class="o">,</span> ... e_n</span> are expressions 
+such that <span class="inl-highlight">e_i <span class="o">:</span> A_i[e_1/f_1<span class="o">,</span> ... e_n/f_n]</span>.
+Note that <span class="inl-highlight">A_i</span> cannot depend on any field except for <span class="inl-highlight">f_1<span class="o">,</span> ... f_n</span>.
+An expression of the form <span class="inl-highlight">C e_1 ... e_n</span> is equivalent to <span class="inl-highlight">C { <span class="o">|</span> f_1 <span class="o">=&gt;</span> e_1 ... <span class="o">|</span> f_n <span class="o">=&gt;</span> e_n }</span>, where <span class="inl-highlight">f_1<span class="o">,</span> ... f_n</span> is the list of not implemented fields of <span class="inl-highlight">C</span> in the order of their definition.</p>
 
 <p>The expression <span class="inl-highlight">C {}</span> is equivalent to <span class="inl-highlight">C</span>.
-An expression of the form <span class="inl-highlight">C { I }</span> is a subtype of <span class="inl-highlight">C’ { I’ }</span> if and only if <span class="inl-highlight">C</span> is a subclass of <span class="inl-highlight">C’</span> and <span class="inl-highlight">I’</span> is a subset of <span class="inl-highlight">I</span>.
-The expression <span class="inl-highlight"><span class="k">\new</span> C { I }</span> is an instance of type <span class="inl-highlight">C { I }</span>, which is a subtype <span class="inl-highlight">C</span>.
+An expression of the form <span class="inl-highlight">C { I }</span> is a subtype of <span class="inl-highlight">C&#39; { I&#39; }</span> if and only if <span class="inl-highlight">C</span> is a subclass of <span class="inl-highlight">C&#39;</span> and <span class="inl-highlight">I&#39;</span> is a subset of <span class="inl-highlight">I</span>.
+The expression <span class="inl-highlight"><span class="k">\new</span> C { I }</span> is an instance of type <span class="inl-highlight">C { I }</span>, which is a subtype of <span class="inl-highlight">C</span>.
 Thus, you can use this expression to create an element of type <span class="inl-highlight">C</span>.</p>
 
 <h2 id="new-expression">New expression</h2>
@@ -592,8 +592,8 @@ For example, in the following code we do not have to implement field <span class
 <span class="k">\func</span> f (r <span class="o">:</span> R <span class="n">0</span>) <span class="o">=&gt;</span> r.y
 <span class="k">\func</span> g <span class="o">=&gt;</span> f (<span class="k">\new</span> R { <span class="o">|</span> y <span class="o">=&gt;</span> <span class="n">1</span> })</code></pre></div></div>
 
-<p>If <span class="inl-highlight">c</span> is an instance of a record <span class="inl-highlight">C</span> with fields <span class="inl-highlight">f_1<span class="o">,</span> … f_n</span>, then the expression <span class="inl-highlight"><span class="k">\new</span> c</span> is equivalent to <span class="inl-highlight"><span class="k">\new</span> C { <span class="o">|</span> f_1 <span class="o">=&gt;</span> c.f_1 … <span class="o">|</span> f_n <span class="o">=&gt;</span> c.f_n }</span>.
-More generally, the expression <span class="inl-highlight"><span class="k">\new</span> c { <span class="o">|</span> f_{i_1} <span class="o">=&gt;</span> e_1 … <span class="o">|</span> f_{i_k} <span class="o">=&gt;</span> e_k }</span> is equivalent to <span class="inl-highlight"><span class="k">\new</span> c</span> in which <span class="inl-highlight">c.f_{i_j}</span> is replaced with <span class="inl-highlight">e_j</span>.</p>
+<p>If <span class="inl-highlight">c</span> is an instance of a record <span class="inl-highlight">C</span> with fields <span class="inl-highlight">f_1<span class="o">,</span> ... f_n</span>, then the expression <span class="inl-highlight"><span class="k">\new</span> c</span> is equivalent to <span class="inl-highlight"><span class="k">\new</span> C { <span class="o">|</span> f_1 <span class="o">=&gt;</span> c.f_1 ... <span class="o">|</span> f_n <span class="o">=&gt;</span> c.f_n }</span>.
+More generally, the expression <span class="inl-highlight"><span class="k">\new</span> c { <span class="o">|</span> f_{i_1} <span class="o">=&gt;</span> e_1 ... <span class="o">|</span> f_{i_k} <span class="o">=&gt;</span> e_k }</span> is equivalent to <span class="inl-highlight"><span class="k">\new</span> c</span> in which <span class="inl-highlight">c.f_{i_j}</span> is replaced with <span class="inl-highlight">e_j</span>.</p>
 
         
       </section>
@@ -659,7 +659,7 @@ More generally, the expression <span class="inl-highlight"><span class="k">\new<
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

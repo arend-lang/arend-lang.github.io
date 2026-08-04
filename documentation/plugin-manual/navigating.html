@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Navigation">
-<meta property="og:url" content="http://localhost:4000/documentation/plugin-manual/navigating.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/plugin-manual/navigating.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/plugin-manual/navigating.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/plugin-manual/navigating.html">
 
 
 
@@ -538,7 +538,7 @@ This bar shows the file path, namespaces, sections, and the current declaration 
 The <strong>Find Usages</strong> command can be invoked by either right-clicking on an identifier and selecting Find Usages, or by placing the cursor on the identifier and pressing <strong>Alt+Shift+7</strong> (or <strong>⌥F7</strong> on macOS). This command locates all occurrences of the identifier within the specified scope, organizes them by the type of usage and the containing file, and also displays a brief snippet of the surrounding code.</p>
 
 <h1 id="project-wide-text-searchreplacement">Project-wide text search/replacement</h1>
-<p>The <strong>Find in Files</strong> command <strong>Ctrl+Shift+F</strong> (or <strong>⇧⌘F</strong> on macOS) and <strong>Replace in Files</strong> command <strong>Ctrl+Shift+R</strong> (or <strong>⇧⌘R</strong> on macOS) provide effective tools for searching and replacing text within an Arend project. As the user types, matching entries are displayed and organized by the files in which they are found. By selecting a result, the user is directed to the corresponding location in the code. The search can be refined using various options available as icons adjacent to the search field, such as <strong>Match Case</strong>, <strong>Match Whole Word</strong>, or <strong>Use Regex</strong>. Additionally, file name masks can be applied to impose further conditions on file names or to restrict the search to a specific directory</p>
+<p>The <strong>Find in Files</strong> command <strong>Ctrl+Shift+F</strong> (or <strong>⇧⌘F</strong> on macOS) and <strong>Replace in Files</strong> command <strong>Ctrl+Shift+R</strong> (or <strong>⇧⌘R</strong> on macOS) provide effective tools for searching and replacing text within an Arend project. As the user types, matching entries are displayed and organized by the files in which they are found. By selecting a result, the user is directed to the corresponding location in the code. The search can be refined using various options available as icons adjacent to the search field, such as <strong>Match Case</strong>, <strong>Match Whole Word</strong>, or <strong>Use Regex</strong>. Additionally, file name masks can be applied to impose further conditions on file names or to restrict the search to a specific directory.</p>
 
 <h1 id="go-to-classfilesymbol">Go to Class/File/Symbol</h1>
 <p>Pressing <strong>Ctrl+N</strong> (or <strong>⌘O</strong> on macOS) (resp. <strong>Ctrl+Alt+Shift+N</strong> or <strong>⌥⌘O</strong> on macOS) opens the <strong>Go to</strong> window in IntelliJ IDEA, which can also be accessed via the Navigate menu. In the <strong>Class</strong> or <strong>Symbol</strong> tab, typing a name displays all matching classes or Arend definitions within the selected scope, which by default includes all Arend libraries added to the project. The Arend plugin also adds a special <strong>Arend Files</strong> tab to this window limiting the search to files with the <code class="language-plaintext highlighter-rouge">.ard</code> extension.</p>
@@ -567,7 +567,7 @@ This functionality, called <strong>Proof Search</strong> is comparable to the Se
 
 <p>The user needs to type a query pattern in the input field. 
 <strong>Proof Search</strong> then lists all definitions whose parameter or result types contain a subexpression matching the specified pattern.
-In the simplest case this pattern consists of a single reference to an Arend definition and the <strong>Proof Search</strong> lists all definitions mentioning this identifier in their parameters or result type (notice that a theorem’s statement does count as a result type due to Curry–Howard correspondence).</p>
+In the simplest case this pattern consists of a single reference to an Arend definition and the <strong>Proof Search</strong> lists all definitions mentioning this identifier in their parameters or result type (notice that a theorem’s statement does count as a result type due to the Curry–Howard correspondence).</p>
 
 <p>For example, the following definitions can be found using the pattern List:</p>
 
@@ -588,7 +588,7 @@ On the other hand, the following definitions can be found using the search patte
 <ul>
   <li><strong>View Definition</strong>: Pressing <strong>Enter</strong> will display the definition of a selected result.</li>
   <li><strong>Navigate to Location</strong>: Pressing <strong>F4</strong> will navigate the editor to the location of a selected definition.</li>
-  <li><strong>Insert in Editor</strong>: Pressing <strong>Ctrl+Enter</strong> (or <strong>⌘Enter</strong> on macOS) will insert the name selected definition into the editor.</li>
+  <li><strong>Insert in Editor</strong>: Pressing <strong>Ctrl+Enter</strong> (or <strong>⌘Enter</strong> on macOS) will insert the name of the selected definition into the editor.</li>
 </ul>
 
 <h2 id="the-grammar-of-queries">The grammar of queries</h2>
@@ -685,7 +685,7 @@ For example, the query <code class="language-plaintext highlighter-rouge">Nat -&
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

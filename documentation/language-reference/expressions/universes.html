@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Universes">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/expressions/universes.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/universes.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/expressions/universes.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/universes.html">
 
 
 
@@ -575,182 +575,132 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Universes</h4></header>
-              <ul class="toc__menu"><li><a href="#universe-placement-rules">Universe placement rules</a></li><li><a href="#level-polymorphism">Level polymorphism</a></li><li><a href="#level-parameters">Level parameters</a></li><li><a href="#global-level-declarations">Global level declarations</a></li><li><a href="#level-inference">Level inference</a></li></ul>
+              <ul class="toc__menu"><li><a href="#homotopy-levels">Homotopy levels</a></li><li><a href="#universe-placement-rules">Universe placement rules</a></li><li><a href="#level-polymorphism">Level polymorphism</a></li><li><a href="#multiple-level-parameters">Multiple level parameters</a></li><li><a href="#level-inference">Level inference</a></li></ul>
             </nav>
           </aside>
         
-        <p>A universe is a type of types. Since the type of all types cannot be consistently introduced to a type theory
+        <p>A universe is a type of types. Since the type of all types cannot be consistently introduced into a type theory
 with dependent Pi types, as the type of types cannot contain itself, Arend contains a hierarchy of universes 
 <span class="inl-highlight"><span class="kt">\Type</span> n</span> (the whitespace is optional), parameterized by a natural number <span class="inl-highlight">n</span>. This number is called the 
 <em>predicative level</em> of the universe. Informally, the universe <span class="inl-highlight"><span class="kt">\Type0</span></span> contains all types that do not refer to universes
 in their definition, the universe <span class="inl-highlight"><span class="kt">\Type1</span></span> contains all types in <span class="inl-highlight"><span class="kt">\Type0</span></span> together with those types that
 refer to <span class="inl-highlight"><span class="kt">\Type0</span></span> and no other universes in their definitions, and so on. This is not precise, since, for instance, 
-the universe <span class="inl-highlight"><span class="kt">\Type</span> n</span> contains also some data types, classes and records that refer to <span class="inl-highlight"><span class="kt">\Type</span> m</span>, where n ≤ m, in types of parameters.
+the universe <span class="inl-highlight"><span class="kt">\Type</span> n</span> also contains some data types, classes and records that refer to <span class="inl-highlight"><span class="kt">\Type</span> m</span>, where n ≤ m, in types of parameters.
 See section on universe placement rules below for more precise statements and details.</p>
 
 <p>Note that the hierarchy of 
 universes in Arend is cumulative, that is every expression of type <span class="inl-highlight"><span class="kt">\Type</span> n</span> has also type <span class="inl-highlight"><span class="kt">\Type</span> (n+1)</span>.</p>
 
-<p>Types in <span class="inl-highlight"><span class="kt">\Type</span> n</span> in Arend are also arranged in universes <span class="inl-highlight"><span class="k">\h-Type</span> n</span> according to their <em>homotopy level</em> h,
-which is an integer number (or infinity ∞) in the range: -1 ≤ h ≤ ∞. 
-Some of these universes have alternative names: the universe of propositions (-1-types) <span class="inl-highlight"><span class="kt">\Prop</span></span> 
-(coincides with <span class="inl-highlight"><span class="k">-1-Type</span> n</span> for any <span class="inl-highlight">n</span>) and universes of sets (0-types) <span class="inl-highlight"><span class="kt">\Set</span> n</span> (coincides with <span class="inl-highlight"><span class="kt">\0-Type</span> n</span>). 
-Note that the universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is <em>impredicative</em>: it does not have predicative level. Practically, this means that
-if <span class="inl-highlight">B <span class="o">:</span> <span class="kt">\Prop</span></span>, then the type <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">-&gt;</span> B</span> is in <span class="inl-highlight"><span class="kt">\Prop</span></span>.</p>
+<p>Writing <span class="inl-highlight"><span class="kt">\Type</span></span> without a level denotes the universe with the largest, <em>infinite</em>, predicative level.
+It is convenient for parameters whose predicative level does not matter. Note, however, that the infinite <span class="inl-highlight"><span class="kt">\Type</span></span>
+is not itself a small type, so it is not a member of any <span class="inl-highlight"><span class="kt">\Type</span> n</span> (in particular, not of itself). This is what
+rules out contradictory circular definitions; for the same reason a definition such as <span class="inl-highlight"><span class="k">\func</span> bad <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="kt">\Type</span></span> is not allowed.</p>
+
+<h2 id="homotopy-levels">Homotopy levels</h2>
+
+<p>Types are further stratified into universes <span class="inl-highlight"><span class="k">\n-Type</span> p</span> according to their <em>homotopy level</em> n,
+which is an integer number (or infinity ∞) in the range: -1 ≤ n ≤ ∞. 
+Some of these universes have alternative names: the universe of propositions ((-1)-types) <span class="inl-highlight"><span class="kt">\Prop</span></span> 
+and universes of sets (0-types) <span class="inl-highlight"><span class="kt">\Set</span> p</span> (coincides with <span class="inl-highlight"><span class="kt">\0-Type</span> p</span>). 
+The untruncated universe (homotopy level ∞) is simply <span class="inl-highlight"><span class="kt">\Type</span> p</span>.</p>
+
+<p>Unlike the predicative level, the homotopy level is <em>not</em> an argument of <span class="inl-highlight"><span class="kt">\Type</span></span>: the universe
+<span class="inl-highlight"><span class="kt">\Type</span></span> always denotes the untruncated universe, and each truncated universe is written with its own
+keyword <span class="inl-highlight"><span class="k">\n-Type</span></span>, which is in turn parameterized by a predicative level. There is no
+<span class="inl-highlight"><span class="k">\oo-Type</span></span>, and it is not possible to write two levels after <span class="inl-highlight"><span class="kt">\Type</span></span>.</p>
+
+<p>Every truncated universe must be given a (finite) predicative level. Writing <span class="inl-highlight"><span class="kt">\Set</span></span> or
+<span class="inl-highlight"><span class="kt">\66-Type</span></span> with the level omitted is an error (“Infinite level is not allowed here”). Supply a
+concrete level, as in <span class="inl-highlight"><span class="kt">\Set</span> <span class="n">0</span></span>, or a level parameter (see <a href="#level-polymorphism">Level polymorphism</a>).
+Only <span class="inl-highlight"><span class="kt">\Type</span></span> may be used without a level.</p>
+
+<p>Note that the universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is <em>impredicative</em>: it does not have a predicative level. Practically, this means that
+if <span class="inl-highlight">B <span class="o">:</span> <span class="kt">\Prop</span></span>, then the type <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B</span> is in <span class="inl-highlight"><span class="kt">\Prop</span></span> for any <span class="inl-highlight">A</span>.</p>
 
 <p>The universe <span class="inl-highlight"><span class="kt">\Prop</span></span> is not proof irrelevant, but some elements of propositions are computationally equal.
-If <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Prop</span></span> and <span class="inl-highlight">a<span class="o">,</span> a’ <span class="o">:</span> A</span> are such that they never evaluate to a constructor, then they are computationally equal.
-For example, if the type is an empty data type, then this is true for any pair of its elements, so they always be computationally equal.</p>
-
-<p>Universes with h equal to ∞ are represented in the syntax as <span class="inl-highlight"><span class="k">\oo-Type</span> p</span>. The homotopy level can also be 
-specified after the predicative level: <span class="inl-highlight"><span class="kt">\Type</span> p h</span> is equivalent to <span class="inl-highlight"><span class="k">\h-Type</span> p</span>.</p>
+If <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Prop</span></span> and <span class="inl-highlight">a<span class="o">,</span> a&#39; <span class="o">:</span> A</span> are such that they never evaluate to a constructor, then they are computationally equal.
+For example, if the type is an empty data type, then this is true for any pair of its elements, so they will always be computationally equal.</p>
 
 <h2 id="universe-placement-rules">Universe placement rules</h2>
 
-<p>Types in Arend are distributed over the universes according to the following rules:</p>
+<p>Types in Arend are distributed over the universes according to the following rules. Below we write <span class="inl-highlight"><span class="k">\h-Type</span> p</span>
+for the universe of homotopy level <span class="inl-highlight">h</span> and predicative level <span class="inl-highlight">p</span>, where <span class="inl-highlight">h <span class="o">=</span> ∞</span>
+corresponds to the untruncated universe <span class="inl-highlight"><span class="kt">\Type</span> p</span> and <span class="inl-highlight">h <span class="o">=</span> -1</span> to <span class="inl-highlight"><span class="kt">\Prop</span></span>.</p>
 
 <ul>
   <li>If <span class="inl-highlight">A <span class="o">:</span> <span class="k">\h_1-Type</span> p_1</span> and <span class="inl-highlight">B <span class="o">:</span> <span class="k">\h_2-Type</span> p_2</span>, then <span class="inl-highlight"><span class="k">\Sigma</span> A B <span class="o">:</span> <span class="k">\max(h_1,h_2)-Type</span> max(p_1<span class="o">,</span>p_2)</span>.</li>
   <li>If <span class="inl-highlight">A <span class="o">:</span> <span class="k">\h_1-Type</span> p_1</span> and <span class="inl-highlight">B <span class="o">:</span> <span class="k">\h_2-Type</span> p_2</span>, then <span class="inl-highlight"><span class="k">\Pi</span> (x:A) <span class="o">-&gt;</span> B <span class="o">:</span> <span class="k">\h_2-Type</span> max(p_1<span class="o">,</span>p_2)</span>.
-Note that if <span class="inl-highlight">A</span> is <span class="inl-highlight"><span class="kt">\Prop</span></span> and <span class="inl-highlight">B <span class="o">:</span> <span class="kt">\Prop</span></span>, then <span class="inl-highlight">(<span class="k">\Pi</span> (x <span class="o">:</span> <span class="kt">\Prop</span>) <span class="o">-&gt;</span> B) <span class="o">:</span> <span class="kt">\Prop</span></span>.</li>
-  <li>If 0 ≤ h &lt; ∞, then <span class="inl-highlight"><span class="k">\h-Type</span> p <span class="o">:</span> <span class="k">(h+1)-Type</span> (p+1)</span>.</li>
+Note that if <span class="inl-highlight">B <span class="o">:</span> <span class="kt">\Prop</span></span>, then <span class="inl-highlight">(<span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B) <span class="o">:</span> <span class="kt">\Prop</span></span> for any <span class="inl-highlight">A</span>.</li>
+  <li>If 0 ≤ h &lt; ∞, then <span class="inl-highlight"><span class="k">\h-Type</span> p <span class="o">:</span> <span class="k">\(h+1)-Type</span> (p+1)</span>.</li>
   <li><span class="inl-highlight"><span class="kt">\Prop</span> <span class="o">:</span> <span class="kt">\Set</span> <span class="n">0</span></span>, which is the same as <span class="inl-highlight"><span class="kt">\Prop</span> <span class="o">:</span> <span class="kt">\0-Type</span> <span class="n">0</span></span>.</li>
-  <li><span class="inl-highlight"><span class="k">\oo-Type</span> p <span class="o">:</span> <span class="k">\oo-Type</span> (p+1)</span>.</li>
-  <li>If <span class="inl-highlight">A <span class="o">:</span> I <span class="o">-&gt;</span> <span class="k">\h-Type</span> p</span>, then <span class="inl-highlight">Path A a a’ <span class="o">:</span> <span class="k">\max(-1,h-1)-Type</span> p</span>.</li>
-  <li>If <span class="inl-highlight">D</span> is a data type and <span class="inl-highlight">A_1 <span class="o">:</span> <span class="k">\h_1-Type</span> p_1<span class="o">,</span> …<span class="o">,</span> A_k <span class="o">:</span> <span class="k">\h_k-Type</span> p_k</span> are types of parameters
-of constructors of <span class="inl-highlight">D</span>, then predicative level of <span class="inl-highlight">D</span> is the maximum over <span class="inl-highlight"><span class="n">0</span><span class="o">,</span> p_1<span class="o">,</span> …<span class="o">,</span> p_k</span>.
+  <li><span class="inl-highlight"><span class="kt">\Type</span> p <span class="o">:</span> <span class="kt">\Type</span> (p+1)</span> (the untruncated universe stays untruncated).</li>
+  <li>If <span class="inl-highlight">A <span class="o">:</span> I <span class="o">-&gt;</span> <span class="k">\h-Type</span> p</span>, then <span class="inl-highlight">Path A a a&#39; <span class="o">:</span> <span class="k">\max(-1,h-1)-Type</span> p</span>.
+In particular, if <span class="inl-highlight">A <span class="o">:</span> <span class="kt">\Set</span> p</span>, then <span class="inl-highlight">a <span class="o">=</span> a&#39; <span class="o">:</span> <span class="kt">\Prop</span></span>.</li>
+  <li>If <span class="inl-highlight">D</span> is a data type and <span class="inl-highlight">A_1 <span class="o">:</span> <span class="k">\h_1-Type</span> p_1<span class="o">,</span> ...<span class="o">,</span> A_k <span class="o">:</span> <span class="k">\h_k-Type</span> p_k</span> are types of parameters
+of constructors of <span class="inl-highlight">D</span>, then predicative level of <span class="inl-highlight">D</span> is the maximum over <span class="inl-highlight"><span class="n">0</span><span class="o">,</span> p_1<span class="o">,</span> ...<span class="o">,</span> p_k</span>.
 If <span class="inl-highlight">D</span> has conditions, equalising a constructor on two ends of the interval type, then homotopy level of 
 <span class="inl-highlight">D</span> is ∞. Otherwise, if <span class="inl-highlight">D</span> has more than one constructor, then its homotopy level is
-the maximum over <span class="inl-highlight"><span class="n">0</span><span class="o">,</span> h_1<span class="o">,</span> …<span class="o">,</span> h_k</span>, and if <span class="inl-highlight">D</span> has at most one constructor, then its homotopy level
-is the maximum over <span class="inl-highlight">-1<span class="o">,</span> h_1<span class="o">,</span> …<span class="o">,</span> h_k</span>.</li>
-  <li>If <span class="inl-highlight">C</span> is a class or record and <span class="inl-highlight">A_1 <span class="o">:</span> <span class="k">\h_1-Type</span> p_1<span class="o">,</span> …<span class="o">,</span> A_k <span class="o">:</span> <span class="k">\h_k-Type</span> p_k</span> are types of parameters
+the maximum over <span class="inl-highlight"><span class="n">0</span><span class="o">,</span> h_1<span class="o">,</span> ...<span class="o">,</span> h_k</span>, and if <span class="inl-highlight">D</span> has at most one constructor, then its homotopy level
+is the maximum over <span class="inl-highlight">-1<span class="o">,</span> h_1<span class="o">,</span> ...<span class="o">,</span> h_k</span>.</li>
+  <li>If <span class="inl-highlight">C</span> is a class or record and <span class="inl-highlight">A_1 <span class="o">:</span> <span class="k">\h_1-Type</span> p_1<span class="o">,</span> ...<span class="o">,</span> A_k <span class="o">:</span> <span class="k">\h_k-Type</span> p_k</span> are types of parameters
 of unimplemented fields of <span class="inl-highlight">C</span> (including fields of superclasses), then its predicative level is the maximum 
-over <span class="inl-highlight"><span class="n">0</span><span class="o">,</span> p_1<span class="o">,</span> …<span class="o">,</span> p_k</span> and its homotopy level is the maximum over <span class="inl-highlight">-1<span class="o">,</span> h_1<span class="o">,</span> …<span class="o">,</span> h_k</span>.</li>
+over <span class="inl-highlight"><span class="n">0</span><span class="o">,</span> p_1<span class="o">,</span> ...<span class="o">,</span> p_k</span> and its homotopy level is the maximum over <span class="inl-highlight">-1<span class="o">,</span> h_1<span class="o">,</span> ...<span class="o">,</span> h_k</span>.</li>
 </ul>
 
 <h2 id="level-polymorphism">Level polymorphism</h2>
 
-<p>Every definition is considered to be polymorphic in both levels.
-That is, every definition has two additional parameters: one for a predicative level and one for a homotopy level.
-These parameters are denoted by <span class="inl-highlight"><span class="k">\lp</span></span> and <span class="inl-highlight"><span class="k">\lh</span></span> respectively.
-Level arguments can be specified explicitly in a defcall by writing <span class="inl-highlight"><span class="k">\levels</span> p h</span>, where <span class="inl-highlight">p</span> and <span class="inl-highlight">h</span> are level expressions of the corresponding kind.
-For example, <span class="inl-highlight">Path (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> Nat) <span class="n">0</span> <span class="n">0</span></span> is equivalent to <span class="inl-highlight">Path <span class="k">\levels</span> <span class="n">0</span> <span class="n">0</span> (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> Nat) <span class="n">0</span> <span class="n">0</span></span>.<br />
-Keyword <span class="inl-highlight"><span class="k">\levels</span></span> can often be omitted (if the resulting expression is unambiguous).
-The <span class="inl-highlight"><span class="kt">\Prop</span></span> level can be specified by the expression <span class="inl-highlight"><span class="k">\levels</span> <span class="kt">\Prop</span></span>.
-Level expressions are defined inductively:</p>
+<p>A definition can be made polymorphic in the predicative level by declaring one or more <em>level parameters</em> right after
+its name, using the syntax <span class="inl-highlight">.{...}</span>, and referring to them in universes such as <span class="inl-highlight"><span class="kt">\Type</span> l</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id.{l} (A <span class="o">:</span> <span class="kt">\Type</span> l) (a <span class="o">:</span> A) <span class="o">=&gt;</span> a</code></pre></div></div>
+
+<p>There is no implicit level parameter: a definition that mentions only the bare (infinite) <span class="inl-highlight"><span class="kt">\Type</span></span> is
+not level-polymorphic. Homotopy levels are not a polymorphic axis; only predicative levels can be abstracted this way.</p>
+
+<p>Level arguments can be specified explicitly in a defcall with the same <span class="inl-highlight">.{...}</span> syntax; the arguments
+are level expressions:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 <span class="o">=&gt;</span> id.{<span class="n">0</span>} Nat <span class="n">0</span>
+<span class="k">\func</span> test2.{l} <span class="o">=&gt;</span> id.{<span class="k">\suc</span> l} (<span class="kt">\Type</span> l) Nat</code></pre></div></div>
+
+<p>Level expressions are defined inductively:</p>
 
 <ul>
-  <li><span class="inl-highlight"><span class="k">\lp</span></span> is a level expression of the predicative kind and <span class="inl-highlight"><span class="k">\lh</span></span> is a level expression of the homotopy kind.</li>
-  <li>A constant (that is, a natural number) is a level expression of both kinds. There is also constant <span class="inl-highlight"><span class="k">\oo</span></span> for homotopy levels which denotes the infinity level.</li>
-  <li><span class="inl-highlight"><span class="u">_</span></span> is a level expression of both kinds. Such an expression suggests the typechecker to infer the expression.</li>
-  <li>If <span class="inl-highlight">l</span> is a level expression, then <span class="inl-highlight"><span class="k">\suc</span> l</span> is also a level expression of the same kind as <span class="inl-highlight">l</span>.</li>
-  <li>If <span class="inl-highlight">l1</span> and <span class="inl-highlight">l2</span> are level expressions of the same kind, then <span class="inl-highlight"><span class="k">\max</span> l1 l2</span> is also a level expression of the same kind as <span class="inl-highlight">l1</span> and <span class="inl-highlight">l2</span>.</li>
+  <li>A level parameter (such as <span class="inl-highlight">l</span> above) is a level expression.</li>
+  <li>A constant (that is, a natural number) is a level expression.</li>
+  <li><span class="inl-highlight"><span class="u">_</span></span> is a level expression. Such an expression suggests the typechecker to infer the expression.</li>
+  <li>If <span class="inl-highlight">l</span> is a level expression, then <span class="inl-highlight"><span class="k">\suc</span> l</span> is also a level expression.</li>
+  <li>If <span class="inl-highlight">l1</span> and <span class="inl-highlight">l2</span> are level expressions, then <span class="inl-highlight"><span class="k">\max</span> l1 l2</span> is also a level expression.</li>
 </ul>
 
-<p>Since the only level variables are <span class="inl-highlight"><span class="k">\lp</span></span> and <span class="inl-highlight"><span class="k">\lh</span></span>, the expression <span class="inl-highlight"><span class="k">\max</span> l1 l2</span> is useful only when one of the levels is a constant.</p>
+<h2 id="multiple-level-parameters">Multiple level parameters</h2>
 
-<h2 id="level-parameters">Level parameters</h2>
+<p>A definition may declare several predicative level parameters, separated by commas; they are independent level variables:</p>
 
-<p>It is possible to declare definitions with several level parameters with the following syntax:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> func <span class="k">\plevels</span> p1 &lt;= p2 &lt;= p3 <span class="k">\hlevels</span> h1 &gt;= h2 (A <span class="o">:</span> <span class="kt">\Type</span> p2 h1) (B <span class="o">:</span> <span class="kt">\Type</span> p3 h2) <span class="o">=&gt;</span> <span class="kt">\Type</span> p1</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pair.{l1<span class="o">,</span> l2} (A <span class="o">:</span> <span class="kt">\Type</span> l1) (B <span class="o">:</span> <span class="kt">\Type</span> l2) <span class="o">=&gt;</span> <span class="k">\Sigma</span> A B</code></pre></div></div>
 
-<p>All level parameters of the same type must be linearly ordered.
-In the example above, <span class="inl-highlight">func</span> has three predicative level parameters which are declared in ascending order and two homotopy level parameters in descending order.
-Level arguments for a definition with multiple level parameters can be specified as before:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> example <span class="o">=&gt;</span> func <span class="k">\levels</span> (<span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span>) (<span class="n">2</span><span class="o">,</span><span class="n">1</span>) Nat Nat</code></pre></div></div>
+<p>Level arguments for such a definition are given in the same order, again with <span class="inl-highlight">.{...}</span>:</p>
 
-<p>If level parameters are not explicitly declared for a definition, they will be inhereted from definitions that appear in parameters if all of them have the same levels.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> example <span class="o">=&gt;</span> pair.{<span class="n">0</span><span class="o">,</span> <span class="n">1</span>} Nat <span class="kt">\Type0</span></code></pre></div></div>
 
-<h2 id="global-level-declarations">Global level declarations</h2>
-
-<p>Levels can be also declared on the top level as follows:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\plevels</span> p1 &lt;= p2 &lt;= p3
-<span class="k">\hlevels</span> h1 &gt;= h2</code></pre></div></div>
-
-<p>These levels can be used in any definition, in which case they will be used as level parameters of this definition.</p>
+<p>If level parameters are not explicitly declared for a definition, they will be inherited from definitions that appear in parameters if all of them have the same levels.</p>
 
 <h2 id="level-inference">Level inference</h2>
 
-<p>The level arguments of a function in a defcall can often be inferred automatically.
-Moreover, both levels of a universe in the signature of a function can also be omitted, in which case they
-will also be inferred by the typechecker.
-The typechecker always tries to infer the minimal level which mentions either <span class="inl-highlight"><span class="k">\lp</span></span> or <span class="inl-highlight"><span class="k">\lh</span></span> if possible.
-Consider, for example, the following code which defines the identity function:</p>
+<p>The level arguments of a function in a defcall can often be inferred automatically, so <span class="inl-highlight">.{...}</span> rarely
+needs to be written explicitly. For example, <span class="inl-highlight">id Nat <span class="n">0</span></span> elaborates to <span class="inl-highlight">id.{<span class="n">0</span>} Nat <span class="n">0</span></span>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id {A <span class="o">:</span> <span class="kt">\Type</span>} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a</code></pre></div></div>
+<p>The levels of a universe in the signature of a function can also be omitted, in which case they will be inferred by
+the typechecker. Note, however, that a bare <span class="inl-highlight"><span class="kt">\Type</span></span> denotes the infinite universe rather than a level to
+be inferred; and <span class="inl-highlight"><span class="kt">\Set</span></span>/<span class="inl-highlight"><span class="k">\n-Type</span></span> require a finite predicative level, so an unconstrained
+level there is an error rather than being defaulted silently.</p>
 
-<p>The minimal appropriate level (both predicative and homotopy) of the universe <span class="inl-highlight"><span class="kt">\Type</span></span> in the definition of this function is 0,
-but it is also possible to use levels <span class="inl-highlight"><span class="k">\lp</span></span> and <span class="inl-highlight"><span class="k">\lh</span></span>, so this function is equivalent to the following one:</p>
+<p>The levels in the parameters and in the result type of a recursive function are inferred before the levels in the body.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> id' {A <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh}</span> (a <span class="o">:</span> A) <span class="o">=&gt;</span> a</code></pre></div></div>
-
-<p>Consider a few more examples.
-Every definition below is followed by an equivalent definition with explicitly specified levels.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Either (A B <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">|</span> inl A <span class="o">|</span> inr B
-<span class="k">\data</span> Either' (A B <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh)</span> <span class="o">|</span> inl A <span class="o">|</span> inr B
-
-<span class="k">\func</span> f <span class="o">=&gt;</span> id <span class="kt">\Type</span>
-<span class="k">\func</span> f' <span class="o">=&gt;</span> id (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span> (<span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh)</span>
-
-<span class="k">\func</span> fromEither {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Either A <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\elim</span> e
-  <span class="o">|</span> inl a <span class="o">=&gt;</span> A
-  <span class="o">|</span> inr X <span class="o">=&gt;</span> X
-<span class="k">\func</span> fromEither' {A <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh}</span> (e <span class="o">:</span> Either (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span> A (<span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh))</span> <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh</span> <span class="k">\elim</span> e
-  <span class="o">|</span> inl a <span class="o">=&gt;</span> A
-  <span class="o">|</span> inr X <span class="o">=&gt;</span> X</code></pre></div></div>
-
-<p>The levels in parameters and in the result type of a recursive function are inferred before levels in the body.
-In particular, this means that the following function will not typecheck:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> eitherToType {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Either A A) <span class="o">:</span> <span class="kt">\Type</span>
-  <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span>
-  <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span></code></pre></div></div>
-
-<p>This problem can be fixed by specifying explicitly the levels of the universe that appears in the result type:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> eitherToTypeFixed {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Either A A) <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span>
-  <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span>
-  <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span>
-<span class="k">\func</span> eitherToTypeFixed' {A <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh}</span> (e <span class="o">:</span> Either <span class="k">\lp</span> <span class="k">\lh</span> A A) <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span>
-  <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh</span>
-  <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh</span></code></pre></div></div>
-
-<p>If levels are set to constants instead as shown below, then the function also will typecheck,
-but the levels of universes in the body will also be constants:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> eitherToTypeConstant {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Either A A) <span class="o">:</span> <span class="kt">\3-Type</span> <span class="n">7</span>
-  <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span>
-  <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span>
-<span class="k">\func</span> eitherToTypeConstant' {A <span class="o">:</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh}</span> (e <span class="o">:</span> Either <span class="k">\lp</span> <span class="k">\lh</span> A A) <span class="o">:</span> <span class="kt">\3-Type</span> <span class="n">7</span>
-  <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Set0</span>
-  <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Set0</span></code></pre></div></div>
-
-<p>Note that homotopy levels inferred by the typechecker are always greater than or equal to 0.
-Thus, the function <span class="inl-highlight">eitherToProp</span> below does not typecheck, <span class="inl-highlight">eitherToPropFixed</span> should be
-used instead:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> eitherToProp {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Either A A) <span class="o">:</span> <span class="kt">\Set0</span>
-  <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span>
-  <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Type</span>
-
-<span class="k">\func</span> eitherToPropFixed {A <span class="o">:</span> <span class="kt">\Type</span>} (e <span class="o">:</span> Either A A) <span class="o">:</span> <span class="kt">\Set0</span>
-  <span class="o">|</span> inl <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Prop</span>
-  <span class="o">|</span> inr <span class="u">_</span> <span class="o">=&gt;</span> <span class="kt">\Prop</span></code></pre></div></div>
-
-<p>Levels in the result type of a non-recursive function are inferred simultaneously with the
-levels in the body.
-For example, the following function typechecks:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> <span class="kt">\Type</span>
-<span class="k">\func</span> f' <span class="o">:</span> <span class="kt">\Type</span> (<span class="k">\suc</span> <span class="k">\lp)</span> (<span class="k">\suc</span> <span class="k">\lh)</span> <span class="o">=&gt;</span> <span class="kt">\Type</span> <span class="k">\lp</span> <span class="k">\lh</span></code></pre></div></div>
-
-<p>A definition is marked as <em>universe-like</em> if it contains universes or universe-like definitions applied to either <span class="inl-highlight"><span class="k">\lp</span></span> or <span class="inl-highlight"><span class="k">\lh</span></span>.
-It is often true that the level of a definition can be inferred to either <span class="inl-highlight">c</span> or <span class="inl-highlight"><span class="k">\lp</span> <span class="o">+</span> c</span> for some constant <span class="inl-highlight">c</span>.
-If a definition is universe-like, then the inference algorithm uses the latter option, otherwise it uses the former option.
-Also, if <span class="inl-highlight">D</span> is a universe-like definition, then <span class="inl-highlight">D <span class="k">\levels</span> p h</span> is equivalent to <span class="inl-highlight">D <span class="k">\levels</span> p’ h’</span> only if <span class="inl-highlight">p <span class="o">=</span> p’</span> and <span class="inl-highlight">h <span class="o">=</span> h’</span>.
-If <span class="inl-highlight">D</span> is not universe-like, then these expressions are always equivalent.</p>
+<p>A definition is marked as <em>universe-like</em> if it contains universes or universe-like definitions applied to one of its
+level parameters. If <span class="inl-highlight">D</span> is a universe-like definition, then <span class="inl-highlight">D.{p}</span> is equivalent to
+<span class="inl-highlight">D.{p&#39;}</span> only if <span class="inl-highlight">p <span class="o">=</span> p&#39;</span>. If <span class="inl-highlight">D</span> is not universe-like, then these
+expressions are always equivalent.</p>
 
         
       </section>
@@ -816,7 +766,7 @@ If <span class="inl-highlight">D</span> is not universe-like, then these express
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

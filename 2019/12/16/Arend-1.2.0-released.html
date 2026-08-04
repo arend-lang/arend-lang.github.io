@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend 1.2.0 released">
-<meta property="og:url" content="http://localhost:4000/2019/12/16/Arend-1.2.0-released.html">
+<meta property="og:url" content="https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html">
 
 
   <meta property="og:description" content="We implemented a few features related to classes and pattern matching. One of these features is pattern matching on idp : a = a, which can be used instead of the J operator.  Language updates:    Implemented pattern matching on idp. This feature can be used instead of the J operator to define functions on path types. This is a standard feature in other proof assistants, but was missing from Arend since it has a different definition of path types.   New keyword \noclassifying can be used to define classes without classifying fields. Such classes are similar to Agda’s modules and Coq’s sections.   The type of a field can be overridden with a subtype in a subclass using new keyword \override.   Variables can be eliminated in \case expressions now.   Implemented constructor synonyms.   It is possible now to implement fields using pattern matching.   We decided to make \Prop proof relevant in general (but it is still proof irrelevant in some cases). The implementation in 1.1.0 was incorrect and it turns out that it is impossible to implement it without loss of the normalization property.   Now, fields and implementations in a class are typechecked in the order they are specified (before now implementations were typechecked after fields).   Plugin updates:    Fixed some problems with pattern generator and implemented case split for \Sigma-types and records.   It is possible now to adjust the verbosity of pretty printer in error messages.">
@@ -47,7 +47,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/2019/12/16/Arend-1.2.0-released.html">
+<link rel="canonical" href="https://arend-lang.github.io/2019/12/16/Arend-1.2.0-released.html">
 
 
 
@@ -193,6 +193,12 @@ The implementation in 1.1.0 was incorrect and it turns out that it is <a href="h
   
   
     <li>
+      <a href="#2026">
+        <strong>2026</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
       <a href="#2025">
         <strong>2025</strong> <span class="taxonomy__count">1</span>
       </a>
@@ -232,6 +238,38 @@ The implementation in 1.1.0 was incorrect and it turns out that it is <a href="h
 
 
 
+
+  <section id="2026" class="taxonomy__section">
+    <h2 class="archive__subtitle">2026</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/2026/08/04/Arend-1.12.0-released.html" rel="permalink">Arend 1.12.0 released
+</a>
+      
+    </h2>
+    
+
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">This release includes a major internal overhaul of the universe/level system, an opt-in binary caching mode for the CLI,
+and substantial additions to arend-l...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
 
   <section id="2025" class="taxonomy__section">
     <h2 class="archive__subtitle">2025</h2>
@@ -733,7 +771,7 @@ It implements the following features:
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

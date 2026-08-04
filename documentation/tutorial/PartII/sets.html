@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Basic Set Theory">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartII/sets.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartII/sets.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartII/sets.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartII/sets.html">
 
 
 
@@ -313,6 +313,13 @@
 
                 
 
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
               
                 
@@ -328,6 +335,13 @@
                 
 
                 <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
               
             
           
@@ -615,10 +629,10 @@ The source code for the exercises: <a href="https://github.com/arend-lang/tutori
 <p>The types, which are sets according to the view adopted in the last modules, behave like sets in set theory.
 This means that many theorems of set theory can be proven for the sets in this sense.</p>
 
-<p>For example, we can prove the Cantor’s theorem saying that the cardinality of a set <span class="inl-highlight">X</span> is 
+<p>For example, we can prove Cantor’s theorem saying that the cardinality of a set <span class="inl-highlight">X</span> is 
 strictly less than the cardinality of the set of its subsets <span class="inl-highlight">X <span class="o">-&gt;</span> <span class="kt">\Prop</span></span>.</p>
 
-<p>The assertion that the cardinality is less (not necessarily strictly) means that there exists injection 
+<p>The assertion that the cardinality is less (not necessarily strictly) means that there exists an injection 
 of <span class="inl-highlight">X</span> into <span class="inl-highlight">X <span class="o">-&gt;</span> <span class="kt">\Prop</span></span>. Clearly, the equality predicate 
 <span class="inl-highlight">(<span class="o">=</span>) <span class="o">:</span> X <span class="o">-&gt;</span> (X <span class="o">-&gt;</span> <span class="kt">\Prop</span>)</span> is an injection.</p>
 
@@ -633,7 +647,7 @@ there exists a bijection between them, is not provable without excluded middle.<
 
 <h1 id="surjections-injections-and-bijections">Surjections, injections and bijections</h1>
 
-<p>We have already seen the definitions of injection and surjections, but let us briefly recall it. 
+<p>We have already seen the definitions of injections and surjections, but let us briefly recall them. 
 Note that the definition of surjection requires the propositional truncation.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isInj {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span> <span class="k">\Pi</span> (x y <span class="o">:</span> A) <span class="o">-&gt;</span> f x <span class="o">=</span> f y <span class="o">-&gt;</span> x <span class="o">=</span> y
@@ -661,15 +675,15 @@ is a conjunction of injectivity and surjectivity.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isBij {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) <span class="o">=&gt;</span> <span class="k">\Sigma</span> (g <span class="o">:</span> B <span class="o">-&gt;</span> A) (<span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> g (f x) <span class="o">=</span> x) (<span class="k">\Pi</span> (y <span class="o">:</span> B) <span class="o">-&gt;</span> f (g y) <span class="o">=</span> y)
 
-<span class="k">\func</span> isBij-&gt;isInj {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isBij f) <span class="o">:</span> isInj f <span class="o">=&gt;</span> <span class="k">\lam</span> x y q <span class="o">=&gt;</span> sym (p.<span class="n">2</span> x) <span class="o">*</span>&gt; pmap p.<span class="n">1</span> q <span class="o">*</span>&gt; p.<span class="n">2</span> y
+<span class="k">\func</span> isBij-&gt;isInj {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isBij f) <span class="o">:</span> isInj f <span class="o">=&gt;</span> <span class="k">\lam</span> x y q <span class="o">=&gt;</span> sym (p.<span class="n">2</span> x) <span class="o">*&gt;</span> pmap p.<span class="n">1</span> q <span class="o">*&gt;</span> p.<span class="n">2</span> y
 
 <span class="k">\func</span> isBij-&gt;isSur {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> isBij f) <span class="o">:</span> isSur f <span class="o">=&gt;</span> <span class="k">\lam</span> b <span class="o">=&gt;</span> in (p.<span class="n">1</span> b<span class="o">,</span> p.<span class="n">3</span> b)
 
-<span class="k">\func</span> sigmaEq' {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (t1 t2 <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)) (p <span class="o">:</span> t1.<span class="n">1</span> <span class="o">=</span> t2.<span class="n">1</span>)
-  <span class="o">=&gt;</span> sigmaEq B t1 t2 p (Path.inProp <span class="u">_</span> <span class="u">_</span>)
+<span class="k">\func</span> sigmaEq&#39; {A <span class="o">:</span> <span class="kt">\Type</span>} (B <span class="o">:</span> A <span class="o">-&gt;</span> <span class="kt">\Prop</span>) (t1 t2 <span class="o">:</span> <span class="k">\Sigma</span> (x <span class="o">:</span> A) (B x)) (p <span class="o">:</span> t1.<span class="n">1</span> <span class="o">=</span> t2.<span class="n">1</span>)
+  <span class="o">=&gt;</span> sigmaEq B t1 t2 p prop-pi
 
 <span class="k">\func</span> isInj+isSur-&gt;isBij {A B <span class="o">:</span> <span class="kt">\Set</span>} (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (ip <span class="o">:</span> isInj f) (sp <span class="o">:</span> isSur f) <span class="o">:</span> isBij f
-  <span class="o">=&gt;</span> <span class="k">\let</span> t (b <span class="o">:</span> B) <span class="o">=&gt;</span> Trunc.extract (sp b) (<span class="k">\lam</span> t1 t2 <span class="o">=&gt;</span> sigmaEq' (<span class="k">\lam</span> a <span class="o">=&gt;</span> f a <span class="o">=</span> b) t1 t2 (ip t1.<span class="n">1</span> t2.<span class="n">1</span> (t1.<span class="n">2</span> <span class="o">*</span>&gt; sym t2.<span class="n">2</span>)))
+  <span class="o">=&gt;</span> <span class="k">\let</span> t (b <span class="o">:</span> B) <span class="o">=&gt;</span> Trunc.extract (sp b) (<span class="k">\lam</span> t1 t2 <span class="o">=&gt;</span> sigmaEq&#39; (<span class="k">\lam</span> a <span class="o">=&gt;</span> f a <span class="o">=</span> b) t1 t2 (ip t1.<span class="n">1</span> t2.<span class="n">1</span> (t1.<span class="n">2</span> <span class="o">*&gt;</span> sym t2.<span class="n">2</span>)))
      <span class="k">\in</span> (<span class="k">\lam</span> b <span class="o">=&gt;</span> (t b).<span class="n">1</span><span class="o">,</span> <span class="k">\lam</span> a <span class="o">=&gt;</span> ip <span class="u">_</span> <span class="u">_</span> (t (f a)).<span class="n">2</span><span class="o">,</span> <span class="k">\lam</span> b <span class="o">=&gt;</span> (t b).<span class="n">2</span>)</code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 1:</strong> Prove that the predecessor function <span class="inl-highlight">pred</span> on <span class="inl-highlight">Nat</span> is surjective.</p>
@@ -677,28 +691,28 @@ is a conjunction of injectivity and surjectivity.</p>
 <p class="notice--info"><strong>Exercise 2:</strong> Prove that <span class="inl-highlight">suc</span> is not surjective.</p>
 
 <p class="notice--info"><strong>Exercise 3:</strong> Let <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> and <span class="inl-highlight">g <span class="o">:</span> B <span class="o">-&gt;</span> C</span> be some functions.
-    Prove that if <span class="inl-highlight">f</span> and <span class="inl-highlight">g</span> are surjective, then <span class="inl-highlight">g <span class="o"><code class="language-plaintext highlighter-rouge">o</code></span> f</span> is also surjective.
-    Prove that if <span class="inl-highlight">g <span class="o"><code class="language-plaintext highlighter-rouge">o</code></span> f</span> is surjective, then <span class="inl-highlight">g</span> is also surjective.</p>
+    Prove that if <span class="inl-highlight">f</span> and <span class="inl-highlight">g</span> are surjective, then <span class="inl-highlight">g <span class="o">`o`</span> f</span> is also surjective.
+    Prove that if <span class="inl-highlight">g <span class="o">`o`</span> f</span> is surjective, then <span class="inl-highlight">g</span> is also surjective.</p>
 
-<p class="notice--info"><strong>Exercise 4:</strong> Prove the Cantor’s theorem.</p>
+<p class="notice--info"><strong>Exercise 4:</strong> Prove Cantor’s theorem.</p>
 
 <h1 id="a-definition-of-int-datatypes-with-conditions">A definition of Int, datatypes with conditions</h1>
 
-<p>Here we introduce a useful construct for data definitions, which allows quotioning
+<p>Here we introduce a useful construct for data definitions, which allows quotienting
 or, in other words, gluing, and apply it to the definition of the type <span class="inl-highlight">Int</span>
 of integers.</p>
 
 <p>Consider first the definition of the type of integers as the ordinary datatype containing
 two copies of <span class="inl-highlight">Nat</span>: nonnegative and nonpositive numbers.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Int'
-  <span class="o">|</span> pos' Nat
-  <span class="o">|</span> neg' Nat</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Int&#39;
+  <span class="o">|</span> pos&#39; Nat
+  <span class="o">|</span> neg&#39; Nat</code></pre></div></div>
 
 <p>Totalities of elements defined by different constructors in an ordinary datatype do
-not intersect. For example, we can prove that <span class="inl-highlight">pos’ n</span> is always not
-equal to <span class="inl-highlight">neg’ m</span>. Sometimes it is not convenient: for example, 
-we would like <span class="inl-highlight">pos’ <span class="n">0</span></span> to be the same as <span class="inl-highlight">neg’ <span class="n">0</span></span>.</p>
+not intersect. For example, we can prove that <span class="inl-highlight">pos&#39; n</span> is always not
+equal to <span class="inl-highlight">neg&#39; m</span>. Sometimes it is not convenient: for example, 
+we would like <span class="inl-highlight">pos&#39; <span class="n">0</span></span> to be the same as <span class="inl-highlight">neg&#39; <span class="n">0</span></span>.</p>
 
 <p>It is possible to specify such identifications of constructors by supplementing
 definitions of constructors with conditions. The syntax for conditions is the same
@@ -730,7 +744,7 @@ does not typecheck, because <span class="inl-highlight">intEx (pos <span class="
 <p>We can fix this by replacing the second pattern with <span class="inl-highlight">neg (suc n)</span> and 
 omitting the pattern <span class="inl-highlight">neg <span class="n">0</span></span> since it evaluates:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> intEx' (z <span class="o">:</span> Int) <span class="o">:</span> Nat
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> intEx&#39; (z <span class="o">:</span> Int) <span class="o">:</span> Nat
   <span class="o">|</span> pos n <span class="o">=&gt;</span> <span class="n">3</span>
   <span class="o">|</span> neg (suc n) <span class="o">=&gt;</span> <span class="n">7</span></code></pre></div></div>
 
@@ -769,7 +783,7 @@ are identified in <span class="inl-highlight">A/~</span>.</p>
 ~ <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Prop</span>
 A/~ <span class="o">:</span> <span class="kt">\Set</span>
 in~ <span class="o">:</span> A <span class="o">-&gt;</span> A/~
-(in~ a <span class="o">=</span> in~ a') &lt;-&gt; (a ~ a')</code></pre></div></div>
+(in~ a <span class="o">=</span> in~ a&#39;) &lt;-&gt; (a ~ a&#39;)</code></pre></div></div>
 
 <p>A function over <span class="inl-highlight">A/~</span> can be defined as a function over <span class="inl-highlight">A</span>
 satisfying the condition that equivalent elements are mapped to equal elements. With
@@ -781,19 +795,19 @@ we can write:</p>
 <span class="k">\func</span> f (x <span class="o">:</span> A/~) <span class="o">:</span> B
    <span class="o">|</span> in~ a <span class="o">=&gt;</span> b</code></pre></div></div>
 
-<p>An important of example of quotient set – the set of rational numbers, which is defined
-as the set of pairs of natural numbers quotioned by the equivalence relation ~ such that
-<span class="inl-highlight">(n<span class="o">,</span> m) ~ (n’<span class="o">,</span> m’)</span> iff <span class="inl-highlight">n <span class="o">*</span> m’ <span class="o">=</span> n’ <span class="o">*</span> m</span>.</p>
+<p>An important example of a quotient set – the set of rational numbers, which is defined
+as the set of pairs of natural numbers quotiented by the equivalence relation ~ such that
+<span class="inl-highlight">(n<span class="o">,</span> m) ~ (n&#39;<span class="o">,</span> m&#39;)</span> iff <span class="inl-highlight">n <span class="o">*</span> m&#39; <span class="o">=</span> n&#39; <span class="o">*</span> m</span>.</p>
 
 <p>We can define the quotient set as a datatype with conditions: we simply add
-an equality between <span class="inl-highlight">inR a</span> and <span class="inl-highlight">inR a’</span> if
-<span class="inl-highlight">R a a’</span>.</p>
+an equality between <span class="inl-highlight">inR a</span> and <span class="inl-highlight">inR a&#39;</span> if
+<span class="inl-highlight">R a a&#39;</span>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\truncated</span> <span class="k">\data</span> Quotient (A <span class="o">:</span> <span class="kt">\Type</span>) (R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>) <span class="o">:</span> <span class="kt">\Set</span>
   <span class="o">|</span> inR A
-  <span class="o">|</span> eq (a a' <span class="o">:</span> A) (r <span class="o">:</span> R a a') (i <span class="o">:</span> I) <span class="k">\elim</span> i {
+  <span class="o">|</span> eq (a a&#39; <span class="o">:</span> A) (r <span class="o">:</span> R a a&#39;) (i <span class="o">:</span> I) <span class="k">\elim</span> i {
     <span class="o">|</span> left <span class="o">=&gt;</span> inR a
-    <span class="o">|</span> right <span class="o">=&gt;</span> inR a'
+    <span class="o">|</span> right <span class="o">=&gt;</span> inR a&#39;
   }</code></pre></div></div>
 
 <p>Note that we have to use the truncation to the level of sets, otherwise we will
@@ -801,9 +815,9 @@ not get a set.</p>
 
 <p>The equivalent elements are indeed equal:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> quotientEq {A <span class="o">:</span> <span class="kt">\Type</span>} {R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>} (a a' <span class="o">:</span> A) (r <span class="o">:</span> R a a')
-  <span class="o">:</span> inR a <span class="o">=</span> {Quotient A R} inR a'
-  <span class="o">=&gt;</span> path (eq a a' r)</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> quotientEq {A <span class="o">:</span> <span class="kt">\Type</span>} {R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>} (a a&#39; <span class="o">:</span> A) (r <span class="o">:</span> R a a&#39;)
+  <span class="o">:</span> inR a <span class="o">=</span> {Quotient A R} inR a&#39;
+  <span class="o">=&gt;</span> path (eq a a&#39; r)</code></pre></div></div>
 
 <p>We can prove, for example, that <span class="inl-highlight">inR</span> is surjective:</p>
 
@@ -818,10 +832,10 @@ on the constructor <span class="inl-highlight">eq</span>. The latter corresponds
 that the function maps equivalent elements to equal values.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> quotientEx {A <span class="o">:</span> <span class="kt">\Type</span>} {R <span class="o">:</span> A <span class="o">-&gt;</span> A <span class="o">-&gt;</span> <span class="kt">\Type</span>} {B <span class="o">:</span> <span class="kt">\Set</span>}
-                 (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> <span class="k">\Pi</span> (a a' <span class="o">:</span> A) <span class="o">-&gt;</span> R a a' <span class="o">-&gt;</span> f a <span class="o">=</span> f a')
+                 (f <span class="o">:</span> A <span class="o">-&gt;</span> B) (p <span class="o">:</span> <span class="k">\Pi</span> (a a&#39; <span class="o">:</span> A) <span class="o">-&gt;</span> R a a&#39; <span class="o">-&gt;</span> f a <span class="o">=</span> f a&#39;)
                  (x <span class="o">:</span> Quotient A R) <span class="o">:</span> B <span class="k">\elim</span> x
   <span class="o">|</span> inR a <span class="o">=&gt;</span> f a
-  <span class="o">|</span> eq a a' r i <span class="o">=&gt;</span> p a a' r <span class="o">@</span> i</code></pre></div></div>
+  <span class="o">|</span> eq a a&#39; r i <span class="o">=&gt;</span> p a a&#39; r <span class="o">@</span> i</code></pre></div></div>
 
 <p class="notice--info"><strong>Exercise 9:</strong> Define the set of finite subsets of a set <span class="inl-highlight">A</span>,
  that is of finite lists of elements of <span class="inl-highlight">A</span> defined up to permutations
@@ -892,7 +906,7 @@ that the function maps equivalent elements to equal values.</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

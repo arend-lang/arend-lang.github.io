@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Records and Classes">
-<meta property="og:url" content="http://localhost:4000/documentation/tutorial/PartI/records.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/records.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/tutorial/PartI/records.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/records.html">
 
 
 
@@ -313,6 +313,13 @@
 
                 
 
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
                 <li><a href="/documentation/tutorial/PartI/records" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
               
                 
@@ -328,6 +335,13 @@
                 
 
                 <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
               
             
           
@@ -575,7 +589,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Records and Classes</h4></header>
-              <ul class="toc__menu"><li><a href="#records-new-cowith-projections-pattern-matching">Records: \new, \cowith, projections, pattern matching</a></li><li><a href="#partial-implementation">Partial implementation</a></li><li><a href="#parameters-visibility-of-fields">Parameters, visibility of fields</a></li><li><a href="#dependent-records-a-type-of-positive-natural-numbers">Dependent records, a type of positive natural numbers</a></li><li><a href="#monoid">Monoid</a></li><li><a href="#classes-instances">Classes, instances</a></li><li><a href="#coercions">Coercions</a></li><li><a href="#extensions-diamond-problem">Extensions, diamond problem</a></li><li><a href="#definitions-inside-classes">Definitions inside classes</a></li><li><a href="#classes-without-classifying-fields">Classes without classifying fields</a></li><li><a href="#functor">Functor</a></li></ul>
+              <ul class="toc__menu"><li><a href="#records-new-cowith-projections-pattern-matching">Records: \new, \cowith, projections, pattern matching</a></li><li><a href="#partial-implementation">Partial implementation</a></li><li><a href="#parameters-visibility-of-fields">Parameters, visibility of fields</a></li><li><a href="#dependent-records-a-type-of-positive-natural-numbers">Dependent records, a type of positive natural numbers</a></li><li><a href="#monoid">Monoid</a></li><li><a href="#classes-instances">Classes, instances</a></li><li><a href="#coercions">Coercions</a></li><li><a href="#extensions-diamond-problem">Extensions, diamond problem</a></li><li><a href="#definitions-inside-classes">Definitions inside classes</a></li><li><a href="#classes-without-classifying-fields">Classes without classifying fields</a></li><li><a href="#functor">Functor</a></li><li><a href="#linarith-a-meta-that-uses-class-instances">linarith: a meta that uses class instances</a></li></ul>
             </nav>
           </aside>
         
@@ -590,7 +604,7 @@ The source code for the exercises: <a href="https://github.com/arend-lang/tutori
 
 <p>In the previous modules we saw two ways to arrange a sequence of types <span class="inl-highlight">A1</span>, …,
 <span class="inl-highlight">An</span> into a composite type of tuples: Sigma-types 
-<span class="inl-highlight"><span class="k">\Sigma</span> A1 … An</span> and data types <span class="inl-highlight"><span class="k">\data</span> Tuples <span class="o">|</span> tuple A1 … An</span>.</p>
+<span class="inl-highlight"><span class="k">\Sigma</span> A1 ... An</span> and data types <span class="inl-highlight"><span class="k">\data</span> Tuples <span class="o">|</span> tuple A1 ... An</span>.</p>
 
 <p>For example, a type of pairs of natural numbers can be defined as <span class="inl-highlight"><span class="k">\Sigma</span> Nat Nat</span>. 
 In this case elements of a pair <span class="inl-highlight">x <span class="o">:</span> <span class="k">\Sigma</span> Nat Nat</span> are accessed by means of projections
@@ -613,7 +627,7 @@ time one wants to replace one with the other.</p>
 
 <p>Record types provide the third option:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> NatPair'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> NatPair&#39;
   <span class="o">|</span> fst <span class="o">:</span> Nat
   <span class="o">|</span> snd <span class="o">:</span> Nat</code></pre></div></div>
 
@@ -625,50 +639,50 @@ write <span class="inl-highlight">x.fst</span> and <span class="inl-highlight">x
 <p>Every field of a record is simply a function that has an instance of the record
 as its first implicit parameter:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- fst : \Pi {x : NatPair'} -&gt; Nat
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- fst : \Pi {x : NatPair&#39;} -&gt; Nat
 </span>
-<span class="k">\func</span> foo (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> fst {p}</code></pre></div></div>
+<span class="k">\func</span> foo (p <span class="o">:</span> NatPair&#39;) <span class="o">=&gt;</span> fst {p}</code></pre></div></div>
 
 <p>There is a namespace corresponding to a record, which contains all the fields of the record:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo' (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> NatPair'.fst {p}</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> foo&#39; (p <span class="o">:</span> NatPair&#39;) <span class="o">=&gt;</span> NatPair&#39;.fst {p}</code></pre></div></div>
 
 <p>The syntax with dot <span class="inl-highlight">p.snd</span> can only be used to access fields if <span class="inl-highlight">p</span>
 is a variable and its type is specified explicitly:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> bar (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> p.snd
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> bar (p <span class="o">:</span> NatPair&#39;) <span class="o">=&gt;</span> p.snd
 
 <span class="c">-- (f x).snd -- This is not allowed. It can be replaced with one of the following variants:
 </span>
-<span class="c">-- \let e : NatPair' =&gt; f x \in e.snd
+<span class="c">-- \let e : NatPair&#39; =&gt; f x \in e.snd
 </span>
 <span class="c">-- snd {f x}
 </span>
 
 <span class="c">-- This code will not typecheck since the type of p is not specified explicitly
 </span>
-<span class="c">-- \func baz {p p' : NatPair'} (q : p = p') =&gt; pmap (\lam p =&gt; p.fst) q</span></code></pre></div></div>
+<span class="c">-- \func baz {p p&#39; : NatPair&#39;} (q : p = p&#39;) =&gt; pmap (\lam p =&gt; p.fst) q</span></code></pre></div></div>
 
 <p>An element of a record can be created using the keyword <span class="inl-highlight"><span class="k">\new</span></span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> zeroPair <span class="o">=&gt;</span> <span class="k">\new</span> NatPair' {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> zeroPair <span class="o">=&gt;</span> <span class="k">\new</span> NatPair&#39; {
   <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span>
   <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">0</span>
   }</code></pre></div></div>
 
 <p>Eta-equivalence for records, thus, means that 
-<span class="inl-highlight"><span class="k">\new</span> NatPair’ { <span class="o">|</span> fst <span class="o">=&gt;</span> p.fst <span class="o">|</span> snd <span class="o">=&gt;</span> p.snd }</span> is computationally equal to
+<span class="inl-highlight"><span class="k">\new</span> NatPair&#39; { <span class="o">|</span> fst <span class="o">=&gt;</span> p.fst <span class="o">|</span> snd <span class="o">=&gt;</span> p.snd }</span> is computationally equal to
 <span class="inl-highlight">p</span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> etaNatPair' (p <span class="o">:</span> NatPair') <span class="o">:</span> p <span class="o">=</span> <span class="k">\new</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> p.fst <span class="o">|</span> snd <span class="o">=&gt;</span> p.snd }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> etaNatPair&#39; (p <span class="o">:</span> NatPair&#39;) <span class="o">:</span> p <span class="o">=</span> <span class="k">\new</span> NatPair&#39; { <span class="o">|</span> fst <span class="o">=&gt;</span> p.fst <span class="o">|</span> snd <span class="o">=&gt;</span> p.snd }
   <span class="o">=&gt;</span> idp</code></pre></div></div>
 
 <p>The pattern matching on variables of record types can be done using the same tuple patterns as
 used for pattern matching on variables of Sigma-types:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sum (p <span class="o">:</span> NatPair') <span class="o">=&gt;</span> fst {p} <span class="o">+</span> p.snd
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> sum (p <span class="o">:</span> NatPair&#39;) <span class="o">=&gt;</span> fst {p} <span class="o">+</span> p.snd
 
-<span class="k">\func</span> sum' (p <span class="o">:</span> NatPair') <span class="o">:</span> Nat
+<span class="k">\func</span> sum&#39; (p <span class="o">:</span> NatPair&#39;) <span class="o">:</span> Nat
   <span class="o">|</span> (a<span class="o">,</span> b) <span class="o">=&gt;</span> a <span class="o">+</span> b</code></pre></div></div>
 
 <p>If we want to define a function that returns an element of a record, we can do this by means of
@@ -680,7 +694,7 @@ used for pattern matching on variables of Sigma-types:</p>
 </span>
 <span class="c">-- with | and specifying a field and its value
 </span>
-<span class="k">\func</span> zeroPair' <span class="o">:</span> NatPair' <span class="k">\cowith</span>
+<span class="k">\func</span> zeroPair&#39; <span class="o">:</span> NatPair&#39; <span class="k">\cowith</span>
   <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span>
   <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
@@ -695,30 +709,30 @@ c) using <span class="inl-highlight"><span class="k">\new</span></span> and fiel
 
 <p>Given a record, it is possible to form new records out of it via <em>partial implementation</em>, that is
 by means of assigning values to some of its fields. If <span class="inl-highlight">C</span> is a record with fields
-<span class="inl-highlight">f1</span>, …, <span class="inl-highlight">fn</span>, then <span class="inl-highlight">C { <span class="o">|</span> f_{i_1} <span class="o">=&gt;</span> e_{i_1} … <span class="o">|</span> f_{i_k} <span class="o">=&gt;</span> e_{i_k} }</span>
+<span class="inl-highlight">f1</span>, …, <span class="inl-highlight">fn</span>, then <span class="inl-highlight">C { <span class="o">|</span> f_{i_1} <span class="o">=&gt;</span> e_{i_1} ... <span class="o">|</span> f_{i_k} <span class="o">=&gt;</span> e_{i_k} }</span>
 is a record formed by elements of the record <span class="inl-highlight">C</span>, where corresponding fields are implemented accordingly.</p>
 
-<p>For example, <span class="inl-highlight">NatPair’ { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> }</span> is the type of elements of the record <span class="inl-highlight">NatPair’</span>, whose
+<p>For example, <span class="inl-highlight">NatPair&#39; { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> }</span> is the type of elements of the record <span class="inl-highlight">NatPair&#39;</span>, whose
 first component is <span class="inl-highlight"><span class="n">0</span></span>. This type is, thus, equivalent to the type <span class="inl-highlight">Nat</span>.
 We call such types <em>anonymous extensions</em>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> PartialEx <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> PartialEx <span class="o">:</span> <span class="kt">\Type</span> <span class="o">=&gt;</span> NatPair&#39; { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> }
 
-<span class="k">\func</span> ppp <span class="o">:</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> } <span class="o">=&gt;</span> <span class="k">\new</span> NatPair' { <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">1</span> }</code></pre></div></div>
+<span class="k">\func</span> ppp <span class="o">:</span> NatPair&#39; { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> } <span class="o">=&gt;</span> <span class="k">\new</span> NatPair&#39; { <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">1</span> }</code></pre></div></div>
 
 <p>Anonymous extensions of a record are subtypes of the record. If <span class="inl-highlight">p</span> is of type of the form
-<span class="inl-highlight">C { … }</span>, where the subset F of fields of <span class="inl-highlight">C</span> is implemented, then <span class="inl-highlight">p</span> is also
-of type of the form <span class="inl-highlight">C { … }</span>, where fields from a subset F’ of F are implemented and these implementations 
+<span class="inl-highlight">C { ... }</span>, where the subset F of fields of <span class="inl-highlight">C</span> is implemented, then <span class="inl-highlight">p</span> is also
+of type of the form <span class="inl-highlight">C { ... }</span>, where fields from a subset F’ of F are implemented and these implementations 
 agree with the implementations in the former case. For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> partial (p <span class="o">:</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">1</span> }) <span class="o">:</span> PartialEx <span class="o">=&gt;</span> p
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> partial (p <span class="o">:</span> NatPair&#39; { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">0</span> <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">1</span> }) <span class="o">:</span> PartialEx <span class="o">=&gt;</span> p
 
-<span class="k">\func</span> PartialEx' <span class="o">=&gt;</span> NatPair' { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">3</span> <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">7</span> }</code></pre></div></div>
+<span class="k">\func</span> PartialEx&#39; <span class="o">=&gt;</span> NatPair&#39; { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">3</span> <span class="o">|</span> snd <span class="o">=&gt;</span> <span class="n">7</span> }</code></pre></div></div>
 
 <p>The operator <span class="inl-highlight"><span class="k">\new</span></span> can be applied to any expression that evaluates to a record or its
 anonymous extension provided all fields are implemented. For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> new <span class="o">=&gt;</span> <span class="k">\new</span> PartialEx'</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> new <span class="o">=&gt;</span> <span class="k">\new</span> PartialEx&#39;</code></pre></div></div>
 
 <h1 id="parameters-visibility-of-fields">Parameters, visibility of fields</h1>
 
@@ -734,25 +748,25 @@ anonymous extension provided all fields are implemented. For example:</p>
   <span class="o">=&gt;</span> <span class="k">\new</span> Pair { <span class="o">|</span> fst <span class="o">=&gt;</span> <span class="n">1</span> <span class="o">|</span> snd (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x }</code></pre></div></div>
 
 <p>Actually parameters of a record are also its fields. The example above can be equivalently rewritten as follows:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pairExample'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> pairExample&#39;
   <span class="o">=&gt;</span> <span class="k">\new</span> Pair { <span class="o">|</span> A <span class="o">=&gt;</span> Nat <span class="o">|</span> B <span class="o">=&gt;</span> Nat <span class="o">-&gt;</span> Nat <span class="o">|</span> fst_ <span class="o">=&gt;</span> <span class="n">1</span> <span class="o">|</span> snd_ (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x }
 
-<span class="k">\func</span> pairExample''
+<span class="k">\func</span> pairExample&#39;&#39;
   <span class="o">=&gt;</span> <span class="k">\new</span> Pair Nat (Nat <span class="o">-&gt;</span> Nat) <span class="n">1</span> (<span class="k">\lam</span> (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x)</code></pre></div></div>
 
 <p>There is (almost) no difference between fields and parameters. In particular, it is perfectly fine to
 define all fields as parameters. For example, the following is an equivalent version of <span class="inl-highlight">NatPair</span>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> NatPair'' (fst'' snd'' <span class="o">:</span> Nat)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> NatPair&#39;&#39; (fst&#39;&#39; snd&#39;&#39; <span class="o">:</span> Nat)
 
-<span class="k">\func</span> natPair''ex <span class="o">=&gt;</span> <span class="k">\new</span> NatPair'' {
-  <span class="o">|</span> fst'' <span class="o">=&gt;</span> <span class="n">0</span>
-  <span class="o">|</span> snd'' <span class="o">=&gt;</span> <span class="n">0</span>
+<span class="k">\func</span> natPair&#39;&#39;ex <span class="o">=&gt;</span> <span class="k">\new</span> NatPair&#39;&#39; {
+  <span class="o">|</span> fst&#39;&#39; <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="o">|</span> snd&#39;&#39; <span class="o">=&gt;</span> <span class="n">0</span>
 }</code></pre></div></div>
 
 <p>And, conversely, the type <span class="inl-highlight">Pair</span> has equivalent definition without parameters:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Pair'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Pair&#39;
   <span class="o">|</span> A <span class="o">:</span> <span class="kt">\Type</span>
   <span class="o">|</span> B <span class="o">:</span> <span class="kt">\Type</span>
   <span class="o">|</span> fst <span class="o">:</span> A
@@ -807,7 +821,7 @@ this is useful when all instances of the extension are supposed to implement the
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> CommMonoid <span class="k">\extends</span> Monoid
   <span class="o">|</span> <span class="o">*</span>-comm (x y <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> y <span class="o">=</span> y <span class="o">*</span> x
-  <span class="o">|</span> id-right x <span class="o">=&gt;</span> <span class="o">*</span>-comm x id <span class="o">*</span>&gt; id-left x 
+  <span class="o">|</span> id-right x <span class="o">=&gt;</span> <span class="o">*</span>-comm x id <span class="o">*&gt;</span> id-left x 
 <span class="c">-- id-right follows from id-left for commutative monoids</span></code></pre></div></div>
 
 <p>We will discuss extensions in more detail below.</p>
@@ -836,7 +850,7 @@ monoid on <span class="inl-highlight"><span class="o">*</span></span>.</p>
 
 <span class="c">-- alternative definition of the latter:
 </span>
-<span class="k">\instance</span> <span class="o">*</span>-NatMonoid' <span class="o">:</span> Monoid Nat <span class="n">1</span> (Nat.<span class="o">*</span>) <span class="g">{?}</span> <span class="g">{?}</span> <span class="g">{?}</span></code></pre></div></div>
+<span class="k">\instance</span> <span class="o">*</span>-NatMonoid&#39; <span class="o">:</span> Monoid Nat <span class="n">1</span> (Nat.<span class="o">*</span>) <span class="g">{?}</span> <span class="g">{?}</span> <span class="g">{?}</span></code></pre></div></div>
 
 <p>The first explicit parameter of a class is of special significance and is called <em>classifying field</em> of a class.
 The classifying field of a class is typically a carrier, on top of which all other fields of the class define some structure.
@@ -844,7 +858,7 @@ Thus the type of the classifying field is often <span class="inl-highlight"><spa
 Classifying fields significantly affect the behavior of the instance inference algorithm. Basically, in case there are no local instances, the algorithm
 searches for a first appropriate global instance (appropriate in the sense that its classifying field coincides with some expected type).</p>
 
-<p>Note, that the type of a class field is determined in the same way as in case of records. For example, for <span class="inl-highlight"><span class="o">*</span></span>:</p>
+<p>Note that the type of a class field is determined in the same way as in the case of records. For example, for <span class="inl-highlight"><span class="o">*</span></span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span> {M <span class="o">:</span> Monoid} (x y <span class="o">:</span> M.A) <span class="o">:</span> M.A</code></pre></div></div>
 
@@ -865,7 +879,7 @@ searches for a first appropriate global instance (appropriate in the sense that 
 
 <span class="k">\func</span> instExF (M <span class="o">:</span> Monoid) <span class="o">=&gt;</span> M.id
 
-<span class="k">\func</span> instEx' <span class="o">=&gt;</span> instExF <span class="o">+</span>-NatMonoid</code></pre></div></div>
+<span class="k">\func</span> instEx&#39; <span class="o">=&gt;</span> instExF <span class="o">+</span>-NatMonoid</code></pre></div></div>
 
 <p>Arend classes can be used as typeclasses in Haskell. For example, <span class="inl-highlight">Eq</span> can be written as follows:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\class</span> Eq (A <span class="o">:</span> <span class="kt">\Type</span>)
@@ -879,7 +893,7 @@ searches for a first appropriate global instance (appropriate in the sense that 
 </span>
 <span class="k">\func</span> refl {A <span class="o">:</span> <span class="kt">\Type</span>} {e <span class="o">:</span> Eq A} (a <span class="o">:</span> A) <span class="o">=&gt;</span> a <span class="o">==</span> a
 
-<span class="k">\func</span> refl' {E <span class="o">:</span> Eq} (a <span class="o">:</span> E) <span class="o">=&gt;</span> a <span class="o">==</span> a
+<span class="k">\func</span> refl&#39; {E <span class="o">:</span> Eq} (a <span class="o">:</span> E) <span class="o">=&gt;</span> a <span class="o">==</span> a
 
 <span class="c">-- \func xxxx =&gt; refl 1</span></code></pre></div></div>
 
@@ -894,24 +908,24 @@ an element of type <span class="inl-highlight"><span class="kt">\Type</span></sp
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> CF-coerce (M <span class="o">:</span> Monoid) (x <span class="o">:</span> M) <span class="o">=&gt;</span> x</code></pre></div></div>
 
-<p>This kind of substitutions are called <em>coercions</em>, we say that a class can be coerced to its classifying field. The mechanism
-of coercions in Arend allows also to define coercions between data types, classes and records. In order to be able to use
+<p>These kinds of substitutions are called <em>coercions</em>, we say that a class can be coerced to its classifying field. The mechanism
+of coercions in Arend also allows to define coercions between data types, classes and records. In order to be able to use
 elements of type <span class="inl-highlight">A</span>, where elements of type <span class="inl-highlight">B</span> are expected, one should define a function
 <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> in the <span class="inl-highlight"><span class="k">\where</span></span>-block of either <span class="inl-highlight">A</span> or <span class="inl-highlight">B</span> as a coercion
 by using keywords <span class="inl-highlight"><span class="k">\use</span> <span class="k">\coerce</span></span>. Elements <span class="inl-highlight">a</span> of type <span class="inl-highlight">A</span> will then be replaced
-with <span class="inl-highlight">f a</span> if they are used in a context, where <span class="inl-highlight">B</span> expected.</p>
+with <span class="inl-highlight">f a</span> if they are used in a context where <span class="inl-highlight">B</span> is expected.</p>
 
 <p>Consider the following example:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> XXX <span class="o">|</span> con
 
-<span class="k">\data</span> YYY <span class="o">|</span> con' XXX Nat <span class="o">|</span> con''
+<span class="k">\data</span> YYY <span class="o">|</span> con&#39; XXX Nat <span class="o">|</span> con&#39;&#39;
   <span class="k">\where</span> {
     <span class="c">-- We can define coercions TO this type.
 </span>
     <span class="c">-- The return type of the function must be YYY.
 </span>
-    <span class="k">\use</span> <span class="k">\coerce</span> fromXXX (x <span class="o">:</span> XXX) <span class="o">=&gt;</span> con' x <span class="n">0</span>
+    <span class="k">\use</span> <span class="k">\coerce</span> fromXXX (x <span class="o">:</span> XXX) <span class="o">=&gt;</span> con&#39; x <span class="n">0</span>
     
     <span class="c">-- We can also define coercions FROM this type.
 </span>
@@ -939,12 +953,12 @@ after the keyword <span class="inl-highlight"><span class="k">\extends</span></s
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> Base (A <span class="o">:</span> <span class="kt">\Type</span>)
 
-<span class="k">\record</span> Base' (A <span class="o">:</span> <span class="kt">\Type</span>)
+<span class="k">\record</span> Base&#39; (A <span class="o">:</span> <span class="kt">\Type</span>)
 
 <span class="k">\record</span> X <span class="k">\extends</span> Base
   <span class="o">|</span> a <span class="o">:</span> A
 
-<span class="k">\record</span> Y <span class="k">\extends</span> Base'
+<span class="k">\record</span> Y <span class="k">\extends</span> Base&#39;
   <span class="o">|</span> b <span class="o">:</span> A
 
 <span class="k">\record</span> Z <span class="k">\extends</span> X<span class="o">,</span> Y
@@ -952,28 +966,28 @@ after the keyword <span class="inl-highlight"><span class="k">\extends</span></s
 <span class="k">\func</span> zzz <span class="o">=&gt;</span> <span class="k">\new</span> Z {
   <span class="o">|</span> A <span class="o">=&gt;</span> <span class="g">{?}</span>
   <span class="o">|</span> a <span class="o">=&gt;</span> <span class="g">{?}</span>
-  <span class="o">|</span> Base'.A <span class="o">=&gt;</span> <span class="g">{?}</span>
+  <span class="o">|</span> Base&#39;.A <span class="o">=&gt;</span> <span class="g">{?}</span>
   <span class="o">|</span> b <span class="o">=&gt;</span> <span class="g">{?}</span>
   }
 
-<span class="k">\func</span> zzzz (z <span class="o">:</span> Z) <span class="o">=&gt;</span> Base'.A {z}</code></pre></div></div>
+<span class="k">\func</span> zzzz (z <span class="o">:</span> Z) <span class="o">=&gt;</span> Base&#39;.A {z}</code></pre></div></div>
 
 <p>This means that the set of fields of a given class (or record) contains all fields declared in the class plus all the 
 fields from the classes and records that it extends.</p>
 
-<p>The record <span class="inl-highlight">Z</span> in the example above has four fields: <span class="inl-highlight">Base.A</span>, <span class="inl-highlight">Base’.A</span>,
+<p>The record <span class="inl-highlight">Z</span> in the example above has four fields: <span class="inl-highlight">Base.A</span>, <span class="inl-highlight">Base&#39;.A</span>,
 <span class="inl-highlight">a</span> and <span class="inl-highlight">b</span>. But if <span class="inl-highlight">X</span> and <span class="inl-highlight">Y</span> both extended the same
 record, say, <span class="inl-highlight">Base</span>, then <span class="inl-highlight">Z</span> would have had three fields:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> X' <span class="k">\extends</span> Base
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> X&#39; <span class="k">\extends</span> Base
   <span class="o">|</span> aa <span class="o">:</span> A
 
-<span class="k">\record</span> Y' <span class="k">\extends</span> Base
+<span class="k">\record</span> Y&#39; <span class="k">\extends</span> Base
   <span class="o">|</span> bb <span class="o">:</span> A
 
-<span class="c">-- Z' has three fields: aa, bb, A
+<span class="c">-- Z&#39; has three fields: aa, bb, A
 </span>
-<span class="k">\record</span> Z' <span class="k">\extends</span> X'<span class="o">,</span> Y'</code></pre></div></div>
+<span class="k">\record</span> Z&#39; <span class="k">\extends</span> X&#39;<span class="o">,</span> Y&#39;</code></pre></div></div>
 
 <p>Consider an example from algebra: the type of rings. With a few simplifications, a possible definition might look as
 follows:</p>
@@ -987,7 +1001,7 @@ follows:</p>
 
 <span class="k">\class</span> CommMonoid <span class="k">\extends</span> Monoid {
   <span class="o">|</span> comm (x y <span class="o">:</span> A) <span class="o">:</span> x <span class="o">*</span> y <span class="o">=</span> y <span class="o">*</span> x
-  <span class="o">|</span> ide-right x <span class="o">=&gt;</span> comm x ide <span class="o">*</span>&gt; ide-left x
+  <span class="o">|</span> ide-right x <span class="o">=&gt;</span> comm x ide <span class="o">*&gt;</span> ide-left x
 }
 
 <span class="k">\class</span> AbGroup <span class="k">\extends</span> CommMonoid {
@@ -1018,18 +1032,18 @@ we will get into trouble: the clash of two monoidal structures. This is called t
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- This class does not extend Monoid
 </span>
-<span class="k">\class</span> AbGroup' (A <span class="o">:</span> <span class="kt">\Type</span>) {
+<span class="k">\class</span> AbGroup&#39; (A <span class="o">:</span> <span class="kt">\Type</span>) {
   <span class="c">-- Here all the fields of Monoid, CommMonoid and AbGroup 
 </span>
   <span class="c">-- should be repeated
 </span>
 }
 
-<span class="k">\class</span> Ring' <span class="k">\extends</span> AbGroup'<span class="o">,</span> Monoid
-  <span class="o">|</span> Monoid.A <span class="o">=&gt;</span> AbGroup'.A <span class="c">-- make sure that classifying fields coincide</span></code></pre></div></div>
+<span class="k">\class</span> Ring&#39; <span class="k">\extends</span> AbGroup&#39;<span class="o">,</span> Monoid
+  <span class="o">|</span> Monoid.A <span class="o">=&gt;</span> AbGroup&#39;.A <span class="c">-- make sure that classifying fields coincide</span></code></pre></div></div>
 
 <p>This approach is adopted in Arend standard library with one small improvement: algebraic structures extend the same BaseSet class
-in order to avoid identifications such as <span class="inl-highlight">Monoid.A <span class="o">=&gt;</span> AbGroup’.A</span> above.</p>
+in order to avoid identifications such as <span class="inl-highlight">Monoid.A <span class="o">=&gt;</span> AbGroup&#39;.A</span> above.</p>
 
 <h1 id="definitions-inside-classes">Definitions inside classes</h1>
 
@@ -1092,7 +1106,7 @@ A class without classifying fields can be defined in two ways: as a class withou
   <span class="k">\func</span> isBij=&gt;isSur (p <span class="o">:</span> isBij) <span class="o">:</span> isSur <span class="o">=&gt;</span> <span class="g">{?}</span>
 }</code></pre></div></div>
 
-<p>Since <span class="inl-highlight">Map</span> is a class without classifying fields, the system will infer the first available instance of this class whenever one the functions above is invoked:</p>
+<p>Since <span class="inl-highlight">Map</span> is a class without classifying fields, the system will infer the first available instance of this class whenever one of the functions above is invoked:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> isInj+isSur&lt;=&gt;isBij (m <span class="o">:</span> Map) <span class="o">:</span> <span class="k">\Sigma</span> (isBij <span class="o">-&gt;</span> <span class="k">\Sigma</span> isInj isSur) (<span class="k">\Sigma</span> isInj isSur <span class="o">-&gt;</span> isBij)
   <span class="o">=&gt;</span> ((<span class="k">\lam</span> p <span class="o">=&gt;</span> (isBij=&gt;isInj p<span class="o">,</span> isBij=&gt;isInj p))<span class="o">,</span> (<span class="k">\lam</span> p <span class="o">=&gt;</span> isInj+isSur=&gt;isBij p.<span class="n">1</span> p.<span class="n">2</span>))
   <span class="k">\where</span> <span class="k">\open</span> Map</code></pre></div></div>
@@ -1125,13 +1139,55 @@ For example, if we want to define a few functions about endomorphisms, we can ex
 <p class="notice--info"><strong>Exercise 5:</strong> Define the class of monads, which extends the class of functors <span class="inl-highlight">Functor</span>.
 Define <span class="inl-highlight"><span class="k">\instance</span></span> of this class for <span class="inl-highlight">Maybe</span>.</p>
 
-<p class="notice--info"><strong>Exercise 6:</strong> Define instances for the class of monads for <span class="inl-highlight">State</span> and <span class="inl-highlight">State’</span>.</p>
+<p class="notice--info"><strong>Exercise 6:</strong> Define instances for the class of monads for <span class="inl-highlight">State</span> and <span class="inl-highlight">State&#39;</span>.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> State (S A <span class="o">:</span> <span class="kt">\Type</span>)
   <span class="o">|</span> state <span class="o">:</span> S <span class="o">-&gt;</span> <span class="k">\Sigma</span> S A
 
-<span class="k">\data</span> State' (S A <span class="o">:</span> <span class="kt">\Type</span>)
-  <span class="o">|</span> state' (S <span class="o">-&gt;</span> <span class="k">\Sigma</span> S A)</code></pre></div></div>
+<span class="k">\data</span> State&#39; (S A <span class="o">:</span> <span class="kt">\Type</span>)
+  <span class="o">|</span> state&#39; (S <span class="o">-&gt;</span> <span class="k">\Sigma</span> S A)</code></pre></div></div>
 
+<h1 id="linarith-a-meta-that-uses-class-instances">linarith: a meta that uses class instances</h1>
+
+<p>Class instance inference makes one of the most powerful metas in the standard library work — <span class="inl-highlight">linarith</span>, which discharges goals involving linear arithmetic over an ordered ring or semiring. The meta does not know about <span class="inl-highlight">Nat</span> specifically; it operates on whatever <span class="inl-highlight">LinearlyOrderedSemiring</span> or <span class="inl-highlight">OrderedRing</span> instance is in scope, and uses the algebraic structure those classes guarantee. This is a good moment to introduce it: now that you understand instance inference, you can read what <span class="inl-highlight">linarith</span> dispatches on.</p>
+
+<p>The meta is provided by <span class="inl-highlight"><span class="k">\import</span> Algebra.Meta</span>. Examples on <span class="inl-highlight">Nat</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Algebra.Meta
+<span class="k">\import</span> Algebra.StrictlyOrdered
+<span class="k">\import</span> Arith.Nat
+
+<span class="k">\lemma</span> nat-1 {a b <span class="o">:</span> Nat} <span class="o">:</span> <span class="n">0</span> &lt;= a Nat.<span class="o">+</span> b <span class="o">=&gt;</span> linarith
+
+<span class="k">\lemma</span> nat-2 {a <span class="o">:</span> Nat} <span class="o">:</span> <span class="n">0</span> &lt; suc a <span class="o">=&gt;</span> linarith
+
+<span class="k">\lemma</span> nat-3 {a b <span class="o">:</span> Nat} (p <span class="o">:</span> a Nat.<span class="o">+</span> b &lt; b) <span class="o">:</span> Empty <span class="o">=&gt;</span> linarith</code></pre></div></div>
+
+<p><span class="inl-highlight">linarith</span> reads hypotheses from the local context automatically — you do not list them explicitly. It combines them via <a href="https://en.wikipedia.org/wiki/Fourier%E2%80%93Motzkin_elimination">Fourier–Motzkin elimination</a>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> combine {a b c <span class="o">:</span> Nat} (p <span class="o">:</span> a &lt;= b) (q <span class="o">:</span> b Nat.<span class="o">+</span> c &lt;= a) <span class="o">:</span> c <span class="o">=</span> <span class="n">0</span>
+  <span class="o">=&gt;</span> linarith</code></pre></div></div>
+
+<p>The same syntax works on any <span class="inl-highlight">LinearlyOrderedSemiring</span>; the meta’s choice of solver is driven by the inferred instance:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\lemma</span> generic {R <span class="o">:</span> LinearlyOrderedSemiring} {a b c <span class="o">:</span> R}
+               (p <span class="o">:</span> a &lt;= b) (q <span class="o">:</span> b <span class="o">+</span> c &lt;= a) <span class="o">:</span> c &lt;= <span class="n">0</span>
+  <span class="o">=&gt;</span> linarith</code></pre></div></div>
+
+<p>This is structurally identical to the <span class="inl-highlight">Nat</span> version above; what changes is which class instance gets supplied, and <span class="inl-highlight">linarith</span> adapts accordingly.</p>
+
+<p>What <span class="inl-highlight">linarith</span> cannot do: anything nonlinear. Goals involving products of variables, exponentiation, or non-monotone functions are out of scope:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Does not typecheck — multiplication of variables is nonlinear:
+</span>
+<span class="c">-- \lemma nonlinear {a b : Nat} : a Nat.* b = b Nat.* a =&gt; linarith</span></code></pre></div></div>
+
+<p>For nonlinear algebraic goals, see the <span class="inl-highlight">equation</span> and <span class="inl-highlight">simplify</span> metas in <a href="metas-algebra">Algebraic Metas</a>.</p>
+
+<p class="notice--info"><strong>Exercise 7:</strong> Prove the following one-liners using <span class="inl-highlight">linarith</span>: (a) <span class="inl-highlight"><span class="k">\Pi</span> {a b <span class="o">:</span> Nat} <span class="o">-&gt;</span> <span class="n">0</span> &lt;= a Nat.<span class="o">+</span> b</span>, (b) <span class="inl-highlight"><span class="k">\Pi</span> {a b c <span class="o">:</span> Nat} <span class="o">-&gt;</span> a &lt;= b <span class="o">-&gt;</span> b Nat.<span class="o">+</span> c &lt;= a <span class="o">-&gt;</span> c <span class="o">=</span> <span class="n">0</span></span>, (c) <span class="inl-highlight"><span class="k">\Pi</span> {a <span class="o">:</span> Nat} <span class="o">-&gt;</span> a &lt; a <span class="o">-&gt;</span> Empty</span>.</p>
+
+<p class="notice--info"><strong>Exercise 8:</strong> Prove <span class="inl-highlight"><span class="k">\Pi</span> {R <span class="o">:</span> LinearlyOrderedSemiring} {a b c <span class="o">:</span> R} <span class="o">-&gt;</span> a &lt;= b <span class="o">+</span> c <span class="o">-&gt;</span> b <span class="o">+</span> <span class="n">2</span> <span class="o">*</span> c &lt;= <span class="n">0</span> <span class="o">-&gt;</span> <span class="n">2</span> <span class="o">*</span> a &lt;= b</span> using <span class="inl-highlight">linarith</span>. Note that the same syntax works regardless of which <span class="inl-highlight">R</span> the caller supplies — the meta dispatches on the inferred instance.</p>
+
+<p class="notice--info"><strong>Exercise 9:</strong> Investigate the boundary: try to prove <span class="inl-highlight"><span class="k">\Pi</span> {a b <span class="o">:</span> Nat} <span class="o">-&gt;</span> a Nat.<span class="o">*</span> b <span class="o">=</span> b Nat.<span class="o">*</span> a</span> with <span class="inl-highlight">linarith</span> and explain in a comment why it fails.</p>
 
         
       </section>
@@ -1197,7 +1253,7 @@ Define <span class="inl-highlight"><span class="k">\instance</span></span> of th
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

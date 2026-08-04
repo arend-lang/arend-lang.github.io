@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Definitions">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/">
 
 
 
@@ -603,15 +603,15 @@
         <p>Arend supports the following kinds of definitions: <a href="functions">functions</a>, <a href="data">data</a>, <a href="records">records</a>, <a href="classes">classes</a>, <a href="classes#instances">instances</a>, and <a href="coercion">coercions</a>.
 Every definition has a name which must be a valid identifier as described in <a href="../lexical-structure#identifiers">Lexical structure</a>.</p>
 
-<p>Definitions can be referred by <em>defcall</em> expressions.
+<p>Definitions can be referred to by <em>defcall</em> expressions.
 If <span class="inl-highlight">def</span> is a name of a definition, defcall is an expression of the form:
-<span class="inl-highlight">def e_1 … e_n</span>, where <span class="inl-highlight">e_1<span class="o">,</span> …<span class="o">,</span> e_n</span> are expressions.
-Expressions <span class="inl-highlight">e_1<span class="o">,</span> …<span class="o">,</span> e_n</span> are called arguments of the defcall.</p>
+<span class="inl-highlight">def e_1 ... e_n</span>, where <span class="inl-highlight">e_1<span class="o">,</span> ...<span class="o">,</span> e_n</span> are expressions.
+Expressions <span class="inl-highlight">e_1<span class="o">,</span> ...<span class="o">,</span> e_n</span> are called arguments of the defcall.</p>
 
 <p>There are alternative notations in case a defcall has precisely one or two arguments.
 In case of two arguments, it is possible to use the infix notation: <span class="inl-highlight">def e_1 e_2</span> is equivalent
-to <span class="inl-highlight">e_1 <span class="k">`def`</span> e_2</span>.
-In case of one argument, it is possible to use the postfix notation: <span class="inl-highlight">def e_1</span> is equivalent to <span class="inl-highlight">e_1 <span class="k">`def</span></span>.</p>
+to <span class="inl-highlight">e_1 <span class="k">\`def\`</span> e_2</span>.
+In case of one argument, it is possible to use the postfix notation: <span class="inl-highlight">def e_1</span> is equivalent to <span class="inl-highlight">e_1 <span class="k">\`def</span></span>.</p>
 
 <h2 id="precedence">Precedence</h2>
 
@@ -624,12 +624,12 @@ which is an integer between 1 and 9. For example, <span class="inl-highlight"><s
 named <span class="inl-highlight">op</span> which is left associative with priority 3. The default precedence is <span class="inl-highlight"><span class="k">\fixr</span> <span class="n">10</span></span>.</p>
 
 <p>If <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> are two definitions and <span class="inl-highlight">e1<span class="o">,</span> e2<span class="o">,</span> e3</span> are expressions,
-the expression <span class="inl-highlight">e1 <span class="k">`op1`</span> e2 <span class="k">`op2`</span> e3</span> is parsed according to the following rules:</p>
+the expression <span class="inl-highlight">e1 <span class="k">\`op1\`</span> e2 <span class="k">\`op2\`</span> e3</span> is parsed according to the following rules:</p>
 
 <ul>
-  <li>If priorities of <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> are different and, say, the priority of <span class="inl-highlight">op1</span> is higher, then the expression is parsed as <span class="inl-highlight">(e1 <span class="k">`op1`</span> e2) <span class="k">`op2`</span> e3</span>.</li>
+  <li>If priorities of <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> are different and, say, the priority of <span class="inl-highlight">op1</span> is higher, then the expression is parsed as <span class="inl-highlight">(e1 <span class="k">\`op1\`</span> e2) <span class="k">\`op2\`</span> e3</span>.</li>
   <li>Assume priorities of <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> are the same. If they are both left or both right associative, the expression is
-parsed as <span class="inl-highlight">(e1 <span class="k">`op1`</span> e2) <span class="k">`op2`</span> e3</span> or <span class="inl-highlight">e1 <span class="k">`op1`</span> (e2 <span class="k">`op2`</span> e3)</span> respectively. If <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> have
+parsed as <span class="inl-highlight">(e1 <span class="k">\`op1\`</span> e2) <span class="k">\`op2\`</span> e3</span> or <span class="inl-highlight">e1 <span class="k">\`op1\`</span> (e2 <span class="k">\`op2\`</span> e3)</span> respectively. If <span class="inl-highlight">op1</span> and <span class="inl-highlight">op2</span> have
 different types of associativity or are non-associative, then the parsing error is generated.</li>
 </ul>
 
@@ -640,19 +640,24 @@ This means that its defcalls are parsed as infix notations even without <code cl
 An infix operator is defined by specifying one of keywords <span class="inl-highlight"><span class="k">\infixl</span></span>, <span class="inl-highlight"><span class="k">\infixr</span></span>, <span class="inl-highlight"><span class="k">\infix</span></span> before the name of operator.
 These keywords have the same syntax and semantics as keywords <span class="inl-highlight"><span class="k">\fixl</span></span>, <span class="inl-highlight"><span class="k">\fixr</span></span>, and <span class="inl-highlight"><span class="k">\fix</span></span>, which are described above.</p>
 
-<p>An infix operator can be used in the prefix form as an ordinary definition.
-For example, if the function <span class="inl-highlight"><span class="o">+</span></span> is defined as <span class="inl-highlight"><span class="k">\infixl</span> <span class="n">6</span> <span class="o">+</span></span>, then it is allowed to write either <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span> <span class="n">2</span></span> or <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span> <span class="n">2</span></span>; 
-these expressions are equivalent.</p>
+<p>An infix operator cannot be applied in the prefix form.
+For example, if the function <span class="inl-highlight"><span class="o">+</span></span> is defined as <span class="inl-highlight"><span class="k">\infixl</span> <span class="n">6</span> <span class="o">+</span></span>, then <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span> <span class="n">2</span></span> is <em>not</em> the application
+of <span class="inl-highlight"><span class="o">+</span></span> to <span class="inl-highlight"><span class="n">1</span></span> and <span class="inl-highlight"><span class="n">2</span></span>.
+An infix operator applied to a single argument is a right section instead (see below), so all the arguments that follow the operator
+are taken as one argument expression: <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span> <span class="n">2</span></span> is parsed as the right section of <span class="inl-highlight"><span class="o">+</span></span> applied to <span class="inl-highlight"><span class="n">1</span> <span class="n">2</span></span>,
+which is an error since <span class="inl-highlight"><span class="n">1</span></span> is not a function.
+To use an infix operator as an ordinary definition, enclose its name in parentheses:
+<span class="inl-highlight">(<span class="o">+</span>) <span class="n">1</span> <span class="n">2</span></span> is equivalent to <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span> <span class="n">2</span></span>.</p>
 
-<p>Finally, if <span class="inl-highlight">f</span> is an infix operator or an operator surrounded with <code class="language-plaintext highlighter-rouge">` `</code>, then it is allowed to write <span class="inl-highlight">e f</span> and
-this is equivalent to <span class="inl-highlight">f e</span>.
-For example, the function that adds <span class="inl-highlight"><span class="n">1</span></span> to its argument can be written either as <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span></span> or as <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span></span>.
-The result of application of the first function to <span class="inl-highlight"><span class="n">2</span></span> is <span class="inl-highlight"><span class="n">1</span> <span class="o">+</span> <span class="n">2</span></span>, the result of application of the second one to <span class="inl-highlight"><span class="n">2</span></span>
-is <span class="inl-highlight"><span class="o">+</span> <span class="n">1</span> <span class="n">2</span></span>, and as noted before these expressions are equivalent.</p>
+<p>If <span class="inl-highlight">f</span> is an infix operator or an operator surrounded with <code class="language-plaintext highlighter-rouge">` `</code>, then it is allowed to write <span class="inl-highlight">e f</span>,
+which applies <span class="inl-highlight">f</span> to <span class="inl-highlight">e</span> as its first argument.
+If <span class="inl-highlight">f</span> expects a single argument, this is equivalent to <span class="inl-highlight">f e</span>;
+if <span class="inl-highlight">f</span> is a binary operator, the result is a left section as described below.</p>
 
-<p>As noted above, it is possible to use a left section of an operator, that is <span class="inl-highlight">x <span class="o">+</span></span> is equivalent to <span class="inl-highlight"><span class="k">\lam</span> y <span class="o">=&gt;</span> x <span class="o">+</span> y</span>.
-It is also possible to use right sections:
-if a postfix notation is applied to an argument from the right as in <span class="inl-highlight"><span class="o">`+</span> y</span>, then such an expression is equivalent to <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="o">+</span> y</span>.</p>
+<p>Thus, it is possible to use a left section of an operator, that is <span class="inl-highlight">x <span class="o">+</span></span> is equivalent to <span class="inl-highlight"><span class="k">\lam</span> y <span class="o">=&gt;</span> x <span class="o">+</span> y</span>.
+Right sections can be written in two ways.
+Either a postfix notation is applied to an argument from the right, as in <span class="inl-highlight"><span class="o">`+</span> y</span>, or the operator itself is applied
+to a single argument, as in <span class="inl-highlight"><span class="o">+</span> y</span>; both expressions are equivalent to <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="o">+</span> y</span>.</p>
 
 <h2 id="aliases">Aliases</h2>
 
@@ -726,7 +731,7 @@ Aliases can also contain unicode symbols between <code class="language-plaintext
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Inductive types">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/data.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/data.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/data.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/data.html">
 
 
 
@@ -608,33 +608,33 @@ The basic syntax of a data definition looks like this:</p>
   ...
   <span class="o">|</span> con_m p^m_1 ... p^m_{k_m}</code></pre></div></div>
 
-<p>where <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> and <span class="inl-highlight">p^1<em>1<span class="o">,</span> … p^m</em>{k_m}</span> are either named or unnamed <a href="parameters">parameters</a>.
+<p>where <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> and <span class="inl-highlight">p^1_1<span class="o">,</span> ... p^m_{k_m}</span> are either named or unnamed <a href="parameters">parameters</a>.
 There are several extensions of this syntax which are discussed further in this module and in the module on <a href="hits">HITs</a>.
-Each row <span class="inl-highlight">con_i p^i_1 … p^i_{k_i}</span> defines a constructor <span class="inl-highlight">con_i</span> with the specified parameters.
-Parameters <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are parameters of the data type <span class="inl-highlight">D</span>, but they also become implicit parameters of
+Each row <span class="inl-highlight">con_i p^i_1 ... p^i_{k_i}</span> defines a constructor <span class="inl-highlight">con_i</span> with the specified parameters.
+Parameters <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> are parameters of the data type <span class="inl-highlight">D</span>, but they also become implicit parameters of
 the constructors.</p>
 
-<p>Let <span class="inl-highlight">A<span class="o">,</span> … F</span> be some types and let <span class="inl-highlight">a</span>, … <span class="inl-highlight">f</span> be terms of the corresponding types.
+<p>Let <span class="inl-highlight">A<span class="o">,</span> ... F</span> be some types and let <span class="inl-highlight">a</span>, … <span class="inl-highlight">f</span> be terms of the corresponding types.
 Consider the following example:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Data A B
   <span class="o">|</span> cons {C} D E
-  <span class="o">|</span> cons'
+  <span class="o">|</span> cons&#39;
 
 <span class="k">\func</span> s1 <span class="o">=&gt;</span> Data a b
 <span class="k">\func</span> s2 <span class="o">=&gt;</span> cons d e
-<span class="k">\func</span> s2' <span class="o">=&gt;</span> cons {a} d e
-<span class="k">\func</span> s2'' <span class="o">=&gt;</span> cons {a} {b} {c} d e
-<span class="k">\func</span> s3 <span class="o">=&gt;</span> cons'
-<span class="k">\func</span> s3' <span class="o">=&gt;</span> cons' {a}
-<span class="k">\func</span> s3'' <span class="o">=&gt;</span> cons' {a} {b}</code></pre></div></div>
+<span class="k">\func</span> s2&#39; <span class="o">=&gt;</span> cons {a} d e
+<span class="k">\func</span> s2&#39;&#39; <span class="o">=&gt;</span> cons {a} {b} {c} d e
+<span class="k">\func</span> s3 <span class="o">=&gt;</span> cons&#39;
+<span class="k">\func</span> s3&#39; <span class="o">=&gt;</span> cons&#39; {a}
+<span class="k">\func</span> s3&#39;&#39; <span class="o">=&gt;</span> cons&#39; {a} {b}</code></pre></div></div>
 
 <p>Constructor <span class="inl-highlight">cons</span> has three implicit parameters of types <span class="inl-highlight">A</span>, <span class="inl-highlight">B</span>, and <span class="inl-highlight">C</span> and two explicit parameters of types <span class="inl-highlight">D</span> and <span class="inl-highlight">E</span>.
-Constructor <span class="inl-highlight">cons’</span> has only two implicit parameters of types <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span>.</p>
+Constructor <span class="inl-highlight">cons&#39;</span> has only two implicit parameters of types <span class="inl-highlight">A</span> and <span class="inl-highlight">B</span>.</p>
 
-<p>The type of a <a href="../expressions#defcalls">defcall</a> <span class="inl-highlight">con_i {a_1} … {a_n} b_1 … b_{k_i}</span> is <span class="inl-highlight">D a_1 … a_n</span>.
-The type of a defcall <span class="inl-highlight">D a_1 … a_n</span> is of the form <a href="../expressions/universes">\h-Type p</a>.
-Levels <span class="inl-highlight">h</span> and <span class="inl-highlight">p</span> are inferred automatically and may depend on levels of <span class="inl-highlight">a_1<span class="o">,</span> …<span class="o">,</span> a_n</span>.
+<p>The type of a <a href="../expressions#defcalls">defcall</a> <span class="inl-highlight">con_i {a_1} ... {a_n} b_1 ... b_{k_i}</span> is <span class="inl-highlight">D a_1 ... a_n</span>.
+The type of a defcall <span class="inl-highlight">D a_1 ... a_n</span> is of the form <a href="../expressions/universes">\h-Type p</a>.
+Levels <span class="inl-highlight">h</span> and <span class="inl-highlight">p</span> are inferred automatically and may depend on levels of <span class="inl-highlight">a_1<span class="o">,</span> ...<span class="o">,</span> a_n</span>.
 Alternatively, these levels can be fixed and specified explicitly in the definition of a data type:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> D p_1 ... p_n <span class="o">:</span> <span class="k">\h-Type</span> p
@@ -650,23 +650,23 @@ Alternatively, these levels can be fixed and specified explicitly in the definit
 
 <span class="k">\func</span> f <span class="o">=&gt;</span> con1
 <span class="k">\func</span> g <span class="o">=&gt;</span> con2
-<span class="k">\func</span> f' <span class="o">=&gt;</span> D.con1
-<span class="k">\func</span> g' <span class="o">=&gt;</span> D.con2</code></pre></div></div>
+<span class="k">\func</span> f&#39; <span class="o">=&gt;</span> D.con1
+<span class="k">\func</span> g&#39; <span class="o">=&gt;</span> D.con2</code></pre></div></div>
 
 <p>In the example above, we defined a data type <span class="inl-highlight">D</span> with two constructors <span class="inl-highlight">con1</span> and <span class="inl-highlight">con2</span>.
-Functions <span class="inl-highlight">f</span> and <span class="inl-highlight">f’</span> (as well as <span class="inl-highlight">g</span> and <span class="inl-highlight">g’</span>) are equivalent.</p>
+Functions <span class="inl-highlight">f</span> and <span class="inl-highlight">f&#39;</span> (as well as <span class="inl-highlight">g</span> and <span class="inl-highlight">g&#39;</span>) are equivalent.</p>
 
 <h2 id="inductive-definitions">Inductive definitions</h2>
 
-<p>A data definition can be recursive, that is <span class="inl-highlight">D</span> may appear in parameters <span class="inl-highlight">p^1<span class="k">_1,</span> … p^m_{k_m}</span> (but not in <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span>).
+<p>A data definition can be recursive, that is <span class="inl-highlight">D</span> may appear in parameters <span class="inl-highlight">p^1<span class="k">\_1,</span> ... p^m_{k_m}</span> (but not in <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span>).
 Such recursive definitions are called <em>inductive data types</em>.
 There is one restriction for such definitions: recursive calls to <span class="inl-highlight">D</span> may occur only in <em>strictly positive</em> positions.
 The set of strictly positive positions is defined inductively:</p>
 
 <ul>
-  <li><span class="inl-highlight">D</span> occurs only in strictly positive positions in <span class="inl-highlight">D a_1 … a_n</span> if it does not occur in <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span>.</li>
+  <li><span class="inl-highlight">D</span> occurs only in strictly positive positions in <span class="inl-highlight">D a_1 ... a_n</span> if it does not occur in <span class="inl-highlight">a_1<span class="o">,</span> ... a_n</span>.</li>
   <li><span class="inl-highlight">D</span> occurs only in strictly positive positions in <span class="inl-highlight"><span class="k">\Pi</span> (x <span class="o">:</span> A) <span class="o">-&gt;</span> B</span> if it occurs only in strictly positive positions in <span class="inl-highlight">B</span> and does not occur in <span class="inl-highlight">A</span>.</li>
-  <li><span class="inl-highlight">D</span> occurs only in strictly positive positions in <span class="inl-highlight">Path (<span class="k">\lam</span> i <span class="o">=&gt;</span> B) b b’</span> if it occurs only in strictly positive positions in <span class="inl-highlight">B</span> and does not occur in <span class="inl-highlight">b</span> and <span class="inl-highlight">b’</span>.</li>
+  <li><span class="inl-highlight">D</span> occurs only in strictly positive positions in <span class="inl-highlight">Path (<span class="k">\lam</span> i <span class="o">=&gt;</span> B) b b&#39;</span> if it occurs only in strictly positive positions in <span class="inl-highlight">B</span> and does not occur in <span class="inl-highlight">b</span> and <span class="inl-highlight">b&#39;</span>.</li>
   <li><span class="inl-highlight">D</span> occurs only in strictly positive positions in any other expression if it does not occur in it.</li>
 </ul>
 
@@ -706,7 +706,7 @@ is not valid as its result type <span class="inl-highlight">Nat</span> is of hom
 Two other functions <span class="inl-highlight">existsSuc</span> and <span class="inl-highlight">existsEq</span> in the example above are correct as 
 their result types, <span class="inl-highlight">Exists Nat (<span class="k">\lam</span> n <span class="o">=&gt;</span> suc n <span class="o">=</span> <span class="n">4</span>)</span> and <span class="inl-highlight"><span class="n">0</span> <span class="o">=</span> <span class="n">0</span></span> respectively, are propositions.</p>
 
-<p>If the universe of the resulting type is greater than the universe of the data type, it is still possible to define a function by pattern matching on it if the resulting type is <em>provably</em> belongs to the universe of the data type.
+<p>If the universe of the resulting type is greater than the universe of the data type, it is still possible to define a function by pattern matching on it if the resulting type <em>provably</em> belongs to the universe of the data type.
 This can be done with keyword <a href="level#level-of-a-type">\level</a>.
 In this case, the function should be declared as <a href="functions#sfunc">\sfunc</a> since truncated data types are <a href="level#squashed-data-types">squashed</a>.</p>
 
@@ -717,7 +717,7 @@ Thus, this is simply a syntactic sugar that allows to define functions over a tr
 
 <p>Two or more data types can be mutually recursive.
 This is called <em>induction-induction</em>.
-Just as simply inductive definitions, inductive-inductive definitions also must satisfy a strict positivity condition.
+Just as simple inductive definitions, inductive-inductive definitions also must satisfy a strict positivity condition.
 Namely, recursive calls to the definition itself and to other recursive definitions may occur only in strictly positive
 positions.</p>
 
@@ -739,7 +739,7 @@ Such a data type can be defined by ‘pattern matching’:</p>
 
 <p>The general syntax is similar to the syntax of functions defined by <a href="functions#pattern-matching">pattern matching</a>.
 Either <span class="inl-highlight"><span class="k">\elim</span> vars</span> or <span class="inl-highlight"><span class="k">\with</span></span> constructs can be used with the only difference that 
-<span class="inl-highlight"><span class="k">\elim</span> vars</span> allows to match on a proper subset of parameters of data type.</p>
+<span class="inl-highlight"><span class="k">\elim</span> vars</span> allows to match on a proper subset of parameters of a data type.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> D p_1 ... p_n <span class="k">\with</span>
   <span class="o">|</span> t^1_1<span class="o">,</span> ... t^1_n <span class="o">=&gt;</span> con_1 p^1_1 ... p^1_{k_1}
@@ -748,7 +748,7 @@ Either <span class="inl-highlight"><span class="k">\elim</span> vars</span> or <
 
 <p>Each clause starts a list of patterns, followed by <span class="inl-highlight"><span class="o">=&gt;</span></span>, followed by a constructor definition.
 The order of clauses does not matter.
-If a clause matches the arguments of a defcall <span class="inl-highlight">D a_1 … a_n</span>, then the corresponding constructor is added to this data type.
+If a clause matches the arguments of a defcall <span class="inl-highlight">D a_1 ... a_n</span>, then the corresponding constructor is added to this data type.
 For example, one can define the following data type:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> Bool <span class="o">|</span> true <span class="o">|</span> false
@@ -772,7 +772,7 @@ It is also possible to define several constructors in a single clause as follows
 <h2 id="constructor-synonyms">Constructor synonyms</h2>
 
 <p>A constructor synonym is a function defined with keyword <span class="inl-highlight"><span class="k">\cons</span></span>.
-Such a function cannot be defined by pattern matching and it must consists only of constructors of data types.
+Such a function cannot be defined by pattern matching and it must consist only of constructors of data types.
 It can be used in patterns as a synonym for its right hand side.</p>
 
         
@@ -839,7 +839,7 @@ It can be used in patterns as a synonym for its right hand side.</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

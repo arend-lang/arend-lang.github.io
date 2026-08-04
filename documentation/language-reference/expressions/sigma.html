@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Sigma Types">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/expressions/sigma.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/expressions/sigma.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/expressions/sigma.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/expressions/sigma.html">
 
 
 
@@ -573,32 +573,32 @@
       <section class="page__content" itemprop="text">
         
         <p>A Sigma type is a type of (dependent) tuples.
-If <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are named or unnamed parameters, then <span class="inl-highlight"><span class="k">\Sigma</span> p_1 … p_n</span> is also a type.
+If <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> are named or unnamed parameters, then <span class="inl-highlight"><span class="k">\Sigma</span> p_1 ... p_n</span> is also a type.
 If <span class="inl-highlight">A_i</span> has type <span class="inl-highlight"><span class="kt">\Type</span> p_i h_i</span>, then the type of the Sigma type is <span class="inl-highlight"><span class="kt">\Type</span> p_max h_max</span>, where <span class="inl-highlight">p_max</span> is the maximum
-of <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> and <span class="inl-highlight">h_max</span> is the maximum of <span class="inl-highlight">h_1<span class="o">,</span> … h_n</span>.</p>
+of <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> and <span class="inl-highlight">h_max</span> is the maximum of <span class="inl-highlight">h_1<span class="o">,</span> ... h_n</span>.</p>
 
-<p>An expression of the form <span class="inl-highlight"><span class="k">\Sigma</span> p_1 … p_n (x_1 … x_k <span class="o">:</span> A) q_1 … q_m</span> is equivalent to
-<span class="inl-highlight"><span class="k">\Sigma</span> p_1 … p_n (x_1 <span class="o">:</span> A) … (x_k <span class="o">:</span> A) q_1 … q_m</span>.</p>
+<p>An expression of the form <span class="inl-highlight"><span class="k">\Sigma</span> p_1 ... p_n (x_1 ... x_k <span class="o">:</span> A) q_1 ... q_m</span> is equivalent to
+<span class="inl-highlight"><span class="k">\Sigma</span> p_1 ... p_n (x_1 <span class="o">:</span> A) ... (x_k <span class="o">:</span> A) q_1 ... q_m</span>.</p>
 
-<p>If <span class="inl-highlight">a_i</span> is an expression of type <span class="inl-highlight">A_i[a_1/x_1<span class="o">,</span> … a_{i-1}/x_{i-1}]</span>, then <span class="inl-highlight">(a_1<span class="o">,</span> … a_n)</span> is an expression of
-type <span class="inl-highlight"><span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) … (x_n <span class="o">:</span> A_n)</span>. 
+<p>If <span class="inl-highlight">a_i</span> is an expression of type <span class="inl-highlight">A_i[a_1/x_1<span class="o">,</span> ... a_{i-1}/x_{i-1}]</span>, then <span class="inl-highlight">(a_1<span class="o">,</span> ... a_n)</span> is an expression of
+type <span class="inl-highlight"><span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) ... (x_n <span class="o">:</span> A_n)</span>. 
 Note that the typechecker often cannot infer the correct type of such an expression.
 If the typechecker does not know it already, it always tries to guess a non-dependent version.
 In case the typechecker fails to infer the type, it should be specified explicitly:
-<span class="inl-highlight">((a_1<span class="o">,</span> … a_n) <span class="o">:</span> <span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) … (x_n <span class="o">:</span> A_n))</span>.
-You can also explicitly specify the type of each field: <span class="inl-highlight">(b_1 <span class="o">:</span> B_1<span class="o">,</span> … b_n <span class="o">:</span> B_n)</span>, however in this case 
+<span class="inl-highlight">((a_1<span class="o">,</span> ... a_n) <span class="o">:</span> <span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) ... (x_n <span class="o">:</span> A_n))</span>.
+You can also explicitly specify the type of each field: <span class="inl-highlight">(b_1 <span class="o">:</span> B_1<span class="o">,</span> ... b_n <span class="o">:</span> B_n)</span>, however in this case 
 <span class="inl-highlight">B_i</span> cannot refer to previous parameters, therefore this can only be used to define non-dependent Sigma types.</p>
 
-<p>If <span class="inl-highlight">p</span> is an expression of type <span class="inl-highlight"><span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) … (x_n <span class="o">:</span> A_n)</span> and 1 ≤ i ≤ n, then <span class="inl-highlight">p.i</span> is an expression of
-type <span class="inl-highlight">A_i[p.<span class="n">1</span>/x_1<span class="o">,</span> … p_{i-1}/x_{i-1}]</span>.</p>
+<p>If <span class="inl-highlight">p</span> is an expression of type <span class="inl-highlight"><span class="k">\Sigma</span> (x_1 <span class="o">:</span> A_1) ... (x_n <span class="o">:</span> A_n)</span> and 1 ≤ i ≤ n, then <span class="inl-highlight">p.i</span> is an expression of
+type <span class="inl-highlight">A_i[p.<span class="n">1</span>/x_1<span class="o">,</span> ... p_{i-1}/x_{i-1}]</span>.</p>
 
-<p>An expression of the form <span class="inl-highlight">(a_1<span class="o">,</span> … a_n).i</span> reduces to <span class="inl-highlight">a_i</span>.</p>
+<p>An expression of the form <span class="inl-highlight">(a_1<span class="o">,</span> ... a_n).i</span> reduces to <span class="inl-highlight">a_i</span>.</p>
 
-<p>An expression of the form <span class="inl-highlight">(p.<span class="n">1</span><span class="o">,</span> … p.n)</span> is equivalent to <span class="inl-highlight">p</span> (eta equivalence for Sigma types).</p>
+<p>An expression of the form <span class="inl-highlight">(p.<span class="n">1</span><span class="o">,</span> ... p.n)</span> is equivalent to <span class="inl-highlight">p</span> (eta equivalence for Sigma types).</p>
 
-<p>A field can be marked as a property with the following syntax: <span class="inl-highlight"><span class="k">\Sigma</span> p_1 … (<span class="k">\property</span> p_i) … p_n</span>.
+<p>A field can be marked as a property with the following syntax: <span class="inl-highlight"><span class="k">\Sigma</span> p_1 ... (<span class="k">\property</span> p_i) ... p_n</span>.
 Properties work just like <a href="../definitions/records#properties">record properties</a>.
-That is, the type of a property must live in <span class="inl-highlight"><span class="kt">\Prop</span></span> and <span class="inl-highlight">(a_1<span class="o">,</span> … a_n).i</span> does not evaluate if the i-th field is a property.</p>
+That is, the type of a property must live in <span class="inl-highlight"><span class="kt">\Prop</span></span> and <span class="inl-highlight">(a_1<span class="o">,</span> ... a_n).i</span> does not evaluate if the i-th field is a property.</p>
 
         
       </section>
@@ -664,7 +664,7 @@ That is, the type of a property must live in <span class="inl-highlight"><span c
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

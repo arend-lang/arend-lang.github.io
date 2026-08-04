@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Records">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/records.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/records.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/records.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/records.html">
 
 
 
@@ -609,8 +609,8 @@ The basic syntax looks like this:</p>
   <span class="o">|</span> f_k <span class="o">:</span> B_k
 }</code></pre></div></div>
 
-<p>where <span class="inl-highlight">f_1<span class="o">,</span> … f_k</span> and <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are <em>fields</em> of <span class="inl-highlight">R</span>.
-Note that records do not have parameters and <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are also fields of <span class="inl-highlight">R</span>.
+<p>where <span class="inl-highlight">f_1<span class="o">,</span> ... f_k</span> and <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> are <em>fields</em> of <span class="inl-highlight">R</span>.
+Note that records do not have parameters and <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> are also fields of <span class="inl-highlight">R</span>.
 The only difference between <span class="inl-highlight">p_i</span> and <span class="inl-highlight">f_j</span> is that <span class="inl-highlight">f_j</span> are visible in the scope of <span class="inl-highlight">R</span> and <span class="inl-highlight">p_i</span> are not:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 <span class="o">=&gt;</span> f_1
@@ -630,17 +630,17 @@ The only difference between <span class="inl-highlight">p_i</span> and <span cla
 
 <p>An alternative way to access fields is provided by the following syntax:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5' (x <span class="o">:</span> R) <span class="o">=&gt;</span> x.p_1
-<span class="k">\func</span> test6' (x <span class="o">:</span> R) <span class="o">=&gt;</span> x.f_1</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test5&#39; (x <span class="o">:</span> R) <span class="o">=&gt;</span> x.p_1
+<span class="k">\func</span> test6&#39; (x <span class="o">:</span> R) <span class="o">=&gt;</span> x.f_1</code></pre></div></div>
 
 <p>This syntax is allowed only when the expression before <span class="inl-highlight">.</span> is a variable with an explicitly specified type which is a record.
 If <span class="inl-highlight">x <span class="o">:</span> R</span> and <span class="inl-highlight">f</span> is a field of <span class="inl-highlight">R</span>, then <span class="inl-highlight">x.f</span> is equivalent to <span class="inl-highlight">R.f {x}</span>.</p>
 
-<p>The type <span class="inl-highlight">A_i</span> can depend on variables <span class="inl-highlight">p_1<span class="o">,</span> … p_{i-1}</span>.
-The type <span class="inl-highlight">B_i</span> can depend on variables <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> and <span class="inl-highlight">f_1<span class="o">,</span> … f_{i-1}</span>.</p>
+<p>The type <span class="inl-highlight">A_i</span> can depend on variables <span class="inl-highlight">p_1<span class="o">,</span> ... p_{i-1}</span>.
+The type <span class="inl-highlight">B_i</span> can depend on variables <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> and <span class="inl-highlight">f_1<span class="o">,</span> ... f_{i-1}</span>.</p>
 
 <p>Records are essentially Sigma types. For example, the record <span class="inl-highlight">R</span> above is equivalent to the Sigma type
-<span class="inl-highlight"><span class="k">\Sigma</span> (p_1 <span class="o">:</span> A_1) … (p_n <span class="o">:</span> A_n) (f_1 <span class="o">:</span> B_1) … (f_k <span class="o">:</span> B_k)</span>.</p>
+<span class="inl-highlight"><span class="k">\Sigma</span> (p_1 <span class="o">:</span> A_1) ... (p_n <span class="o">:</span> A_n) (f_1 <span class="o">:</span> B_1) ... (f_k <span class="o">:</span> B_k)</span>.</p>
 
 <p>Instances of type <span class="inl-highlight">R</span> can be created using <em>new expression</em>. Any of the variants of the syntax listed below can be used, they are all equivalent. 
 See <a href="../expressions/class-ext">Class extensions</a> for more information about new expressions and related constructions.</p>
@@ -662,7 +662,7 @@ See <a href="../expressions/class-ext">Class extensions</a> for more information
   <span class="o">|</span> f_k <span class="o">=&gt;</span> b_k</code></pre></div></div>
 
 <p>Records satisfy the eta rule.
-This means that the expression <span class="inl-highlight"><span class="k">\new</span> R r.p_1 … r.p_n r.f_1 … r.f_k</span> is equivalent to <span class="inl-highlight">r</span>.</p>
+This means that the expression <span class="inl-highlight"><span class="k">\new</span> R r.p_1 ... r.p_n r.f_1 ... r.f_k</span> is equivalent to <span class="inl-highlight">r</span>.</p>
 
 <h2 id="properties">Properties</h2>
 
@@ -758,7 +758,7 @@ In order to access these fields, fully qualified names should be used:</p>
 
 <h2 id="this">This</h2>
 
-<p>Every field of a record <span class="inl-highlight">R</span> has additional implicit parameter of type <span class="inl-highlight">R</span>, which can be referred to with the keyword <span class="inl-highlight"><span class="k">\this</span></span>:</p>
+<p>Every field of a record <span class="inl-highlight">R</span> has an additional implicit parameter of type <span class="inl-highlight">R</span>, which can be referred to with the keyword <span class="inl-highlight"><span class="k">\this</span></span>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R (X <span class="o">:</span> <span class="kt">\Type</span>) (t <span class="o">:</span> X <span class="o">-&gt;</span> X)
 
@@ -781,7 +781,7 @@ In order to access these fields, fully qualified names should be used:</p>
   <span class="k">\func</span> f (x <span class="o">:</span> Nat) <span class="o">=&gt;</span> x Nat.<span class="o">+</span> n
 }</code></pre></div></div>
 
-<p>Such a definition will have an addition implicit parameter of type <span class="inl-highlight">R</span>.
+<p>Such a definition will have an additional implicit parameter of type <span class="inl-highlight">R</span>.
 Thus, the code above is equivalent to the following one:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R {
@@ -837,7 +837,7 @@ An instance of <span class="inl-highlight">S</span> can be created as usual or t
 
 <span class="k">\func</span> test2 <span class="o">:</span> inst2.f <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> idp</code></pre></div></div>
 
-<p>Defaullt implementations can be defined by pattern matching as usual:</p>
+<p>Default implementations can be defined by pattern matching as usual:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> R
   <span class="o">|</span> f <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat
@@ -852,7 +852,7 @@ An instance of <span class="inl-highlight">S</span> can be created as usual or t
 <p>In this case, a function with the same name as the field will be created in the namespace of the record.
 The name of the function can be changed with the <span class="inl-highlight"><span class="k">\as</span></span> keyword:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> S' <span class="k">\extends</span> R {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> S&#39; <span class="k">\extends</span> R {
   <span class="k">\default</span> f <span class="k">\as</span> fImpl (n <span class="o">:</span> Nat) <span class="o">:</span> Nat <span class="k">\with</span> {
     <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">0</span>
     <span class="o">|</span> suc n <span class="o">=&gt;</span> n
@@ -874,9 +874,9 @@ For example, the following code does not work:</p>
 
 <p>To fix this, the first default implementation must be given a name and in the second one its type must be explicitly specified:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> S' <span class="k">\extends</span> R {
-  <span class="k">\default</span> x <span class="k">\as</span> x' <span class="o">=&gt;</span> <span class="n">0</span>
-  <span class="k">\default</span> p <span class="o">:</span> x' <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\record</span> S&#39; <span class="k">\extends</span> R {
+  <span class="k">\default</span> x <span class="k">\as</span> x&#39; <span class="o">=&gt;</span> <span class="n">0</span>
+  <span class="k">\default</span> p <span class="o">:</span> x&#39; <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
 }</code></pre></div></div>
 
 <p>Default implementations can also be implemented in terms of each other:</p>
@@ -979,7 +979,7 @@ For example, the following code does not work:</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

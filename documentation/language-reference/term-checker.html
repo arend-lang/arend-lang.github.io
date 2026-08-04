@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend termination checker">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/term-checker.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/term-checker.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/term-checker.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/term-checker.html">
 
 
 
@@ -629,11 +629,11 @@ If the call <em>G</em> appears outside any elimination clause, then <em>P</em><s
 These elimination constructs may occur only at the <strong>top level</strong> of a function or theorem definition.
 As a result, nested elimination blocks do not arise, and the patterns <em>P</em><sub><em>i</em></sub> never need to be computed by repeated pattern substitution.</p>
 
-<p>The exact value of <em>C</em><sub><em>ij</em></sub> now computed from <em>P</em><sub><em>i</em></sub> and <em>z</em><sub><em>j</em></sub> according to the set of rules described below.</p>
+<p>The exact value of <em>C</em><sub><em>ij</em></sub> is now computed from <em>P</em><sub><em>i</em></sub> and <em>z</em><sub><em>j</em></sub> according to the set of rules described below.</p>
 
 <p>First of all, if the <em>j</em>-th parameter of <em>g</em> is not supplied (i.e. <em>j &gt; s</em>), then set <em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
 
-<p>In what follows assume <em>j ≤ s</em>.</p>
+<p>In what follows, assume <em>j ≤ s</em>.</p>
 
 <p>If the pattern for <em>x</em><sub><em>i</em></sub> is a variable (i.e. <em>P</em><sub><em>i</em></sub> is just <em>x</em><sub><em>i</em></sub>), then 
 <em>C</em><sub><em>ij</em></sub> = “<strong>=</strong>” if <em>z</em><sub><em>j</em></sub> is exactly a reference to <em>x</em><sub><em>i</em></sub>, otherwise, <em>C</em><sub><em>ij</em></sub> = “<strong>?</strong>”.</p>
@@ -668,7 +668,7 @@ If some component returns “<strong>?</strong>” or there are too few argument
   <li>
     <p><strong>Strip off applications from</strong> <em>z</em><sub><em>j</em></sub> <strong>expression until it becomes a plain constructor call</strong></p>
 
-    <p>Starting from <em>e</em><sub><em>0</em></sub> := <em>z</em><sub><em>j</em></sub>, the algorithm performs following simplifications:</p>
+    <p>Starting from <em>e</em><sub><em>0</em></sub> := <em>z</em><sub><em>j</em></sub>, the algorithm performs the following simplifications:</p>
 
     <ul>
       <li>if <em>e</em> is an application <em>e’ u</em>, replace it by its function part <em>e’</em>;</li>
@@ -779,8 +779,8 @@ As a result, if a variable introduced in a <code class="language-plaintext highl
 
 <h2 id="3-termination-criterion-1-existence-of-a-termination-order">3. Termination criterion 1: existence of a termination order</h2>
 
-<p>This criterion is only tried if the strong connected component in the call graph consists of only vertex, i.e. one deals with a recursive function and not with mutual recursion.
-Otherwise this step is skipped and Termination criterion 2 is tried, see below.</p>
+<p>This criterion is only tried if the strongly connected component in the call graph consists of only one vertex, i.e. one deals with a recursive function and not with mutual recursion.
+Otherwise, this step is skipped and Termination criterion 2 is tried, see below.</p>
 
 <p>Let <em>f(x</em><sub><em>1</em></sub>, … ,<em>x</em><sub><em>n</em></sub><em>)</em> be a function that makes <em>m</em> different recursive calls to itself. 
 Each call is represented by an <em>n × n</em> call matrix <em>c</em><sup><em>1</em></sup>, …, <em>c</em><sup><em>m</em></sup>.</p>
@@ -795,7 +795,7 @@ Each call is represented by an <em>n × n</em> call matrix <em>c</em><sup><em>1<
   <li>Restrict attention to calls with indices in <em>I</em><sub><em>1</em></sub>. For each <em>j</em> ∊ <em>I</em><sub><em>1</em></sub>, 
 the diagonal entry <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> is required to be either “<strong>&lt;</strong>” or “<strong>=</strong>”.
     <ul>
-      <li>Let <em>I</em><sub><em>2</em></sub> be the those <em>j</em> from <em>I</em><sub><em>1</em></sub> for which <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> = “<strong>=</strong>”.</li>
+      <li>Let <em>I</em><sub><em>2</em></sub> be those <em>j</em> from <em>I</em><sub><em>1</em></sub> for which <em>c</em><sup><em>j</em></sup><sub>i<sub>2</sub>, i<sub>2</sub></sub> = “<strong>=</strong>”.</li>
     </ul>
   </li>
   <li>
@@ -827,7 +827,7 @@ and define <em>I</em><sub><em>k</em></sub> as those with “<strong>=</strong>�
 <p>It is clear that a function that admits a termination order is guaranteed to terminate. Indeed, every recursive call strictly decreases its arguments in a fixed lexicographic order: the first parameter where a difference appears becomes smaller, while all earlier ones remain unchanged. Since each parameter is drawn from a well-founded domain (e.g. inductive type), and the lexicographic product of well-founded orders is itself well-founded, infinite descent is impossible, so the recursion must eventually stop.</p>
 
 <p>If termination criterion 1 succeeds, the Arend termination checker will accept the one-vertex SCC and will not do anything else.
-Otherwise, it would try to compute the completion of the call graph and will try to check if Termination Criterion 2 holds.</p>
+Otherwise, it will try to compute the completion of the call graph and will try to check if Termination Criterion 2 holds.</p>
 
 <h2 id="4-the-call-graph-and-its-completion">4. The Call Graph and its completion</h2>
 
@@ -891,7 +891,7 @@ the number of columns of <em>C</em><sub><em>e</em></sub> coincides with the numb
 <p>The <strong>completed call graph</strong> is obtained by finding all possible compositions of edges and computing their labels (products of call matrices). 
 Since there are only finitely many different call matrices between any two vertices, the completion graph can be computed in finitely many steps.</p>
 
-<p>In categorical language the completed call graph is the subcategory generated by the original call graph (considered as a subgraph of the category in which vertices are functions and hom-sets are sets of call matrices of appropriate sizes).</p>
+<p>In categorical language, the completed call graph is the subcategory generated by the original call graph (considered as a subgraph of the category in which vertices are functions and hom-sets are sets of call matrices of appropriate sizes).</p>
 
 <hr />
 
@@ -920,7 +920,7 @@ Since there are only finitely many different call matrices between any two verti
 
 <p>Together, these two kinds of recursive calls generate a subgroup of the symmetric group <em>S</em><sub><em>9</em></sub>: the 9-cycle and the transposition generate <strong>all</strong> permutations of the 9 arguments. From the point of view of size-change termination, this means that completing the call graph (or closing the size-change graphs under composition) can produce a large number of distinct permutations.</p>
 
-<p>For this reason the Arend termination checker will stop the computation of the completion and will reject the SCC as nonterminating if at least 100 different loops are generated at least on one call graph vertex.</p>
+<p>For this reason, the Arend termination checker will stop the computation of the completion and will reject the SCC as nonterminating if at least 100 different loops are generated at least on one call graph vertex.</p>
 
 <hr />
 
@@ -942,7 +942,7 @@ Since there are only finitely many different call matrices between any two verti
 
 <p>The component is accepted if in every idempotent call matrix <em>M</em> labeling a loop there is a (“<strong>&lt;</strong>”) on some diagonal entry.</p>
 
-<p>Intution behind this sufficient condition is the following.
+<p>Intuition behind this sufficient condition is the following.
 Every infinite call sequence generates an idempotent loop matrix eventually (essentially, this follows from the pigeonhole principle).
 If every idempotent matrix contains a <strong>&lt;</strong> somewhere, then some parameter position experiences infinitely many decreases along each infinite sequence of calls, which guarantees termination.</p>
 
@@ -1010,7 +1010,7 @@ If every idempotent matrix contains a <strong>&lt;</strong> somewhere, then some
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

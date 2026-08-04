@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Arend Proof Search">
-<meta property="og:url" content="http://localhost:4000/documentation/proof-search.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/proof-search.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/proof-search.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/proof-search.html">
 
 
 
@@ -565,7 +565,7 @@ atom_pattern ::= '_' | (IDENTIFIER '.')* IDENTIFIER | '(' app_pattern ')'
 
 <h2 id="parameters-and-result-type">Parameters and result type</h2>
 
-<p>If there is an <code class="language-plaintext highlighter-rouge">-&gt;</code> in a query (i.e. it has several <code class="language-plaintext highlighter-rouge">and_pattern</code>s), then the rightmost <code class="language-plaintext highlighter-rouge">and_pattern</code> will be matched with the codomain of the definition, and the rest patterns delimited by <code class="language-plaintext highlighter-rouge">-&gt;</code> will be matched with the domain parameters of the definition.</p>
+<p>If there is an <code class="language-plaintext highlighter-rouge">-&gt;</code> in a query (i.e. it has several <code class="language-plaintext highlighter-rouge">and_pattern</code>s), then the rightmost <code class="language-plaintext highlighter-rouge">and_pattern</code> will be matched with the codomain of the definition, and the rest of the patterns delimited by <code class="language-plaintext highlighter-rouge">-&gt;</code> will be matched with the domain parameters of the definition.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- The pattern is `Foo -&gt; Bar`
 </span>
@@ -598,7 +598,7 @@ atom_pattern ::= '_' | (IDENTIFIER '.')* IDENTIFIER | '(' app_pattern ')'
 </span>
 <span class="k">\func</span> foo (e <span class="o">:</span> <span class="k">\Sigma</span> (List Nat) Bool) <span class="o">:</span> <span class="n">1</span> <span class="o">=</span> <span class="n">1</span> <span class="c">-- matched</span></code></pre></div></div>
 
-<p>There is a difference between <code class="language-plaintext highlighter-rouge">Nat -&gt; Bool -&gt; _</code> and <code class="language-plaintext highlighter-rouge">Nat \and Bool -&gt; _</code>: the former will match all definitions that have (not necessarily distinct) parameters mentioning <code class="language-plaintext highlighter-rouge">Nat</code> and <code class="language-plaintext highlighter-rouge">Bool</code>, while the latter requires the existence of a parameter, that mentions <code class="language-plaintext highlighter-rouge">Nat</code> <em>and</em> <code class="language-plaintext highlighter-rouge">Bool</code> at the same time.</p>
+<p>There is a difference between <code class="language-plaintext highlighter-rouge">Nat -&gt; Bool -&gt; _</code> and <code class="language-plaintext highlighter-rouge">Nat \and Bool -&gt; _</code>: the former will match all definitions that have (not necessarily distinct) parameters mentioning <code class="language-plaintext highlighter-rouge">Nat</code> and <code class="language-plaintext highlighter-rouge">Bool</code>, while the latter requires the existence of a parameter that mentions <code class="language-plaintext highlighter-rouge">Nat</code> <em>and</em> <code class="language-plaintext highlighter-rouge">Bool</code> at the same time.</p>
 
 <h2 id="restricting-namespaces">Restricting namespaces</h2>
 
@@ -614,7 +614,7 @@ atom_pattern ::= '_' | (IDENTIFIER '.')* IDENTIFIER | '(' app_pattern ')'
 </span>
 <span class="k">\func</span> f <span class="o">:</span> List (foo (bar baz) true) <span class="c">-- matched</span></code></pre></div></div>
 
-<p>It is possible to specify a subsequence of a module path for the identifier. Also note, that IntelliJ Arend provides code completion for the queries.</p>
+<p>It is possible to specify a subsequence of a module path for the identifier. Also note that IntelliJ Arend provides code completion for the queries.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> Foo <span class="k">\where</span> <span class="k">\func</span> foo <span class="o">:</span> Nat
 <span class="k">\module</span> Bar <span class="k">\where</span> <span class="k">\func</span> foo <span class="o">:</span> Nat
 
@@ -708,7 +708,7 @@ atom_pattern ::= '_' | (IDENTIFIER '.')* IDENTIFIER | '(' app_pattern ')'
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

@@ -1,0 +1,887 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Standard Metas for Equality - Arend Theorem Prover</title>
+<meta name="description" content="The Arend Theorem Prover">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Arend Theorem Prover">
+<meta property="og:title" content="Standard Metas for Equality">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/tutorial/PartI/metas-equality.html">
+
+
+  <meta property="og:description" content="The Arend Theorem Prover">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://arend-lang.github.io/documentation/tutorial/PartI/metas-equality.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Arend Theorem Prover Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+</head>
+
+<body class="layout--single">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Arend Theorem Prover
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation"
+                
+                
+              >Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation/getting-started/download"
+                
+                
+              >Download</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/arend-lib"
+                
+                
+              >Arend Library</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="initial-content">
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+
+  
+  
+  
+  
+
+  
+  
+  
+
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/getting-started"><span class="nav__sub-title">Getting Started</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/arend-features" class="">Arend features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/download" class="">Downloading Arend</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/started" class="">Creating first project</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/libraries" class="">Arend libraries</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/getting-started/intellij-arend-tutorial" class="">Short tutorial</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/tutorial"><span class="nav__sub-title">Tutorial</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartI" class="">Part I: Dependent Types</a></li>
+
+            
+            
+            
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/synndef" class="">&nbsp;&nbsp;&nbsp;&nbsp;Basics</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/propsnproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Propositions and Proofs</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/datanproofs" class="">&nbsp;&nbsp;&nbsp;&nbsp;Indexed Data Types</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/idtype" class="">&nbsp;&nbsp;&nbsp;&nbsp;Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/equalityex" class="">&nbsp;&nbsp;&nbsp;&nbsp;Proofs of Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-equality" class="active">&nbsp;&nbsp;&nbsp;&nbsp;Standard Metas for Equality</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/records" class="">&nbsp;&nbsp;&nbsp;&nbsp;Classes and Records</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/case" class="">&nbsp;&nbsp;&nbsp;&nbsp;Case Expression</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/universes" class="">&nbsp;&nbsp;&nbsp;&nbsp;Universes, Induction, Specifications</a></li>
+              
+                
+                
+
+                
+
+                <li><a href="/documentation/tutorial/PartI/metas-algebra" class="">&nbsp;&nbsp;&nbsp;&nbsp;Algebraic Metas</a></li>
+              
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/tutorial/PartII" class="">Part II: Homotopy Type Theory</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/standard-tactics"><span class="nav__sub-title">Standard metas</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/meta" class="">Unclassified metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/paths-meta" class="">Paths metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/function-meta" class="">Functional metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/algebra-meta" class="">Algebraic metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/logic-meta" class="">Logical metas</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/standard-tactics/debug-meta" class="">Debugging metas</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/language-reference"><span class="nav__sub-title">Language Reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/lexical-structure" class="">Lexical structure</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/definitions" class="">Definitions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/expressions" class="">Expressions</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/prelude" class="">Prelude</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/language-reference/term-checker" class="">Termination checker</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/documentation/plugin-manual"><span class="nav__sub-title">Plugin reference</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/editor-features" class="">Editor features</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/navigating" class="">Navigation</a></li>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            <li><a href="/documentation/plugin-manual/refactoring" class="">Refactoring</a></li>
+
+            
+            
+            
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Standard Metas for Equality">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Standard Metas for Equality
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Standard Metas for Equality</h4></header>
+              <ul class="toc__menu"><li><a href="#rewrite">rewrite</a></li><li><a href="#selective-occurrences">Selective occurrences</a></li><li><a href="#partial-application-and-infix-sections">Partial application and infix sections</a></li><li><a href="#run-for-chaining">run for chaining</a></li><li><a href="#in-applying-a-meta-to-a-value">in: applying a meta to a value</a></li><li><a href="#at-modifying-a-hypothesis">at: modifying a hypothesis</a></li><li><a href="#when-to-use-what">When to use what</a></li><li><a href="#exercises">Exercises</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--success">The source code for this module: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/MetasEquality.ard">PartI/MetasEquality.ard</a> <br />
+The source code for the exercises: <a href="https://github.com/arend-lang/tutorial-code/blob/master/PartI/src/Exercises/MetasEqualityEx.ard">PartI/MetasEqualityEx.ard</a></p>
+
+<p>Up to this point, equality proofs were assembled from the kernel primitives <span class="inl-highlight">idp</span>, <span class="inl-highlight">pmap</span>, <span class="inl-highlight">transport</span>, <span class="inl-highlight">inv</span>, and <span class="inl-highlight"><span class="o">*&gt;</span></span>. As proofs grow these primitives become tedious to thread by hand. The Arend standard library ships <em>metas</em> — macros that expand into ordinary kernel terms post-elaboration. They are not a separate logic; they are surface syntax for the same <span class="inl-highlight">transport</span>/<span class="inl-highlight">pmap</span> machinery the previous chapters introduced.</p>
+
+<p>In this chapter we introduce the metas most useful for equality proofs: <span class="inl-highlight">rewrite</span>, <span class="inl-highlight">rewriteI</span>, <span class="inl-highlight">run</span>, <span class="inl-highlight">in</span>, and <span class="inl-highlight">at</span>. We also cover the language features <span class="inl-highlight">rewrite</span> relies on: partial application of functions and <em>infix sections</em>. The full reference for each meta lives at <a href="/documentation/standard-tactics">Standard Metas</a>.</p>
+
+<p>Metas are organized into several modules. Throughout this chapter we will assume the following imports:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\import</span> Paths        <span class="c">-- inv, *&gt;, transport, transportInv, idp, pmap</span>
+<span class="k">\import</span> Paths.Meta   <span class="c">-- rewrite, rewriteI, ext, simp_coe, simplify</span>
+<span class="k">\import</span> Meta         <span class="c">-- run, in, at, cases, mcases, unfold, ...</span>
+<span class="k">\import</span> Function.Meta <span class="c">-- $, #, repeat</span></code></pre></div></div>
+
+<h1 id="rewrite">rewrite</h1>
+
+<p><span class="inl-highlight">rewrite p t</span>, where <span class="inl-highlight">p <span class="o">:</span> a <span class="o">=</span> b</span>, looks at the <em>expected</em> type, replaces every occurrence of <span class="inl-highlight">a</span> with <span class="inl-highlight">b</span>, and uses <span class="inl-highlight">t</span> as a proof of the rewritten type. It is exactly sugar for <span class="inl-highlight">transportInv</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- These two definitions are equivalent:</span>
+<span class="k">\func</span> test (n m <span class="o">:</span> Nat) (p <span class="o">:</span> n <span class="o">=</span> m) (q <span class="o">:</span> m <span class="o">=</span> <span class="n">0</span>) <span class="o">:</span> n <span class="o">=</span> <span class="n">0</span>
+  <span class="o">=&gt;</span> rewrite p q
+
+<span class="k">\func</span> test&#39; (n m <span class="o">:</span> Nat) (p <span class="o">:</span> n <span class="o">=</span> m) (q <span class="o">:</span> m <span class="o">=</span> <span class="n">0</span>) <span class="o">:</span> n <span class="o">=</span> <span class="n">0</span>
+  <span class="o">=&gt;</span> transportInv (<span class="k">\lam</span> x <span class="o">=&gt;</span> x <span class="o">=</span> <span class="n">0</span>) p q</code></pre></div></div>
+
+<p>The companion meta <span class="inl-highlight">rewriteI p</span> is shorthand for <span class="inl-highlight">rewrite (inv p)</span>: it rewrites in the opposite direction. Use <span class="inl-highlight">rewriteI</span> when the equation you have is “wrong-way-round” relative to the goal.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 (a <span class="o">:</span> Nat) (p <span class="o">:</span> a <span class="o">=</span> <span class="n">0</span>) <span class="o">:</span> a Nat.<span class="o">+</span> a <span class="o">=</span> <span class="n">0</span>
+  <span class="o">=&gt;</span> rewrite p idp
+
+<span class="k">\func</span> test2 (a <span class="o">:</span> Nat) (p <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> a) <span class="o">:</span> a Nat.<span class="o">+</span> a <span class="o">=</span> <span class="n">0</span>
+  <span class="o">=&gt;</span> rewriteI p idp</code></pre></div></div>
+
+<p>The associativity of <span class="inl-highlight"><span class="o">+</span></span> from <a href="datanproofs">Indexed Data Types</a> compresses noticeably with <span class="inl-highlight">rewrite</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\open</span> Nat(<span class="o">+</span>)
+
+<span class="k">\lemma</span> <span class="o">+</span>-assoc (a b c <span class="o">:</span> Nat) <span class="o">:</span> a <span class="o">+</span> b <span class="o">+</span> c <span class="o">=</span> a <span class="o">+</span> (b <span class="o">+</span> c) <span class="k">\elim</span> c
+  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> idp
+  <span class="o">|</span> suc c <span class="o">=&gt;</span> rewrite (<span class="o">+</span>-assoc a b c) idp</code></pre></div></div>
+
+<p>The seed <span class="inl-highlight">idp</span> proves the goal <em>after</em> the rewrite has been applied; once both sides have been normalized to the same shape, reflexivity finishes the proof.</p>
+
+<h1 id="selective-occurrences">Selective occurrences</h1>
+
+<p>When the LHS appears multiple times in the goal, rewriting <em>all</em> occurrences is sometimes wrong. <span class="inl-highlight">rewrite {n_1<span class="o">,</span> n_2<span class="o">,</span> ...} p t</span> rewrites only the listed occurrences (counting in left-to-right order, after each replacement). For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test {x <span class="o">:</span> Nat} (p <span class="o">:</span> suc x <span class="o">=</span> suc (suc x))
+         <span class="o">:</span> suc (suc x) <span class="o">=</span> x Nat.<span class="o">+</span> <span class="n">3</span>
+  <span class="o">=&gt;</span> rewrite {<span class="n">1</span>} p idp</code></pre></div></div>
+
+<p>Here <span class="inl-highlight">suc x</span> appears multiple times in the goal after normalization; without <span class="inl-highlight">{<span class="n">1</span>}</span> the rewrite would chase its own tail.</p>
+
+<h1 id="partial-application-and-infix-sections">Partial application and infix sections</h1>
+
+<p>Arend allows partial application of any function or infix operator. Two forms appear constantly in proofs assembled with metas:</p>
+
+<ul>
+  <li><span class="inl-highlight">pmap suc</span> is a value of type <span class="inl-highlight">{a a&#39; <span class="o">:</span> Nat} <span class="o">-&gt;</span> a <span class="o">=</span> a&#39; <span class="o">-&gt;</span> suc a <span class="o">=</span> suc a&#39;</span> — a unary function that consumes a path. Perfectly usable as a building block.</li>
+  <li>For infix operators like <span class="inl-highlight"><span class="o">*&gt;</span></span>, the expressions <span class="inl-highlight">(p <span class="o">*&gt;</span>)</span> and <span class="inl-highlight">(<span class="o">`*&gt;</span> q)</span> are <em>sections</em>: the former precomposes with <span class="inl-highlight">p</span> on the left, the latter composes with <span class="inl-highlight">q</span> on the right. Each is a unary function on paths.</li>
+  <li><span class="inl-highlight"><span class="u">_</span><span class="u">_</span></span> (double underscore) is the explicit anonymous-section placeholder: <span class="inl-highlight"><span class="u">_</span><span class="u">_</span> <span class="o">+</span> <span class="n">1</span></span>, <span class="inl-highlight">f <span class="u">_</span><span class="u">_</span> x</span>, etc.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> ex-pmap (n m <span class="o">:</span> Nat) (p <span class="o">:</span> n <span class="o">=</span> m) <span class="o">:</span> suc n <span class="o">=</span> suc m
+  <span class="o">=&gt;</span> pmap suc p
+
+<span class="k">\func</span> ex-section-left (a b c <span class="o">:</span> Nat) (p <span class="o">:</span> a <span class="o">=</span> b) (q <span class="o">:</span> b <span class="o">=</span> c) <span class="o">:</span> a <span class="o">=</span> c
+  <span class="o">=&gt;</span> (p <span class="o">*&gt;</span>) q   <span class="c">-- equivalent to p *&gt; q</span>
+
+<span class="k">\func</span> ex-double-underscore <span class="o">:</span> Nat <span class="o">-&gt;</span> Nat
+  <span class="o">=&gt;</span> <span class="u">_</span><span class="u">_</span> Nat.<span class="o">+</span> <span class="n">1</span></code></pre></div></div>
+
+<p>These are language features, not meta features — but they are what makes the next section’s <span class="inl-highlight">run</span>-blocks readable.</p>
+
+<h1 id="run-for-chaining">run for chaining</h1>
+
+<p>Nested <span class="inl-highlight">rewrite</span> calls grow ugly:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Hard to scan:</span>
+rewrite p (rewrite q (rewrite r idp))</code></pre></div></div>
+
+<p>The <span class="inl-highlight">run</span> meta lets you write the same chain top-to-bottom as a comma-separated list:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> ex-run {A <span class="o">:</span> <span class="kt">\Type</span>} (a b c d <span class="o">:</span> A) (p <span class="o">:</span> a <span class="o">=</span> b) (q <span class="o">:</span> b <span class="o">=</span> c) (r <span class="o">:</span> c <span class="o">=</span> d) <span class="o">:</span> a <span class="o">=</span> d
+  <span class="o">=&gt;</span> run {
+    rewrite p<span class="o">,</span>
+    rewrite q<span class="o">,</span>
+    rewrite r<span class="o">,</span>
+    idp
+  }</code></pre></div></div>
+
+<p>The semantics: <span class="inl-highlight">run { f_1<span class="o">,</span> f_2<span class="o">,</span> ...<span class="o">,</span> f_n<span class="o">,</span> t }</span> expands to <span class="inl-highlight">f_1 (f_2 (... (f_n t)))</span>. The last entry is the seed (the innermost proof); each entry above is a unary function applied to the chain so far.</p>
+
+<p>A <span class="inl-highlight">run</span>-block can mix <span class="inl-highlight">rewrite</span>, <span class="inl-highlight">pmap f</span>, infix sections like <span class="inl-highlight">p <span class="o">*&gt;</span></span>, and any other unary function on proofs. For occasional advanced uses, <span class="inl-highlight">run</span> also accepts entries of the form <span class="inl-highlight"><span class="k">\let</span> <span class="o">|</span> x <span class="o">=&gt;</span> e <span class="k">\in</span> {}</span> or <span class="inl-highlight"><span class="k">\lam</span> x <span class="o">=&gt;</span> {}</span> (with empty bodies); these wrap the rest of the chain in a let-binding or a lambda respectively.</p>
+
+<p><span class="inl-highlight">rewrite</span> itself also accepts a tuple of paths in place of a single path: <span class="inl-highlight">rewrite (p_1<span class="o">,</span> p_2<span class="o">,</span> ...<span class="o">,</span> p_n) t</span> is equivalent to <span class="inl-highlight">rewrite p_1 (rewrite p_2 (... (rewrite p_n t)))</span>. Each <span class="inl-highlight">p_i</span> is applied in left-to-right order, with the previous rewrites already reflected in the goal by the time the next one runs. This is a more compact alternative to <span class="inl-highlight">run</span> when every step is itself a <span class="inl-highlight">rewrite</span>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> ex-rewrite-tuple {A <span class="o">:</span> <span class="kt">\Type</span>} (a b c d <span class="o">:</span> A) (p <span class="o">:</span> a <span class="o">=</span> b) (q <span class="o">:</span> b <span class="o">=</span> c) (r <span class="o">:</span> c <span class="o">=</span> d) <span class="o">:</span> a <span class="o">=</span> d
+  <span class="o">=&gt;</span> rewrite (p<span class="o">,</span> q<span class="o">,</span> r) idp</code></pre></div></div>
+
+<p>Reach for <span class="inl-highlight">run</span> when the chain mixes different metas; reach for the tuple form when it is purely rewrites.</p>
+
+<h1 id="in-applying-a-meta-to-a-value">in: applying a meta to a value</h1>
+
+<p><span class="inl-highlight">f in x</span> runs <span class="inl-highlight">f x</span> but with one important subtlety: it discards the surrounding <em>expected</em> type. Internally, <span class="inl-highlight">in</span> elaborates to <span class="inl-highlight"><span class="k">\let</span> r <span class="o">=&gt;</span> f x <span class="k">\in</span> r</span>, and that <span class="inl-highlight"><span class="k">\let</span></span> is typechecked without the goal’s type information flowing in.</p>
+
+<p>For most metas this difference is invisible. For <span class="inl-highlight">rewrite</span>, which inspects the expected type to decide <em>what</em> to rewrite, the difference is observable:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-- Direct application uses the expected type:</span>
+<span class="k">\func</span> test1 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> zero) (q <span class="o">:</span> zero <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y
+  <span class="o">=&gt;</span> rewrite p q   <span class="c">-- rewrites x → zero in the goal x = y, giving zero = y; matches q</span>
+
+<span class="c">-- `in` uses t&#39;s type instead:</span>
+<span class="k">\func</span> test2 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> zero <span class="o">=</span> x) (q <span class="o">:</span> zero <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y
+  <span class="o">=&gt;</span> rewrite p in q   <span class="c">-- rewrites zero → x in q&#39;s type zero = y, giving x = y</span></code></pre></div></div>
+
+<p>Use <span class="inl-highlight">f in x</span> when you want the meta to operate on the <em>value’s</em> type rather than the goal — for example, when there is no annotated result type, or when you want a “rewrite in the hypothesis itself” effect on the seed.</p>
+
+<p><span class="inl-highlight">in</span> chains: <span class="inl-highlight">(f_1<span class="o">,</span> f_2<span class="o">,</span> ...<span class="o">,</span> f_n) in x</span> ≡ <span class="inl-highlight">f_1 (f_2 (... (f_n x)))</span>. Each step runs without an expected type.</p>
+
+<p><span class="inl-highlight">in</span> has loose precedence (priority 1, right-associative). To apply the result of <span class="inl-highlight">f in x</span> to further arguments, parens are required:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(simp_coe in t) b      <span class="c">-- applies simp_coe in t, then applies result to b</span>
+<span class="c">-- simp_coe in t b     -- parses as simp_coe in (t b) — different proof</span></code></pre></div></div>
+
+<h1 id="at-modifying-a-hypothesis">at: modifying a hypothesis</h1>
+
+<p><span class="inl-highlight">f at h</span> shadows the local binding <span class="inl-highlight">h</span> with <span class="inl-highlight">f h</span> for the rest of the expression — Arend’s analogue of “rewrite in a hypothesis.” It is the right tool when a hypothesis needs reshaping before it can be used.</p>
+
+<p>There are three equivalent surface forms:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 (x <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> zero) (q <span class="o">:</span> x <span class="o">=</span> suc zero) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> (rewrite p at q) (<span class="k">\case</span> q <span class="k">\with</span> {})
+
+<span class="k">\func</span> test2 (x <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> zero) (q <span class="o">:</span> x <span class="o">=</span> suc zero) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> rewrite p at q <span class="o">$</span> <span class="k">\case</span> q <span class="k">\with</span> {}
+
+<span class="k">\func</span> test3 (x <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> zero) (q <span class="o">:</span> x <span class="o">=</span> suc zero) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> run {
+    rewrite p at q<span class="o">,</span>
+    <span class="k">\case</span> q <span class="k">\with</span> {}
+  }</code></pre></div></div>
+
+<p>After <span class="inl-highlight">rewrite p at q</span>, the local <span class="inl-highlight">q</span> has type <span class="inl-highlight">zero <span class="o">=</span> suc zero</span> instead of <span class="inl-highlight">x <span class="o">=</span> suc zero</span>. The empty <span class="inl-highlight"><span class="k">\case</span></span> then derives <span class="inl-highlight">Empty</span> from the constructor disjointness of <span class="inl-highlight">zero</span> and <span class="inl-highlight">suc zero</span>.</p>
+
+<p>Like <span class="inl-highlight">in</span>, <span class="inl-highlight">at</span> accepts a tuple-chaining form:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test {x y <span class="o">:</span> Nat} (p1 <span class="o">:</span> x <span class="o">=</span> zero) (p2 <span class="o">:</span> y <span class="o">=</span> suc zero) (q <span class="o">:</span> x <span class="o">=</span> y) <span class="o">:</span> Empty
+  <span class="o">=&gt;</span> (rewrite p1<span class="o">,</span> rewrite p2) at q <span class="o">$</span> <span class="k">\case</span> q <span class="k">\with</span> {}</code></pre></div></div>
+
+<p><span class="inl-highlight">at</span> works on any local binding — function parameters, <span class="inl-highlight"><span class="k">\let</span></span>-bindings, and <span class="inl-highlight"><span class="k">\have</span></span>-bindings.</p>
+
+<h1 id="when-to-use-what">When to use what</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Situation</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rewrite in the goal</td>
+      <td><span class="inl-highlight">rewrite p t</span></td>
+    </tr>
+    <tr>
+      <td>Rewrite the goal in the opposite direction</td>
+      <td><span class="inl-highlight">rewriteI p t</span></td>
+    </tr>
+    <tr>
+      <td>Rewrite when expected type is unknown / use t’s type</td>
+      <td><span class="inl-highlight">rewrite p in t</span></td>
+    </tr>
+    <tr>
+      <td>Modify a hypothesis</td>
+      <td><span class="inl-highlight">rewrite p at h <span class="o">$</span> ...</span></td>
+    </tr>
+    <tr>
+      <td>Chain several rewrites</td>
+      <td><span class="inl-highlight">run { rewrite p<span class="o">,</span> rewrite q<span class="o">,</span> ...<span class="o">,</span> idp }</span></td>
+    </tr>
+    <tr>
+      <td>Multi-step chain with named intermediate values</td>
+      <td><span class="inl-highlight"><span class="o">==&lt;</span></span> / <span class="inl-highlight"><span class="o">&gt;==</span></span> / <span class="inl-highlight">qed</span>, see <a href="equalityex#equational-reasoning-proof-of-comm-rewritten">Proofs of Equality</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="exercises">Exercises</h1>
+
+<p class="notice--info"><strong>Exercise 1:</strong> Reprove <span class="inl-highlight"><span class="o">+</span>-comm</span> from <a href="equalityex">Proofs of Equality</a> using only <span class="inl-highlight">rewrite</span>, <span class="inl-highlight">rewriteI</span>, and <span class="inl-highlight">idp</span> — no <span class="inl-highlight">pmap</span>, no <span class="inl-highlight"><span class="o">*&gt;</span></span>, no equational reasoning. Compare the line count.</p>
+
+<p><strong>Exercise 2:</strong> Predict which of the following typecheck and explain why. Then run them to verify.</p>
+<div class="highlighter-rouge notice--info"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> test1 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> zero) (q <span class="o">:</span> zero <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y <span class="o">=&gt;</span> rewrite p q
+<span class="k">\func</span> test2 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> zero) (q <span class="o">:</span> zero <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y <span class="o">=&gt;</span> rewrite p in q
+<span class="k">\func</span> test3 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> zero <span class="o">=</span> x) (q <span class="o">:</span> zero <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y <span class="o">=&gt;</span> rewrite p q
+<span class="k">\func</span> test4 (x y <span class="o">:</span> Nat) (p <span class="o">:</span> zero <span class="o">=</span> x) (q <span class="o">:</span> zero <span class="o">=</span> y) <span class="o">:</span> x <span class="o">=</span> y <span class="o">=&gt;</span> rewrite p in q</code></pre></div></div>
+
+<p class="notice--info"><strong>Exercise 3:</strong> State a lemma where <span class="inl-highlight">rewrite</span> would replace too many occurrences. Use occurrence selection <span class="inl-highlight">rewrite {n} p t</span> to make the proof go through.</p>
+
+<p class="notice--info"><strong>Exercise 4:</strong> Take the proof of <span class="inl-highlight">reverse-isInvolutive</span> from <a href="datanproofs">Indexed Data Types</a> (which uses <span class="inl-highlight">rev-isInv</span> and <span class="inl-highlight"><span class="o">*&gt;</span></span>-chains in similar style) and rewrite its body as a single <span class="inl-highlight">run</span>-block.</p>
+
+<p class="notice--info"><strong>Exercise 5:</strong> Given <span class="inl-highlight">(x <span class="o">:</span> Nat) (p <span class="o">:</span> x <span class="o">=</span> <span class="n">0</span>) (q <span class="o">:</span> x <span class="o">=</span> <span class="n">1</span>)</span>, prove <span class="inl-highlight">Empty</span>. Write three solutions: (a) using <span class="inl-highlight">at</span>, (b) introducing a fresh binding via <span class="inl-highlight"><span class="k">\have</span></span>, (c) chaining <span class="inl-highlight"><span class="o">*&gt;</span></span>-style with <span class="inl-highlight">inv</span>.</p>
+
+<p class="notice--info"><strong>Exercise 6:</strong> Use <span class="inl-highlight">pmap suc at p</span> to convert a hypothesis <span class="inl-highlight">p <span class="o">:</span> x <span class="o">=</span> <span class="n">0</span></span> into <span class="inl-highlight">p <span class="o">:</span> suc x <span class="o">=</span> <span class="n">1</span></span>, then use it to discharge a goal <span class="inl-highlight">suc x <span class="o">=</span> <span class="n">1</span></span>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+</div>
+
+
+
+<div id="footer" class="page__footer">
+    <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/JetBrains/Arend" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ArendLang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+</div>
+
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

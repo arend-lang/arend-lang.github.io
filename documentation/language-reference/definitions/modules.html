@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Modules">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/modules.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/modules.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/modules.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/modules.html">
 
 
 
@@ -600,7 +600,7 @@
             </nav>
           </aside>
         
-        <p>Every top-level definition is visible throughout the file it is contained, the order of definitions does not matter.
+        <p>Every top-level definition is visible throughout the file it is contained in, the order of definitions does not matter.
 The module system allows you to provide definitions in other namespaces.</p>
 
 <h2 id="modules">Modules</h2>
@@ -613,8 +613,8 @@ The module system allows you to provide definitions in other namespaces.</p>
   def_n
 }</code></pre></div></div>
 
-<p>You can refer to definitions <span class="inl-highlight">def_1 … def_n</span> inside module <span class="inl-highlight">Mod</span> by their names.
-To refer to them outside this module, you need to use their full names <span class="inl-highlight">Mod.def_1 … Mod.def_n</span>.
+<p>You can refer to definitions <span class="inl-highlight">def_1 ... def_n</span> inside module <span class="inl-highlight">Mod</span> by their names.
+To refer to them outside this module, you need to use their full names <span class="inl-highlight">Mod.def_1 ... Mod.def_n</span>.
 For example, consider the following code:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f2 <span class="o">=&gt;</span> Mod.f1
@@ -683,15 +683,15 @@ The <span class="inl-highlight"><span class="k">\open</span></span> command affe
 <span class="k">\open</span> M
 <span class="k">\func</span> h2 <span class="o">=&gt;</span> g</code></pre></div></div>
 
-<p>The command <span class="inl-highlight"><span class="k">\open</span> M (def_1<span class="o">,</span> … def_n)</span> adds only definitions <span class="inl-highlight">def_1<span class="o">,</span> … def_n</span> to the current scope.
-Other definitions must be refered to by their full names.</p>
+<p>The command <span class="inl-highlight"><span class="k">\open</span> M (def_1<span class="o">,</span> ... def_n)</span> adds only definitions <span class="inl-highlight">def_1<span class="o">,</span> ... def_n</span> to the current scope.
+Other definitions must be referred to by their full names.</p>
 
-<p>The command <span class="inl-highlight"><span class="k">\open</span> M <span class="k">\hiding</span> (def_1<span class="o">,</span> … def_n)</span> adds all the definitions of <span class="inl-highlight">M</span> except for <span class="inl-highlight">def_1<span class="o">,</span> … def_n</span>.
-These definitions still can be refered to by their full names.</p>
+<p>The command <span class="inl-highlight"><span class="k">\open</span> M <span class="k">\hiding</span> (def_1<span class="o">,</span> ... def_n)</span> adds all the definitions of <span class="inl-highlight">M</span> except for <span class="inl-highlight">def_1<span class="o">,</span> ... def_n</span>.
+These definitions still can be referred to by their full names.</p>
 
-<p>The command <span class="inl-highlight"><span class="k">\open</span> M (def_1 <span class="k">\as</span> def_1’<span class="o">,</span> … def_n <span class="k">\as</span> def_n’)</span> adds definitions <span class="inl-highlight">def_1<span class="o">,</span> … def_n</span> under the names <span class="inl-highlight">def_1’<span class="o">,</span> … def_n’</span>, respectively.</p>
+<p>The command <span class="inl-highlight"><span class="k">\open</span> M (def_1 <span class="k">\as</span> def_1&#39;<span class="o">,</span> ... def_n <span class="k">\as</span> def_n&#39;)</span> adds definitions <span class="inl-highlight">def_1<span class="o">,</span> ... def_n</span> under the names <span class="inl-highlight">def_1&#39;<span class="o">,</span> ... def_n&#39;</span>, respectively.</p>
 
-<p>The command <span class="inl-highlight"><span class="k">\open</span> M <span class="k">\using</span> (def_1 <span class="k">\as</span> def_1’<span class="o">,</span> … def_n <span class="k">\as</span> def_n’)</span> can be used to add to the current scope all of the definitions of <span class="inl-highlight">M</span> while renaming some of them.</p>
+<p>The command <span class="inl-highlight"><span class="k">\open</span> M <span class="k">\using</span> (def_1 <span class="k">\as</span> def_1&#39;<span class="o">,</span> ... def_n <span class="k">\as</span> def_n&#39;)</span> can be used to add to the current scope all of the definitions of <span class="inl-highlight">M</span> while renaming some of them.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\module</span> M <span class="k">\where</span> {
   <span class="k">\func</span> f <span class="o">=&gt;</span> <span class="n">0</span>
@@ -727,8 +727,8 @@ These definitions still can be refered to by their full names.</p>
 </span>
 }</code></pre></div></div>
 
-<p>Note that if you open a module <span class="inl-highlight">M</span> inside a module <span class="inl-highlight">M’</span> and then open <span class="inl-highlight">M’</span> inside <span class="inl-highlight">M’’</span>, then definitions from <span class="inl-highlight">M</span> will not be visible in <span class="inl-highlight">M’’</span>.
-You need to explicitly open <span class="inl-highlight">M</span> inside <span class="inl-highlight">M’’</span> to make them visible.</p>
+<p>Note that if you open a module <span class="inl-highlight">M</span> inside a module <span class="inl-highlight">M&#39;</span> and then open <span class="inl-highlight">M&#39;</span> inside <span class="inl-highlight">M&#39;&#39;</span>, then definitions from <span class="inl-highlight">M</span> will not be visible in <span class="inl-highlight">M&#39;&#39;</span>.
+You need to explicitly open <span class="inl-highlight">M</span> inside <span class="inl-highlight">M&#39;&#39;</span> to make them visible.</p>
 
 <h2 id="import-commands">Import commands</h2>
 
@@ -838,7 +838,7 @@ Then you can refer to definitions from the file <span class="inl-highlight">X</s
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

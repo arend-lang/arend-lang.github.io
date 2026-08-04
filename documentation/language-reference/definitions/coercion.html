@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Coercion">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/coercion.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/coercion.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/coercion.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/coercion.html">
 
 
 
@@ -596,7 +596,7 @@
         <p>Sometimes it is convenient to interpret elements of type <span class="inl-highlight">A</span> as elements of type <span class="inl-highlight">B</span> and use
 elements of <span class="inl-highlight">A</span> in places, where elements of <span class="inl-highlight">B</span> are expected. For example, 
 natural numbers are also integer numbers, integer numbers are also rational numbers, and so on. There is a mechanism,
-which allows this by marking a function <span class="inl-highlight">f</span> from <span class="inl-highlight">A</span> to <span class="inl-highlight">B</span>  as a <em>coercing function</em>. Once <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> is declared
+which allows this by marking a function <span class="inl-highlight">f</span> from <span class="inl-highlight">A</span> to <span class="inl-highlight">B</span> as a <em>coercing function</em>. Once <span class="inl-highlight">f <span class="o">:</span> A <span class="o">-&gt;</span> B</span> is declared
 as a coercing function, whenever an expression <span class="inl-highlight">a <span class="o">:</span> A</span> is used in a place, where type <span class="inl-highlight">B</span> is expected, <span class="inl-highlight">a</span> will be
 automatically replaced with <span class="inl-highlight">f a <span class="o">:</span> B</span>.</p>
 
@@ -610,7 +610,7 @@ of <span class="inl-highlight"><span class="k">\func</span></span>. For example,
       <span class="o">|</span> true <span class="o">=&gt;</span> <span class="n">1</span>
       <span class="o">|</span> false <span class="o">=&gt;</span> <span class="n">0</span></code></pre></div></div>
 
-<p>It is possible to coerce a given definition either from or to other definition.
+<p>It is possible to coerce a given definition either from or to another definition.
 A function, which coerces from a given definition, must have this definition as the type of its last parameter.
 A function, which coerces to a given definition, must have this definition as its result type.
 For example, <span class="inl-highlight">Nat</span> can be coerced to <span class="inl-highlight">Bool</span> as follows:</p>
@@ -699,7 +699,7 @@ For example, <span class="inl-highlight">Nat</span> can be coerced to <span clas
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

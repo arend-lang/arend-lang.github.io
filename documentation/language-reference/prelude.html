@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Prelude">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/prelude.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/prelude.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/prelude.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/prelude.html">
 
 
 
@@ -591,9 +591,9 @@ but for efficiency purposes they are defined as primitives in Arend.</p>
 
 <h1 id="path">Path</h1>
 
-<p>The definition of <span class="inl-highlight">Path A a a’</span> is not correct.
+<p>The definition of <span class="inl-highlight">Path A a a&#39;</span> is not correct.
 By the definition, it should consist of all functions <span class="inl-highlight"><span class="k">\Pi</span> (i <span class="o">:</span> I) <span class="o">-&gt;</span> A i</span>, but actually it consists of all such
-functions <span class="inl-highlight">f</span> that also satisfy computational conditions <span class="inl-highlight">f left <span class="o">=&gt;</span> a</span> and <span class="inl-highlight">f right <span class="o">=&gt;</span> a’</span>.
+functions <span class="inl-highlight">f</span> that also satisfy computational conditions <span class="inl-highlight">f left <span class="o">=&gt;</span> a</span> and <span class="inl-highlight">f right <span class="o">=&gt;</span> a&#39;</span>.
 This means that while typechecking the expression <span class="inl-highlight">path f</span> the typechecker also checks that these computational conditions hold and, if they don’t, produces an error message.
 For example, if you write <span class="inl-highlight"><span class="k">\func</span> test <span class="o">:</span> <span class="n">1</span> <span class="o">=</span> <span class="n">0</span> <span class="o">=&gt;</span> path (<span class="k">\lam</span> <span class="u">_</span> <span class="o">=&gt;</span> <span class="n">0</span>)</span>, you will see the following error message:</p>
 
@@ -604,7 +604,7 @@ For example, if you write <span class="inl-highlight"><span class="k">\func</spa
   While processing: test</code></pre></div></div>
 
 <p>The homotopy level of the universe, which is the type of <span class="inl-highlight">Path</span>, is also computed differently. If -1 ≤ n and
-<span class="inl-highlight">A</span> is in a universe of (n+1)-types, then <span class="inl-highlight">Path A a a’</span> is in a universe of n-types. Otherwise, it has the same
+<span class="inl-highlight">A</span> is in a universe of (n+1)-types, then <span class="inl-highlight">Path A a a&#39;</span> is in a universe of n-types. Otherwise, it has the same
 homotopy level as <span class="inl-highlight">A</span>.</p>
 
 <p>Prelude also contains an infix form of <span class="inl-highlight">Path</span> called <span class="inl-highlight"><span class="o">=</span></span> which is actually a correctly defined function.
@@ -627,33 +627,33 @@ It postulates the proof irrelevance for types in <span class="inl-highlight"><sp
 This constructor can be used to replace the J operator with pattern matching.
 For example, we can define J itself as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> <span class="k">\Pi</span> (a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>) (b <span class="o">:</span> B a idp) {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> B a' p <span class="k">\elim</span> p
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> <span class="k">\Pi</span> (a&#39; <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a&#39; <span class="o">-&gt;</span> <span class="kt">\Type</span>) (b <span class="o">:</span> B a idp) {a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> B a&#39; p <span class="k">\elim</span> p
   <span class="o">|</span> idp <span class="o">=&gt;</span> b</code></pre></div></div>
 
-<p>After we match <span class="inl-highlight">p</span> with <span class="inl-highlight">idp</span>, variables <span class="inl-highlight">a</span> and <span class="inl-highlight">a’</span> become equivalent.
+<p>After we match <span class="inl-highlight">p</span> with <span class="inl-highlight">idp</span>, variables <span class="inl-highlight">a</span> and <span class="inl-highlight">a&#39;</span> become equivalent.
 To be more precise, we can refer to both variables, but the latter will evaluate to the former.</p>
 
 <p>There are certain restrictions on this pattern matching principle.
-If we want to match <span class="inl-highlight">p <span class="o">:</span> e <span class="o">=</span> e’</span> with <span class="inl-highlight">idp</span>, expressions <span class="inl-highlight">e</span> and <span class="inl-highlight">e’</span> cannot be arbitrary.
+If we want to match <span class="inl-highlight">p <span class="o">:</span> e <span class="o">=</span> e&#39;</span> with <span class="inl-highlight">idp</span>, expressions <span class="inl-highlight">e</span> and <span class="inl-highlight">e&#39;</span> cannot be arbitrary.
 At least one of them must be a variable which does not occur in the other expression.
 Also, it should be possible to substitute the variable with this expression, which means that the free variables of the expression should be bound at each occurrence of the variable.</p>
 
 <p>This pattern matching principle can also be used in case-expressions.
 For example, J can be defined as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> <span class="k">\Pi</span> (a' <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a' <span class="o">-&gt;</span> <span class="kt">\Type</span>) (b <span class="o">:</span> B a idp) {a' <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a') <span class="o">:</span> B a' p
-  <span class="o">=&gt;</span> <span class="k">\case</span> <span class="k">\elim</span> a'<span class="o">,</span> <span class="k">\elim</span> p <span class="k">\with</span> {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> J {A <span class="o">:</span> <span class="kt">\Type</span>} {a <span class="o">:</span> A} (B <span class="o">:</span> <span class="k">\Pi</span> (a&#39; <span class="o">:</span> A) <span class="o">-&gt;</span> a <span class="o">=</span> a&#39; <span class="o">-&gt;</span> <span class="kt">\Type</span>) (b <span class="o">:</span> B a idp) {a&#39; <span class="o">:</span> A} (p <span class="o">:</span> a <span class="o">=</span> a&#39;) <span class="o">:</span> B a&#39; p
+  <span class="o">=&gt;</span> <span class="k">\case</span> <span class="k">\elim</span> a&#39;<span class="o">,</span> <span class="k">\elim</span> p <span class="k">\with</span> {
     <span class="o">|</span> <span class="u">_</span><span class="o">,</span> idp <span class="o">=&gt;</span> b
   }</code></pre></div></div>
 
 <p>Note that the restrictions we described above should be satisfied.
-Moreover, the expression which is matched with <span class="inl-highlight">idp</span> should have type <span class="inl-highlight">p <span class="o">:</span> e <span class="o">=</span> e’</span>,
-where either <span class="inl-highlight">e</span> or <span class="inl-highlight">e’</span> is a variable bound in one of the arguments of the case expression.</p>
+Moreover, the expression which is matched with <span class="inl-highlight">idp</span> should have type <span class="inl-highlight">p <span class="o">:</span> e <span class="o">=</span> e&#39;</span>,
+where either <span class="inl-highlight">e</span> or <span class="inl-highlight">e&#39;</span> is a variable bound in one of the arguments of the case expression.</p>
 
 <h1 id="coe-and-coe2">coe and coe2</h1>
 
 <p>Function <span class="inl-highlight">coe</span> is an eliminator for the interval type.
-For every type over the interval, it allows to transport elements from the fiber over <span class="inl-highlight">left</span> to the fiber over an
+For every type over the interval, it allows one to transport elements from the fiber over <span class="inl-highlight">left</span> to the fiber over an
 arbitrary point.
 It can be used to prove that <span class="inl-highlight">I</span> is contractible and that <span class="inl-highlight"><span class="o">=</span></span> satisfies the rules for
 ordinary identity types.
@@ -662,7 +662,7 @@ This function satisfies one additional reduction rule:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>coe (<span class="k">\lam</span> x <span class="o">=&gt;</span> A) a i <span class="o">=&gt;</span> a</code></pre></div></div>
 <p>if <span class="inl-highlight">x</span> is not free in <span class="inl-highlight">A</span>.</p>
 
-<p>Function <span class="inl-highlight">coe2</span> is a generalization of <span class="inl-highlight">coe</span>, which allows to transport elements between any two fibers of a type
+<p>Function <span class="inl-highlight">coe2</span> is a generalization of <span class="inl-highlight">coe</span>, which allows one to transport elements between any two fibers of a type
 over the interval.</p>
 
 <h1 id="iso">iso</h1>
@@ -734,7 +734,7 @@ This definition implies the univalence axiom.</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>

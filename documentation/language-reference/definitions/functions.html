@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arend Theorem Prover">
 <meta property="og:title" content="Functions">
-<meta property="og:url" content="http://localhost:4000/documentation/language-reference/definitions/functions.html">
+<meta property="og:url" content="https://arend-lang.github.io/documentation/language-reference/definitions/functions.html">
 
 
   <meta property="og:description" content="The Arend Theorem Prover">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/documentation/language-reference/definitions/functions.html">
+<link rel="canonical" href="https://arend-lang.github.io/documentation/language-reference/definitions/functions.html">
 
 
 
@@ -608,7 +608,7 @@ The full syntax of function signatures is as follows:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f p_1 ... p_n <span class="o">:</span> T</code></pre></div></div>
 
-<p>where <span class="inl-highlight">f</span> is the name of the function, <span class="inl-highlight">p_1<span class="o">,</span> … p_n</span> are named <a href="parameters">parameters</a> and
+<p>where <span class="inl-highlight">f</span> is the name of the function, <span class="inl-highlight">p_1<span class="o">,</span> ... p_n</span> are named <a href="parameters">parameters</a> and
 <span class="inl-highlight">T</span> is the result type. In some cases specification <span class="inl-highlight"><span class="o">:</span> T</span> of the result type can be omitted depending on the 
 definition of function body.</p>
 
@@ -663,15 +663,15 @@ The general form of function definition by pattern matching is</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p^i_1<span class="o">,</span> ... p^i_n <span class="o">=&gt;</span> e_i</code></pre></div></div>
 
 <p>where <span class="inl-highlight">p^i_j</span> is a pattern of type <span class="inl-highlight">T_i</span> (see below for the definition of a pattern) and <span class="inl-highlight">e_i</span> is an
-expression of type <span class="inl-highlight">R[p^i_1/x_1<span class="o">,</span> … p^i_n/x_n]</span> (see <a href="../expressions">Expressions</a> for the
+expression of type <span class="inl-highlight">R[p^i_1/x_1<span class="o">,</span> ... p^i_n/x_n]</span> (see <a href="../expressions">Expressions</a> for the
 discussion of the substitution operation and types of expressions).
-Variables <span class="inl-highlight">x_1<span class="o">,</span> … x_n</span> are not visible in expressions <span class="inl-highlight">e_i</span>.
+Variables <span class="inl-highlight">x_1<span class="o">,</span> ... x_n</span> are not visible in expressions <span class="inl-highlight">e_i</span>.
 Note that this construction requires all the variables to be matched on,
 that is the number of patterns in each clause must be <span class="inl-highlight">n</span> (but see <a href="#elim">below</a> for partial pattern matching).</p>
 
-<p>The clauses <span class="inl-highlight">clause_1<span class="o">,</span> … clause_k</span> must cover all the cases.
-That is, if there is a pattern of the form <span class="inl-highlight">con p_1 … p_n</span>, where <span class="inl-highlight">con</span> is a constructor of a data type <span class="inl-highlight">D</span>,
-then there must be patterns of the form <span class="inl-highlight">con’ p_1’ … p_k’</span> for all constructors <span class="inl-highlight">con’</span> of <span class="inl-highlight">D</span>.</p>
+<p>The clauses <span class="inl-highlight">clause_1<span class="o">,</span> ... clause_k</span> must cover all the cases.
+That is, if there is a pattern of the form <span class="inl-highlight">con p_1 ... p_n</span>, where <span class="inl-highlight">con</span> is a constructor of a data type <span class="inl-highlight">D</span>,
+then there must be patterns of the form <span class="inl-highlight">con&#39; p_1&#39; ... p_k&#39;</span> for all constructors <span class="inl-highlight">con&#39;</span> of <span class="inl-highlight">D</span>.</p>
 
 <p>Pattern matching on constructors <span class="inl-highlight">left</span> and <span class="inl-highlight">right</span> of the <a href="../prelude">interval type</a> <span class="inl-highlight">I</span> is not allowed.
 For example, the definition <span class="inl-highlight"><span class="k">\func</span> f (i <span class="o">:</span> I) <span class="o">:</span> Nat <span class="o">|</span> left <span class="o">=&gt;</span> <span class="n">0</span> <span class="o">|</span> right <span class="o">=&gt;</span> <span class="n">1</span></span> is not valid.</p>
@@ -685,38 +685,38 @@ For example, the definition <span class="inl-highlight"><span class="k">\func</s
 <p>A <em>pattern</em> of type <span class="inl-highlight">T</span> can have one of the following forms:</p>
 
 <ul>
-  <li>A variable. If a variable <span class="inl-highlight">x</span> appears as a subpattern of <span class="inl-highlight">p_i</span> in a clause <span class="inl-highlight"><span class="o">|</span> p_1 … p_i … <span class="o">=&gt;</span> e</span>, 
+  <li>A variable. If a variable <span class="inl-highlight">x</span> appears as a subpattern of <span class="inl-highlight">p_i</span> in a clause <span class="inl-highlight"><span class="o">|</span> p_1 ... p_i ... <span class="o">=&gt;</span> e</span>, 
 it can be used in <span class="inl-highlight">e</span> and it will have type <span class="inl-highlight">T</span>. If this variable is not used anywhere, its name can be replaced with <span class="inl-highlight"><span class="u">_</span></span>.</li>
-  <li><span class="inl-highlight">con s_1 … s_m</span>, where <span class="inl-highlight">con (y_1 <span class="o">:</span> A_1) … (y_m <span class="o">:</span> A_m)</span> is a constructor of a data type <span class="inl-highlight">D</span> and <span class="inl-highlight">s_1 … s_m</span> are patterns.
-In this case, <span class="inl-highlight">T</span> must be equal to <span class="inl-highlight">D</span> and pattern <span class="inl-highlight">s_i</span> must have type <span class="inl-highlight">A_i[s_1/y_1<span class="o">,</span> … s_{i-1}/y_{i-1}]</span>.
+  <li><span class="inl-highlight">con s_1 ... s_m</span>, where <span class="inl-highlight">con (y_1 <span class="o">:</span> A_1) ... (y_m <span class="o">:</span> A_m)</span> is a constructor of a data type <span class="inl-highlight">D</span> and <span class="inl-highlight">s_1 ... s_m</span> are patterns.
+In this case, <span class="inl-highlight">T</span> must be equal to <span class="inl-highlight">D</span> and pattern <span class="inl-highlight">s_i</span> must have type <span class="inl-highlight">A_i[s_1/y_1<span class="o">,</span> ... s_{i-1}/y_{i-1}]</span>.
 If some of the parameters of <span class="inl-highlight">con</span> are implicit, corresponding patterns must either be omitted or enclosed in <span class="inl-highlight">{ }</span>.</li>
-  <li><span class="inl-highlight">(s_1<span class="o">,</span> … s_m)</span>, where <span class="inl-highlight">s_1 … s_m</span> are patterns.
-In this case, <span class="inl-highlight">T</span> must be either a <a href="../expressions/sigma">Sigma type</a> with parameters <span class="inl-highlight">(y_1 <span class="o">:</span> A_1) … (y_m <span class="o">:</span> A_m)</span> or a <a href="classes">class</a> (or a <a href="records">record</a>) with fields <span class="inl-highlight">y_1 <span class="o">:</span> A_1<span class="o">,</span> … y_m <span class="o">:</span> A_m</span>.
-The pattern <span class="inl-highlight">s_i</span> must have type <span class="inl-highlight">A_i[s_1/y_1<span class="o">,</span> … s_{i-1}/y_{i-1}]</span>.
+  <li><span class="inl-highlight">(s_1<span class="o">,</span> ... s_m)</span>, where <span class="inl-highlight">s_1 ... s_m</span> are patterns.
+In this case, <span class="inl-highlight">T</span> must be either a <a href="../expressions/sigma">Sigma type</a> with parameters <span class="inl-highlight">(y_1 <span class="o">:</span> A_1) ... (y_m <span class="o">:</span> A_m)</span> or a <a href="classes">class</a> (or a <a href="records">record</a>) with fields <span class="inl-highlight">y_1 <span class="o">:</span> A_1<span class="o">,</span> ... y_m <span class="o">:</span> A_m</span>.
+The pattern <span class="inl-highlight">s_i</span> must have type <span class="inl-highlight">A_i[s_1/y_1<span class="o">,</span> ... s_{i-1}/y_{i-1}]</span>.
 If <span class="inl-highlight">m</span> equals to 0, then <span class="inl-highlight">T</span> may also be a data type without constructors.
 In this case, the right hand side <span class="inl-highlight"><span class="o">=&gt;</span> e_i</span> of the clause in which such a pattern appears must be omitted.</li>
 </ul>
 
 <p>Also, a constructor or a tuple pattern may be an <em>as-pattern</em>.
-This means that there might be an expressions of the form <span class="inl-highlight"><span class="k">\as</span> x <span class="o">:</span> E</span> after the pattern, where <span class="inl-highlight">x</span> is a variable and <span class="inl-highlight">E</span> is its type which can be omitted.
+This means that there might be an expression of the form <span class="inl-highlight"><span class="k">\as</span> x <span class="o">:</span> E</span> after the pattern, where <span class="inl-highlight">x</span> is a variable and <span class="inl-highlight">E</span> is its type which can be omitted.
 Then <span class="inl-highlight">x</span> is equivalent to this pattern.</p>
 
-<p>Now, let us discuss how expressions of the form <span class="inl-highlight">f a_1 … a_n</span> evaluate (see <a href="../expressions#evaluation">Expressions</a> for the definition of the reduction and evaluation relations).
-Let <span class="inl-highlight">E</span> be equal to <span class="inl-highlight">f a_1 … a_n</span>.
-To reduce this expression, we first evaluate expressions <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> and match them with the patterns in the definition of <span class="inl-highlight">f</span> left to right, top to bottom.
-If all patterns <span class="inl-highlight">p^i_1<span class="o">,</span> … p^i_n</span> matches with <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> for some <em>i</em>, then <span class="inl-highlight">E</span> reduces to <span class="inl-highlight">e_i[b_1/y_1<span class="o">,</span> … b_k/y_k]</span>,
-where <span class="inl-highlight">y_1<span class="o">,</span> … y_k</span> are variables that appear in <span class="inl-highlight">p^i_1<span class="o">,</span> … p^i_n</span> and <span class="inl-highlight">b_1<span class="o">,</span> … b_k</span> are subexpressions of <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> corresponding to these variables.
-If some argument cannot be matched with a pattern <span class="inl-highlight">con s_1 … s_m</span> because it is of the form <span class="inl-highlight">con’ …</span> for some constructor <span class="inl-highlight">con’</span> different from <span class="inl-highlight">con</span>,
-then the evaluator skips the clause with this patterns and tries the next one.
+<p>Now, let us discuss how expressions of the form <span class="inl-highlight">f a_1 ... a_n</span> evaluate (see <a href="../expressions#evaluation">Expressions</a> for the definition of the reduction and evaluation relations).
+Let <span class="inl-highlight">E</span> be equal to <span class="inl-highlight">f a_1 ... a_n</span>.
+To reduce this expression, we first evaluate expressions <span class="inl-highlight">a_1<span class="o">,</span> ... a_n</span> and match them with the patterns in the definition of <span class="inl-highlight">f</span> left to right, top to bottom.
+If all patterns <span class="inl-highlight">p^i_1<span class="o">,</span> ... p^i_n</span> match with <span class="inl-highlight">a_1<span class="o">,</span> ... a_n</span> for some <em>i</em>, then <span class="inl-highlight">E</span> reduces to <span class="inl-highlight">e_i[b_1/y_1<span class="o">,</span> ... b_k/y_k]</span>,
+where <span class="inl-highlight">y_1<span class="o">,</span> ... y_k</span> are variables that appear in <span class="inl-highlight">p^i_1<span class="o">,</span> ... p^i_n</span> and <span class="inl-highlight">b_1<span class="o">,</span> ... b_k</span> are subexpressions of <span class="inl-highlight">a_1<span class="o">,</span> ... a_n</span> corresponding to these variables.
+If some argument cannot be matched with a pattern <span class="inl-highlight">con s_1 ... s_m</span> because it is of the form <span class="inl-highlight">con&#39; ...</span> for some constructor <span class="inl-highlight">con&#39;</span> different from <span class="inl-highlight">con</span>,
+then the evaluator skips the clause with these patterns and tries the next one.
 If some argument cannot be matched with a pattern because it is not a constructor, then <span class="inl-highlight">E</span> does not reduce.
 If none of the clauses match with arguments, then <span class="inl-highlight">E</span> also does not reduce.
-Variables and patterns of the form <span class="inl-highlight">(s_1<span class="o">,</span> … s_m)</span> match with any expression.</p>
+Variables and patterns of the form <span class="inl-highlight">(s_1<span class="o">,</span> ... s_m)</span> match with any expression.</p>
 
 <p>Let us consider an example.
 Let <span class="inl-highlight">B</span> be a data type with two constructors <span class="inl-highlight">T</span> and <span class="inl-highlight">F</span>.
 Consider the following function:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> g (b b' <span class="o">:</span> B) <span class="o">:</span> Nat
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> g (b b&#39; <span class="o">:</span> B) <span class="o">:</span> Nat
   <span class="o">|</span> T<span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> <span class="n">0</span>
   <span class="o">|</span> <span class="u">_</span><span class="o">,</span> T <span class="o">=&gt;</span> <span class="n">1</span>
   <span class="o">|</span> <span class="u">_</span><span class="o">,</span> <span class="u">_</span> <span class="o">=&gt;</span> <span class="n">2</span></code></pre></div></div>
@@ -762,7 +762,7 @@ For example, you can define function <span class="inl-highlight">absurd</span> a
 <p>Finally, the type <span class="inl-highlight">con1 <span class="o">=</span> con2</span> is considered empty if <span class="inl-highlight">con1</span> and <span class="inl-highlight">con2</span> are disjoint constructors of some data type.</p>
 
 <p>If the constructor is infix, then it can be used in the infix form in a pattern.
-For example, functions <span class="inl-highlight">tail</span> and <span class="inl-highlight">tail’</span> below are equivalent:</p>
+For example, functions <span class="inl-highlight">tail</span> and <span class="inl-highlight">tail&#39;</span> below are equivalent:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\data</span> List (A <span class="o">:</span> <span class="kt">\Type</span>) <span class="o">|</span> nil <span class="o">|</span> <span class="k">\infixr</span> <span class="n">5</span> <span class="o">:</span><span class="o">:</span> A (List A)
 
@@ -770,7 +770,7 @@ For example, functions <span class="inl-highlight">tail</span> and <span class="
   <span class="o">|</span> nil <span class="o">=&gt;</span> nil
   <span class="o">|</span> <span class="o">:</span><span class="o">:</span> <span class="u">_</span> l <span class="o">=&gt;</span> l
 
-<span class="k">\func</span> tail' {A <span class="o">:</span> <span class="kt">\Type</span>} (l <span class="o">:</span> List A) <span class="o">:</span> List A
+<span class="k">\func</span> tail&#39; {A <span class="o">:</span> <span class="kt">\Type</span>} (l <span class="o">:</span> List A) <span class="o">:</span> List A
   <span class="o">|</span> nil <span class="o">=&gt;</span> nil
   <span class="o">|</span> <span class="u">_</span> <span class="o">:</span><span class="o">:</span> l <span class="o">=&gt;</span> l</code></pre></div></div>
 
@@ -786,7 +786,7 @@ In this case, we can use the <span class="inl-highlight"><span class="k">\elim</
   <span class="o">|</span> p^k_1<span class="o">,</span> ... p^k_m <span class="o">=&gt;</span> e_k</code></pre></div></div>
 
 <p>where i_1, … i_m are integers such that 1 ≤ i_1 &lt; … &lt; i_m ≤ n.
-In this case, parameters <span class="inl-highlight">x_{i_1}<span class="o">,</span> … x_{i_m}</span> are <em>eliminated</em> and are not visible in expressions <span class="inl-highlight">e_1<span class="o">,</span> … e_k</span>.
+In this case, parameters <span class="inl-highlight">x_{i_1}<span class="o">,</span> ... x_{i_m}</span> are <em>eliminated</em> and are not visible in expressions <span class="inl-highlight">e_1<span class="o">,</span> ... e_k</span>.
 Other parameters of <span class="inl-highlight">f</span> are still visible in these expressions.
 Note that it does not matter whether a parameter <span class="inl-highlight">x_i</span> is explicit or implicit when it is eliminated, the corresponding pattern is always explicit.</p>
 
@@ -799,7 +799,7 @@ Note that it does not matter whether a parameter <span class="inl-highlight">x_i
 <h2 id="recursive-functions">Recursive functions</h2>
 
 <p>Functions defined by pattern matching can be recursive.
-That is, if <span class="inl-highlight">f</span> is a function as described above, then a reference to <span class="inl-highlight">f</span> may occur inside expressions <span class="inl-highlight">e_1<span class="o">,</span> … e_k</span>.
+That is, if <span class="inl-highlight">f</span> is a function as described above, then a reference to <span class="inl-highlight">f</span> may occur inside expressions <span class="inl-highlight">e_1<span class="o">,</span> ... e_k</span>.
 Every function in Arend is a total function.
 Thus, not every recursive definition is allowed.
 In order for such a definition to be valid, the recursion must be <em>structural</em>.
@@ -808,7 +808,7 @@ subpatterns of the patterns for the arguments of <span class="inl-highlight">f</
 
 <p>Functions can also be mutually recursive.
 That is, we can have several functions which refer to each other.
-In this case, there must be a linear order on the set of these functions <span class="inl-highlight">f_1<span class="o">,</span> … f_n</span> such that the signature of <span class="inl-highlight">f_i</span> refers only to previous functions.
+In this case, there must be a linear order on the set of these functions <span class="inl-highlight">f_1<span class="o">,</span> ... f_n</span> such that the signature of <span class="inl-highlight">f_i</span> refers only to previous functions.
 The bodies of the functions may refer to each other as long as the whole recursive system is structural.</p>
 
 <h2 id="copattern-matching">Copattern matching</h2>
@@ -822,7 +822,7 @@ then a function can also be defined by <em>copattern matching</em>, which has th
   <span class="o">|</span> coclause_k</code></pre></div></div>
 
 <p>where a <em>coclause</em> is a pair consisting of a field <span class="inl-highlight">g</span> of <span class="inl-highlight">C</span> and an expression <span class="inl-highlight">e</span> written <span class="inl-highlight">g <span class="o">=&gt;</span> e</span>.
-Such a function has the same semantics as a definition of an instance, that is it is equivalent to the following definition:</p>
+Such a function has the same semantics as a definition of an instance, that is, it is equivalent to the following definition:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\func</span> f (x_1 <span class="o">:</span> A_1) ... (x_n <span class="o">:</span> A_n) <span class="o">=&gt;</span> <span class="k">\new</span> C {
   <span class="o">|</span> coclause_1
@@ -862,10 +862,10 @@ Axioms are defined with the keyword <span class="inl-highlight"><span class="k">
 <h2 id="sfunc">\sfunc</h2>
 
 <p>Functions defined as <span class="inl-highlight"><span class="k">\sfunc</span></span> do not evaluate just as lemmas, but it is possible to evaluate such functions by using keyword <span class="inl-highlight"><span class="k">\eval</span></span>.
-Let <code class="language-plaintext highlighter-rouge">f</code> be an ordinary function and let <span class="inl-highlight">a_1<span class="o">,</span> … a_n</span> be arguments such that expression <span class="inl-highlight">f a_1 … a_n</span> evaluates to <code class="language-plaintext highlighter-rouge">e</code>.
-If <code class="language-plaintext highlighter-rouge">f</code> is defined as <span class="inl-highlight"><span class="k">\sfunc</span></span>, then this expression won’t evaluate, but expression <span class="inl-highlight"><span class="k">\eval</span> f a_1 … a_n</span> evaluates to <code class="language-plaintext highlighter-rouge">e</code>.
-To prove that <span class="inl-highlight">f a_1 … a_n</span> equals to <span class="inl-highlight"><span class="k">\eval</span> f a_1 … a_n</span>, you can use keyword <span class="inl-highlight"><span class="k">\peval</span></span>.
-Expression <span class="inl-highlight"><span class="k">\peval</span> f a_1 … a_n</span> has type <span class="inl-highlight">f a_1 … a_n <span class="o">=</span> <span class="k">\eval</span> f a_1 … a_n</span>.</p>
+Let <code class="language-plaintext highlighter-rouge">f</code> be an ordinary function and let <span class="inl-highlight">a_1<span class="o">,</span> ... a_n</span> be arguments such that expression <span class="inl-highlight">f a_1 ... a_n</span> evaluates to <code class="language-plaintext highlighter-rouge">e</code>.
+If <code class="language-plaintext highlighter-rouge">f</code> is defined as <span class="inl-highlight"><span class="k">\sfunc</span></span>, then this expression won’t evaluate, but expression <span class="inl-highlight"><span class="k">\eval</span> f a_1 ... a_n</span> evaluates to <code class="language-plaintext highlighter-rouge">e</code>.
+To prove that <span class="inl-highlight">f a_1 ... a_n</span> is equal to <span class="inl-highlight"><span class="k">\eval</span> f a_1 ... a_n</span>, you can use keyword <span class="inl-highlight"><span class="k">\peval</span></span>.
+Expression <span class="inl-highlight"><span class="k">\peval</span> f a_1 ... a_n</span> has type <span class="inl-highlight">f a_1 ... a_n <span class="o">=</span> <span class="k">\eval</span> f a_1 ... a_n</span>.</p>
 
 <p>Note that it is necessary to use <span class="inl-highlight"><span class="k">\sfunc</span></span> <a href="level#squashed-data-types">in some cases</a>.</p>
 
@@ -933,7 +933,7 @@ Expression <span class="inl-highlight"><span class="k">\peval</span> f a_1 … a
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 <a href="https://arend-lang.github.io">Arend Theorem Prover</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
     </footer>
 </div>
