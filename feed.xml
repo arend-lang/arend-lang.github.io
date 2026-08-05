@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2026-08-05T10:53:22+02:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><entry><title type="html">Arend 1.12.0 released</title><link href="https://arend-lang.github.io/2026/08/04/Arend-1.12.0-released.html" rel="alternate" type="text/html" title="Arend 1.12.0 released" /><published>2026-08-04T00:00:00+02:00</published><updated>2026-08-04T00:00:00+02:00</updated><id>https://arend-lang.github.io/2026/08/04/Arend-1.12.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2026/08/04/Arend-1.12.0-released.html"><![CDATA[<p>This release includes a major internal overhaul of the universe/level system, an opt-in binary caching mode for the CLI,
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://arend-lang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://arend-lang.github.io/" rel="alternate" type="text/html" /><updated>2026-08-05T11:45:31+02:00</updated><id>https://arend-lang.github.io/feed.xml</id><title type="html">Arend Theorem Prover</title><subtitle>The Arend Theorem Prover</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><entry><title type="html">Arend 1.12.0 released</title><link href="https://arend-lang.github.io/2026/08/04/Arend-1.12.0-released.html" rel="alternate" type="text/html" title="Arend 1.12.0 released" /><published>2026-08-04T00:00:00+02:00</published><updated>2026-08-04T00:00:00+02:00</updated><id>https://arend-lang.github.io/2026/08/04/Arend-1.12.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2026/08/04/Arend-1.12.0-released.html"><![CDATA[<p>This release includes a major internal overhaul of the universe/level system, an opt-in binary caching mode for the CLI,
 and substantial additions to arend-lib, most notably in algebraic geometry and analysis.</p>
 
 <p>Language updates:</p>
@@ -15,7 +15,7 @@ Applying an infix operator to a single argument is instead interpreted as a righ
 <ul>
   <li>Updated IntelliJ platform support to 2025.3, then to 2026.2.</li>
   <li>Added basic Arend support for the JetBrains Educational plugin (course builder, project generator, and task checker).</li>
-  <li>Fixed a UI freeze in the custom searcher, formatter performance issues, and the Arend Messages panel.</li>
+  <li>Fixed a UI freeze in Find Usages, formatter performance issues, and the Arend Messages panel.</li>
 </ul>
 
 <p>CLI updates:</p>
@@ -23,33 +23,57 @@ Applying an infix operator to a single argument is instead interpreted as a righ
 <ul>
   <li>Added an opt-in binary cache (<code class="language-plaintext highlighter-rouge">.arc</code>) serialization mode for faster incremental rechecking:
 pass <code class="language-plaintext highlighter-rouge">--serialize</code> to persist typechecked results, and <code class="language-plaintext highlighter-rouge">-r</code>/<code class="language-plaintext highlighter-rouge">--recompile</code> to ignore existing caches.</li>
-  <li>Added console query tooling: <code class="language-plaintext highlighter-rouge">-ss</code> (symbol search), <code class="language-plaintext highlighter-rouge">-ps</code> (proof search), <code class="language-plaintext highlighter-rouge">-fu</code> (find usages), <code class="language-plaintext highlighter-rouge">-ch</code> (class hierarchy),
-and <code class="language-plaintext highlighter-rouge">-sc</code> (scope), all with <code class="language-plaintext highlighter-rouge">--json</code> output support.</li>
-  <li>The <a href="/documentation/proof-search">proof searcher</a>, previously IDE-only, is now available in the console app.</li>
+  <li>Added console query tooling: <code class="language-plaintext highlighter-rouge">-ss</code> (symbol search), <code class="language-plaintext highlighter-rouge">-ps</code> (<a href="/documentation/proof-search">proof search</a>, previously IDE-only),
+<code class="language-plaintext highlighter-rouge">-fu</code> (find usages), <code class="language-plaintext highlighter-rouge">-ch</code> (class hierarchy), and <code class="language-plaintext highlighter-rouge">-sc</code> (scope), all with <code class="language-plaintext highlighter-rouge">--json</code> output support.</li>
   <li>REPL improvements: Ctrl+J (multi-line input), Ctrl+C (clear line), Ctrl+D (quit), <code class="language-plaintext highlighter-rouge">-L</code> support, and module preloading.</li>
-  <li>Added progress indication to the console app and support for typechecking individual definitions from the CLI.</li>
+  <li>Added support for typechecking individual definitions from the CLI.</li>
 </ul>
 
 <p>arend-lib:</p>
 
 <ul>
-  <li>Introduce scheme sites, affine opens, affine schemes, and general schemes built from a scheme site.</li>
-  <li>Construct Spec and Proj; prove Spec is a reflective embedding of CRing^op into scheme sites and check the sheaf condition
+  <li>Introduce <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/SchemeSite.html">scheme sites</a>,
+<a href="/arend-lib/v1.12.0/arend-html-files/src/AG/RingedLocale.html">affine opens</a>,
+<a href="/arend-lib/v1.12.0/arend-html-files/src/AG/AffineScheme.html">affine schemes</a>,
+and <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/Scheme.html">general schemes</a> built from a scheme site.</li>
+  <li>Construct <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/AffineScheme.html">Spec</a>
+and <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/Projective.html">Proj</a>;
+prove Spec is a <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/AffineScheme/SpecFunctor.html">reflective embedding</a>
+of CRing^op into scheme sites and check the <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/SchemeSite.html">sheaf condition</a>
 for the structure sheaf on Spec R.</li>
-  <li>Define locally ringed locales and construct a fully faithful functor and equivalence of morphisms between scheme sites
-and locally ringed locales; prove every scheme can be reconstructed from a scheme site.</li>
-  <li>Refactor locales and sites, including dense sites and preorder sites; prove the category of ringed locales is univalent.</li>
-  <li>Cauchy product of power series; make exp and log(1+x) into functions with full analytic properties;
-define sin and cos and prove cos π = -1.</li>
-  <li>Make complex numbers a Banach algebra.</li>
-  <li>Define Noetherian rings and prove products of Noetherian rings are Noetherian;
-define Bar-Noetherian rings, bar induction, and prove the fan theorem.</li>
-  <li>Prove Hilbert’s basis theorem for Bar-Noetherian rings.</li>
-  <li>Define tensor products of modules and of algebras.</li>
-  <li>Refactor Heyting algebras, complete lattices, and the localization of rings and monoids.</li>
-  <li>Replace Equiv with QEquiv and IsEquiv throughout the library.</li>
-  <li>Refactor the hierarchy of substructures and group representation theory.</li>
-  <li>Add natarith/intarith tactics extending the <a href="/documentation/standard-tactics/algebra-meta#linarith">linarith</a>-style solver,
+  <li>Define <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/RingedLocale.html">locally ringed locales</a>
+and construct a <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/SchemeSite/SchemeEquiv.html">fully faithful functor</a>
+and <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/SchemeSite/LRLSchemeSiteHom.html">equivalence of morphisms</a> between scheme sites
+and locally ringed locales; prove <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/SchemeSite/SchemeEquiv.html">every scheme can be reconstructed</a>
+from a scheme site.</li>
+  <li>Refactor <a href="/arend-lib/v1.12.0/arend-html-files/src/Topology/Locale.html">locales</a>
+and <a href="/arend-lib/v1.12.0/arend-html-files/src/Category/Topos/Sheaf/Site.html">sites</a>,
+including <a href="/arend-lib/v1.12.0/arend-html-files/src/Category/Topos/Sheaf/DenseExtend.html">dense sites</a>
+and <a href="/arend-lib/v1.12.0/arend-html-files/src/Topology/Locale/PreorderSite.html">preorder sites</a>;
+prove the <a href="/arend-lib/v1.12.0/arend-html-files/src/AG/RingedLocale/RingedLocaleCat.html">category of ringed locales</a> is univalent.</li>
+  <li><a href="/arend-lib/v1.12.0/arend-html-files/src/Analysis/CauchyProduct.html">Cauchy product of power series</a>;
+make <a href="/arend-lib/v1.12.0/arend-html-files/src/Arith/Exp.html">exp</a>
+and <a href="/arend-lib/v1.12.0/arend-html-files/src/Arith/Log.html">log(1+x)</a> into functions with full analytic properties;
+define <a href="/arend-lib/v1.12.0/arend-html-files/src/Arith/Trig/Real.html">sin and cos</a>
+and prove <a href="/arend-lib/v1.12.0/arend-html-files/src/Arith/Real/Pi.html">cos π = -1</a>.</li>
+  <li>Make <a href="/arend-lib/v1.12.0/arend-html-files/src/Arith/Complex/Banach.html">complex numbers a Banach algebra</a>.</li>
+  <li>Define <a href="/arend-lib/v1.12.0/arend-html-files/src/Algebra/Ring/Noetherian.html">Noetherian rings</a>
+and prove <a href="/arend-lib/v1.12.0/arend-html-files/src/Algebra/Ring/Noetherian/Examples.html">products of Noetherian rings are Noetherian</a>;
+define Bar-Noetherian rings, <a href="/arend-lib/v1.12.0/arend-html-files/src/Logic/Bar.html">bar induction</a>,
+and prove the <a href="/arend-lib/v1.12.0/arend-html-files/src/Logic/Bar/FanTheorem.html">fan theorem</a>.</li>
+  <li>Prove <a href="/arend-lib/v1.12.0/arend-html-files/src/Algebra/Ring/Noetherian/HilbertBasisTheorem.html">Hilbert’s basis theorem</a>
+for Bar-Noetherian rings.</li>
+  <li>Define tensor products of <a href="/arend-lib/v1.12.0/arend-html-files/src/Algebra/Module/TensorProduct.html">modules</a>
+and of <a href="/arend-lib/v1.12.0/arend-html-files/src/Algebra/Algebra/TensorProduct.html">algebras</a>.</li>
+  <li>Refactor <a href="/arend-lib/v1.12.0/arend-html-files/src/Order/HeytingAlgebra.html">Heyting algebras</a>,
+<a href="/arend-lib/v1.12.0/arend-html-files/src/Order/Lattice/CompleteLattice.html">complete lattices</a>,
+and the localization of <a href="/arend-lib/v1.12.0/arend-html-files/src/Algebra/Ring/Localization.html">rings</a>
+and <a href="/arend-lib/v1.12.0/arend-html-files/src/Algebra/Monoid/Localization.html">monoids</a>.</li>
+  <li>Replace Equiv with <a href="/arend-lib/v1.12.0/arend-html-files/src/Equiv.html">QEquiv and IsEquiv</a> throughout the library.</li>
+  <li>Refactor the hierarchy of <a href="/arend-lib/v1.12.0/arend-html-files/src/Set/SubSet.html">substructures</a>
+and <a href="/arend-lib/v1.12.0/arend-html-files/src/Algebra/Group/Representation.html">group representation theory</a>.</li>
+  <li>Add <a href="/arend-lib/v1.12.0/arend-html-files/Algebra.Meta.html">natarith/intarith</a> tactics
+extending the <a href="/documentation/standard-tactics/algebra-meta#linarith">linarith</a>-style solver,
 including Nat div/mod support.</li>
 </ul>]]></content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/Logo_vert.svg&quot;}</name></author><summary type="html"><![CDATA[This release includes a major internal overhaul of the universe/level system, an opt-in binary caching mode for the CLI, and substantial additions to arend-lib, most notably in algebraic geometry and analysis.]]></summary></entry><entry><title type="html">Arend 1.11.0 released</title><link href="https://arend-lang.github.io/2025/12/11/Arend-1.11.0-released.html" rel="alternate" type="text/html" title="Arend 1.11.0 released" /><published>2025-12-11T00:00:00+01:00</published><updated>2025-12-11T00:00:00+01:00</updated><id>https://arend-lang.github.io/2025/12/11/Arend-1.11.0-released</id><content type="html" xml:base="https://arend-lang.github.io/2025/12/11/Arend-1.11.0-released.html"><![CDATA[<p>This release focuses primarily on internal enhancements aimed at improving overall stability.</p>
 
