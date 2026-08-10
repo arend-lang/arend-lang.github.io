@@ -94,4 +94,10 @@ var store = [{
         "tags": [],
         "url": "/2026/08/04/Arend-1.12.0-released.html",
         "teaser": null
+      },{
+        "title": "Paper on Arend",
+        "excerpt":"The paper Theorem prover Arend is now finished. It touches the following topics:      Homotopy type theory with an interval type (HoTT-I) and its extensions in Arend.   Universe polymorphism, homotopy levels, classes and records.   The IntelliJ Arend plugin.   The Arend command-line interface and LLM-assisted formalization.   The library arend-lib.  ","categories": [],
+        "tags": [],
+        "url": "/2026/08/10/Arend-paper.html",
+        "teaser": null
       }]
